@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : configurer Workday pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs"
-description: "Découvrez comment utiliser Workday en tant que source de données d'identité pour Active Directory et Azure Active Directory."
+title: 'Didacticiel : configurer Workday pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
+description: Découvrez comment utiliser Workday en tant que source de données d'identité pour Active Directory et Azure Active Directory.
 services: active-directory
 author: asmalser-msft
 documentationcenter: na
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 2db9e60fe2807b1aa8ed7cab7eed6f7db8059a89
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 825bf3f6a3ea07cb229f00c81ad699d792ac53f9
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Didacticiel : configurer Workday pour l’approvisionnement automatique d’utilisateurs
 
@@ -53,6 +53,7 @@ Les flux de travail d’approvisionnement de l’utilisateur Workday pris en cha
 Avant de commencer l’intégration de Workday, vérifiez les prérequis ci-dessous et lisez les conseils suivants sur la façon de faire correspondre votre architecture Active Directory et vos exigences d’approvisionnement de l’utilisateur avec la ou les solutions fournies par Azure Active Directory.
 
 ### <a name="prerequisites"></a>Prérequis
+
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
@@ -249,7 +250,7 @@ Suivez ces instructions pour configurer l’approvisionnement du compte d’util
 
    * **Mot de passe administrateur :** entrez le mot de passe du compte système d’intégration Workday
 
-   * **URL du client :**  entrez l’URL du point de terminaison des services web Workday pour votre client. Cela doit ressembler à : https://wd3-impl-services1.workday.com/ccx/service/contoso4, où contoso4 est remplacé par le nom correct de votre client et wd3-impl est remplacé par la chaîne d’environnement appropriée.
+   * **URL du client :**  entrez l’URL du point de terminaison des services web Workday pour votre client. Cela doit ressembler à https://wd3-impl-services1.workday.com/ccx/service/contoso4, où contoso4 est remplacé par le nom de votre locataire et wd3-impl est remplacé par la chaîne d’environnement.
 
    * **Forêt Active Directory :** le « Nom » de votre forêt Active Directory, tel que retourné par l’applet de commande powershell Get-ADForest. Il s’agit généralement d’une chaîne telle que : *contoso.com*
 
@@ -424,7 +425,7 @@ Après avoir installé l’agent, exécutez les commandes Powershell ci-dessous 
 Si votre locataire Azure Active Directory se trouve dans un des centres de données en Europe, suivez les étapes supplémentaires ci-dessous.
 
 1. Ouvrez **Services.msc** et arrêtez le service **Microsoft Azure AD Connect Provisioning Agent** (Agent d’approvisionnement Microsoft Azure AD Connect).
-2. Accédez au dossier d’installation de l’agent (exemple : C:\Program Files\Microsoft Azure AD Connect Provisioning Agent).
+2. Accédez au dossier d’installation de l’agent (exemple : C:\Program Files\Microsoft Azure AD Connect Provisioning Agent).Go to the agent installation folder (example: C:\Program Files\Microsoft Azure AD Connect Provisioning Agent)
 3. Ouvrez **SyncAgnt.exe.config** dans un éditeur de texte.
 4. Remplacez https://manage.hub.syncfabric.windowsazure.com/Management par **https://eu.manage.hub.syncfabric.windowsazure.com/Management**
 5. Remplacez https://provision.hub.syncfabric.windowsazure.com/Provisioning par **https://eu.provision.hub.syncfabric.windowsazure.com/Provisioning**
@@ -504,7 +505,7 @@ Les sections suivantes décrivent la configuration d’une connexion entre Workd
 
    * **Mot de passe administrateur :** entrez le mot de passe du compte système d’intégration Workday
 
-   * **URL du client :**  entrez l’URL du point de terminaison des services web Workday pour votre client. Cela doit ressembler à : https://wd3-impl-services1.workday.com/ccx/service/contoso4, où contoso4 est remplacé par le nom correct de votre client et wd3-impl est remplacé par la chaîne d’environnement appropriée. Si cette URL n’est pas connue, collaborez avec votre partenaire d’intégration Workday ou votre représentant du support technique pour déterminer l’URL appropriée à utiliser.
+   * **URL du client :**  entrez l’URL du point de terminaison des services web Workday pour votre client. Cela doit ressembler à https://wd3-impl-services1.workday.com/ccx/service/contoso4, où contoso4 est remplacé par le nom de votre locataire et wd3-impl est remplacé par la chaîne d’environnement. Si cette URL n’est pas connue, collaborez avec votre partenaire d’intégration Workday ou votre représentant du support technique pour déterminer l’URL appropriée à utiliser.
 
    * **E-mail de notification :** entrez votre adresse e-mail et cochez la case « Envoyer par e-mail en cas de défaillance ».
 
@@ -609,7 +610,7 @@ Suivez ces instructions pour configurer l’écriture différée des adresses e-
 
    * **Mot de passe administrateur :** entrez le mot de passe du compte système d’intégration Workday
 
-   * **URL du client :**  entrez l’URL du point de terminaison des services web Workday pour votre client. Cela doit ressembler à : https://wd3-impl-services1.workday.com/ccx/service/contoso4, où contoso4 est remplacé par le nom correct de votre client et wd3-impl est remplacé par la chaîne d’environnement appropriée.
+   * **URL du client :**  entrez l’URL du point de terminaison des services web Workday pour votre client. Cela doit ressembler à https://wd3-impl-services1.workday.com/ccx/service/contoso4, où contoso4 est remplacé par le nom de votre locataire et wd3-impl est remplacé par la chaîne d’environnement (si nécessaire).
 
    * **E-mail de notification :** entrez votre adresse e-mail et cochez la case « Envoyer par e-mail en cas de défaillance ».
 
@@ -654,7 +655,7 @@ Il vous faut pour cela utiliser [Workday Studio](https://community.workday.com/s
 
 1. Téléchargez et installez [Workday Studio](https://community.workday.com/studio-download). Vous aurez besoin d’un compte Communauté Workday pour accéder au programme d’installation.
 
-2. Téléchargez le fichier WDSL Human_Resources Workday à cette URL : https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Human_Resources.wsdl
+2. Téléchargez le fichier WDSL Human_Resources Workday en accédant à l’URL suivante : https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Human_Resources.wsdl
 
 3. Lancez Workday Studio.
 
@@ -768,12 +769,27 @@ Il vous faut pour cela utiliser [Workday Studio](https://community.workday.com/s
 
 * Un problème précédent avec les journaux d’audit n’apparaissant pas dans les locataires Azure AD situés dans l’Union européenne a été résolu. Toutefois, une configuration supplémentaire de l’agent est requise pour les locataires Azure AD dans l’Union européenne. Pour plus d’informations, consultez [Partie 3 : configurer l’agent de synchronisation local](#Part 3: Configure the on-premises synchronization agent)
 
+## <a name="gdpr-compliance"></a>Conformité RGPD
 
-## <a name="additional-resources"></a>Ressources supplémentaires
-* [Didacticiel : configurer l’authentification unique entre Workday et Azure Active Directory](active-directory-saas-workday-tutorial.md)
-* [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
+Le [règlement général sur la protection des données (RGPD)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) est une loi de l’Union européenne sur la protection et la confidentialité des données. Le règlement RGPD établit des règles que doivent respecter les sociétés, les administrations, les ONG et d’autres organisations qui proposent des biens et services aux personnes de l’Union européenne ou qui collectent et analysent des données liées à des résidents de l’Union européenne. 
+
+Le service de provisionnement d’Azure AD est conforme aux règles RGPD, tout comme les autres services et fonctionnalités de Microsoft. Pour plus d’informations sur la façon dont Microsoft s’est conformé aux règles RGPD, consultez les [termes du contrat de service](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
+
+Toutefois, étant donné que la solution de provisionnement Workday pour Active Directory nécessite l’installation d’un agent de synchronisation sur un serveur joint à un domaine, vous devrez suivre certains événements pour rester conforme aux règles RGPD.
+ 
+L’agent crée des journaux dans le **journal des événements Windows**, qui peut contenir des informations permettant d’identifier l’utilisateur.
+
+Il existe deux méthodes pour rester conforme aux règles RGPD :
+
+1. Sur demande, en extrayant les données d’une personne, puis en supprimant ces données des journaux des événements Windows 
+2. Conserver moins de 48 heures les journaux des événements Windows provenant du processus AADSyncAgent
+
+Pour plus d’informations sur la configuration de la conservation des données dans les journaux des événements Windows, consultez [Settings for event logs](https://technet.microsoft.com/en-us/library/cc952132.aspx). Pour obtenir des informations générales sur le journal des événements Windows, consultez [cet article](https://msdn.microsoft.com/en-us/library/windows/desktop/aa385772.aspx).
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Découvrez comment consulter les journaux et obtenir des rapports sur l’activité d’approvisionnement](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting)
+* [Découvrir comment configurer l’authentification unique entre Workday et Azure Active Directory](active-directory-saas-workday-tutorial.md)
+* [Découvrir comment intégrer d’autres applications SaaS à Azure Active Directory](active-directory-saas-tutorial-list.md)
+

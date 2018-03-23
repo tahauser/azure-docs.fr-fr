@@ -1,13 +1,13 @@
 ---
-title: "Créer une machine virtuelle Azure avec mise en réseau accélérée| Documents Microsoft"
-description: "Apprenez à créer une machine virtuelle Linux avec mise en réseau accélérée."
+title: Créer une machine virtuelle Azure avec mise en réseau accélérée| Documents Microsoft
+description: Apprenez à créer une machine virtuelle Linux avec mise en réseau accélérée.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
-ms.custom: 
-ms.openlocfilehash: 82a0a336e8315d7fe9862e22e47a6847f94bfcb1
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.custom: ''
+ms.openlocfilehash: 5c09ffe6867972e772334ae7ae1dd655cdac431f
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Créer une machine virtuelle Linux avec mise en réseau accélérée
 
 > [!IMPORTANT] 
-> Les machines virtuelles doivent être créées en activant la mise en réseau accélérée. Cette fonctionnalité ne peut pas être activée sur les machines virtuelles existantes. Pour activer la mise en réseau accélérée, suivez les étapes ci-dessous :
+> Les machines virtuelles doivent être créées en activant la mise en réseau accélérée. Cette fonctionnalité ne peut pas être activée sur les machines virtuelles existantes. Procédez comme suit pour activer la mise en réseau accélérée :
 >   1. Supprimez la machine virtuelle.
 >   2. Recréez une machine virtuelle en activant la mise en réseau accélérée.
 >
@@ -66,9 +66,11 @@ Les limitations suivantes existent lors de l’utilisation de cette fonctionnali
 * **Création de machine virtuelle :** une carte réseau avec mise en réseau accélérée activée ne peut être attachée à une machine virtuelle que lors de la création de celle-ci. Une carte réseau ne peut pas être attachée à une machine virtuelle existante. Si la machine virtuelle est ajoutée à un groupe à haute disponibilité, la mise en réseau accélérée doit être également activée sur toutes les machines virtuelles de ce groupe.
 * **Déploiement via Azure Resource Manager uniquement :** aucun déploiement des machines virtuelles (classiques) n’est possible avec la mise en réseau accélérée.
 
+Bien que cet article fournit des étapes pour créer une machine virtuelle avec mise en réseau accélérée à l’aide de l’interface CLI d’Azure, vous pouvez également [Créer une machine virtuelle avec mise en réseau accélérée via le portail Azure](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Lors de la création d’une machine virtuelle avec un système d’exploitation et une taille de machine virtuelle pris en charge dans le portail, sous **Paramètres**, sélectionnez **Activé** sous **Mise en réseau accélérée**. Une fois la machine virtuelle créée, vous devez suivre les instructions de [Confirmer l’activation de la mise en réseau accélérée](#confirm-that-accelerated-networking-is-enabled).
+
 ## <a name="create-a-virtual-network"></a>Créez un réseau virtuel
 
-Installez la dernière version [d’Azure CLI 2.0](/cli/azure/install-az-cli2) et connectez-vous à un compte Azure avec la commande [az login](/cli/azure/#az_login). Dans les exemples suivants, remplacez les exemples de noms de paramètre par vos propres valeurs. Les noms de paramètre sont par exemple *myResourceGroup*, *myNic* et *myVm*.
+Installez la dernière version [d’Azure CLI 2.0](/cli/azure/install-az-cli2) et connectez-vous à un compte Azure avec la commande [az login](/cli/azure/reference-index#az_login). Dans les exemples suivants, remplacez les exemples de noms de paramètre par vos propres valeurs. Les noms de paramètre sont par exemple *myResourceGroup*, *myNic* et *myVm*.
 
 Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *centralus* :
 

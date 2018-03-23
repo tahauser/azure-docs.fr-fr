@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect : authentification unique transparente - Questions fréquentes | Microsoft Docs"
-description: "Réponse à des questions fréquentes sur l’authentification unique transparente Azure Active Directory."
+title: 'Azure AD Connect : authentification unique transparente - Questions fréquentes | Microsoft Docs'
+description: Réponse à des questions fréquentes sur l’authentification unique transparente Azure Active Directory.
 services: active-directory
-keywords: "Qu’est-ce qu’Azure AD Connect, Installation d’Active Directory, Composants requis pour Azure AD, SSO, Authentification unique"
-documentationcenter: 
+keywords: Qu’est-ce qu’Azure AD Connect, Installation d’Active Directory, Composants requis pour Azure AD, SSO, Authentification unique
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: bbaed9ee5db895810fac476ea5bf560800b0bdec
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 8a91960f150e9298515cd52fe192ec1abdd89f9c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Authentification unique transparente Azure Active Directory : questions fréquentes
 
@@ -38,7 +38,16 @@ Non. L’authentification unique transparente est uniquement disponible dans l�
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Quelles sont les applications qui tirent parti des paramètres `domain_hint` et `login_hint` de l’authentification unique transparente ?
 
-Nous compilons actuellement la liste des applications qui envoient ces paramètres et celles qui ne les envoient pas. Si vous disposez d’applications qui peuvent y figurer, faites-le nous savoir dans la section des commentaires.
+Vous trouverez ci-dessous une liste non exhaustive des applications qui envoient ces paramètres à Azure AD, et permettent donc aux utilisateurs de se connecter de manière silencieuse à l’aide de l’authentification unique transparente :
+
+| Nom de l’application | URL d’application à utiliser |
+| -- | -- |
+| Panneau d’accès | myapps.microsoft.com/contoso.com |
+| Outlook sur le Web | outlook.office365.com/contoso.com |
+
+Dans le tableau ci-dessus, remplacez « contoso.com » par votre nom de domaine pour obtenir les URL d’application de votre locataire.
+
+Si vous disposez d’autres applications qui peuvent y figurer, faites-le nous savoir dans la section des commentaires.
 
 ## <a name="does-seamless-sso-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>L’authentification unique transparente prend-elle en charge `Alternate ID` comme nom d’utilisateur à la place de `userPrincipalName` ?
 
@@ -66,7 +75,7 @@ Procédez comme suit sur le serveur local où vous exécutez Azure AD Connect :
 ### <a name="step-1-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>Étape 1. Obtenez la liste des forêts AD dans lesquelles l’authentification unique transparente a été activée.
 
 1. Commencez par télécharger et installer l’[Assistant de connexion Microsoft Online Services](http://go.microsoft.com/fwlink/?LinkID=286152).
-2. Ensuite, téléchargez et installez le [Module Azure Active Directory 64 bits pour Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
+2. Ensuite, téléchargez et installez le [Module Azure Active Directory 64 bits pour Windows PowerShell](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
 3. Accédez au dossier `%programfiles%\Microsoft Azure Active Directory Connect`.
 4. Importez le module PowerShell Authentification unique (SSO) transparente à l’aide de la commande suivante : `Import-Module .\AzureADSSO.psd1`.
 5. Exécutez PowerShell ISE en tant qu’administrateur. Dans PowerShell, appelez `New-AzureADSSOAuthenticationContext`. Cette commande doit afficher une fenêtre contextuelle dans laquelle vous devez entrer vos informations d’identification d’administrateur général de locataire.

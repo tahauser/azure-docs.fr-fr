@@ -1,11 +1,11 @@
 ---
-title: "Actions et déclencheurs de workflow - Azure Logic Apps | Microsoft Docs"
-description: "En savoir plus sur les déclencheurs et les actions pour la création de workflows automatisés et de processus avec des applications logiques"
+title: Actions et déclencheurs de workflow - Azure Logic Apps | Microsoft Docs
+description: En savoir plus sur les déclencheurs et les actions pour la création de workflows automatisés et de processus avec des applications logiques
 services: logic-apps
-author: MandiOhlinger
+author: divyaswarnkar
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 86a53bb3-01ba-4e83-89b7-c9a7074cb159
 ms.service: logic-apps
 ms.workload: integration
@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: klam; LADocs
-ms.openlocfilehash: af30fd30f389cdc2070c45ae3b6e2cb1165239e7
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 28d28888ce66c354da39dc636579655aadbb9e51
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="triggers-and-actions-for-logic-app-workflows"></a>Déclencheurs et actions pour les workflows d’application logique
 
@@ -51,7 +51,7 @@ Tous les déclencheurs contiennent ces éléments de niveau supérieur :
 
 Chaque type de déclencheur a une interface différente et des *entrées* différentes qui définissent son comportement. 
 
-| Type de déclencheur | DESCRIPTION | 
+| Type de déclencheur | Description | 
 | ------------ | ----------- | 
 | **Périodicité** | Se déclenche selon une planification définie. Vous pouvez définir une date et une heure ultérieures pour déclencher ce déclencheur. Selon la fréquence, vous pouvez également spécifier des heures et des jours d’exécution du workflow. | 
 | **Requête**  | Transforme votre application logique en un point de terminaison que vous pouvez appeler, également connu en tant que déclencheur « manuel ». | 
@@ -116,7 +116,7 @@ Voici la définition de ce déclencheur :
 }
 ```
 
-| Nom de l'élément | Obligatoire | type | DESCRIPTION | 
+| Nom de l'élément | Obligatoire | type | Description | 
 | ------------ | -------- | ---- | ----------- | 
 | frequency | OUI | Chaîne | L’unité de temps pour la fréquence à laquelle le déclencheur se déclenche. Utilisez une seule de ces valeurs : « second » (seconde), « minute », « hour » (heure), « day » (jour), « week » (semaine) ou « month » (mois). | 
 | interval | OUI | Entier  | Nombre entier positif qui décrit la fréquence à laquelle le flux de travail s’exécute en fonction de la fréquence. <p>Voici les intervalles minimum et maximum : <p>- Mois : 1-16 mois </br>- Jour : 1-500 jours </br>- Heure : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « mois », la périodicité est alors tous les 6 mois. | 
@@ -179,7 +179,7 @@ Ce déclencheur joue un rôle de point de terminaison que vous pouvez utiliser p
 
 Ce déclencheur dispose d’une propriété facultative appelée `schema` :
   
-| Nom de l'élément | Obligatoire | type | DESCRIPTION |
+| Nom de l'élément | Obligatoire | type | Description |
 | ------------ | -------- | ---- | ----------- |
 | schema | Non  | Object | Schéma JSON qui valide la requête entrante. Utile pour aider les étapes de workflow suivantes à déterminer les propriétés auxquelles faire référence. | 
 ||||| 
@@ -190,7 +190,7 @@ Pour appeler ce déclencheur en tant que point de terminaison, vous devez appele
 
 Le déclencheur interroge un point de terminaison spécifique et vérifie la réponse pour déterminer si le workflow doit être exécuté. Ici, l’objet `inputs` prend ces paramètres requis pour la construction d’un appel HTTP : 
 
-| Nom de l'élément | Obligatoire | type | DESCRIPTION | 
+| Nom de l'élément | Obligatoire | type | Description | 
 | ------------ | -------- | ---- | ----------- | 
 | method | OUI | Chaîne | Utilise l’une de ces méthodes HTTP : « GET », « POST », « PUT », « DELETE », « PATCH » ou « HEAD » | 
 | URI | OUI| Chaîne | Point de terminaison HTTP ou HTTPs vérifié par le déclencheur. Taille de chaîne maximale : 2 Ko | 
@@ -213,7 +213,7 @@ Une *stratégie de nouvelle tentative* s’applique aux échecs temporaires, car
 
 Le déclencheur HTTP nécessite que l’API HTTP se conforme à un modèle spécifique pour fonctionner correctement avec votre application logique. Le déclencheur reconnaît ces propriétés :  
   
-| response | Obligatoire | DESCRIPTION | 
+| response | Obligatoire | Description | 
 | -------- | -------- | ----------- |  
 | Code d’état | OUI | Le code d’état 200 (« OK ») entraîne une exécution. Les autres codes d’état ne déclenchent pas d’exécution. | 
 | En-tête Retry-after | Non  | Nombre de secondes au bout duquel l’application logique interroge à nouveau le point de terminaison. | 
@@ -233,7 +233,7 @@ Voici quelques exemples de comportements pour les différents types de requêtes
 
 Voici les sorties de déclencheur HTTP : 
   
-| Nom de l'élément | type | DESCRIPTION |
+| Nom de l'élément | type | Description |
 | ------------ | ---- | ----------- |
 | headers | Object | En-têtes de la réponse HTTP | 
 | body | Object | Corps de la réponse HTTP | 
@@ -265,7 +265,7 @@ Dans les fonctionnalités de base, ce déclencheur fonctionne comme le déclench
 }
 ```
 
-| Nom de l'élément | Obligatoire | type | DESCRIPTION | 
+| Nom de l'élément | Obligatoire | type | Description | 
 | ------------ | -------- | ---- | ----------- | 
 | host | OUI | Object | Passerelle hébergée et ID de l’application d’API | 
 | method | OUI | Chaîne | Utilise l’une de ces méthodes HTTP : « GET », « POST », « PUT », « DELETE », « PATCH » ou « HEAD » | 
@@ -278,7 +278,7 @@ Dans les fonctionnalités de base, ce déclencheur fonctionne comme le déclench
 
 Pour l’objet `host`, voici les propriétés :  
   
-| Nom de l'élément | Obligatoire | DESCRIPTION | 
+| Nom de l'élément | Obligatoire | Description | 
 | ------------ | -------- | ----------- | 
 | api runtimeUrl | OUI | Point de terminaison de l’API gérée | 
 | connection name |  | Nom de la connexion API gérée utilisée par le workflow. Doit faire référence à un paramètre nommé `$connection`. |
@@ -296,7 +296,7 @@ Une *stratégie de nouvelle tentative* s’applique aux échecs temporaires, car
 
 Voici les sorties d’un déclencheur APIConnection :
   
-| Nom de l'élément | type | DESCRIPTION |
+| Nom de l'élément | type | Description |
 | ------------ | ---- | ----------- |
 | headers | Object | En-têtes de la réponse HTTP | 
 | body | Object | Corps de la réponse HTTP | 
@@ -341,7 +341,7 @@ Ce déclencheur fournit un point de terminaison de la même manière que le déc
 
 La plupart de ces sections sont facultatives, et le comportement du déclencheur HTTPWebhook varie selon les sections que vous renseignez ou omettez. Voici les propriétés du déclencheur HTTPWebhook :
   
-| Nom de l'élément | Obligatoire | DESCRIPTION | 
+| Nom de l'élément | Obligatoire | Description | 
 | ------------ | -------- | ----------- |  
 | subscribe | Non  | Spécifie la requête sortante à appeler lorsque le déclencheur est créé et effectue l’inscription initiale. | 
 | unsubscribe | Non  | Spécifie la requête sortante à appeler lorsque le déclencheur est supprimé. | 
@@ -363,7 +363,7 @@ Vous pouvez spécifier les limites d’un déclencheur Webhook de la même mani�
 
 Voici les sorties du déclencheur HTTPWebhook et le contenu de la requête entrante :
   
-| Nom de l'élément | type | DESCRIPTION |
+| Nom de l'élément | type | Description |
 | ------------ | ---- | ----------- |
 | headers | Object | En-têtes de la réponse HTTP | 
 | body | Object | Corps de la réponse HTTP | 
@@ -498,7 +498,7 @@ Il existe de nombreux types d’actions, chacune présentant un comportement uni
 
 ### <a name="standard-actions"></a>Actions standard  
 
-| Type d’action | DESCRIPTION | 
+| Type d’action | Description | 
 | ----------- | ----------- | 
 | **HTTP** | Appelle un point de terminaison web HTTP. | 
 | **ApiConnection**  | Fonctionne comme l’action HTTP, mais utilise des [API gérées par Microsoft](https://docs.microsoft.com/azure/connectors/apis-list). | 
@@ -519,7 +519,7 @@ Il existe de nombreux types d’actions, chacune présentant un comportement uni
 
 ### <a name="collection-actions"></a>Actions de collection
 
-| Type d’action | DESCRIPTION | 
+| Type d’action | Description | 
 | ----------- | ----------- | 
 | **If** | Évalue une expression et en fonction du résultat, exécute la branche correspondante. | 
 | **Switch** | Effectue différentes actions en fonction des valeurs spécifiques d’un objet. | 
@@ -544,7 +544,7 @@ Une action HHTP appelle un point de terminaison spécifique et vérifie la répo
 
 Ici, l’objet `inputs` prend ces paramètres requis pour la construction d’un appel HTTP : 
 
-| Nom de l'élément | Obligatoire | type | DESCRIPTION | 
+| Nom de l'élément | Obligatoire | type | Description | 
 | ------------ | -------- | ---- | ----------- | 
 | method | OUI | Chaîne | Utilise l’une de ces méthodes HTTP : « GET », « POST », « PUT », « DELETE », « PATCH » ou « HEAD » | 
 | URI | OUI| Chaîne | Point de terminaison HTTP ou HTTPs vérifié par le déclencheur. Taille de chaîne maximale : 2 Ko | 
@@ -647,7 +647,7 @@ Cette action référence un connecteur géré par Microsoft, ce qui requiert une
 }
 ```
 
-| Nom de l'élément | Obligatoire | type | DESCRIPTION | 
+| Nom de l'élément | Obligatoire | type | Description | 
 | ------------ | -------- | ---- | ----------- | 
 | host | OUI | Object | Représente les informations sur le connecteur, telles que `runtimeUrl` et la référence à l’objet de connexion. | 
 | method | OUI | Chaîne | Utilise l’une de ces méthodes HTTP : « GET », « POST », « PUT », « DELETE », « PATCH » ou « HEAD » | 
@@ -701,7 +701,7 @@ L’action APIConnectionWebhook fait référence à un connecteur géré par Mic
 }
 ```
 
-| Nom de l'élément | Obligatoire | type | DESCRIPTION | 
+| Nom de l'élément | Obligatoire | type | Description | 
 | ------------ | -------- | ---- | ----------- | 
 | host | OUI | Object | Représente les informations sur le connecteur, telles que `runtimeUrl` et la référence à l’objet de connexion. | 
 | chemin d’accès | OUI | Chaîne | Chemin de l’opération d’API | 
@@ -790,7 +790,7 @@ Cette action vous permet de représenter et d’appeler une [fonction Azure](../
 }
 ```
 
-| Nom de l'élément | Obligatoire | type | DESCRIPTION | 
+| Nom de l'élément | Obligatoire | type | Description | 
 | ------------ | -------- | ---- | ----------- |  
 | function id | OUI | Chaîne | ID de ressource de la fonction Azure que vous souhaitez appeler. | 
 | method | Non  | Chaîne | Méthode HTTP utilisée pour appeler la fonction. Si elle n’est pas spécifiée, « POST » est la méthode par défaut. | 
@@ -823,7 +823,7 @@ Cette action vous permet de projeter chaque élément d’un tableau dans une no
 }
 ```
 
-| NOM | Obligatoire | type | DESCRIPTION | 
+| NOM | Obligatoire | type | Description | 
 | ---- | -------- | ---- | ----------- | 
 | from | OUI | Tableau | Tableau source |
 | select | OUI | Quelconque | Projection appliquée à chaque élément du tableau source |
@@ -850,7 +850,7 @@ Par exemple, pour arrêter une exécution avec l’état `Failed`, procédez com
 }
 ```
 
-| NOM | Obligatoire | type | DESCRIPTION | 
+| NOM | Obligatoire | type | Description | 
 | ---- | -------- | ---- | ----------- | 
 | runStatus | OUI | Chaîne | État de l’exécution cible, `Failed` ou `Cancelled` |
 | runError | Non  | Object | Détails de l’erreur. Pris en charge uniquement lorsque `runStatus` a la valeur `Failed`. |
@@ -877,7 +877,7 @@ Par exemple, pour sélectionner des nombres supérieurs à 2, procédez comme s
 }
 ```
 
-| NOM | Obligatoire | type | DESCRIPTION | 
+| NOM | Obligatoire | type | Description | 
 | ---- | -------- | ---- | ----------- | 
 | from | OUI | Tableau | Tableau source |
 | where | OUI | Chaîne | Condition appliquée à chaque élément du tableau source. Si aucune valeur ne remplit la condition `where`, le résultat est un tableau vide. |
@@ -899,7 +899,7 @@ Cette action vous permet de convertir un tableau en table CSV ou HTML.
 }
 ```
 
-| NOM | Obligatoire | type | DESCRIPTION | 
+| NOM | Obligatoire | type | Description | 
 | ---- | -------- | ---- | ----------- | 
 | from | OUI | Tableau | Tableau source. Si la valeur de propriété `from` est un tableau vide, la sortie est un tableau vide. | 
 | format | OUI | Chaîne | Format de table souhaité, CSV ou HTML. | 
@@ -954,7 +954,7 @@ Afin de personnaliser ce tableau, vous pouvez spécifier explicitement les colon
 
 Voici la sortie correspondant à cet exemple :
 
-<table><thead><tr><th>ID produit</th><th>DESCRIPTION</th></tr></thead><tbody><tr><td>0</td><td>pommes fraîches</td></tr><tr><td>1</td><td>oranges fraîches</td></tr></tbody></table>
+<table><thead><tr><th>ID produit</th><th>Description</th></tr></thead><tbody><tr><td>0</td><td>pommes fraîches</td></tr><tr><td>1</td><td>oranges fraîches</td></tr></tbody></table>
 
 ## <a name="wait-action"></a>Action wait  
 
@@ -988,7 +988,7 @@ Pour attendre jusqu’à un moment spécifique, vous pouvez utiliser cet exemple
 > [!NOTE]  
 > Vous pouvez spécifier la durée d’attente avec l’objet `interval` ou `until`, mais pas les deux.
 
-| Nom de l'élément | Obligatoire | type | DESCRIPTION | 
+| Nom de l'élément | Obligatoire | type | Description | 
 | ------------ | -------- | ---- | ----------- | 
 | until | Non  | Object | Durée d’attente basée sur un point dans le temps | 
 | until timestamp | OUI | Chaîne | Point dans le temps au [format date/heure UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) où l’attente expire | 
@@ -1025,7 +1025,7 @@ Cette action vous permet d’imbriquer un workflow. Le moteur Logic Apps effectu
 }
 ```
 
-| Nom de l'élément | Obligatoire | type | DESCRIPTION | 
+| Nom de l'élément | Obligatoire | type | Description | 
 | ------------ | -------- | ---- | ----------- |  
 | host id | OUI | Chaîne| ID de ressource du workflow que vous souhaitez appeler | 
 | host triggerName | OUI | Chaîne | Nom du déclencheur que vous souhaitez appeler | 
@@ -1074,7 +1074,7 @@ En savoir plus sur les [instructions conditionnelles dans les applications logiq
 }
 ```
 
-| NOM | Obligatoire | type | DESCRIPTION | 
+| NOM | Obligatoire | type | Description | 
 | ---- | -------- | ---- | ----------- | 
 | actions | OUI | Object | Actions internes à exécuter quand `expression` prend la valeur `true` | 
 | expression | OUI | Chaîne | Expression à évaluer. |
@@ -1155,7 +1155,7 @@ En tant qu’instruction de basculement, cette action effectue différentes acti
 }
 ```
 
-| NOM | Obligatoire | type | DESCRIPTION | 
+| NOM | Obligatoire | type | Description | 
 | ---- | -------- | ---- | ----------- | 
 | expression | OUI | Chaîne | Objet, expression ou jeton à évaluer | 
 | cas | OUI | Object | Contient les ensembles d’actions internes qui s’exécutent en fonction du résultat de l’expression. | 
@@ -1217,7 +1217,7 @@ Cette action en boucle effectue une itération dans un tableau et exécute des a
 }
 ```
 
-| NOM | Obligatoire | type | DESCRIPTION | 
+| NOM | Obligatoire | type | Description | 
 | ---- | -------- | ---- | ----------- | 
 | actions | OUI | Object | Actions internes à exécuter dans la boucle | 
 | foreach | OUI | Chaîne | Tableau dans lequel effectuer l’itération | 
@@ -1277,7 +1277,7 @@ Cette action en boucle exécute des actions internes jusqu’à ce qu’une cond
 }
 ```
 
-| NOM | Obligatoire | type | DESCRIPTION | 
+| NOM | Obligatoire | type | Description | 
 | ---- | -------- | ---- | ----------- | 
 | actions | OUI | Object | Actions internes à exécuter dans la boucle | 
 | expression | OUI | Chaîne | Expression à évaluer après chaque itération. | 
@@ -1330,12 +1330,12 @@ Cette action vous permet de logiquement regrouper les actions d’un workflow. U
 }
 ```
 
-| NOM | Obligatoire | type | DESCRIPTION | 
+| NOM | Obligatoire | type | Description | 
 | ---- | -------- | ---- | ----------- |  
 | actions | OUI | Object | Actions internes à exécuter dans l’étendue |
 ||||| 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * En savoir plus sur le [langage de définition de workflow](../logic-apps/logic-apps-workflow-definition-language.md)
 * En savoir plus sur l’[API REST de workflow](https://docs.microsoft.com/rest/api/logic/workflows)

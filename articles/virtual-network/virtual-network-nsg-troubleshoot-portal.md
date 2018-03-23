@@ -1,11 +1,11 @@
 ---
-title: "Résoudre les problèmes relatifs aux groupes de sécurité réseau - Portail | Microsoft Docs"
-description: "Découvrez comment résoudre les problèmes liés aux groupes de sécurité réseau dans le modèle de déploiement Azure Resource Manager à l’aide du portail Azure."
+title: Résoudre les problèmes relatifs aux groupes de sécurité réseau - Portail | Microsoft Docs
+description: Découvrez comment résoudre les problèmes liés aux groupes de sécurité réseau dans le modèle de déploiement Azure Resource Manager à l’aide du portail Azure.
 services: virtual-network
 documentationcenter: na
 author: AnithaAdusumilli
 manager: narayan
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: a54feccf-0123-4e49-a743-eb8d0bdd1ebc
 ms.service: virtual-network
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
 ms.openlocfilehash: 5998aa0e0b281ead859c24d792c3e175e3cca899
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Résoudre les problèmes relatifs aux groupes de sécurité réseau à l’aide du portail Azure
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ Pour dépanner des groupes de sécurité réseau pour une machine virtuelle, pro
 
 Vous pouvez afficher la liste complète des règles de sécurité effectives sur une carte réseau à partir de la machine virtuelle elle-même. Vous pouvez également ajouter, modifier et supprimer les règles du groupe de sécurité réseau de carte réseau et de sous-réseau à partir du panneau des règles effectives si vous êtes autorisé à effectuer ces opérations.
 
-1. Connectez-vous au portail Azure à l’adresse https://portal.azure.com avec un compte Azure. L’opération *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* doit être affectée à votre compte pour l’interface réseau. Pour savoir comment affecter des opérations à des comptes, consultez [Créer des rôles personnalisés pour le contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
+1. Connectez-vous au portail Azure sur https://portal.azure.com avec un compte Azure. L’opération *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* doit être affectée à votre compte pour l’interface réseau. Pour savoir comment affecter des opérations à des comptes, consultez [Créer des rôles personnalisés pour le contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
 2. Cliquez sur **Tous les services**, puis sur **Machines virtuelles** dans la liste qui s’affiche.
 3. Sélectionnez une machine virtuelle à dépanner dans la liste qui s’affiche. Un panneau de machine virtuelle avec des options s’affiche.
 4. Cliquez sur **Diagnostiquer et résoudre les problèmes**, puis sélectionnez un problème courant. Pour cet exemple, le problème **Je ne peux pas me connecter à ma machine virtuelle Windows** est sélectionné. 

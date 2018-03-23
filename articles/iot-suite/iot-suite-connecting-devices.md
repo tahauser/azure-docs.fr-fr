@@ -1,25 +1,25 @@
 ---
-title: "Provisionner des appareils Windows pour la surveillance à distance en C - Azure| Microsoft Docs"
-description: "Explique comment connecter un appareil à la solution de surveillance à distance Azure IoT Suite préconfigurée à l’aide d’une application écrite en C et exécutée sous Windows."
-services: 
+title: Provisionner des appareils Windows pour la surveillance à distance en C - Azure| Microsoft Docs
+description: Explique comment connecter un appareil à la solution de surveillance à distance Azure IoT Suite préconfigurée à l’aide d’une application écrite en C et exécutée sous Windows.
+services: ''
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 34e39a58-2434-482c-b3fa-29438a0c05e8
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 03/14/2018
 ms.author: dobett
-ms.openlocfilehash: a6453c8d84b7025f1f510db5e675cde8685c23ed
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 83d0427a3ba8c634699608c38ab22efb1f275e52
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-windows"></a>Connexion de votre appareil à la solution préconfigurée de surveillance à distance (Windows)
 
@@ -95,7 +95,7 @@ Ajoutez la bibliothèque JSON Parson au projet **RMDevice** ainsi que les instru
     #include "schemaserializer.h"
     #include "azure_c_shared_utility/threadapi.h"
     #include "azure_c_shared_utility/platform.h"
-    #include "parson.h"
+    #include <string.h>
     ```
 
     > [!NOTE]
@@ -117,7 +117,7 @@ Ajoutez du code pour appeler la fonction **remote\_monitoring\_run**, puis gén�
     }
     ```
 
-1. Choisissez **Générer**, puis **Générer la solution** pour générer l’application de l’appareil. Ignorez l’avertissement relatif à la fonction **gmtime**.
+1. Choisissez **Générer**, puis **Générer la solution** pour générer l’application de l’appareil.
 
 1. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le projet **RMDevice**, choisissez **Déboguer**, puis choisissez **Démarrer une nouvelle instance** pour exécuter l’exemple. La console affiche des messages quand l’application :
 

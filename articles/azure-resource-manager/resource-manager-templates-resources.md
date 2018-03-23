@@ -1,6 +1,6 @@
 ---
-title: "Structure et syntaxe du modèle Azure Resource Manager | Microsoft Docs"
-description: "Décrit la structure et les propriétés des modèles Azure Resource Manager à l’aide de la syntaxe JSON déclarative."
+title: Structure et syntaxe du modèle Azure Resource Manager | Microsoft Docs
+description: Décrit la structure et les propriétés des modèles Azure Resource Manager à l’aide de la syntaxe JSON déclarative.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: 89e4b52e7d306bd495c426bcf775f59d0f30eb55
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: b5438080f71fa8f5c4f03006b75b826f1cfa576a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Section Ressources des modèles Azure Resource Manager
 
@@ -87,9 +87,9 @@ Vous définissez des ressources avec la structure suivante :
 ## <a name="resource-names"></a>Noms de ressource
 Il existe généralement trois types de noms de ressource avec lesquels vous travaillez dans Resource Manager :
 
-* Des noms de ressources qui doivent être uniques
+* des noms de ressource qui doivent être uniques ;
 * Des noms de ressources qui ne doivent pas obligatoirement être uniques, mais pour lesquels vous choisissez un nom qui vous permettra d’identifier la ressource
-* Des noms de ressources qui peuvent être génériques
+* des noms de ressources qui peuvent être génériques.
 
 ### <a name="unique-resource-names"></a>Noms de ressource uniques
 Vous devez fournir un nom de ressource unique pour tout type de ressource disposant d’un point de terminaison d’accès aux données. Certains types de ressource courants nécessitent un nom unique, notamment :
@@ -213,7 +213,7 @@ Si vous devez coder en dur l’emplacement dans votre modèle, indiquez le nom d
 ```
 
 ## <a name="tags"></a>Balises
-[!INCLUDE [resource-manager-tag-introduction](../../includes/resource-manager-tag-introduction.md)]
+[!INCLUDE [resource-manager-governance-tags](../../includes/resource-manager-governance-tags.md)]
 
 ### <a name="add-tags-to-your-template"></a>Ajouter des balises à votre modèle
 

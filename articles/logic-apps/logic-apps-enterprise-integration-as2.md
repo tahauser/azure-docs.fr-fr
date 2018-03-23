@@ -1,11 +1,11 @@
 ---
-title: "Messages AS2 pour l’intégration d’entreprise B2B - Azure Logic Apps | Microsoft Docs"
-description: "Échangez des messages AS2 dans le cadre d’une intégration d’entreprise B2B avec Azure Logic Apps"
+title: Messages AS2 pour l’intégration d’entreprise B2B - Azure Logic Apps | Microsoft Docs
+description: Échangez des messages AS2 dans le cadre d’une intégration d’entreprise B2B avec Azure Logic Apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: divyaswarnkar
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: c9b7e1a9-4791-474c-855f-988bd7bf4b7f
 ms.service: logic-apps
 ms.workload: integration
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
-ms.author: LADocs; mandia
-ms.openlocfilehash: 8c6dbc507cd1b79fe9424071bc3eb8bf24331a16
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.author: LADocs; divswa
+ms.openlocfilehash: acc66f2cc88734b5c15fb9f4ace8339908418463
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>Échangez des messages AS2 dans le cadre d’une intégration d’entreprise avec Logic Apps
 
@@ -40,14 +40,14 @@ Une fois que vous avez [créé un compte d’intégration](../logic-apps/logic-a
 
 1.  Connectez-vous au [portail Azure](http://portal.azure.com "portail Azure").  
 
-2. Dans le menu principal Azure, sélectionnez **Tous les services**. Entrez « intégration » dans la zone de recherche, puis sélectionnez **Comptes d’intégration**.
+2. Dans le menu principal Azure, sélectionnez **Tous les services**. Dans la zone de recherche, entrez « intégration », puis sélectionnez **Comptes d’intégration**.
 
-   ![Chercher votre compte d’intégration](./media/logic-apps-enterprise-integration-as2/overview-1.png)
+   ![Recherche du compte d’intégration](./media/logic-apps-enterprise-integration-as2/overview-1.png)
 
    > [!TIP]
    > Si vous ne voyez pas l’option **Tous les services**, vous devez commencer par développer le menu. En haut du menu réduit, sélectionnez **Afficher les étiquettes de texte**.
 
-3. Sous **Comptes d’intégration**, sélectionnez le compte d’intégration dans lequel vous souhaitez créer le contrat.
+3. Sous **Comptes d’intégration**, sélectionnez le compte d’intégration dans lequel vous voulez créer le contrat.
 
    ![Sélectionnez le compte d’intégration dans lequel vous souhaitez créer le contrat](./media/logic-apps-enterprise-integration-overview/overview-3.png)
 
@@ -165,7 +165,7 @@ Votre contrat est maintenant prêt à traiter les messages sortants qui sont con
 
 ## <a name="find-your-created-agreement"></a>Comment retrouver le contrat que vous avez créé
 
-1. Après avoir défini toutes les propriétés de votre contrat, sur la page **Ajouter**, cliquez sur **OK** pour terminer la création de votre contrat et revenir à votre compte d’intégration.
+1. Après avoir défini toutes les propriétés de votre contrat, dans la page **Ajouter**, choisissez **OK** pour finaliser la création de votre contrat et revenir à votre compte d’intégration.
 
     Le contrat que vous venez d’ajouter s’affiche dans votre liste **Contrats**.
 

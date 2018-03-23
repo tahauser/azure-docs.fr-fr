@@ -1,24 +1,24 @@
 ---
-title: "Collecter des données pour un environnement avec Azure Log Analytics | Microsoft Docs"
-description: "Cette rubrique aide à comprendre comment collecter des données et effectuer le monitoring d’ordinateurs hébergés dans un environnement local ou tout autre environnement cloud avec Log Analytics."
+title: Collecter des données pour un environnement avec Azure Log Analytics | Microsoft Docs
+description: Cette rubrique aide à comprendre comment collecter des données et effectuer le monitoring d’ordinateurs hébergés dans un environnement local ou tout autre environnement cloud avec Log Analytics.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 03/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 85fde471f0d99b976e319d552c6a031d63854cf4
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 9346e9a9ad310a21c6d6ce388b76ce491041289c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Collecter des données d’ordinateurs dans un environnement avec Log Analytics
 
@@ -47,6 +47,7 @@ Si vos stratégies de sécurité n’autorisent pas les ordinateurs sur votre r�
 > 
 
 ## <a name="prerequisites"></a>Prérequis
+
 Avant de commencer, prenez connaissance des informations suivantes pour vérifier que les prérequis système minimaux sont remplis.
 
 ### <a name="windows-operating-system"></a>Système d’exploitation Windows
@@ -77,14 +78,14 @@ Les distributions Linux suivantes sont officiellement prises en charge.  Toutefo
 * SUSE Linux Enterprise Server 11 et 12 (x86/x64)
 
 #### <a name="network-configuration"></a>Configuration réseau
-Voici la liste des informations de configuration du proxy et du pare-feu requises pour permettre à l’agent Linux de communiquer avec Log Analytics. Le trafic va de votre réseau vers le service Log Analytics. 
+Voici la liste des informations de configuration du proxy et du pare-feu requises pour permettre à l’agent Linux de communiquer avec Log Analytics.  
 
-|Ressource de l'agent| Ports |  
-|------|---------|  
-|*.ods.opinsights.azure.com | Port 443|   
-|*.oms.opinsights.azure.com | Port 443|   
-|*.blob.core.windows.net | Port 443|   
-|* .azure-automation.net | Port 443|  
+|Ressource de l'agent| Ports | Direction |  
+|------|---------|--------|  
+|*.ods.opinsights.azure.com | Port 443 | Trafic entrant et sortant|  
+|*.oms.opinsights.azure.com | Port 443 | Trafic entrant et sortant|  
+|*.blob.core.windows.net | Port 443 | Trafic entrant et sortant|  
+|* .azure-automation.net | Port 443 | Trafic entrant et sortant|  
 
 L’agent Linux prend en charge la communication par l’intermédiaire d’un serveur proxy ou de la passerelle OMS avec le service Log Analytics suivant le protocole HTTPS.  L’authentification anonyme et l’authentification de base (nom d’utilisateur/mot de passe) sont prises en charge.  Le serveur proxy peut être spécifié lors de l’installation ou en modifiant le fichier de configuration proxy.conf après l’installation.  
 

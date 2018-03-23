@@ -1,8 +1,8 @@
 ---
 title: Provisionner la machine virtuelle DSVM Windows sur Azure | Microsoft Docs
-description: "Configurez et créez une machine virtuelle pour la science des données sur Microsoft Azure pour vos besoins d’analyse et d’apprentissage automatique."
+description: Configurez et créez une machine virtuelle pour la science des données sur Microsoft Azure pour vos besoins d’analyse et d’apprentissage automatique.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: 6f933c75d4829e3b2c5198aeee324f15490d8a93
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 9f01ba69f6511a3f9a7f99e379522be3c00554f5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Provisionner la machine virtuelle DSVM Windows sur Azure
 La machine virtuelle pour la science des données Microsoft est une image de machine virtuelle Windows Azure préalablement installée et configurée avec plusieurs outils populaires couramment utilisés dans le cadre de l’analyse de données et de l’apprentissage automatique. Elle intègre les outils suivants :
@@ -39,8 +39,7 @@ La machine virtuelle pour la science des données Microsoft est une image de mac
   * [Weka](http://www.cs.waikato.ac.nz/ml/weka/) : logiciel Machine Learning et d’exploration des données visuelle dans Java.
   * [Apache Drill](https://drill.apache.org/) : moteur de requêtes SQL sans schéma pour Hadoop, NoSQL et le stockage cloud.  Prend en charge les interfaces ODBC et JDBC pour activer l’interrogation de NoSQL et des fichiers à partir d’outils décisionnels standard tels que Power BI, Excel, Tableau.
 * Bibliothèques dans les langages R et Python à utiliser dans Azure Machine Learning et d’autres services Azure
-* Git incluant Git Bash pour travailler avec les référentiels de code source, notamment GitHub, Visual Studio Team Services
-* Ports Windows de plusieurs utilitaires de ligne de commande Linux populaires (notamment awk, sed, perl, grep, find, wget, curl, etc.) accessibles via l’invite de commandes. 
+* Git incluant Git Bash pour travailler avec les référentiels de code source, notamment GitHub, Visual Studio Team Services, et fournir plusieurs utilitaires de ligne de commande populaires (y compris awk, sed, perl, grep, find, wget, curl, etc.) accessibles tant sur git-bash que dans l’invite de commande. 
 
 La science des données consiste à itérer sur une séquence de tâches :
 
@@ -58,6 +57,7 @@ Cette image de machine virtuelle de science des données ne génère pas de frai
 Une image [Ubuntu](dsvm-ubuntu-intro.md) est également disponible, avec de nombreux outils similaires et quelques autres cadres de formation approfondis. Une image [CentOS](linux-dsvm-intro.md) est également disponible. Nous vous proposons également une [édition Windows Server 2012](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.standard-data-science-vm) de la machine virtuelle de science des données, bien que certains outils sont disponibles uniquement sur l’édition Windows Server 2016.  Sinon, cet article s’applique également à l’édition Windows Server 2012.
 
 ## <a name="prerequisites"></a>Prérequis
+
 Avant de pouvoir créer une machine virtuelle de science des données Microsoft, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**: pour obtenir un abonnement, consultez la page [Obtenir une version d’évaluation gratuite d’Azure](http://azure.com/free).
@@ -73,7 +73,7 @@ Pour créer une instance de la machine virtuelle de sciences des données Micros
    1. **Concepts de base**
       
       1. **Name**(Nom) : nom du serveur Data Science que vous créez.
-      2. **Type de disque de machine virtuelle** : choisissez SSD ou HDD. Pour le GPU (série NC), choisissez **HDD** comme type de disque. 
+      2. **Type de disque de machine virtuelle** : choisissez SSD ou HDD. Pour l’instance GPU NC_v1 (basée sur NVidia Tesla K80), choisissez le type de disque **HDD**. 
       3. **Nom d’utilisateur**: identifiant de connexion du compte administrateur.
       4. **Mot de passe**: mot de passe du compte administrateur.
       5. **Subscription**(Abonnement) : si vous disposez de plusieurs abonnements, sélectionnez celui qui sera associé à la création et à la facturation de la machine.
@@ -99,35 +99,28 @@ Une fois votre machine virtuelle créée et approvisionnée, vous pouvez commenc
 
 ## <a name="tools-installed-on-the-microsoft-data-science-virtual-machine"></a>Outils installés sur la machine virtuelle de science des données
 
-### <a name="azure-machine-learning-workbench"></a>Azure Machine Learning Workbench
 
-Azure Machine Learning Workbench est une application de bureau et une interface de ligne de commande. Workbench intègre une préparation des données qui apprend au fur et à mesure vos étapes de préparation des données. Il fournit également une gestion de projets, un historique des exécutions et une intégration de notebooks pour booster votre productivité. Vous pouvez tirer parti des meilleures infrastructures open source, telles que TensorFlow, Cognitive Toolkit, Spark ML et scikit-learn pour développer vos modèles. Sur la DSVM, nous fournissons une icône de bureau (InstallAMLFromLocal) pour extraire localement le workbench Azure Machine Learning dans le répertoire %LOCALAPPDATA% de chaque utilisateur. Chaque utilisateur qui a besoin d’utiliser le Workbench doit double-cliquer une seule fois sur l’icône du bureau InstallAMLFromLocal afin d’installer son instance du Workbench. Azure Machine Learning crée et utilise également un environnement Python par l’utilisateur qui est extrait dans %LOCALAPPDATA%\amlworkbench\python.
 
 ### <a name="microsoft-ml-server-developer-edition"></a>Microsoft ML Server Developer Edition
 Si vous souhaitez utiliser des bibliothèques d’entreprise Microsoft avec une solution R évolutive ou Python pour vos analyses, l’édition Microsoft ML Server Developer (anciennement Microsoft R Server) est installée sur la machine virtuelle. Microsoft ML Server est une plate-forme d’analyse de classe entreprise déployable à grande échelle, disponible pour R et Python, évolutive, soutenue commercialement et sécurisée. Prenant en charge les statistiques Big Data, la modélisation prédictive et des fonctionnalités Machine Learning, ML Server prend en charge la totalité de l’analyse : exploration, analyse, visualisation et modélisation. En utilisant et en étendant R et Python Open Source, Microsoft ML Server est entièrement compatible avec les scripts R/Python, les fonctions et les packages CRAN R/pip/Conda pour analyser les données à l'échelle de l'entreprise. Il traite également les limitations en mémoire de R Open Source en ajoutant le traitement des données en parallèle et mémorisé en bloc. Cela vous permet d’exécuter des analyses de données plus volumineuses que ce que peut contenir la mémoire principale.  Visual Studio Community Edition inclus sur la machine virtuelle contient les outils R pour Visual Studio et les outils Python pour l’extension Visual Studio qui fournit un IDE complet pour travailler avec R ou Python. Nous fournissons également d’autres environnements IDE comme [RStudio](http://www.rstudio.com) et [l’édition PyCharm Community](https://www.jetbrains.com/pycharm/) sur la machine virtuelle. 
 
 ### <a name="python"></a>Python
-Pour un développement basé sur Python, les versions 2.7 et 3.5 de la distribution Anaconda Python ont été installées. Cette distribution contient le langage Python de base avec environ 300 packages de mathématiques, d’ingénierie et d’analyse de données figurant parmi les plus populaires. Vous pouvez utiliser les outils Python pour Visual Studio (PTVS) installés dans l’édition Visual Studio 2015 Community ou l’un des IDE fournis avec Anaconda comme IDLE ou Spyder. Pour lancer l’un de ces IDE, vous pouvez effectuer une recherche dans la barre de recherche (**Win** + **S**).
+Pour un développement basé sur Python, les versions 2.7 et 3.6 de la distribution Anaconda Python ont été installées. Cette distribution contient le langage Python de base avec environ 300 packages de mathématiques, d’ingénierie et d’analyse de données figurant parmi les plus populaires. Vous pouvez utiliser les outils Python pour Visual Studio (PTVS) installés dans l’édition Visual Studio 2017 Community, ou l’un des IDE fournis avec Anaconda, par exemple IDLE ou Spyder. Pour lancer l’un de ces IDE, vous pouvez effectuer une recherche dans la barre de recherche (**Win** + **S**).
 
 > [!NOTE]
-> Pour pointer les Python Tools pour Visual Studio sur Anaconda Python 2.7 et 3.5, vous devez créer des environnements personnalisés pour chaque version. Pour définir les chemins d’accès à ces environnements dans Visual Studio 2015 Community Edition, accédez à **Outils** -> **Outils Python** -> **Environnements Python**, puis cliquez sur **+ personnalisé**. 
+> Pour pointer Python Tools pour Visual Studio sur Anaconda Python 2.7, vous devez créer des environnements personnalisés pour chaque version. Pour définir les chemins d’accès à ces environnements dans Visual Studio 2017 Community Edition, accédez à **Outils** -> **Outils Python** -> **Environnements Python**, puis cliquez sur **+ personnalisé**. 
 > 
 > 
 
-Anaconda Python 2.7 est installé sous C:\Anaconda et Anaconda Python 3.5 est installé sous c:\Anaconda\envs\py35. Pour obtenir des instructions détaillées, consultez la [documentation de PTVS](/visualstudio/python/python-environments.md#selecting-and-installing-python-interpreters) . 
+Anaconda Python 3.6 est installé sous C:\Anaconda et Anaconda Python 2.7 est installé sous c:\Anaconda\envs\python2. Pour obtenir des instructions détaillées, consultez la [documentation de PTVS](/visualstudio/python/python-environments.md#selecting-and-installing-python-interpreters) . 
 
 ### <a name="jupyter-notebook"></a>Jupyter Notebook
-La distribution Anaconda est également fournie avec un serveur Jupyter Notebook, un environnement conçu pour le partage de code et d’analyses. Un serveur Jupyter Notebook a été préconfiguré avec Python 2.7, Python 3.5, PySpark, Julia et les noyaux R. Une icône de bureau nommée « Jupyter Notebook » permet de démarrer le serveur Jupyter et de lancer le navigateur pour accéder au serveur Notebook. 
-
-> [!NOTE]
-> Si vous recevez des avertissements relatifs au certificat, vous pouvez les ignorer. 
-> 
-> 
+La distribution Anaconda est également fournie avec un serveur Jupyter Notebook, un environnement conçu pour le partage de code et d’analyses. Un serveur Jupyter Notebook a été préconfiguré avec Python 2.7, Python 3.x, PySpark, Julia et les noyaux R. Une icône de bureau nommée « Jupyter Notebook » permet de démarrer le serveur Jupyter et de lancer le navigateur pour accéder au serveur Notebook. 
 
 Nous avons inclus plusieurs exemples de notebooks dans Python et R. Les exemples Jupyter Notebook vous montrent comment utiliser Microsoft ML Server, SQL Server ML Services (analytique dans la base de données), Python, Microsoft Cognitive ToolKit, Tensorflow et d’autres technologies Azure, lorsque vous accédez à Jupyter. Après vous être authentifié auprès du serveur Jupyter Notebook avec le mot de passe créé à l’étape précédente, vous pouvez voir le lien vers les exemples sur la page d’accueil du notebook. 
 
 ### <a name="visual-studio-2017-community-edition"></a>Visual Studio 2017 Community Edition
-Visual Studio Community Edition est installé sur la machine virtuelle. Vous pouvez utiliser cette version gratuite de l’IDE populaire de Microsoft à des fins d’évaluation et dans le cadre de projets en petites équipes. Vous pouvez consulter les termes du contrat de licence [ici](https://www.visualstudio.com/support/legal/mt171547).  Ouvrez Visual Studio en double-cliquant sur l’icône du bureau ou via le menu **Démarrer** . Vous pouvez également lancer une recherche de programmes avec **Win** + **S** et en entrant « Visual Studio ». Là, vous pouvez créer des projets dans des langages tels que C#, Python, R, node.js. Des plug-ins sont également installés pour faciliter l’utilisation des services Azure tels que Azure Data Catalog, Azure HDInsight (Hadoop, Spark) et Azure Data Lake. 
+Visual Studio Community Edition est installé sur la machine virtuelle. Vous pouvez utiliser cette version gratuite de l’IDE populaire de Microsoft à des fins d’évaluation et dans le cadre de projets en petites équipes. Vous pouvez consulter les termes du contrat de licence [ici](https://www.visualstudio.com/support/legal/mt171547).  Ouvrez Visual Studio en double-cliquant sur l’icône du bureau ou via le menu **Démarrer** . Vous pouvez également lancer une recherche de programmes avec **Win** + **S** et en entrant « Visual Studio ». Là, vous pouvez créer des projets dans des langages tels que C#, Python, R, node.js. Des plug-ins sont également installés pour faciliter l’utilisation des services Azure tels que Azure Data Catalog, Azure HDInsight (Hadoop, Spark) et Azure Data Lake. Il y a maintenant également un plug-in appelé ```Visual Studio Tools for AI```, qui s’intègre en toute transparence à Azure Machine Learning et vous permet de créer rapidement des applications AI. 
 
 > [!NOTE]
 > Il est possible que vous receviez un message indiquant que votre période d’évaluation a expiré. Saisissez vos informations d’identification de compte Microsoft ou créez un compte gratuit pour accéder à Visual Studio Community Edition. 
@@ -170,6 +163,10 @@ Plusieurs outils Azure sont installés sur la machine virtuelle :
 > 
 > 
 
+### <a name="azure-machine-learning-workbench"></a>Azure Machine Learning Workbench
+
+Azure Machine Learning Workbench est une application de bureau et une interface de ligne de commande. Workbench intègre une préparation des données qui apprend au fur et à mesure vos étapes de préparation des données. Il fournit également une gestion de projets, un historique des exécutions et une intégration de notebooks pour booster votre productivité. Vous pouvez tirer parti des meilleures infrastructures open source, telles que TensorFlow, Cognitive Toolkit, Spark ML et scikit-learn pour développer vos modèles. Sur la DSVM, nous fournissons une icône de bureau pour installer Azure Machine Learning Workbench dans le répertoire %LOCALAPPDATA% individuel de chaque utilisateur. Chaque utilisateur qui a besoin d’utiliser le Workbench doit double-cliquer une seule fois sur l’icône du bureau ```AzureML Workbench Setup``` afin d’installer son instance du Workbench. Azure Machine Learning crée et utilise également un environnement Python par l’utilisateur qui est extrait dans %LOCALAPPDATA%\amlworkbench\python.
+
 ## <a name="additional-microsoft-development-tools"></a>Autres outils de développement Microsoft
 Le programme [**Microsoft Web Platform Installer**](https://www.microsoft.com/web/downloads/platform.aspx) vous permet de découvrir et de télécharger d’autres outils de développement Microsoft. Il existe également un raccourci vers l’outil fourni sur le bureau de la machine virtuelle pour la science des données.  
 
@@ -177,10 +174,10 @@ Le programme [**Microsoft Web Platform Installer**](https://www.microsoft.com/we
 | Item | Répertoire |
 | --- | --- |
 | Configurations de serveur de Jupyter Notebook |C:\ProgramData\jupyter |
-| Répertoire des exemples de Jupyter Notebook |c:\dsvm\notebooks |
+| Répertoire des exemples de Jupyter Notebook |c:\dsvm\notebooks et c:\users\<username>\notebooks|
 | Autres exemples |c:\dsvm\samples |
-| Anaconda (valeur par défaut : Python 2.7) |c:\Anaconda |
-| Environnement Anaconda Python 3.5 |c:\Anaconda\envs\py35 |
+| Anaconda (valeur par défaut : Python 3.6) |c:\Anaconda |
+| Environnement Anaconda Python 2.7 |c:\Anaconda\envs\python2 |
 | Microsoft ML Server Standalone Python  | C:\Program Files\Microsoft\ML Server\PYTHON_SERVER |
 | Instance R par défaut (ML Server Standalone) |C:\Program Files\Microsoft\ML Server\R_SERVER |
 | Répertoire de l’instance de base de données SQL ML Services |C:\Program Files\Microsoft SQL Server\MSSQL14.MSSQLSERVER |
@@ -188,7 +185,7 @@ Le programme [**Microsoft Web Platform Installer**](https://www.microsoft.com/we
 | Outils divers |c:\dsvm\tools |
 
 > [!NOTE]
-> Les instances de la machine virtuelle pour la science des données Microsoft créées avant 1.5.0 (avant le 3 septembre 2016) utilisaient une structure de répertoire légèrement différente à celle spécifiée dans la table précédente. 
+> Dans l’édition de Windows Server 2012 de DSVM et l’édition Windows Server 2016 antérieure à mars 2018, l’environnement Anaconda par défaut est Python 2.7. L’environnement secondaire est Python 3.5 à l’emplacement c:\Anaconda\envs\py35. 
 > 
 > 
 

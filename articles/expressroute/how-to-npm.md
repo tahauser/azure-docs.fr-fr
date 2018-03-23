@@ -1,13 +1,13 @@
 ---
 title: Configurer Network Performance Monitor pour les circuits Azure ExpressRoute | Microsoft Docs
-description: "Configurez la surveillance réseau basée sur le cloud pour les circuits Azure ExpressRoute."
+description: Configurez la surveillance réseau basée sur le cloud pour les circuits Azure ExpressRoute.
 documentationcenter: na
 services: expressroute
 author: ajaycode
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: agummadi
-ms.openlocfilehash: 4f3edb6879ff256b1b50a1437fe349084fe7de41
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 36cd2f106c39f1a6bdcb6ee33b96209974a06336
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configurer Network Performance Monitor pour ExpressRoute
 
@@ -102,10 +102,7 @@ Créez un espace de travail dans l’abonnement où les réseaux virtuels sont l
 
 1. Accédez à l’onglet **Paramètres communs** de la page **Configuration de Network Performance Monitor** de votre ressource. Cliquez sur l’agent qui correspond au processeur de votre serveur dans la section **Installer les agents OMS**, puis téléchargez le fichier d’installation.
 
-  >[!NOTE]
-  >L’agent doit être installé sur Windows Server 2008 SP1 ou version ultérieure. Le monitoring des circuits ExpressRoute à l’aide du système d’exploitation de bureau Windows et du système d’exploitation Linux n’est pas pris en charge. 
-  >
-  >
+ 
 2. Ensuite, copiez et collez **l’ID d’espace de travail** et la **clé primaire** dans le bloc-notes.
 3. Dans la section **Configurer les agents OMS pour le monitoring avec le protocole TCP**, téléchargez le script PowerShell. Le script PowerShell vous permet d’ouvrir le port de pare-feu approprié pour les transactions TCP.
 
@@ -114,6 +111,16 @@ Créez un espace de travail dans l’abonnement où les réseaux virtuels sont l
 ### <a name="installagent"></a>2.2 : Installer un agent de monitoring sur chaque serveur de monitoring (sur chaque réseau virtuel dont vous voulez effectuer le monitoring)
 
 Nous vous recommandons d’installer au moins deux agents de chaque côté de la connexion ExpressRoute (par exemple, localement, réseaux virtuels Azure) à des fins de redondance. Pour installer les agents, procédez comme suit :
+  
+  >[!NOTE]
+  >L’agent doit être installé sur Windows Server 2008 SP1 ou version ultérieure. Le monitoring des circuits ExpressRoute à l’aide du système d’exploitation de bureau Windows et du système d’exploitation Linux n’est pas pris en charge. 
+  >
+  >
+  
+  >[!NOTE]
+  >Les agents SCOM peuvent ne pas être en mesure de détecter de manière cohérente si ils sont hébergés dans Azure.  Nous recommandons de ne pas utiliser les agents SCOM dans des réseaux virtuels Azure pour surveiller ExpressRoute.
+  >
+  >
 
 1. Exécutez **Installation** pour installer l’agent sur chaque serveur que vous souhaitez utiliser pour la surveillance ExpressRoute. Le serveur que vous utilisez pour la surveillance peut être une machine virtuelle ou locale et doit avoir accès à Internet. Vous devez installer au moins un agent localement, et un agent sur chaque segment de réseau que vous souhaitez surveiller dans Azure.
 2. Sur la page d’**accueil**, cliquez sur **Suivant**.

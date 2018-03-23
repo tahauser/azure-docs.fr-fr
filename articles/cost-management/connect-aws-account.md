@@ -1,20 +1,20 @@
 ---
-title: "Connecter un compte Amazon Web Services à Azure Cost Management | Microsoft Docs"
-description: "Connectez un compte Amazon Web Services pour afficher les données de coût et d’utilisation dans les référentiels Cost Management."
+title: Connecter un compte Amazon Web Services à Azure Cost Management | Microsoft Docs
+description: Connectez un compte Amazon Web Services pour afficher les données de coût et d’utilisation dans les référentiels Cost Management.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 02/08/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
-ms.custom: 
-ms.openlocfilehash: a82d803b51859f809ca5a39ce177697a1f66a008
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.custom: ''
+ms.openlocfilehash: 4a0280420132aad9f1e0b17d5998ec225bb0eaa1
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Connecter un compte Amazon Web Services
 
@@ -100,4 +100,4 @@ Cost Management commence la collecte des données et le remplissage des rapports
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour en savoir plus sur Azure Cost Management par Cloudyn, poursuivez avec le didacticiel [Examen de l’utilisation et des coûts](tutorial-review-usage.md) pour Cost Management.
+- Pour en savoir plus sur Azure Cost Management, poursuivez avec le didacticiel [Examen de l’utilisation et des coûts](tutorial-review-usage.md) pour Cost Management.

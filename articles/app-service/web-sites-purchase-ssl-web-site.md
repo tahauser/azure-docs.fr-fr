@@ -1,6 +1,6 @@
 ---
 title: Acheter et configurer un certificat SSL pour votre service Azure App Service | Microsoft Docs
-description: "Découvrez comment acheter un certificat App Service et le lier à votre application App Service"
+description: Découvrez comment acheter un certificat App Service et le lier à votre application App Service
 services: app-service
 documentationcenter: .net
 author: cephalin
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
 ms.openlocfilehash: 6c0125bf0bd22912a21372b5a7da6846e924e6cd
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Acheter et configurer un certificat SSL pour votre service Azure App Service
 
@@ -26,7 +26,7 @@ Ce didacticiel vous montre comment sécuriser votre application web en achetant 
 
 ## <a name="step-1---log-in-to-azure"></a>Étape 1 : Se connecter à Azure
 
-Connectez-vous au portail Azure à l’adresse http://portal.azure.com.
+Connectez-vous au portail Azure à l’adresse suivante : http://portal.azure.com
 
 ## <a name="step-2---place-an-ssl-certificate-order"></a>Étape 2 : Passer une commande de certificat SSL
 
@@ -122,7 +122,7 @@ Cliquez sur **Ajouter une liaison** pour enregistrer les modifications et active
 
 ## <a name="step-6---management-tasks"></a>Étape 6 : Tâches de gestion
 
-### <a name="azure-cli"></a>Interface de ligne de commande Azure
+### <a name="azure-cli"></a>Azure CLI
 
 [!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to a web app")] 
 
@@ -147,7 +147,7 @@ Si vous avez besoin de renvoyer l’e-mail de vérification, cliquez sur le bout
 
 #### <a name="domain-verification"></a>Vérification de domaine
 
-Choisissez cette option uniquement pour [un domaine App Service que vous avez acheté sur Azure.](custom-dns-web-site-buydomains-web-app.md). Azure ajoute automatiquement l’enregistrement TXT de vérification pour vous et effectue le processus.
+Choisissez cette option uniquement pour [un domaine App Service que vous avez acheté sur Azure](custom-dns-web-site-buydomains-web-app.md). Azure ajoute automatiquement l’enregistrement TXT de vérification pour vous et effectue le processus.
 
 #### <a name="manual-verification"></a>Vérification manuelle
 

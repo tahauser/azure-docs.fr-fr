@@ -1,26 +1,26 @@
 ---
-title: "Information de référence pour les développeurs JavaScript sur Azure Functions | Microsoft Docs"
-description: "Découvrez comment développer des fonctions à l’aide de JavaScript."
+title: Information de référence pour les développeurs JavaScript sur Azure Functions | Microsoft Docs
+description: Découvrez comment développer des fonctions à l’aide de JavaScript.
 services: functions
 documentationcenter: na
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure functions, fonctions, traitement des événements, webhooks, calcul dynamique, architecture sans serveur"
+editor: ''
+tags: ''
+keywords: azure functions, fonctions, traitement des événements, webhooks, calcul dynamique, architecture sans serveur
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.service: functions
 ms.devlang: nodejs
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 03/04/2018
 ms.author: tdykstra
-ms.openlocfilehash: f613e480f6699b323c18402f01873e565768f10f
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 0a436a929696f759cdbe9807faa2a15902b7ce6d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guide des développeurs JavaScript sur Azure Functions
 [!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
@@ -265,7 +265,15 @@ Lorsque vous travaillez avec des déclencheurs HTTP, trois méthodes vous permet
     ```  
 
 ## <a name="node-version-and-package-management"></a>Version du nœud et gestion des packages
-La version de Node est actuellement verrouillée sur `6.5.0`. Nous examinons la prise en charge d’autres versions ainsi que le fait de la rendre configurable.
+
+Le tableau suivant montre la version de Node.js qui est utilisée par chaque version majeure du runtime Functions :
+
+| Version de Functions | Version de Node.js | 
+|---|---|
+| 1.x | 6.11.2 (verrouillée par le runtime) |
+| 2.x  |> = 8.4.0 (version LTS 8.9.4 recommandée) Définissez la version à l’aide du [paramètre d’application](functions-how-to-use-azure-function-app-settings.md#settings) WEBSITE_DEFAULT_NODE_VERSION.|
+
+Vous pouvez afficher la version que le runtime utilise en imprimant `process.version` à partir de n’importe quelle fonction.
 
 Les étapes suivantes vous permettent d’inclure des packages dans votre Function App : 
 
@@ -328,6 +336,6 @@ Comme il n’existe encore aucune prise en charge directe pour l’auto-compilat
 Pour plus d’informations, consultez les ressources suivantes :
 
 * [Meilleures pratiques pour Azure Functions](functions-best-practices.md)
-* [Référence du développeur Azure Functions](functions-reference.md)
-* [Déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md)
+* [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md)
+* [Azure Functions triggers and bindings (Déclencheurs et liaisons Azure Functions)](functions-triggers-bindings.md)
 

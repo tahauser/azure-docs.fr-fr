@@ -1,12 +1,12 @@
 ---
-title: "Sauvegarder l’état du système Windows vers Azure | Microsoft Docs"
-description: "Découvrez comment sauvegarder l’état du système des ordinateurs Windows Server et/ou Windows vers Azure."
+title: Sauvegarder l’état du système Windows vers Azure | Microsoft Docs
+description: Découvrez comment sauvegarder l’état du système des ordinateurs Windows Server et/ou Windows vers Azure.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: saurabhsensharma
 manager: carmonm
-editor: 
-keywords: "procédure de sauvegarde ; comment sauvegarder ; sauvegarder des fichiers et des dossiers"
+editor: ''
+keywords: procédure de sauvegarde ; comment sauvegarder ; sauvegarder des fichiers et des dossiers
 ms.assetid: 5b15ebf1-2214-4722-b937-96e2be8872bb
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: saurse;markgal
-ms.openlocfilehash: e7dce94e56a8b51dd1c47e306aeb1d11d0dfb45c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: df2565be7c543be061c3297f4d87aeae5eae4b8e
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Sauvegarder l’état du système Windows dans un déploiement Resource Manager
 Cet article explique comment sauvegarder l’état du système Windows Server vers Azure. Il s’agit d’un didacticiel destiné à vous présenter les notions de base.
@@ -138,6 +138,8 @@ Une fois votre coffre créé, vous devez le configurer pour la sauvegarde de l�
 > [!NOTE]
 > Les informations d’identification du coffre doivent être enregistrées uniquement à un emplacement proche du serveur Windows sur lequel vous souhaitez utiliser l’agent. 
 >
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="install-and-register-the-agent"></a>Installer et inscrire l’agent
 

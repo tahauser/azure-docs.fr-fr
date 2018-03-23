@@ -1,8 +1,8 @@
 ---
-title: "Découvrir de manière approfondie comment prédire l’état des véhicules et les habitudes de conduite | Microsoft Docs"
-description: "Utilisez les fonctionnalités de Cortana Intelligence pour obtenir des informations en temps réel et prédictives sur l’état des véhicules et les habitudes de conduite."
+title: Découvrir de manière approfondie comment prédire l’état des véhicules et les habitudes de conduite | Microsoft Docs
+description: Utilisez les fonctionnalités de Cortana Intelligence pour obtenir des informations en temps réel et prédictives sur l’état des véhicules et les habitudes de conduite.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/24/2017
+ms.date: 03/14/2018
 ms.author: bradsev
-ms.openlocfilehash: a21316ef6ab05918f07a09243b5ce04950ecd9dc
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 370ab807ef85240238c51d1693796c26981edb15
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>Guide de la solution Vehicle Telemetry Analytics : découverte approfondie de la solution
 Ce menu contient des liens vers les sections de ce manuel : 
@@ -627,7 +627,7 @@ Une fois le pipeline exécuté, les partitions suivantes sont générées dans v
 
 ![Sortie DetectAnomalyPipeline](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig24-vehicle-telematics-detect-anamoly-pipeline-output.png) 
 
-## <a name="publish"></a>Publier
+## <a name="publish"></a>Publish
 
 ### <a name="real-time-analysis"></a>Analyse en temps réel
 L’une des requêtes de la tâche Stream Analytics publie les événements dans une instance de hub d’événements de sortie. 
@@ -669,7 +669,7 @@ Ce document explore de façon détaillée la solution Vehicle Telemetry Analytic
 
 * [Solution Vehicle Telematics Simulator Visual Studio](http://go.microsoft.com/fwlink/?LinkId=717075) 
 * [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
-* [Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
+* [Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
 * [SDK Azure Event Hubs pour l’ingestion de flux](../../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 * [Fonctionnalités de déplacement de données d’Azure Data Factory](../../data-factory/v1/data-factory-data-movement-activities.md)
 * [Activité .NET Azure Data Factory](../../data-factory/v1/data-factory-use-custom-activities.md)

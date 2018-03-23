@@ -1,8 +1,8 @@
 ---
-title: "Copie ou déplacement des données vers le stockage Azure avec AzCopy sur Windows | Microsoft Docs"
-description: "Utilisez l’utilitaire AzCopy sur Windows pour déplacer ou copier des données vers ou à partir de contenu de blob, de table et de fichier. Copiez des données vers Azure Storage à partir de fichiers locaux ou copiez des données dans ou entre des comptes de stockage. Migrez facilement vos données vers Azure Storage."
+title: Copie ou déplacement des données vers le stockage Azure avec AzCopy sur Windows | Microsoft Docs
+description: Utilisez l’utilitaire AzCopy sur Windows pour déplacer ou copier des données vers ou à partir de contenu de blob, de table et de fichier. Copiez des données vers Azure Storage à partir de fichiers locaux ou copiez des données dans ou entre des comptes de stockage. Migrez facilement vos données vers Azure Storage.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: seguler
 manager: jahogg
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: seguler
-ms.openlocfilehash: 7d875a1e43908f49424f4e40fe923639cfa02385
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 13e09a3081c9dfa2d88625489a82c687d6722f20
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Transférer des données avec AzCopy sur Windows
 AzCopy est un utilitaire de ligne de commande conçu pour copier des données à partir de/vers un stockage Blob, Fichier et Table Microsoft Azure en utilisant des commandes simples avec des performances optimales. Vous pouvez copier des données entre un système de fichiers et un compte de stockage, ou entre comptes de stockage.  
@@ -56,7 +56,7 @@ Remarque : Si le dossier `C:\myfolder` n’existe pas encore, AzCopy le crée d
 ### <a name="download-a-single-blob-from-the-secondary-region"></a>Télécharger un seul objet blob depuis la région secondaire
 
 ```azcopy
-AzCopy /Source:https://myaccount-secondary.blob.core.windows.net/mynewcontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
+AzCopy /Source:https://myaccount-secondary.blob.core.windows.net/mynewcontainer /Dest:C:\myfolder /SourceKey:key /Pattern:"abc.txt"
 ```
 
 Notez que vous devez avoir un accès en lecture activé pour le stockage géoredondant.
@@ -106,7 +106,7 @@ Après l’opération de téléchargement, le dossier `C:\myfolder` inclut les f
     C:\myfolder\abc1.txt
     C:\myfolder\abc2.txt
 
-Le préfixe s’applique au répertoire virtuel, qui forme la première partie du nom de l’objet blob. Dans l’exemple ci-dessus, le répertoire virtuel ne correspond pas au préfixe spécifié ; il n’est donc pas téléchargé. En outre, si l’option `\S` n’est pas spécifiée, AzCopy ne télécharge pas les blobs.
+Le préfixe s’applique au répertoire virtuel, qui forme la première partie du nom de l’objet blob. Dans l’exemple ci-dessus, le répertoire virtuel ne correspond pas au préfixe spécifié ; il n’est donc pas téléchargé. En outre, si l’option `/S` n’est pas spécifiée, AzCopy ne télécharge pas les blobs.
 
 ### <a name="set-the-last-modified-time-of-exported-files-to-be-same-as-the-source-blobs"></a>Définition de l’heure de la dernière modification des fichiers exportés pour qu’elle soit identique à celle des objets blob source
 
@@ -616,7 +616,7 @@ Les paramètres d’AzCopy sont décrits ci-dessous. Vous pouvez également tape
 
 * Pour l'aide détaillée sur la ligne de commande AzCopy : `AzCopy /?`
 * Pour l'aide détaillée sur un paramètre AzCopy : `AzCopy /?:SourceKey`
-* Pour des exemples de ligne de commande : `AzCopy /?:Samples`
+* Pour des exemples de ligne de commande : `AzCopy /?:Sample`
 
 ### <a name="sourcesource"></a>/Source:"source"
 

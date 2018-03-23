@@ -1,24 +1,24 @@
 ---
-title: "Azure AD Connect : Conditions préalables et matériel | Microsoft Docs"
-description: "Cette rubrique décrit les conditions préalables et la configuration matérielle requise pour Azure AD Connect"
+title: 'Azure AD Connect : Conditions préalables et matériel | Microsoft Docs'
+description: Cette rubrique décrit les conditions préalables et la configuration matérielle requise pour Azure AD Connect
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 91b88fda-bca6-49a8-898f-8d906a661f07
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 03/09/2018
 ms.author: billmath
-ms.openlocfilehash: d82a91aa51b6684e6bf88de142d00705a0ceddba
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: d6d6eadf0ae8996b019a0564715f843913101944
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Conditions préalables pour Azure AD Connect
 Cette rubrique décrit les conditions préalables et la configuration matérielle requise pour Azure AD Connect.
@@ -31,6 +31,7 @@ Avant d’installer Azure AD Connect, voici ce dont vous avez besoin.
   * Vous pouvez également utiliser le [portail Azure](https://portal.azure.com). Ce portail ne nécessite aucune licence Azure Active Directory.
 * [Ajoutez et vérifiez le domaine](../active-directory-domains-add-azure-portal.md) que vous prévoyez d’utiliser dans Azure AD. Par exemple, si vous envisagez d’utiliser contoso.com pour vos utilisateurs, vérifiez que ce domaine a été vérifié et que vous n’utilisez pas uniquement le domaine par défaut contoso.onmicrosoft.com.
 * Un client Azure AD prend en charge 50 000 objets par défaut. Si vous vérifiez votre domaine, la limite passe à 300 000 objets. Si vous avez besoin de davantage d’objets dans Azure AD, vous devez ouvrir une demande de support pour que la limite soit relevée en conséquence. Si vous avez besoin de plus de 500 000 objets, si vous avez besoin d’une licence comme Office 365, Azure AD Standard, Azure AD Premium ou Enterprise Mobility Suite.
+* ADSyncPrep est un module de script PowerShell qui fournit des fonctionnalités permettant de préparer votre environnement Active Directory pour Azure AD Connect.  ADSyncPrep nécessite le [module PowerShell Azure AD Microsoft Online v1.1](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).  La version 2 ne fonctionnera pas.  Vous pouvez installer le module à l’aide de l’applet de commande `Install-Module`.  Pour plus d’informations, cliquez sur le lien fourni.
 
 ### <a name="prepare-your-on-premises-data"></a>Préparez vos données locales
 * Utilisez [IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) pour identifier les erreurs comme les problèmes de mise en forme dans votre annuaire et repérer les doublons avant d’effectuer la synchronisation avec Azure AD et Office 365.

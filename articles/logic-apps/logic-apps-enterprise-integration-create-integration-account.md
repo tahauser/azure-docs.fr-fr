@@ -1,11 +1,11 @@
 ---
-title: "Créer, lier, supprimer ou déplacer un compte d’intégration dans Azure Logic Apps | Microsoft Docs"
-description: "Comment créer un compte d’intégration et l’associer à vos applications logiques"
+title: Créer, lier, supprimer ou déplacer un compte d’intégration dans Azure Logic Apps | Microsoft Docs
+description: Comment créer un compte d’intégration et l’associer à vos applications logiques
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: divyaswarnkar
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: d3ad9e99-a9ee-477b-81bf-0881e11e632f
 ms.service: logic-apps
 ms.workload: integration
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
-ms.author: LADocs; mandia
-ms.openlocfilehash: b238ef8cf9d1328913334a92c042584334d81e3c
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.author: LADocs; divswa
+ms.openlocfilehash: fb1d0ceb26c5ed792f22051e2af10a7572200bdc
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="what-is-an-integration-account"></a>Qu’est-ce qu'un compte d’intégration ?
 
 Un compte d’intégration permet aux applications d’intégration de votre entreprise, plus particulièrement aux applications logiques, d’accéder et de gérer les artefacts B2B, par exemple, les partenaires commerciaux, les contrats, les mappages, les schémas, les certificats et ainsi de suite. Pour fournir cet accès, liez votre compte d’intégration à votre application logique après avoir vérifié que le compte d’intégration et l’application logique ont le *même emplacement Azure*.
 
-## <a name="create-an-integration-account"></a>Créer un compte d’intégration
+## <a name="create-an-integration-account"></a>Création d’un compte d’intégration
 
 1. Connectez-vous au [portail Azure](http://portal.azure.com "portail Azure"). 
 

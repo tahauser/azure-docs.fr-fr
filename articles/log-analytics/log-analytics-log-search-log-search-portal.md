@@ -1,11 +1,11 @@
 ---
 title: Utilisation du portail Recherche dans les journaux dans Azure Log Analytics | Microsoft Docs
-description: "Cet article contient un didacticiel qui explique comment créer des recherches dans les journaux et analyser les données stockées dans votre espace de travail Log Analytics à l’aide du portail Recherche dans les journaux.  Le didacticiel comprend des requêtes simples qui retournent différents types de données et une description des résultats des analyses."
+description: Cet article contient un didacticiel qui explique comment créer des recherches dans les journaux et analyser les données stockées dans votre espace de travail Log Analytics à l’aide du portail Recherche dans les journaux.  Le didacticiel comprend des requêtes simples qui retournent différents types de données et une description des résultats des analyses.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 3a2e8803d51d81ab0eda3dc814d01822e17bc14e
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 37213012e817f0fae21a47a4334a519bbbca206b
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Créer des recherches dans les journaux dans Azure Log Analytics à l’aide du portail Recherche dans les journaux
 
@@ -31,6 +31,7 @@ Cet article contient un didacticiel qui explique comment créer des recherches d
 Pour créer des recherches dans le portail Advanced Analytics plutôt que dans le portail Recherche dans les journaux, consultez [Getting Started with the Analytics Portal](https://go.microsoft.com/fwlink/?linkid=856587) (Bien démarrer avec le portail Analytics).  Les deux portails utilisent le même langage de requête pour accéder aux mêmes données dans l’espace de travail Log Analytics.
 
 ## <a name="prerequisites"></a>Prérequis
+
 Ce didacticiel part du principe que vous disposez déjà d’un espace de travail Log Analytics avec au moins une source connectée qui génère des données pour les requêtes à analyser.  
 
 - Si vous n’avez pas d’espace de travail, vous pouvez en créer un gratuitement à l’aide de la procédure décrite dans [Prise en main d’un espace de travail Log Analytics](log-analytics-get-started.md).

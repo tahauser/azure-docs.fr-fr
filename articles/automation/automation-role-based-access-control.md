@@ -1,25 +1,19 @@
 ---
-title: "Contrôle d’accès en fonction du rôle dans Azure Automation | Microsoft Docs"
-description: "Le contrôle d’accès en fonction du rôle (RBAC) permet de gérer les accès des ressources Azure. Cet article décrit la configuration de RBAC dans Azure Automation."
+title: Contrôle d’accès en fonction du rôle dans Azure Automation
+description: Le contrôle d’accès en fonction du rôle (RBAC) permet de gérer les accès des ressources Azure. Cet article décrit la configuration de RBAC dans Azure Automation.
+keywords: rbac automation, contrôle d’accès en fonction du rôle, azure rbac
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
-keywords: "rbac automation, contrôle d’accès en fonction du rôle, azure rbac"
-ms.assetid: 04b5625e-0ee8-4b5b-85cd-7734c1b3d4a3
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/05/2018
-ms.author: magoedte;sngun
-ms.openlocfilehash: 753c06ec4a20650f779b68e11e1d6d6fd27a0141
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+manager: carmonm
+ms.openlocfilehash: 9fb77f3b435491b5ac5b16327d6ce74f90664a79
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Contrôle d’accès en fonction du rôle dans Azure Automation
 
@@ -308,7 +302,7 @@ Quand un utilisateur affecté au rôle Opérateur Automation consulte le compte 
 
 L’utilisateur peut afficher et créer des planifications, mais il n’a pas accès à d’autres types de ressource.
 
-Cet utilisateur ne peut pas non plus accéder aux Webhooks associés à un runbook.
+Cet utilisateur ne peut pas non plus accéder aux Webhooks associés à un Runbook.
 
 ![Pas d’accès aux Webhooks](media/automation-role-based-access-control/automation-13-no-access-to-webhooks.png)  
 

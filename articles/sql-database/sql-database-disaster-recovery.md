@@ -1,8 +1,8 @@
 ---
-title: "Récupération d’urgence de SQL Database | Microsoft Docs"
-description: "Découvrez comment récupérer une base de données en cas de panne d’un centre de données régional grâce aux fonctionnalités de géoréplication active et de géorestauration du service Azure SQL Database."
+title: Récupération d’urgence de SQL Database | Microsoft Docs
+description: Découvrez comment récupérer une base de données en cas de panne d’un centre de données régional grâce aux fonctionnalités de géoréplication active et de géorestauration du service Azure SQL Database.
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: anosov1960
 manager: jhubbard
 editor: monicar
@@ -13,20 +13,21 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: On Demand
-ms.date: 12/13/2017
+ms.date: 03/05/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 224c0b9f12595ec6cdc65e3d397fb62dba504d06
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: cc4f8e1566ede1d730b40c2e5ce6364786c102d4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restaurer une base de données SQL Azure ou basculer vers une base de données secondaire
 Le service Base de données SQL Azure offre les fonctionnalités suivantes pour la récupération après une panne :
 
 * [Géoréplication active et groupes de basculement](sql-database-geo-replication-overview.md)
 * [Géorestauration](sql-database-recovery-using-backups.md#point-in-time-restore)
+* [Bases de données redondantes dans une zone](sql-database-high-availability.md)
 
 Pour en savoir plus sur les scénarios de continuité d’activité et les fonctionnalités prenant en charge ces scénarios, consultez [Continuité des activités](sql-database-business-continuity.md).
 
@@ -40,7 +41,7 @@ Pour parvenir à une récupération vers une autre région de données à l’ai
 * Identifiez, et éventuellement définissez, les règles de pare-feu nécessaires au niveau du serveur pour permettre aux utilisateurs d’accéder à la nouvelle base de données primaire.
 * Déterminez la façon dont vous souhaitez rediriger les utilisateurs vers le nouveau serveur principal, par exemple en modifiant des chaînes de connexion ou des entrées DNS.
 * Identifiez, et éventuellement créez, les connexions d’accès qui doivent être présentes dans la base de données master sur le nouveau serveur principal, puis vérifiez que ces connexions disposent des autorisations appropriées dans la base de données master, le cas échéant. Pour plus d’informations, consultez [Gestion de la sécurité de la base de données SQL après la récupération d’urgence](sql-database-geo-replication-security-config.md)
-* Identifiez les règles d’alerte qui devront être mises à jour pour le mappage à la nouvelle base de données primaire.
+* Identifiez les règles d’alerte qui doivent être mises à jour pour le mappage à la nouvelle base de données primaire.
 * Documentation de la configuration de l’audit sur la base de données primaire actuelle
 * Effectuez une [simulation d’une récupération d'urgence](sql-database-disaster-recovery-drills.md). Pour simuler une panne de géorestauration, vous pouvez supprimer ou renommer la base de données source pour empêcher l’application de se connecter. Pour simuler une panne à l’aide des groupes de basculement, vous pouvez désactiver l’application web ou la machine virtuelle connectée à la base de données ou encore basculer la base de données pour empêcher l’application de se connecter.
 
@@ -58,7 +59,7 @@ Selon la tolérance de votre application aux temps d’arrêt et la mise en caus
 Utilisez [Obtenir une base de données récupérable](https://msdn.microsoft.com/library/dn800985.aspx) (*LastAvailableBackupDate*) pour obtenir le dernier point de restauration avec réplication géographique.
 
 ## <a name="wait-for-service-recovery"></a>Attendre le rétablissement du service
-Les équipes Azure mettent tous les efforts en œuvre pour restaurer le service aussi rapidement que possible, mais cela peut prendre plusieurs heures ou plusieurs jours selon la cause principale du problème.  Si votre application peut tolérer des temps d’arrêt importants, vous pouvez simplement attendre que le service soit rétabli. Dans ce cas, aucune action n’est requise de votre part. Vous pouvez consulter l’état actuel du service dans notre [tableau de bord d’état du service Azure](https://azure.microsoft.com/status/). Une fois le service rétabli dans la région, la disponibilité de votre application sera restaurée.
+Les équipes Azure mettent tous les efforts en œuvre pour restaurer le service aussi rapidement que possible, mais cela peut prendre plusieurs heures ou plusieurs jours selon la cause principale du problème.  Si votre application peut tolérer des temps d’arrêt importants, vous pouvez simplement attendre que le service soit rétabli. Dans ce cas, aucune action n’est requise de votre part. Vous pouvez consulter l’état actuel du service dans notre [tableau de bord d’état du service Azure](https://azure.microsoft.com/status/). Une fois le service rétabli dans la région, la disponibilité de votre application est restaurée.
 
 ## <a name="fail-over-to-geo-replicated-secondary-server-in-the-failover-group"></a>Basculer vers le serveur secondaire géorépliqué dans le groupe de basculement
 Si les temps d’arrêt de votre application mettent en cause la responsabilité de votre entreprise, vous devez utiliser des groupes de basculement. Cela permet de restaurer rapidement la disponibilité de l’application dans une autre région en cas de panne. En savoir plus sur la [configuration des groupes de basculement](sql-database-geo-replication-portal.md)

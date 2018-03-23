@@ -1,11 +1,11 @@
 ---
-title: "Bibliothèques d’authentification Azure Active Directory v2.0 | Microsoft Docs"
-description: "Bibliothèques clientes et bibliothèques de middleware de serveur compatibles, et liens vers la bibliothèque, la source et des exemples connexes pour le point de terminaison Azure Active Directory v2.0."
+title: Bibliothèques d’authentification Azure Active Directory v2.0 | Microsoft Docs
+description: Bibliothèques clientes et bibliothèques de middleware de serveur compatibles, et liens vers la bibliothèque, la source et des exemples connexes pour le point de terminaison Azure Active Directory v2.0.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 19cec615-e51f-4141-9f8c-aaf38ff9f746
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 08/22/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: a1e2c4db54ca81325751ed85b26b904174e94078
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 60abada0a6683ee5cc8118c37336fe67cd51b2f0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Bibliothèques d’authentification Azure Active Directory v2.0
 Le [point de terminaison Azure Active Directory (Azure AD) v2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare) prend en charge les protocoles OAuth 2.0 et OpenID Connect 1.0 standard. Vous pouvez utiliser différentes bibliothèques de Microsoft et d’autres organisations avec le point de terminaison v2.0.
@@ -27,9 +27,9 @@ Le [point de terminaison Azure Active Directory (Azure AD) v2.0](https://docs.mi
 Lorsque vous créez une application qui utilise le point de terminaison v2.0, nous vous recommandons d’utiliser des bibliothèques écrites par des experts du domaine du protocole qui respectent une méthodologie Security Development Lifecycle (SDL) comme [celle que suit Microsoft][Microsoft-SDL]. Si vous décidez de coder à la main la prise en charge des protocoles, nous vous recommandons de suivre la méthodologie SDL et de bien prendre en compte les considérations relatives à la sécurité que vous trouverez dans les spécifications des normes pour chaque protocole.
 
 > [!NOTE]
-> Vous recherchez les bibliothèques Azure AD v1.0 (ADAL) ? Consultez le [guide des bibliothèques ADAL](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries). 
-> 
-> 
+> Vous recherchez les bibliothèques Azure AD v1.0 (ADAL) ? Consultez le [guide des bibliothèques ADAL](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries).
+>
+>
 
 ## <a name="types-of-libraries"></a>Types de bibliothèques
 Le point de terminaison Azure AD v2.0 prend en charge deux types de bibliothèques :
@@ -53,7 +53,7 @@ Pour obtenir la liste des bibliothèques qui fonctionnent avec le point de termi
 > [!IMPORTANT]
 > Les bibliothèques MSAL en préversion peuvent être utilisées dans un environnement de production. Nous fournissons la même prise en charge au niveau de la production pour ces bibliothèques que pour les bibliothèques de production actuelles (ADAL). Tant que les bibliothèques sont disponibles en préversion, nous pouvons apporter, sans préavis, des modifications à l’API MSAL, au format de cache interne et à d’autres mécanismes de ces bibliothèques, que vous devrez appliquer via des améliorations de fonctionnalités ou des correctifs de bogues. Cela peut avoir un impact sur votre application. Par exemple, une modification apportée au format de cache peut avoir un impact sur vos utilisateurs, tel que leur demander de se reconnecter. Une modification de l’API peut vous obliger à mettre à jour votre code. Lorsque nous proposerons la version en disponibilité générale, nous vous demanderons d’effectuer la mise à jour vers la version en disponibilité générale dans les six mois, car les applications écrites à l’aide de la préversion de la bibliothèque pourront ne plus fonctionner.
 
-| Plateforme | Bibliothèque | Télécharger | Code source | Exemple | Référence
+| Plateforme | Bibliothèque | Download | Code source | Exemple | Informations de référence
 | --- | --- | --- | --- | --- | --- |
 | .NET Client, Windows Store, UWP, Xamarin iOS et Android | MSAL .NET (préversion) |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Application de bureau](guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-intro.md) |  |
 | JavaScript | MSAL.js (préversion) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) | [Application à page unique](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) |  |
@@ -62,7 +62,7 @@ Pour obtenir la liste des bibliothèques qui fonctionnent avec le point de termi
 
 ## <a name="microsoft-supported-server-middleware-libraries"></a>Bibliothèques de middleware de serveur prises en charge par Microsoft
 
-| Plateforme | Bibliothèque | Télécharger | Code source | Exemple | Référence
+| Plateforme | Bibliothèque | Download | Code source | Exemple | Informations de référence
 | --- | --- | --- | --- | --- | --- |
 | .NET 4.x | Intergiciel OWIN OpenID Connect |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect) |[CodePlex](http://katanaproject.codeplex.com) |[Application MVC](guidedsetups/active-directory-serversidewebapp-aspnetwebappowin-intro.md) | |
 | .NET 4.x | Intergiciel OWIN OAuth Bearer pour Azure AD |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.ActiveDirectory/) |[CodePlex](http://katanaproject.codeplex.com) |  | |
@@ -78,13 +78,8 @@ Pour obtenir la liste des bibliothèques qui fonctionnent avec le point de termi
 | Android |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib/wiki) |0.2.1 |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib) |[Exemple d’application native](active-directory-v2-devquickstarts-android.md) |
 | iOS |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |1.2.8 |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |[Exemple d’application native](active-directory-v2-devquickstarts-ios.md) |
 | JavaScript |[Hello.js](https://adodson.com/hello.js/) |1.13.5 |[Hello.js](https://github.com/MrSwitch/hello.js) |[SPA](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2) |
-
-## <a name="compatible-server-middleware-libraries"></a>Bibliothèques de middleware de serveur compatibles
-| Plateforme | Nom de la bibliothèque | Version testée | Code source | Exemple |
-|:---:|:---:|:---:|:---:|:---:|
 | Java | [Scribe Java scribejava](https://github.com/scribejava/scribejava) | [Version 3.2.0](https://github.com/scribejava/scribejava/releases/tag/scribejava-3.2.0) | [Scribe Java](https://github.com/scribejava/scribejava/archive/scribejava-3.2.0.zip) | |
 | PHP | [The PHP League oauth2-client](https://github.com/thephpleague/oauth2-client) | [Version 1.4.2](https://github.com/thephpleague/oauth2-client/releases/tag/1.4.2) | [oauth2-client](https://github.com/thephpleague/oauth2-client/archive/1.4.2.zip) | |
-| Python-Flask |[Flask-OAuthlib](https://github.com/lepture/flask-oauthlib) |0.9.3 |[Flask-OAuthlib](https://github.com/lepture/flask-oauthlib) |[Application web](https://github.com/Azure-Samples/active-directory-python-flask-graphapi-web-v2) |
 | Ruby |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth:1.3.1</br>omniauth-oauth2:1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)</br>[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |  |
 
 ## <a name="related-content"></a>Contenu connexe

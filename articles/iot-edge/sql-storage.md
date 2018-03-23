@@ -1,19 +1,19 @@
 ---
-title: "Module SQL d’Azure IoT Edge | Microsoft Docs"
-description: "Stocker des données en périphérie à l’aide des modules Microsoft SQL, avec Azure Functions pour mettre les données en forme."
+title: Module SQL d’Azure IoT Edge | Microsoft Docs
+description: Stocker des données en périphérie à l’aide des modules Microsoft SQL, avec Azure Functions pour mettre les données en forme.
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban, ebertrams
 ms.date: 02/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4b66a699e4c58662cadd799cf6aec83b9d34b7e6
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: ce3c3abd00dba23887b5f811af6cab8d2c83323d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="store-data-at-the-edge-with-sql-server-databases"></a>Stocker des données en périphérie avec les bases de données SQL Server
 
@@ -21,7 +21,8 @@ Utilisez les appareils Azure IoT Edge pour stocker les données générées en p
 
 Cet article fournit des instructions pour le déploiement d’une base de données SQL Server sur un appareil IoT Edge. Azure Functions, exécuté sur l’appareil IoT Edge, structure les données entrantes, puis les envoie vers la base de données. Les étapes décrites dans cet article peuvent également être appliquées aux autres bases de données qui fonctionnent dans des conteneurs, telles que MySQL ou PostgreSQL. 
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Prérequis
+ 
 
 Avant de suivre les instructions de cet article, nous vous conseillons de prendre connaissance des didacticiels suivants :
 * Déployer Azure IoT Edge sur un appareil simulé dans [Windows](tutorial-simulate-device-windows.md) ou [Linux](tutorial-simulate-device-linux.md)
@@ -48,7 +49,7 @@ Pour ce didacticiel, vous pouvez utiliser des conteneurs Windows et Linux sur de
 
 ## <a name="deploy-a-sql-server-container"></a>Déployer un conteneur SQL Server
 
-Dans cette section, vous allez ajouter une base de données MS-SQL à votre appareil IoT Edge simulé. Utilisez l’image de conteneur Docker SQL Server 2017, disponible sur [Windows](https://hub.docker.com/r/microsoft/mssql-server-windows-developer/) et [Linux](https://hub.docker.com/r/microsoft/mssql-server-linux/). 
+Dans cette section, vous allez ajouter une base de données MS-SQL à votre appareil IoT Edge simulé. Utilisez l’image conteneur docker SQL Server 2017, disponible sous forme de conteneur [Windows](https://hub.docker.com/r/microsoft/mssql-server-windows-developer/) et de conteneur [Linux](https://hub.docker.com/r/microsoft/mssql-server-linux/). 
 
 ### <a name="deploy-sql-server-2017"></a>Déployer SQL Server 2017
 
@@ -100,14 +101,14 @@ Par défaut, le code de cette section crée un conteneur avec l’édition Déve
 
       ```json
       "image": "microsoft/mssql-server-windows-developer",
-      "createOptions": "{\r\n\t"Env": [\r\n\t\t"ACCEPT_EULA=Y",\r\n\t\t"sa_password=Strong!Passw0rd"\r\n\t],\r\n\t"HostConfig": {\r\n\t\t"Mounts": [{\r\n\t\t\t"Target": "C:\\\\mssql",\r\n\t\t\t"Source": "sqlVolume",\r\n\t\t\t"Type": "volume"\r\n\t\t}],\r\n\t\t"PortBindings": {\r\n\t\t\t"1433/tcp": [{\r\n\t\t\t\t"HostPort": "1401"\r\n\t\t\t}]\r\n\t\t}\r\n\t}\r\n}"
+      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"C:\\\\mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}"
       ```
 
    * Linux :
 
       ```json
       "image": "microsoft/mssql-server-linux:2017-latest",
-      "createOptions": "{\r\n\t"Env": [\r\n\t\t"ACCEPT_EULA=Y",\r\n\t\t"MSSQL_SA_PASSWORD=Strong!Passw0rd"\r\n\t],\r\n\t"HostConfig": {\r\n\t\t"Mounts": [{\r\n\t\t\t"Target": "/var/opt/mssql",\r\n\t\t\t"Source": "sqlVolume",\r\n\t\t\t"Type": "volume"\r\n\t\t}],\r\n\t\t"PortBindings": {\r\n\t\t\t"1433/tcp": [{\r\n\t\t\t\t"HostPort": "1401"\r\n\t\t\t}]\r\n\t\t}\r\n\t}\r\n}"
+      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"/var/opt/mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
       ```
 
 4. Enregistrez le fichier . 
@@ -125,31 +126,31 @@ Cette section vous guide tout au long de la configuration de la base de données
 
 Dans un outil de ligne de commande, connectez-vous à votre base de données : 
 
-* Windows
+* Conteneur Windows
    ```cmd
-   Docker exec -it sql cmd
+   docker exec -it sql cmd
    ```
 
-* Linux    
+* Conteneur Linux
    ```bash
-   Docker exec -it sql 'bash'
+   docker exec -it sql bash
    ```
 
 Ouvrez l’outil de commande SQL : 
 
-* Windows
+* Conteneur Windows
    ```cmd
    sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
 
-* Linux
+* Conteneur Linux
    ```bash
    /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
 
 Créez votre base de données : 
 
-* Windows
+* Conteneur Windows
    ```sql
    CREATE DATABASE MeasurementsDB
    ON
@@ -157,7 +158,7 @@ Créez votre base de données :
    GO
    ```
 
-* Linux
+* Conteneur Linux
    ```sql
    CREATE DATABASE MeasurementsDB
    ON
@@ -302,24 +303,24 @@ Une fois les conteneurs redémarrés, les données provenant des capteurs de tem
 
 Dans un outil de ligne de commande, connectez-vous à votre base de données : 
 
-* Windows
+* Conteneur Windows
    ```cmd
-   Docker exec -it sql cmd
+   docker exec -it sql cmd
    ```
 
-* Linux    
+* Conteneur Linux
    ```bash
-   Docker exec -it sql 'bash'
+   docker exec -it sql bash
    ```
 
 Ouvrez l’outil de commande SQL : 
 
-* Windows
+* Conteneur Windows
    ```cmd
    sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
 
-* Linux
+* Conteneur Linux
    ```bash
    /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
    ```
@@ -327,7 +328,7 @@ Ouvrez l’outil de commande SQL :
 Consultez les données : 
 
    ```sql
-   Select * FROM MeasurementsDB.dbo.TemperatureMeasurements
+   SELECT * FROM MeasurementsDB.dbo.TemperatureMeasurements
    GO
    ```
 

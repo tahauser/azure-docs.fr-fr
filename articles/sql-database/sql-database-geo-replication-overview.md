@@ -1,25 +1,19 @@
 ---
-title: "Azure SQL Database : groupes de basculement et géo-réplication active | Documents Microsoft"
-description: "Utilisez des groupes de basculement automatique avec géoréplication active et activez les basculement automatique en cas de panne."
+title: 'Azure SQL Database : groupes de basculement et géo-réplication active | Documents Microsoft'
+description: Utilisez des groupes de basculement automatique avec géoréplication active et activez les basculement automatique en cas de panne.
 services: sql-database
-documentationcenter: na
 author: anosov1960
-manager: jhubbard
-editor: monicar
-ms.assetid: 2a29f657-82fb-4283-9a83-e14a144bfd93
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Active
 ms.date: 10/11/2017
 ms.author: sashan
-ms.openlocfilehash: 7d731865ae8da9e1ae9e9f11eef814b86fc10c64
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 45ddc4070e2162715eefab21841d75f1fa2a29e5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>Vue d’ensemble : groupes de basculement et géo-réplication active
 La géo-réplication active vous permet de configurer jusqu'à quatre bases de données secondaires accessibles en lecture dans des emplacements de centres de données identiques ou différents (régions). Les bases de données secondaires sont disponibles pour l’interrogation et le basculement en cas d’indisponibilité d’un centre de données ou l’incapacité à se connecter à la base de données primaire. Le basculement doit être lancé manuellement par l’application de l’utilisateur. Après le basculement, la nouvelle base de données primaire présente un point de terminaison de connexion différent. 

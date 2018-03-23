@@ -1,24 +1,20 @@
 ---
-title: "Bien démarrer avec Azure Automation | Microsoft Docs"
-description: "Cet article fournit une vue d’ensemble du service Azure Automation. Il passe en revue les détails de la conception et de l’implémentation en vue de l’intégration de l’offre à partir de la Place de marché Azure."
+title: Prise en main d'Azure Automation
+description: Cet article fournit une vue d’ensemble du service Azure Automation. Il passe en revue les détails de la conception et de l’implémentation en vue de l’intégration de l’offre à partir de la Place de marché Azure.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: 
-ms.assetid: 
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 08/31/2017
-ms.author: magoedte
-ms.openlocfilehash: d6ee5c35ce9866f6106c7b5dbc51599b666c3eb1
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: dab404178b45828732e137835213046cedaf0d03
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="get-started-with-azure-automation"></a>Prise en main d'Azure Automation
 
@@ -47,6 +43,7 @@ Vous pouvez appliquer les configurations DSC qui sont stockées dans Azure Autom
 
 ## <a name="prerequisites"></a>Prérequis
 
+
 ### <a name="automation-dsc"></a>Automation DSC
 Vous pouvez utiliser Automation DSC pour gérer les machines suivantes :
 
@@ -71,9 +68,9 @@ Quand vous désignez un ordinateur pour exécuter des tâches de runbook hybride
 Pour créer ou mettre à jour un compte Automation et effectuer les tâches décrites dans cet article, vous devez disposer des privilèges et autorisations suivants :   
  
 * Pour créer un compte Automation, votre compte utilisateur Azure Active Directory (Azure AD) doit être ajouté à un rôle disposant d’autorisations équivalentes à celles du rôle Propriétaire pour les ressources **Microsoft.Automation**. Pour plus d’informations, voir [Contrôle d’accès en fonction du rôle dans Azure Automation](automation-role-based-access-control.md).  
-* Dans le portail Azure, sous **Azure Active Directory** > **GÉRER** > **Inscriptions des applications**, si **Inscriptions des applications** a la valeur **Oui**, les utilisateurs non administrateurs dans votre locataire Azure AD peuvent [inscrire les applications Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions). Si **Inscriptions des applications** est défini sur **Non**, l’utilisateur qui effectue cette action doit être administrateur général dans Azure AD. 
+* Dans le portail Azure, sous **Azure Active Directory** > **GÉRER** > **Inscriptions des applications**, si **Inscriptions des applications** a la valeur **Oui**, les utilisateurs non-administrateurs dans votre locataire Azure AD peuvent [inscrire les applications Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions). Si **Inscriptions des applications** est défini sur **Non**, l’utilisateur qui effectue cette action doit être administrateur général dans Azure AD. 
 
-Si vous n’êtes pas membre de l’instance Active Directory de l’abonnement avant d’être ajouté au rôle Administrateur général/Coadministrateur de l’abonnement, vous êtes ajouté à Active Directory en tant qu’invité. Dans ce scénario, la page **Ajouter un compte Automation** affiche le message : « Vous n’avez pas les autorisations pour créer. » 
+Si vous n’êtes pas membre de l’instance Active Directory de l’abonnement avant d’être ajouté au rôle Administrateur général/Coadministrateur de l’abonnement, vous êtes ajouté à Active Directory en tant qu’invité. Dans ce scénario, la page **Ajouter un compte Automation** affiche le message « Vous n’avez pas les autorisations pour créer. » 
 
 Si un utilisateur reçoit d’abord le rôle Administrateur général/Coadministrateur, vous pouvez le supprimer de l’instance Active Directory de l’abonnement, puis le rajouter au rôle Utilisateur complet dans Active Directory.
 
@@ -107,7 +104,7 @@ Quand vous créez un compte Automation dans le portail Azure, deux entités d’
 * **Compte d’identification**. Ce compte effectue les tâches suivantes :
   - Crée un principal de service dans Azure AD.
   - Créer un certificat.
-  - Affecte le rôle RBAC (contrôle d’accès en fonction du rôle) de contributeur qui gère les ressources Azure Resource Manager à l’aide de runbooks.
+  - Affectation du rôle RBAC (contrôle d’accès en fonction du rôle) de contributeur qui gère les ressources Azure Resource Manager à l’aide de runbooks.
 * **Compte d’identification Classic**. Ce compte charge un certificat de gestion. Le certificat sert à gérer les ressources classiques à l’aide de runbooks.
 
 Vous pouvez utiliser le contrôle RBAC avec Resource Manager pour accorder des actions autorisées à un compte d’utilisateur Azure AD et à un compte d’identification. Vous pouvez également utiliser le contrôle RBAC pour authentifier ce principal de service. Pour plus d’informations et pour obtenir de l’aide sur le développement d’un modèle de gestion des autorisations Automation, consultez [l’article Contrôle d’accès en fonction du rôle dans Azure Automation](automation-role-based-access-control.md).  

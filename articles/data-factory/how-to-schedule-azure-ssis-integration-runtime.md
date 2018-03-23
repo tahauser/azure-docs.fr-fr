@@ -1,23 +1,23 @@
 ---
-title: "Guide pratique pour planifier un runtime d’intégration Azure SSIS | Microsoft Docs"
-description: "Cet article explique comment planifier le démarrage et l’arrêt d’un runtime d’intégration Azure SSIS à l’aide d’Azure Automation et de Data Factory."
+title: Guide pratique pour planifier un runtime d’intégration Azure SSIS | Microsoft Docs
+description: Cet article explique comment planifier le démarrage et l’arrêt d’un runtime d’intégration Azure SSIS à l’aide d’Azure Automation et de Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
 manager: jhubbard
-editor: 
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 522e9b6831c31a90337126380ccc9f2cb6d8713b
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 5a9d1ba4d72bc6d4b297695c478438079d34c6e7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Guide pratique pour planifier le démarrage et l’arrêt d’un runtime d’intégration Azure SSIS 
 L’exécution d’un runtime d’intégration (IR) Azure SSIS (SQL Server Integration Services) a un coût. Il est donc souhaitable de n’exécuter le runtime d’intégration que quand vous devez exécuter des packages SSIS dans Azure et de l’arrêter quand vous n’en avez plus besoin. Vous pouvez utiliser l’interface utilisateur de Data Factory ou Azure PowerShell pour [démarrer ou arrêter un runtime d’intégration Azure SSIS manuellement](manage-azure-ssis-integration-runtime.md). Cet article explique comment planifier le démarrage et l’arrêt d’un runtime d’intégration (IR) Azure SSIS à l’aide d’Azure Automation et de Azure Data Factory. Voici les étapes générales décrites dans cet article :
@@ -25,13 +25,14 @@ L’exécution d’un runtime d’intégration (IR) Azure SSIS (SQL Server Integ
 1. **Créer et tester un runbook Azure Automation.** Dans cette étape, vous créez un runbook PowerShell avec le script qui démarre ou arrête un runtime d’intégration Azure SSIS. Ensuite, vous testez le runbook dans des scénarios de démarrage (START) et d’arrêt (STOP) afin de vérifier que le runtime d’intégration démarre ou s’arrête. 
 2. **Créer deux planifications pour le runbook.** Pour la première planification, vous configurez le runbook avec START (Démarrer) comme opération. Pour la seconde planification, configurez le runbook avec STOP (Arrêter) comme opération. Pour les deux planifications, vous spécifiez la cadence à laquelle le runbook est exécuté. Par exemple, vous pouvez planifier l’exécution du premier pour 8h00 chaque jour et celle du second pour 23h00 chaque jour. Quand le premier runbook s’exécute, il démarre le runtime d’intégration Azure SSIS. Quand le second runbook s’exécute, il arrête le runtime d’intégration Azure SSIS. 
 3. **Créer deux Webhooks pour le runbook**, un pour l’opération START (Démarrer) et l’autre pour l’opération STOP (Arrêter). Vous utilisez les URL de ces Webhooks au moment de configurer les activités web dans un pipeline Data Factory. 
-4. **Créer un pipeline Data Factory**. Le pipeline que vous créez se compose de quatre activités. La première activité **Web** appelle le premier Webhook pour démarrer le runtime d’intégration Azure SSIS. L’activité **Attendre** attend pendant 30 minutes (1 800 secondes) que le runtime d’intégration Azure SSIS démarre. L’activité **Procédure stockée** exécute un script SQL qui exécute le package SSIS. La seconde activité **Web** arrête le runtime d’intégration Azure SSIS. Pour plus d’informations sur l’appel d’un package SSIS à partir d’un pipeline Data Factory à l’aide de l’activité Procédure stockée, consultez [Appeler un package SSIS](how-to-invoke-ssis-package-stored-procedure-activity.md). Ensuite, vous créez un déclencheur de planification pour planifier l’exécution du pipeline à la cadence que vous spécifiez.
+4. **Créer un pipeline Data Factory**. Le pipeline que vous créez se compose de trois activités. La première activité **Web** appelle le premier Webhook pour démarrer le runtime d’intégration Azure SSIS. L’activité **Procédure stockée** exécute un script SQL qui exécute le package SSIS. La seconde activité **Web** arrête le runtime d’intégration Azure SSIS. Pour plus d’informations sur l’appel d’un package SSIS à partir d’un pipeline Data Factory à l’aide de l’activité Procédure stockée, consultez [Appeler un package SSIS](how-to-invoke-ssis-package-stored-procedure-activity.md). Ensuite, vous créez un déclencheur de planification pour planifier l’exécution du pipeline à la cadence que vous spécifiez.
 
 > [!NOTE]
 > Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 du service Data Factory, qui est en disponibilité générale, consultez [Appeler un package SSIS à l’aide de l’activité de procédure stockée dans la version 1](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).
 
  
 ## <a name="prerequisites"></a>Prérequis
+
 Si vous n’avez pas déjà provisionné de runtime d’intégration Azure SSIS, provisionnez-le en suivant les instructions indiquées dans ce [didacticiel](tutorial-create-azure-ssis-runtime-portal.md). 
 
 ## <a name="create-and-test-an-azure-automation-runbook"></a>Créer et tester un runbook Azure Automation
@@ -223,12 +224,11 @@ Vous devez avoir deux URL, une pour le Webhook **StartAzureSsisIR** et l’autre
 ## <a name="create-and-schedule-a-data-factory-pipeline-that-startsstops-the-ir"></a>Créer et planifier un pipeline Data Factory qui démarre/arrête le runtime d’intégration
 Cette section montre comment utiliser une activité web pour appeler les Webhooks que vous avez créés dans la section précédente.
 
-Le pipeline que vous créez se compose de quatre activités. 
+Le pipeline que vous créez se compose de trois activités. 
 
 1. La première activité **Web** appelle le premier Webhook pour démarrer le runtime d’intégration Azure SSIS. 
-2. L’activité **Attendre** attend pendant 30 minutes (1 800 secondes) que le runtime d’intégration Azure SSIS démarre. 
-3. L’activité **Procédure stockée** exécute un script SQL qui exécute le package SSIS. La seconde activité **Web** arrête le runtime d’intégration Azure SSIS. Pour plus d’informations sur l’appel d’un package SSIS à partir d’un pipeline Data Factory à l’aide de l’activité Procédure stockée, consultez [Appeler un package SSIS](how-to-invoke-ssis-package-stored-procedure-activity.md). 
-4. La seconde activité **Web** appelle le Webhook pour arrêter le runtime d’intégration Azure SSIS. 
+2. L’activité **Procédure stockée** exécute un script SQL qui exécute le package SSIS. La seconde activité **Web** arrête le runtime d’intégration Azure SSIS. Pour plus d’informations sur l’appel d’un package SSIS à partir d’un pipeline Data Factory à l’aide de l’activité Procédure stockée, consultez [Appeler un package SSIS](how-to-invoke-ssis-package-stored-procedure-activity.md). 
+3. La seconde activité **Web** appelle le Webhook pour arrêter le runtime d’intégration Azure SSIS. 
 
 Après avoir créé et testé le pipeline, vous créez un déclencheur de planification et l’associez au pipeline. Le déclencheur de planification définit une planification pour le pipeline. Supposons que vous créez un déclencheur qui est planifié pour s’exécuter tous les jours à 23h00. Le déclencheur exécute le pipeline à 23h00 chaque jour. Le pipeline démarre le runtime d’intégration Azure SSIS, exécute le package SSIS, puis arrête le runtime d’intégration Azure SSIS. 
 
@@ -279,11 +279,6 @@ Après avoir créé et testé le pipeline, vous créez un déclencheur de planif
     3. Pour **Corps**, entrez `{"message":"hello world"}`. 
    
         ![Première activité Web - Onglet Paramètres](./media/how-to-schedule-azure-ssis-integration-runtime/first-web-activity-settnigs-tab.png)
-4. Dans la boîte à outils **Activités**, développez **Iteration & Conditions** (Itération et conditions), et glissez-déposez l’activité **Attendre** vers la surface du concepteur de pipeline. Sous l’onglet **Général**, changez le nom de l’activité en **WaitFor30Minutes**. 
-5. Passez dans l’onglet **Paramètres** de la fenêtre **Propriétés**. Pour **Temps d’attente en secondes**, entrez **1800**. 
-6. Connectez l’activité **Web** et l’activité **Attendre**. Pour les connecter, faites une opération « glisser » depuis le carré vert associé à l’activité Web jusqu’à l’activité Attendre. 
-
-    ![Connecter les activités Web et Attendre](./media/how-to-schedule-azure-ssis-integration-runtime/connect-web-wait.png)
 5. Glissez-déposez l’activité Procédure stockée depuis la section **Général** de la boîte à outils **Activités**. Nommez l’activité **RunSSISPackage**. 
 6. Passez dans l’onglet **Compte SQL** de la fenêtre **Propriétés**. 
 7. Pour **Service lié**, cliquez sur **+ Nouveau**.
@@ -296,7 +291,7 @@ Après avoir créé et testé le pipeline, vous créez un déclencheur de planif
     5. Dans **Mot de passe**, entrez le mot de passe de l’utilisateur. 
     6. Testez la connexion à la base de données en cliquant sur le bouton **Tester la connexion**.
     7. Enregistrez le service lié en cliquant sur le bouton **Enregistrer**.
-1. Dans la fenêtre **Propriétés**, basculez vers l’onglet **Procédure stockée** à partir de l’onglet **Compte SQL** et effectuez les étapes suivantes : 
+9. Dans la fenêtre **Propriétés**, basculez vers l’onglet **Procédure stockée** à partir de l’onglet **Compte SQL** et effectuez les étapes suivantes : 
 
     1. Pour **Nom de la procédure stockée**, sélectionnez **Modifier**, puis entrez **sp_executesql**. 
     2. Sélectionnez **+ Nouveau** dans la section **Paramètres de procédure stockée**. 
@@ -307,12 +302,37 @@ Après avoir créé et testé le pipeline, vous créez un déclencheur de planif
         Dans la requête SQL, spécifiez les valeurs correctes pour les paramètres **folder_name**, **project_name** et **package_name**. 
 
         ```sql
-        DECLARE @return_value INT, @exe_id BIGINT, @err_msg NVARCHAR(150)    EXEC @return_value=[SSISDB].[catalog].[create_execution] @folder_name=N'<FOLDER name in SSIS Catalog>', @project_name=N'<PROJECT name in SSIS Catalog>', @package_name=N'<PACKAGE name>.dtsx', @use32bitruntime=0, @runinscaleout=1, @useanyworker=1, @execution_id=@exe_id OUTPUT    EXEC [SSISDB].[catalog].[set_execution_parameter_value] @exe_id, @object_type=50, @parameter_name=N'SYNCHRONIZED', @parameter_value=1    EXEC [SSISDB].[catalog].[start_execution] @execution_id=@exe_id, @retry_count=0    IF(SELECT [status] FROM [SSISDB].[catalog].[executions] WHERE execution_id=@exe_id)<>7 BEGIN SET @err_msg=N'Your package execution did not succeed for execution ID: ' + CAST(@exe_id AS NVARCHAR(20)) RAISERROR(@err_msg,15,1) END   
-        ```
-10. Connectez l’activité **Attendre** à l’activité **Procédure stockée**. 
+        DECLARE       @return_value int, @exe_id bigint, @err_msg nvarchar(150)
 
-    ![Connecter les activités Attendre et Procédure stockée](./media/how-to-schedule-azure-ssis-integration-runtime/connect-wait-sproc.png)
-11. Glissez-déposez l’activité **Web** à droite de l’activité **Procédure stockée**. Nommez l’activité **StopIR**. 
+        -- Wait until Azure-SSIS IR is started
+        WHILE NOT EXISTS (SELECT * FROM [SSISDB].[catalog].[worker_agents] WHERE IsEnabled = 1 AND LastOnlineTime > DATEADD(MINUTE, -10, SYSDATETIMEOFFSET()))
+        BEGIN
+            WAITFOR DELAY '00:00:01';
+        END
+
+        EXEC @return_value = [SSISDB].[catalog].[create_execution] @folder_name=N'YourFolder',
+            @project_name=N'YourProject', @package_name=N'YourPackage',
+            @use32bitruntime=0, @runincluster=1, @useanyworker=1,
+            @execution_id=@exe_id OUTPUT 
+
+        EXEC [SSISDB].[catalog].[set_execution_parameter_value] @exe_id, @object_type=50, @parameter_name=N'SYNCHRONIZED', @parameter_value=1
+
+        EXEC [SSISDB].[catalog].[start_execution] @execution_id = @exe_id, @retry_count = 0
+
+        -- Raise an error for unsuccessful package execution, check package execution status = created (1)/running (2)/canceled (3)/failed (4)/
+        -- pending (5)/ended unexpectedly (6)/succeeded (7)/stopping (8)/completed (9) 
+        IF (SELECT [status] FROM [SSISDB].[catalog].[executions] WHERE execution_id = @exe_id) <> 7 
+        BEGIN
+            SET @err_msg=N'Your package execution did not succeed for execution ID: '+ CAST(@execution_id as nvarchar(20))
+            RAISERROR(@err_msg, 15, 1)
+        END
+
+        ```
+10. Connectez l’activité **Web** à l’activité **Procédure stockée**. 
+
+    ![Connecter les activités Web et Procédure stockée](./media/how-to-schedule-azure-ssis-integration-runtime/connect-web-sproc.png)
+
+11. Glissez-déposez une autre activité **Web** à droite de l’activité **Procédure stockée**. Nommez l’activité **StopIR**. 
 12. Passez dans l’onglet **Paramètres** de la fenêtre **Propriétés**, puis effectuez les actions suivantes : 
 
     1. Pour **URL**, collez l’URL du Webhook qui arrête le runtime d’intégration Azure SSIS. 
@@ -372,7 +392,7 @@ Le pipeline fonctionnant comme prévu, vous pouvez créer un déclencheur pour l
 6. Pour surveiller les exécutions du déclencheur et du pipeline, utilisez l’onglet **Surveiller** sur la gauche. Pour obtenir des instructions détaillées, consultez [Surveiller le pipeline](quickstart-create-data-factory-portal.md#monitor-the-pipeline).
 
     ![Exécutions de pipeline](./media/how-to-schedule-azure-ssis-integration-runtime/pipeline-runs.png)
-7. Pour voir les exécutions d’activité associées à l’exécution d’un pipeline, sélectionnez le premier lien (**Voir les exécutions d’activités**) dans la colonne **Actions**. Vous voyez les quatre exécutions d’activité associées à chaque activité dans le pipeline (première activité Web, activité Attendre, activité Procédure stockée et seconde activité Web). Pour revenir à l’affichage des exécutions du pipeline, sélectionnez le lien **Pipelines** en haut.
+7. Pour voir les exécutions d’activité associées à l’exécution d’un pipeline, sélectionnez le premier lien (**Voir les exécutions d’activités**) dans la colonne **Actions**. Affichez les trois exécutions d’activités associées à chaque activité dans le pipeline (première activité Web, activité Procédure stockée et deuxième activité Web). Pour revenir à l’affichage des exécutions du pipeline, sélectionnez le lien **Pipelines** en haut.
 
     ![Exécutions d’activités](./media/how-to-schedule-azure-ssis-integration-runtime/activity-runs.png)
 8. Vous pouvez également afficher les exécutions de déclencheur en sélectionnant **Exécutions du déclencheur** dans la liste déroulante en regard **d’Exécutions du pipeline** en haut. 

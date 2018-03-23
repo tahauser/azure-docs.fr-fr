@@ -1,23 +1,20 @@
 ---
-title: "Exemple d’application mutualisée Azure SQL Database - SaaS Wingtip | Microsoft Docs"
-description: "Apprendre à l’aide d’un exemple d’application mutualisée utilisant l’exemple Azure SQL Database - SaaS Wingtip"
-keywords: "didacticiel sur les bases de données SQL"
+title: Exemple d’application mutualisée Azure SQL Database - SaaS Wingtip | Microsoft Docs
+description: Apprendre à l’aide d’un exemple d’application mutualisée utilisant l’exemple Azure SQL Database - SaaS Wingtip
+keywords: didacticiel sur les bases de données SQL
 services: sql-database
 author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: sstein
-ms.openlocfilehash: 2871d2b1208013808958e8a5b0c62fce31af86ec
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 451e1fc87fc5f626e78760d8cd5c4115ea02bb0d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="introduction-to-a-multi-tenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Présentation d’une application SaaS mutualisée qui utilise le modèle de base de données par locataire avec SQL Database
 

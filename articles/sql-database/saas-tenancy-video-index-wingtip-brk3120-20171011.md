@@ -1,35 +1,29 @@
 ---
-title: "Vidéo indexée, application SQL SaaS Azure | Microsoft Docs"
-description: "Cet article indexe plusieurs points de temps dans notre vidéo de 81 minutes sur la conception de l’application de location de bases de données SaaS, depuis la conférence Ignite qui s’est tenue le 11 octobre 2017. Vous pouvez directement à la partie qui vous intéresse. Au moins 3 modèles sont décrits. Fonctionnalités Azure qui simplifient le développement et la gestion sont décrites."
-ms.custom: 
+title: Vidéo indexée, application SQL SaaS Azure | Microsoft Docs
+description: Cet article de la conférence Ignite, qui s’est tenue le 11 octobre 2017, indexe plusieurs points de temps dans notre vidéo de 81 minutes sur la conception de l’application de location de bases de données SaaS. Vous pouvez passer directement à la partie qui vous intéresse. Au moins 3 modèles sont décrits. Fonctionnalités Azure qui simplifient le développement et la gestion sont décrites.
+services: sql-database
 ms.date: 12/06/2017
-ms.prod: 
 ms.service: sql-database
 ms.reviewer: billgib
-ms.suite: 
-ms.technology:
-- database-engine
-ms.tgt_pltfrm: 
 ms.topic: article
 author: MightyPen
 ms.author: genemi
 manager: craigg
-ms.workload: Inactive
-ms.openlocfilehash: 5e8d5467e676ee178b77c02e387bdfd2c54e6071
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0d9182abda03aef3ffe35e10114fa045d8b0ca74
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="video-indexed-and-annotated-for-mulit-tenant-saas-app-using-azure-sql-database"></a>Vidéo indexée et annotée pour l’application SaaS multi-locataire à l’aide d’Azure SQL Database
 
-Cet article est un index annoté dans les emplacements de temps d’une vidéo de 81 minutes sur les modèles ou motifs de location SaaS. Cet article vous permet de faire défiler la vidéo en avant ou en arrière jusqu’à la partie qui vous intéresse. La vidéo explique les options de conception importantes pour une application de base de données multi-locataire sur Azure SQL Database. La vidéo inclut des démonstrations, des guides de code de gestion et propose des informations plus détaillées par l’expérience que notre documentation écrite.
+Cet article est un index annoté dans les emplacements de temps d’une vidéo de 81 minutes sur les modèles ou motifs de location SaaS. Cet article vous permet de faire défiler la vidéo en avant ou en arrière jusqu’à la partie qui vous intéresse. La vidéo explique les options de conception importantes pour une application de base de données multi-locataire sur Azure SQL Database. La vidéo inclut des démonstrations, des guides de code de gestion et propose plus d'informations basées sur l’expérience que n'en contient notre documentation écrite.
 
 La vidéo amplifie les informations de notre documentation écrite, par exemple : 
 - *Conceptuelles :* [modèles de location de base de données SaaS multi-locataire][saas-concept-design-patterns-563e]
 - *Didacticiels :* [l’application SaaS Wingtip Tickets][saas-how-welcome-wingtip-app-679t]
 
-La vidéo et les articles décrivent les différentes phases de création d’une application multi-locataire sur Azure SQL Database dans le cloud. Des fonctionnalités spéciales de Azure SQL Database facilitent le développement et la mise en œuvre des applications multi-locataires, toutes les deux plus faciles à gérer et performantes en toute confiance.
+La vidéo et les articles décrivent les différentes phases de création d’une application multi-locataire sur Azure SQL Database dans le cloud. Des fonctionnalités spéciales de Azure SQL Database facilitent le développement et la mise en œuvre des applications multi-locataires, toutes les deux plus faciles à gérer et fonctionnant de façon fiable.
 
 Nous mettons à jour régulièrement notre documentation écrite. La vidéo n’est pas modifiée ni mise à jour, par conséquent, davantage d’informations peuvent devenir obsolètes.
 
@@ -54,7 +48,7 @@ Les titres suivants sont des liens vers leurs sections annotées correspondantes
 - [6. Coût par locataire (mise à l’échelle, isolation, récupération), 0:09:31](#anchor-image-wtip-min00931)
 - [7. Modèles de bases de données pour multi-locataire : pour et contre, 0:11:59](#anchor-image-wtip-min01159)
 - [8. Le modèle hybride mélange des avantages de MT/ST, 0:13:01](#anchor-image-wtip-min01301)
-- [9. Locataire unique contre multi-locataire : pour et contre, 0:16:44](#anchor-image-wtip-min01644)
+- [9. Locataire unique et multi-locataire : le pour et le contre, 0:16:44](#anchor-image-wtip-min01644)
 - [10. Les pools sont rentables pour des charges de travail non prévisibles, 0:19:36](#anchor-image-wtip-min01936)
 - [11. Démonstration de ST/MT de base de données par locataire et hybrides, 0:20:08](#anchor-image-wtip-min02008)
 - [12. Formulaire d’application en direct affichant Dojo, 0:20:29](#anchor-image-wtip-min02029)
@@ -147,12 +141,12 @@ Cliquer sur une image de la capture d’écran vous permet d’extraire l’empl
 
 
 &nbsp;<a name="anchor-image-wtip-min01644"/>
-#### <a name="9-single-tenant-vs-multi-tenant-pros-and-cons-01311"></a>9. Locataire unique contre multi-locataire : pour et contre, 0:13:11
-[![Locataire unique contre multi-locataire : pour et contre][image-wtip-min01644-st-vs-mt]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=791)
+#### <a name="9-single-tenant-vs-multi-tenant-pros-and-cons-01311"></a>9. Locataire unique et multi-locataire : le pour et le contre, 0:13:11
+[![Locataire unique et multi-locataire : le pour et le contre][image-wtip-min01644-st-vs-mt]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=791)
 
 
 &nbsp;<a name="anchor-image-wtip-min01936"/>
-#### <a name="10-pools-are-cost-effective-for-unpredictable-workloads-01749"></a>10. Les pools sont rentables pour des charges de travail non prévisibles, 0:17:49
+#### <a name="10-pools-are-cost-effective-for-unpredictable-workloads-01749"></a>10. Les pools sont rentables pour des charges de travail non prédictibles, 0:17:49
 [![Les pools sont rentables pour des charges de travail non prévisibles][image-wtip-min01936-pools-cost]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=1069)
 
 
@@ -334,7 +328,7 @@ Cliquer sur une image de la capture d’écran vous permet d’extraire l’empl
 
 [image-wtip-min01301-hybrid]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min01301-hybrib-model-blends-benefits-mt-st.png "Le modèle hybride mélange des avantages de MT/ST"
 
-[image-wtip-min01644-st-vs-mt]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min01644-st-mt-pros-cons.png "Locataire unique contre multi-locataire : pour et contre"
+[image-wtip-min01644-st-vs-mt]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min01644-st-mt-pros-cons.png "Locataire unique et multi-locataire : le pour et le contre"
 
 [image-wtip-min01936-pools-cost]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min01936-pools-cost-effective-unpredictable-workloads.png "Les pools sont rentables pour des charges de travail non prévisibles"
 

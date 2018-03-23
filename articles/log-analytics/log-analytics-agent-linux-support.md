@@ -1,24 +1,24 @@
 ---
-title: "Résoudre les problèmes liés à l’agent Linux pour Azure Log Analytics | Microsoft Docs"
-description: "Décrit les symptômes, les causes et les solutions aux problèmes courants liés à l’agent Linux pour Log Analytics."
+title: Résoudre les problèmes liés à l’agent Linux pour Azure Log Analytics | Microsoft Docs
+description: Décrit les symptômes, les causes et les solutions aux problèmes courants liés à l’agent Linux pour Log Analytics.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 03/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 895a77a66f50b4c5217ec7d672f6441b85bf1856
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 80d7e39b284554ebfa8cac4488e1663b3e3648e8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-troubleshoot-issues-with-the-linux-agent-for-log-analytics"></a>Guide pratique pour résoudre les problèmes liés à l’agent Linux pour Log Analytics
 
@@ -37,12 +37,12 @@ Cet article aide à dépanner les erreurs que vous pourriez rencontrer avec Linu
 2. Pour vérifier que vous avez correctement configuré l’agent de manière à communiquer via un serveur proxy, consultez la section [Mettre à jour les paramètres du proxy](log-analytics-agent-manage.md#update-proxy-settings).    
 * Vérifiez que les points de terminaison suivants du service Log Analytics figurent dans la liste verte :
 
-    |Ressource de l'agent| Ports |  
-    |------|---------|  
-    |*.ods.opinsights.azure.com | Port 443|   
-    |*.oms.opinsights.azure.com | Port 443|   
-    |ods.systemcenteradvisor.com | Port 443|   
-    |*.blob.core.windows.net/ | Port 443|   
+    |Ressource de l'agent| Ports | Direction |
+    |------|---------|----------|  
+    |*.ods.opinsights.azure.com | Port 443| Trafic entrant et sortant |  
+    |*.oms.opinsights.azure.com | Port 443| Trafic entrant et sortant |  
+    |*.blob.core.windows.net | Port 443| Trafic entrant et sortant |  
+    |* .azure-automation.net | Port 443| Trafic entrant et sortant | 
 
 ## <a name="issue-you-receive-a-403-error-when-trying-to-onboard"></a>Problème : Vous recevez une erreur 403 lorsque vous tentez d’effectuer l’intégration
 

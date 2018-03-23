@@ -1,26 +1,19 @@
 ---
-title: "Concevez votre première solution Azure SQL Database | Microsoft Docs"
-description: "Apprenez à concevoir votre première base de données Azure SQL Database dans le portail Azure avec SQL Server Management Studio."
+title: Concevez votre première solution Azure SQL Database | Microsoft Docs
+description: Apprenez à concevoir votre première base de données Azure SQL Database dans le portail Azure avec SQL Server Management Studio.
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,develop databases
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: Active
-ms.date: 01/29/2018
+ms.date: 03/15/2018
 ms.author: carlrab
-ms.openlocfilehash: 52ec8afa693e6ac3c8c73f070f748a01116ec68f
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 12301d46b497b49032b1b8bdefe2056a7df143d1
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="design-your-first-azure-sql-database"></a>Concevoir votre première base de données SQL Azure
 
@@ -37,7 +30,8 @@ Azure SQL Database est une solution DBaaS relationnelle gérée dans Microsoft 
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour suivre ce didacticiel, vérifiez que les éléments suivants sont installés :
 - La dernière version de [SSMS](https://msdn.microsoft.com/library/ms174173.aspx) (SQL Server Management Studio).

@@ -1,31 +1,27 @@
 ---
-title: "Utilisation de Node.js pour interroger Azure SQL Database | Microsoft Docs"
-description: "Cette rubrique vous explique comment utiliser Node.js pour créer un programme qui se connecte à une base de données SQL Azure et l’interroger à l’aide d’instructions Transact-SQL."
+title: Utilisation de Node.js pour interroger Azure SQL Database | Microsoft Docs
+description: Cette rubrique vous explique comment utiliser Node.js pour créer un programme qui se connecte à une base de données SQL Azure et l’interroger à l’aide d’instructions Transact-SQL.
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: 53f70e37-5eb4-400d-972e-dd7ea0caacd4
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,develop apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 07/06/2017
 ms.author: carlrab
-ms.openlocfilehash: fc7bc80e332afeb284f9e71609d1d02b8193b6f7
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 3f28f360eda52087c8fca841bbd0a6804185813f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-nodejs-to-query-an-azure-sql-database"></a>Utilisation de Node.js pour interroger une base de données SQL Azure
 
 Ce didacticiel de démarrage rapide montre comment utiliser [Node.js](https://nodejs.org/en/) pour créer un programme qui se connecte à une base de données SQL Azure et utiliser des instructions Transact-SQL pour interroger des données.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour suivre ce didacticiel de démarrage rapide, vérifiez que vous avez :
 
@@ -115,7 +111,7 @@ Ouvrez une invite de commandes et créez un dossier nommé *sqltest*. Accédez a
       }
 ```
 
-## <a name="run-the-code"></a>Exécution du code
+## <a name="run-the-code"></a>Exécuter le code
 
 1. Exécutez ensuite les commandes suivantes dans l’invite de commandes :
 

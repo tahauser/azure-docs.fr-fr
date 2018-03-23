@@ -1,23 +1,23 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à People | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et People."
+title: 'Didacticiel : Intégration d’Azure Active Directory à People | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et People.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: 7c9b6202-11dd-4bb6-a679-8fb0a7a0ef4e
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 03/06/2017
 ms.author: jeedes
-ms.openlocfilehash: cf3c633aec5fd55d3525c0e010e1aca68407ef33
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a76701e23771efa79ef39ebd6deb29cec8acaa8a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-people"></a>Didacticiel : Intégration d’Azure Active Directory à People
 
@@ -27,11 +27,12 @@ L’intégration de People à Azure AD vous offre les avantages suivants :
 
 - Dans Azure AD, vous pouvez contrôler qui a accès à People
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à People (via l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure
+- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure.
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD à People, vous avez besoin des éléments suivants :
 
@@ -47,7 +48,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de People à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -63,11 +64,11 @@ Pour configurer l’intégration de People à Azure AD, vous devez ajouter Peopl
 
 2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
-    ![Applications][2]
+    ![APPLICATIONS][2]
     
 3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-    ![Applications][3]
+    ![APPLICATIONS][3]
 
 4. Dans la zone de recherche, tapez **People**.
 
@@ -89,7 +90,7 @@ Pour configurer et tester l’authentification unique Azure AD avec People, vous
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test People](#creating-a-people-test-user)** pour obtenir un équivalent de Britta Simon dans People lié à la représentation Azure AD associée.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
@@ -100,46 +101,46 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 1. Dans le Portail Azure, sur la page d’intégration de l’application **People**, cliquez sur **Authentification unique**.
 
-    ![Configurer l’authentification unique][4]
+    ![Configure Single Sign-On][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configurer l’authentification unique](./media/active-directory-saas-people-tutorial/tutorial_people_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-people-tutorial/tutorial_people_samlbase.png)
 
 3. Dans la section **Domaine et URL People**, procédez comme suit :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-people-tutorial/tutorial_people_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-people-tutorial/tutorial_people_url.png)
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<company name>.peoplehr.com/`
+    a. Dans la zone de texte **URL d’authentification**, tapez une URL en utilisant le modèle suivant : `https://<company name>.peoplehr.net`
 
-    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://www.peoplehr.com`
+    b. Dans la zone de texte **Identificateur**, tapez l’URL : `https://www.peoplehr.com`
 
-    c. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<company name>.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx`
-
-    > [!NOTE] 
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez l’[équipe du support technique People](mailto:customerservices@peoplehr.com).
+    c. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<company name>.peoplehr.net/Pages/Saml/ConsumeAzureAD.aspx`
+    
+    > [!NOTE]
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’URL de connexion réelles. Pour obtenir ces valeurs, contactez l’[équipe du support technique People](mailto:customerservices@peoplehr.com). 
 
 5. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-people-tutorial/tutorial_people_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-people-tutorial/tutorial_people_certificate.png) 
 
 6. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-people-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-people-tutorial/tutorial_general_400.png)
     
 7. Pour que l’authentification unique soit configurée pour votre application, vous devez vous connecter à votre locataire People en tant qu’administrateur.
    
 8. Dans le menu sur le côté gauche, cliquez sur **Paramètres**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-people-tutorial/tutorial_people_001.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-people-tutorial/tutorial_people_001.png)
 
 9. Cliquez sur **Company**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-people-tutorial/tutorial_people_002.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-people-tutorial/tutorial_people_002.png)
 
 10. Dans **Importer le fichier de métadonnées SAML « Authentification unique »**, cliquez sur **Parcourir** pour importer le fichier de métadonnées téléchargé.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-people-tutorial/tutorial_people_003.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-people-tutorial/tutorial_people_003.png)
 
 > [!TIP]
 > Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -174,7 +175,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
 
-    d. Cliquez sur **Create**.
+    d. Cliquez sur **Créer**.
  
 ### <a name="creating-a-people-test-user"></a>Création d’un utilisateur de test People
 
@@ -194,7 +195,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **People**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-people-tutorial/tutorial_people_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-people-tutorial/tutorial_people_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 

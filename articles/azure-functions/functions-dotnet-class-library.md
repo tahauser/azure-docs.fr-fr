@@ -1,13 +1,13 @@
 ---
-title: "Informations de référence pour les développeurs C# sur Azure Functions"
-description: "Découvrez comment développer sur Azure Functions à l’aide de C#."
+title: Informations de référence pour les développeurs C# sur Azure Functions
+description: Découvrez comment développer sur Azure Functions à l’aide de C#.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure functions, fonctions, traitement des événements, webhooks, calcul dynamique, architecture sans serveur"
+editor: ''
+tags: ''
+keywords: azure functions, fonctions, traitement des événements, webhooks, calcul dynamique, architecture sans serveur
 ms.service: functions
 ms.devlang: dotnet
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 9e9aa8a36d363ce28d61c5ba3cfe758520a626cf
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 70c4d6276970a781517fe49ec47e9b2ddb884c78
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-functions-c-developer-reference"></a>Informations de référence pour les développeurs C# sur Azure Functions
 
@@ -134,7 +134,50 @@ Le fichier *function.json* généré inclut une propriété `configurationSource
 }
 ```
 
-La génération du fichier *function.json* est effectuée par le package NuGet [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). Le code source est disponible dans le référentiel GitHub [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
+### <a name="microsoftnetsdkfunctions-nuget-package"></a>Package NuGet de Microsoft.NET.Sdk.Functions
+
+La génération du fichier *function.json* est effectuée par le package NuGet [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
+
+Le même package est utilisé pour les versions 1.x et 2.x du runtime Functions. Le framework cible est ce qui différencie un projet 1.x d’un projet 2.x. Voici les parties correspondantes des fichiers *.csproj*, qui montrent les frameworks cibles et le même package `Sdk` :
+
+**Functions 1.x**
+
+```xml
+<PropertyGroup>
+  <TargetFramework>net461</TargetFramework>
+</PropertyGroup>
+<ItemGroup>
+  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.8" />
+</ItemGroup>
+```
+
+**Functions 2.x**
+
+```xml
+<PropertyGroup>
+  <TargetFramework>netstandard2.0</TargetFramework>
+  <AzureFunctionsVersion>v2</AzureFunctionsVersion>
+</PropertyGroup>
+<ItemGroup>
+  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.8" />
+</ItemGroup>
+```
+
+Parmi les dépendances de package `Sdk` figurent les déclencheurs et les liaisons. Un projet 1.x référence des liaisons et des déclencheurs 1.x parce que ceux-ci ciblent le .NET Framework, alors que les liaisons et les déclencheurs 2.x ciblent .NET Core.
+
+Le package `Sdk` dépend également de [Newtonsoft.Json](http://www.nuget.org/packages/Newtonsoft.Json) et indirectement de [WindowsAzure.Storage](http://www.nuget.org/packages/WindowsAzure.Storage). Ces dépendances garantissent que votre projet utilise des versions de package compatibles avec la version du runtime Functions qui est ciblée par le projet. Par exemple, `Newtonsoft.Json` a la version 11 pour .NET Framework 4.6.1, mais le runtime Functions qui cible .NET Framework 4.6.1 est compatible uniquement avec `Newtonsoft.Json` 9.0.1. Par conséquent, le code de fonction de votre projet doit également utiliser `Newtonsoft.Json` 9.0.1.
+
+Le code source de `Microsoft.NET.Sdk.Functions` est disponible dans le dépôt GitHub [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
+
+### <a name="runtime-version"></a>Version du runtime
+
+Visual Studio utilise les outils [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) pour exécuter les projets Functions. Ils constituent l’interface de ligne de commande du runtime Functions.
+
+L’installation des outils Core Tools à l’aide de npm n’affecte pas la version de Core Tools utilisée par Visual Studio. Pour le runtime Functions version 1.x, Visual Studio stocke les versions de Core Tools dans *%USERPROFILE%\AppData\Local\Azure.Functions.Cli* et utilise la dernière version stockée. Pour Functions 2.x, les outils Core Tools sont inclus dans l’extension **Azure Functions and Web Jobs Tools**. Pour les versions 1.x et 2.x, vous pouvez voir quelle version est utilisée dans la sortie de console lorsque vous exécutez un projet Functions :
+
+```terminal
+[3/1/2018 9:59:53 AM] Starting Host (HostId=contoso2-1518597420, Version=2.0.11353.0, ProcessId=22020, Debug=False, Attempt=0, FunctionsExtensionVersion=)
+```
 
 ## <a name="supported-types-for-bindings"></a>Types pris en charge pour les liaisons
 

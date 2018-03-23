@@ -1,25 +1,20 @@
 ---
-title: "Configuration de la sécurité du fractionnement et de la fusion | Microsoft Docs"
-description: "Configurez des certificats x409 pour le chiffrement à l’aide du service de fractionnement/fusion pour la mise à l’échelle élastique."
+title: Configuration de la sécurité du fractionnement et de la fusion | Microsoft Docs
+description: Configurez des certificats x409 pour le chiffrement à l’aide du service de fractionnement/fusion pour la mise à l’échelle élastique.
 metakeywords: Elastic Database certificates security
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: torsteng
-ms.assetid: f9e89c57-61a0-484f-b787-82dae2349cb6
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
-ms.author: torsteng
-ms.openlocfilehash: 98f046a943c1fe33b421b3ab6830d78e6c4304a0
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.author: sstein
+ms.openlocfilehash: c07ba1e74daace546bae4f4209842312136914a3
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="split-merge-security-configuration"></a>Configuration de la sécurité du fractionnement et de la fusion
 Pour utiliser le service de fusion et de fractionnement, vous devez configurer correctement la sécurité. Ce service fait partie de la fonctionnalité d’infrastructure élastique de la base de données SQL Microsoft Azure. Pour plus d’informations, consultez le [didacticiel sur le service de fusion et de fractionnement de l’infrastructure élastique](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
@@ -407,7 +402,7 @@ Dans l’ **Assistant Exportation de certificat**:
 5. Vérifiez les options de votre choix.
 6. Vérifiez le **mot de passe**.
 7. Entrez un mot de passe fort et confirmez-le.
-8. Cliquez sur **Next**.
+8. Cliquez sur **Suivant**.
 9. Tapez ou sélectionnez un nom de fichier dans lequel stocker le certificat (utilisez une extension .PFX).
 10. Cliquez sur **Next**.
 11. Cliquez sur **Terminer**.
@@ -420,7 +415,7 @@ Dans l'Assistant Importation de certificat :
    
    * Sélectionnez **Utilisateur actuel** si seuls les processus s’exécutant sous l’utilisateur actuel accèdent au service.
    * Sélectionnez **Ordinateur local** si d’autres processus de cet ordinateur accèdent au service
-2. Cliquez sur **Next**.
+2. Cliquez sur **Suivant**.
 3. Si vous importez depuis un fichier, vérifiez le chemin d’accès.
 4. Si vous importez depuis un fichier .PFX :
    1. Entrez le mot de passe protégeant la clé privée

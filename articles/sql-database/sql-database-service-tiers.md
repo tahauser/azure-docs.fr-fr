@@ -1,30 +1,26 @@
 ---
 title: Service Azure SQL Database | Microsoft Docs
-description: "Découvrez les niveaux de service des bases de données uniques du pool qui permettent de fournir divers niveaux de performance et diverses tailles de stockage."
-keywords: 
+description: Découvrez les niveaux de service des bases de données uniques du pool qui permettent de fournir divers niveaux de performance et diverses tailles de stockage.
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: f5c5c596-cd1e-451f-92a7-b70d4916e974
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Active
-ms.date: 02/26/2018
+ms.date: 03/15/2018
 ms.author: carlrab
-ms.openlocfilehash: b36af32d900f9426424dd08c43946e7dcb5b39b9
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 6153616de763eee1b20fff40d38816eca8b455de
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>Quels sont les niveaux de service Azure SQL Database ?
 
-[Azure SQL Database](sql-database-technical-overview.md) offre les niveaux de service **De base**, **Standard** et **Premium** pour les [bases de données uniques](sql-database-single-database-resources.md) et les [pools élastiques](sql-database-elastic-pool.md). Les niveaux de service sont principalement différenciés par la plage de niveau de performance, les options de taille de stockage et le prix.  Tous les niveaux de service fournissent une grande souplesse dans la modification de la taille de stockage et le niveau de performance.  Les bases de données uniques et les pools élastiques sont facturés en fonction du niveau de service, du niveau de performance et de la taille de stockage.   
+[Azure SQL Database](sql-database-technical-overview.md) offre les niveaux de service **De base**, **Standard** et **Premium** pour les [bases de données uniques](sql-database-single-database-resources.md) et les [pools élastiques](sql-database-elastic-pool.md). SQL Database offre un niveau de service d’usage général pour [Azure SQL Database Managed Instance](sql-database-managed-instance.md#managed-instance-service-tier). Les niveaux de service sont principalement différenciés par la plage de niveau de performance, les options de taille de stockage et le prix.  Tous les niveaux de service fournissent une grande souplesse dans la modification de la taille de stockage et le niveau de performance.  Les bases de données uniques et les pools élastiques sont facturés en fonction du niveau de service, du niveau de performance et de la taille de stockage.   
+
+> [!IMPORTANT]
+> SQL Database Managed Instance, actuellement en préversion publique, offre un niveau de service unique d’usage général. Pour plus d’informations, consultez [Azure SQL Database Managed Instance](sql-database-managed-instance.md). Le reste de cet article ne s’applique pas à Managed Instance.
 
 ## <a name="choosing-a-service-tier"></a>Choix d’un niveau de service
 

@@ -1,26 +1,20 @@
 ---
-title: "Didacticiel SaaS du modèle de base de données par locataire - Azure SQL Database | Microsoft Docs"
-description: "Déployez et explorez l’application multi-locataire Wingtip Tickets SaaS, qui illustre le modèle de base de données par locataire et d’autres modèles SaaS, en utilisant Azure SQL Database."
-keywords: "didacticiel sur les bases de données SQL"
+title: Didacticiel SaaS du modèle de base de données par locataire - Azure SQL Database | Microsoft Docs
+description: Déployez et explorez l’application multi-locataire Wingtip Tickets SaaS, qui illustre le modèle de base de données par locataire et d’autres modèles SaaS, en utilisant Azure SQL Database.
+keywords: didacticiel sur les bases de données SQL
 services: sql-database
-documentationcenter: 
 author: MightyPen
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: genemi
-ms.openlocfilehash: cbe8a04abbf2dada7cc43e57e823c3a41bf83fe7
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8aa4c8691093779bd8febee80fca88efad93dc00
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-and-explore-a-multi-tenant-saas-application-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Déployer et explorer une application multi-locataire SaaS qui illustre le modèle de base de données par locataire avec Azure SQL Database
 
@@ -44,6 +38,7 @@ Ces scripts montrent comment les fonctionnalités de SQL Database simplifient le
 
 ## <a name="prerequisites"></a>Prérequis
 
+
 Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis :
 
 * Azure PowerShell est installé. Pour plus d’informations, consultez [Prise en main d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
@@ -52,9 +47,9 @@ Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis 
 
 #### <a name="plan-the-names"></a>Planifier les noms
 
-Dans les étapes de cette section, vous fournissez une valeur *utilisateur* qui permet de s’assurer que les noms des ressources sont globalement uniques, et un nom pour le *groupe de ressources* qui contient toutes les ressources créées par un déploiement de l’application. Pour une personne nommée *Ann Finley*, nous vous suggérons :
-- *Utilisateur :* **af1**  *(initiales, plus un chiffre. Utilisez une valeur différente (par exemple, af2) si vous déployez l’application une deuxième fois.)*
-- *Groupe de ressources :* **wingtip-dpt-af1** *(wingtip-dpt indique qu’il s’agit de l’application de base de données par client. L’ajout du af1 au nom d’utilisateur correspond au nom du groupe de ressources avec les noms des ressources qu’il contient.)*
+Les étapes de cette section vous permettent de fournir une valeur *utilisateur* utilisée pour garantir que les noms de ressources sont globalement uniques et un nom du *groupe de ressources* qui contient toutes les ressources créées par un déploiement de l’application. Pour une personne nommée *Ann Finley*, nous vous suggérons :
+- *Utilisateur :* **af1**  *(ses initiales, plus un chiffre. Utilisez une valeur différente (par exemple, af2) si vous déployez l’application une deuxième fois.)*
+- *Groupe de ressources :* **wingtip-dpt-af1** *(wingtip-dpt indique qu’il s’agit de l’application de base de données par client. L’ajout de af1 au nom d’utilisateur correspond au nom du groupe de ressources avec les noms des ressources qu’il contient.)*
 
 Choisissez vos noms maintenant et notez-les. 
 

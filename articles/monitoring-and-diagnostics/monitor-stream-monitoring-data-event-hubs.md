@@ -1,9 +1,9 @@
 ---
-title: "Diffuser des données de surveillance Azure vers Event Hubs | Microsoft Docs"
-description: "Découvrez comment diffuser toutes vos données de surveillance Azure vers un hub d’événements afin de les intégrer à un système SIEM ou à un outil d’analytique partenaire."
+title: Diffuser des données de surveillance Azure vers Event Hubs | Microsoft Docs
+description: Découvrez comment diffuser toutes vos données de surveillance Azure vers un hub d’événements afin de les intégrer à un système SIEM ou à un outil d’analytique partenaire.
 author: johnkemnetz
 manager: robb
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.service: monitoring-and-diagnostics
@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/13/2018
+ms.date: 3/05/2018
 ms.author: johnkem
-ms.openlocfilehash: d449be98cd59756e2bafc584e0501b8c83c594eb
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 1b1c50f106be8848fb1f32deefa6cb9acb7a298a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Diffuser des données de surveillance Azure vers un hub d’événements pour les utiliser dans un outil externe
 
@@ -36,7 +36,18 @@ Au sein de votre environnement Azure, il existe plusieurs « couches » de donn�
 
 Vous pouvez envoyer les données de toutes les couches vers un hub d’événements, duquel elles pourront être extraites par un outil partenaire. Les sections suivantes expliquent comment configurer les données de chaque couche de sorte qu’elles soient diffusées vers un hub d’événements. Ces étapes supposent que cette couche contient déjà des ressources à surveiller.
 
-Avant de commencer, vous devez [créer un espace de noms et un hub Event Hubs](../event-hubs/event-hubs-create.md). Cet espace de noms et ce hub d’événements constituent la destination de toutes vos données de surveillance.
+## <a name="set-up-an-event-hubs-namespace"></a>Configurer un espace de noms Event Hubs
+
+Avant de commencer, vous devez [créer un espace de noms Event Hubs et un hub d’événements](../event-hubs/event-hubs-create.md). Cet espace de noms et ce hub d’événements constituent la destination de toutes vos données de surveillance. Un espace de noms Event Hubs est un regroupement logique de hubs d’événements qui partagent une même stratégie d’accès, tout comme un compte de stockage contient des objets blob. Notez les points suivants concernant l’espace de noms Event Hubs et les hubs d’événements que vous créez :
+* Nous recommandons d’utiliser un espace de noms Event Hubs standard.
+* En règle générale, une seule unité de débit est nécessaire. Si vous avez besoin de plus pour répondre à l’augmentation de l’utilisation de votre journal, vous pouvez augmenter manuellement le nombre d’unités de débit pour l’espace de noms ou activer l’inflation automatique.
+* Le nombre d’unités de débit vous permet d’augmenter l’échelle de débit de vos hubs d’événements. Le nombre de partitions vous permet de paralléliser la consommation sur un grand nombre de consommateurs. Une seule partition peut atteindre jusqu’à 20 Mbits/s, soit environ 20 000 messages par seconde. En fonction de l’outil qui consomme les données, la consommation simultanée de plusieurs partitions risque de ne pas être prise en charge. Si vous n’êtes pas sûr du nombre de partitions à définir, il est recommandé de commencer avec quatre partitions.
+* Il est également recommandé de définir la conservation des messages de votre hub d’événements sur 7 jours. Si l’outil consommateur est en panne pendant plus d’un jour, cela garantit qu’il pourra reprendre là où il s’est arrêté (pour les événements des 7 derniers jours).
+* Il est recommandé d’utiliser le groupe de consommateurs par défaut pour votre hub d’événements. Il n’est pas nécessaire de créer d’autres groupes de consommateurs ou d’utiliser un groupe de consommateurs distinct, sauf si deux outils doivent utiliser les mêmes données d’un même hub d’événements.
+* Pour le journal des activités Azure, vous pouvez choisir un espace de noms Event Hubs pour qu’Azure Monitor y crée un hub d’événements appelé « insights-logs-operationallogs ». Pour les autres types de journaux, vous pouvez soit choisir un hub d’événements existant (ce qui vous permet de réutiliser le hub d’événements insights-logs-operationallogs), soit créer un hub d’événements par catégorie de journal à l’aide d’Azure Monitor.
+* En règle générale, les ports 5671 à 5672 doivent être ouverts sur l’ordinateur qui consomme les données du hub d’événements.
+
+Consultez également le [Forum aux questions (FAQ) sur Azure Event Hubs](../event-hubs/event-hubs-faq.md).
 
 ## <a name="how-do-i-set-up-azure-platform-monitoring-data-to-be-streamed-to-an-event-hub"></a>Comment configurer les données de surveillance de la plateforme Azure pour qu’elles soient diffusées vers un hub d’événements ?
 

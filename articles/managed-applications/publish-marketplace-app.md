@@ -1,6 +1,6 @@
 ---
-title: "Applications managées Azure sur la Place de marché | Microsoft Docs"
-description: "Décrit les applications managées Azure disponibles via la Place de marché."
+title: Applications gérées Azure sur la Place de marché | Microsoft Docs
+description: Décrit les applications gérées Azure disponibles via la Place de marché.
 services: azure-resource-manager
 author: tfitzmac
 manager: timlt
@@ -8,15 +8,15 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 01/18/2018
+ms.date: 03/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: fccc2dbb7623f4ceb0d3decc7037f75a05858910
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 61815098a4935983f19b3dcea6e001230aee4771
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="azure-managed-applications-in-the-marketplace"></a>Applications managées Azure sur la Place de marché
+# <a name="azure-managed-applications-in-the-marketplace"></a>Applications gérées Azure sur la Place de marché
 
 Les fournisseurs peuvent utiliser les applications managées Azure pour offrir leurs solutions à tous les clients de la Place de marché Azure. Il peut s’agir de fournisseurs de services managés, d’éditeurs de logiciels indépendants et d’intégrateurs de système. Les applications managées réduisent les opérations de maintenance et de mise à jour des clients. Les fournisseurs vendent des infrastructures et des logiciels sur la Place de marché. Ils peuvent joindre des services et le support opérationnel pour les applications gérées. Pour plus d’informations, consultez [Vue d’ensemble des applications gérées](overview.md).
 
@@ -33,7 +33,7 @@ Il existe également plusieurs prérequis métier. Il s'agit de :
 * Consentez tous les efforts raisonnables pour mettre à la disposition de vos clients un support technique. Ce support peut être gratuit, payant ou accessible via une communauté.
 * Gérez les licences de vos logiciels et de toutes les dépendances de logiciels tiers.
 * Fournissez du contenu conforme aux critères définis pour que votre offre soit répertoriée sur la Place de Marché et sur le portail Microsoft Azure.
-* Acceptez les termes de la Stratégie de participation et du Contrat d’éditeur de la Place de marché Microsoft Azure.
+* Acceptez les termes de la Stratégie de participation et du Contrat d’éditeur de la Place de Marché Microsoft Azure.
 * Engagez-vous à respecter les Conditions d’utilisation, la Déclaration de confidentialité Microsoft et le Contrat relatif au programme Microsoft Azure Certified.
 
 ## <a name="become-a-publisher"></a>Devenir éditeur
@@ -42,7 +42,7 @@ Pour devenir éditeur sur la Place de marché Azure, vous devez :
 
 1. Créer un identifiant Microsoft - Créez votre compte Microsoft avec une adresse e-mail qui appartient au domaine de votre entreprise, mais pas à une seule personne. Cette adresse e-mail est utilisée pour le Portail Cloud Partner et pour le Centre de développement Microsoft. Pour plus d’informations, consultez le [Guide pour les éditeurs de la Place de marché Azure](https://aka.ms/sellerguide).
 1. Envoyer le [formulaire de candidature pour la Place de marché Azure](https://aka.ms/ampnomination) - Pour **Solution that you intend to publish? (Quelle solution avez-vous l’intention de publier ?)**, sélectionnez **Managed Application (Application managée)**. Une fois le formulaire envoyé, l’équipe d’intégration de la Place de marché examine la candidature et valide la demande. Le processus d’approbation peut prendre un à trois jours. Une fois votre candidature approuvée, vous recevez un code promotionnel vous dispensant des frais d’inscription au Centre de développement. Si vous ne remplissez **pas** le formulaire de candidature pour la Place de marché, vous devez payer des frais d’inscription de 99 $.
-1. Vous inscrire auprès du [Centre de développement](https://developer.microsoft.com) - Microsoft vérifie que votre organisation est une entité juridique valide avec un numéro fiscal valide dans le pays où elle est enregistrée. Le processus d’approbation peut prendre de cinq à dix jours. Pour éviter les frais d’inscription, utilisez le code promotionnel que vous avez reçu par e-mail suite à la procédure de candidature. Pour plus d’informations, consultez le [Guide pour les éditeurs de la Place de marché Azure](https://aka.ms/sellerguide).
+1. Vous inscrire auprès du [Centre de développement](http://dev.windows.com/registration?accountprogram=azure) - Microsoft vérifie que votre organisation est une entité juridique valide avec un numéro fiscal valide dans le pays où elle est enregistrée. Le processus d’approbation peut prendre de cinq à dix jours. Pour éviter les frais d’inscription, utilisez le code promotionnel que vous avez reçu par e-mail suite à la procédure de candidature. Pour plus d’informations, consultez le [Guide pour les éditeurs de la Place de marché Azure](https://aka.ms/sellerguide).
 1. Vous connecter au [Portail Cloud Partner](https://cloudpartner.azure.com) - Dans le profil d’éditeur, associez votre compte du Centre de développement au profil d’éditeur de la Place de marché. Pour plus d’informations, consultez le [Guide pour les éditeurs de la Place de marché Azure](https://aka.ms/sellerguide).
 
 ## <a name="create-a-new-azure-application-offer"></a>Création d’une offre d’application Azure

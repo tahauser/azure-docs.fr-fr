@@ -1,11 +1,11 @@
 ---
 title: Connecteurs pour Azure Logic Apps | Microsoft Docs
-description: "Choisir parmi les connecteurs Microsoft pour générer et créer des applications logiques"
+description: Choisir parmi les connecteurs Microsoft pour générer et créer des applications logiques
 services: logic-apps
-documentationcenter: 
-author: MandiOhlinger
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: f1f1fd50-b7f9-4d13-824a-39678619aa7a
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/21/2017
-ms.author: mandia; ladocs
-ms.openlocfilehash: ec532ce0871d11fea222050bb08ec73afe5f2be3
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: estfan; ladocs
+ms.openlocfilehash: f140f1a3d751b5d83b139edde931a6193334b6ee
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connectors-list"></a>Liste des connecteurs
 Pour rechercher les déclencheurs et les actions définis par la description du Swagger de chaque connecteur ainsi que les limites des connecteurs, consultez les [Détails du connecteur](/connectors/).

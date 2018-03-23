@@ -4,14 +4,14 @@
 | Ressource | Limite par défaut | 
 | --- | --- | 
 | Comptes AMS (Azure Media Services) dans un seul abonnement | 25 (fixe) |
-| Unités réservées de média (RU) par compte AMS |25 (S1, S2)<br/>10 (S3) <sup>(1)</sup> | 
+| Unités réservées de média (RU) par compte AMS |25 (S1)<br/>10 (S2, S3) <sup>(1)</sup> | 
 | Travaux par compte AMS | 50,000<sup>(2)</sup> |
 | Tâches chaînées par travail | 30 (fixe) |
 | Actifs par compte AMS | 1 000 000|
 | Actifs par tâche | 50 |
 | Actifs par travail | 100 |
 | Localisateurs uniques associés à un actif à un moment donné | 5<sup>(4)</sup> |
-| Canaux en direct par compte AMS  |5|
+| Canaux en direct par compte AMS  |5.|
 | Programmes dans un état Arrêté par canal  |50|
 | Programmes en cours d’exécution par canal  |3|
 | Points de terminaison de diffusion en continu en cours d’exécution par compte AMS|2|
@@ -20,7 +20,7 @@
 | Stratégies | 1,000,000<sup>(6)</sup> |
 | Taille du fichier| Dans certains scénarios, la taille maximale des fichiers pris en charge pour le traitement dans Media Services est soumise à une limite. <sup>7</sup> |
   
-<sup>1</sup> Les unités réservées S3 ne sont pas disponibles en Inde-Ouest. Si vous changez le type (par exemple, de S2 à S1), les limites d’unités réservées maximales sont réinitialisées.
+<sup>1</sup> Si vous changez le type (par exemple, de S2 à S1), les limites d’unités réservées maximales sont réinitialisées.
 
 <sup>2</sup> Ce nombre comprend les travaux en file d’attente, terminés, actifs et annulés. Il n’inclut pas les travaux supprimés. Vous pouvez supprimer les anciens travaux à l’aide de **IJob.Delete** ou de la requête HTTP **DELETE**.
 
@@ -41,7 +41,7 @@ Depuis le 1er avril 2017, les enregistrements de travaux de votre compte qui ont
 
 La taille maximale prise en charge pour un objet blob est actuellement de 5 To dans Stockage Blob Azure. Toutefois, des limites supplémentaires sont applicables dans Azure Media Services en fonction des tailles de machine virtuelle utilisées par le service. Le tableau suivant indique les limites pour chacune des unités réservées Multimédia (S1, S2, S3). Si votre fichier source dépasse la limite définie dans le tableau, votre travail d’encodage échoue. Si vous encodez des sources de résolution 4K de longue durée, vous devez obligatoirement utiliser des unités réservées Multimédia S3 afin d’obtenir les performances nécessaires. Si vous avez du contenu 4K qui dépasse la limite de 260 Go sur les unités réservées Multimédia S3, contactez-nous à l’adresse amshelp@microsoft.com afin d’identifier des solutions d’atténuation potentielles permettant de prendre en charge votre scénario.
 
-| Types d’unité réservée Multimédia | Taille maximale en entrée (Go)| 
+| Types d’unités réservées de média | Taille maximale en entrée (Go)| 
 | --- | --- | 
 |S1 | 325|
 |S2 | 640|

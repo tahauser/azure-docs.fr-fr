@@ -1,12 +1,12 @@
 ---
 title: Extension de diagnostic de performance des machines virtuelles Azure pour Windows | Microsoft Docs
-description: "Présente l’extension de diagnostic de performance des machines virtuelles Azure pour Windows."
+description: Présente l’extension de diagnostic de performance des machines virtuelles Azure pour Windows.
 services: virtual-machines-windows'
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
 editor: na
-tags: 
+tags: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/29/2017
 ms.author: genli
-ms.openlocfilehash: 5a7dc313f1d6453562e4d5a11ceca03e4459b043
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 8f6f3fc8325fb2587dc09b982efa52fbe663e2a9
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Extension de diagnostic de performance des machines virtuelles Azure pour Windows
 
@@ -26,10 +26,11 @@ L’extension de machine virtuelle Diagnostics des performances Azure permet de 
 
 ## <a name="prerequisites"></a>Prérequis
 
+
 Cette extension peut s’installer sur Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 et Windows Server 2016, de même que sur Windows 8.1 et Windows 10.
 
 ## <a name="extension-schema"></a>Schéma d’extensions
-Le code JSON suivant montre le schéma de l’extension de machine virtuelle Diagnostics des performances Azure. Elle a besoin du nom et de la clé d’un compte de stockage pour stocker la sortie et le rapport de diagnostic. Ces valeurs sont sensibles et doivent être stockées dans une configuration de paramètres protégés. Les données des paramètres protégés de l’extension de machine virtuelle Azure sont chiffrées, et ne sont déchiffrées que sur la machine virtuelle cible. Notez que **storageAccountName** et **storageAccountKey** respectent la casse. Les autres paramètres obligatoires sont indiqués dans la section ci-dessous.
+Le code JSON suivant montre le schéma de l’extension de machine virtuelle Diagnostics des performances Azure. Elle a besoin du nom et de la clé d’un compte de stockage pour stocker la sortie et le rapport de diagnostic. Ces valeurs sont sensibles. La clé de compte de stockage doit être stockée dans une configuration de paramètres protégés. Les données des paramètres protégés de l’extension de machine virtuelle Azure sont chiffrées, et ne sont déchiffrées que sur la machine virtuelle cible. Notez que **storageAccountName** et **storageAccountKey** respectent la casse. Les autres paramètres obligatoires sont indiqués dans la section ci-dessous.
 
 ```JSON
     {
@@ -43,19 +44,19 @@ Le code JSON suivant montre le schéma de l’extension de machine virtuelle Dia
         "typeHandlerVersion": "1.0",
         "autoUpgradeMinorVersion": true,
         "settings": {
+            "storageAccountName": "[parameters('storageAccountName')]",
             "performanceScenario": "[parameters('performanceScenario')]",
-                  "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-                  "perfCounterTrace": "[parameters('perfCounterTrace')]",
-                  "networkTrace": "[parameters('networkTrace')]",
-                  "xperfTrace": "[parameters('xperfTrace')]",
-                  "storPortTrace": "[parameters('storPortTrace')]",
+            "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
+            "perfCounterTrace": "[parameters('perfCounterTrace')]",
+            "networkTrace": "[parameters('networkTrace')]",
+            "xperfTrace": "[parameters('xperfTrace')]",
+            "storPortTrace": "[parameters('storPortTrace')]",
             "srNumber": "[parameters('srNumber')]",
             "requestTimeUtc":  "[parameters('requestTimeUtc')]"
         },
-          "protectedSettings": {
-            "storageAccountName": "[parameters('storageAccountName')]",
+        "protectedSettings": {
             "storageAccountKey": "[parameters('storageAccountKey')]"        
-            }
+        }
       }
     }
 ```
@@ -71,16 +72,17 @@ Le code JSON suivant montre le schéma de l’extension de machine virtuelle Dia
 |performanceScenario|basic|Scénario de performances dont les données seront capturées. Les valeurs valides sont : **basic**, **vmslow**, **azurefiles** et **custom**.
 |traceDurationInSeconds|300|Durée des traces si l’une des options de trace est sélectionnée.
 |perfCounterTrace|p|Option permettant d’activer la trace du compteur de performances. Les valeurs valides sont **p** ou une valeur vide. Si vous ne souhaitez pas capturer cette trace, laissez la valeur vide.
-|networkTrace|n|Option permettant d’activer Network Trace. Les valeurs valides sont **n** ou une valeur vide. Si vous ne souhaitez pas capturer cette trace, laissez la valeur vide.
+|networkTrace|n|Option permettant d’activer Network Trace. Valeurs valides : **n** ou une valeur vide. Si vous ne souhaitez pas capturer cette trace, laissez la valeur vide.
 |xperfTrace|x|Option permettant d’activer la trace XPerf. Les valeurs valides sont **x** ou une valeur vide. Si vous ne souhaitez pas capturer cette trace, laissez la valeur vide.
 |storPortTrace|s|Option permettant d’activer la trace StorPort. Valeurs valides : **s** ou une valeur vide. Si vous ne souhaitez pas capturer cette trace, laissez la valeur vide.
 |srNumber|123452016365929|Numéro du ticket de support, s’il est disponible. Laissez la valeur vide si vous ne l’avez pas.
+|requestTimeUtc|2017-09-28T22:08:53.736Z|Date et heure actuelles UTC. Vous n’avez pas besoin de fournir cette valeur si vous utilisez le portail pour installer cette extension.
 |storageAccountName|mystorageaccount|Nom du compte de stockage pour stocker les journaux et les résultats de diagnostic.
 |storageAccountKey|lDuVvxuZB28NNP…hAiRF3voADxLBTcc==|Clé du compte de stockage.
 
 ## <a name="install-the-extension"></a>Installer l’extension
 
-Suivez ces étapes pour installer l’extension sur des machines virtuelles Windows :
+Suivez ces instructions pour installer l’extension sur des machines virtuelles Windows :
 
 1. Connectez-vous au [Portail Azure](http://portal.azure.com).
 2. Sélectionnez la machine virtuelle sur laquelle vous voulez installer cette extension.
@@ -182,19 +184,19 @@ Les extensions de machines virtuelles Azure peuvent être déployées avec des m
         "typeHandlerVersion": "1.0",
         "autoUpgradeMinorVersion": true,
         "settings": {
+            "storageAccountName": "[parameters('storageAccountName')]",
             "performanceScenario": "[parameters('performanceScenario')]",
-                  "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-                  "perfCounterTrace": "[parameters('perfCounterTrace')]",
-                  "networkTrace": "[parameters('networkTrace')]",
-                  "xperfTrace": "[parameters('xperfTrace')]",
-                  "storPortTrace": "[parameters('storPortTrace')]",
+            "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
+            "perfCounterTrace": "[parameters('perfCounterTrace')]",
+            "networkTrace": "[parameters('networkTrace')]",
+            "xperfTrace": "[parameters('xperfTrace')]",
+            "storPortTrace": "[parameters('storPortTrace')]",
             "srNumber": "[parameters('srNumber')]",
             "requestTimeUtc":  "[parameters('requestTimeUtc')]"
         },
-          "protectedSettings": {
-            "storageAccountName": "[parameters('storageAccountName')]",
+        "protectedSettings": {            
             "storageAccountKey": "[parameters('storageAccountKey')]"        
-            }
+        }
       }
     }
   ]
@@ -202,13 +204,13 @@ Les extensions de machines virtuelles Azure peuvent être déployées avec des m
 ````
 
 ## <a name="powershell-deployment"></a>Déploiement PowerShell
-Vous pouvez utiliser la commande `Set-AzureRmVMExtension` pour déployer l’extension de machine virtuelle Diagnostics des performances Azure sur une machine virtuelle existante. Avant d’exécuter la commande, stockez les configurations publique et privée dans une table de hachage PowerShell.
+Vous pouvez utiliser la commande `Set-AzureRmVMExtension` pour déployer l’extension de machine virtuelle Diagnostics des performances Azure sur une machine virtuelle existante.
 
 PowerShell
 
 ````
-$PublicSettings = @{ "performanceScenario":"basic","traceDurationInSeconds":300,"perfCounterTrace":"p","networkTrace":"","xperfTrace":"","storPortTrace":"","srNumber":"","requestTimeUtc":"2017-09-28T22:08:53.736Z" }
-$ProtectedSettings = @{"storageAccountName":"mystorageaccount","storageAccountKey":"mystoragekey"}
+$PublicSettings = @{ "storageAccountName"="mystorageaccount";"performanceScenario"="basic";"traceDurationInSeconds"=300;"perfCounterTrace"="p";"networkTrace"="";"xperfTrace"="";"storPortTrace"="";"srNumber"="";"requestTimeUtc"="2017-09-28T22:08:53.736Z" }
+$ProtectedSettings = @{"storageAccountKey"="mystoragekey" }
 
 Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -ResourceGroupName "myResourceGroup" `
@@ -218,7 +220,7 @@ Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -TypeHandlerVersion 1.0 `
     -Settings $PublicSettings `
     -ProtectedSettings $ProtectedSettings `
-    -Location WestUS `
+    -Location WestUS
 ````
 
 ## <a name="information-on-the-data-captured"></a>Informations sur les données capturées
@@ -234,7 +236,7 @@ Pour aider l’ingénieur qui travaille sur le ticket de support, Microsoft a la
 
 Pour afficher le rapport, extrayez le fichier zip et ouvrez le fichier **PerfInsights Report.htm**.
 
-Vous pourrez peut-être également télécharger le fichier zip directement sur le portail, en sélectionnant l’extension.
+Vous devriez également pouvoir télécharger le fichier zip directement sur le portail, en sélectionnant l’extension.
 
 ![Capture d’écran de l’état détaillé des diagnostics des performances](media/performance-diagnostics-vm-extension/view-detailed-status.png)
 

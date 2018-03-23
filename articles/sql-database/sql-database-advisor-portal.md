@@ -1,8 +1,8 @@
 ---
-title: "Appliquer les recommandations relatives aux performances - Azure SQL Database | Microsoft Docs"
-description: "Utilisez le portail Azure pour trouver des recommandations vous permettant d’optimiser les performances de votre Azure SQL Database."
+title: Appliquer les recommandations relatives aux performances - Azure SQL Database | Microsoft Docs
+description: Utilisez le portail Azure pour trouver des recommandations vous permettant d’optimiser les performances de votre Azure SQL Database.
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: stevestein
 manager: jhubbard
 editor: monicar
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: fe76be59d6ee09049ed8c1343d1a91e42646c262
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 32071522bbe069e68bdaed181f64b814eb70b84c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Rechercher et appliquer les recommandations en matière de performances
 
@@ -52,7 +52,7 @@ Les recommandations sont triées en fonction de leur impact potentiel sur les pe
 > Azure SQL Database a besoin surveiller les activités au moins pendant une journée afin d’identifier certaines recommandations. Azure SQL Database peut plus facilement optimiser des modèles de requête cohérents que des pics d’activité aléatoires. Si les recommandations ne sont pas disponibles actuellement, la page **Recommandation sur les performances** fournit un message explicatif.
 > 
 
-Vous pouvez également afficher l’état des opérations historiques. Sélectionnez une recommandation ou un état pour afficher ses détails.
+Vous pouvez également afficher l’état des opérations historiques. Sélectionnez une recommandation ou un état pour afficher plus d’informations.
 
 Voici un exemple de recommandation « Créer un index » dans le portail Azure.
 
@@ -130,7 +130,7 @@ L’application d’une recommandation ne se produit pas toujours instantanémen
 | Annulation |La recommandation a été appliquée, mais a été jugée non performante et est automatiquement annulée. |
 | Annulée |La recommandation a été annulée. |
 
-Cliquez sur une recommandation en cours dans la liste pour afficher ses détails :
+Cliquez sur une recommandation in-process dans la liste pour afficher plus d’informations :
 
 ![Index recommandés](./media/sql-database-advisor-portal/operations.png)
 

@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel BikeShare - Préparation de données avancée avec Azure Machine Learning Workbench"
-description: "Dans ce didacticiel, vous allez réaliser une tâche de préparation de données de bout en bout avec Azure Machine Learning Workbench"
+title: Didacticiel BikeShare - Préparation de données avancée avec Azure Machine Learning Workbench
+description: Dans ce didacticiel, vous allez réaliser une tâche de préparation de données de bout en bout avec Azure Machine Learning Workbench
 services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/21/2017
-ms.openlocfilehash: ca7239fd3e31c7a6cfc6fb64e04afb376e01c190
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: f1d4b58d0fe0628aa00b8229a1383d3ada414f62
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tutorial-use-azure-machine-learning-workbench-for-advanced-data-preparation-bike-share-data"></a>Didacticiel : Préparation de données avancée avec Azure Machine Learning Workbench (données BikeShare)
 Azure Machine Learning (préversion) constitue une solution d’analytique avancée et de science des données de bout en bout intégrée, destinée aux chercheurs de données professionnels pour préparer des données, développer des expérimentations et déployer des modèles à l’échelle du cloud.
@@ -33,6 +33,7 @@ Dans ce didacticiel, vous utilisez les services Machine Learning (préversion) p
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 * Installation locale d’Azure Machine Learning Workbench. Pour plus d’informations, suivez le [Guide de démarrage rapide sur l’installation](quickstart-installation.md).
 * Si Azure CLI n’est pas installé, suivez les instructions pour [installer la dernière version d’Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -736,7 +737,7 @@ Pour enregistrer le flux de données **Résultat de la jointure** dans un fichie
 3. Créez la configuration de série de tests HDInsight. Vous aurez besoin du nom de votre cluster et du mot de passe `sshuser`.
 
     ```azurecli
-    az ml computetarget attach --name hdinsight --address <yourclustername>.azurehdinsight.net --username sshuser --password <your password> --type cluster
+    az ml computetarget attach cluster --name hdinsight --address <yourclustername>.azurehdinsight.net --username sshuser --password <your password>
     az ml experiment prepare -c hdinsight
     ```
 > [!NOTE]

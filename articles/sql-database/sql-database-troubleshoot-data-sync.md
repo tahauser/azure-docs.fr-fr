@@ -1,6 +1,6 @@
 ---
-title: "Résoudre les problèmes liés à Azure SQL Data Sync (Préversion) | Microsoft Docs"
-description: "Découvrez comment résoudre les problèmes courants liés à Azure SQL Data Sync (Préversion)."
+title: Résoudre les problèmes liés à Azure SQL Data Sync (Préversion) | Microsoft Docs
+description: Découvrez comment résoudre les problèmes courants liés à Azure SQL Data Sync (Préversion).
 services: sql-database
 ms.date: 11/13/2017
 ms.topic: article
@@ -8,11 +8,11 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 50cabbaa584671e52c1ea7efbd2ad990b8438272
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: c174f5120ba2e5bf8018cce0f0e34c1fc3f8eb3f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync-preview"></a>Résoudre les problèmes liés à SQL Data Sync (préversion)
 
@@ -135,7 +135,7 @@ Vous pouvez également activer la journalisation pour toutes les installations e
 
 Les messages suivants s’affichent lorsque vous essayez d’utiliser l’agent client :
 
-« Échec de la synchronisation avec l’exception Une erreur s’est produite durant la tentative de désérialisation du paramètre www.microsoft.com/.../05:GetBatchInfoResult. Pour plus d’informations, consultez InnerException ».
+« Échec de la synchronisation avec l’exception Une erreur s’est produite durant la tentative de désérialisation du paramètre www.microsoft.com/.../05:GetBatchInfoResult. Consultez InnerException pour obtenir plus d’informations. »
 
 « Message de l’exception interne : Le type « Microsoft.Synchronization.ChangeBatch » est un type de collection non valide, car il n’a pas de constructeur par défaut. »
 
@@ -436,16 +436,16 @@ Vous ne pouvez pas supprimer un groupe de synchronisation dans les trois minutes
 Si vous restaurez une base de données perdue ou endommagée à partir d’une sauvegarde, un problème de non-convergence des données peut survenir dans les groupes de synchronisation auxquels la base de données appartient.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur SQL Data Sync (Préversion), consultez :
+Pour plus d’informations sur SQL Data Sync (préversion), consultez :
 
--   [Synchroniser des données entre plusieurs bases de données locales et cloud avec Azure SQL Data Sync (Préversion)](sql-database-sync-data.md)  
+-   [Synchroniser des données entre plusieurs bases de données sur site et cloud avec Azure SQL Data Sync (préversion)](sql-database-sync-data.md)  
 -   [Configurer Azure SQL Data Sync (Préversion)](sql-database-get-started-sql-data-sync.md)  
 -   [Bonnes pratiques pour Azure SQL Data Sync (Préversion)](sql-database-best-practices-data-sync.md)  
 -   [Surveiller Azure SQL Data Sync (Préversion) avec OMS Log Analytics](sql-database-sync-monitor-oms.md)  
--   Exemples PowerShell complets sur la configuration de SQL Data Sync (Préversion) :  
+-   Exemples PowerShell complets sur la configuration de SQL Data Sync (préversion) :  
     -   [Utilisez PowerShell pour la synchronisation entre plusieurs bases de données SQL Azure](scripts/sql-database-sync-data-between-sql-databases.md)  
     -   [Utiliser PowerShell pour la synchronisation entre une base de données SQL Azure et une base de données locale SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)  
--   [Télécharger la documentation de l’API REST de SQL Data Sync (Préversion)](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+-   [Télécharger la documentation de l’API REST de SQL Data Sync (préversion)](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
 Pour plus d’informations sur SQL Database, consultez :
 

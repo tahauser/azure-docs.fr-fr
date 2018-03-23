@@ -1,25 +1,20 @@
 ---
-title: "Exécuter des requêtes d’analyse sur des bases de données Azure SQL | Microsoft Docs"
-description: "Des requêtes analytiques entre clients à l’aide de données extraites de plusieurs bases de données SQL Azure Database."
-keywords: "didacticiel sql"
+title: Exécuter des requêtes d’analyse sur des bases de données Azure SQL | Microsoft Docs
+description: Des requêtes analytiques entre clients à l’aide de données extraites de plusieurs bases de données SQL Azure Database.
+keywords: didacticiel sql
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: jhubbard
-editor: MightyPen
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: c6c83f4ac93dd105b2f311250061b8880f5d2a5b
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 7f04ca4bf324586e0cb34effa324b1703d92d065
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Analyses entre clients à l’aide de données extraites
 
@@ -69,6 +64,7 @@ Comprendre la fréquence à laquelle chaque client utilise le service fournit un
 ## <a name="setup"></a>Paramétrage
 
 ### <a name="prerequisites"></a>Prérequis
+
 
 Pour suivre ce didacticiel, vérifiez que les conditions préalables ci-dessous sont bien satisfaites :
 

@@ -1,4 +1,19 @@
-
+---
+title: Fichier Include
+description: Fichier Include
+services: virtual-machines
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: 3dfc72ff0347a93c6c6dce0e7ec763dd8241c55b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 03/16/2018
+---
 ## <a name="azure-backup"></a>Sauvegarde Azure
 
 Pour sauvegarder des machines virtuelles Azure exécutant des charges de travail de production, utilisez la sauvegarde Azure. La sauvegarde Azure prend en charge des sauvegardes cohérentes avec les applications pour les machines virtuelles Linux et Windows. Azure Backup crée des points de récupération stockés dans des coffres de récupération géoredondants. Lorsque vous effectuez une restauration à partir d’un point de récupération, vous pouvez restaurer la machine virtuelle entière ou seulement des fichiers spécifiques. 

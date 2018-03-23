@@ -1,24 +1,20 @@
 ---
-title: "Prise en main d’Azure Automation DSC | Microsoft Docs"
-description: "Explication et exemples de tâches les plus courantes dans Azure Automation Desired State Configuration (DSC)"
+title: Prise en main d’Azure Automation DSC
+description: Explication et exemples de tâches les plus courantes dans Azure Automation Desired State Configuration (DSC)
 services: automation
-documentationcenter: na
-author: georgewallace
-manager: carmonm
-editor: tysonn
-ms.assetid: a3816593-70a3-403b-9a43-d5555fd2cee2
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: powershell
-ms.workload: na
-ms.date: 11/21/2016
-ms.author: magoedte;gwallace
-ms.openlocfilehash: ff23b4f5022597763728ccf301966c34c5423b34
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: e6e4df6fce783e7b4cc33d7f3c26136680ceb44f
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="getting-started-with-azure-automation-dsc"></a>Prise en main d’Azure Automation DSC
 Cette rubrique explique comment effectuer les tâches les plus courantes avec Azure Automation Desired State Configuration (DSC), comme la création, l’importation et la compilation de configurations, l’intégration des ordinateurs à gérer et l’affichage des rapports. Pour une vue d’ensemble d’Azure Automation DSC, consultez [Vue d’ensemble d’Azure Automation DSC](automation-dsc-overview.md). Pour la documentation DSC, consultez l’article [Vue d’ensemble de la fonctionnalité Desired State Configuration de Windows PowerShell](https://msdn.microsoft.com/PowerShell/dsc/overview).
@@ -26,6 +22,7 @@ Cette rubrique explique comment effectuer les tâches les plus courantes avec Az
 Cet article fournit des instructions détaillées sur l’utilisation d’Azure Automation DSC. Si vous souhaitez obtenir un exemple d’environnement qui est déjà configuré sans suivre les étapes décrites dans cet article, vous pouvez utiliser le modèle Resource Manager suivant : ce modèle configure un environnement Azure Automation DSC complet, comprenant une machine virtuelle Azure gérée par Azure Automation DSC.
 
 ## <a name="prerequisites"></a>Prérequis
+
 Pour exécuter les exemples de cet article, vous devez disposer des éléments suivants :
 
 * Un compte Azure Automation. Pour obtenir des instructions sur la création d’un compte d’identification Azure Automation, consultez [Authentifier des Runbooks avec un compte d’identification Azure](automation-sec-configure-azure-runas-account.md).

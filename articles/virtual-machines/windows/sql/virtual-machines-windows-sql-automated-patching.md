@@ -1,11 +1,11 @@
 ---
-title: "Mise à jour corrective automatisée pour SQL Server dans Azure Virtual Machines (Resource Manager) | Microsoft Docs"
-description: "Décrit la fonctionnalité de mise à jour corrective automatisée pour les machines virtuelles SQL Server s’exécutant dans Azure à l’aide de Resource Manager."
+title: Mise à jour corrective automatisée pour SQL Server dans Azure Virtual Machines (Resource Manager) | Microsoft Docs
+description: Décrit la fonctionnalité de mise à jour corrective automatisée pour les machines virtuelles SQL Server s’exécutant dans Azure à l’aide de Resource Manager.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 58232e92-318f-456b-8f0a-2201a541e08d
 ms.service: virtual-machines-sql
@@ -13,26 +13,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/05/2018
+ms.date: 03/07/2018
 ms.author: jroth
-ms.openlocfilehash: ae722b4da9131d98e6dc3424fcd6b50e77ae672b
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 398e682db6c42bd7f4864113ddf10a6a75e2b65b
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Mise à jour corrective automatisée pour SQL Server dans Azure Virtual Machines (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Gestionnaire de ressources](virtual-machines-windows-sql-automated-patching.md)
 > * [Classique](../sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md)
 
-La mise à jour corrective automatisée établit une fenêtre de maintenance pour une machine virtuelle Azure exécutant SQL Server. Les mises à jour automatisées ne peuvent être installées qu’au cours de cette fenêtre de maintenance. Pour SQL Server, cette restriction garantit que les mises à jour système et les redémarrages associés ont lieu au meilleur moment possible pour la base de données. La mise à jour corrective automatisée utilise l’ [extension de l’agent IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
+La mise à jour corrective automatisée établit une fenêtre de maintenance pour une machine virtuelle Azure exécutant SQL Server. Les mises à jour automatisées ne peuvent être installées qu’au cours de cette fenêtre de maintenance. Pour SQL Server, cette restriction garantit que les mises à jour système et les redémarrages associés ont lieu au meilleur moment possible pour la base de données. 
 
-[!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
+> [!IMPORTANT]
+> Seules les mises à jour Windows marquées **Important** sont installées. Les autres mises à jour de SQL Server, telles que les mises à jour cumulatives, doivent être installées manuellement. 
 
-Pour plus d’informations, consultez [Mise à jour corrective automatisée pour SQL Server dans les machines virtuelles Azure (classiques)](../sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md).
+La mise à jour corrective automatisée utilise l’ [extension de l’agent IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
+
 Pour utiliser la mise à jour corrective automatisée, prenez en compte les conditions préalables suivantes :
 
 **Système d’exploitation**:
@@ -65,7 +67,7 @@ Le tableau suivant décrit les options qui peuvent être configurées pour une m
 | **Planification de la maintenance** |Tous les jours, lundi, mardi, mercredi, jeudi, vendredi, samedi et dimanche |Planification du téléchargement et de l’installation des mises à jour Windows, SQL Server et Microsoft pour votre machine virtuelle. |
 | **Heure de début de la maintenance** |0-24 |Heure locale de début de la mise à jour de la machine virtuelle. |
 | **Durée de la fenêtre de maintenance** |30 à 180 |Nombre de minutes autorisées pour terminer le téléchargement et l’installation des mises à jour. |
-| **Catégorie de correctif** |Important |Catégorie des mises à jour à télécharger et installer. |
+| **Catégorie de correctif** |Important | Catégorie des mises à jour Windows à télécharger et installer.|
 
 ## <a name="configuration-in-the-portal"></a>Configuration dans le portail
 Vous pouvez utiliser le portail Azure pour configurer une mise à jour corrective automatisée lors du déploiement ou pour des machines virtuelles existantes.
@@ -100,7 +102,7 @@ Si vous activez la mise à jour corrective automatisée pour la première fois, 
 ## <a name="configuration-with-powershell"></a>Configuration avec PowerShell
 Après avoir approvisionné votre machine virtuelle SQL, utilisez PowerShell pour configurer une mise à jour corrective automatisée.
 
-Dans l’exemple suivant, PowerShell permet de configurer une mise à jour corrective automatisée sur une machine virtuelle SQL Server existante. La commande **AzureRM.Compute\New-AzureVMSqlServerAutoPatchingConfig** configure une nouvelle fenêtre de maintenance pour les mises à jour automatiques.
+Dans l’exemple suivant, PowerShell permet de configurer une mise à jour corrective automatisée sur une machine virtuelle SQL Server existante. La commande **AzureRM.Compute\New-AzureRmVMSqlServerAutoPatchingConfig** configure une nouvelle fenêtre de maintenance pour les mises à jour automatiques.
 
     $vmname = "vmname"
     $resourcegroupname = "resourcegroupname"
@@ -118,11 +120,11 @@ En s’appuyant sur cet exemple, le tableau suivant décrit les effets concrets 
 | **DayOfWeek** |Les correctifs sont installés tous les jeudis. |
 | **MaintenanceWindowStartingHour** |Les mises à jour démarrent à 11 h 00. |
 | **MaintenanceWindowsDuration** |Les correctifs doivent être installés dans les 120 minutes. Selon l’heure de début, leur installation doit être terminée à 13 h 00 au plus tard. |
-| **PatchCategory** |La seule définition possible pour ce paramètre est **Important**. |
+| **PatchCategory** |La seule définition possible pour ce paramètre est **Important**. Cela installe les mises à jour Windows marquées Important ; et pas les mises à jour de SQL Server qui ne sont pas incluses dans cette catégorie. |
 
 L’installation et la configuration de l’agent IaaS de SQL Server peuvent prendre plusieurs minutes.
 
-Pour désactiver la mise à jour corrective automatique, exécutez le même script sans le paramètre **-Enable** pour la commande **AzureRM.Compute\New-AzureVMSqlServerAutoPatchingConfig**. L’absence du paramètre **-Enable** indique à la commande de désactiver la fonctionnalité.
+Pour désactiver la mise à jour corrective automatique, exécutez le même script sans le paramètre **-Enable** pour la commande **AzureRM.Compute\New-AzureRmVMSqlServerAutoPatchingConfig**. L’absence du paramètre **-Enable** indique à la commande de désactiver la fonctionnalité.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les autres tâches d’automatisation disponibles, voir [Extension de l’agent IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md).

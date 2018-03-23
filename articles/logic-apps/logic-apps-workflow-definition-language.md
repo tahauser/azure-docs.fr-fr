@@ -1,11 +1,11 @@
 ---
-title: "Schéma du langage de définition du flux de travail - Azure Logic Apps | Microsoft Docs"
-description: "Définir des flux de travail basés sur le schéma du langage de définition du flux de travail pour Azure Logic Apps"
+title: Schéma du langage de définition du flux de travail - Azure Logic Apps | Microsoft Docs
+description: Définir des flux de travail basés sur le schéma du langage de définition du flux de travail pour Azure Logic Apps
 services: logic-apps
 author: jeffhollan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 26c94308-aa0d-4730-97b6-de848bffff91
 ms.service: logic-apps
 ms.workload: integration
@@ -126,14 +126,14 @@ Les valeurs JSON indiquées dans la définition peuvent être littérales. Il pe
 > [!NOTE]
 > Certaines expressions obtiennent leurs valeurs à partir d’actions runtime qui peuvent ne pas exister au début de l’exécution. Vous pouvez utiliser des **fonctions** pour récupérer certaines de ces valeurs.  
   
-Les expressions peuvent apparaître n’importe où dans une valeur de chaîne JSON, et entraînent toujours une autre valeur JSON. Si une valeur JSON a été déterminée pour être une expression, le corps de l’expression est extrait en supprimant l’arobase (@). Si une chaîne littérale devant commencer par @ est nécessaire, elle doit être placée dans une séquence d’échappement en utilisant @@. Les exemples suivants montrent comment les expressions sont évaluées.  
+Les expressions peuvent apparaître n’importe où dans une valeur de chaîne JSON, et entraînent toujours une autre valeur JSON. Si une valeur JSON a été déterminée pour être une expression, le corps de l’expression est extrait en supprimant l’arobase \(\@). Si une chaîne littérale devant commencer par \@ est nécessaire, elle doit être placée dans une séquence d’échappement en utilisant \@@. Les exemples suivants montrent comment les expressions sont évaluées.  
   
 |Valeur JSON|Résultat|  
 |----------------|------------|  
 |« parameters »|Les caractères « parameters » sont retournés.|  
 |« parameters[1] »|Les caractères « parameters[1] » sont retournés.|  
-|« @@ »|Une chaîne de 1 caractère contenant « @ » est retournée.|  
-|«  @ »|Une chaîne de 2 caractères contenant «  @ » est retournée.|  
+|\«\@\@\»|Une chaîne de 1 caractère contenant \«\@\» est retournée.|  
+|\« \@»|Une chaîne de 2 caractères contenant \« \@ \» est retournée.|  
   
 Avec l’*interpolation de chaîne*, les expressions peuvent également apparaître dans des chaînes où les expressions sont encapsulées dans `@{ ... }`. Par exemple :  <p>`"name" : "First Name: @{parameters('firstName')} Last Name: @{parameters('lastName')}"`
 
@@ -142,12 +142,12 @@ Le résultat est toujours une chaîne, ce qui rend cette fonctionnalité semblab
 |Valeur JSON|Résultat|  
 |----------------|------------|  
 |« @parameters('myString') »|Retourne `sampleString` en tant que chaîne.|  
-|« @{parameters('myString')} »|Retourne `sampleString` en tant que chaîne.|  
+|\« \@{parameters('myString')} »|Retourne `sampleString` en tant que chaîne.|  
 |« @parameters('myNumber') »|Retourne `42` en tant que *nombre*.|  
-|« @{parameters('myNumber')} »|Retourne `42` en tant que *chaîne*.|  
-|« Answer is: @{parameters('myNumber')} »|Retourne la chaîne `Answer is: 42`.|  
+|\«\@{parameters('myNumber')} »|Retourne `42` en tant que *chaîne*.|  
+|\« Answer is: \@{parameters('myNumber')} »|Retourne la chaîne `Answer is: 42`.|  
 |« @concat('Answer is: ', string(parameters('myNumber'))) »|Retourne la chaîne `Answer is: 42`.|  
-|« Answer is: @@{parameters('myNumber')} »|Retourne la chaîne `Answer is: @{parameters('myNumber')}`.|  
+|\« Answer is: \@\@{parameters('myNumber')} »|Retourne la chaîne `Answer is: @{parameters('myNumber')}`.|  
   
 ## <a name="operators"></a>Operators  
 

@@ -1,24 +1,19 @@
 ---
 title: Supprimer un archivage Site Recovery
-description: "Découvrez comment supprimer un archivage Azure Site Recovery, en fonction du scénario de Site Recovery."
+description: Découvrez comment supprimer un archivage Azure Site Recovery, en fonction du scénario de Site Recovery.
 service: site-recovery
-documentationcenter: 
 author: rajani-janaki-ram
 manager: rochakm
-editor: 
-ms.assetid: 
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 02/22/2018
+ms.date: 03/05/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 4cb5c387319b9659b16f0c98dc38cb79d72987e2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 89ab1e7c8b2fa0f4014ecfa0e677b398e601e6fa
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="delete-a-site-recovery-vault"></a>Supprimer un archivage Site Recovery
 Des dépendances peuvent vous empêcher de supprimer un archivage Azure Site Recovery. Les mesures à prendre varient en fonction du scénario de Site Recovery : VMware vers Azure, Hyper-V (avec et sans System Center Virtual Machine Manager) vers Azure, et Sauvegarde Microsoft Azure. Pour supprimer un archivage utilisé dans Sauvegarde Microsoft Azure, voir [Supprimer un archivage Recovery Services](../backup/backup-azure-delete-vault.md).
@@ -32,11 +27,11 @@ Pour supprimer l’archivage, suivez les étapes recommandées pour votre scéna
 
 1. Supprimez toutes les machines virtuelles protégées en suivant les étapes décrites dans [Désactiver la protection d’un VMware](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure).
 
-2. Supprimez toutes les stratégies de réplication en suivant les étapes décrites dans [Supprimer une stratégie de réplication](site-recovery-setup-replication-settings-vmware.md##delete-a-replication-policy).
+2. Supprimez toutes les stratégies de réplication en suivant les étapes décrites dans [Supprimer une stratégie de réplication](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy).
 
-3. Supprimez les références à vCenter en suivant les étapes décrites dans [Supprimer un vCenter](site-recovery-vmware-to-azure-manage-vCenter.md##delete-a-vcenter-in-azure-site-recovery).
+3. Supprimez les références à vCenter en suivant les étapes décrites dans la section [Supprimer un serveur vCenter](vmware-azure-manage-vcenter.md#delete-a-vcenter-server).
 
-4. Supprimez le serveur de configuration en suivant les étapes décrites dans [Désaffecter un serveur de configuration](site-recovery-vmware-to-azure-manage-configuration-server.md##delete-or-unregister-a-configuration-server).
+4. Supprimez le serveur de configuration en suivant les étapes décrites dans [Désaffecter un serveur de configuration](vmware-azure-manage-configuration-server.md#delete-or-unregister-a-configuration-server).
 
 5. Supprimez l’archivage.
 

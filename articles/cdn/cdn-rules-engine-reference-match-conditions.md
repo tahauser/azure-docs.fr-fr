@@ -1,11 +1,11 @@
 ---
-title: "Conditions de correspondance du moteur de règles Azure CDN | Microsoft Docs"
-description: "Documentation de référence des conditions de correspondance du moteur de règles Azure Content Delivery Network."
+title: Conditions de correspondance du moteur de règles Azure CDN | Microsoft Docs
+description: Documentation de référence des conditions de correspondance du moteur de règles Azure Content Delivery Network.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: Lichard
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
 ms.workload: media
@@ -737,7 +737,7 @@ Informations essentielles :
     
 - Spécifiez plusieurs chemins d’URL en les séparant par une espace.
 
-   Par exemple : /marketing/asset.* /sales/*.htm
+   Par exemple : /marketing/asset.\* /sales/\*.htm
 
 - Les chaînes de requête dans l’URL sont ignorées.
     
@@ -753,11 +753,11 @@ Les exemples de configuration dans le tableau suivant supposent que cette condit
 
 Valeur                   | Par rapport à    | Résultat 
 ------------------------|----------------|-------
-*/test.html */test.php  | Racine ou Origine | Ce modèle correspond aux requêtes de ressources nommées « test.html » ou « test.php » dans les dossiers.
+\*/test.html \*/test.php  | Racine ou Origine | Ce modèle correspond aux requêtes de ressources nommées « test.html » ou « test.php » dans les dossiers.
 /80ABCD/origin/text/*   | Racine           | Ce modèle correspond lorsque la ressource demandée répond aux critères suivants : <br />- Il doit résider sur une origine client appelée « origin ». <br />- Le chemin d’accès relatif doit commencer par un dossier appelé « text ». Autrement dit, la ressource demandée peut résider dans le dossier « text » ou l’un de ses sous-dossiers récursifs.
 */css/* */js/*          | Racine ou Origine | Ce modèle correspond à toutes les URL CDN ou CNAME de périmètre qui contiennent un dossier css ou js.
 *.jpg *.gif *.png       | Racine ou Origine | Ce modèle correspond à toutes les URL CDN ou CNAME de périmètre se terminant par .jpg, .gif ou .png. Une autre façon de spécifier ce modèle consiste à utiliser la [condition de correspondance Extension du chemin d’URL](#url-path-extension).
-/images/* /media/*      | Origine         | Ce modèle est mis en correspondance par les URL CDN ou CNAME de périmètre dont le chemin d’accès relatif commence par un dossier « images » ou « media ». <br />- URL CDN : http:\//wpc.0001.&lt;Domain&gt;/800001/myorigin/images/sales/event1.png<br />- Exemple d’URL CNAME de périmètre : http:\//cdn.mydomain.com/images/sales/event1.png
+/images/\* /media/\*      | Origine         | Ce modèle est mis en correspondance par les URL CDN ou CNAME de périmètre dont le chemin d’accès relatif commence par un dossier « images » ou « media ». <br />- URL CDN : http:\//wpc.0001.&lt;Domain&gt;/800001/myorigin/images/sales/event1.png<br />- Exemple d’URL CNAME de périmètre : http:\//cdn.mydomain.com/images/sales/event1.png
 
 [Revenir en haut](#match-conditions-for-the-azure-cdn-rules-engine)
 

@@ -1,6 +1,6 @@
 ---
-title: "Utilisation du service Azure Import/Export pour transférer des données vers et à partir de Stockage Azure | Microsoft Docs"
-description: "Découvrez comment créer des tâches d’importation et d’exportation dans le portail Azure pour transférer des données vers et à partir de Stockage Azure."
+title: Utilisation du service Azure Import/Export pour transférer des données vers et à partir de Stockage Azure | Microsoft Docs
+description: Découvrez comment créer des tâches d’importation et d’exportation dans le portail Azure pour transférer des données vers et à partir de Stockage Azure.
 author: muralikk
 manager: syadav
 services: storage
@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: muralikk
-ms.openlocfilehash: e9fce2530bc4e654304b946cea1715ac8e2ce6fa
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7eaf4c3c9b390e87dd8494cd6bfb2ea155451608
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Transférer des données vers Stockage Azure à l’aide du service Microsoft Azure Import/Export
 Cet article fournit des instructions pas à pas sur l’utilisation du service Azure Import/Export pour transférer en toute sécurité des volumes importants de données vers Stockage Blob Azure et Azure Files en expédiant des lecteurs de disques vers un centre de données Azure. Vous pouvez également utiliser ce service pour transférer des données de Stockage Blob Azure vers des lecteurs de disques durs et les expédier vers vos sites locaux. Les données d’un seul lecteur de disque SATA interne peuvent être importées dans Stockage Blob Azure ou Azure Files. 
@@ -87,6 +87,7 @@ Vous pouvez utiliser ce service dans des scénarios tels que :
 * Récupération des données : récupérez les grandes quantités de données stockées pour les transférer vers votre site local.
 
 ## <a name="prerequisites"></a>Prérequis
+
 Cette section décrit les prérequis de ce service. Lisez-les soigneusement avant d’expédier vos lecteurs.
 
 ### <a name="storage-account"></a>Compte de stockage
@@ -294,7 +295,7 @@ Le tableau suivant décrit les états associés aux défaillances de disque et l
 | N/A | Un disque qui n’est associé à aucune tâche arrive au centre de données dans le cadre d’une autre tâche. | Le disque est marqué en tant que disque supplémentaire et est retourné au client une fois la tâche associée au colis d’origine terminée. |
 
 ### <a name="time-to-process-job"></a>Temps de traitement du travail 
-Le temps de traitement d’un travail d’importation/exportation varie en fonction de différents facteurs, tels que le délai de livraison, le type de travail, le type et la taille des données copiées, ou encore la taille des disques fournis. Le service Import/Export n’a pas de contrat de niveau de service mais, après réception des disques le service, il s’efforce d’effectuer la copie en 7 à 10 jours. Vous pouvez utiliser l’API REST pour assurer le suivi détaillé de la progression du travail. Dans l’option d’affichage des travaux, un pourcentage d’achèvement terminé indique l’état d’avancement de la copie. Contactez-nous si vous avez besoin d’estimer la durée nécessaire à un travail d’importation/exportation.
+Le temps de traitement d’un travail d’importation/exportation varie en fonction de différents facteurs, tels que le délai de livraison, la charge sur le centre de données, le type de travail, le type et la taille des données copiées, ou encore le nombre de disques dans un travail. Le service Import/Export n’a pas de contrat de niveau de service mais, il s’efforce d’effectuer la copie en 7 à 10 jours après réception des disques le service. En plus de l’état publié sur le portail Azure, les API REST peuvent être utilisées pour suivre la progression du travail. Le paramètre de pourcentage effectué dans l’appel d’API de l’opération Répertorier les travaux fournit le pourcentage de progression de la copie.
 
 ### <a name="pricing"></a>Tarifs
 **Frais de manipulation de disque**
@@ -569,7 +570,7 @@ Si vous utilisez [WAImportExport Tool](http://download.microsoft.com/download/3/
 DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
 G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |
 ```
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Configuration de l’outil WAImportExport](storage-import-export-tool-how-to.md)
 * [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)

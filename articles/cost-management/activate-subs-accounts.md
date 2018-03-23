@@ -1,20 +1,20 @@
 ---
 title: Activer des abonnements et des comptes Azure | Microsoft Docs
-description: "Activez l’accès à l’aide des API Azure Resource Manager pour les comptes nouveaux et existants et résoudre les problèmes de compte courants."
+description: Activez l’accès à l’aide des API Azure Resource Manager pour les comptes nouveaux et existants et résoudre les problèmes de compte courants.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 03/01/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
-ms.custom: 
-ms.openlocfilehash: 66b2ef53e613a9c61eea17746a25357119cf6900
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.custom: ''
+ms.openlocfilehash: a0dc2ee201c1729b10cd363553cdf5d61ec87748
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Activer des abonnements et des comptes Azure avec Azure Cost Management
 
@@ -76,7 +76,7 @@ Quand vous ajoutez un compte ou mettez à jour un abonnement, vous accordez à A
 
     Si vous ne voyez pas un symbole de coche verte pour un ou plusieurs des abonnements, cela signifie que vous n’avez pas d’autorisations pour créer l’application de lecteur (le CloudynCollector) pour l’abonnement. Un utilisateur avec des autorisations plus élevées pour l’abonnement doit répéter ce processus.
 
-Pour une présentation de ce processus, regardez la vidéo [Connexion à Azure Resource Manager avec Azure Cost Management et la technologie Cloudyn](https://youtu.be/oCIwvfBB6kk).
+Pour une présentation de ce processus, regardez la vidéo [Connecting to Azure Resource Manager with Azure Cost Management](https://youtu.be/oCIwvfBB6kk).
 
 >[!VIDEO https://www.youtube.com/embed/oCIwvfBB6kk?ecver=1]
 
@@ -104,6 +104,6 @@ Afin de pouvoir générer la clé API Azure Enterprise Agreement pour configurer
 
 Vous devrez peut-être également accorder aux administrateurs de service, propriétaires de compte et administrateurs d’entreprise l’autorisation _d’afficher les frais_ avec l’API de facturation.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Si vous n’avez pas encore suivi le premier didacticiel de Cost Management, consultez-le dans [Réviser l’utilisation et les coûts](tutorial-review-usage.md).

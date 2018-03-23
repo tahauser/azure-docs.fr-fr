@@ -1,8 +1,8 @@
 ---
-title: "Présentation du volet d’accès dans Azure Active Directory ? | Microsoft Docs"
-description: "Découvrez comment utiliser les différentes versions du volet d’accès (navigateur web, application Android, iPhone et iPad) pour accéder aux applications SaaS."
+title: Présentation du volet d’accès dans Azure Active Directory ? | Microsoft Docs
+description: Découvrez comment utiliser les différentes versions du volet d’accès (navigateur web, application Android, iPhone et iPad) pour accéder aux applications SaaS.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: c0252d01-7e6e-4f79-a70e-600479577dfd
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 03/06/2018
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c9069cb0b46ddc1155c64bd63a7fcd8a685abbad
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: c9b647e8f731995537a8797ab28248a1c42b6460
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="what-is-the-access-panel"></a>Présentation du volet d’accès
 
@@ -67,6 +67,9 @@ Une fois authentifié, vous pouvez interagir avec les applications que l’admin
 ## <a name="web-browser-requirements"></a>Configuration requise du navigateur web
 
 Au minimum, le volet d’accès nécessite un navigateur prenant en charge JavaScript et dans lequel CSS est activée. Pour se connecter aux applications via l’authentification unique (SSO) avec mot de passe, l’extension du volet d’accès doit être installée dans votre navigateur. Cette extension est téléchargée automatiquement quand vous sélectionnez une application configurée pour l’authentification unique (SSO) avec mot de passe.
+
+Le programme d’installation est spécifique à l’architecture. Si vous cliquez sur le lien de téléchargement, vous obtenez uniquement le programme d’installation qui correspond à l’architecture de votre système d’exploitation. Si vous êtes administrateur de déploiement d’applications, cliquez sur le lien de téléchargement des appareils 64 bits et sur celui des appareils 32 bits pour obtenir les deux programmes d’installation.
+
 
 L’extension du panneau d’accès est actuellement disponible pour :
 - **Edge** : sur Windows 10 Édition anniversaire ou version ultérieure. 

@@ -25,7 +25,7 @@ Voici quelques exemples de paires de régions :
 
 | Primaire | Secondaire |
 |:--- |:--- |
-| Ouest des États-Unis |Est des États-Unis |
+| États-Unis de l’Ouest |Est des États-Unis |
 | Europe du Nord |Europe de l'Ouest |
 | Asie du Sud-Est |Est de l'Asie |
 
@@ -55,9 +55,9 @@ Le tableau suivant fournit une rapide vue d’ensemble des différences entre le
 
 | Stratégie de réplication | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
-| Les données sont répliquées entre plusieurs installations. |Non |Oui |Oui |Oui |
-| Les données peuvent être lues à partir de l’emplacement secondaire comme de l’emplacement principal. |Non |Non |Non |Oui |
-| Nombre de copies de données conservées sur des nœuds distincts. |3 |3 |6 |6 |
+| Les données sont répliquées entre plusieurs installations. |Non  |OUI |OUI |OUI |
+| Les données peuvent être lues à partir de l’emplacement secondaire comme de l’emplacement principal. |Non  |Non  |Non  |OUI |
+| Nombre de copies de données conservées sur des nœuds distincts. |3 |3 |6. |6. |
 
 Vous pouvez en savoir plus sur les [options de réplication de stockage Azure ici](../articles/storage/common/storage-redundancy.md). Pour plus d’informations sur les disques gérés, consultez [Vue d’ensemble d’Azure Managed Disks](../articles/virtual-machines/windows/managed-disks-overview.md).
 
@@ -75,11 +75,11 @@ Les prix varient selon le type de stockage et la disponibilité que vous sélect
 Consultez [Tarification Azure Storage](https://azure.microsoft.com/pricing/details/storage/) pour connaître les informations de tarification des différents types de stockage et options de disponibilité.
 
 ## <a name="availability-sets"></a>Groupes à haute disponibilité
-Un groupe à haute disponibilité est un regroupement logique de machines virtuelles au sein d’un centre de données qui permet à Azure de comprendre comment votre application est conçue, afin de garantir la redondance et la disponibilité. Il est recommandé de créer au moins deux machines virtuelles dans un groupe à haute disponibilité, de manière à fournir une application hautement disponible et à répondre aux exigences du [niveau de 99,95 % inscrit dans les contrats de niveau de service Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Lorsqu’une seule machine virtuelle utilise le [stockage Azure Premium](../articles/virtual-machines/windows/premium-storage.md), le SLA Azure s’applique pour les événements de maintenance non planifiés. 
+Un groupe à haute disponibilité est un regroupement logique de machines virtuelles au sein d’un centre de données qui permet à Azure de comprendre comment votre application est conçue, afin de garantir la redondance et la disponibilité. Il est recommandé de créer au moins deux machines virtuelles dans un groupe à haute disponibilité, de manière à fournir une application hautement disponible et à répondre aux exigences du [niveau de 99,95 % inscrit dans les contrats de niveau de service Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Le groupe à haute disponibilité proprement dit ne vous coûte rien ; vous payez uniquement pour chaque instance de machine virtuelle que vous créez. Lorsqu’une seule machine virtuelle utilise le [stockage Azure Premium](../articles/virtual-machines/windows/premium-storage.md), le SLA Azure s’applique pour les événements de maintenance non planifiés. 
 
 Un groupe à haute disponibilité est composé de deux regroupements supplémentaires qui vous protègent contre les défaillances matérielles et autorisent l’application des mises à jour en toute sécurité dans des domaines d’erreur (FD) et des domaines de mise à jour (UD). Vous pouvez en savoir plus sur la gestion de la disponibilité des [machines virtuelles Linux](../articles/virtual-machines/linux/manage-availability.md) ou des [machines virtuelles Windows](../articles/virtual-machines/windows/manage-availability.md).
 
-### <a name="fault-domains"></a>Domaines d'erreur
+### <a name="fault-domains"></a>Domaines d’erreur
 Un domaine d’erreur est un groupe logique de matériels sous-jacents qui partagent la même source d’alimentation et le même commutateur réseau, par exemple un rack dans un centre de données local. Lorsque vous créez des machines virtuelles au sein d’un groupe à haute disponibilité, la plateforme Azure distribue automatiquement vos machines virtuelles dans ces domaines d’erreur. Cette approche limite l’impact des défaillances du matériel physique, des pannes de réseau ou des coupures de courant susceptibles de survenir.
 
 ### <a name="update-domains"></a>Domaines de mise à jour

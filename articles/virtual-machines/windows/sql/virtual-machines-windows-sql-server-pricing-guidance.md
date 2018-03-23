@@ -1,29 +1,36 @@
 ---
-title: "Optimiser les coûts pour SQL Server sur les machines virtuelles Azure | Microsoft Docs"
-description: "Fournit des meilleures pratiques pour choisir le bon modèle de tarification de machine virtuelle SQL Server."
+title: Optimiser les coûts pour SQL Server sur les machines virtuelles Azure | Microsoft Docs
+description: Fournit des meilleures pratiques pour choisir le bon modèle de tarification de machine virtuelle SQL Server.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 10/17/2017
+ms.date: 02/20/2018
 ms.author: jroth
-ms.openlocfilehash: fe04aa382a3e829b201dbe92442f841fb29fff15
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3103ca2c659e40fd945b597ed4671fe96daf1905
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Tarification des machines virtuelles SQL Server Azure
 
-Cet article fournit des informations de tarification pour les machines virtuelles SQL Server dans Azure. Plusieurs facteurs ont un impact sur le coût, et il est important de choisir le bon équilibre entre les coûts et les besoins de l’entreprise.
+Cet article fournit des informations de tarification pour les [machines virtuelles SQL Server](virtual-machines-windows-sql-server-iaas-overview.md) dans Azure. Plusieurs facteurs ont un impact sur le coût, et il est important de choisir le bon équilibre entre les coûts et les besoins de l’entreprise.
+
+> [!TIP]
+> Si vous cherchez seulement à obtenir une estimation de coût pour une combinaison spécifique d’édition de SQL Server et de taille de machine virtuelle, consultez la [Page de tarification](https://azure.microsoft.com/pricing/details/virtual-machines/windows). Sélectionnez votre système d’exploitation et l’édition de SQL Server à partir de la liste **Système d’exploitation/Logiciel** liste.
+>
+> ![Interface utilisateur sur la page de tarification des machines virtuelles](./media/virtual-machines-windows-sql-server-pricing-guidance/virtual-machines-pricing-ui.png)
+>
+> Ou utilisez la [Calculatrice de prix](https://azure.microsoft.com/pricing/#explore-cost) pour ajouter et configurer une machine virtuelle. 
 
 ## <a name="free-licensed-sql-server-editions"></a>Éditions SQL Server sous licence libre
 
@@ -56,7 +63,7 @@ Pour ces éditions, vous pouvez vous acquitter de la licence SQL Server de deux 
 
 ### <a name="pay-per-usage"></a>Paiement à l’utilisation
 
-**Le paiement d’une licence SQL Server à l’utilisation** signifie que le coût par minute de l’exécution de la machine virtuelle Azure comprend le coût de la licence SQL Server. La tarification des différentes éditions SQL Server (Web, Standard, Entreprise) est indiquée sur la [page de tarification des machines virtuelles Azure](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-standard). Le coût est le même pour toutes les versions de SQL Server (de 2012 SP3 à 2017). Comme pour la licence SQL Server de manière générale, les frais de licence par minute varient en fonction du nombre de cœurs de la machine virtuelle.
+**Le paiement d’une licence SQL Server à l’utilisation** signifie que le coût par minute de l’exécution de la machine virtuelle Azure comprend le coût de la licence SQL Server. La tarification des différentes éditions SQL Server (Web, Standard, Entreprise) est indiquée sur la [page de tarification des machines virtuelles Azure](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Le coût est le même pour toutes les versions de SQL Server (de 2012 SP3 à 2017). Comme pour la licence SQL Server de manière générale, les frais de licence par minute varient en fonction du nombre de cœurs de la machine virtuelle.
 
 Le paiement de la licence SQL Server à l’utilisation est recommandé pour :
 
@@ -147,6 +154,6 @@ Pour les autres flux de travail, envisagez l’arrêt et le redémarrage automat
 
 Pour obtenir une assistance globale sur la tarification Azure, consultez [Éviter les coûts inattendus avec la gestion de la facturation et des coûts dans Azure](../../../billing/billing-getting-started.md).
 
-Pour obtenir la tarification des machines virtuelles les plus récentes, y compris SQL Server, consultez la [page de tarification des machines virtuelles Azure](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-standard).
+Pour obtenir la tarification des machines virtuelles les plus récentes, y compris SQL Server, consultez la [page de tarification des machines virtuelles Azure](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
 
 En savoir plus sur les machines virtuelles SQL Server pour les [machines virtuelles SQL Server Windows](virtual-machines-windows-sql-server-iaas-overview.md) et les [machines virtuelles SQL Server Linux](../../linux/sql/sql-server-linux-virtual-machines-overview.md).

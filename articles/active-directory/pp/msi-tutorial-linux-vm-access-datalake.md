@@ -1,11 +1,11 @@
 ---
-title: "Comment utiliser une identité du service administré (MSI) d’une machine virtuelle Linux pour accéder à Azure Data Lake Store"
-description: "Un didacticiel qui vous montre comment utiliser une identité du service administré (MSI) d’une machine virtuelle Linux pour accéder à Azure Data Lake Store."
+title: Comment utiliser une identité du service administré (MSI) d’une machine virtuelle Linux pour accéder à Azure Data Lake Store
+description: Un didacticiel qui vous montre comment utiliser une identité du service administré (MSI) d’une machine virtuelle Linux pour accéder à Azure Data Lake Store.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,10 @@ ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: e2a2b885dd0dc5b240aef234ef1ff139d788de3c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Utiliser une identité du service administré (MSI) d’une machine virtuelle Linux pour accéder à Azure Data Lake Store
 
@@ -33,13 +33,14 @@ Ce didacticiel montre comment utiliser une MSI pour une machine virtuelle Linux 
 
 ## <a name="prerequisites"></a>Prérequis
 
+
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
 [!INCLUDE [msi-tut-prereqs](~/includes/active-directory-msi-tut-prereqs.md)]
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au portail Azure depuis l’adresse [https://portal.azure.com](https://portal.azure.com).
+Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Créer une machine virtuelle Linux dans un nouveau groupe de ressources
 
@@ -103,7 +104,7 @@ Pour effectuer cette procédure, vous avez besoin d’un client SSH. Si vous uti
 
 1. Dans le portail, accédez à votre machine virtuelle Linux et dans **Vue d’ensemble**, cliquez sur **Connexion**.  
 2. **Connectez-vous** à la machine virtuelle à l’aide du client SSH de votre choix. 
-3. Dans la fenêtre du terminal, à l’aide de CURL, envoyez une requête au point de terminaison de l’identité du service administré locale pour obtenir un jeton d’accès au système de fichiers de Data Lake Store.  L’identificateur de ressource pour Data Lake Store est « https://datalake.azure.net/.»  Il est important d’inclure la barre oblique dans l’identificateur de ressource.
+3. Dans la fenêtre du terminal, à l’aide de CURL, envoyez une requête au point de terminaison de l’identité du service administré locale pour obtenir un jeton d’accès au système de fichiers de Data Lake Store.  L’identificateur de ressources pour Data Lake Store est « https://datalake.azure.net/ ».  Il est important d’inclure la barre oblique dans l’identificateur de ressource.
     
    ```bash
    curl http://localhost:50342/oauth2/token --data "resource=https://datalake.azure.net/" -H Metadata:true   

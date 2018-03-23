@@ -1,11 +1,11 @@
 ---
-title: "Infrastructure et connectivité à SAP HANA sur Azure (grandes instances) | Microsoft Docs"
-description: "Configurez l’infrastructure de connectivité requise pour utiliser SAP HANA sur Azure (grandes instances)."
+title: Infrastructure et connectivité à SAP HANA sur Azure (grandes instances) | Microsoft Docs
+description: Configurez l’infrastructure de connectivité requise pour utiliser SAP HANA sur Azure (grandes instances).
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: RicksterCDN
 manager: timlt
-editor: 
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7a44fdbfb973d75c21aa87e9b9d0eea8fb2b3392
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: d94e491d12ac43a4d85a638c79bcd3b24a4bc0ef
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Infrastructure et connectivité à SAP HANA (grandes instances) sur Azure 
 
@@ -75,7 +75,7 @@ Nous allons donc étudier d’un peu plus près la création du réseau virtuel 
 >[!Note]
 >Le réseau virtuel Azure pour une grande instance HANA doit être créé à l’aide du modèle de déploiement Azure Resource Manager. L’ancien modèle de déploiement Azure, communément appelé modèle de déploiement Classic, n’est pas pris en charge avec la solution de grande instance HANA.
 
-Le réseau virtuel peut être créé à l’aide du portail Azure, de PowerShell, d’un modèle Azure ou de l’interface de ligne de commande Azure (voir [Créer un réseau virtuel à l’aide du portail Azure](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). Dans l’exemple suivant, nous allons examiner un réseau virtuel créé via le portail Azure.
+Le réseau virtuel peut être créé à l’aide du portail Azure, de PowerShell, d’un modèle Azure ou de l’interface de ligne de commande Azure (voir [Créer un réseau virtuel à l’aide du portail Azure](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network)). Dans l’exemple suivant, nous allons examiner un réseau virtuel créé via le portail Azure.
 
 Dans les définitions d’un réseau virtuel Azure via le portail Azure, examinons de plus près certaines définitions et leur lien avec les éléments de la liste des différentes plages d’adresses IP. La notion **d’espace d’adressage** dont nous parlons désigne l’espace d’adressage que le réseau virtuel Azure est autorisé à utiliser. Il s’agit également de la plage d’adresses que le réseau virtuel utilise pour la propagation des itinéraires BGP. Cet **espace d’adressage** est illustré ici :
 
@@ -119,7 +119,7 @@ Voici en résumé ce qu’il faut retenir d’un réseau virtuel Azure qui se co
 
 Nous avons déjà évoqué dans des sections précédentes certaines des plages d’adresses IP nécessaires pour pouvoir déployer de grandes instances HANA. Mais d’autres plages d’adresses IP sont également importantes. Examinons-les plus en détail. Les adresses IP suivantes, qu’il n’est pas nécessaire de toutes envoyer à Microsoft, doivent être définies avant d’envoyer une demande de déploiement initial :
 
-- **Espace d’adressage de réseau virtuel :** comme nous l’avons évoqué précédemment, il s’agit des plages d’adresses IP que vous avez affectées (ou que vous prévoyez d’affecter) à votre paramètre d’espace d’adressage dans les réseaux virtuels Azure qui se connectent à l’environnement de grande instance HANA. Il est recommandé d’utiliser ce paramètre d’espace d’adressage sous la forme d’une valeur multiligne composée des plages de sous-réseau de machines virtuelles Azure et de la plage du sous-réseau de passerelle Azure, comme illustré dans les graphismes ci-dessus. Cette plage NE doit PAS chevaucher les plages d’adresses du pool IP local ou de votre serveur ou encore les plages d’adresses ER-P2P. Comment obtenir ces plages d’adresses IP ? Votre équipe réseau ou votre fournisseur de services doivent vous fournir une ou plusieurs plages d’adresses IP qui ne sont pas utilisées à l’intérieur de votre réseau. Exemple : si votre sous-réseau de machines virtuelles Azure (voir ci-dessus) utilise 10.0.1.0/24 et si votre sous-réseau de passerelles Azure (voir ci-dessous) utilise 10.0.2.0/28, alors votre espace d’adressage de réseau virtuel Azure devrait se trouver sur deux lignes : 10.0.1.0/24 et 10.0.2.0/28. Bien que les valeurs d’espace d’adressage peuvent être agrégées, il est recommandé de les mettre en correspondance avec les plages de sous-réseau afin d’éviter une réutilisation accidentelle de plages d’adresses IP inutilisées dans des espaces d’adressage plus grands ailleurs dans votre réseau à l’avenir. **L’espace d'adressage du réseau virtuel est une plage d’adresses IP qui doit être envoyée à Microsoft lorsque vous demandez un déploiement initial**
+- **Espace d’adressage de réseau virtuel :** comme nous l’avons évoqué précédemment, il s’agit des plages d’adresses IP que vous avez affectées (ou que vous prévoyez d’affecter) à votre paramètre d’espace d’adressage dans les réseaux virtuels Azure qui se connectent à l’environnement de grande instance HANA. Il est recommandé d’utiliser ce paramètre d’espace d’adressage sous la forme d’une valeur multiligne composée des plages de sous-réseau de machines virtuelles Azure et de la plage du sous-réseau de passerelle Azure, comme illustré dans les graphismes ci-dessus. Cette plage NE doit PAS chevaucher les plages d’adresses du pool IP local ou de votre serveur ou encore les plages d’adresses ER-P2P. Comment obtenir ces plages d’adresses IP ? Votre équipe réseau ou votre fournisseur de services doivent vous fournir une ou plusieurs plages d’adresses IP qui ne sont pas utilisées à l’intérieur de votre réseau. Exemple : si votre sous-réseau de machines virtuelles Azure (voir ci-dessus) utilise 10.0.1.0/24 et si votre sous-réseau de passerelles Azure (voir ci-dessous) utilise 10.0.2.0/28, alors votre espace d’adressage de réseau virtuel Azure devrait se trouver sur deux lignes : 10.0.1.0/24 et 10.0.2.0/28. Bien que les valeurs d’espace d’adressage peuvent être agrégées, il est recommandé de les mettre en correspondance avec les plages de sous-réseau afin d’éviter une réutilisation accidentelle de plages d’adresses IP inutilisées dans des espaces d’adressage plus grands ailleurs dans votre réseau à l’avenir. **L’espace d'adressage du réseau virtuel est un plage d’adresses IP qui doit être envoyée à Microsoft lorsque vous demandez un déploiement initial**
 
 - **Plage d’adresses IP du sous-réseau de machines virtuelles Azure :** cette plage d’adresses IP, déjà décrite précédemment, est celle que vous avez affectée (ou que vous prévoyez d’affecter) au paramètre du sous-réseau de réseau virtuel Azure dans votre réseau virtuel Azure qui se connecte à l’environnement de grande instance HANA. Cette plage d’adresses IP est utilisée pour affecter des adresses IP à vos machines virtuelles Azure. Les adresses IP en dehors de cette plage sont autorisées à se connecter aux serveurs de votre grande instance SAP HANA. Si nécessaire, plusieurs sous-réseaux de machines virtuelles Azure peuvent être utilisés. Microsoft recommande d’utiliser un bloc CIDR /24 pour chaque sous-réseau de machines virtuelles Azure. Cette plage d’adresses doit faire partie des valeurs utilisées dans l’espace d’adressage de réseau virtuel Azure. Comment obtenir cette plage d’adresses IP ? Votre équipe réseau ou votre fournisseur de services doit vous indiquer une plage d’adresses IP qui n’est pas utilisée actuellement à l’intérieur de votre réseau.
 
@@ -250,7 +250,7 @@ Utilisez le portail Azure, PowerShell ou l’interface de ligne de commande pour
 
 Dans ce cas, nous vous recommandons d’ajouter la nouvelle plage d’adresses IP en tant que nouvelle plage à l’espace d’adressage du réseau virtuel, au lieu de générer une nouvelle plage agrégée. Dans les deux cas, vous devez envoyer cette modification à Microsoft pour autoriser la connectivité depuis cette plage d’adresses IP vers les unités de grandes instances HANA dans votre client. Vous pouvez ouvrir une demande de support Azure pour obtenir l’ajout du nouvel espace d’adressage de réseau virtuel. Après avoir reçu la confirmation, effectuez les étapes suivantes.
 
-Pour créer un sous-réseau supplémentaire à partir du portail Azure, consultez l’article [Créer un réseau virtuel à l’aide du portail Azure](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), et pour le créer à partir de PowerShell, consultez [Créer un réseau virtuel à l’aide de PowerShell](../../../virtual-network/virtual-networks-create-vnet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Pour créer un sous-réseau supplémentaire à partir du portail Azure, consultez l’article [Créer un réseau virtuel à l’aide du portail Azure](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network), et pour le créer à partir de PowerShell, consultez [Créer un réseau virtuel à l’aide de PowerShell](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network).
 
 ## <a name="adding-vnets"></a>Ajout de réseaux virtuels
 
@@ -277,15 +277,13 @@ Une fois le nouveau circuit créé et la configuration de SAP HANA sur Azure Ser
 
 Pour supprimer un sous-réseau de réseau virtuel, vous pouvez utiliser le portail Azure, PowerShell ou l’interface de ligne de commande. Si votre plage d’adresses IP de réseau virtuel Azure/espace d’adressage de réseau virtuel Azure était une plage agrégée, vous ne recevrez aucun suivi de la part de Microsoft. Toutefois, le réseau virtuel continue à propager l’espace d’adressage de l’itinéraire BGP qui inclut le sous-réseau supprimé. Si vous avez défini la plage d’adresses IP de réseau virtuel Azure/l’espace d’adressage de réseau virtuel Azure sous la forme de plusieurs plages d’adresses IP, dont l’une a été affectée à votre sous-réseau supprimé, vous devrez la supprimer de votre espace d’adressage de réseau virtuel et en informer l’équipe de gestion des services SAP HANA sur Azure pour qu’elle la supprime des plages avec lesquelles les grandes instances SAP HANA sur Azure sont autorisées à communiquer.
 
-Bien qu’il n’existe pas encore de guide Azure.com spécifiquement dédié à la suppression de sous-réseaux, le processus de suppression des sous-réseaux est l’inverse du processus d’ajout. Pour plus d’informations sur la création de sous-réseaux, voir l’article [Créer un réseau virtuel à l’aide du portail Azure](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Pour supprimer un sous-réseau, consultez [Supprimer un sous-réseau](../../../virtual-network/virtual-network-manage-subnet.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-subnet) pour plus d’informations sur la création de sous-réseaux.
 
 ## <a name="deleting-a-vnet"></a>Suppression d’un réseau virtuel
 
-Utilisez le portail Azure, PowerShell ou l’interface de ligne de commande pour supprimer un réseau virtuel. L’équipe de gestion des services SAP HANA sur Azure supprime les autorisations existantes sur le circuit ExpressRoute de SAP HANA sur Azure (grandes instances) et supprime la plage d’adresses IP du réseau virtuel Azure/l’espace d’adressage du réseau virtuel Azure pour la communication avec les grandes instances HANA.
+Pour supprimer un réseau virtuel, consultez [Supprimer un réseau virtuel](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-virtual-network). L’équipe de gestion des services SAP HANA sur Azure supprime les autorisations existantes sur le circuit ExpressRoute de SAP HANA sur Azure (grandes instances) et supprime la plage d’adresses IP du réseau virtuel Azure/l’espace d’adressage du réseau virtuel Azure pour la communication avec les grandes instances HANA.
 
 Une fois que le réseau virtuel a été supprimé, ouvrez une demande de support Azure pour fournir la ou les plages d’adresses IP à supprimer.
-
-Bien qu’il n’existe pas encore de guide Azure.com spécifiquement dédié à la suppression de réseaux virtuels, le processus de suppression des réseaux virtuels est l’inverse du processus d’ajout décrit ci-dessus. Consultez les articles [Créer un réseau virtuel à l’aide du portail Azure](../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) et [Créer un réseau virtuel à l’aide de PowerShell](../../../virtual-network/virtual-networks-create-vnet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pour plus d’informations sur la création de réseaux virtuels.
 
 Pour vous assurer que tout est supprimé, supprimez les éléments suivants :
 

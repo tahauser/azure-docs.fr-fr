@@ -1,11 +1,11 @@
 ---
-title: "Configuration des alertes de sécurité | Microsoft Docs"
-description: "Découvrez comment configurer des alertes de sécurité pour l’extension Azure Privileged Identity Management."
+title: Configuration des alertes de sécurité | Microsoft Docs
+description: Découvrez comment configurer des alertes de sécurité pour l’extension Azure Privileged Identity Management.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4e0c911a-36c6-42a0-8f79-a01c03d2d04f
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 52a03624b8e3841f559caef564712ff74a614365
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8037942cb3700f8e46d3be24b5fed04004333335
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-configure-security-alerts-in-azure-ad-privileged-identity-management"></a>Comment configurer les alertes de sécurité dans Azure AD Privileged Identity Management
 ## <a name="security-alerts"></a>Alertes de sécurité
@@ -27,13 +27,18 @@ Azure Privileged Identity Management (PIM) génère des alertes en cas d’activ
 
 ![Alertes de sécurité du tableau de bord PIM - capture d’écran][1]
 
-| Alerte | Déclencheur | Recommandation |
-| --- | --- | --- |
-| **Les rôles sont affectés en dehors de PIM** |Un administrateur a été définitivement affecté à un rôle, en dehors de l’interface PIM. |Révisez la nouvelle affectation de rôle. Étant donné que les autres services peuvent uniquement affecter des administrateurs permanents, remplacez cette affectation par une affectation éligible si nécessaire. |
-| **Les rôles sont activés trop fréquemment.** |Un trop grand nombre de réactivations du même rôle ont eu lieu par rapport à la durée autorisée dans les paramètres. |Contactez l’utilisateur pour savoir pourquoi il a activé le rôle autant de fois. Le délai est peut-être trop court pour lui permettre de finaliser les tâches en cours, ou il utilise peut-être des scripts pour activer automatiquement un rôle. |
-| **Les rôles ne nécessitent pas l’authentification multifacteur pour l’activation** |Les paramètres comportent des rôles sans authentification MFA. |Nous exigeons l’authentification multifacteur pour les rôles les plus privilégiés, mais nous vous conseillons vivement d’activer l’authentification multifacteur pour l’activation de tous les rôles. |
-| **Les administrateurs n’utilisent par leurs rôles privilégiés** |Certains administrateurs éligibles n’ont pas activé leurs rôles récemment. |Démarrez une vérification d’accès pour identifier les utilisateurs qui n’ont plus besoin d’un accès. |
-| **Trop d'administrateurs généraux** |Le nombre d’administrateurs généraux est supérieur au nombre recommandé. |Si vous avez un grand nombre d’administrateurs généraux, il est probable que les utilisateurs reçoivent plus d’autorisations que nécessaire. Affectez aux utilisateurs des rôles moins privilégiés, ou rendez certains d’entre eux éligibles au rôle au lieu de leur affecter le rôle de façon permanente. |
+| Alerte | Niveau de gravité | Déclencheur | Recommandation |
+| --- | --- | --- | --- |
+| **Les rôles sont affectés en dehors de PIM** |Élevé |Un administrateur a été définitivement affecté à un rôle privilégié en dehors de l’interface PIM. |Passez en revue les utilisateurs de la liste et supprimez le rôle privilégié qui leur a été attribué en dehors de PIM. |
+| **Les rôles sont activés trop fréquemment.** |Moyenne |Un trop grand nombre de réactivations du même rôle ont eu lieu par rapport à la durée autorisée dans les paramètres. |Contactez l’utilisateur pour savoir pourquoi il a activé le rôle autant de fois. Le délai est peut-être trop court pour lui permettre de finaliser les tâches en cours, ou il utilise peut-être des scripts pour activer automatiquement un rôle. Vérifiez que la durée d’activation de leur rôle est suffisante pour qu’ils puissent effectuer leurs tâches. |
+| **Les rôles ne nécessitent pas l’authentification multifacteur pour l’activation** |Moyenne |Les paramètres comportent des rôles sans authentification MFA. |Nous exigeons l’authentification multifacteur pour les rôles les plus privilégiés, mais nous vous conseillons vivement d’activer l’authentification multifacteur pour l’activation de tous les rôles. |
+| **Les utilisateurs n’utilisent par leurs rôles privilégiés** |Faible |Certains administrateurs éligibles n’ont pas activé leurs rôles récemment. |Démarrez une vérification d’accès pour identifier les utilisateurs qui n’ont plus besoin d’un accès. |
+| **Trop d'administrateurs généraux** |Faible |Le nombre d’administrateurs généraux est supérieur au nombre recommandé. |Si vous avez un grand nombre d’administrateurs généraux, il est probable que les utilisateurs reçoivent plus d’autorisations que nécessaire. Affectez aux utilisateurs des rôles moins privilégiés, ou rendez certains d’entre eux éligibles au rôle au lieu de leur affecter le rôle de façon permanente. |
+
+### <a name="severity"></a>Niveau de gravité
+* **Élevé** : nécessite une action immédiate, car il s’agit d’une violation de stratégie. 
+* **Moyen** : ne nécessite pas d’action immédiate, mais signale une violation potentielle de la stratégie.
+* **Faible** : ne nécessite pas d’action immédiate, mais suggère une modification de la stratégie.
 
 ## <a name="configure-security-alert-settings"></a>Configurez les paramètres d'alerte de sécurité
 Vous pouvez personnaliser certaines alertes de sécurité dans PIM selon votre environnement et vos objectifs de sécurité. Procédez comme suit pour accéder au panneau des paramètres :

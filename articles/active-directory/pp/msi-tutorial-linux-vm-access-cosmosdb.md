@@ -1,11 +1,11 @@
 ---
-title: "Utiliser une identité MSI affectée à l’utilisateur sur une machine virtuelle Linux pour accéder à Azure Cosmos DB"
-description: "Ce didacticiel vous guide tout au long de l’utilisation d’une identité MSI (Managed Service Identity) affectée à l’utilisateur sur une machine virtuelle Linux en vue d’accéder à Azure Cosmos DB."
+title: Utiliser une identité MSI affectée à l’utilisateur sur une machine virtuelle Linux pour accéder à Azure Cosmos DB
+description: Ce didacticiel vous guide tout au long de l’utilisation d’une identité MSI (Managed Service Identity) affectée à l’utilisateur sur une machine virtuelle Linux en vue d’accéder à Azure Cosmos DB.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 02/14/2018
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 2c0c3597999e80af86f079385653d94ddfcab245
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: dbb5e9e8f9accd618599010ab2bbb4a8760e534f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-cosmos-db"></a>Utiliser une identité MSI affectée à l’utilisateur sur une machine virtuelle Linux pour accéder à Azure Cosmos DB 
 
@@ -34,6 +34,7 @@ Ce didacticiel vous montre comment créer et utiliser une identité MSI affecté
 
 ## <a name="prerequisites"></a>Prérequis
 
+
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
 [!INCLUDE [msi-tut-prereqs](~/includes/active-directory-msi-tut-prereqs.md)]
@@ -45,7 +46,7 @@ Pour exécuter les exemples de script CLI dans ce didacticiel, vous avez deux po
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au portail Azure depuis l’adresse [https://portal.azure.com](https://portal.azure.com).
+Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Créer une machine virtuelle Linux dans un nouveau groupe de ressources
 
@@ -158,10 +159,10 @@ Pour effectuer cette procédure, vous avez besoin d’un client SSH. Si vous uti
 3. Ensuite, vous serez invité à entrer le **Mot de passe** que vous avez ajouté à la création de la **machine virtuelle Linux**. Vous devez être connecté.  
 4. Utilisez CURL pour obtenir un jeton d’accès à partir de Azure Resource Manager.  
 
-    La requête et la réponse CURL pour le jeton d’accès se trouvent ci-dessous.  Remplacez <CLIENT ID> par la valeur clientId de votre identité MSI affectée à l’utilisateur :
+    La requête et la réponse CURL pour le jeton d’accès se trouvent ci-dessous.  Remplacez <CLIENT ID> par la valeur clientId de votre identité MSI affectée à l’utilisateur : 
     
     ```bash
-    curl 'http://localhost:50342/oauth2/token?resource=https://management.azure.com/&client_id=<CLIENT ID>' -H "Metadata:true"
+    curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<MSI CLIENT ID>" 
     ```
     
     > [!NOTE]

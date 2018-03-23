@@ -1,9 +1,9 @@
 ---
-title: "Authentification directe Azure AD : Démarrage rapide | Microsoft Docs"
-description: "Cet article explique comment commencer à utiliser l’authentification directe d’Azure Active Directory (Azure AD)."
+title: 'Authentification directe Azure AD : Démarrage rapide | Microsoft Docs'
+description: Cet article explique comment commencer à utiliser l’authentification directe d’Azure Active Directory (Azure AD).
 services: active-directory
-keywords: "Authentification directe Azure AD Connect, installation d’Active Directory, composants requis pour Azure AD, SSO, Authentification unique"
-documentationcenter: 
+keywords: Authentification directe Azure AD Connect, installation d’Active Directory, composants requis pour Azure AD, SSO, Authentification unique
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: 1da7c064030501b5c6547b65c091b1a50da93899
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b592eb8ca43e5bf3eebe2b0c47d8f17dbec7b238
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Authentification directe Azure Active Directory : Démarrage rapide
 
@@ -116,20 +116,38 @@ Suivez ces instructions pour vérifier que vous avez activé correctement l’au
 
 ## <a name="step-5-ensure-high-availability"></a>Étape 5 : Garantir une haute disponibilité
 
-Si vous envisagez de déployer l’authentification directe dans un environnement de production, vous devez installer un agent d’authentification autonome. Installez ce deuxième agent d’authentification sur un serveur _autre_ qu’un serveur exécutant Azure AD Connect et le premier agent d’authentification. Cette installation procure une haute disponibilité des demandes de connexion. Pour déployer un agent d’authentification autonome, effectuez les étapes suivantes :
+Si vous envisagez de déployer l’authentification directe dans un environnement de production, vous devez installer au moins un agent d’authentification autonome. Installez ces agents d’authentification sur des serveurs _autres_ que celui qui exécute Azure AD Connect. Cette configuration fournit une haute disponibilité pour les requêtes de connexion des utilisateurs.
 
-1. Téléchargez la dernière version de l’agent d’authentification (version 1.5.193.0 ou ultérieure). Connectez-vous au [Centre d’administration Azure Active Directory](https://aad.portal.azure.com) à l’aide des informations d’identification d’administrateur général de votre locataire.
+Pour télécharger l’agent d’authentification, effectuez les étapes suivantes :
+
+1. Pour télécharger la dernière version de l’agent d’authentification (version 1.5.193.0 ou ultérieure), connectez-vous au [Centre d’administration Azure Active Directory](https://aad.portal.azure.com) avec les droits d’administrateur général de votre locataire.
 2. Sélectionnez **Active Directory** dans le volet de gauche.
 3. Sélectionnez **Azure AD Connect**, **Authentification directe**, puis **Télécharger l'agent**.
 4. Cliquez sur le bouton **Accepter les conditions et télécharger**.
-5. Installez la dernière version de l’agent d’authentification en exécutant le fichier téléchargé à l’étape précédente. Fournissez les informations d’identification de l’administrateur général de votre locataire lorsque vous y êtes invité.
 
 ![Centre d’administration Azure Active Directory : bouton Télécharger Agent d’authentification](./media/active-directory-aadconnect-pass-through-authentication/pta9.png)
 
 ![Centre d’administration Azure Active Directory : volet Télécharger l’agent](./media/active-directory-aadconnect-pass-through-authentication/pta10.png)
 
 >[!NOTE]
->Vous pouvez également télécharger l’[agent d’authentification Azure Active Directory](https://aka.ms/getauthagent). Veillez à consulter et à accepter les [conditions de service](https://aka.ms/authagenteula) de l’agent d’authentification _avant_ de l’installer.
+>Vous pouvez également télécharger directement l’agent d’authentification [ici](https://aka.ms/getauthagent). Lisez et acceptez les [conditions de service](https://aka.ms/authagenteula) de l’agent d’authentification _avant_ de l’installer.
+
+Il existe deux méthodes pour déployer un agent d’authentification autonome :
+
+Tout d’abord, vous pouvez le faire interactivement en exécutant le fichier exécutable de l’agent d’authentification téléchargé et en fournissant les informations d’identification d’administrateur général de votre locataire lorsque vous y êtes invité.
+
+La deuxième solution consiste à créer et à exécuter un script de déploiement sans assistance. C’est utile lorsque vous souhaitez déployer plusieurs agents d’authentification à la fois, ou installer des agents d’authentification sur des serveurs Windows qui ne disposent pas d’une interface utilisateur, ou auxquels vous ne pouvez pas accéder avec le Bureau à distance. Voici des instructions pour utiliser cette méthode :
+
+1. Exécutez la commande suivante pour installer un agent d’authentification : `AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q`.
+2. Vous pouvez inscrire l’agent d’authentification auprès de notre service à l’aide de Windows PowerShell. Créez un objet d’informations d’identification PowerShell `$cred` qui contient un nom d’utilisateur et un mot de passe d’administrateur général pour votre locataire. Exécutez la commande suivante, en remplaçant *\<username\>* et *\<password\>* :
+   
+        $User = "<username>"
+        $PlainPassword = '<password>'
+        $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
+        $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
+3. Accédez à **C:\Program Files\Microsoft Azure AD Connect Authentication Agent** et exécutez le script suivant en utilisant l’objet `$cred` que vous venez de créer :
+   
+        RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Verrouillage intelligent](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) : guide pratique pour configurer la fonctionnalité Verrouillage intelligent sur votre locataire pour protéger les comptes d’utilisateur.

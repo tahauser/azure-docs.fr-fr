@@ -1,11 +1,11 @@
 ---
-title: "Connecteur SQL générique | Microsoft Docs"
-description: "Cet article explique comment configurer le connecteur SQL générique de Microsoft."
+title: Connecteur SQL générique | Microsoft Docs
+description: Cet article explique comment configurer le connecteur SQL générique de Microsoft.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: bhu
-editor: 
+editor: ''
 ms.assetid: fd8ccef3-6605-47ba-9219-e0c74ffc0ec9
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2017
 ms.author: billmath
-ms.openlocfilehash: 66e3559c244a76101be7b7d944a48cd6dd99bd4c
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 5ac8aff7e302a255efb86606416131ecf8088137
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2018
+ms.lasthandoff: 03/13/2018
 ---
 # <a name="generic-sql-connector-technical-reference"></a>Référence technique du connecteur SQL générique
 Cet article décrit le connecteur SQL générique. Cet article s’applique aux produits suivants :
@@ -43,7 +43,8 @@ Globalement, la version actuelle du connecteur prend en charge les fonctionnalit
 | Opérations |<li>Importation complète et importation différentielle, importation, exportation</li><li>Pour l’exportation : ajouter, supprimer, mettre à jour et remplacer</li><li>Définition du mot de passe, modification du mot de passe</li> |
 | Schéma |<li>Découverte dynamique des objets et des attributs</li> |
 
-### <a name="prerequisites"></a>configuration requise
+### <a name="prerequisites"></a>Prérequis
+
 Avant d’utiliser le connecteur, vérifiez que vous disposez des éléments suivants sur le serveur de synchronisation :
 
 * Microsoft .NET 4.5.2 Framework ou version ultérieure
@@ -152,7 +153,7 @@ Si vous utilisez **Le nom unique est le point d’ancrage**, vous devez utiliser
 ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/any-option.png)
 
 >[!IMPORTANT]
- À compter de mai 2017 l’alias « * » **toute option** a été modifié pour prendre en charge l’importation et l’exportation des flux. Si vous souhaitez utiliser cette option, votre table ou vue à valeurs multiples doit avoir un attribut qui contient le type d’objet.
+ À compter de mai 2017, l’alias « \* » **toute option** a été modifié pour prendre en charge l’importation et l’exportation des flux. Si vous souhaitez utiliser cette option, votre table ou vue à valeurs multiples doit avoir un attribut qui contient le type d’objet.
 
 ![](./media/active-directory-aadconnectsync-connector-genericsql/any-02.png)
 

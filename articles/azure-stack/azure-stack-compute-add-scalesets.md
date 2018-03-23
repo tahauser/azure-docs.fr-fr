@@ -1,22 +1,22 @@
 ---
-title: "Mettre les groupes de machines virtuelles identiques à disposition dans Azure Stack | Microsoft Docs"
-description: "Découvrez comment un opérateur cloud peut ajouter des machines virtuelles identiques à la Marketplace Azure Stack"
+title: Mettre les groupes de machines virtuelles identiques à disposition dans Azure Stack | Microsoft Docs
+description: Découvrez comment un opérateur cloud peut ajouter des machines virtuelles identiques à la Marketplace Azure Stack
 services: azure-stack
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/13/2018
 ms.author: brenduns
 ms.reviewer: anajod
-keywords: 
-ms.openlocfilehash: cb8ac5435b7a5c6deb9d4571696c79b2ed15c93a
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+keywords: ''
+ms.openlocfilehash: a4c854bdd659a05f032f5ee232074bc38ff677ef
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Mettre les groupes de machines virtuelles identiques à disposition dans Azure Stack
 
@@ -33,6 +33,7 @@ Les groupes de machines virtuelles identiques sur Azure Stack suivent le même p
 Sur Azure Stack, les groupes de machines virtuelles identiques ne sont pas compatibles avec la mise à l’échelle automatique. Vous pouvez ajouter d’autres instances à un groupe identique avec le portail Azure Stack, les modèles Resource Manager ou PowerShell.
 
 ## <a name="prerequisites"></a>Prérequis
+
 * **PowerShell et outils**
 
    Installer et configurez PowerShell pour Azure Stack et les outils Azure Stack. Consultez la page [Devenir opérationnel avec PowerShell dans Azure Stack](azure-stack-powershell-configure-quickstart.md).
@@ -67,7 +68,6 @@ $Creds =  New-Object System.Management.Automation.PSCredential $User, $Password
 
 $AzsEnv = Get-AzureRmEnvironment AzureStackAdmin
 $AzsEnvContext = Add-AzureRmAccount -Environment $AzsEnv -Credential $Creds
-Select-AzureRmProfile -Profile $AzsEnvContext
 
 Select-AzureRmSubscription -SubscriptionName "Default Provider Subscription"
 
@@ -84,6 +84,6 @@ Pour supprimer un élément de la galerie du groupe de machines virtuelles ident
 > L’élément de la galerie n’est pas forcément supprimé immédiatement de la marketplace. Pour que l’élément apparaisse comme étant supprimé de la marketplace, vous devrez peut-être actualiser le portail plusieurs fois.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Forum aux questions sur Azure Stack](azure-stack-faq.md)
 

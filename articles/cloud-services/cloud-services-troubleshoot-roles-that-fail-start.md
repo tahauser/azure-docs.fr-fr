@@ -1,11 +1,11 @@
 ---
-title: "Résoudre les problèmes de démarrage des rôles | Microsoft Docs"
-description: "Vous trouverez ici quelques raisons courantes des problèmes de démarrage d’un rôle de service cloud. Nous vous présentons également des solutions à ces problèmes."
+title: Résoudre les problèmes de démarrage des rôles | Microsoft Docs
+description: Vous trouverez ici quelques raisons courantes des problèmes de démarrage d’un rôle de service cloud. Nous vous présentons également des solutions à ces problèmes.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: simonxjx
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 674b2faf-26d7-4f54-99ea-a9e02ef0eb2f
 ms.service: cloud-services
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/03/2017
 ms.author: v-six
-ms.openlocfilehash: d24a55fd3b93760035f852a24537c1cec9e4bab2
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 36966151b616a14e429807feb63df93503e7b249
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Résoudre les problèmes de démarrage des rôles de service cloud
 Voici des solutions à quelques problèmes courants liés à l’échec du démarrage des rôles Azure Cloud Services.
@@ -53,7 +53,7 @@ Pour afficher des erreurs plus détaillées sans utiliser le Bureau à distance�
     ```xml
     <customErrors mode="Off" />
     ```
-4. Enregistrez le fichier.
+4. Enregistrez le fichier .
 5. Recréez le package et redéployez le service.
 
 Une fois le service redéployé, un message d’erreur s’affiche avec le nom de la DLL ou de l’assembly manquant.
@@ -62,7 +62,7 @@ Une fois le service redéployé, un message d’erreur s’affiche avec le nom d
 Vous pouvez utiliser le Bureau à distance pour accéder au rôle et afficher des informations plus complètes sur l’erreur à distance. Pour afficher les erreurs à l’aide du Bureau à distance, procédez comme suit :
 
 1. Assurez-vous que le Kit de développement logiciel (SDK) Azure 1.3 ou ultérieur est installé.
-2. Lors du déploiement de la solution à l’aide de Visual Studio, choisissez de « Configurer les connexions Bureau à distance ». Pour plus d’informations sur la configuration de la connexion Bureau à distance, consultez l’article [Utilisation du Bureau à distance avec des rôles Azure](../vs-azure-tools-remote-desktop-roles.md).
+2. Lors du déploiement de la solution avec Visual Studio, activez le Bureau à distance. Pour plus d’informations, consultez la page [Activer la Connexion Bureau à distance pour un rôle dans Azure Cloud Services avec Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md).
 3. Dans le portail Microsoft Azure, une fois que l’instance affiche l’état **Prêt**, accédez à distance à l’instance. Pour plus d’informations sur l’utilisation du bureau à distance avec les Services cloud, consultez [Accéder à distance aux instances de rôles](cloud-services-role-enable-remote-desktop-new-portal.md#remote-into-role-instances).
 5. Connectez-vous à la machine virtuelle à l’aide des informations d’identification spécifiées lors de la configuration du Bureau à distance.
 6. Ouvrez une fenêtre de commandes.
@@ -77,7 +77,7 @@ L’accès au site web renvoie maintenant des messages d’erreur plus explicite
 * Description : une exception non gérée s’est produite lors de l’exécution de la requête Web en cours. Veuillez consulter l’arborescence des appels de procédure pour plus d’informations sur l’erreur et sa source dans le code.
 * Détails de l’exception : System.IO.FIleNotFoundException : impossible de charger le fichier ou l’assembly « Microsoft.WindowsAzure.StorageClient, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf856ad364e35 » ou l’une de ses dépendances. Le système ne peut pas trouver le fichier spécifié.
 
-Par exemple :
+Par exemple : 
 
 ![Erreur de serveur explicite dans l’application « / »](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503389.png)
 

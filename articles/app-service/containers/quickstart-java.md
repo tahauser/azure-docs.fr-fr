@@ -1,11 +1,11 @@
 ---
-title: "Créer une application web Java dans Azure App Service sur Linux"
-description: "Déployez votre premier programme Java Hello World dans Azure App Service sur Linux en quelques minutes."
+title: Créer une application web Java dans Azure App Service sur Linux
+description: Déployez votre premier programme Java Hello World dans Azure App Service sur Linux en quelques minutes.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: msangapu
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.service: app-service-web
 ms.workload: web
@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 03/07/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 46c97ae5bd6f53857f0b7df12462102a03e8e857
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 2c37151c09c7b180993056532c07ff081f576b83
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="preview-create-a-java-web-app-in-app-service-on-linux"></a>Aperçu : créer une application web Java dans App Service sur Linux
 
@@ -51,19 +51,7 @@ Pour effectuer ce démarrage rapide :
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-
-## <a name="create-a-resource-group"></a>Créer un groupe de ressources
-
-Dans Cloud Shell, créez un groupe de ressources avec la commande [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *Europe de l’Ouest*. Pour afficher tous les emplacements pris en charge pour App Service, exécutez la commande [`az appservice list-locations`](/cli/azure/appservice?view=azure-cli-latest#az_appservice_list_locations).
-
-```azurecli-interactive
-az group create --name myResourceGroup --location "West US"
-```
-
-Vous créez généralement votre groupe de ressources et les ressources dans une région proche de chez vous. 
-
-Une fois la commande terminée, une sortie JSON affiche les propriétés du groupe de ressources.
-
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 

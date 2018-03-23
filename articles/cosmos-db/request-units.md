@@ -1,11 +1,11 @@
 ---
-title: "Unités de requête et estimation du débit - Azure Cosmos DB | Microsoft Docs"
-description: "Découvrez les besoins en unités de requête dans Azure Cosmos DB, et comment les spécifier et les estimer."
+title: Unités de requête et estimation du débit - Azure Cosmos DB | Microsoft Docs
+description: Découvrez les besoins en unités de requête dans Azure Cosmos DB, et comment les spécifier et les estimer.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: mimig
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: d0a3c310-eb63-4e45-8122-b7724095c32f
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: mimig
-ms.openlocfilehash: d263c4f5ad14f6692a7c8f6e66429b439a52a84a
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 3679aa76d4a6b9fd6335371e1639f1f246867fa5
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unités de requête dans Azure Cosmos DB
 Désormais disponible : [calculatrice d’unités de requête](https://www.documentdb.com/capacityplanner) Azure Cosmos DB. Pour en savoir plus, consultez [Estimation des besoins de débit](request-units.md#estimating-throughput-needs).
@@ -35,9 +35,9 @@ Pour fournir des performances prévisibles, vous devez réserver le débit par u
 Après avoir lu cet article, vous serez en mesure de répondre aux questions suivantes :  
 
 * Que sont les unités de requête et les frais de requête ?
-* Comment spécifier la capacité d’unités de requête pour une collection ?
+* Comment spécifier la capacité d’unités de requête d’un conteneur ?
 * Comment estimer les besoins en unités de requête de mon application ?
-* Que se passe-t-il si je dépasse la capacité d’unités de requête pour une collection ?
+* Que se passe-t-il si je dépasse la capacité d’unités de requête d’un conteneur ?
 
 Azure Cosmos DB étant une base de données multimodèle, il est important de noter que cet article fait référence à une collection/un document pour l’API Document, à un graphe/nœud pour l’API Graph et à une table/entité pour l’API Table. Cet article fait référence au concept de collection, de graphique ou de table en tant que conteneur, et au concept de document, de nœud ou d’entité en tant qu’élément.
 
@@ -53,14 +53,14 @@ Nous vous recommandons de commencer par visionner la vidéo suivante, dans laque
 > 
 
 ## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>Spécification de la capacité d’unités de requête dans Azure Cosmos DB
-Lorsque vous démarrez une nouvelle collection, table ou un nouveau graphique, vous spécifiez le nombre d’unités de requête (RU par seconde) à réserver. En fonction du débit configuré, Azure Cosmos DB alloue des partitions physiques pour héberger votre collection et répartit/rééquilibre les données sur les partitions à mesure qu’elles se développent.
+Au démarrage d’un nouveau conteneur, vous spécifiez le nombre d’unités de requête (RU par seconde) à réserver. Azure Cosmos DB allouera des partitions physiques pour héberger votre conteneur en fonction du débit configuré et répartira/rééquilibrera les données sur les partitions à mesure qu’elles se développeront.
 
-Les conteneurs Azure Cosmos DB peuvent être créés fixes ou illimités. Les conteneurs de taille fixe ont une limite maximale de 10 Go et de 10 000 RU/s de débit. Pour créer un conteneur illimité, vous devez spécifier un débit minimal de 1 000 RU/s et une [clé de partition](partition-data.md). Dans la mesure où vos données doivent parfois être réparties sur plusieurs partitions, vous devez choisir une clé de partition ayant une cardinalité élevée (de plusieurs centaines à plusieurs millions de valeurs distinctes). En sélectionnant une clé de partition avec de nombreuses valeurs distinctes, vous garantissez que votre collection/table/graphique et vos requêtes peuvent être mis à l’échelle de façon uniforme par Azure Cosmos DB. 
+Les conteneurs Azure Cosmos DB peuvent être créés fixes ou illimités. Les conteneurs de taille fixe ont une limite maximale de 10 Go et de 10 000 RU/s de débit. Pour créer un conteneur illimité, vous devez spécifier un débit minimal de 1 000 RU/s et une [clé de partition](partition-data.md). Dans la mesure où vos données doivent parfois être réparties sur plusieurs partitions, vous devez choisir une clé de partition ayant une cardinalité élevée (de plusieurs centaines à plusieurs millions de valeurs distinctes). Le fait de sélectionner une clé de partition avec de nombreuses valeurs distinctes permet à Azure Cosmos DB de mettre à l’échelle votre conteneur/table/graphique et vos requêtes de façon uniforme. 
 
 > [!NOTE]
 > Une clé de partition est une limite logique et non physique. Il n’est donc pas nécessaire de limiter le nombre de valeurs de clé de partition distinctes. En fait, il vaut mieux avoir trop de valeurs de clé de partition distinctes que pas assez, car Azure Cosmos DB offre plus d’options d’équilibrage de charge.
 
-L’extrait de code suivant permet de créer une collection avec 3 000 unités de requête par seconde à l’aide du SDK .NET :
+L’extrait de code suivant permet de créer un conteneur avec 3 000 unités de requête par seconde à l’aide du Kit SDK .NET :
 
 ```csharp
 DocumentCollection myCollection = new DocumentCollection();
@@ -75,7 +75,7 @@ await client.CreateDocumentCollectionAsync(
 
 Azure Cosmos DB fonctionne sur un modèle de réservation du débit. Autrement dit, vous êtes facturé pour la quantité de débit *réservée*, quelle que soit la quantité activement *utilisée*. À mesure que les modèles d’utilisation, de données et de charge de votre application évoluent, vous pouvez facilement augmenter ou réduire la quantité de RU réservées par le biais des kits de développement logiciel (SDK) Azure Cosmos DB ou à l’aide du [portail Azure](https://portal.azure.com).
 
-Chaque collection/table/graphique est mappé sur une ressource `Offer` dans Azure Cosmos DB, qui contient des métadonnées sur le débit configuré. Vous pouvez modifier le débit alloué pour un conteneur en recherchant la ressource de l’offre correspondante, et en mettant à jour la valeur de débit. L’extrait de code suivant permet de changer le débit d’une collection en 5 000 unités de requête par seconde à l’aide du SDK .NET :
+Chaque conteneur est mappé sur une ressource `Offer` dans Azure Cosmos DB, qui contient des métadonnées sur le débit configuré. Vous pouvez modifier le débit alloué pour un conteneur en recherchant la ressource de l’offre correspondante, et en mettant à jour la valeur de débit. L’extrait de code suivant permet de changer le débit d’un conteneur pour passer à 5 000 unités de requête par seconde à l’aide du Kit SDK .NET :
 
 ```csharp
 // Fetch the resource to be updated
@@ -334,10 +334,10 @@ Avec ces informations, vous pouvez estimer les besoins en unités de requête po
 | Sélectionner par groupe d’aliments |10 |700 |
 | Sélectionner les 10 premiers |15 |150 Total |
 
-Dans ce cas, vous estimez le besoin de débit moyen à 1 275 unités de requête par seconde.  En arrondissant à la centaine la plus proche, vous devez approvisionner 1 300 unités de requête par seconde pour la collection de cette application.
+Dans ce cas, vous estimez le besoin de débit moyen à 1 275 unités de requête par seconde.  En arrondissant à la centaine la plus proche, vous devez approvisionner 1 300 unités de requête par seconde pour le conteneur de cette application.
 
 ## <a id="RequestRateTooLarge"></a> Dépassement des limites de débit réservé dans Azure Cosmos DB
-Souvenez-vous que la consommation d’unités de requête est évaluée en fonction d’un taux par seconde, si le budget est vide. Pour les applications qui dépassent le taux d’unités de requête configuré pour un conteneur, les requêtes pour cette collection sont limitées jusqu’à ce que le taux tombe sous le niveau réservé. En cas de limitation, le serveur met fin à la requête de manière préventive avec RequestRateTooLargeException (code d’état HTTP 429) et il retourne l’en-tête x-ms-retry-after-ms indiquant la durée, en millisecondes, pendant laquelle l’utilisateur doit attendre avant de réessayer.
+Souvenez-vous que la consommation d’unités de requête est évaluée en fonction d’un taux par seconde, si le budget est vide. Dans le cas des applications qui dépassent le taux d’unités de requête configuré pour un conteneur, les requêtes adressées à ce conteneur sont limitées jusqu’à ce que le taux tombe sous le niveau réservé. En cas de limitation, le serveur met fin à la requête de manière préventive avec RequestRateTooLargeException (code d’état HTTP 429) et il retourne l’en-tête x-ms-retry-after-ms indiquant la durée, en millisecondes, pendant laquelle l’utilisateur doit attendre avant de réessayer.
 
     HTTP Status 429
     Status Line: RequestRateTooLarge
@@ -348,9 +348,9 @@ Si vous utilisez des requêtes LINQ et le SDK .NET Client, la plupart du temps v
 Si vous avez plusieurs clients qui opèrent en même temps au-delà du taux de requêtes, le comportement par défaut peut ne pas suffire, et le client générera dans l’application une exception DocumentClientException avec le code d’état 429. Dans ce cas, vous pourriez traiter le comportement et la logique de nouvelles tentatives dans les routines de gestion d’erreurs de votre application ou accroître le débit réservé pour le conteneur.
 
 ## <a id="RequestRateTooLargeAPIforMongoDB"></a> Dépassement des limites de débit réservé dans l’API MongoDB
-Les applications qui dépassent le nombre d’unités de requête configuré pour une collection seront limitées jusqu’à ce que le taux tombe sous le niveau réservé. En cas de limitation, le serveur principal interrompra la demande de manière préventive avec un code d’erreur *16500* indiquant un *trop grand nombre de demandes*. Par défaut, l’API MongoDB réessaie automatiquement jusqu’à 10 fois avant de renvoyer un code d’erreur indiquant un *trop grand nombre de demandes*. Si vous recevez de nombreux codes d’erreur indiquant un *trop grand nombre de demandes*, vous pouvez ajouter le comportement de nouvelles tentatives dans les routines de gestion d’erreurs de votre application ou [accroître le débit réservé pour la collection](set-throughput.md).
+Les applications qui dépassent le nombre d’unités de requête configuré pour un conteneur seront limitées jusqu’à ce que le taux tombe sous le niveau réservé. En cas de limitation, le serveur principal interrompra la demande de manière préventive avec un code d’erreur *16500* indiquant un *trop grand nombre de demandes*. Par défaut, l’API MongoDB réessaie automatiquement jusqu’à 10 fois avant de renvoyer un code d’erreur indiquant un *trop grand nombre de demandes*. Si vous recevez de nombreux codes d’erreur indiquant un *trop grand nombre de demandes*, vous pouvez ajouter un comportement de nouvelles tentatives aux routines de gestion des erreurs de votre application ou [accroître le débit réservé au conteneur](set-throughput.md).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur le débit réservé avec les bases de données Azure Cosmos DB, explorez ces ressources :
 
 * [Tarification de Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/)

@@ -1,25 +1,25 @@
 ---
 title: Offre de services dans Azure Stack | Microsoft Docs
-description: "En tant qu’opérateur cloud, vous pouvez proposer des services à vos utilisateurs."
+description: En tant qu’opérateur cloud, vous pouvez proposer des services à vos utilisateurs.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 03/05/2018
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: 7e2b98391bab5806b59d8a16ec7dc24295a0d224
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.reviewer: ''
+ms.openlocfilehash: 5b117a9b174f5d2419ff596cc90436e4b9d21645
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="overview-of-offering-services-in-azure-stack"></a>Vue d’ensemble de l’offre de services dans Azure Stack
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/02/2018
 
 [Microsoft Azure Stack](azure-stack-poc.md) est une plateforme cloud hybride qui vous permet de fournir des services à partir de votre centre de données. En tant que fournisseur de services, vous pouvez proposer des services à vos locataires. Au sein d’une entreprise ou d’une agence gouvernementale, vous pouvez proposer des services locaux à vos employés. Vous pouvez proposer entre autres les services suivants :
 
-- Services Paas (Platform as a Service) tels que App Services, Mobile Apps, API Apps, API Functions, SQL, MySQL.
+- Services Paas (Platform as a Service) tels qu’App Services, API Apps, API Functions, SQL, MySQL.
 
 Vous pouvez même combiner des services pour intégrer et créer des solutions complexes pour différents utilisateurs.
 
@@ -43,6 +43,6 @@ Quand vous planifiez vos offres, gardez à l’esprit les points suivants :
 
 **Fournisseurs délégués** : vous pouvez accorder à d’autres personnes la capacité à créer des offres dans votre environnement. Par exemple, si vous êtes fournisseur de services, vous pouvez [déléguer](azure-stack-delegated-provider.md) cette capacité à vos revendeurs. Si vous êtes une organisation, vous pouvez déléguer à d’autres divisions/filiales.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Créer une offre dans Azure Stack](azure-stack-create-offer.md)
 

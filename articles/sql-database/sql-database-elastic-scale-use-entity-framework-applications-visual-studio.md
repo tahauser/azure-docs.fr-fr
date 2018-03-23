@@ -1,25 +1,19 @@
 ---
-title: "Utilisation de la bibliothèque cliente de la base de données élastique avec Entity Framework | Microsoft Docs"
-description: "Utilisez la bibliothèque cliente de la base de données élastique et Entity Framework pour le codage de bases de données"
+title: Utilisation de la bibliothèque cliente de la base de données élastique avec Entity Framework | Microsoft Docs
+description: Utilisez la bibliothèque cliente de la base de données élastique et Entity Framework pour le codage de bases de données
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: torsteng
-editor: 
-ms.assetid: b9c3065b-cb92-41be-aa7f-deba23e7e159
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
-ms.author: torsteng
-ms.openlocfilehash: 1fc61657419f1f4581c5c67639d7bc2e4b0d509f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 5f215c6c6f65804785e35ae1b3ec9cce24e2a976
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Bibliothèque cliente de la base de données élastique avec Entity Framework
 Ce document présente les modifications d'une application Entity Framework requises pour l'intégration avec les [outils des bases de données élastiques](sql-database-elastic-scale-introduction.md). L’objectif est de composer une [gestion de carte de partitions](sql-database-elastic-scale-shard-map-management.md) et un [routage dépendant des données](sql-database-elastic-scale-data-dependent-routing.md) avec l’approche Entity Framework **Code First**. Le didacticiel [Code First pour une nouvelle base de données](http://msdn.microsoft.com/data/jj193542.aspx) pour Entity Framework sert d’exemple tout au long de ce document. L’exemple de code qui accompagne ce document fait partie de l’ensemble d’échantillons des outils de base de données élastique figurant parmi les exemples de code Visual Studio.
@@ -127,7 +121,7 @@ L'exemple de code suivant illustre cette approche. Ce code est également conten
   * La carte de partitions crée la connexion ouverte vers la partition hébergeant le shardlet pour la clé de partitionnement donnée.
   * Cette connexion ouverte est renvoyée vers le constructeur de classe de base de DbContext pour indiquer que cette connexion doit être utilisée par EF au lieu de laisser EF créer une connexion automatiquement. Ainsi, la connexion a été marquée par l’API cliente de base de données élastique pour garantir la cohérence au cours des opérations de gestion de carte de partitions.
 
-Utilisez le nouveau constructeur pour votre classe secondaire DbContext au lieu du constructeur par défaut dans votre code. Voici un exemple : 
+Utilisez le nouveau constructeur pour votre classe secondaire DbContext au lieu du constructeur par défaut dans votre code. Voici un exemple :  
 
     // Create and save a new blog.
 
@@ -178,7 +172,7 @@ La nécessité de contrôler l'endroit où les exceptions temporaires nous amèn
 #### <a name="constructor-rewrites"></a>Réécritures de constructeur
 Les exemples de code ci-dessus illustrent les réécritures de constructeur par défaut nécessaires pour votre application afin d’utiliser le routage dépendant des données avec Entity Framework. Le tableau suivant généralise cette approche aux autres constructeurs. 
 
-| Constructeur en cours | Constructeur réécrit pour les données | Constructeur de base | Remarques |
+| Constructeur en cours | Constructeur réécrit pour les données | Constructeur de base | Notes |
 | --- | --- | --- | --- |
 | MyContext() |ElasticScaleContext(ShardMap, TKey) |DbContext(DbConnection, bool) |La connexion doit dépendre de la carte de partitions et de la clé de routage dépendant des données. Vous devez contourner la création de connexion automatique par EF pour utiliser la carte de partitions à la place pour répartir la connexion. |
 | MyContext(string) |ElasticScaleContext(ShardMap, TKey) |DbContext(DbConnection, bool) |La connexion dépend de la carte de partitions et de la clé de routage dépendant des données. Un nom de base de données fixe ou une chaîne de connexion ne fonctionne pas, car ils contournent alors la validation par la carte de partitions. |
@@ -249,7 +243,7 @@ Cet exemple illustre la méthode **RegisterNewShard** qui enregistre la partitio
 
 Vous avez peut-être utilisé la version du constructeur héritée de la classe de base. Mais le code doit garantir que l'initialiseur par défaut pour Entity Framework est utilisé lors de la connexion. D'où le bref détour par la méthode statique avant l'appel vers le constructeur de classe de base avec la chaîne de connexion. Notez que l'inscription des partitions doit s'exécuter dans un domaine d'application ou un processus différent pour vous assurer que les paramètres de l'initialiseur d'Entity Framework n'entrent pas en conflit. 
 
-## <a name="limitations"></a>Limitations
+## <a name="limitations"></a>Limites
 Les approches décrites dans ce document entraînent quelques limitations : 
 
 * Les applications Entity Framework utilisant **LocalDb** en premier doivent migrer vers une base de données SQL Server standard avant d'utiliser la bibliothèque cliente de base de données élastique. La montée en charge d’une application via le partitionnement avec l’infrastructure élastique n’est pas possible avec **LocalDb**. Notez que le développement peut toujours utiliser **LocalDb**. 

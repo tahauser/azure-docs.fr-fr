@@ -1,11 +1,11 @@
 ---
-title: "Configuration d’un cluster Windows RDMA pour exécuter des applications MPI | Microsoft Docs"
-description: "Apprenez à créer un cluster Windows HPC Pack avec des machines virtuelles de taille H16r, H16mr, A8 ou A9 pour utiliser le réseau Azure RDMA afin d’exécuter des applications MPI."
+title: Configuration d’un cluster Windows RDMA pour exécuter des applications MPI | Microsoft Docs
+description: Apprenez à créer un cluster Windows HPC Pack avec des machines virtuelles de taille H16r, H16mr, A8 ou A9 pour utiliser le réseau Azure RDMA afin d’exécuter des applications MPI.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,hpc-pack
 ms.assetid: 7d9f5bc8-012f-48dd-b290-db81c7592215
 ms.service: virtual-machines-windows
@@ -13,28 +13,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 06/01/2017
+ms.date: 03/06/2018
 ms.author: danlep
-ms.openlocfilehash: 19be1d693fe13af0f6c1ab0cb6f7bc829b9fad5a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 437c475735ec3823de51c5f9e996a5303fe9cfa7
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-a-windows-rdma-cluster-with-hpc-pack-to-run-mpi-applications"></a>Configuration d’un cluster Windows RDMA avec HPC Pack pour exécuter des applications MPI
-Configurez un cluster RDMA Windows dans Azure avec [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) et des [tailles de machines virtuelles de calcul haute performance](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour exécuter des applications MPI (Message Passing Interface) parallèles. Lorsque vous configurez des nœuds Windows Server compatibles RDMA dans un cluster HPC Pack, les applications MPI communiquent efficacement sur un réseau à latence faible et à débit élevé dans Azure, reposant sur la technologie d’accès direct à la mémoire à distance (RDMA).
+Configurez un cluster RDMA Windows dans Azure avec [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) et des [tailles de machines virtuelles de calcul haute performance compatibles RDMA](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#rdma-capable-instances) pour exécuter des applications MPI (Message Passing Interface) parallèles. Lorsque vous configurez des nœuds Windows Server compatibles RDMA dans un cluster HPC Pack, les applications MPI communiquent efficacement sur un réseau à latence faible et à débit élevé dans Azure, reposant sur la technologie d’accès direct à la mémoire à distance (RDMA).
 
 Si vous souhaitez exécuter des charges de travail MPI sur des machines virtuelles Linux qui accèdent au réseau Azure RDMA, consultez [Configuration d’un cluster Linux RDMA pour exécuter des applications MPI](../../linux/classic/rdma-cluster.md).
 
 ## <a name="hpc-pack-cluster-deployment-options"></a>Options de déploiement de cluster HPC Pack
 Microsoft HPC Pack est un outil fourni sans frais supplémentaires pour créer des clusters HPC locaux ou dans Azure afin d’exécuter des applications HPC Windows ou Linux. HPC Pack comprend un environnement d'exécution pour l'implémentation Microsoft de MPI pour Windows (MS-MPI). Dans le cas d’une utilisation d’instances compatibles RDMA exécutant un système d’exploitation Windows Server pris en charge, HPC Pack est un moyen efficace d’exécuter des applications MPI Windows qui accèdent au réseau Azure compatible RDMA. 
 
-Cet article présente deux scénarios, ainsi que des liens vers des instructions détaillées, pour configurer un cluster RDMA Windows avec Microsoft HPC Pack. 
+Cet article présente deux scénarios, ainsi que des liens vers des instructions détaillées, pour configurer un cluster RDMA Windows avec Microsoft HPC Pack 2012 R2. 
 
 * Scénario 1 Déployer des instances de rôle de travail nécessitant beaucoup de ressources système (PaaS)
 * Scénario 2 Déployer des nœuds de calcul sur des machines virtuelles nécessitant beaucoup de ressources système (IaaS)
-
-Pour connaître les conditions préalables à l’utilisation d’instances nécessitant beaucoup de ressources système avec Windows, consultez [Tailles de machines virtuelles de calcul haute performance](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="scenario-1-deploy-compute-intensive-worker-role-instances-paas"></a>Scénario 1 : Déployer des instances de rôle de travail nécessitant beaucoup de ressources système (PaaS)
 À partir d’un cluster HPC Pack existant, ajoutez des ressources de calcul supplémentaires dans les instances de rôle de travail Azure (nœuds Azure) en cours d’exécution dans un service cloud (PaaS). Cette fonctionnalité, également appelée « Intégration à Azure » à partir de HPC Pack, prend en charge une plage de tailles d’instances de rôle de travail. Lors de l’ajout des nœuds Azure, spécifiez l’une des tailles compatibles RDMA.
@@ -51,13 +49,14 @@ Voici les considérations et les étapes pour l’intégration aux instances Azu
 ### <a name="steps"></a>Étapes
 1. **Déployer et configurer un nœud principal HPC Pack 2012 R2**
    
-    Téléchargez le dernier package d’installation de HPC Pack à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=49922). Pour plus d’informations sur la configuration requise et des instructions de préparation pour le déploiement d’intégrations à Azure, consultez [Burst to Azure with Microsoft HPC Pack (Intégration à Azure avec Microsoft HPC Pack)](https://technet.microsoft.com/library/gg481749.aspx).
+    Téléchargez le package d’installation de HPC Pack à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=49922). Pour plus d’informations sur la configuration requise et des instructions de préparation pour le déploiement d’intégrations à Azure, consultez [Burst to Azure with Microsoft HPC Pack (Intégration à Azure avec Microsoft HPC Pack)](https://technet.microsoft.com/library/gg481749.aspx).
 2. **Configurer un certificat de gestion dans l’abonnement Azure**
    
     Configurez un certificat pour sécuriser la connexion entre le nœud principal et Azure. Pour connaître les options et les procédures, consultez [Scénarios pour configurer le certificat de gestion Azure pour HPC Pack](http://technet.microsoft.com/library/gg481759.aspx). Pour les déploiements de test, HPC Pack installe un certificat Microsoft HPC Azure Management par défaut que vous pouvez télécharger rapidement dans votre abonnement Azure.
 3. **Créer un nouveau service cloud et un compte de stockage**
    
-    Utilisez le portail Azure pour créer un service cloud et un compte de stockage pour le déploiement dans une région où les instances compatibles RDMA sont disponibles.
+    Utilisez le portail Azure pour créer un service cloud (classique) et un compte de stockage (classique) pour le déploiement. Créez ces ressources dans une région dans laquelle la taille d’instance de série H, A8 ou A9 souhaitée est disponible. Consultez [Produits Azure par région](https://azure.microsoft.com/regions/services/).
+
 4. **Créer un modèle de nœud Azure**
    
     Utilisez l’Assistant Créer un modèle de nœud dans HPC Cluster Manager. Pour les étapes, consultez [Créer un modèle de nœud Azure](http://technet.microsoft.com/library/gg481758.aspx#BKMK_Templ) dans « Étapes à suivre pour déployer des nœuds Azure avec Microsoft HPC Pack ».
@@ -91,19 +90,20 @@ Dans ce scénario, vous déployez le nœud principal HPC Pack et les nœuds de c
 ### <a name="steps"></a>Étapes
 1. **Créer un nœud principal de cluster et des machines virtuelles à nœud de calcul en exécutant le script de déploiement de HPC Pack IaaS sur un ordinateur client**
    
-    Téléchargez le package de script de déploiement de HPC Pack IaaS à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=49922).
+    Téléchargez le package de script de déploiement de HPC Pack IaaS à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=44949).
    
     Pour préparer l’ordinateur client, créez le fichier de configuration de script, puis exécutez le script. Consultez [Créer un cluster de calcul haute performance (HPC) Windows avec le script de déploiement du HPC Pack IaaS](hpcpack-cluster-powershell-script.md). 
    
-    Pour déployer les nœuds de calcul compatibles RDMA, notez les considérations supplémentaires suivantes :
+    Pour les points à envisager concernant le déploiement de nœuds de calcul compatibles RDMA, consultez [Tailles de machines virtuelles de calcul haute performance](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#rdma-capable-instances) et notez les points suivants :
    
-   * **Réseau virtuel** : spécifiez un nouveau réseau virtuel dans une région dans laquelle la taille d’instance compatible RDMA souhaitée est disponible.
-   * **Système d’exploitation Windows Server** : pour prendre en charge la connectivité RDMA, spécifiez un système d’exploitation Windows Server 2012 R2 ou Windows Server 2012 pour les machines virtuelles de nœud de calcul.
-   * **Services cloud** : nous vous recommandons de déployer votre nœud principal dans un service cloud et vos nœuds de calcul dans un autre service cloud.
+   * **Réseau virtuel** : spécifiez un nouveau réseau virtuel dans une région dans laquelle la taille d’instance de série H, A8 ou A9 souhaitée est disponible. Consultez [Produits Azure par région](https://azure.microsoft.com/regions/services/).
+
+   * **Système d’exploitation Windows Server** : pour prendre en charge la connectivité RDMA, spécifiez un système d’exploitation compatible, comme Windows Server 2012 R2, pour les machines virtuelles de nœud de calcul.
+   * **Services cloud**  : étant donné que le script utilise le modèle de déploiement classique, les machines virtuelles du cluster sont déployées à l’aide des services de cloud computing Azure (paramètres `ServiceName` dans le fichier de configuration). Nous vous recommandons de déployer votre nœud principal dans un service cloud et vos nœuds de calcul dans un autre service cloud. 
    * **Taille du nœud principal** : pour ce scénario, considérez une taille d’au moins A4 (très grande) pour le nœud principal.
    * **Extension HpcVmDrivers** : le script de déploiement installe l’agent de machine virtuelle Azure et l’extension HpcVmDrivers automatiquement lors du déploiement de nœuds de calcul de taille A8 ou A9 avec un système d’exploitation Windows Server. HpcVmDrivers installe des pilotes sur des machines virtuelles à nœud de calcul afin qu’ils puissent se connecter au réseau RDMA. Sur les machines virtuelles de série H compatibles RDMA, vous devez installer manuellement l’extension HpcVmDrivers. Consultez [Tailles de machines virtuelles de calcul haute performance](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
    * **Configuration du réseau de clusters** : le script de déploiement définit automatiquement le cluster HPC Pack dans la topologie 5 (tous les nœuds sur le réseau d’entreprise). Cette topologie est requise pour tous les déploiements de cluster HPC Pack dans les machines virtuelles. Ne modifiez pas la topologie de réseau de clusters ultérieurement.
-2. **Mettre en ligne les nœuds de calcul pour exécuter des travaux**
+1. **Mettre en ligne les nœuds de calcul pour exécuter des travaux**
    
     Sélectionnez les nœuds et utilisez l’action **Mettre en ligne** dans HPC Cluster Manager. Les nœuds sont prêts à exécuter des travaux.
 3. **Envoyer des travaux au cluster**

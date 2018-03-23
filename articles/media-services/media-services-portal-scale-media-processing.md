@@ -1,11 +1,11 @@
 ---
-title: "Mettre à l’échelle le traitement multimédia à l’aide du portail Azure | Microsoft Docs"
-description: "Ce didacticiel vous guide à travers les étapes de mise à l’échelle du traitement multimédia à l’aide du portail Azure."
+title: Mettre à l’échelle le traitement multimédia à l’aide du portail Azure | Microsoft Docs
+description: Ce didacticiel vous guide à travers les étapes de mise à l’échelle du traitement multimédia à l’aide du portail Azure.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: e500f733-68aa-450c-b212-cf717c0d15da
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/04/2017
 ms.author: juliako
-ms.openlocfilehash: d2312803a4471e207d3696ca8350a86e3c4761e6
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f65ba489d70a3844169780c4680fcc43b3064b54
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="change-the-reserved-unit-type"></a>Modification du type d’unité réservée
 > [!div class="op_single_selector"]
@@ -54,11 +54,10 @@ Pour modifier le type d’unité réservée et le nombre d’unités réservées
 1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez votre compte Azure Media Services.
 2. Dans la fenêtre **Paramètres**, sélectionnez **Unités réservées Multimédia**.
    
-    Pour modifier le nombre d’unités réservées pour le type d’unités réservées sélectionné, utilisez le curseur **Unités réservées multimédia** .
+    Pour modifier le nombre d’unités réservées pour le type d’unité réservé sélectionné, utilisez le curseur **Unités réservées multimédia** en haut de l’écran.
    
-    Pour modifier le **TYPE D’UNITÉ RÉSERVÉE**, appuyez sur S1, S2 ou S3.
+    Pour modifier le **TYPE D'UNITÉ RÉSERVÉ**, cliquez sur la barre **Vitesse des unités de traitement réservées**. Ensuite, sélectionnez le niveau de tarification dont vous avez besoin : S1, S2 ou S3.
    
-    ![Page Processors](./media/media-services-portal-scale-media-processing/media-services-scale-media-processing.png)
 3. Appuyez sur le bouton ENREGISTRER pour enregistrer vos modifications.
    
     Les nouvelles unités réservées sont allouées lorsque vous cliquez sur ENREGISTRER.

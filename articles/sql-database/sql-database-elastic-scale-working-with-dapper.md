@@ -1,24 +1,19 @@
 ---
-title: "Utilisation de la bibliothèque cliente de la base de données élastique avec Dapper | Microsoft Docs"
-description: "Utilisation de la bibliothèque cliente de la base de données élastique avec Dapper."
+title: Utilisation de la bibliothèque cliente de la base de données élastique avec Dapper | Microsoft Docs
+description: Utilisation de la bibliothèque cliente de la base de données élastique avec Dapper.
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: torsteng
-ms.assetid: 463d2676-3b19-47c2-83df-f8c50492c9d2
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
-ms.author: torsteng
-ms.openlocfilehash: c258b1859e14d9783a3dfa75431b69bef4d640fd
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 192e9fa52f3829a18bbccc9c5fb3b953d74569c4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>Utilisation de la bibliothèque cliente de la base de données élastique avec Dapper
 Ce document est destiné aux développeurs qui utilisent Dapper pour générer des applications, mais veulent également adopter les [outils de base de données élastique](sql-database-elastic-scale-introduction.md) pour créer des applications implémentant le partitionnement pour la montée en puissance parallèle de la couche Données.  Ce document présente les modifications devant être appliquées aux applications basées sur Dapper pour intégrer des outils de base de données élastique. Nous nous concentrerons sur la composition de la gestion de partition de base de données élastique et du routage dépendant des données avec Dapper. 
@@ -154,7 +149,7 @@ L’exemple de code s’appuie sur la bibliothèque d’erreurs transitoires pou
 
 **SqlDatabaseUtils.SqlRetryPolicy** du code ci-dessus est définie comme une **SqlDatabaseTransientErrorDetectionStrategy** avec un nombre de tentatives de 10 et un délai d’attente de 5 secondes entre chaque tentative. Si vous utilisez des transactions, assurez-vous que la portée de votre nouvelle tentative revient au début de la transaction en cas d’erreur transitoire.
 
-## <a name="limitations"></a>Limitations
+## <a name="limitations"></a>Limites
 Les approches décrites dans ce document entraînent quelques limitations :
 
 * L’exemple de code pour ce document ne montre pas comment gérer le schéma entre les partitions.

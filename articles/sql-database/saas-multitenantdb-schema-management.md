@@ -1,26 +1,21 @@
 ---
-title: "Gérer le schéma Azure SQL Database dans une application mutualisée | Microsoft Docs"
-description: "Gérer un schéma pour plusieurs locataires dans une application mutualisée qui utilise Azure SQL Database"
-keywords: "didacticiel sur les bases de données SQL"
+title: Gérer le schéma Azure SQL Database dans une application mutualisée | Microsoft Docs
+description: Gérer un schéma pour plusieurs locataires dans une application mutualisée qui utilise Azure SQL Database
+keywords: didacticiel sur les bases de données SQL
 services: sql-database
-documentationcenter: 
 author: MightyPen
 manager: craigg
-editor: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.reviewers: billgib
 ms.author: genemi
-ms.openlocfilehash: 0303da917ecb03ca27e0444afb56f49766b70029
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 474b7842c8295be0dd30c2c03b92dc68ce40630d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Gérer un schéma dans une application SaaS qui utilise des bases de données SQL mutualisées partitionnées
 
@@ -45,6 +40,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Créer un index sur une table dans toutes les bases de données de locataire.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 - L’application de bases de données mutualisées Wingtip Tickets doit déjà être déployée :
     - Pour obtenir des instructions, consultez le premier didacticiel qui introduit l’application de bases de données mutualisées SaaS Wingtip Tickets :<br />[Déployer et explorer une application mutualisée partitionnée qui utilise Azure SQL Database](saas-multitenantdb-get-started-deploy.md).
@@ -174,7 +170,7 @@ Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
 > [!div class="checklist"]
 .
 > * Créer un agent de travail pour exécuter des travaux T-SQL dans plusieurs bases de données
-> * Mettre à jour les données de référence dans toutes les bases de données client
+> * Mettre à jour les données de référence dans toutes les bases de données de locataire
 > * Créer un index sur une table dans toutes les bases de données de locataire
 
 Essayez ensuite le [didacticiel de génération d’état ad-hoc] (saas-multitenantdb-adhoc-reporting.md) pour explorer l’exécution de requêtes distribuées dans les bases de données client.

@@ -1,6 +1,6 @@
 ---
-title: "Régir des machines virtuelles Azure à l’aide d’Azure PowerShell | Microsoft Docs"
-description: "Didacticiel : gérer des machines virtuelles Azure en appliquant le RBAC, des stratégies, des verrous et des balises avec Azure PowerShell"
+title: Régir des machines virtuelles Azure à l’aide d’Azure PowerShell | Microsoft Docs
+description: 'Didacticiel : gérer des machines virtuelles Azure en appliquant le RBAC, des stratégies, des verrous et des balises avec Azure PowerShell'
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9952660dc177b542d8477dc85c62d76d16e8c54e
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 9fbe9318e52f8299c3ef46f73c3be177de6d4a0c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="virtual-machine-governance-with-azure-powershell"></a>Gouvernance de machines virtuelles avec Azure PowerShell
 
-[!include[Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
+[!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
@@ -29,11 +29,11 @@ Si vous choisissez d’installer et d’utiliser PowerShell en local, consultez 
 
 ## <a name="understand-scope"></a>Comprendre la portée
 
-[!include[Resource Manager governance scope](../../../includes/resource-manager-governance-scope.md)]
+[!INCLUDE [Resource Manager governance scope](../../../includes/resource-manager-governance-scope.md)]
 
 Dans ce didacticiel, vous allez appliquer tous les paramètres de gestion à un groupe de ressources afin de pouvoir facilement supprimer ces paramètres lorsque vous avez terminé.
 
-Passons à la création du groupe de ressources.
+Créons ce groupe de ressources.
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
@@ -43,7 +43,7 @@ Pour le moment, le groupe de ressources est vide.
 
 ## <a name="role-based-access-control"></a>Contrôle d’accès en fonction du rôle
 
-Vous souhaitez vous assurer que les utilisateurs de votre organisation ont un niveau d’accès approprié à ces ressources. Vous ne voulez pas accorder un accès illimité aux utilisateurs, mais vous devez également vous assurer qu’ils peuvent faire leur travail. Le [contrôle d’accès basé sur les rôles](../../active-directory/role-based-access-control-what-is.md) vous permet de gérer les autorisations que vous accordez aux utilisateurs pour effectuer des actions spécifiques dans un certain but.
+Vous devez vous assurer que les utilisateurs de votre organisation disposent du niveau d’accès approprié à ces ressources. Il n’est pas question de leur accorder un accès illimité, mais de faire en sorte qu’ils puissent accomplir leur travail. Le [contrôle d’accès en fonction du rôle](../../active-directory/role-based-access-control-what-is.md) vous permet de définir les utilisateurs autorisés à effectuer des actions spécifiques dans une étendue.
 
 Pour créer et supprimer des attributions de rôles, les utilisateurs doivent disposer d’un accès `Microsoft.Authorization/roleAssignments/*`. Cet accès est accordé par le biais du rôle Propriétaire ou Administrateur de l’accès utilisateur.
 
@@ -55,7 +55,7 @@ Pour gérer les solutions de machine virtuelle, il existe trois rôles de ressou
 
 Au lieu d’affecter des rôles à des utilisateurs, il est souvent plus facile de [créer un groupe Azure Active Directory](../../active-directory/active-directory-groups-create-azure-portal.md) et d’y regrouper les utilisateurs qui ont besoin d’effectuer des actions similaires. Ensuite, vous affectez ce groupe au rôle approprié. Pour simplifier, vous allez créer un groupe Azure Active Directory vide. Vous pouvez toujours affecter ce groupe à un rôle pour une étendue. 
 
-L’exemple suivant permet de créer un groupe Azure Active Directory nommé *VMDemoContributors* avec un pseudonyme de messagerie de *vmDemoGroup*. Le pseudonyme de messagerie sert d’alias pour le groupe.
+L’exemple suivant permet de créer un groupe Azure Active Directory nommé *VMDemoContributors* avec le pseudonyme de messagerie *vmDemoGroup*. Le pseudonyme de messagerie sert d’alias pour le groupe.
 
 ```azurepowershell-interactive
 $adgroup = New-AzureADGroup -DisplayName VMDemoContributors `
@@ -76,7 +76,7 @@ En règle générale, vous répétez ce processus pour *Contributeur de réseaux
 
 ## <a name="azure-policies"></a>Stratégies Azure
 
-[!include[Resource Manager governance policy](../../../includes/resource-manager-governance-policy.md)]
+[!INCLUDE [Resource Manager governance policy](../../../includes/resource-manager-governance-policy.md)]
 
 ### <a name="apply-policies"></a>Appliquer les stratégies
 
@@ -88,9 +88,9 @@ Votre abonnement comprend déjà plusieurs définitions de stratégie. Pour affi
 
 Vous voyez les définitions de stratégie existantes. Le type de stratégie est **BuiltIn** ou **Custom**. Recherchez les définitions qui décrivent la condition que vous souhaitez affecter. Dans cet article, vous affectez des stratégies qui :
 
-* limitent les emplacements pour toutes les ressources ;
-* limitent les références SKU pour les machines virtuelles ;
-* auditent les machines virtuelles qui n’utilisent pas de disques managés.
+* Limitent les emplacements pour toutes les ressources
+* Limitent les références SKU pour les machines virtuelles
+* Auditent les machines virtuelles qui n’utilisent pas de disques managés
 
 L’exemple suivant vous permet de récupérer trois définitions de stratégie basées sur le nom d’affichage. Vous utilisez la commande [New-AzureRMPolicyAssignment](/powershell/module/azurerm.resources/new-azurermpolicyassignment) pour assigner ces définitions au groupe de ressources. Pour certaines stratégies, vous devez fournir des valeurs de paramètre pour définir les valeurs autorisées.
 
@@ -144,7 +144,7 @@ Une fois votre déploiement terminé, vous pouvez appliquer davantage de paramè
 
 ## <a name="lock-resources"></a>Verrouiller des ressources
 
-Les [verrous de ressources](../../azure-resource-manager/resource-group-lock-resources.md) empêchent les utilisateurs de votre organisation de supprimer ou modifier accidentellement des ressources critiques. Contrairement au contrôle d’accès basé sur les rôles, les verrous de ressources permettent d’appliquer une restriction à tous les utilisateurs et rôles. Vous pouvez définir le niveau de verrouillage sur *CanNotDelete* ou *ReadOnly*.
+Les [verrous de ressources](../../azure-resource-manager/resource-group-lock-resources.md) empêchent les utilisateurs de votre organisation de supprimer ou de modifier accidentellement des ressources critiques. Contrairement au contrôle d’accès basé sur les rôles, les verrous de ressources permettent d’appliquer une restriction à tous les utilisateurs et rôles. Vous pouvez définir le niveau de verrouillage sur *CanNotDelete* ou *ReadOnly*.
 
 Pour verrouiller la machine virtuelle et le groupe de sécurité réseau, utilisez la commande [New-AzureRmResourceLock](/powershell/module/azurerm.resources/new-azurermresourcelock) :
 
@@ -174,9 +174,9 @@ Un message d’erreur s’affiche, indiquant que l’opération de suppression n
 
 ## <a name="tag-resources"></a>Baliser des ressources
 
-Vous appliquez des [balises](../../azure-resource-manager/resource-group-using-tags.md) à vos ressources Azure pour les organiser de façon logique par catégories. Chaque balise se compose d’un nom et d’une valeur. Par exemple, vous pouvez appliquer le nom « Environnement » et la valeur « Production » à toutes les ressources en production.
+Vous allez appliquer des [balises](../../azure-resource-manager/resource-group-using-tags.md) à vos ressources Azure pour les organiser de façon logique par catégories. Chaque balise se compose d’un nom et d’une valeur. Par exemple, vous pouvez appliquer le nom « Environnement » et la valeur « Production » à toutes les ressources en production.
 
-[!include[Resource Manager governance tags Powershell](../../../includes/resource-manager-governance-tags-powershell.md)]
+[!INCLUDE [Resource Manager governance tags Powershell](../../../includes/resource-manager-governance-tags-powershell.md)]
 
 Pour appliquer des balises à une machine virtuelle, utilisez la commande [Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource) :
 
@@ -206,7 +206,7 @@ Find-AzureRmResource -TagName Environment -TagValue Test | Where-Object {$_.Reso
 
 ### <a name="view-costs-by-tag-values"></a>Afficher les coûts selon les valeurs de balise
 
-[!include[Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)]
+[!INCLUDE [Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)]
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
@@ -236,7 +236,7 @@ Ce didacticiel vous montré comment créer une image de machine virtuelle. Vous 
 > [!div class="checklist"]
 > * Assigner des utilisateurs à un rôle
 > * Appliquer des stratégies qui imposent des standards
-> * Protéger les ressources critiques avec les verrous
+> * Protéger les ressources critiques avec des verrous
 > * Ajouter des balises aux ressources pour la facturation et la gestion
 
 Passez au didacticiel suivant pour en savoir plus sur les machines virtuelles hautement disponibles.

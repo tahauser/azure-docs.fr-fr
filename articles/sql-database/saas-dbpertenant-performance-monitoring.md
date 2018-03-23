@@ -1,26 +1,20 @@
 ---
-title: "Surveiller les performances de nombreuses bases de données Azure SQL dans une application de SaaS mutualisée | Documents Microsoft"
-description: "Surveiller et gérer les performances des bases de données SQL Azure et des pools dans une application SaaS multilocataire"
-keywords: "didacticiel sur les bases de données SQL"
+title: Surveiller les performances de nombreuses bases de données Azure SQL dans une application de SaaS mutualisée | Documents Microsoft
+description: Surveiller et gérer les performances des bases de données SQL Azure et des pools dans une application SaaS multilocataire
+keywords: didacticiel sur les bases de données SQL
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: sstein
-ms.openlocfilehash: 289f1f99b1661e499fa7132887e2f65e086ad689
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 352b0d48ab223a236b96c633526f792b6f8a703d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Surveiller et gérer les performances des bases de données SQL Azure et des pools dans une application SaaS multilocataire
 
@@ -38,10 +32,10 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Approvisionner un deuxième pool élastique pour équilibrer la charge de l’activité des bases de données
 
 
-Pour suivre ce tutoriel, vérifiez que les conditions préalables suivantes sont bien satisfaites :
+Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis :
 
-* L’application Wingtip Tickets SaaS Database Per Tenant est déployée. Pour un déploiement en moins de cinq minutes, consultez [Déployer et explorer l’application Wingtip Tickets SaaS Database Per Tenant](saas-dbpertenant-get-started-deploy.md)
-* Azure PowerShell est installé. Pour plus d’informations, consultez [Bien démarrer avec Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* L’application de base de données Wingtip Tickets SaaS par client est déployée. Pour procéder à un déploiement en moins de cinq minutes, consultez la page [Déployer et explorer l’application de base de données Wingtip Tickets SaaS par client](saas-dbpertenant-get-started-deploy.md)
+* Azure PowerShell est installé. Pour plus d’informations, voir [Bien démarrer avec Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 ## <a name="introduction-to-saas-performance-management-patterns"></a>Présentation des modèles de gestion de la performance SaaS
 
@@ -89,8 +83,8 @@ Le script *Demo-PerformanceMonitoringAndManagement.ps1* simulant une charge de t
 | 2 | Générer une charge d’intensité normale (environ 40 DTU) |
 | 3 | Générer une charge avec des pics plus longs et plus fréquents par base de données|
 | 4 | Générer une charge avec des pics de DTU supérieurs par base de données (environ 80 DTU)|
-| 5 | Générer une charge normale et une charge élevée sur un seul locataire (environ 95 DTU)|
-| 6 | Générer une charge déséquilibrée entre plusieurs pools|
+| 5. | Générer une charge normale et une charge élevée sur un seul locataire (environ 95 DTU)|
+| 6. | Générer une charge déséquilibrée entre plusieurs pools|
 
 Le générateur de charge applique une charge CPU *synthétique* à chaque base de données de locataire. Le générateur démarre un travail pour chaque base de données de locataire, qui appelle périodiquement une procédure stockée qui génère la charge. Les niveaux de charge (exprimés en eDTU), la durée et les intervalles varient selon les bases de données afin de simuler l’activité d’un locataire imprévisible.
 

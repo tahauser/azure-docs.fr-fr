@@ -1,6 +1,6 @@
 ---
 title: Surveiller Azure SQL Data Sync avec OMS Log Analytics | Microsoft Docs
-description: "Découvrez comment surveiller Azure SQL Data Sync à l’aide d’OMS Log Analytics"
+description: Découvrez comment surveiller Azure SQL Data Sync à l’aide d’OMS Log Analytics
 services: sql-database
 ms.date: 11/07/2017
 ms.topic: article
@@ -8,11 +8,12 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 8683b3aec569f210529c1188cbbf514f7956b340
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: data-sync
+ms.openlocfilehash: 423614227b16ad6cfa6dadfab1c5f2b93c5bbe62
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="monitor-sql-data-sync-preview-with-oms-log-analytics"></a>Surveiller SQL Data Sync (préversion) avec OMS Log Analytics 
 
@@ -54,6 +55,7 @@ Téléchargez les deux exemples suivants :
 
 ### <a name="prerequisites"></a>Prérequis
 
+
 Vérifiez que vous avez configuré les éléments suivants :
 
 -   Un compte Azure Automation
@@ -92,7 +94,7 @@ Pour plus d’informations sur la création d’un runbook, consultez [Mon premi
 
     2.  Informations sur les groupes de synchronisation.
 
-    3.  Informations OMS. Recherchez ces informations sur le portail OMS | Paramètres | Sources connectées. Pour plus d’informations sur l’envoi de données à Log Analytics, consultez [Transmettre des données à Log Analytics avec l’API Collecteur de données HTTP (préversion publique)](../log-analytics/log-analytics-data-collector-api.md).
+    3.  Informations OMS. Recherchez ces informations sur le portail OMS | Paramètres | Sources connectées. Pour plus d’informations sur l’envoi de données à Log Analytics, consultez [Transmettre des données à Log Analytics avec l’API Collecteur de données HTTP (préversion)](../log-analytics/log-analytics-data-collector-api.md).
 
 11. Exécutez le runbook dans le volet Test. Vérifiez que le test a réussi.
 

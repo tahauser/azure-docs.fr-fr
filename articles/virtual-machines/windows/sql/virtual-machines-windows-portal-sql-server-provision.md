@@ -1,6 +1,6 @@
 ---
 title: Guide de provisionnement des machines virtuelles Windows SQL Server dans le portail Azure | Microsoft Docs
-description: "Ce guide pratique décrit les options disponibles pour créer des machines virtuelles Windows SQL Server 2017 dans le portail Azure."
+description: Ce guide pratique décrit les options disponibles pour créer des machines virtuelles Windows SQL Server 2017 dans le portail Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -14,17 +14,20 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: 23a1f008e2c51325b7e9c7676847d55d7ccb7d44
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7e55227773820af26435100b11dfefce058e7e78
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Guide pratique pour provisionner une machine virtuelle Windows SQL Server dans le portail Azure
 
 Ce guide détaille les différentes options disponibles quand vous créez une machine virtuelle Windows SQL Server dans le portail Azure. Cet article aborde plus d’options de configuration que le [Démarrage rapide des machines virtuelles SQL Server](quickstart-sql-vm-create-portal.md), qui développe de façon détaillée une tâche de provisionnement en particulier. 
 
 Utilisez ce guide pour créer votre propre machine virtuelle SQL Server. Ou bien, utilisez-le comme référence pour les options disponibles dans le portail Azure.
+
+> [!TIP]
+> Si vous avez des questions sur les machines virtuelles SQL Server, consultez le [Forum aux Questions](virtual-machines-windows-sql-server-iaas-faq.md).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 

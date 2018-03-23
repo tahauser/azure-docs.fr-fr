@@ -1,9 +1,9 @@
 ---
-title: "Diffuser en continu les journaux de diagnostic Azure vers un hub d’événements | Microsoft Docs"
-description: "Découvrez comment diffuser en continu les journaux de diagnostic Azure vers un hub d’événements."
+title: Diffuser en continu les journaux de diagnostic Azure vers un hub d’événements | Microsoft Docs
+description: Découvrez comment diffuser en continu les journaux de diagnostic Azure vers un hub d’événements.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 42bc4845-c564-4568-b72d-0614591ebd80
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2017
+ms.date: 03/06/2018
 ms.author: johnkem
-ms.openlocfilehash: bcb9fcb2371217e7082d96ddbba4a095e6d9a00f
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 72876e38f77aa7a13c0dd9a8cdf9479e058f4a0d
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Diffuser en continu les journaux de diagnostic Azure vers un hub d’événements
 Les **[journaux de diagnostic Azure](monitoring-overview-of-diagnostic-logs.md)** peuvent être diffusés quasiment en temps réel vers n’importe quelle application à l’aide de l’option « Exporter vers Event Hubs » intégrée au portail, ou en activant l’ID de règle d’autorisation Event Hubs dans un paramètre de diagnostic via les cmdlets Azure PowerShell ou l’interface de ligne de commande Azure.
@@ -83,10 +83,10 @@ Après quelques instants, le nouveau paramètre apparaît dans la liste des para
 Pour activer la diffusion en continu via les [applets de commande Azure PowerShell](insights-powershell-samples.md), vous pouvez utiliser l’applet de commande `Set-AzureRmDiagnosticSetting` avec ces paramètres :
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -ServiceBusRuleId [your Service Bus rule ID] -Enabled $true
+Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizationRuleId [your Event Hub namespace auth rule ID] -Enabled $true
 ```
 
-L’ID de règle Service Bus est une chaîne au format `{Service Bus resource ID}/authorizationrules/{key name}`, par exemple, `/subscriptions/{subscription ID}/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/{Service Bus namespace}/authorizationrules/RootManageSharedAccessKey`. Actuellement, il est impossible de sélectionner un nom de hub d’événements particulier avec PowerShell.
+L’ID de règle d’autorisation du concentrateur d’événements est une chaîne au format suivant : `{Event Hub namespace resource ID}/authorizationrules/{key name}`, par exemple, `/subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/RootManageSharedAccessKey`. Actuellement, il est impossible de sélectionner un nom de hub d’événements particulier avec PowerShell.
 
 ### <a name="via-azure-cli"></a>Via l’interface de ligne de commande Azure
 Pour activer la diffusion en continu via [l’interface de ligne de commande Azure](insights-cli-samples.md), vous pouvez utiliser la commande `insights diagnostic set` comme suit :
@@ -95,7 +95,7 @@ Pour activer la diffusion en continu via [l’interface de ligne de commande Azu
 azure insights diagnostic set --resourceId <resourceID> --serviceBusRuleId <serviceBusRuleID> --enabled true
 ```
 
-Utilisez le même format pour l’ID de règle Service Bus, comme expliqué pour l’applet de commande PowerShell. Actuellement, il est impossible de sélectionner un nom de hub d’événements particulier avec l’interface de ligne de commande Azure.
+Pour l’ID de règle d’autorisation du concentrateur d’événements, utilisez le même format que celui indiqué pour l’applet de commande PowerShell. Actuellement, il est impossible de sélectionner un nom de hub d’événements particulier avec l’interface de ligne de commande Azure.
 
 ## <a name="how-do-i-consume-the-log-data-from-event-hubs"></a>Comment utiliser les données de journal d’Event Hubs ?
 Voici des exemples de données de sortie provenant d’Event Hubs :

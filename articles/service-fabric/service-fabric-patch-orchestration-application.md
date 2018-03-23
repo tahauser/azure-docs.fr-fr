@@ -1,24 +1,24 @@
 ---
-title: "Application d’orchestration des correctifs pour Azure Service Fabric | Microsoft Docs"
-description: "Application permettant d’automatiser la mise à jour corrective du système d’exploitation sur un cluster Service Fabric."
+title: Application d’orchestration des correctifs pour Azure Service Fabric | Microsoft Docs
+description: Application permettant d’automatiser la mise à jour corrective du système d’exploitation sur un cluster Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: novino
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/16/2018
+ms.date: 3/07/2018
 ms.author: nachandr
-ms.openlocfilehash: bb3afdd3afa81664589f738945a63d20013d5291
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 43a0675b1613e7bcf338537c1203de7df9a02fc4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corriger le système d’exploitation Windows dans votre cluster Service Fabric
 
@@ -57,6 +57,7 @@ L’application d’orchestration des correctifs comprend les sous-composants su
 > L’application d’orchestration des correctifs utilise le service système gestionnaire des réparations de Service Fabric pour désactiver ou activer le nœud et effectuer des vérifications d’intégrité. La tâche de réparation créée par l’application d’orchestration des correctifs suit la progression de l’exécution de Windows Update pour chaque nœud.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>Activer le service de gestion des réparations (s’il est inactif)
 
@@ -136,7 +137,9 @@ Les mises à jour automatiques Windows peuvent entraîner une perte de disponibi
 
 ## <a name="download-the-app-package"></a>Télécharger le package de l’application
 
-Téléchargez l’application à partir du [lien de téléchargement](https://go.microsoft.com/fwlink/P/?linkid=849590).
+L’application et les scripts d’installation peuvent être téléchargés à partir de [Lien de l’archive](https://go.microsoft.com/fwlink/?linkid=869566).
+
+L’application au format sfpkg peut être téléchargée à partir de [lien sfpkg](https://go.microsoft.com/fwlink/?linkid=869567). Cela s’avère utile pour le [déploiement de l’application basée sur Azure Resource Manager](service-fabric-application-arm-resource.md).
 
 ## <a name="configure-the-app"></a>Configurer l’application
 
@@ -361,8 +364,12 @@ Un administrateur doit intervenir et déterminer la raison pour laquelle l’app
 ### <a name="version-111"></a>Version 1.1.1
 - Correction d’un bogue dans le paramètre SetupEntryPoint de NodeAgentService, qui empêchait l’installation de NodeAgentNTService.
 
-### <a name="version-120-latest"></a>Version 1.2.0 (dernière version)
+### <a name="version-120"></a>Version 1.2.0
 
 - Résolution de bogues liés au flux de travail de redémarrage du système.
 - Résolution d’un bogue lié à la création de tâches RM, suite auquel le contrôle d’intégrité survenant lors de la préparation des tâches de réparation ne s’exécutait pas comme convenu.
 - Transition du mode de démarrage du service Windows POANodeSvc, depuis le démarrage automatique vers le démarrage automatique différé.
+
+### <a name="version-121-latest"></a>Version 1.2.1 (dernière version)
+
+- Correctif de bogue dans le flux de travail de réduction du cluster. Introduction d’une logique garbage collection pour les tâches de réparation POA appartenant à des nœuds non existants.

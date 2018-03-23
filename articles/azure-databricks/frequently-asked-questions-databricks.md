@@ -1,8 +1,8 @@
 ---
 title: 'Azure Databricks : Questions courantes et aide | Microsoft Docs'
-description: "Obtenez des réponses aux questions courantes et des informations de dépannage sur Azure Databricks."
+description: Obtenez des réponses aux questions courantes et des informations de dépannage sur Azure Databricks.
 services: azure-databricks
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: cgronlun
 editor: cgronlun
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: nitinme
 ms.openlocfilehash: 5da6ffc346cc0e7f0f83bf4a4c33600b668a17ca
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Forum aux Questions sur Azure Databricks
 
@@ -46,7 +46,7 @@ Vous trouverez ci-après certains problèmes éventuellement rencontrés avec Da
 
 #### <a name="error-message"></a>Message d’erreur
 
-« Cet abonnement n’est pas inscrit pour utiliser l’espace de noms « Microsoft.Databricks ». Pour découvrir comment inscrire des abonnements, consultez https://aka.ms/rps-not-found. (Code : MissingSubscriptionRegistration) »
+« Cet abonnement n’est pas inscrit pour utiliser l’espace de noms « Microsoft.Databricks ». Consultez https://aka.ms/rps-not-found pour découvrir comment enregistrer les abonnements. (Code : MissingSubscriptionRegistration) »
 
 #### <a name="solution"></a>Solution
 
@@ -101,7 +101,7 @@ Les clusters Databricks utilisent une adresse IP publique par nœud. Si votre ab
 #### <a name="error-message"></a>Message d’erreur
 
 « Échec du lancement du fournisseur de cloud : une erreur de fournisseur de cloud s’est produite lors de la configuration du cluster. Pour plus d’informations, consultez le guide relatif à Databricks.
-Code d’erreur Azure : MissingSubscriptionRegistration Message d’erreur Azure : L’abonnement n’est pas inscrit pour utiliser l’espace de noms « Microsoft.Compute ». Pour découvrir comment inscrire des abonnements, consultez https://aka.ms/rps-not-found. »
+Code d’erreur Azure : MissingSubscriptionRegistration Message d’erreur Azure : L’abonnement n’est pas inscrit pour utiliser l’espace de noms « Microsoft.Compute ». Consultez https://aka.ms/rps-not-found pour découvrir comment enregistrer les abonnements."
 
 #### <a name="solution"></a>Solution
 
@@ -121,7 +121,7 @@ Azure Databricks est intégré à Azure AD. Cela vous permet de définir des aut
 
 Connectez-vous au portail Azure en tant qu’administrateur. Pour Azure Active Directory, accédez à l’onglet **Paramètres utilisateur** et vérifiez que l’option **Les utilisateurs peuvent autoriser les applications à accéder aux données de l’entreprise en leur nom** est définie sur **Oui**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Démarrage rapide : Prise en main d’Azure Databricks](quickstart-create-databricks-workspace-portal.md)
 - [Présentation d’Azure Databricks](what-is-azure-databricks.md)

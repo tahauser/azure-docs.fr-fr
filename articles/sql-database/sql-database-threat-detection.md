@@ -1,8 +1,8 @@
 ---
-title: "Détection de menaces - Azure SQL Database | Microsoft Docs"
-description: "Threat Detection permet de détecter les activités base de données anormales indiquant la présence potentielle de menaces de sécurité pour la base de données."
+title: Détection de menaces - Azure SQL Database | Microsoft Docs
+description: Threat Detection permet de détecter les activités base de données anormales indiquant la présence potentielle de menaces de sécurité pour la base de données.
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: rmatchoro
 manager: shaik
 editor: v-romcal
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 06/19/2017
 ms.author: ronmat
-ms.openlocfilehash: 889f65a796aee20d7902964b8c47af46dd9149cb
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: a01721b10305ac45082943fbe4fb7fb199a0e49f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="sql-database-threat-detection"></a>Détection de menaces pour les bases de données SQL
 
@@ -30,7 +30,7 @@ SQL Threat Detection fournit une nouvelle couche de sécurité qui permet aux cl
 
 Par exemple, l’injection SQL représente l’un des problèmes de sécurité auxquels sont le plus exposées les applications web, et est utilisée pour cibler les applications pilotées par des données. Les pirates exploitent les vulnérabilités des applications pour injecter des instructions SQL nuisibles dans les champs de saisie d’application afin de violer ou modifier les données contenues dans la base de données.
 
-La détection des menaces SQL intègre les alertes avec [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/). Chaque serveur SQL Database protégé est facturé au même prix que le niveau Standard d’Azure Security Center, soit 15 USD/nœud/mois : chaque serveur SQL Database protégé est alors comptabilisé comme un seul nœud.  
+La détection des menaces SQL intègre les alertes avec [Azure Security Center](https://azure.microsoft.com/services/security-center/). Chaque serveur SQL Database protégé est facturé au même prix que le niveau Standard d’Azure Security Center, soit 15 USD/nœud/mois : chaque serveur SQL Database protégé est alors comptabilisé comme un seul nœud.  
 
 ## <a name="set-up-threat-detection-for-your-database-in-the-azure-portal"></a>Configurer la détection des menaces pour votre base de données dans le portail Azure
 1. Accédez à l’adresse [https://portal.azure.com](https://portal.azure.com) et lancez le portail Azure.
@@ -54,13 +54,13 @@ Pour obtenir un exemple de script, consultez [Configurer l’audit et la détect
    L’e-mail contient des informations sur l’événement de sécurité suspect, notamment la nature des activités anormales, le nom de la base de données, le nom du serveur, le nom de l’application et l’heure de l’événement. Il fournit également des informations sur les causes possibles et les mesures recommandées pour examiner et atténuer la menace potentielle pesant sur la base de données.<br/>
      
     ![Volet de navigation][4]
-2. L’alerte par courrier inclut un lien direct vers le journal d’audit SQL. Lorsque vous cliquez sur ce lien, le portail Azure s’affiche et ouvre les enregistrements d’audit SQL au moment de l’événement suspect. Cliquez sur un enregistrement d’audit pour afficher plus de détails sur les activités de base de données suspectes. Vous pouvez ainsi plus facilement trouver les instructions SQL qui ont été exécutées (quel utilisateur, quelles actions et à quel moment) et déterminer si l’événement est légitime ou malveillant (par exemple, la vulnérabilité de l’application aux injections SQL a été exploitée, quelqu’un a opéré une violation des données sensibles, etc.).<br/>
+2. L’alerte par courrier inclut un lien direct vers le journal d’audit SQL. Lorsque vous cliquez sur ce lien, le portail Azure s’affiche et ouvre les enregistrements d’audit SQL au moment de l’événement suspect. Cliquez sur un enregistrement d’audit pour afficher plus d’informations sur les activités de base de données suspectes. Vous pouvez ainsi plus facilement trouver les instructions SQL qui ont été exécutées (quel utilisateur, quelles actions et à quel moment) et déterminer si l’événement est légitime ou malveillant (par exemple, la vulnérabilité de l’application aux injections SQL a été exploitée, quelqu’un a opéré une violation des données sensibles, etc.).<br/>
    ![Volet de navigation][5]
 
 
 ## <a name="explore-threat-detection-alerts-for-your-database-in-the-azure-portal"></a>Explorer les alertes de détection des menaces pour votre base de données dans le portail Azure
 
-SQL Database Threat Detection intègre ses alertes avec [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/). Une vignette de sécurité SQL dynamique dans la page de base de données au sein du portail Azure effectue le suivi de l’état des menaces actives. 
+SQL Database Threat Detection intègre ses alertes avec [Azure Security Center](https://azure.microsoft.com/services/security-center/). Une vignette de sécurité SQL dynamique dans la page de base de données au sein du portail Azure effectue le suivi de l’état des menaces actives. 
 
    ![Volet de navigation][6]
    
@@ -75,10 +75,10 @@ SQL Database Threat Detection intègre ses alertes avec [Azure Security Center](
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour en savoir plus sur Threat Detection, visitez le [blog Azure](https://azure.microsoft.com/en-us/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/) 
+* Pour en savoir plus sur Threat Detection, visitez le [blog Azure](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/) 
 * En savoir plus sur [Audit Azure SQL Database](sql-database-auditing.md)
 * En savoir plus sur [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
-* Pour plus d’informations sur la tarification, consultez la [page de tarification SQL Database](https://azure.microsoft.com/en-us/pricing/details/sql-database/).  
+* Pour plus d’informations sur la tarification, consultez la [page de tarification SQL Database](https://azure.microsoft.com/pricing/details/sql-database/)  
 * Pour obtenir un exemple de script PowerShell, consultez [Configurer l’audit et la détection des menaces avec PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
 

@@ -1,25 +1,19 @@
 ---
-title: "Gestion des informations d’identification dans la bibliothèque cliente de la base de données élastique | Microsoft Docs"
-description: "Définition du niveau d’informations d’identification, de celui d’administrateur à celui de la lecture seule, pour les applications de base de données élastique."
+title: Gestion des informations d’identification dans la bibliothèque cliente de la base de données élastique | Microsoft Docs
+description: Définition du niveau d’informations d’identification, de celui d’administrateur à celui de la lecture seule, pour les applications de base de données élastique.
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: ddove
-editor: 
-ms.assetid: 72e0edaf-795e-4856-84a5-6594f735fb7e
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: ddove
-ms.openlocfilehash: 0f266f3be8bf8c1699b3b19bea96c83d32f1bd69
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.author: sstein
+ms.openlocfilehash: 26d83779b218f8c936c020d63651861f45bafa2f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Informations d’identification utilisées pour accéder à la bibliothèque cliente de la base de données élastique
 La [bibliothèque cliente de la base de données élastique](sql-database-elastic-database-client-library.md) utilise trois types d’informations d’identification différents pour accéder au [gestionnaire des cartes de partitions](sql-database-elastic-scale-shard-map-management.md). En fonction du besoin, utilisez les informations d’identification avec le niveau d’accès le plus faible possible.
@@ -72,7 +66,7 @@ Dans cet exemple, **smmUserConnectionString** comporte la chaîne de connexion c
 Tout comme pour les informations d’identification de l’administrateur, n’utilisez pas de valeurs sous la forme « username@server ». Utilisez simplement « username ».  Notez également que la chaîne de connexion ne comporte pas de nom de serveur et de nom de base de données. En effet, l’appel de **OpenConnectionForKey** dirige automatiquement la connexion vers la partition appropriée en fonction de la clé. Par conséquent, il n'est pas nécessaire de fournir les noms de la base de données et du serveur. 
 
 ## <a name="see-also"></a>Consultez également la section 
-[Gestion des bases de données et des connexions dans Azure SQL Database](sql-database-manage-logins.md)
+[Gestion des bases de données et des connexions dans la base de données SQL Microsoft Azure](sql-database-manage-logins.md)
 
 [Sécurisation de votre base de données SQL](sql-database-security-overview.md)
 

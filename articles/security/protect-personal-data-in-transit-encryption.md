@@ -1,31 +1,29 @@
 ---
-title: "Protéger les données personnelles en transit avec un chiffrement dans Azure | Microsoft Docs"
-description: "Utilisation du chiffrement dans Azure pour protéger les données personnelles"
+title: Protéger les données personnelles en transit avec un chiffrement dans Azure | Microsoft Docs
+description: des informations sur le chiffrement Azure pour protéger des données personnelles peuvent être utiles afin d’être en conformité avec le Règlement général de protection des données (RGPD).
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: 461ddfda796bfe6639e27f6c4cd53e82b4e397d1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: ''
+ms.openlocfilehash: 6975358d40206a497a53de16731d16ef374db905
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-encryption-technologies-protect-personal-data-in-transit-with-encryption"></a>technologies de chiffrement Azure : Protéger les données personnelles en transit avec un chiffrement
 
-Cet article vous aide à comprendre et à utiliser des technologies de chiffrement Azure pour sécuriser les données en transit. 
-
-La protection de la confidentialité des données personnelles pendant qu’elles transitent sur le réseau constitue un élément essentiel de la stratégie de sécurité de défense en profondeur multicouche. Le chiffrement en transit est conçu pour empêcher tout attaquant qui intercepte des transmissions de pouvoir en afficher ou utiliser les données.
+Cet article vous aide à comprendre et à utiliser des technologies de chiffrement Azure pour sécuriser les données en transit. La protection de la confidentialité des données personnelles pendant qu’elles transitent sur le réseau constitue un élément essentiel de la stratégie de sécurité de défense en profondeur multicouche. Le chiffrement en transit est conçu pour empêcher tout attaquant qui intercepte des transmissions de pouvoir en afficher ou utiliser les données. Les informations contenues dans cet article peuvent contribuer aux efforts de conformité avec le Règlement général sur la protection des données (RGPD) d’une organisation.
 
 ## <a name="scenario"></a>Scénario
 
@@ -43,11 +41,11 @@ La compagnie doit protéger la confidentialité des données personnelles de ses
 
 L’objectif de la compagnie consiste à garantir que les données personnelles sont chiffrées quand elles sont hors disque. Si des personnes non autorisées accèdent aux données personnelles hors disque, celles-ci doivent être sous forme illisible. L’application du chiffrement doit être simple, ou entièrement transparent, pour les utilisateurs et les administrateurs.
 
-## <a name="solutions"></a>Solutions
+## <a name="solutions"></a>solutions
 
 Les services Azure proposent plusieurs outils et technologies pour vous aider à protéger les données personnelles en transit.
 
-### <a name="azure-storage"></a>Azure Storage
+### <a name="azure-storage"></a>Stockage Azure
 
 Les données stockées dans le cloud doivent se déplacer à partir du client, qui peut être physiquement situé n’importe où dans le monde, vers le centre de données Azure. Quand ces données sont récupérées par des utilisateurs, elles se déplacent à nouveau, dans la direction opposée. Les données en transit sur l’Internet public courent toujours un risque d’interception par des attaquants. Il est important de protéger la confidentialité des données personnelles en utilisant un chiffrement au niveau du transport pour les sécuriser lors de leur déplacement entre deux emplacements.
 

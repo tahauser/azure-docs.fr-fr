@@ -1,11 +1,11 @@
 ---
-title: "Délégation de l'inscription des utilisateurs et des abonnements aux produits"
-description: "Découvrez comment déléguer à un tiers l'enregistrement de l'utilisateur et la souscription à des produits dans la gestion des API Azure."
+title: Délégation de l'inscription des utilisateurs et des abonnements aux produits
+description: Découvrez comment déléguer à un tiers l'enregistrement de l'utilisateur et la souscription à des produits dans la gestion des API Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: antonba
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8b7ad5ee-a873-4966-a400-7e508bbbe158
 ms.service: api-management
 ms.workload: mobile
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: fc8c5774eb616c33c00ecebeacd31e2a07b36e0c
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Délégation de l'inscription des utilisateurs et des abonnements aux produits
 La délégation vous permet d'utiliser votre site web existant pour gérer les connexions/inscriptions des développeurs et l'abonnement aux produits au lieu de faire appel aux fonctionnalités intégrées du portail des développeurs. Ceci permet à votre site web de conserver les données utilisateur et de valider ces étapes de façon personnalisée.
@@ -44,7 +44,7 @@ Pour commencer, configurons Gestion des API pour que les demandes soient achemin
 
 1. Recevoir une demande au format suivant :
    
-   > *http://www.yourwebsite.com/apimdelegation?operation=SignIn&amp;returnUrl={URL of source page}&amp;salt={string}&amp;sig={string}*
+   > *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL de la page source}&salt={chaîne}&sig={chaîne}*
    > 
    > 
    
@@ -70,7 +70,7 @@ Pour commencer, configurons Gestion des API pour que les demandes soient achemin
    * [Demandez un jeton d'authentification unique (SSO)] via l'API REST Gestion des API.
    * Ajoutez un paramètre de requête returnUrl à l'URL SSO reçue de l'appel d'API ci-dessus :
      
-     > Par exemple, https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
+     > par exemple, https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
      > 
      > 
    * Redirigez l'utilisateur vers l'URL générée.
@@ -101,7 +101,7 @@ Assurez-vous ensuite que le point de terminaison de délégation effectue bien l
 
 1. Recevoir une demande au format suivant :
    
-   > *http://www.yourwebsite.com/apimdelegation?operation={opération}&amp;productId={produit auquel s’abonner}&amp;userId={utilisateur faisant la demande}&amp;salt={chaîne}&amp;sig={chaîne}*
+   > *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product auquel s’abonner}&userId={requête utilisateur}&salt={chaîne}&sig={chaîne}*
    > 
    > 
    
@@ -129,7 +129,7 @@ Assurez-vous ensuite que le point de terminaison de délégation effectue bien l
 ## <a name="delegate-example-code"></a> Exemple de Code
 Ces exemples de code montrent comment prendre la *clé de validation de délégation*, définie dans l’écran Délégation du portail du serveur de publication, pour créer un HMAC qui permet ensuite de valider la signature, et fournit la preuve de la validité de l’élément returnUrl transmis. Le même code fonctionne pour productId et userId avec de légères modifications.
 
-****Code C# pour générer le hachage de returnUrl****
+**Code C# pour générer le hachage de returnUrl**
 
 ```csharp
 using System.Security.Cryptography;
@@ -146,7 +146,7 @@ using (var encoder = new HMACSHA512(Convert.FromBase64String(key)))
 }
 ```
 
-****Code NodeJS pour générer le hachage de returnUrl****
+**Code NodeJS pour générer le hachage de returnUrl**
 
 ```
 var crypto = require('crypto');
@@ -163,7 +163,7 @@ var digest = hmac.update(salt + '\n' + returnUrl).digest();
 var signature = digest.toString('base64');
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur la délégation, regardez la vidéo suivante :
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Delegating-User-Authentication-and-Product-Subscription-to-a-3rd-Party-Site/player]

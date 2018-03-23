@@ -1,9 +1,9 @@
 ---
-title: "Créer, afficher et gérer des alertes à l’aide d’Azure Monitor - Alerts (préversion) | Microsoft Docs"
-description: "Utilisez la nouvelle expérience unifiée d’alertes Azure pour créer, afficher et gérer des règles d’alerte de métriques et de journaux à partir d’un seul emplacement."
+title: Créer, afficher et gérer des alertes à l’aide d’Azure Monitor - Alerts (préversion) | Microsoft Docs
+description: Utilisez la nouvelle expérience unifiée d’alertes Azure pour créer, afficher et gérer des règles d’alerte de métriques et de journaux à partir d’un seul emplacement.
 author: msvijayn
 manager: kmadnani1
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 36729da3-e002-4a64-86b2-2513ca2cbb58
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: b537bb42d43c4232c100061322e09bf492f2a20f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b6b6bfee5b9e9036a6d7ff17ff1a8d4de542bbd3
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor---alerts-preview"></a>Créer, afficher et gérer des alertes à l’aide d’Azure Monitor - Alerts (préversion)
 
@@ -65,13 +65,13 @@ Vous trouverez ci-dessous un guide détaillé pour l’utilisation d’Azure Ale
 
     > L’option Alertes unifiées (préversion) prend également en charge les alertes de journal d’activité. [Plus d’informations](monitoring-activity-log-alerts-new-experience.md)
 
-5. *Alertes de métrique* : assurez-vous que le **type de ressource** est la plateforme ou le service de surveillance sélectionné (autre que *Log Analytics*). Ensuite, une fois la **ressource** appropriée choisie, cliquez sur le bouton *Terminé* pour revenir à la création de l’alerte. Utilisez ensuite le bouton **Ajouter des critères** pour choisir le signal spécifique dans la liste des options de signal, le service de surveillance et le type répertorié, qui sont disponibles pour la ressource sélectionnée précédemment.
+5. *Alertes de métrique* : assurez-vous que le **type de ressource** est sélectionné avec le type de signal **Métrique**. Ensuite, une fois la **ressource** appropriée choisie, cliquez sur le bouton *Terminé* pour revenir à la création de l’alerte. Utilisez ensuite le bouton **Ajouter des critères** pour choisir le signal spécifique dans la liste des options de signal, le service de surveillance et le type répertorié, qui sont disponibles pour la ressource sélectionnée précédemment.
 
     ![Sélectionner une ressource](./media/monitor-alerts-unified/AlertsPreviewResourceSelection.png)
 
     > [!NOTE]
 
-    > Les nouvelles fonctionnalités de métriques introduites pour la génération rapide d’alertes sont uniquement incluses dans les types de signaux relatifs à des métriques d’un service de plateforme.
+    >  Toutes les ressources capables [d’alertes en quasi temps réel](monitoring-near-real-time-metric-alerts.md) sont répertoriées avec le service de surveillance **Plateforme** et le type de signal indiqué **Métrique**
 
 6. *Alertes de métrique* : une fois le signal sélectionné, vous pouvez indiquer la logique de génération d’alertes. Pour référence, les données historiques du signal s’affichent avec une option permettant d’ajuster la fenêtre de temps à l’aide la fonction **Afficher l’historique**, avec un intervalle allant des six dernières heures à la semaine précédente. Avec la visualisation en place, la **logique d’alerte** peut être sélectionnée parmi les options proposées de condition, d’agrégation et de seuil. En tant qu’aperçu de la logique fournie, la condition figure dans la visualisation, ainsi que l’historique de signal, pour indiquer quand l’alerte aurait été déclenchée. Enfin, indiquez pendant combien de temps l’alerte doit rechercher la condition spécifiée en sélectionnant l’option de **période**, ainsi que la fréquence à laquelle l’alerte doit être exécutée en sélectionnant **Fréquence**.
 
@@ -81,7 +81,7 @@ Vous trouverez ci-dessous un guide détaillé pour l’utilisation d’Azure Ale
 
     ![Configurer une logique de signal pour une métrique multidimensionnelle](./media/monitor-alerts-unified/AlertsPreviewCriteriaMultiDim.png)
 
-8. *Alertes de journal* : assurez-vous que le **Type de ressource** est une source analytique telle que *Log Analytics* ou *Application Insights*. Ensuite, une fois la **ressource** appropriée choisie, cliquez sur le bouton *Terminé*. Utilisez ensuite le bouton **Ajouter des critères** pour afficher la liste des options de signal disponibles pour la ressource et à partir de l’option **Recherche de journal personnalisée** de la liste de signaux pour le service de surveillance des journaux choisi, tel que *Log Analytics* ou *Application Insights*.
+8. *Alertes de journal* : assurez-vous que le **Type de ressource** est une source analytique telle que *Log Analytics* ou *Application Insights* et le type de signal **Journal**. Ensuite, une fois la **ressource** appropriée choisie, cliquez sur le bouton *Terminé*. Utilisez ensuite le bouton **Ajouter des critères** pour afficher la liste des options de signal disponibles pour la ressource et à partir de l’option **Recherche de journal personnalisée** de la liste de signaux pour le service de surveillance des journaux choisi, tel que *Log Analytics* ou *Application Insights*.
 
    ![Sélectionner une ressource : recherche de journal personnalisée](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog.png)
 
@@ -121,8 +121,8 @@ Les **alertes de journal** peuvent reposer sur les éléments suivants :
 
     Pour les **alertes de journal**, certaines fonctionnalités supplémentaires sont disponibles afin de passer outre les actions par défaut :
 
-    - **Notification par courrier électronique** : remplace l’objet du courrier électronique, envoyé via le groupe d’actions. Vous ne pouvez pas modifier le corps du message.
-    - **Inclure la charge utile Json personnalisée** : remplace le Json webhook utilisé par les groupes d’actions en substituant une charge utile personnalisée à la charge utile par défaut. Pour plus d’informations sur les formats de webhook, voir [Action webhook pour les alertes de journal](monitor-alerts-unified-log-webhook.md)
+    - **Notification par courrier électronique** : substitue *L’objet du message électronique* dans le message, envoyé via le groupe d’actions, si une ou plusieurs actions de messagerie existent dans ledit groupe d’actions. Vous ne pouvez pas modifier le corps du message et ce champ n’est **pas** destiné à l’adresse de messagerie.
+    - **Inclure la charge utile Json personnalisée** : remplace le JSON webhook utilisé par les groupes d’actions, si une ou plusieurs actions de webhook existent dans ledit groupe d’actions. L’utilisateur peut spécifier le format JSON à utiliser pour tous les webhooks configurés dans le groupe d’actions associé ; Pour plus d’informations sur les formats de webhook, voir [Action webhook pour les alertes de journal](monitor-alerts-unified-log-webhook.md). L’option Tester webhook est fournie pour vérifier le format et le traitement par la destination à l’aide de l’exemple de JSON, et cette option, comme son nom l’indique, est utilisée uniquement à des fins de **test**.
 
         ![Remplacements d’actions pour les alertes de journal](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
 

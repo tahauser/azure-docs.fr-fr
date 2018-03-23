@@ -1,11 +1,11 @@
 ---
-title: "Synchronisation Azure AD Connect : présentation de la configuration par défaut | Microsoft Docs"
-description: "Cet article décrit la configuration par défaut dans la synchronisation Azure AD Connect."
+title: 'Synchronisation Azure AD Connect : présentation de la configuration par défaut | Microsoft Docs'
+description: Cet article décrit la configuration par défaut dans la synchronisation Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ed876f22-6892-4b9d-acbe-6a2d112f1cd1
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 87f513ffd2e8854085d9dfcd399148082de37698
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: dba7a6fcf936e9610a5f1f04e367d32e9aae6643
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect Sync : comprendre la configuration par défaut
 Cet article présente les règles de configuration out-of-box. Il décrit les règles et l’impact que celles-ci ont sur la configuration. Il vous guide également tout au long de la configuration par défaut de la synchronisation Azure AD Connect. L’objectif est que le lecteur comprenne comment fonctionne le modèle de configuration, nommé approvisionnement déclaratif, dans un exemple réel. Cet article suppose que vous avez déjà installé et configuré la synchronisation Azure AD Connect à l’aide de l’Assistant d’installation.
@@ -50,7 +50,7 @@ Les objets utilisateur suivants ne sont **pas** synchronisés avec Azure AD :
 * Ne synchronisez pas les objets qui pourraient ne pas fonctionner dans Exchange Online.
   `CBool(IIF(IsPresent([msExchRecipientTypeDetails]),BitAnd([msExchRecipientTypeDetails],&H21C07000) > 0,NULL))`  
   Ce masque de bits (&amp;H21C07000) pourrait exclure les objets suivants :
-  * Dossier public à extension messagerie
+  * Dossier public à extension messagerie (en préversion à partir de la version 1.1.524.0)
   * Boîte aux lettres de surveillance du système
   * Boîte aux lettres de base de données de boîtes aux lettres (Boîte aux lettres système)
   * Groupe de sécurité universel (ne s'applique pas à un utilisateur, mais est présent pour des raisons d'héritage)

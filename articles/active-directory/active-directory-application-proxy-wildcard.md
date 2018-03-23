@@ -1,8 +1,8 @@
 ---
-title: "Applications génériques dans le proxy d’application Azure Active Directory | Microsoft Docs"
-description: "Découvrez comment utiliser des applications génériques dans le proxy d’application Azure Active Directory."
+title: Applications génériques dans le proxy d’application Azure Active Directory | Microsoft Docs
+description: Découvrez comment utiliser des applications génériques dans le proxy d’application Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: d5450da1-9e06-4d08-8146-011c84922ab5
@@ -15,11 +15,11 @@ ms.date: 02/06/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 28e43d48b4fa27202d58ee081a60e2fb5bfe9d99
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f97b2541bb755a9b7ab8e3602dfad90f50ada740
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Applications génériques dans le proxy d’application Azure Active Directory 
 
@@ -53,6 +53,7 @@ La création d’une application générique repose sur le même [flux de public
 
 ## <a name="prerequisites"></a>Prérequis
 
+
 ### <a name="custom-domains"></a>Domaines personnalisés
 
 Bien que les [domaines personnalisés](active-directory-application-proxy-custom-domains.md) soient facultatifs pour toutes les autres applications, ils sont obligatoires pour les applications génériques. Pour créer des domaines personnalisés, vous devez :
@@ -70,7 +71,7 @@ Quand vous utilisez des domaines personnalisés, vous devez créer une entrée D
 
 > `<yourAADTenantId>.tenant.runtime.msappproxy.net`
 
-Pour vérifier que vous avez correctement configuré votre enregistrement CNAME, vous pouvez utiliser [nslookup](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/nslookup) sur l’un des points de terminaison cibles, par exemple, `expenses.adventure-works.com`.  Votre réponse doit inclure l’alias déjà mentionné (`<Id.tenant>.runtime.msappproxy.net`).
+Pour vérifier que vous avez correctement configuré votre enregistrement CNAME, vous pouvez utiliser [nslookup](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/nslookup) sur l’un des points de terminaison cibles, par exemple, `expenses.adventure-works.com`.  Votre réponse doit inclure l’alias déjà mentionné (`<yourAADTenantId>.tenant.runtime.msappproxy.net`).
 
 
 ## <a name="considerations"></a>Considérations

@@ -1,55 +1,44 @@
 ---
-title: "Créer et gérer des serveurs et des bases de données SQL Azure | Microsoft Docs"
-description: "Découvrez les concepts liés aux serveurs et aux bases de données Azure SQL Database, ainsi que les méthodes de création et de gestion correspondantes."
+title: Créer et gérer des serveurs et des bases de données SQL Azure | Microsoft Docs
+description: Découvrez les concepts liés aux serveurs et aux bases de données Azure SQL Database, ainsi que les méthodes de création et de gestion correspondantes.
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
 manager: jhubbard
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 10/11/2017
+ms.date: 02/28/2018
 ms.author: carlrab
-ms.openlocfilehash: 469db4f3faf12cbd778f18b7bc74ec6b86b412c7
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 0e2dabc5cc0b816f2623fce5f8fb09a7004039c7
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Créer et gérer des serveurs et des bases de données Azure SQL Database
 
-Une base de données SQL Azure est une base de données gérée dans Microsoft Azure, créée dans un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md). Cette base de données possède un ensemble défini de [ressources de calcul et de stockage pour différentes charges de travail](sql-database-service-tiers.md). Une base de données SQL Azure est associée à un serveur logique Azure SQL Database. Ce serveur est créé dans une région Azure spécifique. 
+SQL Database propose trois types de bases de données :
 
-## <a name="an-azure-sql-database-can-be-a-single-pooled-or-partitioned-database"></a>Une base de données SQL Azure peut être une base de données unique, regroupée ou partitionnée
+- Une base de données SQL Azure créée dans un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) avec un ensemble défini de [ressources de calcul et de stockage pour différentes charges de travail](sql-database-service-tiers.md). Une base de données SQL Azure est associée à un serveur logique Azure SQL Database. Ce serveur est créé dans une région Azure spécifique.
+- Une base de données créée dans le cadre d’un [pool de bases de données](sql-database-elastic-pool.md) au sein d’un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) avec un ensemble défini de [ressources de calcul et de stockage pour différentes charges de travail](sql-database-service-tiers.md) qui sont partagés entre toutes les bases de données du pool. Une base de données SQL Azure est associée à un serveur logique Azure SQL Database. Ce serveur est créé dans une région Azure spécifique.
+- Une [instance d’un serveur SQL](sql-database-managed-instance.md) créée au sein d’un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) avec un semble défini de ressources de calcul et de stockage pour toutes les bases de données de cette instance de serveur. Une instance gérée contient des bases de données système et utilisateur. Managed Instance est conçue pour permettre une migration « lift-and-shift » d’une base de données vers un PaaS entièrement géré, sans reconcevoir l’application. Managed Instance fournit une forte compatibilité avec le modèle de programmation SQL Server local, ainsi que des supports pour la grande majorité des fonctionnalités SQL Server et les outils et services connexes.  
 
-Une base de données SQL Azure peut être :
+Microsoft Azure SQL Database prend en charge les versions 7.3 et ultérieures du client de protocole TDS (Tabular Data Stream) et permet uniquement des connexions TCP/IP chiffrées.
 
-- Une base de données unique avec son [propre ensemble de ressources](sql-database-single-database-resources.md)
-- Une partie d’un [pool élastique](sql-database-elastic-pool.md) qui partage un ensemble de ressources
-- Une partie d’un [ensemble de bases de données partitionnées dont la taille des instances a été augmentée](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling). Il peut s’agir de bases de données uniques ou mises en pool
-- Une partie d’un ensemble de bases de données participant à un [modèle de conception SaaS partagé au sein d’une architecture mutualisée ](sql-database-design-patterns-multi-tenancy-saas-applications.md), et dont les bases de données peuvent être uniques ou mises en pool (ou les deux) 
-
-> [!TIP]
-> Pour les noms de base de données valides, consultez [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données). 
->
- 
-- Le classement par défaut utilisé par la base de données SQL Microsoft Azure est **SQL_LATIN1_GENERAL_CP1_CI_AS**, où **LATIN1_GENERAL** correspond à l’anglais (États-Unis) et **CP1** à la page de code 1252. La propriété **CI** indique que le classement n’est pas sensible à la casse, et **AS** qu’il respecte les accents. Pour plus d’informations sur la définition du classement, consultez [COLLATE (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
-- La base de données SQL Microsoft Azure prend en charge les versions 7.3 et ultérieures du client de protocole TDS (Tabular Data Stream).
-- Seules les connexions TCP/IP sont autorisées.
+> [!IMPORTANT]
+> SQL Database Managed Instance, actuellement en préversion publique, offre un niveau de service unique d’usage général. Pour plus d’informations, consultez [SQL Database Managed Instance](sql-database-managed-instance.md). Le reste de cet article ne s’applique pas à Managed Instance.
 
 ## <a name="what-is-an-azure-sql-logical-server"></a>Qu’est-ce qu’un serveur logique SQL Azure ?
 
-Un serveur logique agit comme un point d’administration central pour plusieurs bases de données, y compris les [connexions](sql-database-elastic-pool.md)de [pools élastiques](sql-database-manage-logins.md), les [règles de pare-feu](sql-database-firewall-configure.md), les [règles d’audit](sql-database-auditing.md), les [stratégies de détection des menaces](sql-database-threat-detection.md) et les [groupes de basculement](sql-database-geo-replication-overview.md). Un serveur logique peut se trouver dans une région différente de celle de son groupe de ressources. Avant de pouvoir créer la base de données SQL Azure, vous devez déjà posséder un serveur logique. Toutes les bases de données sur un serveur sont créées au sein de la même région que le serveur logique. 
+Un serveur logique agit comme un point d’administration central pour plusieurs bases de données uniques ou [en pool](sql-database-elastic-pool.md), des [connexions](sql-database-manage-logins.md), des [règles de pare-feu](sql-database-firewall-configure.md), des [règlesd’audit](sql-database-auditing.md), des [stratégies de détection des menaces](sql-database-threat-detection.md) et des [groupes de basculement](sql-database-geo-replication-overview.md). Un serveur logique peut se trouver dans une région différente de celle de son groupe de ressources. Avant de pouvoir créer la base de données SQL Azure, vous devez déjà posséder un serveur logique. Toutes les bases de données sur un serveur sont créées au sein de la même région que le serveur logique.
 
-
-> [!IMPORTANT]
-> Dans SQL Database, un serveur est une construction logique distincte d’une instance SQL Server que vous connaissez peut-être dans le monde local. Plus précisément, le service SQL Database n’offre aucune garantie en ce qui concerne l’emplacement des bases de données par rapport à leurs serveurs logiques et ne présente aucun accès ni aucune fonctionnalité au niveau de l’instance.
-> 
+Un serveur logique est une construction logique distincte d’une instance SQL Server que vous connaissez peut-être dans le monde local. Plus précisément, le service SQL Database n’offre aucune garantie en ce qui concerne l’emplacement des bases de données par rapport à leurs serveurs logiques et ne présente aucun accès ni aucune fonctionnalité au niveau de l’instance. Par contraste, un serveur dans une instance gérée SQL Database est similaire à une instance SQL Server que vous connaissez peut-être dans le monde local.
 
 Lorsque vous créez un serveur logique, vous fournissez un compte de connexion du serveur et un mot de passe disposant de droits d’administration pour la base de données MASTER sur ce serveur, ainsi que sur l’ensemble des bases de données qui y sont créées. Ce compte initial est un compte de connexion SQL. Azure SQL Database prend en charge l’authentification SQL et l’authentification Azure Active Directory. Pour en savoir plus sur les connexions et l’authentification, consultez la page [Managing Databases and Logins in Azure SQL Database](sql-database-manage-logins.md) (Gérer les bases de données et les connexions dans Azure SQL Database). L’authentification Windows n’est pas prise en charge. 
 
@@ -74,6 +63,7 @@ Un serveur logique de base de données Azure :
 - Est la portée du contrôle de version pour les fonctionnalités activées sur les ressources qu’il contient 
 - Les connexions principales au niveau du serveur peuvent gérer toutes les bases de données sur un serveur
 - Peut contenir des connexions semblables à celles des instances de SQL Server en local qui ont accès à une ou plusieurs bases de données sur le serveur et qui peuvent se voir octroyer des droits d’administration limités. Pour plus d’informations, consultez [Connexions](sql-database-manage-logins.md).
+- Le classement par défaut pour toutes les bases de données utilisateur créées sur un serveur logique est `SQL_LATIN1_GENERAL_CP1_CI_AS`, où `LATIN1_GENERAL` est anglais (États-Unis), `CP1` est la page de codes 1252, `CI` ne respecte pas la casse, et `AS` est sensible aux accents.
 
 ## <a name="azure-sql-databases-protected-by-sql-database-firewall"></a>Bases de données SQL Azure protégées par un pare-feu SQL Database
 
@@ -96,6 +86,8 @@ Pour créer une base de données SQL Azure à l’aide du [portail Azure](https
 > [!IMPORTANT]
 > Pour en savoir plus sur la sélection du niveau tarifaire de votre base de données, consultez la page [Niveaux de service](sql-database-service-tiers.md).
 >
+
+Pour créer une option Managed Instance, consultez [Créer une option Managed Instance](sql-database-managed-instance-tutorial-portal.md)
 
 ### <a name="manage-an-existing-sql-server"></a>Gérer un serveur SQL existant
 
@@ -140,7 +132,7 @@ Pour créer et gérer le serveur, les bases de données et les pare-feux SQL Az
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-cli"></a>Gérer les serveurs, les bases de données et les pare-feu SQL Azure à l’aide de l’interface de ligne de commande Azure
 
-Pour créer et gérer un serveur, des bases de données et des pare-feux SQL Azure avec [Azure CLI](/cli/azure/overview), utilisez les commandes [Azure CLI SQL Database](/cli/azure/sql/db) suivantes. Utilisez [Cloud Shell](/azure/cloud-shell/overview) pour exécuter l’interface CLI dans votre navigateur ou [l’installer](/cli/azure/install-azure-cli) sur macOS, Linux ou Windows. Pour créer et gérer des pools élastiques, consultez [Pools élastiques](sql-database-elastic-pool.md).
+Pour créer et gérer un serveur, des bases de données et des pare-feux SQL Azure avec [Azure CLI](/cli/azure), utilisez les commandes [Azure CLI SQL Database](/cli/azure/sql/db) suivantes. Utilisez [Cloud Shell](/azure/cloud-shell/overview) pour exécuter l’interface CLI dans votre navigateur ou [l’installer](/cli/azure/install-azure-cli) sur macOS, Linux ou Windows. Pour créer et gérer des pools élastiques, consultez [Pools élastiques](sql-database-elastic-pool.md).
 
 | Applet de commande | Description |
 | --- | --- |
@@ -170,7 +162,7 @@ Pour créer et gérer un serveur, des bases de données et des pare-feux SQL Az
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-transact-sql"></a>Gérer les serveurs, les bases de données et les pare-feux SQL Azure à l’aide de Transact-SQL
 
-Pour créer et gérer le serveur, les bases de données et les pare-feux SQL Azure avec Transact-SQL, utilisez les commandes T-SQL suivantes. Vous pouvez entrer ces commandes à l’aide du portail Azure, de [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), de [Visual Studio Code](https://code.visualstudio.com/docs), ou de tout autre programme pouvant se connecter à un serveur Azure SQL Database et transmettre des commandes Transact-SQL. Pour gérer des pools élastiques, consultez la page [Pools élastiques](sql-database-elastic-pool.md).
+Pour créer et gérer le serveur, les bases de données et les pare-feux SQL Azure avec Transact-SQL, utilisez les commandes T-SQL suivantes. Vous pouvez entrer ces commandes à l’aide du portail Azure, de [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), de [Visual Studio Code](https://code.visualstudio.com/docs), ou de tout autre programme pouvant se connecter à un serveur Azure SQL Database et transmettre des commandes Transact-SQL. Pour gérer des pools élastiques, consultez la page [Pools élastiques](sql-database-elastic-pool.md).
 
 > [!IMPORTANT]
 > Vous ne pouvez pas créer ou supprimer un serveur à l’aide de Transact-SQL.
@@ -200,7 +192,7 @@ Pour créer et gérer le serveur, les bases de données et les pare-feux SQL Az
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-rest-api"></a>Gérer les serveurs, les bases de données et les pare-feux SQL Azure à l’aide de l’API REST
 
-Pour créer et gérer un serveur, des bases de données et des pare-feux SQL Azure à l’aide des requêtes suivantes de l’API REST.
+Pour créer et gérer un serveur, des bases de données et des pare-feux Azure SQL, utilisez les requêtes suivantes de l’API REST.
 
 | Commande | Description |
 | --- | --- |
@@ -226,7 +218,5 @@ Pour créer et gérer un serveur, des bases de données et des pare-feux SQL Az
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour en savoir plus sur le regroupement de bases de données à l’aide de pools élastiques, consultez la page [Pools élastiques](sql-database-elastic-pool.md).
-- Pour en savoir plus sur le service Azure SQL Database, consultez [Qu’est-ce que le service Azure SQL Database ?](sql-database-technical-overview.md).
 - Pour en savoir plus sur la migration d’une base de données SQL Server, consultez la section [Migrer une base de données SQL](sql-database-cloud-migrate.md).
 - Pour plus d’informations sur les fonctionnalités prises en charge, consultez la page [Fonctionnalités](sql-database-features.md).

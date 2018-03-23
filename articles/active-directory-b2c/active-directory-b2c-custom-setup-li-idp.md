@@ -1,12 +1,12 @@
 ---
-title: "Azure Active Directory B2C : Ajout de LinkedIn en tant que fournisseur d’identités OAuth2 à l’aide de stratégies personnalisées"
-description: "Article sur la procédure à suivre pour configurer une application LinkedIn à l’aide du protocole OAuth2 et de stratégies personnalisées"
+title: 'Azure Active Directory B2C : Ajout de LinkedIn en tant que fournisseur d’identités OAuth2 à l’aide de stratégies personnalisées'
+description: Article sur la procédure à suivre pour configurer une application LinkedIn à l’aide du protocole OAuth2 et de stratégies personnalisées
 services: active-directory-b2c
-documentationcenter: 
+documentationcenter: ''
 author: yoelhor
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,17 +15,18 @@ ms.devlang: na
 ms.date: 10/23/2017
 ms.author: yoelh
 ms.openlocfilehash: 77e2b9b283e4051370ffb905681135c27512834e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="azure-active-directory-b2c-add-linkedin-as-an-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C : Ajout de LinkedIn en tant que fournisseur d’identités à l’aide de stratégies personnalisées
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 Cet article indique comment activer la connexion pour les utilisateurs d’un compte LinkedIn à l’aide de [stratégies personnalisées](active-directory-b2c-overview-custom.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md).
 
 ## <a name="step-1-create-a-linkedin-account-application"></a>Étape 1 : Créer une application de compte LinkedIn
@@ -53,7 +54,7 @@ Pour utiliser LinkedIn en tant que fournisseur d’identité dans Azure Active D
 
 3. Sélectionnez **Authentification**, puis notez les valeurs **ID client** et **Secret du client**.
 
-4. Dans la zone **URL de redirection autorisées**, collez**https://login.microsoftonline.com/te/{locataire}.onmicrosoft.com/oauth2/authresp**. Remplacez {*locataire*} par le nom de votre locataire (par exemple contosob2c.onmicrosoft.com). Assurez-vous d'utiliser le schéma HTTPS. 
+4. Dans la zone **URL de redirection autorisées**, collez **https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/oauth2/authresp**. Remplacez {*locataire*} par le nom de votre locataire (par exemple contosob2c.onmicrosoft.com). Assurez-vous d'utiliser le schéma HTTPS. 
 
     ![Compte LinkedIn : définition des URL de redirection autorisées](media/active-directory-b2c-custom-setup-li-idp/adb2c-ief-setup-li-idp-new-app3.png)
 
@@ -93,7 +94,7 @@ Si vous souhaitez que les utilisateurs se connectent à l’aide de leur compte 
 
 Définissez LinkedIn en tant que fournisseur de revendications, en ajoutant un nœud `<ClaimsProvider>` dans votre fichier de stratégie d’extension :
 
-1. Ouvrez le fichier de stratégie d’extension *TrustFrameworkExtensions.xml* à partir de votre répertoire de travail. 
+1. Dans votre répertoire de travail, ouvrez le fichier de stratégie d’extension *TrustFrameworkExtensions.xml*. 
 
 2. Recherchez l’élément `<ClaimsProviders>`.
 

@@ -1,11 +1,11 @@
 ---
 title: Testez votre offre de machine virtuelle pour Marketplace | Microsoft Docs
-description: "Découvrez comment tester votre offre de machine virtuelle pour Azure Marketplace."
+description: Découvrez comment tester votre offre de machine virtuelle pour Azure Marketplace.
 services: marketplace-publishing
-documentationcenter: 
-author: HannibalSII
-manager: hascipio
-editor: 
+documentationcenter: ''
+author: msmbaldwin
+manager: mbaldwin
+editor: ''
 ms.assetid: 7a41c3c6-625c-4478-b804-e124dee89040
 ms.service: marketplace
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
-ms.author: hascipio
-ms.openlocfilehash: 26f856059b381be91b9cdd1f98a11dc90813c0c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: 7f225f113dd465f79d5d195b59a809fe3be6a1f8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="test-your-vm-offer-for-the-azure-marketplace-in-staging"></a>Test de votre offre de machine virtuelle pour Azure Marketplace en mode intermédiaire
 Dans le cadre du déploiement dans un environnement intermédiaire, vous déployez votre référence SKU dans un « bac à sable » (sandbox) privé dans lequel vous pouvez tester et vérifier ses fonctionnalités avant son déploiement dans Marketplace. La référence apparaît avec le statut Intermédiaire, comme pour un client l’ayant déployée. Votre image de machine virtuelle doit être certifiée pour passer en mode Intermédiaire.
@@ -26,7 +26,7 @@ Dans le cadre du déploiement dans un environnement intermédiaire, vous déploy
 ## <a name="step-1-push-your-offer-to-staging"></a>Étape 1 : déployez votre offre dans un environnement intermédiaire
 1. Dans l'onglet **Publish**, cliquez sur **Push to Staging**.
    
-    ![dessin](media/marketplace-publishing-vm-image-test-in-staging/vm-image-push-to-staging.png)
+    ![drawing](media/marketplace-publishing-vm-image-test-in-staging/vm-image-push-to-staging.png)
 2. Si le portail de publication vous signale des erreurs, corrigez-les.
 3. Dans la boîte de dialogue **Who can access your staged offer?** , saisissez la liste des abonnements Azure que vous allez utiliser pour afficher un aperçu de votre offre dans le [portail Azure en version préliminaire](https://portal.azure.com).
    

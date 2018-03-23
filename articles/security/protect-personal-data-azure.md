@@ -1,29 +1,29 @@
 ---
-title: "Protéger les données personnelles dans Microsoft Azure | Microsoft Docs"
-description: "Premier article d’une série visant à vous aider à utiliser Azure pour protéger des données personnelles"
+title: Protéger les données personnelles dans Microsoft Azure | Microsoft Docs
+description: Cet article devrait vous aider à utiliser Azure pour protéger des données personnelles et vous conformer au Règlement général sur la protection des données (RGPD).
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: 4dbdb2dc11bdc515fb3856dd45203868122c7726
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: ''
+ms.openlocfilehash: 741fb17be315faacef6483cbaaa565136622cb45
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="protect-personal-data-in-microsoft-azure"></a>Protéger les données personnelles dans Microsoft Azure
 
-Cet article présente une série d’articles qui vous aident à utiliser les services et technologies de sécurité Azure pour protéger des données personnelles. La sécurité est une exigence clé pour un grand nombre d’initiatives en matière de gouvernance et de mise en conformité des entreprises et de leurs activités. Le scénario, la définition du problème et les objectifs de l’entreprise sont inclus ici.
+Cet article présente une série d’articles qui vous aident à utiliser les services et technologies de sécurité Azure pour protéger des données personnelles. La sécurité est une exigence clé pour un grand nombre d’initiatives en matière de gouvernance et de mise en conformité des entreprises et de leurs activités. Par exemple, vous pouvez utiliser les informations fournies dans cette série d’articles pour vous conformer au Règlement général sur la protection des données (RGPD). Le scénario, la définition du problème et les objectifs de l’entreprise sont inclus ici.
 
 ## <a name="scenario-and-problem-statement"></a>Scénario et définition du problème
 

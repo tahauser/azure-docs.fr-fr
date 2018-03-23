@@ -1,8 +1,8 @@
 ---
-title: "Déplacer des ressources Azure vers un nouveau groupe de ressources ou abonnement | Microsoft Docs"
-description: "Utilisez Azure Resource Manager ou une API REST pour déplacer des ressources vers un nouveau groupe de ressources ou abonnement."
+title: Déplacer des ressources Azure vers un nouveau groupe de ressources ou abonnement | Microsoft Docs
+description: Utilisez Azure Resource Manager ou une API REST pour déplacer des ressources vers un nouveau groupe de ressources ou abonnement.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6a1d56a270ae0c44db18f26091cc3c550a37e420
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c4bf3871b4636ce769dd8d84a637b88d4a00db97
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
 
@@ -99,7 +99,7 @@ Contactez le [support technique](https://portal.azure.com/#blade/Microsoft_Azure
 * Déplacer vos ressources vers un nouveau compte Azure (et client Azure Active Directory) et que vous avez besoin d’aide concernant les instructions de la section précédente.
 * Déplacer des ressources classiques, mais que vous rencontrez des problèmes avec les limitations.
 
-## <a name="services-that-enable-move"></a>Services permettant le déplacement
+## <a name="services-that-can-be-moved"></a>Services pouvant être déplacés
 
 Les services qui permettent le déplacement vers un nouveau groupe de ressources et un nouvel abonnement sont les suivants :
 
@@ -149,7 +149,7 @@ Les services qui permettent le déplacement vers un nouveau groupe de ressources
 * Réseaux virtuels : consultez [Limitations relatives aux réseaux virtuels](#virtual-networks-limitations)
 * Passerelle VPN
 
-## <a name="services-that-do-not-enable-move"></a>Services qui ne permettent pas le déplacement
+## <a name="services-that-cannot-be-moved"></a>Services ne pouvant pas être déplacés
 
 Les services qui ne permettent pas actuellement le déplacement d’une ressource sont les suivants :
 
@@ -375,7 +375,7 @@ POST https://management.azure.com/subscriptions/{source-subscription-id}/resourc
 
 Dans le corps de la requête, vous indiquez le groupe de ressources cible et les ressources à déplacer. Pour plus d’informations sur l’opération REST de déplacement, consultez [Déplacer des ressources](/rest/api/resources/Resources/MoveResources).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Pour plus d’informations sur les applets de commande PowerShell permettant de gérer votre abonnement, consultez [Utilisation d’Azure PowerShell avec Resource Manager](powershell-azure-resource-manager.md).
 * Pour plus d’informations sur les commandes de l’interface de ligne de commande Azure permettant de gérer votre abonnement, consultez [Utilisation de l’interface de ligne de commande Azure avec Azure Resource Manager](xplat-cli-azure-resource-manager.md).

@@ -1,6 +1,6 @@
 ---
-title: "Configurer des adresses IP privées pour des machines virtuelles - Portail Azure | Microsoft Docs"
-description: "Découvrez comment configurer des adresses IP privées pour des machines virtuelles à l’aide du portail Azure."
+title: Configurer des adresses IP privées pour des machines virtuelles - Portail Azure | Microsoft Docs
+description: Découvrez comment configurer des adresses IP privées pour des machines virtuelles à l’aide du portail Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c2679c7cb75c438402f3ab64c3e14c964cb8a85d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d551758277373995a6f92e1a25a59d170464fe5e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal"></a>Configurer des adresses IP privées pour une machine virtuelle à l’aide du portail Azure
 
 > [!div class="op_single_selector"]
-> * [Portail Azure](virtual-networks-static-private-ip-arm-pportal.md)
+> * [Portail Azure](virtual-networks-static-private-ip-arm-pportal.md)
 > * [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
 > * [interface de ligne de commande Azure](virtual-networks-static-private-ip-arm-cli.md)
 > * [Portail Azure (classique)](virtual-networks-static-private-ip-classic-pportal.md)
@@ -41,7 +41,7 @@ Cet article traite du modèle de déploiement de Resource Manager. Vous pouvez �
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-Les étapes de l’exemple suivant supposent qu’un environnement simple a déjà été créé. Si vous souhaitez exécuter les étapes telles qu’elles sont présentées dans ce document, commencez par créer l’environnement de test décrit dans [Créer un réseau virtuel](virtual-networks-create-vnet-arm-pportal.md).
+Les étapes de l’exemple suivant supposent qu’un environnement simple a déjà été créé. Si vous souhaitez exécuter les étapes telles qu’elles sont présentées dans ce document, commencez par créer l’environnement de test décrit dans [Créer un réseau virtuel](quick-create-portal.md).
 
 ## <a name="how-to-create-a-vm-for-testing-static-private-ip-addresses"></a>Création d’une machine virtuelle pour tester des adresses IP privées statiques
 Vous ne pouvez pas définir une adresse IP privée statique lors de la création d'une machine virtuelle dans le mode de déploiement Resource Manager à l'aide du portail Azure. Vous devez d’abord créer la machine virtuelle, puis définir son adresse IP privée pour qu’elle soit statique.

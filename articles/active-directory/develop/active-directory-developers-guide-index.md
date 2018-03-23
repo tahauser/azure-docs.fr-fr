@@ -1,25 +1,25 @@
 ---
-title: "Azure Active Directory pour les développeurs | Microsoft Docs"
-description: "Liste de tous les guides et articles de référence dans le guide du développeur Azure Active Directory."
+title: Azure Active Directory pour les développeurs | Microsoft Docs
+description: Liste de tous les guides et articles de référence dans le guide du développeur Azure Active Directory.
 services: active-directory
 documentationcenter: dev-center-name
 author: bryanla
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/19/2017
+ms.date: 03/08/2018
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: b6190f64633034bb5fc28a1caf7ffa6c09215ef1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ccad1f12e4f99074763f116596b4467e822d9f35
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="articles-in-the-azure-ad-developer-guide"></a>Articles dans le guide du développeur Azure AD
 Voici une liste de tous les sujets abordés dans le guide du développeur Azure Active Directory.
@@ -43,8 +43,9 @@ Ces articles décrivent des concepts et des fonctionnalités spécifiques d’Az
 | [Mon tableau de bord vendeur Office 365](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)               | Publier une application dans le tableau de bord vendeur O365 |
 | [Services connectés Visual Studio](vs-active-directory-dotnet-getting-started.md)                                               | Utiliser l’intégration d’Azure AD avec des projets MVC dans Visual Studio |
 | [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers) | Comment intégrer à Active Directory local au moyen d’ADFS |
+| [Meilleures pratiques en matière de gestion des erreurs pour ADAL](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-adal-error-handling) | Comment permettre une gestion résiliente des erreurs et activer la journalisation |
 
-## <a name="reference"></a>Référence
+## <a name="reference"></a>Informations de référence
 Ces articles fournissent un fondement pour les API REST et de bibliothèque d’authentification, les protocoles, les erreurs, les exemples de code et les points de terminaison.
 
 |                                                                                     | |

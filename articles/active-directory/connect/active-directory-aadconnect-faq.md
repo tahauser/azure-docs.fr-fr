@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory Connect : Forum Aux Questions | Microsoft Docs"
-description: "Cette page comporte le Forum Aux Questions relatif à Azure AD Connect."
+title: 'Azure Active Directory Connect : Forum Aux Questions | Microsoft Docs'
+description: Cette page comporte le Forum Aux Questions relatif à Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 ms.assetid: 4e47a087-ebcd-4b63-9574-0c31907a39a3
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/12/2017
+ms.date: 03/09/2017
 ms.author: billmath
-ms.openlocfilehash: 13f12f39fb72bd7d4e32056753a012c38034f807
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 07b0209ef94f91c00b98b8801323a58cd9d14494
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Forum Aux Questions sur Azure Active Directory Connect
 
@@ -78,7 +78,7 @@ Reportez-vous aux articles suivants :
 Vous pouvez également configurer Azure AD pour permettre au moteur de synchronisation de mettre à jour userPrincipalName comme décrit dans [fonctionnalités du service de synchronisation Azure AD Connect](active-directory-aadconnectsyncservice-features.md).
 
 **Q : Est-ce que la correspondance approximative des objets Groupe/Contact AD locaux avec les objets Azure AD Groupe/Contact existants est prise en charge ?**  
-Non, cela n’est pas pris en charge actuellement.
+Oui, et elle est basée sur l’adresse proxy.  La correspondance approximative n’est pas prise en charge pour les groupes qui ne sont pas à extension messagerie.
 
 **Q : Est-il possible de définir manuellement l’attribut ImmutableId sur des objets Groupe/Contact Azure AD existants pour la mise en correspondance exacte avec les objets Groupe/Contact locaux ?**  
 Non, cela n’est pas pris en charge actuellement.
@@ -99,7 +99,7 @@ Pour l’instant, nous ne prenons pas en charge la modification des attributs HT
 **Q : Existe-t-il un moyen d’empêcher les sessions simultanées ?**</br>
 Non.
 
-## <a name="troubleshooting"></a>Résolution des problèmes
+## <a name="troubleshooting"></a>Résolution de problèmes
 **Q : Comment puis-je obtenir de l’aide avec Azure AD Connect ?**
 
 [Recherche dans la Base de connaissances Microsoft (KB)](https://www.microsoft.com/en-us/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport)

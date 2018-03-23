@@ -1,11 +1,11 @@
 ---
 title: Gestion de la concurrence et des charges de travail dans SQL Data Warehouse | Microsoft Docs
-description: "Décrit la gestion de la concurrence et des charges de travail dans Azure SQL Data Warehouse pour le développement de solutions."
+description: Décrit la gestion de la concurrence et des charges de travail dans Azure SQL Data Warehouse pour le développement de solutions.
 services: sql-data-warehouse
 documentationcenter: NA
 author: sqlmojo
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: ef170f39-ae24-4b04-af76-53bb4c4d16d3
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: performance
 ms.date: 08/23/2017
 ms.author: joeyong;barbkess;kavithaj
 ms.openlocfilehash: eaf2d43286dbaa52ada1430fbb7ce1e37f41c0d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="concurrency-and-workload-management-in-sql-data-warehouse"></a>Gestion de la concurrence et des charges de travail dans SQL Data Warehouse
 Pour offrir des performances prévisibles à grande échelle, Microsoft Azure SQL Data Warehouse vous permet de contrôler les niveaux de concurrence, ainsi que les allocations de ressources telles que la définition des priorités du processeur et de la mémoire. Cet article vous présente les concepts de gestion de la concurrence et de gestion des charges de travail, en expliquant comment ces deux fonctionnalités ont été implémentées, ainsi que la procédure à suivre pour les contrôler dans votre entrepôt de données. La gestion de charge de travail SQL Data Warehouse a pour but de vous aider à prendre en charge des environnements multi-utilisateurs. Elle n’est pas destinée aux charges de travail multilocataires.
@@ -131,18 +131,18 @@ Le tableau suivant mappe la mémoire allouée à chaque distribution par DWU et 
 ### <a name="memory-allocations-system-wide-gb"></a>Allocations de mémoire à l’échelle du système (Go)
 | DWU | smallrc | mediumrc | largerc | xlargerc |
 |:--- |:---:|:---:|:---:|:---:|
-| DW100 |6 |6 |12 |23 |
-| DW200 |6 |12 |23 |47 |
-| DW300 |6 |12 |23 |47 |
-| DW400 |6 |23 |47 |94 |
-| DW500 |6 |23 |47 |94 |
-| DW600 |6 |23 |47 |94 |
-| DW1000 |6 |47 |94 |188 |
-| DW1200 |6 |47 |94 |188 |
-| DW1500 |6 |47 |94 |188 |
-| DW2000 |6 |94 |188 |375 |
-| DW3000 |6 |94 |188 |375 |
-| DW6000 |6 |188 |375 |750 |
+| DW100 |6. |6. |12 |23 |
+| DW200 |6. |12 |23 |47 |
+| DW300 |6. |12 |23 |47 |
+| DW400 |6. |23 |47 |94 |
+| DW500 |6. |23 |47 |94 |
+| DW600 |6. |23 |47 |94 |
+| DW1000 |6. |47 |94 |188 |
+| DW1200 |6. |47 |94 |188 |
+| DW1500 |6. |47 |94 |188 |
+| DW2000 |6. |94 |188 |375 |
+| DW3000 |6. |94 |188 |375 |
+| DW6000 |6. |188 |375 |750 |
 
 Dans ce tableau d’allocations de mémoire à l’échelle du système, vous pouvez constater qu’une requête s’exécutant sur une DW2000 dans la classe de ressource xlargerc se voit allouer un total de 375 Go de mémoire (6 400 Mo * 60 distributions / 1 024 pour la conversion en Go) sur l’intégralité de votre instance SQL Data Warehouse.
 

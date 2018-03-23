@@ -1,25 +1,20 @@
 ---
 title: Journal de diagnostic du niveau de performance Intelligent Insights - Azure SQL Database | Microsoft Docs
-description: "Intelligent Insights fournit un journal de diagnostic des problèmes de performance d’Azure SQL Database"
+description: Intelligent Insights fournit un journal de diagnostic des problèmes de performance d’Azure SQL Database
 services: sql-database
-documentationcenter: 
 author: danimir
-manager: drasumic
-editor: carlrab
-ms.assetid: 
+manager: craigg
+ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: e147ca57658c232580fd9867790e55c3454e7e05
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b380d3a8a35750602a4a0d20d595f71b125fc118
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Utiliser le journal de diagnostic Intelligent Insights des performances d’Azure SQL Database
 

@@ -1,23 +1,23 @@
 ---
-title: "Erreurs d’inscription de fournisseurs de ressources Azure | Microsoft Docs"
-description: "Décrit comment résoudre les erreurs d’inscription de fournisseurs de ressources Azure."
+title: Erreurs d’inscription de fournisseurs de ressources Azure | Microsoft Docs
+description: Décrit comment résoudre les erreurs d’inscription de fournisseurs de ressources Azure.
 services: azure-resource-manager,azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
-editor: 
+editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: d6a99917e732a3439a31cafa5608348694014054
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 303b3ae0ee7b4baeda974d2b3c62fefa0a68796f
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>Résoudre les erreurs d’inscription de fournisseurs de ressources
 
@@ -40,6 +40,8 @@ Code: MissingSubscriptionRegistration
 Message: The subscription is not registered to use namespace {resource-provider-namespace}
 ```
 
+Le message d’erreur doit fournir des suggestions pour les emplacements et les versions d’API pris en charge. Vous pouvez changer votre modèle en l’une des valeurs suggérées. La plupart des fournisseurs sont inscrits automatiquement par le portail Azure ou l’interface de ligne de commande que vous utilisez, mais pas tous. Si vous n’avez pas déjà utilisé un fournisseur de ressources spécifique, vous devrez peut-être inscrire ce dernier.
+
 ## <a name="cause"></a>Cause :
 
 Ces erreurs apparaissent pour l’une des trois raisons suivantes :
@@ -48,11 +50,7 @@ Ces erreurs apparaissent pour l’une des trois raisons suivantes :
 1. La version de l’API n’est pas prise en charge pour le type de ressource.
 1. L’emplacement n’est pas pris en charge pour le type de ressource.
 
-## <a name="solution"></a>Solution
-
-Le message d’erreur doit fournir des suggestions pour les emplacements et les versions d’API pris en charge. Vous pouvez changer votre modèle en l’une des valeurs suggérées. La plupart des fournisseurs sont inscrits automatiquement par le portail Azure ou l’interface de ligne de commande que vous utilisez, mais pas tous. Si vous n’avez pas déjà utilisé un fournisseur de ressources spécifique, vous devrez peut-être inscrire ce dernier. Vous pouvez en savoir plus sur les fournisseurs de ressources via PowerShell ou l’interface de ligne de commande Azure.
-
-### <a name="solution-1"></a>Solution 1
+## <a name="solution-1---powershell"></a>Solution 1 : PowerShell
 
 Pour PowerShell, utilisez **Get-AzureRmResourceProvider** pour afficher l’état de votre inscription.
 
@@ -78,9 +76,7 @@ Pour obtenir les versions d’API prises en charge d’un type particulier de re
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
 ```
 
-### <a name="solution-2"></a>Solution 2
-
-**Interface de ligne de commande Azure**
+## <a name="solution-2---azure-cli"></a>Solution 2 : Azure CLI
 
 Pour voir si le fournisseur est inscrit, utilisez la commande `az provider list` .
 
@@ -100,7 +96,7 @@ Pour afficher les emplacements et les versions d’API pris en charge pour un ty
 az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
 ```
 
-### <a name="solution-3"></a>Solution 3
+## <a name="solution-3---azure-portal"></a>Solution 3 : Portail Azure
 
 Vous pouvez voir l’état de l’inscription et inscrire un espace de noms de fournisseur de ressources par le biais du portail.
 

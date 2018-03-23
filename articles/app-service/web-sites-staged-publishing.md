@@ -1,8 +1,8 @@
 ---
-title: "Configurer des environnements intermédiaires pour les applications web dans Azure App Service | Microsoft Docs"
-description: "Découvrez comment utiliser la publication intermédiaire pour les applications web dans Azure App Service."
+title: Configurer des environnements intermédiaires pour les applications web dans Azure App Service | Microsoft Docs
+description: Découvrez comment utiliser la publication intermédiaire pour les applications web dans Azure App Service.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 writer: cephalin
 manager: erikre
@@ -15,31 +15,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: 55c023e8f6b41c17e85ba441f862a7682b2f2599
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 18f6ef3997ba60f588040f641ebe9e9aca8d091a
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurer des environnements intermédiaires dans Azure App Service
 <a name="Overview"></a>
 
-Lorsque vous déployez votre application web, application web sur Linux, principale mobile ou API dans [App Service](http://go.microsoft.com/fwlink/?LinkId=529714), vous pouvez cibler un autre emplacement de déploiement que l’emplacement de production par défaut en mode **Standard** ou **Premium**. Les emplacements de déploiement sont en fait des applications dynamiques pourvues de leur propre nom d’hôte. Les éléments de contenu et de configuration des applications peuvent être échangés entre deux emplacements de déploiement, y compris l’emplacement de production. Le déploiement de votre application sur un emplacement de déploiement présente les avantages suivants :
+Lorsque vous déployez votre application web, votre application web Linux, votre mobile backend ou votre API dans [App Service](http://go.microsoft.com/fwlink/?LinkId=529714), vous pouvez cibler un autre emplacement de déploiement que l’emplacement de production par défaut lorsque vous exécutez le niveau de plan **Standard** ou **Premium** d’App Service. Les emplacements de déploiement sont en fait des applications dynamiques pourvues de leur propre nom d’hôte. Les éléments de contenu et de configuration des applications peuvent être échangés entre deux emplacements de déploiement, y compris l’emplacement de production. Le déploiement de votre application sur un emplacement de déploiement présente les avantages suivants :
 
 * Vous pouvez valider les modifications d’une application dans un emplacement de déploiement intermédiaire avant de l’échanger avec l’emplacement de production.
 * Déployer d’abord une application vers un emplacement et la basculer ensuite en production garantit que toutes les instances de l’emplacement sont initialisées avant d’être basculées en production. Cela permet d’éliminer les temps d’arrêt lors du déploiement de l’application. La redirection du trafic est transparente et aucune demande n'est abandonnée durant les opérations de basculement. Ce flux de travail peut être entièrement automatisé en configurant [Échange automatique](#Auto-Swap) lorsqu’aucune validation n’est requise avant l’échange.
 * Après basculement, la précédente application de production se retrouve dans l’emplacement de l’application précédemment intermédiaire. Si les modifications basculées en production ne vous conviennent pas, vous pouvez effectuer le même basculement afin de récupérer immédiatement le contenu du précédent site qui vous plaisait.
 
-Chaque mode de plan App Service prend en charge un nombre différent d’emplacements de déploiement. Pour connaître le nombre d’emplacements pris en charge par le mode de votre application, consultez la page [Tarification d’App Service](https://azure.microsoft.com/pricing/details/app-service/).
+Chaque niveau de plan App Service prend en charge un nombre différent d’emplacements de déploiement. Pour connaître le nombre d’emplacements pris en charge par le plan de votre application, consultez la page [Tarification d’App Service](https://azure.microsoft.com/pricing/details/app-service/).
 
-* Si votre application dispose de plusieurs emplacements, vous ne pouvez pas changer de mode.
+* Si votre application dispose de plusieurs emplacements, vous ne pouvez pas changer de plan.
 * La mise à l'échelle est uniquement disponible pour les emplacements de site de production.
-* La gestion des ressources liées est uniquement prise en charge pour les emplacements de site de production. Dans le [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715) uniquement, vous pouvez éviter cet impact potentiel sur un emplacement de production en déplaçant temporairement l’emplacement autre que de production vers un autre mode de plan App Service. Notez que l’emplacement autre que de production doit une fois encore partager le même mode que l’emplacement de production avant que vous ne puissiez échanger les deux emplacements.
+* La gestion des ressources liées est uniquement prise en charge pour les emplacements de site de production. Dans le [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715) uniquement, vous pouvez éviter cet impact potentiel sur un emplacement de production en déplaçant temporairement l’emplacement (autre que de production) vers un autre niveau de plan App Service. Notez que l’emplacement autre que de production doit une fois encore partager le même niveau que l’emplacement de production avant que vous ne puissiez échanger les deux emplacements.
 
 <a name="Add"></a>
 
 ## <a name="add-a-deployment-slot"></a>Ajouter un emplacement de déploiement
-Pour que vous puissiez activer plusieurs emplacements de déploiement, l’application doit s’exécuter en mode **Standard** ou **Premium**.
+Pour que vous puissiez activer plusieurs emplacements de déploiement, l’application doit s’exécuter au niveau **Standard** ou **Premium**.
 
 1. Dans le [portail Azure](https://portal.azure.com/), ouvrez le [panneau de ressources](../azure-resource-manager/resource-group-portal.md#manage-resources) de votre application.
 2. Choisissez l’option **Emplacements de déploiement**, puis cliquez sur **Ajouter un emplacement**.
@@ -47,7 +47,7 @@ Pour que vous puissiez activer plusieurs emplacements de déploiement, l’appli
     ![Add a new deployment slot][QGAddNewDeploymentSlot]
    
    > [!NOTE]
-   > Si l’application ne s’exécute pas en mode **Standard** ou **Premium**, vous recevez un message indiquant les modes pris en charge pour l’activation de la publication intermédiaire. À ce stade, vous pouvez sélectionner **Mettre à niveau** et accéder à l’onglet **Mettre à l’échelle** de votre application avant de continuer.
+   > Si l’application ne s’exécute pas au niveau **Standard** ou **Premium**, vous recevez un message indiquant les niveaux pris en charge pour l’activation de la publication intermédiaire. À ce stade, vous pouvez sélectionner **Mettre à niveau** et accéder à l’onglet **Mettre à l’échelle** de votre application avant de continuer.
    > 
    > 
 3. Dans le panneau **Ajouter un emplacement**, nommez l’emplacement, puis indiquez si vous souhaitez cloner la configuration de l’application à partir d’un autre emplacement de déploiement. Cliquez sur la coche pour continuer.

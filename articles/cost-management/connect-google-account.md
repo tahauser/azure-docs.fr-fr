@@ -1,20 +1,20 @@
 ---
-title: "Connecter un compte Google Cloud Platform à Azure Cost Management | Microsoft Docs"
-description: "Connectez un compte Google Cloud Platform pour afficher les données de coût et d’utilisation dans les référentiels Cost Management."
+title: Connecter un compte Google Cloud Platform à Azure Cost Management | Microsoft Docs
+description: Connectez un compte Google Cloud Platform pour afficher les données de coût et d’utilisation dans les référentiels Cost Management.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 02/05/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
-ms.custom: 
-ms.openlocfilehash: 81a38f471ee1f2f8064a956eca121fd0e6feb235
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.custom: ''
+ms.openlocfilehash: 8f8c157be0a369817099afa211015ba7587017e3
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="connect-a-google-cloud-platform-account"></a>Connecter un compte Google Cloud Platform
 
@@ -73,4 +73,4 @@ Après quelques heures, les rapports Cost Management affichent les informations 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour en savoir plus sur Azure Cost Management par Cloudyn, poursuivez avec le didacticiel [Examen de l’utilisation et des coûts](./tutorial-review-usage.md) pour Cost Management.
+- Pour en savoir plus sur Azure Cost Management, poursuivez avec le didacticiel [Examen de l’utilisation et des coûts](./tutorial-review-usage.md) pour Cost Management.

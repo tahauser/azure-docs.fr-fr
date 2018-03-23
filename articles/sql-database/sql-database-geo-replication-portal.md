@@ -1,25 +1,19 @@
 ---
-title: "Portail Azure : géoréplication SQL Database | Microsoft Docs"
-description: "Configurer la géoréplication pour Azure SQL Database dans le portail Azure et initier le basculement"
+title: 'Portail Azure : géoréplication SQL Database | Microsoft Docs'
+description: Configurer la géoréplication pour Azure SQL Database dans le portail Azure et initier le basculement
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: d0b29822-714f-4633-a5ab-fb1a09d43ced
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: On Demand
 ms.date: 03/06/2016
 ms.author: carlrab
-ms.openlocfilehash: d880a2f1aef3fa1bfc824f14650088bac4cb8693
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 33e67c9415ddf3504d593858d56f15cdc7282d69
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configurer la géoréplication active pour Azure SQL Database dans le portail Azure et initier le basculement
 

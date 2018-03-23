@@ -1,28 +1,22 @@
 ---
-title: "Always Encrypted : Azure SQL Database - Magasin de certificats Windows | Microsoft Docs"
-description: "Cet article montre comment sécuriser des données sensibles dans une base de données SQL avec un chiffrement de base de données en utilisant l’Assistant Always Encrypted dans SQL Server Management Studio (SSMS). Il montre également comment stocker vos clés de chiffrement dans le magasin de certificats Windows."
-keywords: "chiffrer les données, chiffrement sql, chiffrement de base de données, données sensibles, chiffrement intégral"
+title: 'Always Encrypted : Azure SQL Database - Magasin de certificats Windows | Microsoft Docs'
+description: Cet article montre comment sécuriser des données sensibles dans une base de données SQL avec un chiffrement de base de données en utilisant l’Assistant Always Encrypted dans SQL Server Management Studio (SSMS). Il montre également comment stocker vos clés de chiffrement dans le magasin de certificats Windows.
+keywords: chiffrer les données, chiffrement sql, chiffrement de base de données, données sensibles, chiffrement intégral
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: jhubbard
-editor: cgronlun
-ms.assetid: ce7e052e-8bf6-4d7c-9204-4c6f4afeba4b
 ms.service: sql-database
 ms.custom: security
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: sstein
-ms.openlocfilehash: 8e86648195811a666a197b6ee06ad610a1c8d568
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1bb3f6bd3b4bfc1546e992734a85921248eff8fd
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-the-windows-certificate-store"></a>Always Encrypted : protéger les données sensibles dans une base de données SQL et stocker vos clés de chiffrement dans le magasin de certificats Windows
+# <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-the-windows-certificate-store"></a>Chiffrement intégral : protéger les données sensibles dans Base de données SQL et stocker vos clés de chiffrement dans le magasin de certificats Windows
 
 Cet article montre comment sécuriser des données sensibles dans une base de données SQL avec un chiffrement de base de données en utilisant [l’Assistant Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx) dans [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). Il montre également comment stocker vos clés de chiffrement dans le magasin de certificats Windows.
 
@@ -39,6 +33,7 @@ Suivez les étapes de cet article et découvrez comment configurer le chiffremen
 * Créer une application qui insère, sélectionne et affiche les données des colonnes chiffrées.
 
 ## <a name="prerequisites"></a>Prérequis
+
 Pour ce didacticiel, vous devez disposer des éléments suivants :
 
 * Un compte et un abonnement Azure. Si vous n’en avez pas, inscrivez-vous pour un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).

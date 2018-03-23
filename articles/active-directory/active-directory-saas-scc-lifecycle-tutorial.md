@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à SCC LifeCycle | Microsoft Docs"
-description: "Découvrez comment utiliser SCC LifeCycle avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore."
+title: 'Didacticiel : Intégration d’Azure Active Directory à SCC LifeCycle | Microsoft Docs'
+description: Découvrez comment utiliser SCC LifeCycle avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore.
 services: active-directory
 author: jeevansd
 documentationcenter: na
@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 01/03/2018
 ms.author: jeedes
 ms.openlocfilehash: 943698311d10b479879fd92d2482d827650e2b0c
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scc-lifecycle"></a>Didacticiel : Intégration d’Azure AD à SCC LifeCycle
 L’objectif de ce didacticiel est de montrer comment intégrer Azure et SCC LifeCycle.  

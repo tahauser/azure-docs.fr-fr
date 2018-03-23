@@ -1,7 +1,7 @@
 ---
-title: "Connecter HDInsight à votre réseau local - Azure HDInsight | Microsoft Docs"
-description: "Découvrez comment créer un cluster HDInsight dans un réseau virtuel Azure, puis le connecter à votre réseau local. Découvrez comment configurer une résolution de noms entre HDInsight et votre réseau local à l’aide d’un serveur DNS personnalisé."
-documentationcenter: 
+title: Connecter HDInsight à votre réseau local - Azure HDInsight | Microsoft Docs
+description: Découvrez comment créer un cluster HDInsight dans un réseau virtuel Azure, puis le connecter à votre réseau local. Découvrez comment configurer une résolution de noms entre HDInsight et votre réseau local à l’aide d’un serveur DNS personnalisé.
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 03214f25858ae340908a1d1b7f3ff7f62d545dc9
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 9470e052b4f57e52fa140b53fa7c32d199c58e1e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="connect-hdinsight-to-your-on-premise-network"></a>Connecter HDInsight à votre réseau local
 
@@ -273,13 +273,13 @@ Vous pouvez utiliser des groupes de sécurité réseau (NSG) ou des routages dé
 
 > [!WARNING]
 > HDInsight requiert un accès entrant en provenance d’adresses IP spécifiques dans le cloud Azure, et un accès sortant non restreint. Lorsque vous utilisez des groupes de sécurité réseau ou des routages définis par l’utilisateur pour contrôler le trafic, procédez comme suit :
->
-> 1. Recherchez les adresses IP de l’emplacement contenant votre réseau virtuel. Pour obtenir la liste des adresses IP requises par emplacement, consultez [Adresses IP requises](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip).
->
-> 2. Autorisez le trafic entrant à partir des adresses IP.
->
->    * __Groupe de sécurité réseau__ : autorisez le trafic __entrant__ sur le port __443__ à partir d’__Internet__.
->    * __Routage défini par l’utilisateur__ : définissez le type __Tronçon suivant__ du routage sur __Internet__.
+
+1. Recherchez les adresses IP de l’emplacement contenant votre réseau virtuel. Pour obtenir la liste des adresses IP requises par emplacement, consultez [Adresses IP requises](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip).
+
+2. Pour les adresses IP identifiées à l’étape 1, autorisez le trafic entrant à partir de ces adresses.
+
+   * Si vous utilisez __NSG__ : autorisez le trafic __entrant__ sur le port __443__ pour les adresses IP.
+   * Si vous utilisez __UDR__ : définissez le type __Tronçon suivant__ de l’itinéraire vers __Internet__ pour les adresses IP.
 
 Pour un exemple d’utilisation d’Azure PowerShell ou d’Azure CLI afin de créer des groupes de sécurité réseau, consultez [Étendre HDInsight avec des réseaux virtuels Azure](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-nsg).
 

@@ -1,9 +1,9 @@
 ---
-title: "Alertes de journal dans Azure Monitor - Alerts (préversion) | Microsoft Docs"
-description: "Déclenchez des e-mails et des notifications, appelez des URL de sites web (webhooks) ou déclenchez une automatisation lorsque les conditions de requêtes complexes spécifiées sont remplies pour Azure Alerts (préversion)."
+title: Alertes de journal dans Azure Monitor - Alerts (préversion) | Microsoft Docs
+description: Déclenchez des e-mails et des notifications, appelez des URL de sites web (webhooks) ou déclenchez une automatisation lorsque les conditions de requêtes complexes spécifiées sont remplies pour Azure Alerts (préversion).
 author: msvijayn
 manager: kmadnani1
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: f7457655-ced6-4102-a9dd-7ddf2265c0e2
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: vinagara
-ms.openlocfilehash: 438776e7f0885dbdb0d66ccdd18d854e14beb299
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0cee8bf77e0facc12159b823152b8859ce5cedd8
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="log-alerts-in-azure-monitor---alerts-preview"></a>Alertes de journal dans Azure Monitor - Alerts (préversion)
-Cet article décrit en détail le fonctionnement des règles d’alerte des requêtes Analytics dans Azure Alerts (préversion) et décrit les différences entre les divers types de règles d’alerte de journal.
+Cet article décrit en détail le fonctionnement des règles d’alerte des requêtes Analytics dans Azure Alerts (préversion) et décrit les différences entre les divers types de règles d’alerte de journal. Pour plus d’informations sur les Alertes Métrique à l’aide des Journaux, reportez-vous à la rubrique [Alertes Métrique en quasi temps réel](monitoring-near-real-time-metric-alerts.md)
 
 Actuellement, Azure Alerts (préversion) prend en charge les alertes de journal sur des requêtes provenant d’[Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) et d’[Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events).
 
@@ -40,7 +40,7 @@ Lorsque vous [créez une alerte de journal dans Alerts (version préliminaire)](
 
 ## <a name="log-alert-rules"></a>Règles d'alerte de journal
 
-Les alertes créées par Azure Alerts (préversion) exécutent automatiquement des requêtes de journal à intervalles réguliers.  Si les résultats de la requête de journal répondent à des critères particuliers, un enregistrement d’alerte est généré. La règle peut ensuite exécuter automatiquement une ou plusieurs actions pour vous avertir de l’alerte ou appeler un autre processus, comme l’envoi de données à une application externe à l’aide d’un [webhook json](monitor-alerts-unified-log-webhook.md), de façon proactive, en utilisant les [Groupes d’actions](monitoring-action-groups.md). Les différents types de règles d’alerte utilisent une logique différente pour effectuer cette analyse.
+Les alertes sont créées par Azure Alerts (préversion) pour exécuter automatiquement des requêtes de journal à intervalles réguliers.  Si les résultats de la requête de journal répondent à des critères particuliers, un enregistrement d’alerte est généré. La règle peut ensuite exécuter automatiquement une ou plusieurs actions pour vous avertir de l’alerte ou appeler un autre processus, comme l’envoi de données à une application externe à l’aide d’un [webhook json](monitor-alerts-unified-log-webhook.md), de façon proactive, en utilisant les [Groupes d’actions](monitoring-action-groups.md). Les différents types de règles d’alerte utilisent une logique différente pour effectuer cette analyse.
 
 Les règles d’alerte sont définies par les détails suivants :
 
@@ -68,14 +68,14 @@ Pour déclencher une alerte sur un événement unique, définissez le nombre de 
 
 Dans certains cas, vous pouvez créer une alerte en l’absence d’événement.  Par exemple, un processus peut enregistrer des événements réguliers pour indiquer qu’il fonctionne correctement.  S’il ne consigne pas un de ces événements dans une fenêtre de temps spécifique, une alerte doit être créée.  Dans ce cas, vous devez définir le seuil sur une valeur **inférieure à 1**.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 Imaginez que vous cherchiez à savoir à quel moment votre application web renvoie aux utilisateurs une réponse avec le code 500, autrement dit une erreur interne au serveur. Il conviendrait de créer une règle d’alerte paramétrée comme suit :  
 **Requête :** requests | where resultCode == "500"<br>
 **Fenêtre de temps :**  30 minutes<br>
 **Fréquence des alertes :** 5 minutes<br>
 **Valeur de seuil :** supérieure à 0<br>
 
-L’alerte exécute alors la requête toutes les 5 minutes, avec 30 minutes de données, pour rechercher tous les enregistrements associés à un code de résultat 500. Si un enregistrement est trouvé, elle déclenche l’alerte et exécute l’action configurée.
+L’alerte exécute alors la requête toutes les 5 minutes, avec 30 minutes de données, pour rechercher tous les enregistrements associés à un code de résultat 500. Si un seul enregistrement est trouvé, elle déclenche l’alerte et lance l’action configurée.
 
 ## <a name="metric-measurement-alert-rules"></a>Règles d’alerte Mesure métrique
 
@@ -96,11 +96,11 @@ Les règles d’alerte **Mesure métrique** créent une alerte pour chaque objet
 
 **Intervalle** : définit l’intervalle de temps pendant lequel les données sont agrégées.  Par exemple, si vous avez spécifié **5 minutes**, un enregistrement est créé pour chaque instance du champ de groupe agrégé à intervalles de 5 minutes sur la fenêtre de temps spécifiée pour l’alerte.
 > [!NOTE]
-> Une fonction Bin doit être utilisée dans la requête. Par ailleurs, si des intervalles de temps inégaux sont produits pour la fenêtre temporelle à l’aide de la fonction Bin, Alert utilisera plutôt la fonction bin_at pour garantir un point fixe
+> Une fonction Bin doit être utilisée dans la requête. Étant donné que bin() peut entraîner des intervalles inégaux, l’alerte utilisera plutôt la fonction bin_at avec l’heure appropriée lors de l’exécution, pour garantir des résultats avec un point fixe
 
 **Seuil** : le seuil des règles d’alerte Mesure métrique est défini par une valeur d’agrégation et un nombre de violations.  Si un point de données de la recherche dans les journaux dépasse cette valeur, elle est considérée comme une violation.  Si le nombre de violations pour un objet dans les résultats dépasse la valeur spécifiée, une alerte est créée pour cet objet.
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 Prenons le scénario suivant : vous souhaitez créer une alerte si le taux d’utilisation du processeur d’un ordinateur dépasse 90 % à trois reprises en l’espace de 30 minutes.  Il conviendrait de créer une règle d’alerte paramétrée comme suit :  
 
 **Requête :** Perf | where ObjectName == "Processor" and CounterName == "% Processor Time" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5 m), Computer<br>

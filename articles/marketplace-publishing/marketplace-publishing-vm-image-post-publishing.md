@@ -1,11 +1,11 @@
 ---
-title: "Gérer votre image de machine virtuelle sur la Place de marché Azure | Microsoft Docs"
-description: "Guide détaillé concernant la gestion de votre image de machine virtuelle sur la Place de marché Azure après publication initiale de celle-ci"
+title: Gérer votre image de machine virtuelle sur la Place de marché Azure | Microsoft Docs
+description: Guide détaillé concernant la gestion de votre image de machine virtuelle sur la Place de marché Azure après publication initiale de celle-ci
 services: Azure Marketplace
-documentationcenter: 
-author: HannibalSII
-manager: hascipio
-editor: 
+documentationcenter: ''
+author: msmbaldwin
+manager: mbaldwin
+editor: ''
 ms.assetid: cc8648d4-59c2-4678-b47d-992300677537
 ms.service: marketplace
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/03/2016
-ms.author: hascipio;
-ms.openlocfilehash: e1f90650e71345957c2d353774cb8bef62c1868b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin;
+ms.openlocfilehash: 19f60de4a6c651885da7ff1fb7612a77f3d0c8f1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>Guide de post-production pour les offres de machine virtuelle dans Azure Marketplace
 Cet article explique comment vous mettre à jour une offre de machine virtuelle active dans la Place de marché Azure. Il vous guide dans le processus d’ajout d’une ou plusieurs références (SKU) à une offre existante. Il vous guide également dans le processus de suppression d’une offre de machine virtuelle active ou d’une référence (SKU) de la Place de marché.

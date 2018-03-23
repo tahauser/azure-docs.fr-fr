@@ -1,10 +1,10 @@
 ---
-title: "Azure Stream Analytics et intégration de Machine Learning | Microsoft Docs"
-description: "Comment utiliser une fonction définie par l’utilisateur et Machine Learning dans un travail Stream Analytics"
-keywords: 
-documentationcenter: 
+title: Azure Stream Analytics et intégration de Machine Learning | Microsoft Docs
+description: Comment utiliser une fonction définie par l’utilisateur et Machine Learning dans un travail Stream Analytics
+keywords: ''
+documentationcenter: ''
 services: stream-analytics
-author: samacha
+author: SnehaGunda
 manager: jhubbard
 editor: cgronlun
 ms.assetid: cfced01f-ccaa-4bc6-81e2-c03d1470a7a2
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 07/06/2017
-ms.author: samacha
-ms.openlocfilehash: d06681c687f5cd3eb10d375499266c7e78be1558
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 03/01/2018
+ms.author: sngun
+ms.openlocfilehash: 10d514aeb50dcd24f28ed879875b23b25578cebb
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Analyse des sentiments à l’aide d’Azure Stream Analytics et Azure Machine Learning
 Cet article explique comment configurer rapidement un travail Azure Stream Analytics simple avec Azure Machine Learning. Vous allez utiliser un modèle d’analyse des sentiments Machine Learning de la galerie Cortana Intelligence pour analyser la diffusion des données de texte et déterminer l’évaluation des sentiments en temps réel. Cortana Intelligence Suite vous permet d’accomplir cette tâche sans vous préoccuper de la complexité inhérente à la création d’un modèle d’analyse des sentiments.
@@ -42,6 +42,7 @@ La figure suivante illustre cette configuration. Comme nous l’avons indiqué, 
 ![Vue d’ensemble de l’intégration de Machine Learning dans Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-1.png)  
 
 ## <a name="prerequisites"></a>Prérequis
+
 Avant de commencer, veillez à disposer des éléments qui suivent :
 
 * Un abonnement Azure actif.
@@ -57,9 +58,7 @@ Avant de commencer, veillez à disposer des éléments qui suivent :
 ## <a name="create-a-storage-container-and-upload-the-csv-input-file"></a>Créer un conteneur de stockage et charger le fichier d’entrée CSV
 Pour cette étape, vous pouvez utiliser n’importe quel fichier CSV, par exemple celui de GitHub.
 
-1. Dans le portail Azure, cliquez sur **Créer une ressource** &gt; **Stockage** &gt; **Compte de stockage**.
-
-   ![créer un compte de stockage](./media/stream-analytics-machine-learning-integration-tutorial/azure-portal-create-storage-account.png)
+1. Dans le portail Azure, cliquez sur **Créer une ressource** > **Stockage** > **Compte de stockage**.
 
 2. Indiquez un nom (`samldemo` dans l’exemple). Le nom, qui doit être unique dans Azure, ne peut contenir que des lettres minuscules et des chiffres. 
 
@@ -81,9 +80,7 @@ Pour cette étape, vous pouvez utiliser n’importe quel fichier CSV, par exempl
 
     ![Bouton ’Télécharger’ d’un conteneur](./media/stream-analytics-machine-learning-integration-tutorial/create-sa-upload-button.png)
 
-8. Dans le panneau **Charger l’objet blob**, spécifiez le fichier CSV que vous souhaitez utiliser pour ce didacticiel. Dans la section **Type d’objet blob**, sélectionnez **objet blob de blocs** et définissez la taille de bloc sur 4 Mo, ce qui est suffisant pour ce didacticiel.
-
-    ![charger le fichier blob](./media/stream-analytics-machine-learning-integration-tutorial/create-sa4.png)
+8. Dans le panneau **Charger l’objet blob**, chargez le fichier **sampleinput.csv** que vous avez préalablement téléchargé. Dans la section **Type d’objet blob**, sélectionnez **objet blob de blocs** et définissez la taille de bloc sur 4 Mo, ce qui est suffisant pour ce didacticiel.
 
 9. Cliquez sur le bouton **Charger** en bas du panneau.
 
@@ -130,8 +127,6 @@ Vous pouvez maintenant créer un travail Stream Analytics lisant les exemples de
 
 2. Cliquez sur **Créer une ressource** > **Internet des objets** > **Travail Steam Analytics**. 
 
-   ![Chemin d’accès au portail Azure pour accéder à un nouveau travail Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/azure-portal-new-iot-sa-job.png)
-   
 3. Nommez le travail `azure-sa-ml-demo`, spécifiez un abonnement, spécifiez un groupe de ressources existant ou créez-en un nouveau et sélectionnez l’emplacement du travail.
 
    ![spécifier les paramètres du nouveau travail Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/create-job-1.png)
@@ -140,46 +135,43 @@ Vous pouvez maintenant créer un travail Stream Analytics lisant les exemples de
 ### <a name="configure-the-job-input"></a>Configurer les entrées du travail
 Le travail reçoit les entrées à partir du fichier CSV chargé précédemment dans le stockage d’objets blob.
 
-1. Une fois le travail créé, accédez à la section **Topologie de la tâche** dans le panneau du travail et sélectionnez la zone **Entrées**.  
+1. Une fois le travail créé, accédez à la section **Topologie de la tâche** dans le panneau du travail et cliquez sur l’option **Entrées**.    
+
+2. Dans le panneau **Entrées**, cliquez sur **ajouter une entrée de flux** >**Stockage Blob**
+
+3. Indiquez les valeurs suivantes dans le panneau **Stockage Blob** :
+
    
-   ![zone 'Entrées' du panneau du travail dans Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/create-job-add-input.png)  
+   |Champ  |Valeur  |
+   |---------|---------|
+   |**Alias d’entrée** | Utilisez le nom `datainput` et choisissez **Sélectionner le stockage Blob dans votre abonnement**       |
+   |**Compte de stockage**  |  Sélectionnez le compte de stockage que vous avez préalablement créé.  |
+   |**Conteneur**  | Sélectionnez le conteneur que vous avez créé précédemment (`azuresamldemoblob`)        |
+   |**Format de sérialisation de l’événement**  |  Sélectionnez **CSV**       |
 
-2. Dans le panneau **Entrées**, cliquez sur **+ Ajouter**.
+   ![Paramètres de la nouvelle entrée de travail](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
 
-   ![bouton ’Ajouter’ pour ajouter une entrée au travail Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/create-job-add-input-button.png)  
-
-3. Indiquez les valeurs suivantes dans le panneau **Nouvelle entrée** :
-
-    * **Alias d’entrée** : utilisez le nom `datainput`.
-    * **Type de source** : sélectionnez **Flux de données**.
-    * **Source** : sélectionnez **Stockage d’objets blob**.
-    * **Option d’importation** : sélectionnez **Utiliser l’objet blob de stockage de l’abonnement actuel**. 
-    * **Compte de stockage**. Sélectionnez le compte de stockage que vous avez préalablement créé.
-    * **Conteneur**. Sélectionnez le conteneur que vous avez créé précédemment (`azuresamldemoblob`).
-    * **Format de sérialisation de l’événement**. Sélectionnez **CSV**.
-
-    ![Paramètres de la nouvelle entrée de travail](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
-
-4. Cliquez sur **Créer**.
+4. Cliquez sur **Enregistrer**.
 
 ### <a name="configure-the-job-output"></a>Configurer la sortie du travail
 Le travail envoie les résultats vers le stockage d’objets blob d’où il a reçu les entrées. 
 
-1. Dans la section **Topologie de la tâche** du panneau de travail, sélectionnez la zone **Sorties**.  
-  
-   ![Créer une sortie pour le travail Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/create-output.png)  
+1. Dans la section **Topologie de la tâche** du panneau de travail, sélectionnez l’option **Sorties**.  
 
-2. Dans le panneau **Sorties**, cliquez sur **+ Ajouter**, puis ajoutez une sortie avec l’alias `datamloutput`. 
+2. Dans le panneau **Sorties**, cliquez sur **Ajouter** >**Stockage Blob**, puis ajoutez une sortie avec l’alias `datamloutput`. 
 
-3. Au niveau du paramètre **Récepteur**, sélectionnez **Stockage d’objets blob**. Renseignez ensuite le reste des paramètres de sortie en utilisant les valeurs que vous avez utilisées pour les entrées dans le stockage d’objets blob :
+3. Indiquez les valeurs suivantes dans le panneau **Stockage Blob** :
 
-    * **Compte de stockage**. Sélectionnez le compte de stockage que vous avez préalablement créé.
-    * **Conteneur**. Sélectionnez le conteneur que vous avez créé précédemment (`azuresamldemoblob`).
-    * **Format de sérialisation de l’événement**. Sélectionnez **CSV**.
+   |Champ  |Valeur  |
+   |---------|---------|
+   |**Alias de sortie** | Utilisez le nom `datainput` et choisissez **Sélectionner le stockage Blob dans votre abonnement**       |
+   |**Compte de stockage**  |  Sélectionnez le compte de stockage que vous avez préalablement créé.  |
+   |**Conteneur**  | Sélectionnez le conteneur que vous avez créé précédemment (`azuresamldemoblob`)        |
+   |**Format de sérialisation de l’événement**  |  Sélectionnez **CSV**       |
 
    ![Paramètres de la nouvelle sortie de travail](./media/stream-analytics-machine-learning-integration-tutorial/create-output2.png) 
 
-4. Cliquez sur **Créer**.   
+4. Cliquez sur **Enregistrer**.   
 
 
 ### <a name="add-the-machine-learning-function"></a>Ajouter la fonction Machine Learning 
@@ -189,22 +181,19 @@ Dans cette section du didacticiel, vous allez définir une fonction dans le trav
 
 1. Assurez-vous que vous disposez de l’URL du service web et de la clé d’API téléchargée précédemment dans le classeur Excel.
 
-2. Revenez au panneau de vue d’ensemble du travail.
+2. Accédez à votre panneau de travail > **Fonctions** > **+ Ajouter** > **AzureML**
 
-3. Sous **Paramètres**, sélectionnez **Fonctions**, puis cliquez sur **+ Ajouter**.
+3. Remplissez le panneau **fonction d’Azure Machine Learning** avec ces valeurs :
 
-   ![Ajouter une fonction au travail Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/create-function1.png) 
-
-4. Entrez `sentiment` comme alias de fonction et remplissez le reste du panneau à l’aide de ces valeurs :
-
-    * **Type de fonction** : sélectionnez **Azure ML**.
-    * **Option d’importation** : sélectionnez **Importer à partir d’un autre abonnement**. Cela vous permet d’entrer l’URL et la clé.
-    * **URL** : coller l’URL du service web.
-    * **Clé** : coller la clé d’API.
+   |Champ  |Valeur  |
+   |---------|---------|
+   | **Alias de fonction** | Utilisez le nom `sentiment` et sélectionnez **Fournir les paramètres de fonction Azure Machine Learning manuellement**, ce qui vous donne la possibilité d’entrer l’URL et la clé.      |
+   | **URL**| Collez l’URL du service web.|
+   |**Clé** | Collez la clé d’API. |
   
-    ![Paramètres d’ajout d’une fonction Machine Learning au travail Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/add-function.png)  
+   ![Paramètres d’ajout d’une fonction Machine Learning au travail Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/add-function.png)  
     
-5. Cliquez sur **Créer**.
+4. Cliquez sur **Enregistrer**.
 
 ### <a name="create-a-query-to-transform-the-data"></a>Créer une requête de transformation des données
 
@@ -213,8 +202,6 @@ Stream Analytics utilise une requête SQL déclarative pour examiner l’entrée
 1. Revenez au panneau de vue d’ensemble du travail.
 
 2.  Sous **Topologie de la tâche**, sélectionnez la zone **Requête**.
-
-    ![Créer une requête pour le travail Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/create-query.png)  
 
 3. Entrez la requête suivante :
 
@@ -241,8 +228,6 @@ Vous pouvez maintenant démarrer le travail Stream Analytics.
 1. Revenez au panneau de vue d’ensemble du travail.
 
 2. Cliquez sur **Démarrer** dans la partie supérieure du panneau.
-
-    ![Créer une requête pour le travail Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/start-job.png)  
 
 3. Dans le panneau **Démarrer la tâche**, sélectionnez **Personnalisé**, puis sélectionnez un jour antérieur au moment où le fichier CSV a été chargé sur le stockage d’objets blob. Quand vous avez terminé, cliquez sur **Démarrer**.  
 
@@ -274,7 +259,7 @@ Vous pouvez également afficher les mesures liées à la fonction Azure Machine 
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
 * [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Intégrer l’API REST et le service Machine Learning](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
-* [Références sur l'API REST de gestion d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 
 

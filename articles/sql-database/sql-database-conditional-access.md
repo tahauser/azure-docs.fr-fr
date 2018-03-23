@@ -1,6 +1,6 @@
 ---
-title: "Accès conditionnel - Azure SQL Database et Data Warehouse | Microsoft Docs"
-description: "Découvrez comment configurer l’accès conditionnel pour Azure SQL Database et Data Warehouse."
+title: Accès conditionnel - Azure SQL Database et Data Warehouse | Microsoft Docs
+description: Découvrez comment configurer l’accès conditionnel pour Azure SQL Database et Data Warehouse.
 services: sql-database
 author: GithubMirek
 manager: johammer
@@ -9,18 +9,18 @@ ms.service: sql-database
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: mireks
-ms.workload: Inactive
-ms.openlocfilehash: b1c569e414de292b59e0915483d45bf011edb1a6
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: f32928805275c9d797c8cb15bb731fe172d5903f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="conditional-access-mfa-with-azure-sql-database-and-data-warehouse"></a>Accès conditionnel (MFA) avec Azure SQL Database et Data Warehouse  
 
 SQL Database et SQL Data Warehouse prennent tous deux en charge l’accès conditionnel Microsoft. Les étapes suivantes montrent comment configurer SQL Database pour appliquer une stratégie d’accès conditionnel.  
 
-## <a name="prerequisites"></a>Conditions préalables  
+## <a name="prerequisites"></a>Prérequis
+  
 - Vous devez configurer SQL Database ou SQL Data Warehouse pour prendre en charge l’authentification Azure Active Directory. Pour connaître la procédure spécifique, consultez [Configurer et gérer l’authentification Azure Active Directory avec SQL Database ou SQL Data Warehouse](sql-database-aad-authentication-configure.md).  
 - Quand Multi-Factor Authentication est activé, vous devez vous connecter avec un outil pris en charge, tel que la dernière version de SSMS. Pour plus d’informations, consultez [Configurer Azure SQL Database Multi-Factor Authentication pour SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md).  
 

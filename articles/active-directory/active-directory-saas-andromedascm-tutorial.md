@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à Andromeda SCM | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et Andromeda SCM."
+title: 'Didacticiel : intégration d’Azure Active Directory à Andromeda | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Andromeda.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,32 +12,33 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/07/2018
 ms.author: jeedes
-ms.openlocfilehash: 72b66eec34995c334c6d65a1d03637fe21b9dc80
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 7e2a140ba6dc4825283801ed4f3435136b307153
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="tutorial-azure-active-directory-integration-with-andromeda-scm"></a>Didacticiel : Intégration d’Azure Active Directory à Andromeda SCM
+# <a name="tutorial-azure-active-directory-integration-with-andromeda"></a>Didacticiel : intégration d’Azure Active Directory à Andromeda
 
-Dans ce didacticiel, vous allez apprendre à intégrer Andromeda SCM à Azure Active Directory (Azure AD).
+Dans ce didacticiel, vous apprenez à intégrer Andromeda à Azure Active Directory (Azure AD).
 
-L’intégration d’Andromeda SCM à Azure AD vous offre les avantages suivants :
+L’intégration d’Andromeda à Azure AD vous offre les avantages suivants :
 
-- Dans Azure AD, vous pouvez contrôler qui a accès à Andromeda SCM.
-- Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à Andromeda SCM (via l’authentification unique) avec leur compte Azure AD.
+- Dans Azure AD, vous pouvez contrôler qui a accès à Andromeda.
+- Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à Andromeda (via l’authentification unique) avec leurs comptes Azure AD.
 - Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour configurer l’intégration d’Azure AD à Andromeda SCM, vous avez besoin des éléments suivants :
+
+Pour configurer l’intégration d’Azure AD à Andromeda, vous avez besoin des éléments suivants :
 
 - Un abonnement Azure AD
-- Un abonnement Andromeda SCM pour lequel l’authentification unique est activée
+- Un abonnement Andromeda pour lequel l’authentification unique est activée
 
 > [!NOTE]
 > Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
@@ -50,13 +51,13 @@ Vous devez en outre suivre les recommandations ci-dessous :
 ## <a name="scenario-description"></a>Description du scénario
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
-1. Ajout d’Andromeda SCM à partir de la galerie
+1. Ajout d’Andromeda à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
 
-## <a name="adding-andromeda-scm-from-the-gallery"></a>Ajout d’Andromeda SCM à partir de la galerie
-Pour configurer l’intégration d’Andromeda SCM à Azure AD, vous devez ajouter Andromeda SCM, disponible dans la galerie, à votre liste d’applications SaaS gérées.
+## <a name="adding-andromeda-from-the-gallery"></a>Ajout d’Andromeda à partir de la galerie
+Pour configurer l’intégration d’Andromeda à Azure AD, vous devez ajouter Andromeda, disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Andromeda SCM à partir de la galerie, procédez comme suit :**
+**Pour ajouter Andromeda à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
 
@@ -70,31 +71,31 @@ Pour configurer l’intégration d’Andromeda SCM à Azure AD, vous devez ajout
 
     ![Bouton Nouvelle application][3]
 
-4. Dans la zone de recherche, tapez **Andromeda SCM**, sélectionnez **Andromeda SCM** (Andromeda SCM) dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, saisissez**Andromeda**, sélectionnez **Andromeda** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-    ![Andromeda SCM dans la liste des résultats](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_addfromgallery.png)
+    ![Andromeda dans la liste des résultats](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Andromeda SCM à l’aide d’un utilisateur de test appelé « Britta Simon ».
+Dans cette section, vous configurez et testez l’authentification unique Azure AD avec Andromeda à l’aide d’un utilisateur de test appelé « Britta Simon ».
 
-Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Andromeda SCM équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et un utilisateur Andromeda SCM associé doit être établie.
+Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Andromeda équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et un utilisateur Andromeda associé doit être établie.
 
-Pour configurer et tester l’authentification unique Azure AD avec Andromeda SCM, vous devez suivre les indications des sections suivantes :
+Pour configurer et tester l’authentification unique Azure AD avec Andromeda, vous devez suivre les indications des sections suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Créer un utilisateur de test Andromeda SCM](#create-an-andromeda-scm-test-user)** pour avoir un équivalent de Britta Simon dans Andromeda SCM, associé à sa représentation dans Azure AD.
+3. **[Créer un utilisateur de test Andromeda](#create-an-andromeda-test-user)** pour avoir un équivalent de Britta Simon dans Andromeda, associé à sa représentation dans Azure AD.
 4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
-Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application Andromeda SCM.
+Dans cette section, activez l’authentification unique Azure AD dans le portail Azure et configurez l’authentification unique dans votre application Andromeda.
 
-**Pour configurer l’authentification unique Azure AD avec Andromeda SCM, procédez comme suit :**
+**Pour configurer l’authentification unique Azure AD avec Andromeda, procédez comme suit :**
 
-1. Dans le portail Azure, sur la page d’intégration de l’application **Andromeda SCM** (Andromeda SCM), cliquez sur **Authentification unique**.
+1. Dans le portail Azure, sur la page d’intégration de l’application **Andromeda**, cliquez sur **Authentification unique**.
 
     ![Lien Configurer l’authentification unique][4]
 
@@ -102,24 +103,24 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
  
     ![Boîte de dialogue Authentification unique](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_samlbase.png)
 
-3. Dans la section **Andromeda SCM Domain and URLs** (Domaine et URL Andromeda SCM), suivez les étapes ci-dessous pour configurer l’application en mode initié par **IDP** :
+3. Dans la section **Domaine et URL Andromeda**, suivez les étapes ci-dessous pour configurer l’application en mode initié par **IDP** :
 
-    ![Informations d’authentification unique dans Andromeda SCM Domain and URLs (Domaine et URL Andromeda SCM)](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_url.png)
+    ![Informations d’authentification unique dans Domaine et URL Andromeda](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_url.png)
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<tenantURL>`
+    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<tenantURL>.ngcxpress.com/`
 
-    b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<tenantURL>`
+    b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<tenantURL>.ngcxpress.com/SAMLConsumer.aspx`
 
 4. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de service**, cochez **Afficher les paramètres d’URL avancés**, puis effectuez les étapes suivantes :
 
-    ![Informations d’authentification unique dans Andromeda SCM Domain and URLs (Domaine et URL Andromeda SCM)](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_url1.png)
+    ![Informations d’authentification unique dans Domaine et URL Andromeda](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_url1.png)
 
-    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<tenantURL>/SAMLLogon.aspx`
+    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<tenantURL>.ngcxpress.com/SAMLLogon.aspx`
      
     > [!NOTE] 
     > La valeur ci-dessus n’est pas une valeur réelle. Vous mettrez à jour la valeur avec l’identificateur, l’URL de réponse et l’URL de connexion réels. La procédure est expliquée plus loin dans le didacticiel.
 
-5. L’application Andromeda SCM attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section **Attributs utilisateur** sur la page d’intégration des applications. La capture d’écran suivante montre un exemple :
+5. L’application Andromeda attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section **Attributs utilisateur** sur la page d’intégration des applications. La capture d’écran suivante montre un exemple :
     
     ![Configurer l’authentification unique attb](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_attribute.png)
 
@@ -129,10 +130,10 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 6. Dans la section **Attributs utilisateur** de la boîte de dialogue **Authentification unique**, configurez l’attribut de jeton SAML comme sur l’image et procédez comme suit :
     
     | Nom de l'attribut | Valeur de l’attribut |
-    | ------------------- | -------------------- |    
-    | role        | DEMO |
-    | Type        | DEFAULT |
-    | société       | COMP02    |
+    | -------------- | -------------------- |    
+    | role        | Rôle spécifique aux applications |
+    | Type        | Type d'application |
+    | société       | CompanyName    |
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Ces valeurs sont fournies uniquement à des fins de démonstration ; veuillez utiliser les rôles de votre organisation.
@@ -159,31 +160,31 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/active-directory-saas-andromedascm-tutorial/tutorial_general_400.png)
     
-9. Dans la section **Andromeda SCM Configuration** (Configuration d’Andromeda SCM), cliquez sur **Configure Andromeda SCM** (Configurer Andromeda SCM) pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l**’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
+9. Dans la section **Configuration d’Andromeda**, cliquez sur **Configurer Andromeda** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l**’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configuration d’Andromeda SCM](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_configure.png)
+    ![Configuration d’Andromeda](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_configure.png)
 
-10. Connectez-vous à votre site d’entreprise Andromeda SCM en tant qu’administrateur.
+10. Connectez-vous à votre site d’entreprise Andromeda en tant qu’administrateur.
 
 11. En haut de la barre de menus, cliquez sur **Admin** et accédez à **Administration**.
 
-    ![Admin Andromeda SCM](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_admin.png)
+    ![Administrateur Andromeda](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_admin.png)
 
 12. Sur le côté gauche de la barre d’outils, dans la section **Interfaces**, cliquez sur **SAML Configuration** (Configuration SAML).
 
-    ![saml Andromeda SCM](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_saml.png)
+    ![SAML Andromeda](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_saml.png)
 
 13. Dans la section **SAML Configuration** (Configuration SAML), procédez comme suit :
 
-    ![Config Andromeda SCM](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_config.png)
+    ![Configuration d’Andromeda](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_config.png)
 
     a. Cochez **Enable SSO with SAML** (Activer l’authentification unique avec SAML).
 
-    b. Dans la section **Andromeda Information** (Informations Andromeda), copiez la valeur **SP Identity** (Identité SP) et collez-la dans la zone de texte **Identificateur** de la section **Andromeda SCM Domain and URLs** (Domaine et URL Andromeda SCM).
+    b. Dans la section **Informations Andromeda**, copiez la valeur **Identité SP** et collez-la dans la zone de texte **Identificateur** de la section **Domaine et URL Andromeda**.
 
-    c. Copiez la valeur **Consumer URL** (URL de consommateur) et collez-la dans la zone de texte **URL de réponse** de la section **Andromeda SCM Domain and URLs** (Domaine et URL Andromeda SCM).
+    c. Copiez la valeur **URL du consommateur** et collez-la dans la zone de texte **URL de réponse** de la section **Domaine et URL Andromeda SCM**.
 
-    d. Copiez la valeur **URL de connexion** et collez-la dans la zone de texte **URL de connexion** de la section **Andromeda SCM Domain and URLs** (Domaine et URL Andromeda SCM).
+    d. Copiez la valeur **URL de connexion** et collez-la dans la zone de texte **URL de connexion** de la section **Domaine et URL Andromeda**.
 
     e. Dans la section **Fournisseur d’identité SAML**, tapez votre nom IDP.
 
@@ -191,9 +192,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     g. Ouvrez le **certificat codé en base 64** téléchargé à partir du portail Azure dans le bloc-notes et collez-le dans la zone de texte **Certificat X.509**.
     
-    h. Mappez les attributs suivants avec la valeur correspondante pour faciliter la connexion avec authentification unique à partir d’Azure AD. L’attribut **ID utilisateur** est requis pour la connexion. Pour l’approvisionnement, les attributs **E-mail**, **Société**, **UserType** et **Rôle** sont requis. Dans cette section, nous définissons les attributs de mappage (nom et valeurs) qui correspondent à ceux définis dans le portail Azure
+    h. Mappez les attributs suivants avec la valeur correspondante pour faciliter la connexion avec authentification unique à partir d’Azure AD. L’attribut **ID utilisateur** est requis pour la connexion. Pour l’approvisionnement, **E-mail**, **Société**, **Type d’utilisateur** et **Rôle** sont requis. Dans cette section, nous définissons le mappage des attributs (nom et valeurs) qui correspondent à ceux définis dans le portail Azure
 
-    ![mappageattributs Andromeda SCM](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
+    ![Andromeda attbmap](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
 
     i. Cliquez sur **Enregistrer**.
 
@@ -232,28 +233,28 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     d. Cliquez sur **Créer**.
  
-### <a name="create-an-andromeda-scm-test-user"></a>Créer un utilisateur de test Andromeda SCM
+### <a name="create-an-andromeda-test-user"></a>Créer un utilisateur de test Andromeda
 
-L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Andromeda SCM. Andromeda SCM prend en charge l’approvisionnement juste à temps qui est activé par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas déjà, un utilisateur est créé durant une tentative d’accès à Andromeda SCM.
+L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Andromeda. Andromeda prend en charge l’approvisionnement juste à temps, activé par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas déjà, un nouvel utilisateur est créé durant une tentative d’accès à Andromeda.
 
 >[!Note]
->Si vous devez créer un utilisateur manuellement, contactez [l’équipe de support client Andromeda SCM](https://www.ngcsoftware.com/support/).
+>Si vous devez créer un utilisateur manuellement, contactez [l’équipe d’assistance client Andromeda](https://www.ngcsoftware.com/support/).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
-Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Andromeda SCM.
+Dans cette section, autorisez Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Andromeda.
 
 ![Attribuer le rôle utilisateur][200] 
 
-**Pour affecter Britta Simon à Andromeda SCM, procédez comme suit :**
+**Pour affecter Britta Simon à Andromeda, procédez comme suit :**
 
 1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
 
     ![Affecter des utilisateurs][201] 
 
-2. Dans la liste des applications, sélectionnez **Andromeda SCM**.
+2. Dans la liste des applications, sélectionnez **Andromeda**.
 
-    ![Lien Andromeda SCM dans la liste des applications](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_app.png)  
+    ![Le lien Andromeda dans la liste des applications](./media/active-directory-saas-andromedascm-tutorial/tutorial_andromedascm_app.png)  
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -273,7 +274,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Lorsque vous cliquez sur la vignette Andromeda SCM dans le volet d’accès, vous devez être connecté automatiquement à votre application Andromeda SCM.
+Lorsque vous cliquez sur la vignette Andromeda dans le volet d’accès, vous devez être connecté automatiquement à votre application Andromeda.
 Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
@@ -296,4 +297,3 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 [201]: ./media/active-directory-saas-andromedascm-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-andromedascm-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-andromedascm-tutorial/tutorial_general_203.png
-

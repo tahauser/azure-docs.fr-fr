@@ -1,26 +1,21 @@
 ---
-title: "Gérer le schéma Azure SQL Database dans une application mutualisée | Microsoft Docs"
-description: "Gérer un schéma pour plusieurs locataires dans une application mutualisée qui utilise Azure SQL Database"
-keywords: "didacticiel sur les bases de données SQL"
+title: Gérer le schéma Azure SQL Database dans une application mutualisée | Microsoft Docs
+description: Gérer un schéma pour plusieurs locataires dans une application mutualisée qui utilise Azure SQL Database
+keywords: didacticiel sur les bases de données SQL
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2017
-ms.author: billgib; sstein
-ms.openlocfilehash: ac60888d1464d3245bb35e2e3505b16ef4128d36
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.author: sstein
+ms.reviewer: billgib
+ms.openlocfilehash: a473e87934ba573cc22b2c248ea0398bc5a4c29b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Gérer le schéma dans une application SaaS à l’aide du modèle de base de données par locataire avec Azure SQL Database
 
@@ -65,7 +60,7 @@ Il existe une nouvelle version des travaux élastiques qui est désormais une fo
 
 Le code source de l’application et les scripts de gestion sont disponibles dans le référentiel GitHub [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Consultez les [conseils généraux](saas-tenancy-wingtip-app-guidance-tips.md) avant de télécharger et de débloquer les scripts Wingtip Tickets SaaS.
 
-## <a name="create-a-job-agent-database-and-new-job-agent"></a>Créer une base de données d’agent de travail et un agent de travail
+## <a name="create-a-job-agent-database-and-new-job-agent"></a>Créer une base de données d’agent de travail et un nouvel agent de travail
 
 Ce didacticiel nécessite l’utilisation de PowerShell pour créer un agent de travail et la base de données d’agent de travail correspondante. La base de données d’agent de travail conserve les définitions des travaux, l’état du travail et l’historique. Une fois l’agent de travail et sa base de données créés, vous pouvez immédiatement créer et surveiller des travaux.
 
@@ -78,9 +73,9 @@ Le script *Demo-SchemaManagement.ps1* appelle le script *Deploy-SchemaManagement
 
 Dans l’application Wingtip Tickets, chaque base de données de locataire inclut un ensemble de types de lieux pris en charge. Chaque lieu est d’un type spécifique, qui définit le type des événements qui peuvent être hébergés et détermine l’image d’arrière-plan utilisée dans l’application. Pour que l’application prenne en charge de nouveaux types d’événements, ces données de référence doivent être mises à jour et de nouveaux types de lieux doivent être ajoutés.  Dans cet exercice, vous allez déployer une mise à jour dans toutes les bases de données de locataire afin d’ajouter deux types de lieux supplémentaires : *Motorcycle Racing* (Courses de moto) *Swimming Club* (Club de natation).
 
-Tout d’abord, examinez les types de lieux inclus dans chaque base de données de locataire. Connectez-vous à l’une des bases de données de locataire dans SQL Server Management Studio (SSMS) et vérifiez la table VenueTypes.  Vous pouvez également interroger cette table dans l’éditeur de requête dans le portail Azure, accessible à partir de la page de la base de données. 
+Tout d’abord, examinez les types de lieux inclus dans chaque base de données client. Connectez-vous à l’une des bases de données client dans SQL Server Management Studio (SSMS) et vérifiez la table VenueTypes.  Vous pouvez également interroger cette table dans l’éditeur de requêtes du portail Azure, auquel vous avez accès par la page de la base de données. 
 
-1. Ouvrez SSMS et connectez-vous au serveur de locataire : *tenants1-dpt-&lt;user&gt;.database.windows.net*
+1. Ouvrez SSMS et connectez-vous au serveur client : *tenants1-dpt-&lt;utilisateur&gt;.database.windows.net*
 1. Pour confirmer que *Motorcycle Racing* et *Swimming Club* **ne sont pas** déjà inclus, accédez à la base de données _contosoconcerthall_ sur le serveur *tenants1-dpt-&lt;user&gt;* et interrogez la table *VenueTypes*.
 
 Maintenant, nous allons créer un travail pour mettre à jour la table *VenueTypes* dans toutes les bases de données de locataire pour ajouter les nouveaux types de lieux.

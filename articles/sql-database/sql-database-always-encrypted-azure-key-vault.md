@@ -1,25 +1,20 @@
 ---
-title: "Always Encrypted : SQL Database - Azure Key Vault | Microsoft Docs"
-description: "Cet article explique comment sécuriser des données sensibles dans une base de données SQL avec un chiffrement de données en utilisant l’Assistant Always Encrypted de SQL Server Management Studio."
-keywords: "chiffrement des données, clé de chiffrement, chiffrement cloud"
+title: 'Always Encrypted : SQL Database - Azure Key Vault | Microsoft Docs'
+description: Cet article explique comment sécuriser des données sensibles dans une base de données SQL avec un chiffrement de données en utilisant l’Assistant Always Encrypted de SQL Server Management Studio.
+keywords: chiffrement des données, clé de chiffrement, chiffrement cloud
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: craigg
-ms.assetid: 6ca16644-5969-497b-a413-d28c3b835c9b
 ms.service: sql-database
 ms.custom: security
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: sstein
-ms.openlocfilehash: ca4566ced525f0cb732afc15d96d9ef73fd8cff5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3525355a7f997a5dcc54d14f216d0d647aef8407
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>Chiffrement intégral : Protéger les données sensibles dans Base de données SQL et stocker vos clés de chiffrement dans Azure Key Vault
 
@@ -38,6 +33,7 @@ Suivez les étapes de cet article et découvrez comment configurer le chiffremen
 * Créer une application qui insère, sélectionne et affiche les données des colonnes chiffrées.
 
 ## <a name="prerequisites"></a>Prérequis
+
 Pour ce didacticiel, vous devez disposer des éléments suivants :
 
 * Un compte et un abonnement Azure. Si vous n’en avez pas, inscrivez-vous pour un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).

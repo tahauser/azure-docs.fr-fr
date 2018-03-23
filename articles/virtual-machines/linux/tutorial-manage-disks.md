@@ -1,26 +1,26 @@
 ---
-title: "Gestion des disques Azure avec l’interface de ligne de commande Azure | Microsoft Docs"
-description: "Didacticiel - Gestion des disques Azure avec l’interface de ligne de commande Azure"
+title: Gestion des disques Azure avec l’interface de ligne de commande Azure | Microsoft Docs
+description: Didacticiel - Gestion des disques Azure avec l’interface de ligne de commande Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
+author: iainfoulds
 manager: timlt
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 87b410fdcd5901499e809f8d2b9a7b8788134cfc
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2a8a6e7da89f864c1bb63bf5b26b297653ff4a94
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="manage-azure-disks-with-the-azure-cli"></a>Gestion des disques Azure avec l’interface de ligne de commande Azure
 
@@ -185,10 +185,10 @@ La sortie affiche l’UUID du lecteur, `/dev/sdc1` dans cet exemple.
 /dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
 ```
 
-Ajoutez une ligne semblable à ce qui suit au fichier */etc/fstab*. Notez également que la fonctionnalité permettant d’écrire des barrières peut être désactivée à l’aide de *barrier=0*, cette configuration peut améliorer les performances de disque. 
+Ajoutez une ligne semblable à ce qui suit au fichier */etc/fstab*.
 
 ```bash
-UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive  ext4    defaults,nofail,barrier=0   1  2
+UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive  ext4    defaults,nofail   1  2
 ```
 
 Maintenant que le disque a été configuré, fermez la session SSH.

@@ -2,7 +2,7 @@
 title: Meilleures pratiques de gestion des erreurs pour les clients Azure Active Directory Authentication Library (ADAL)
 description: Fournit des conseils et les meilleures pratiques de gestion des erreurs pour les applications clientes ADAL.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: danieldobalian
 manager: mtillman
 ms.author: bryanla
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2017
-ms.custom: 
-ms.openlocfilehash: 275ab65569a1861f046c8ee77914e0859d41d5f7
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.date: 02/27/2017
+ms.custom: ''
+ms.openlocfilehash: 2b4c945f5707c158c76c8edbd233d1a8b034111f
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Meilleures pratiques de gestion des erreurs pour les clients Azure Active Directory Authentication Library (ADAL)
 
@@ -479,6 +479,9 @@ Nous avons créé un [exemple complet](https://github.com/Azure-Samples/active-d
 
 ## <a name="error-and-logging-reference"></a>Référence d’erreurs et de journalisation
 
+### <a name="logging-personal-identifiable-information-pii--organizational-identifiable-information-oii"></a>Journalisation des informations d’identification personnelles (PII) et des informations d’identification organisationnelles (OII)
+Par défaut, la journalisation ADAL ne capture pas et ne journalise pas les informations d’identification personnelles et organisationnelles. La bibliothèque permet aux développeurs d’applications d’activer cette fonctionnalité via une méthode setter de la classe de journalisation. Lorsque vous activez la journalisation des informations d’identification personnelles ou organisationnelles, l’application devient responsable de la gestion des données hautement sensibles et de la conformité de celle-ci aux réglementations.
+
 ### <a name="net"></a>.NET
 
 #### <a name="adal-library-errors"></a>Erreurs de la bibliothèque ADAL
@@ -487,7 +490,7 @@ Pour explorer les erreurs ADAL spécifiques, le code source dans le [référenti
 
 #### <a name="guidance-for-error-logging-code"></a>Conseils pour le code de journalisation des erreurs
 
-La journalisation d’ADAL .NET varie selon la plateforme de travail. Reportez-vous à la [documentation sur la journalisation](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet#diagnostics) relative au code pour savoir comment activer la journalisation.
+La journalisation d’ADAL .NET varie selon la plateforme de travail. Reportez-vous au [Wiki sur la journalisation](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Logging-in-ADAL.Net) pour voir le code qui permet d’activer la journalisation.
 
 ### <a name="android"></a>Android
 
@@ -497,14 +500,9 @@ Pour explorer les erreurs ADAL spécifiques, le code source dans le [référenti
 
 #### <a name="operating-system-errors"></a>Erreurs du système d'exploitation
 
-Les erreurs du système d’exploitation Android sont exposées via AuthenticationException dans ADAL. Elles sont identifiables par la mention SERVER_INVALID_REQUEST et peuvent être plus granulaires à travers les descriptions d’erreurs. Les deux principaux messages qu’une application peut choisir pour afficher l’interface utilisateur sont les suivants :
+Les erreurs du système d’exploitation Android sont exposées via AuthenticationException dans ADAL. Elles sont identifiables par la mention SERVER_INVALID_REQUEST et peuvent être plus granulaires à travers les descriptions d’erreurs. 
 
-- Erreurs SSL 
-  - [L’utilisateur final utilise Chrome 53](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/SSL-Certificate-Validation-Issue)
-  - [La chaîne de certification a un certificat marqué comme téléchargement supplémentaire (l’utilisateur doit contacter l’administrateur informatique)](https://vkbexternal.partners.extranet.microsoft.com/VKBWebService/ViewContent.aspx?scid=KB;EN-US;3203929)
-  - L’AC racine n’est pas approuvée par l’appareil. Contactez l’administrateur informatique. 
-- Erreurs réseau 
-  - [Problème réseau probablement lié à la validation du certificat SSL](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/SSL-Certificate-Validation-Issue), une nouvelle tentative unique peut être effectuée
+Pour obtenir la liste complète des erreurs courantes, ainsi que les étapes à suivre lorsque vous les rencontrez, reportez-vous au [Wiki ADAL pour Android](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki). 
 
 #### <a name="guidance-for-error-logging-code"></a>Conseils pour le code de journalisation des erreurs
 
@@ -521,6 +519,15 @@ Logger.getInstance().setExternalLogger(new ILogger() {
 
 // 2. Set the log level
 Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
+
+// By default, the `Logger` does not capture any PII or OII
+
+// PII or OII will be logged
+Logger.getInstance().setEnablePII(true);
+
+// To STOP logging PII or OII, use the following setter
+Logger.getInstance().setEnablePII(false);
+
 
 // 3. Send logs to logcat.
 adb logcat > "C:\logmsg\logfile.txt";

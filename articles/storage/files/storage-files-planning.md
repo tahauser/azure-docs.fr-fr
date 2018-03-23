@@ -1,24 +1,18 @@
 ---
-title: "Planification d’un déploiement Azure Files | Microsoft Docs"
-description: "Découvrez les éléments à prendre en compte lors de la planification d’un déploiement Azure Files."
+title: Planification d’un déploiement Azure Files | Microsoft Docs
+description: Découvrez les éléments à prendre en compte lors de la planification d’un déploiement Azure Files.
 services: storage
-documentationcenter: 
 author: wmgries
-manager: klaasl
-editor: jgerend
-ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 03/06/2018
 ms.author: wgries
-ms.openlocfilehash: 590bc459a71b8691741f7f33d2d70b0ba4474591
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 017dd79e2d15fdd98ea020c686857d282bad244e
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planification d’un déploiement Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers managés dans le cloud qui sont accessibles via le protocole SMB standard. Comme Azure Files est entièrement managé, son déploiement dans des scénarios de production est beaucoup plus simple que le déploiement et la gestion d’un serveur de fichiers ou d’un appareil NAS. Cet article aborde les rubriques à prendre en compte lors du déploiement d’un partage de fichiers Azure pour la production dans votre organisation.
@@ -63,7 +57,7 @@ Azure Files propose plusieurs options intégrées pour garantir la sécurité de
     * Les clients qui prennent en charge le chiffrement SMB 3.0 envoient et reçoivent des données sur un canal chiffré.
     * Les clients qui ne prennent pas en charge SMB 3.0 peuvent communiquer au sein du centre de données sur SMB 2.1 ou SMB 3.0 sans chiffrement. Notez que les clients ne sont pas autorisés à communiquer entre centres de données sur SMB 2.1 ou SMB 3.0 sans chiffrement.
     * Les clients peuvent communiquer sur l’API REST de fichier avec HTTP ou HTTPS.
-* Chiffrement au repos ([Chiffrement du service de Stockage Azure](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)) : nous sommes en train d’autoriser le chiffrement du service de stockage sur la plateforme de stockage Azure sous-jacente. Le chiffrement sera donc autorisé par défaut pour tous les comptes de stockage. Si vous créez un compte de stockage dans une région où le chiffrement est autorisé par défaut, vous n’avez pas à l’autoriser. Les données au repos sont chiffrées avec des clés entièrement gérées. Le chiffrement au repos n’augmente pas les coûts de stockage, ni ne réduit le niveau de performance. 
+* Chiffrement au repos ([Chiffrement du service de stockage Azure](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)) : le chiffrement du service de stockage (SSE) est activé par défaut pour tous les comptes de stockage. Les données au repos sont chiffrées avec des clés entièrement gérées. Le chiffrement au repos n’augmente pas les coûts de stockage, ni ne réduit le niveau de performance. 
 * Spécification facultative des données chiffrées en transit : quand Azure Files est sélectionné, il refuse l’accès aux données sur des canaux non chiffrés. Plus précisément, seules les connexions HTTPS et SMB 3.0 avec chiffrement sont autorisées. 
 
     > [!Important]  

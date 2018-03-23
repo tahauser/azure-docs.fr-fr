@@ -1,23 +1,23 @@
 ---
-title: "Erreurs de référence SKU Azure non disponible | Microsoft Docs"
-description: "Décrit comment résoudre les erreurs de référence SKU non disponible au cours du déploiement."
+title: Erreurs de référence SKU Azure non disponible | Microsoft Docs
+description: Décrit comment résoudre les erreurs de référence SKU non disponible au cours du déploiement.
 services: azure-resource-manager,azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
-editor: 
+editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: a6cccfa5097847429d3e402e3d522addc14b8c31
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: b0cbd3c232e5df831031cc8e436f8dbb24b0e72c
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>Résoudre les erreurs de référence SKU non disponible
 
@@ -37,13 +37,9 @@ for subscription '<subscriptionID>'. Please try another tier or deploy to a diff
 
 Vous recevez cette erreur lorsque la ressource de référence (SKU) que vous avez sélectionnée (par exemple, la taille de la machine virtuelle) n’est pas disponible pour l’emplacement que vous avez sélectionné.
 
-## <a name="solution"></a>Solution
+## <a name="solution-1---powershell"></a>Solution 1 : PowerShell
 
-Pour résoudre ce problème, vous devez déterminer quelles références sont disponibles dans une région. Pour identifier les références disponibles, vous pouvez utiliser PowerShell, le portail ou une opération REST.
-
-### <a name="solution-1"></a>Solution 1
-
-Utilisez la commande [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) dans PowerShell. Filtrez les résultats par emplacement. Pour cette commande, vous devez disposer de la version la plus récente de PowerShell.
+Pour déterminer les références SKU qui sont disponibles dans une région, utilisez la commande [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku). Filtrez les résultats par emplacement. Pour cette commande, vous devez disposer de la version la plus récente de PowerShell.
 
 ```powershell
 Get-AzureRmComputeResourceSku | where {$_.Locations -icontains "southcentralus"}
@@ -61,9 +57,9 @@ virtualMachines      Standard_A1 southcentralus
 virtualMachines      Standard_A2 southcentralus
 ```
 
-### <a name="solution-2"></a>Solution 2
+## <a name="solution-2---azure-cli"></a>Solution 2 : Azure CLI
 
-Pour l’interface Azure CLI, utilisez la commande `az vm list-skus`. Vous pouvez ensuite utiliser `grep` ou un utilitaire similaire pour filtrer la sortie.
+Pour déterminer les références SKU qui sont disponibles dans une région, utilisez la commande `az vm list-skus`. Vous pouvez ensuite utiliser `grep` ou un utilitaire similaire pour filtrer la sortie.
 
 ```bash
 $ az vm list-skus --output table
@@ -79,15 +75,15 @@ availabilitySets  centralus           Classic                 MaximumPlatformFau
 availabilitySets  centralus           Aligned                 MaximumPlatformFaultDomainCount=3
 ```
 
-### <a name="solution-3"></a>Solution 3
+## <a name="solution-3---azure-portal"></a>Solution 3 : Portail Azure
 
-Utilisez le [portail](https://portal.azure.com). Connectez-vous au portail et ajoutez une ressource à travers l’interface. Lorsque vous définissez les valeurs, vous voyez les références (SKU) disponibles pour cette ressource. Vous n’avez pas besoin de terminer le déploiement.
+Pour déterminer les références SKU qui sont disponibles dans une région, consultez le [portail](https://portal.azure.com). Connectez-vous au portail et ajoutez une ressource à travers l’interface. Lorsque vous définissez les valeurs, vous voyez les références (SKU) disponibles pour cette ressource. Vous n’avez pas besoin de terminer le déploiement.
 
 ![Références disponibles](./media/resource-manager-sku-not-available-errors/view-sku.png)
 
-### <a name="solution-4"></a>Solution 4
+## <a name="solution-4---rest"></a>Solution 4 : REST
 
-Utilisez l’API REST pour les machines virtuelles. Envoyez la requête suivante :
+Pour déterminer les références SKU qui sont disponibles dans une région, utilisez l’API REST pour les machines virtuelles. Envoyez la requête suivante :
 
 ```HTTP 
 GET

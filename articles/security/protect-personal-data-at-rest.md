@@ -1,32 +1,31 @@
 ---
-title: "Protéger les données personnelles au repos dans Azure avec le chiffrement | Microsoft Docs"
-description: "Cet article fait partie d’une série ayant pour but de vous aider à utiliser Azure pour protéger des données personnelles."
+title: Protéger les données personnelles au repos dans Azure avec le chiffrement | Microsoft Docs
+description: Cet article peut être utilisé pour se conformer aux réglementations industrielles ou gouvernementales, telles que le Règlement général de Protection des données (RGPD).
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: 31e41f9befd9319115e5d147b473756486100c6e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.custom: ''
+ms.openlocfilehash: 37da3d91df4be871d6647b6290768ea4999a5010
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-encryption-technologies-protect-personal-data-at-rest-with-encryption"></a>technologies de chiffrement Azure : Protéger les données personnelles au repos avec un chiffrement
 
 Cet article vous aide à comprendre et à utiliser des technologies de chiffrement Azure pour sécuriser les données au repos.
 
-Le chiffrement des données au repos est une bonne pratique essentielle pour protéger les données sensibles ou personnelles et pour satisfaire aux exigences de confidentialité des données et de conformité.
-Le chiffrement au repos est conçu pour empêcher l’attaquant d’accéder aux données non chiffrées en garantissant que les données sont chiffrées quand elles sont sur le disque.
+Le chiffrement des données au repos est une bonne pratique essentielle pour protéger les données sensibles ou personnelles et pour satisfaire aux exigences de confidentialité des données et de conformité. Le chiffrement au repos est conçu pour empêcher l’attaquant d’accéder aux données non chiffrées en garantissant que les données sont chiffrées quand elles sont sur le disque. Les informations contenues dans cet article peuvent être utilisées pour garantir la conformité avec le Règlement général sur la protection des données (RGPD).
 
 ## <a name="scenario"></a>Scénario 
 
@@ -51,11 +50,11 @@ La compagnie doit protéger la confidentialité des données personnelles des cl
 
 Dans le cadre d’une stratégie de sécurité de défense en profondeur multicouche, un objectif de l’entreprise vise à garantir le chiffrement de toutes les sources de données qui contiennent des données personnelles, notamment celles qui résident dans le stockage cloud. Si des personnes non autorisées accèdent aux données personnelles, celles-ci doivent être sous forme illisible. L’application du chiffrement doit être simple (ou transparente) pour les utilisateurs et les administrateurs.
 
-## <a name="solutions"></a>Solutions
+## <a name="solutions"></a>solutions
 
 Les services Azure proposent plusieurs outils et technologies pour vous aider à protéger les données personnelles au repos en les chiffrant.
 
-### <a name="azure-key-vault"></a>coffre de clés Azure
+### <a name="azure-key-vault"></a>Azure Key Vault
 
 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) assure un stockage sécurisé des clés utilisées pour chiffrer les données au repos dans les services Azure et correspond à la solution recommandée de stockage et de gestion des clés. La gestion des clés de chiffrement est essentielle à la sécurisation des données stockées.
 

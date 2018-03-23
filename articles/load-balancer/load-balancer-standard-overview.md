@@ -1,12 +1,12 @@
 ---
-title: "Présentation de la référence Standard d’Azure Load Balancer | Microsoft Docs"
-description: "Présentation de la référence Standard d’Azure Load Balancer"
+title: Présentation de la référence Standard d’Azure Load Balancer | Microsoft Docs
+description: Présentation de la référence Standard d’Azure Load Balancer
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2018
 ms.author: kumud
-ms.openlocfilehash: ddbfb415f062396f022f0f58cb975f6e3a5f1807
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7e4fa38145ac21aaca8efa37250cc32ef1b1655c
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Présentation de la référence Standard d’Azure Load Balancer (préversion)
 
@@ -327,7 +327,7 @@ Les références SKU ne sont pas mutables. Suivez les étapes décrites dans cet
 
 ## <a name="region-availability"></a>Disponibilité des régions
 
-La référence Standard de Load Balancer est actuellement disponible dans toutes les régions cloud publiques.
+Load Balancer Standard est actuellement disponible dans toutes les régions cloud publiques, excepté dans l’ouest des États-Unis.
 
 >[!IMPORTANT]
 > Pendant une courte période, l’accès aux régions extérieures au lancement initial (Est des États-Unis 2, Centre des États-Unis, Europe du Nord, Centre-Ouest des États-Unis, Europe de l’Ouest, Asie du Sud-Est) nécessite l’inscription à des fonctionnalités d’abonnement supplémentaires (AllowLBPreviewWave2 et AllowLBPreviewWave3).  [Procédez comme suit](#additionalpreviewregions). Effectuez toutes les opérations, même si vous vous êtes déjà inscrit pour AllowLBPreview.
@@ -467,9 +467,10 @@ Les limitations suivantes s’appliquent au moment de la préversion et sont sus
 - Les [alertes Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md) ne sont pas prises en charge pour l’instant.
 - Le portail ne prend pas encore en charge les régions développées en préversion.  Veuillez utiliser les outils client comme les modèles, Azure CLI 2.0 ou PowerShell comme solution de contournement.
 - Les opérations de déplacement d’abonnement ne sont pas prises en charge.
+- Non disponible dans l’ouest des États-Unis.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur [la référence De base de Load Balancer](load-balancer-overview.md)
 - En savoir plus sur les [zones de disponibilité](../availability-zones/az-overview.md)

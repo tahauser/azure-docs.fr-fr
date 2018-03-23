@@ -1,12 +1,12 @@
 ---
-title: "Déployer rapidement une application existante dans un cluster Microsoft Azure Service Fabric"
-description: "Utilisez un cluster Microsoft Azure Service Fabric pour héberger une application Node.js existante avec Visual Studio."
+title: Déployer rapidement une application existante dans un cluster Microsoft Azure Service Fabric
+description: Utilisez un cluster Microsoft Azure Service Fabric pour héberger une application Node.js existante avec Visual Studio.
 services: service-fabric
 documentationcenter: nodejs
 author: thraka
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: article
@@ -14,17 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: adegeo
-ms.openlocfilehash: 1130ce3231b9e96a03d3e8dc5f75721dd0415928
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 65185a2d594a4a251cf87ece6f758ab3db223d7d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Héberger une application Node.js sur Microsoft Azure Service Fabric
 
 Ce démarrage rapide vous permet de déployer une application existante (Node.js dans cet exemple) dans un cluster Service Fabric s’exécutant sur Azure.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Avant de commencer, assurez-vous que vous avez bien [configuré votre environnement de développement](service-fabric-get-started.md). Cela inclut l’installation du kit de développement logiciel (SDK) de Service Fabric et de Visual Studio 2017 ou 2015.
 
@@ -136,7 +137,7 @@ Accédez à cette adresse où vous verrez la réponse `HELLO WORLD`.
 N’oubliez pas de supprimer toutes les ressources que vous avez créées pour ce démarrage rapide, car celles-ci vous sont facturées.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Apprenez-en davantage sur les [exécutables invités](service-fabric-deploy-existing-app.md).
+Apprenez-en davantage sur les [exécutables invités](service-fabric-guest-executables-introduction.md).
 
 <!-- Image References -->
 

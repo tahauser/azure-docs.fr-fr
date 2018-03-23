@@ -1,5 +1,5 @@
 ---
-title: "Exécuter un test de validation dans Azure Stack | Microsoft Docs"
+title: Exécuter un test de validation dans Azure Stack | Microsoft Docs
 description: Comment collecter des fichiers journaux de diagnostics dans Azure Stack
 services: azure-stack
 author: mattbriggs
@@ -11,13 +11,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 02/26/2018
 ms.author: mabrigg
-ms.openlocfilehash: 53ef19628b40c4a008143c867c9e7867ac91854d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 4f86397d4db5a0e67b294befd92087166d6b8109
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Exécuter un test de validation pour Azure Stack
 
@@ -64,7 +64,7 @@ Valide l’état du système Azure Stack. L’applet de commande décrit l’ét
 | ServiceAdminCredentials | PSCredential    | Non        | FALSE   |
 | DoNotDeployTenantVm     | SwitchParameter | Non        | FALSE   |
 | AdminCredential         | PSCredential    | Non        | N/D      |
-| StorageConnectionString | Chaîne          | Non        | N/D      |
+<!-- | StorageConnectionString | Chaîne          | Non        | N/D      | non pris en charge dans 1802-->
 | Liste                    | SwitchParameter | Non        | FALSE   |
 | Ignorer                  | Chaîne          | Non        | N/D      |
 | Inclure                 | Chaîne          | Non        | N/D      |

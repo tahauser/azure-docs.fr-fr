@@ -1,6 +1,6 @@
 ---
-title: "Prise en main de la solution de simulation d’appareil - Azure | Microsoft Docs"
-description: "La solution de simulation IoT Suite est un outil qui peut être utilisé pour faciliter le développement et le test d’une solution IoT. Le service de simulation constitue une offre autonome, que vous pouvez utiliser conjointement avec d’autres solutions préconfigurées ou avec vos propres solutions personnalisées."
+title: Prise en main de la solution de simulation d’appareil - Azure | Microsoft Docs
+description: La solution de simulation IoT Suite est un outil qui peut être utilisé pour faciliter le développement et le test d’une solution IoT. Le service de simulation constitue une offre autonome, que vous pouvez utiliser conjointement avec d’autres solutions préconfigurées ou avec vos propres solutions personnalisées.
 services: iot device simulation
 suite: iot-suite
 author: troyhopwood
@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 25b9d1c7debe0d98a87b7d0b47dea6ab6f36c8af
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 2a9a6f3387b7f9fb4e3896fc55a06ac4a902ad24
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="device-simulation-walkthrough"></a>Présentation de la simulation d’appareil
 
@@ -31,11 +31,11 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Démarrage et arrêt d’une simulation
 > * Afficher les données de télémétrie
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce didacticiel, vous avez besoin d’une instance déployée de la simulation d’appareil Azure IoT dans votre abonnement Azure.
 
-Si vous n’avez pas encore déployé la simulation d’appareil, vous devez suivre le didacticiel [Déployer la simulation d’appareil Azure IoT](iot-suite-device-simulation-explore.md).
+Si vous n’avez pas encore déployé la simulation d’appareil, vous devez suivre le didacticiel [Déployer la simulation d’appareil Azure IoT](iot-suite-device-simulation-deploy.md).
 
 ## <a name="configuring-device-simulation"></a>Configuration de la simulation d’appareil
 

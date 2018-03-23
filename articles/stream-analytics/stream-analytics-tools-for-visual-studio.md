@@ -1,8 +1,8 @@
 ---
 title: Utiliser Azure Stream Analytics Tools pour Visual Studio | Microsoft Docs
-description: "Didacticiel pour bien démarrer avec les outils Azure Stream Analytics pour Visual Studio"
+description: Didacticiel pour bien démarrer avec les outils Azure Stream Analytics pour Visual Studio
 keywords: visual studio
-documentationcenter: 
+documentationcenter: ''
 services: stream-analytics
 author: su-jie
 manager: jhubbard
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
+ms.date: 03/05/2018
 ms.author: sujie
-ms.openlocfilehash: b06eae6b85f2ca41390955cde2499af2531e2e12
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 71e7247226f9432b3f9590ca87ac33883ea576ce
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-azure-stream-analytics-tools-for-visual-studio"></a>Utiliser Azure Stream Analytics Tools pour Visual Studio
 Les outils Azure Stream Analytics pour Visual Studio sont maintenant disponibles de manière générale. Ces outils permettent d’enrichir l’expérience de l’utilisateur Stream Analytics pour la résolution de problèmes, les requêtes complexes et même l’écriture de requêtes en local. Vous pouvez également exporter un travail Stream Analytics dans un projet Visual Studio.
 
 ## <a name="introduction"></a>Introduction
-Dans ce didacticiel, vous apprenez à utiliser les outils Stream Analytics pour Visual Studio afin de créer, fournir du contenu, tester localement, gérer et déboguer vos travaux Stream Analytics. 
+Dans ce didacticiel, vous apprenez à utiliser les outils Stream Analytics pour Visual Studio afin de créer, fournir du contenu, tester localement, gérer et déboguer vos travaux Stream Analytics. Après avoir créé la tâche, vous pouvez configurer un processus d’intégration et de déploiement continu dans Azure à l’aide du package Nuget CI/CD. Pour en savoir plus, consultez l’article [Stream Analytics VS outils pour configurer un pipeline CI/CD](stream-analytics-tools-for-visual-studio-cicd.md).
 
 Après avoir effectué ce didacticiel, vous pourrez :
 
@@ -35,7 +35,8 @@ Après avoir effectué ce didacticiel, vous pourrez :
 * utiliser la surveillance pour résoudre les problèmes ;
 * exporter des travaux existants dans des projets.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 Pour effectuer ce didacticiel, vous avez besoin des prérequis suivants :
 
 * Accomplissez les étapes qui précèdent « Créer une tâche Stream Analytics » du didacticiel [Créer une solution IoT à l’aide de Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics). 
@@ -267,7 +268,7 @@ Il existe deux méthodes pour exporter un travail existant vers un projet.
 ## <a name="next-steps"></a>Étapes suivantes
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
 * [Bien démarrer avec Azure Stream Analytics](stream-analytics-get-started.md)
-* [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
+* [Mise à l’échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Références sur le langage des requêtes Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

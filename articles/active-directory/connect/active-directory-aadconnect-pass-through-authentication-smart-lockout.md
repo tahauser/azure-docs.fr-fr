@@ -1,9 +1,9 @@
 ---
 title: 'Azure AD Connect : authentification directe - Verrouillage intelligent | Documents Microsoft'
-description: "Cet article décrit comment l’authentification directe Azure Active Directory (Azure AD) protège vos comptes locaux contre les attaques de mot de passe par force brute dans le cloud"
+description: Cet article décrit comment l’authentification directe Azure Active Directory (Azure AD) protège vos comptes locaux contre les attaques de mot de passe par force brute dans le cloud
 services: active-directory
-keywords: "Authentification directe Azure AD Connect, installation d’Active Directory, composants requis pour Azure AD, SSO, Authentification unique"
-documentationcenter: 
+keywords: Authentification directe Azure AD Connect, installation d’Active Directory, composants requis pour Azure AD, SSO, Authentification unique
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 03/07/2018
 ms.author: billmath
-ms.openlocfilehash: fc46fe1d68538757ba5a8c5aa1acb4b51f8a171b
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 9477d47824213d7ea15bcf6c6b615a220bae2e48
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-smart-lockout"></a>Authentification directe Azure Active Directory : Verrouillage intelligent
 
 ## <a name="overview"></a>Vue d'ensemble
 
-Azure Active Directory (Azure AD) protège contre les attaques de mot de passe par force brute et empêche le verrouillage des utilisateurs authentiques sur leurs applications Office 365 et SaaS. Cette fonctionnalité, appelée *Verrouillage intelligent*, est pris en charge lorsque vous utilisez l’authentification directe en tant que méthode de connexion. Le verrouillage intelligent est activé par défaut pour tous les locataires, et il protège en permanence vos comptes d’utilisateur.
+Azure Active Directory (Azure AD) protège contre les attaques de mot de passe par force brute et empêche le verrouillage des utilisateurs authentiques sur leurs applications Office 365 et SaaS. Cette fonctionnalité, appelée *Verrouillage intelligent*, est pris en charge lorsque vous utilisez l’authentification directe en tant que méthode de connexion. Le verrouillage intelligent est activé par défaut pour tous les locataires (et non uniquement pour ceux qui utilisent l’authentification directe) et protège en permanence vos comptes d’utilisateur.
 
 Le verrouillage intelligent suit les tentatives de connexion ayant échouées. Après un *seuil de verrouillage* donné, il démarre une *durée de verrouillage*. Le verrouillage intelligent rejette toutes les tentatives de connexion de l’attaquant pendant la durée de verrouillage. Si l’attaque se poursuit, une fois la durée de verrouillage terminée, les durées de verrouillage des tentatives de connexion ayant échoué suivantes sont plus longues.
 

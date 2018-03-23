@@ -1,11 +1,11 @@
 ---
 title: Forum Aux Questions (FAQ) sur les groupes de machines virtuelles identiques Azure | Microsoft Docs
-description: "Obtenez des réponses aux questions fréquemment posées sur les groupes de machines virtuelles identiques."
+description: Obtenez des réponses aux questions fréquemment posées sur les groupes de machines virtuelles identiques.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
@@ -17,10 +17,10 @@ ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
 ms.openlocfilehash: 52be84b73e70a02c43ef71917dc272060d82b42d
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>FAQ sur les groupes de machines virtuelles identiques Azure
 
@@ -339,7 +339,7 @@ Pour plus d’informations, consultez le [Centre de gestion de la confidentialit
 
 ### <a name="does-azure-managed-service-identityhttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-virtual-machine-scale-sets"></a>Est-ce [qu’Azure Managed Service Identity](https://docs.microsoft.com/azure/active-directory/msi-overview) fonctionne avec des groupes de machines virtuelles identiques ?
 
-Oui. Vous pouvez voir des exemples de modèles MSI dans les modèles de démarrage rapide Azure. Linux : [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux). Windows : [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows).
+Oui. Vous pouvez voir des exemples de modèles MSI dans les modèles de démarrage rapide Azure. Linux : [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux). Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows).
 
 
 ## <a name="extensions"></a>Extensions

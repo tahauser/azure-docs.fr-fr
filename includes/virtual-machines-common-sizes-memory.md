@@ -19,18 +19,22 @@ Les tailles des machines virtuelles de la série ESv3 sont basées sur le proce
 
 | Taille             | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et en cache max : E/S par seconde / Mbits/s (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / Mbits/s | Nombre max de cartes réseau / Bande passante réseau attendue (Mbits/s) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------------------------|
-| Standard_E2s_v3  | 2      | 16          | 32             | 4              | 4 000 / 32 (50)                                                       | 3 200 / 48                                | 2 / 1 000                                   |
-| Standard_E4s_v3  | 4      | 32          | 64             | 8              | 8 000 / 64 (100)                                                      | 6 400 / 96                                | 2 / 2 000                                   |
-| Standard_E8s_v3  | 8      | 64          | 128            | 16             | 16 000 / 128 (200)                                                    | 12 800 / 192                              | 4 / 4 000                                       |
-| Standard_E16s_v3 | 16     | 128         | 256            | 32             | 32 000 / 256 (400)                                                    | 25 600 / 384                              | 8 / 8 000                                       |
-| Standard_E32s_v3 <sup>2</sup> | 32     | 256         | 512            | 32             | 64 000 / 512 (800)                                                    | 51 200 / 768                              | 8 / 16 000                             |
-| Standard_E64s_v3 <sup>2,3</sup> | 64     | 432         | 864            | 32             | 128 000/1 024 (1 600)                                                   | 80 000 / 1 200                             | 8 / 30 000                             |
+| Standard_E2s_v3 | 2      | 16          | 32             | 4              | 4 000 / 32 (50)                                                       | 3 200 / 48                                | 2 / 1 000                                   |
+| Standard_E4s_v3&nbsp;<sup>2</sup> | 4      | 32          | 64             | 8              | 8 000 / 64 (100)                                                      | 6 400 / 96                                | 2 / 2 000                                   |
+| Standard_E8s_v3&nbsp;<sup>2</sup> | 8      | 64          | 128            | 16             | 16 000 / 128 (200)                                                    | 12 800 / 192                              | 4 / 4 000                                       |
+| Standard_E16s_v3&nbsp;<sup>2</sup> | 16     | 128         | 256            | 32             | 32 000 / 256 (400)                                                    | 25 600 / 384                              | 8 / 8 000                                       |
+| Standard_E32s_v3&nbsp;<sup>2</sup> | 32     | 256         | 512            | 32             | 64 000 / 512 (800)                                                    | 51 200 / 768                              | 8 / 16 000                             |
+| Standard_E64s_v3&nbsp;<sup>2</sup> | 64     | 432         | 864            | 32             | 128 000/1 024 (1 600)                                                   | 80 000 / 1 200                             | 8 / 30 000                             |
+| Standard_E64is_v3&nbsp;<sup>3</sup> | 64     | 432         | 864            | 32             | 128 000/1 024 (1 600)                                                   | 80 000 / 1 200                             | 8 / 30 000                             |
 
-<sup>1</sup> Machines virtuelles de série Esv3 dotées de la technologie Hyper-Threading d’Intel®
 
-<sup>2</sup> Tailles avec nombre de cœurs limité disponibles 
+<sup>1</sup> Machines virtuelles de série Esv3 dotées de la technologie Hyper-Threading d’Intel®.
+
+<sup>2</sup> Tailles avec nombre de cœurs limité disponibles.
 
 <sup>3</sup> L’instance est isolée sur un matériel dédié à un client unique.
+
+
 ## <a name="ev3-series-sup1sup"></a>Série Ev3 <sup>1</sup>
 
 ACU : 160-190 
@@ -47,11 +51,13 @@ Le stockage sur disque de données est facturé séparément des machines virtue
 | Standard_E8_v3  | 8         | 64          | 200            | 16             | 12000/187/93                                             | 4 / 4 000                     |
 | Standard_E16_v3 | 16        | 128         | 400            | 32             | 24000/375/187                                            | 8 / 8 000                     |
 | Standard_E32_v3 | 32        | 256         | 800            | 32             | 48000/750/375                                            | 8 / 16 000                 |
-| Standard_E64_v3<sup>2</sup> | 64        | 432         | 1 600           | 32             | 96000/1000/500                                           | 8 / 30 000           |
+| Standard_E64_v3 | 64        | 432         | 1 600           | 32             | 96000/1000/500                                           | 8 / 30 000           |
+| Standard_E64i_v3&nbsp;<sup>2</sup> | 64        | 432         | 1 600           | 32             | 96000/1000/500                                           | 8 / 30 000           |
 
-<sup>1</sup> Machines virtuelles de série Ev3 dotées de la technologie Hyper-Threading d’Intel®
+<sup>1</sup> Machines virtuelles de série Ev3 dotées de la technologie Hyper-Threading d’Intel®.
 
-<sup>2</sup> L’instance est isolée sur un matériel dédié à un client unique.
+<sup>2</sup> Tailles avec nombre de cœurs limité disponibles. 
+
 
 ## <a name="m-series-sup1sup"></a>Série M <sup>1</sup>
 
@@ -61,12 +67,12 @@ ACU : 160-180
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
 | Standard_M64s  | 64   | 1 024        | 2 048           | 64             | 80,000 / 800 (6348)       | 40 000 / 1 000                            | 8 / 16 000          |
 | Standard_M64ms  | 64   | 1792        | 2 048           | 64             | 80,000 / 800 (6348)       | 40 000 / 1 000                            | 8 / 16 000          |
-| Standard_M128s <sup>2, 3</sup> | 128  | 2 048        | 4096           | 64             | 160,000 / 1,600 (12,696) | 80 000 / 2 000                            | 8 / 30000          |
-| Standard_M128ms <sup>2, 3, 4</sup> | 128  | 3 800        | 4096           | 64             | 160,000 / 1,600 (12,696) | 80 000 / 2 000                            | 8 / 30000          |
+| Standard_M128s&nbsp;<sup>2,&nbsp;3</sup> | 128  | 2 048        | 4096           | 64             | 160,000 / 1,600 (12,696) | 80 000 / 2 000                            | 8 / 30000          |
+| Standard_M128ms&nbsp;<sup>2,&nbsp;3,&nbsp;4</sup> | 128  | 3 800        | 4096           | 64             | 160,000 / 1,600 (12,696) | 80 000 / 2 000                            | 8 / 30000          |
 
 <sup>1</sup> Machines virtuelles de série M dotées de la technologie Hyper-Threading d’Intel®
 
-<sup>2</sup> Avec plus de 64 processeurs virtuels, vous devez utiliser l’un des systèmes d’exploitation invités pris en charge suivants : Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 et Red Hat Enterprise Linux, CentOS 7.3 ou Oracle Linux 7.3 avec LIS 4.2.1 
+<sup>2</sup> Avec plus de 64 processeurs virtuels, vous devez utiliser l’un des systèmes d’exploitation invités pris en charge suivants : Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 et Red Hat Enterprise Linux, CentOS 7.3 ou Oracle Linux 7.3 avec LIS 4.2.1.
 
 <sup>3</sup> Tailles avec nombre de cœurs limité disponibles.
 
@@ -82,14 +88,14 @@ ACU : 180 - 240
 | Standard_GS1 |2 |28 |56 |8 |10 000 / 100 (264) |5 000 / 125 |2 / 2 000 |
 | Standard_GS2 |4 |56 |112 |16 |20 000 / 200 (528) |10 000 / 250 |2 / 4 000 |
 | Standard_GS3 |8 |112 |224 |32 |40 000 / 400 (1 056) |20 000 / 500 |4 / 8 000 |
-| Standard_GS4 <sup>3</sup> |16 |224 |448 |64 |80 000 / 800 (2 112) |40 000 / 1 000 |8 / 16 000 |
-| Standard_GS5 <sup>2, 3</sup> |32 |448 |896 |64 |160 000 / 1 600 (4 224) |80 000 / 2 000 |8 / 20 000 |
+| Standard_GS4&nbsp;<sup>3</sup> |16 |224 |448 |64 |80 000 / 800 (2 112) |40 000 / 1 000 |8 / 16 000 |
+| Standard_GS5&nbsp;<sup>2,&nbsp;3</sup> |32 |448 |896 |64 |160 000 / 1 600 (4 224) |80 000 / 2 000 |8 / 20 000 |
 
 <sup>1</sup> Le débit de disque maximal possible (E/S par seconde ou Mbits/s) avec une machine virtuelle de la série GS peut être limité par le nombre, la taille et la répartition des disques attachés. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/virtual-machines/windows/premium-storage.md). 
 
-<sup>2</sup> L’instance est isolée sur un matériel dédié à un client unique. 
+<sup>2</sup> L’instance est isolée sur un matériel dédié à un client unique.
 
-<sup>3</sup> Tailles avec nombre de cœurs limité disponibles 
+<sup>3</sup> Tailles avec nombre de cœurs limité disponibles.
 
 <br>
 
@@ -103,7 +109,7 @@ ACU : 180 - 240
 | Standard_G2  | 4         | 56          | 768            | 12000 / 187 / 93                                         | 16 / 16 x 500                       | 2 / 4 000                     |
 | Standard_G3  | 8         | 112         | 1 536          | 24000 / 375 / 187                                        | 32 / 32 x 500                     | 4 / 8 000                |
 | Standard_G4  | 16        | 224         | 3 072          | 48000 / 750 / 375                                        | 64 / 64 x 500                     | 8 / 16 000          |
-| Standard_G5 <sup>1</sup> | 32        | 448         | 6 144          | 96000 / 1500 / 750                                       | 64 / 64 x 500                     | 8 / 20 000           |
+| Standard_G5&nbsp;<sup>1</sup> | 32        | 448         | 6 144          | 96000 / 1500 / 750                                       | 64 / 64 x 500                     | 8 / 20 000           |
 
 <sup>1</sup> L’instance est isolée sur un matériel dédié à un client unique.
 <br>
@@ -115,17 +121,20 @@ ACU : 210-250
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et en cache max : E/S par seconde / Mbits/s (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / Mbits/s | Nombre max de cartes réseau / Bande passante réseau attendue (Mbits/s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS11_v2 |2 |14 |28 |8 |8 000 / 64 (72) |6 400 / 96 |2 / 1 500 |
-| Standard_DS12_v2 |4 |28 |56 |16 |16 000 / 128 (144) |12 800 / 192 |4 / 3 000 |
-| Standard_DS13_v2 |8 |56 |112 |32 |32 000 / 256 (288) |25 600 / 384 |8 / 6 000 |
-| Standard_DS14_v2 |16 |112 |224 |64 |64 000 / 512 (576) |51 200 / 768 |8 / 12000 |
-| Standard_DS15_v2 <sup>2</sup> |20 |140 |280 |64 |80 000 / 640 (720) |64 000 / 960 |8 / 25000 <sup>3</sup>
+| Standard_DS11_v2&nbsp;<sup>3</sup> |2 |14 |28 |8 |8 000 / 64 (72) |6 400 / 96 |2 / 1 500 |
+| Standard_DS12_v2&nbsp;<sup>3</sup> |4 |28 |56 |16 |16 000 / 128 (144) |12 800 / 192 |4 / 3 000 |
+| Standard_DS13_v2&nbsp;<sup>3</sup> |8 |56 |112 |32 |32 000 / 256 (288) |25 600 / 384 |8 / 6 000 |
+| Standard_DS14_v2&nbsp;<sup>3</sup>|16 |112 |224 |64 |64 000 / 512 (576) |51 200 / 768 |8 / 12000 |
+| Standard_DS15_v2&nbsp;<sup>2</sup> |20 |140 |280 |64 |80 000 / 640 (720) |64 000 / 960 |8 / 25000&nbsp;<sup>4</sup>
+
 
 <sup>1</sup> Le débit de disque maximal possible (E/S par seconde ou Mbits/s) avec une machine virtuelle de la série DSv2 peut être limité par le nombre, la taille et la répartition des disques attachés.  Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/virtual-machines/windows/premium-storage.md).
 
-<sup>2</sup> L’instance est isolée sur un matériel dédié à un client unique. 
+<sup>2</sup> L’instance est isolée sur un matériel dédié à un client unique.
 
-<sup>3</sup> 25 000 Mbits/s avec mise en réseau accélérée.
+<sup>3</sup> Tailles avec nombre de cœurs limité disponibles.
+
+<sup>4</sup> 25 000 Mbits/s avec mise en réseau accélérée.
 
 <br>
 
@@ -139,11 +148,13 @@ ACU : 210-250
 | Standard_D12_v2   | 4         | 28          | 200            | 12000 / 187 / 93                                         | 16 / 16 x 500                         | 4 / 3 000                     |
 | Standard_D13_v2   | 8         | 56          | 400            | 24000 / 375 / 187                                        | 32 / 32 x 500                       | 8 / 6 000                     |
 | Standard_D14_v2   | 16        | 112         | 800            | 48000 / 750 / 375                                        | 64 / 64 x 500                       | 8 / 12000          |
-| Standard_D15_v2 <sup>1</sup> | 20        | 140         | 1 000          | 60000 / 937 / 468                                        | 64 / 64 x 500                       | 8 / 25000 <sup>2</sup> |
+| Standard_D15_v2&nbsp;<sup>1</sup> | 20        | 140         | 1 000          | 60000 / 937 / 468                                        | 64 / 64 x 500                       | 8 / 25000&nbsp;<sup>2</sup> |
 
 <sup>1</sup> L’instance est isolée sur un matériel dédié à un client unique. 
 
 <sup>2</sup> 25 000 Mbits/s avec mise en réseau accélérée.
+
+
 
 <br>
 
@@ -159,6 +170,7 @@ ACU : 160
 | Standard_DS14 |16 |112 |224 |64 |64 000 / 512 (576) |51 200 / 512 |8 / 8000 |
 
 <sup>1</sup> Le débit de disque maximal possible (E/S par seconde ou Mbits/s) avec une machine virtuelle de la série DS peut être limité par le nombre, la taille et la répartition des disques attachés.  Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/virtual-machines/windows/premium-storage.md).
+
 
 
 ## <a name="d-series"></a>Série D

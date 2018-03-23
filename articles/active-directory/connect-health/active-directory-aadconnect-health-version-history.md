@@ -1,8 +1,8 @@
 ---
-title: "Historique de publication des versions d’Azure AD Connect Health"
-description: "Ce document décrit les versions d’Azure AD Connect Health et ce qui a été inclus dans ces versions."
+title: Historique de publication des versions d’Azure AD Connect Health
+description: Ce document décrit les versions d’Azure AD Connect Health et ce qui a été inclus dans ces versions.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: karavar
 manager: mtillman
 editor: curtand
@@ -14,14 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: b43eb5e78b70f38226e3e8cb53d1530d348c7c20
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: edc1771153581e73398e8df25e70660f9f85ceba
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health : historique de publication des versions
 L’équipe Azure Active Directory met régulièrement à jour Azure AD Connect Health avec de nouvelles fonctions et fonctionnalités. Cet article répertorie les versions et les fonctionnalités qui ont été publiées.
+
+## <a name="march-2018"></a>Mars 2018
+**Mise à jour de l’agent :**
+
+*   Agent Azure AD Connect Health pour AD DS (version 3.0.176.0)
+  1. Améliorations de la disponibilité de l’agent 
+  2. Résolutions de bogues et améliorations générales
+*   Agent Azure AD Connect Health pour AD FS (version 3.0.176.0)
+  1. Améliorations de la disponibilité de l’agent 
+  2. Résolutions de bogues et améliorations générales
+* Agent Azure AD Connect Health pour Sync (version 3.0.176.0)
+  1. Améliorations de la disponibilité de l’agent 
+  2. Résolutions de bogues et améliorations générales
 
 ## <a name="december-2017"></a>Décembre 2017
 **Mise à jour de l’agent :**

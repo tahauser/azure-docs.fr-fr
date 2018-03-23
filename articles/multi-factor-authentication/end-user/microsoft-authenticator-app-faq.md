@@ -1,8 +1,8 @@
 ---
-title: "Aide et support pour l’application Microsoft Authenticator | Microsoft Docs"
-description: "Fournit une liste de questions fréquentes et les réponses relatives à l’application Microsoft Authentication et à l’authentification multifacteur Azure."
+title: Aide et support pour l’application Microsoft Authenticator | Microsoft Docs
+description: Fournit une liste de questions fréquentes et les réponses relatives à l’application Microsoft Authentication et à l’authentification multifacteur Azure.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: f04d5bce-e99e-4f75-82d1-ef6369be3402
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
-ms.author: barlan
+ms.date: 03/08/2018
+ms.author: lizross
 ms.reviewer: librown
 ms.custom: end-user
-ms.openlocfilehash: 2c109a53866f9fff8c61a157cf1194fe4dd6e1ac
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: aa3c6bb9196a17ae41c05458533f73f3ec315bd8
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Forum aux questions sur l’application Microsoft Authenticator
 
@@ -28,6 +28,14 @@ Cet article répond aux questions courantes que nous recevons sur l’applicatio
 L’application Microsoft Authenticator a remplacé l’application Azure Authenticator et devient l’application recommandée lorsque vous utilisez l’authentification multifacteur Azure. L’application Microsoft Authenticator est disponible pour [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) et [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+
+### <a name="what-data-does-the-authenticator-store-on-my-behalf-and-how-can-i-delete-it"></a>Quelles données Authenticator stocke-t-il en mon nom et comment puis-je les supprimer ?
+
+Microsoft Authenticator stocke les informations de compte créées lors de l’ajout d’un compte. Lorsque vous utilisez Authenticator, un journal de diagnostic est créé pour le débogage et stocke des données utiles afin d’aider Microsoft à diagnostiquer des problèmes imprévus. Vous pouvez accéder aux données de journal en ouvrant **Aide** > **Envoyer des journaux** > **Afficher des journaux**.
+
+Vous pouvez supprimer les données en supprimant la mosaïque du compte. Cette opération supprimera toutes les informations de compte utilisées par l’application, notamment les journaux. 
+
+Pour plus d’informations sur la manière dont Microsoft utilise vos données, consultez : https://servicetrust.microsoft.com/ViewPage/PrivacyGettingStarted
 
 ### <a name="what-are-the-codes-in-the-app-for-why-does-the-number-keep-counting-down"></a>À quoi servent les codes de l’application ? Pourquoi le nombre ne cesse de diminuer ?
 

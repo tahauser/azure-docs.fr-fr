@@ -1,24 +1,19 @@
 ---
-title: "Interroger des bases de données cloud de schémas différents | Documents Microsoft Azure"
-description: "configuration de requêtes de bases de données croisées sur les partitions verticales"
+title: Interroger des bases de données cloud de schémas différents | Documents Microsoft Azure
+description: configuration de requêtes de bases de données croisées sur les partitions verticales
 services: sql-database
-documentationcenter: 
-manager: jhubbard
+manager: craigg
 author: MladjoA
-ms.assetid: 84c261f2-9edc-42f4-988c-cf2f251f5eff
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mlandzic
-ms.openlocfilehash: f3bf919aa4aab8d37a5a97b90138b1f5434eb6ea
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 2ded9ee4938e02715b1149ce5375e855519cea9f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Interroger des bases de données cloud de schémas différents (version préliminaire)
 ![Requête sur plusieurs tables dans des bases de données différentes][1]
@@ -26,10 +21,11 @@ ms.lasthandoff: 12/14/2017
 Les bases de données partitionnées verticalement utilisent différents ensembles de tables sur différentes bases de données. Cela signifie que le schéma est différent sur des bases de données différentes. Par exemple, toutes les tables d’inventaire se trouvent sur une base de données alors que toutes les tables liées à la comptabilité se trouvent dans une seconde base de données. 
 
 ## <a name="prerequisites"></a>Prérequis
+
 * L’utilisateur doit posséder l’autorisation ALTER ANY EXTERNAL DATA SOURCE. Cette autorisation est incluse dans l’autorisation ALTER DATABASE.
 * Les autorisations ALTER ANY EXTERNAL DATA SOURCE sont nécessaires pour faire référence à la source de données sous-jacente.
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 > [!NOTE]
 > Contrairement au partitionnement horizontal, ces instructions DDL ne dépendent pas de la définition d’une couche de données avec un mappage de partition via la bibliothèque client de base de données élastique.
@@ -67,7 +63,7 @@ Syntaxe :
 > Le paramètre TYPE doit être défini sur **RDBMS**. 
 >
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 L’exemple suivant illustre l’utilisation de l’instruction CREATE pour les sources de données externes. 
 
     CREATE EXTERNAL DATA SOURCE RemoteReferenceData 
@@ -96,7 +92,7 @@ Syntaxe :
       [ SCHEMA_NAME = N'nonescaped_schema_name',] 
       [ OBJECT_NAME = N'nonescaped_object_name',] 
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
     CREATE EXTERNAL TABLE [dbo].[customer]( 
         [c_id] int NOT NULL, 
         [c_firstname] nvarchar(256) NULL, 

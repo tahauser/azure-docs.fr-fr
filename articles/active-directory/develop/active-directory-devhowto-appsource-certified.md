@@ -1,11 +1,11 @@
 ---
 title: Comment obtenir une certification AppSource pour Azure Active Directory | Microsoft Docs
-description: "Plus d’informations sur l’obtention de votre application AppSource certifié pour Azure Active Directory."
+description: Plus d’informations sur l’obtention de votre application AppSource certifié pour Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: andretms
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 21206407-49f8-4c0b-84d1-c25e17cd4183
 ms.service: active-directory
 ms.devlang: na
@@ -16,10 +16,10 @@ ms.date: 08/03/2017
 ms.author: andret
 ms.custom: aaddev
 ms.openlocfilehash: 5601ad80e271364fec519cf34bcdc2f650f3bb92
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Comment obtenir une certification AppSource pour Azure Active Directory
 [Microsoft AppSource](https://appsource.microsoft.com/) est une destination pour les utilisateurs professionnels permettant de découvrir, d’essayer et de gérer des applications SaaS métier (applications SaaS autonomes et module complémentaire pour des produits SaaS Microsoft existant).
@@ -35,7 +35,7 @@ Une application qui accepte les connexions des utilisateurs de toutes les entrep
 
 Pour activer une architecture mutualisée sur votre application :
 - Définissez la propriété `Multi-Tenanted` sur `Yes` dans les informations d’inscription de votre application dans le [portail Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) (par défaut, les applications créées dans le portail Azure sont configurées en tant que *locataires uniques*).
-- Mettez à jour votre code pour envoyer des demandes au point de terminaison « `common` » (mettez à jour le point de terminaison *https://login.microsoftonline.com/{yourtenant}* en le remplaçant par *https://login.microsoftonline.com/common*).
+- Mettez à jour votre code pour envoyer des requêtes au point de terminaison « `common` » (mettez à jour le point de terminaison de *https://login.microsoftonline.com/{yourtenant}* vers *https://login.microsoftonline.com/common*)
 - Pour certaines plateformes, comme ASP.NET, vous devez également mettre à jour votre code afin d’accepter plusieurs émetteurs.
 
 Pour plus d’informations sur l’architecture mutualisée, consultez : [Comment connecter un utilisateur Azure Active Directory (AD) à l’aide du modèle d’application mutualisée](./active-directory-devhowto-multi-tenant-overview.md).

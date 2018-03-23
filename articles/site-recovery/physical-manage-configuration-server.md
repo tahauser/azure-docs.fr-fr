@@ -1,23 +1,24 @@
 ---
 title: " Gérer le serveur de configuration pour la reprise après sinistre d’un serveur physique avec Azure Site Recovery | Microsoft Docs"
-description: "Cet article explique comment gérer un serveur de configuration existant pour la reprise après sinistre d’un serveur physique sur Azure, à l’aide du service Azure Site Recovery."
+description: Cet article explique comment gérer un serveur de configuration existant pour la reprise après sinistre d’un serveur physique sur Azure, à l’aide du service Azure Site Recovery.
 services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/18/2018
+ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: 7fe68f072ef438e21f3e6d3d52aee9e86e537687
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 2fdccade577788d3fc5bc076604547b2ab6690d9
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gérer le serveur de configuration pour la reprise après sinistre d’un serveur physique
 
 Vous configurez un serveur de configuration local quand vous utilisez le service [Azure Site Recovery](site-recovery-overview.md) pour la reprise après sinistre de serveurs physiques sur Azure. Le serveur de configuration coordonne la communication entre les machines locales et Azure, et gère la réplication des données. Cet article résume les tâches courantes de gestion du serveur de configuration après son déploiement.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Le tableau répertorie les prérequis du déploiement d’une machine de serveur de configuration locale.
 
@@ -36,7 +37,7 @@ Le tableau répertorie les prérequis du déploiement d’une machine de serveur
 | IIS | - Aucun site web par défaut préexistant <br> - Activer l’[authentification anonyme](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Activer le paramètre [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)  <br> - Aucune application/aucun site web préexistants ne doivent écouter le port 443<br>|
 | Type de carte réseau | VMXNET3 (en cas de déploiement comme machine virtuelle VMware) |
 | Type d’adresse IP | statique |
-| Accès à Internet | Le serveur doit également accéder à ces URL : <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (non requis pour les serveurs de traitement à montée en charge) <br> - time.nist.gov <br> - time.windows.com |
+| Accès à Internet | Le serveur doit également accéder à ces URL : <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - dc.services.visualstudio.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (non requis pour les serveurs de traitement à montée en charge) <br> - time.nist.gov <br> - time.windows.com |
 | Ports | 443 (Orchestration du canal de contrôle)<br>9443 (Transport de données)|
 
 ## <a name="download-the-latest-installation-file"></a>Télécharger le fichier d’installation le plus récent
@@ -68,7 +69,8 @@ La dernière version du fichier d’installation du serveur configuration est di
      ![Pare-feu](./media/physical-manage-configuration-server/combined-wiz4.png)
 6. Dans **Vérification de la configuration requise**, le programme d’installation procède à une vérification afin de garantir le bon déroulement de l’installation. Si un avertissement s’affiche à propos de la **vérification de la synchronisation globale**, vérifiez que l’heure de l’horloge système (paramètres **Date et heure**) est identique à celle du fuseau horaire.
 
-    ![Prérequis](./media/physical-manage-configuration-server/combined-wiz5.png)
+    ![Prérequis
+](./media/physical-manage-configuration-server/combined-wiz5.png)
 7. Dans **Configuration MySQL**, créez des informations d’identification pour vous connecter à l’instance de serveur MySQL installée.
 
     ![MySQL](./media/physical-manage-configuration-server/combined-wiz6.png)
@@ -164,7 +166,7 @@ Vous pouvez modifier les paramètres de proxy pour la machine du serveur de conf
   ```
 
   >[!WARNING]
-  Si vous avez joint des serveurs de processus supplémentaires à ce serveur de configuration, vous devez [corriger les paramètres de proxy sur tous les serveurs de processus de scale-out](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#modifying-proxy-settings-for-scale-out-process-server) de votre déploiement.
+  Si vous avez joint des serveurs de processus supplémentaires à ce serveur de configuration, vous devez [corriger les paramètres de proxy sur tous les serveurs de processus de scale-out](vmware-azure-manage-process-server.md#modify-proxy-settings-for-an-on-premises-process-server) de votre déploiement.
 
 ## <a name="reregister-a-configuration-server-with-the-same-vault"></a>Réinscrire un serveur de configuration auprès du même coffre
   1. Connectez-vous à votre serveur de configuration.
@@ -184,7 +186,7 @@ Vous pouvez modifier les paramètres de proxy pour la machine du serveur de conf
       ```
 
   >[!WARNING]
-  Si vous avez plusieurs serveurs de processus, vous devez les [réinscrire](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#re-registering-a-scale-out-process-server).
+  Si vous avez plusieurs serveurs de processus, vous devez les [réinscrire](vmware-azure-manage-process-server.md#reregister-a-process-server).
 
 ## <a name="register-a-configuration-server-with-a-different-vault"></a>Inscrire un serveur de configuration auprès d’un autre coffre
 
@@ -233,8 +235,8 @@ Mettez à niveau le serveur comme suit :
 > [!WARNING]
 > Effectuez les opérations suivantes avant de désaffecter votre serveur de configuration.
 > 1. [Désactivez la protection](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) de toutes les machines virtuelles relevant de ce serveur de configuration.
-> 2. [Dissociez ](site-recovery-setup-replication-settings-vmware.md#dissociate-a-configuration-server-from-a-replication-policy) et [supprimez](site-recovery-setup-replication-settings-vmware.md#delete-a-replication-policy) toutes les stratégies de réplication du serveur de configuration.
-> 3. [Supprimez](site-recovery-vmware-to-azure-manage-vCenter.md#delete-a-vcenter-in-azure-site-recovery) tous les serveurs vCenter/hôtes vSphere associés au serveur de configuration.
+> 2. [Dissociez ](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) et [supprimez](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) toutes les stratégies de réplication du serveur de configuration.
+> 3. [Supprimez](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) tous les serveurs vCenter/hôtes vSphere associés au serveur de configuration.
 
 
 ### <a name="delete-the-configuration-server-from-azure-portal"></a>Supprimer le serveur de configuration du portail Azure

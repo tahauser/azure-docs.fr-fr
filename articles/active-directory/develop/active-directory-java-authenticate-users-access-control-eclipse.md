@@ -1,11 +1,11 @@
 ---
 title: Comment utiliser Access Control (Java) | Microsoft Docs
-description: "Apprenez à développer et à utiliser le contrôle d'accès avec Java dans Azure."
+description: Apprenez à développer et à utiliser le contrôle d'accès avec Java dans Azure.
 services: active-directory
 documentationcenter: java
 author: rmcmurray
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 247dfd59-0221-4193-97ec-4f3ebe01d3c7
 ms.service: active-directory
 ms.workload: identity
@@ -16,10 +16,10 @@ ms.date: 04/25/2017
 ms.author: robmcm
 ms.custom: aaddev
 ms.openlocfilehash: b555ef40fae8156d2957643697d6450ef22b215a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="how-to-authenticate-web-users-with-azure-access-control-service-using-eclipse"></a>Authentification des utilisateurs web auprès d'Azure Access Control Service à l'aide d'Eclipse
 Ce guide vous indique comment utiliser Azure Access Control Service (ou ACS) au sein du Kit de ressources Azure pour Eclipse. Pour plus d'informations sur ACS, consultez la section [Étapes suivantes](#next_steps) .
@@ -74,13 +74,14 @@ La figure suivante présente le fonctionnement de l'authentification ACS avec un
 6. ACS valide le jeton de sécurité émis par le fournisseur d'identité, inclut la demande d'identité de ce jeton dans le moteur de règles ACS, calcule la demande d'identité de sortie et émet un nouveau jeton de sécurité contenant ces demandes de sortie.
 7. ACS redirige le client vers la partie de confiance. Le client envoie le nouveau jeton de sécurité émis par ACS à la partie de confiance. La partie de confiance valide la signature du jeton de sécurité émis par ACS, valide les demandes du jeton et renvoie la page demandée à l'origine.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 Pour réaliser les tâches présentées dans ce guide, vous avez besoin des éléments suivants :
 
 * Kit de développement logiciel (SDK) Java version 1.6 ou ultérieure
 * IDE (environnement de développement intégré) Eclipse pour développeurs Java EE, Indigo ou ultérieur, Vous pouvez le télécharger à l’adresse suivante : <http://www.eclipse.org/downloads/>. 
 * Une distribution d'un serveur Web ou d'un serveur d'applications basé sur Java, tel que Apache Tomcat, GlassFish, JBoss Application Server ou Jetty.
-* Un abonnement Azure, qui peut être obtenu à l’adresse <http://www.microsoft.com/windowsazure/offers/>.
+* Un abonnement Azure, auquel vous pouvez souscrire ici : <http://www.microsoft.com/windowsazure/offers/>.
 * Kit de ressources Azure pour Eclipse, version d’avril 2014 ou ultérieure. Pour plus d’informations, consultez [Installation du kit de ressources Azure pour Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx).
 * Un certificat X509 à utiliser avec votre application. Vous avez besoin du certificat public (.cer) et de celui au format Personal Information Exchange (.PFX) (les instructions de création de ce certificat sont indiquées plus loin dans ce didacticiel).
 * Vous devez connaître l'émulateur de calcul Azure ainsi que les techniques de déploiement présentées dans la page [Création d'une application Hello World pour Azure dans Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx).
@@ -94,7 +95,7 @@ Pour commencer à utiliser ACS dans Azure, vous devez créer un espace de noms A
 4. Entrez le nom de l'espace de noms. Azure vérifie que le nom est unique.
 5. Sélectionnez la région dans laquelle l'espace de noms sera utilisé. Pour obtenir des performances optimales, sélectionnez la zone géographique dans laquelle vous déployez l'application.
 6. Si vous avez plusieurs abonnements, sélectionnez celui que vous souhaitez utiliser pour l’espace de noms ACS.
-7. Cliquez sur **Create**.
+7. Cliquez sur **Créer**.
 
 Azure crée et active l'espace de noms. Patientez jusqu’à ce que l’état du nouvel espace de noms soit **Active** avant de continuer. 
 
@@ -121,7 +122,7 @@ Cette tâche vise à configurer ACS afin que votre application Web Java soit rec
    4. Sous **Return URL** , entrez l'adresse URL vers laquelle ACS renvoie le jeton de sécurité. Dans le cas présent, entrez **http://localhost:8080/MyACSHelloWorld/index.jsp**
       ![URL de retour vers partie de confiance pour utilisation dans l'émulateur de calcul][relying_party_return_url_emulator]
    5. Acceptez les valeurs par défaut dans les autres champs.
-4. Cliquez sur **Save**.
+4. Cliquez sur **Enregistrer**.
 
 Votre application Web Java est maintenant correctement configurée pour fonctionner avec l'émulateur de calcul Azure (à l'adresse http://localhost:8080/). Elle est considérée comme une partie de confiance dans votre espace de noms ACS. Il vous faut ensuite créer les règles utilisées par ACS pour traiter les demandes pour la partie de confiance.
 
@@ -205,7 +206,7 @@ Dans la page **Login Page Integration : Azure Web App**, l'URL répertoriée da
 4. Cliquez sur **Terminer**.
 5. Cliquez sur le bouton **Run in Azure Emulator** .
 6. Lorsque votre application Web Java est lancée dans l'émulateur de calcul, fermez toutes les instances de votre navigateur (afin qu'aucune session de navigateur ne puisse perturber votre test de connexion à ACS).
-7. Exécutez votre application en ouvrant <http://localhost:8080/MyACSHelloWorld/> dans votre navigateur (ou <https://localhost:8080/MyACSHelloWorld/> si vous avez activé la case à cocher **Require HTTPS connections**). Un identifiant Windows Live ID vous est normalement demandé, puis vous êtes transféré vers l'URL de renvoi spécifiée dans votre application par partie de confiance.
+7. Exécutez votre application en ouvrant <http://localhost:8080/MyACSHelloWorld/> dans votre navigateur (ou <https://localhost:8080/MyACSHelloWorld/> si vous avez coché l’option **Exiger une connexion HTTPS**). Un identifiant Windows Live ID vous est normalement demandé, puis vous êtes transféré vers l'URL de renvoi spécifiée dans votre application par partie de confiance.
 8. Lorsque vous avez terminé d'afficher votre application, cliquez sur le bouton **Reset Azure Emulator** .
 
 ## <a name="deploy-to-azure"></a>Déployer dans Azure
@@ -244,7 +245,7 @@ Cet exemple utilisait l'option **Embed the certificate in the WAR file**. qui si
 
 1. Dans la section **Security** de la boîte de dialogue **Azure Access Control Services Filter**, entrez **${env.JAVA_HOME}/mycert.cer**, puis désactivez l'option **Embed the certificate in the WAR file**. Modifiez mycert.cer si le nom de fichier du certificat est différent. Cliquez sur **Terminer** pour fermer la boîte de dialogue.
 2. Copiez le certificat en tant que composant dans votre déploiement : dans l'Explorateur de projets Eclipse, développez **MyAzureACSProject**, cliquez avec le bouton droit sur **WorkerRole1**, cliquez sur **Properties**, développez **Azure Role** et cliquez sur **Components**.
-3. Cliquez sur **Ajouter**.
+3. Cliquez sur **Add**.
 4. Dans la boîte de dialogue **Add Component** :
    
    1. Dans la section **Import** :

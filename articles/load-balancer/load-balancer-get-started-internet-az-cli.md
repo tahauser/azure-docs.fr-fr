@@ -1,13 +1,13 @@
 ---
-title: "Créer une instance publique de Load Balancer Standard avec un frontend d’adresse IP publique redondant dans une zone à l’aide d’Azure CLI | Microsoft Docs"
-description: "Découvrez comment créer une instance publique de Load Balancer Standard avec un frontend d’adresse IP publique redondant dans une zone à l’aide d’Azure CLI."
+title: Créer une instance publique de Load Balancer Standard avec un frontend d’adresse IP publique redondant dans une zone à l’aide d’Azure CLI | Microsoft Docs
+description: Découvrez comment créer une instance publique de Load Balancer Standard avec un frontend d’adresse IP publique redondant dans une zone à l’aide d’Azure CLI.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/20/2017
 ms.author: kumud
-ms.openlocfilehash: 180cf891611f148a1b9acd112fbcddab8eb54de3
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 725e1717110ebfe52e2b45ab0c45edc36055704f
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zone-redundant-frontend-using-azure-cli"></a>Créer une instance publique de Load Balancer Standard avec un frontend redondant dans une zone à l’aide d’Azure CLI
 
@@ -41,7 +41,7 @@ La [référence SKU de Load Balancer Standard](https://aka.ms/azureloadbalancers
 
 Avant de sélectionner une zone ou une option de redondance dans une zone pour l’adresse IP publique frontend de Load Balancer, vous devez d’abord suivre les étapes de la section [S’inscrire à la préversion des zones de disponibilité](https://docs.microsoft.com/azure/availability-zones/az-overview).
 
-Vérifiez que vous avez installé la dernière version de l’interface [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) et que vous vous êtes connecté à un compte Azure avec la commande [az login](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest#az_login).
+Assurez-vous que vous avez installé la dernière version d’[Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) et que vous êtes connecté à un compte Azure avec [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az_login).
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -87,7 +87,7 @@ az network lb rule create --resource-group myResourceGroup --lb-name myLoadBalan
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Découvrez comment [créer une adresse IP publique dans une zone de disponibilité](../virtual-network/create-public-ip-availability-zone-cli.md).
+- Découvrez comment [créer une adresse IP publique dans une zone de disponibilité](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address).
 
 
 

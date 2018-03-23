@@ -1,24 +1,24 @@
 ---
-title: "Comprendre les contrôles de sécurité Azure Stack | Microsoft Docs"
-description: "En tant qu’administrateur de service, découvrez les contrôles de sécurité appliqués à Azure Stack."
+title: Comprendre les contrôles de sécurité Azure Stack | Microsoft Docs
+description: En tant qu’administrateur de service, découvrez les contrôles de sécurité appliqués à Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: fa0800f03d823769dcd9f01601689122b0d09ec5
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c1d92f8f2ed9e8ab504afc65bab861e1f7bb3689
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Situation de sécurité de l’infrastructure Azure Stack
 
@@ -31,8 +31,12 @@ Dans Azure Stack, il existe deux couches de situation de sécurité qui coexiste
 ## <a name="security-approach"></a>Approche de la sécurité
 Par sa conception, Azure Stack présente une situation de sécurité assurant la protection face aux dernières menaces et répond aux exigences des principaux standards de conformité. Ainsi, la situation de sécurité de l’infrastructure Azure Stack repose sur deux piliers :
 
- - **Envisager les failles.** En partant de l’hypothèse que le système a déjà été enfreint, concentrez-vous sur *la détection des violations et sur la limitation de leur impact*, au lieu d’essayer uniquement d’empêcher les attaques. 
- - **Renforcement par défaut.**  Étant donné que l’infrastructure s’exécute sur des composants matériels et logiciels bien définis, *activez, configurez et validez les fonctionnalités de sécurité* dont l’implémentation est laissée aux clients.
+ - **Envisager les failles.**  
+En partant de l’hypothèse que le système a déjà été enfreint, concentrez-vous sur *la détection des violations et sur la limitation de leur impact*, au lieu d’essayer uniquement d’empêcher les attaques. 
+ - **Renforcement par défaut.**  
+Étant donné que l’infrastructure s’exécute sur des composants matériels et logiciels bien définis, nous *activons, configurons et validons toutes les fonctionnalités de sécurité* par défaut.
+
+
 
 Étant donné qu’Azure Stack est fourni sous la forme d’un système intégré, la situation de sécurité de l’infrastructure Azure Stack est définie par Microsoft. Tout comme dans Azure, il appartient aux locataires de définir la situation de sécurité de leurs charges de travail de locataire. Ce document fournit des connaissances fondamentales sur la situation de sécurité de l’infrastructure Azure Stack.
 

@@ -1,11 +1,11 @@
 ---
-title: "Protéger un serveur d’API Web back-end avec Azure Active Directory et Gestion des API | Microsoft Docs"
-description: "Découvrez comment protéger un serveur principal d’API web avec Azure Active Directory et Gestion des API."
+title: Protéger un serveur d’API Web back-end avec Azure Active Directory et Gestion des API | Microsoft Docs
+description: Découvrez comment protéger un serveur principal d’API web avec Azure Active Directory et Gestion des API.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 2a5be24aba8a675290045b282cc64dda4b7c594e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: b7fc48412799aea0c4bba971102b4912dbb18e05
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Protection d’un serveur principal d’API web avec Azure Active Directory et Gestion des API
 
@@ -179,7 +179,7 @@ Les API sont configurées à partir du portail des éditeurs d’API, accessible
 
 ![Portail des éditeurs][api-management-management-console]
 
-Il est possible d’ [ajouter manuellement des opérations aux API](api-management-howto-add-operations.md), ou bien de les importer. Dans cette vidéo, à partir de 6’40’’, les opérations sont importées au format Swagger.
+Il est possible d’ [ajouter manuellement des opérations aux API](api-management-howto-add-operations.md), ou bien de les importer.
 
 Créez un fichier nommé `calcapi.json` avec le contenu suivant et enregistrez-le sur votre ordinateur. Vérifiez que l’attribut `host` pointe vers le serveur principal de votre API web. Dans cet exemple, `"host": "apimaaddemo.azurewebsites.net"` est utilisé.
 

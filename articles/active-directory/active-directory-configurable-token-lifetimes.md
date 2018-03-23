@@ -1,11 +1,11 @@
 ---
-title: "Durées de vie des jetons configurables dans Azure Active Directory | Microsoft Docs"
-description: "Découvrez comment définir les durées de vie des jetons émis par Azure AD."
+title: Durées de vie des jetons configurables dans Azure Active Directory | Microsoft Docs
+description: Découvrez comment définir les durées de vie des jetons émis par Azure AD.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 06f5b317-053e-44c3-aaaa-cf07d8692735
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: billmath
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: eaf9e7088c8c88140ea690c13ff7e0c7026b8f86
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 568bf5f0a4cf3eb77b528af2550d9729dcc59878
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Durées de vie des jetons configurables dans Azure Active Directory (version préliminaire publique)
 Vous pouvez spécifier la durée de vie d’un jeton émis par Azure Active Directory (Azure AD). Vous pouvez définir les durées de vie des jetons pour toutes les applications de votre organisation, pour une application mutualisée (plusieurs organisations) ou pour un principal de service spécifique de votre organisation.
@@ -34,6 +34,11 @@ Dans Azure AD, un objet de stratégie représente un ensemble de règles appliq
 
 Vous pouvez désigner une stratégie comme stratégie par défaut pour votre organisation. La stratégie est appliquée à toutes les applications de l’organisation tant qu’elle n’est pas remplacée par une stratégie pourvue d’une priorité plus élevée. Vous pouvez également affecter une stratégie à des applications spécifiques. L’ordre de priorité varie par type de stratégie.
 
+> [!NOTE]
+> La stratégie configurable de durée de vie des jetons n’est pas prise en charge par SharePoint Online.  Même si vous avez la possibilité de créer cette stratégie via PowerShell, SharePoint Online ne reconnaît pas cette stratégie. Reportez-vous au [blog SharePoint Online](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) pour en savoir plus sur la configuration des délais d’expiration des sessions inactives.
+>* Par défaut, la durée de vie d’un jeton d’accès SharePoint Online est d’une heure. 
+>* Par défaut, la durée de vie d’un jeton d’actualisation SharePoint Online est de 90 jours.
+>
 
 ## <a name="token-types"></a>Types de jetons
 
@@ -194,7 +199,8 @@ Dans les exemples, vous pouvez apprendre à :
 * Créer une stratégie pour une application native qui appelle une API web
 * Gérer une stratégie avancée
 
-### <a name="prerequisites"></a>configuration requise
+### <a name="prerequisites"></a>Prérequis
+
 Dans les exemples suivants, vous allez créer, mettre à jour, lier et supprimer des stratégies pour les applications, les principaux de service et votre organisation globale. Si vous débutez avec Azure AD, nous vous recommandons de vous documenter sur [l’obtention d’un client Azure Active Directory](active-directory-howto-tenant.md) avant de continuer avec ces exemples.  
 
 Pour commencer, suivez les étapes ci-dessous :
@@ -363,7 +369,7 @@ Permet de créer une stratégie.
 New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -IsOrganizationDefault <boolean> -Type <Policy Type>
 ```
 
-| parameters | Description | exemples |
+| parameters | Description | Exemples |
 | --- | --- | --- |
 | <code>&#8209;Definition</code> |Tableau de champs de chaîne JSON qui contient toutes les règles de la stratégie. | `-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
 | <code>&#8209;DisplayName</code> |Chaîne du nom de la stratégie. |`-DisplayName "MyTokenPolicy"` |
@@ -380,7 +386,7 @@ Permet d’obtenir toutes les stratégies d’Azure AD ou une stratégie spéci
 Get-AzureADPolicy
 ```
 
-| parameters | Description | exemples |
+| parameters | Description | Exemples |
 | --- | --- | --- |
 | <code>&#8209;Id</code> [Facultatif] |**ObjectId (ID)** de la stratégie souhaitée. |`-Id <ObjectId of Policy>` |
 
@@ -393,7 +399,7 @@ Permet d’obtenir toutes les applications et tous les principaux de service li�
 Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 ```
 
-| parameters | Description | exemples |
+| parameters | Description | Exemples |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (ID)** de la stratégie souhaitée. |`-Id <ObjectId of Policy>` |
 
@@ -406,7 +412,7 @@ Met à jour une stratégie existante.
 Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 ```
 
-| parameters | Description | exemples |
+| parameters | Description | Exemples |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (ID)** de la stratégie souhaitée. |`-Id <ObjectId of Policy>` |
 | <code>&#8209;DisplayName</code> |Chaîne du nom de la stratégie. |`-DisplayName "MyTokenPolicy"` |
@@ -424,7 +430,7 @@ Supprime la stratégie spécifiée.
  Remove-AzureADPolicy -Id <ObjectId of Policy>
 ```
 
-| parameters | Description | exemples |
+| parameters | Description | Exemples |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (ID)** de la stratégie souhaitée. | `-Id <ObjectId of Policy>` |
 
@@ -440,7 +446,7 @@ Lie la stratégie spécifiée à une application.
 Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectId of Policy>
 ```
 
-| parameters | Description | exemples |
+| parameters | Description | Exemples |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (Id)** de l’application. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |**ID d’objet** de la stratégie. | `-RefObjectId <ObjectId of Policy>` |
@@ -454,7 +460,7 @@ Permet d’obtenir la stratégie affectée à une application.
 Get-AzureADApplicationPolicy -Id <ObjectId of Application>
 ```
 
-| parameters | Description | exemples |
+| parameters | Description | Exemples |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (Id)** de l’application. | `-Id <ObjectId of Application>` |
 
@@ -467,7 +473,7 @@ Supprime une stratégie d’une application.
 Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectId of Policy>
 ```
 
-| parameters | Description | exemples |
+| parameters | Description | Exemples |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (Id)** de l’application. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |**ID d’objet** de la stratégie. | `-PolicyId <ObjectId of Policy>` |
@@ -484,7 +490,7 @@ Lie la stratégie spécifiée à un principal de service.
 Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectId <ObjectId of Policy>
 ```
 
-| parameters | Description | exemples |
+| parameters | Description | Exemples |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (Id)** de l’application. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |**ID d’objet** de la stratégie. | `-RefObjectId <ObjectId of Policy>` |
@@ -498,7 +504,7 @@ Permet d’obtenir une stratégie liée au principal de service spécifié.
 Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 ```
 
-| parameters | Description | exemples |
+| parameters | Description | Exemples |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (Id)** de l’application. | `-Id <ObjectId of Application>` |
 
@@ -511,7 +517,7 @@ Supprime la stratégie du principal de service spécifié.
 Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
 ```
 
-| parameters | Description | exemples |
+| parameters | Description | Exemples |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (Id)** de l’application. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |**ID d’objet** de la stratégie. | `-PolicyId <ObjectId of Policy>` |

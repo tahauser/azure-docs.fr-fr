@@ -1,26 +1,19 @@
 ---
 title: Stocker les sauvegardes Azure SQL Database pendant 10 ans | Microsoft Docs
-description: "Découvrez comment Azure SQL Database prend en charge le stockage de sauvegardes pendant 10 ans."
-keywords: 
+description: Découvrez comment Azure SQL Database prend en charge le stockage de sauvegardes pendant 10 ans.
 services: sql-database
-documentationcenter: 
 author: anosov1960
-manager: jhubbard
-editor: 
-ms.assetid: 66fdb8b8-5903-4d3a-802e-af08d204566e
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: On Demand
 ms.date: 12/22/2016
 ms.author: sashan
-ms.openlocfilehash: e44c92c3f37b3f1e3397d1c8cdb8c8f6d0f9942e
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 2f31e89fce2746e57d6a670aef949d0d534af4c1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Stocker les sauvegardes Azure SQL Database pendant 10 ans
 De nombreuses applications sont dédiées à la réglementation, à la conformité ou à d’autres fins professionnelles qui vous obligent à conserver des sauvegardes de données au-delà des 7 à 35 jours offerts par les [sauvegardes automatiques](sql-database-automated-backups.md) Azure SQL Database. Avec la fonctionnalité de rétention de sauvegarde à long terme, vous pouvez stocker vos sauvegardes SQL Database dans un coffre Azure Recovery Services pendant 10 ans. Vous pouvez stocker jusqu’à 1 000 bases de données par coffre. Vous pouvez ensuite sélectionner n’importe quelle sauvegarde dans le coffre pour la restaurer en tant que nouvelle base de données.

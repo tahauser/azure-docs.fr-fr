@@ -1,12 +1,12 @@
 ---
-title: "Créer une machine virtuelle Azure avec mise en réseau accélérée| Documents Microsoft"
-description: "Apprenez à créer une machine virtuelle Linux avec mise en réseau accélérée."
+title: Créer une machine virtuelle Azure avec mise en réseau accélérée| Documents Microsoft
+description: Apprenez à créer une machine virtuelle Linux avec mise en réseau accélérée.
 services: virtual-network
-documentationcenter: 
+documentationcenter: ''
 author: jdial
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: jimdial
-ms.openlocfilehash: f4908963e0650be9b12b745f6868a1ba6ad933e4
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: c0017b8759a1f01b010172be562ed869d1d51a25
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Créer une machine virtuelle Windows avec mise en réseau accélérée
 
 > [!IMPORTANT] 
-> Les machines virtuelles doivent être créées en activant la mise en réseau accélérée. Cette fonctionnalité ne peut pas être activée sur les machines virtuelles existantes. Pour activer la mise en réseau accélérée, suivez les étapes ci-dessous
+> Les machines virtuelles doivent être créées en activant la mise en réseau accélérée. Cette fonctionnalité ne peut pas être activée sur les machines virtuelles existantes. Procédez comme suit pour activer la mise en réseau accélérée :
 >   1. Supprimer la machine virtuelle
 >   2. Recréez une machine virtuelle en activant la mise en réseau accélérée
 >
@@ -60,6 +60,8 @@ Les limitations suivantes existent lors de l’utilisation de cette fonctionnali
 * **Création d’interface réseau :** la mise en réseau accélérée ne peut être activée que pour une nouvelle carte réseau. Elle ne peut pas être activée pour une carte réseau existante.
 * **Création de machine virtuelle :** une carte réseau avec mise en réseau accélérée activée ne peut être attachée à une machine virtuelle que lors de la création de celle-ci. Une carte réseau ne peut pas être attachée à une machine virtuelle existante. Si la machine virtuelle est ajoutée à un groupe à haute disponibilité, la mise en réseau accélérée doit être également activée sur toutes les machines virtuelles de ce groupe.
 * **Déploiement via Azure Resource Manager uniquement :** aucun déploiement des machines virtuelles (classiques) n’est possible avec la mise en réseau accélérée.
+
+Bien que cet article fournit des étapes pour créer une machine virtuelle avec mise en réseau accélérée à l’aide d’Azure PowerShell, vous pouvez également [Créer une machine virtuelle avec mise en réseau accélérée via le portail Azure](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Lors de la création d’une machine virtuelle avec un système d’exploitation et une taille de machine virtuelle pris en charge dans le portail, sous **Paramètres**, sélectionnez **Activé** sous **Mise en réseau accélérée**. Une fois la machine virtuelle créée, vous devez suivre les instructions dans [Confirmer que le pilote est installé sur le système d’exploitation](#confirm-the-driver-is-installed-in-the-operating-system).
 
 ## <a name="create-a-virtual-network"></a>Créez un réseau virtuel
 

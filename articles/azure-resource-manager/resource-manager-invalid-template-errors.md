@@ -1,23 +1,23 @@
 ---
-title: "Erreurs de modèle Azure non valide | Microsoft Docs"
-description: "Décrit comment résoudre les erreurs de modèle non valide."
+title: Erreurs de modèle Azure non valide | Microsoft Docs
+description: Décrit comment résoudre les erreurs de modèle non valide.
 services: azure-resource-manager,azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
-editor: 
+editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 87bc6e4def624785c5052a9a25f579b022c940ec
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1c6712eaf17cf55c1422baca355ce99ed319df28
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Résoudre les erreurs de modèle non valide
 
@@ -38,9 +38,7 @@ Le message d’erreur varie selon le type d’erreur.
 
 Cette erreur peut résulter de différents types d’erreurs. Elles impliquent généralement une erreur de syntaxe ou de structure dans le modèle.
 
-## <a name="solution"></a>Solution
-
-### <a name="solution-1---syntax-error"></a>Solution 1 - erreur de syntaxe
+## <a name="solution-1---syntax-error"></a>Solution 1 - erreur de syntaxe
 
 Si vous recevez un message d’erreur qui indique que la validation du modèle a échoué, vous avez peut-être un problème de syntaxe dans votre modèle.
 
@@ -55,11 +53,11 @@ Cette erreur est facile à commettre car les expressions de modèle peuvent êtr
 "name": "[concat('storage', uniqueString(resourceGroup().id))]",
 ```
 
-Si vous ne fournissez pas la syntaxe correspondante, le modèle produit une valeur très différente de votre intention.
+Si vous ne fournissez pas la syntaxe correspondante, le modèle produit une valeur très différente de celle souhaitée.
 
 Lorsque vous recevez ce type d’erreur, examinez attentivement la syntaxe d’expression. Vous pouvez utiliser un éditeur JSON comme [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) ou [Visual Studio Code](resource-manager-vs-code.md), qui vous signale des erreurs de syntaxe.
 
-### <a name="solution-2---incorrect-segment-lengths"></a>Solution 2 - longueurs de segments incorrectes
+## <a name="solution-2---incorrect-segment-lengths"></a>Solution 2 - longueurs de segments incorrectes
 
 Une autre erreur de modèle non valide se produit lorsque le nom de la ressource n’est pas au format approprié.
 
@@ -69,7 +67,7 @@ Message=Deployment template validation failed: 'The template resource {resource-
 for type {resource-type} has incorrect segment lengths.
 ```
 
-Une ressource au niveau racine doit avoir un segment de moins dans le nom que dans le type de ressource. Chaque segment se différencie par une barre oblique. Dans l’exemple suivant, le type comporte deux segments et le nom un segment : il s’agit donc d’un **nom valide**.
+Une ressource au niveau racine doit avoir un segment de moins dans le nom que dans le type de ressource. Chaque segment se différencie par une barre oblique. Dans l’exemple suivant, le type comporte deux segments et le nom comporte un segment. Il s’agit donc d’un **nom valide**.
 
 ```json
 {
@@ -118,9 +116,9 @@ Obtenir des segments valides peut être difficile si des types Resource Manager 
 }
 ```
 
-### <a name="solution-3---parameter-is-not-valid"></a>Solution 3 - le paramètre n’est pas valide
+## <a name="solution-3---parameter-is-not-valid"></a>Solution 3 - le paramètre n’est pas valide
 
-Si le modèle spécifie les valeurs autorisées pour un paramètre et que vous fournissez une valeur qui n’est pas une de ces valeurs, vous recevez un message similaire à l’erreur suivante :
+Si vous fournissez une valeur de paramètre qui ne fait pas partie des valeurs autorisées, vous recevez un message similaire à celui de l’erreur suivante :
 
 ```
 Code=InvalidTemplate;
@@ -129,12 +127,36 @@ for the template parameter {parameter name} is not valid. The parameter value is
 part of the allowed values
 ```
 
-Vérifiez les valeurs autorisées dans le modèle et fournissez-en une pendant le déploiement.
+Vérifiez les valeurs autorisées dans le modèle et fournissez-en une pendant le déploiement. Pour plus d’informations sur les valeurs de paramètres autorisées, consultez [Section Parameters des modèles Azure Resource Manager](resource-manager-templates-parameters.md).
 
-### <a name="solution-4---too-many-target-resource-groups"></a>Solution 4 : trop de groupes de ressources cibles
+## <a name="solution-4---too-many-target-resource-groups"></a>Solution 4 : trop de groupes de ressources cibles
 
 Si vous spécifiez plus de cinq groupes de ressources cibles dans un déploiement unique, vous recevez cette erreur. Songez à consolider le nombre de groupes de ressources dans votre déploiement, ou à déployer certains modèles en tant que déploiements distincts. Pour plus d’informations, voir [Déployer des ressources Azure sur plusieurs groupes de ressources et des abonnements](resource-manager-cross-resource-group-deployment.md).
 
-### <a name="solution-5---circular-dependency-detected"></a>Solution 5 : dépendance circulaire détectée
+## <a name="solution-5---circular-dependency-detected"></a>Solution 5 : dépendance circulaire détectée
 
 Vous recevez cette erreur lorsque des ressources dépendant les unes des autres empêchent le déploiement de démarrer. À cause de l’effet combiné d’interdépendances, plusieurs ressources attendent d’autres ressources qui sont elles aussi en attente. Par exemple, la ressource 1 dépend de la ressource 3, la ressource 2 de la ressource 1 et la ressource 3 de la ressource 2. Vous pouvez généralement résoudre ce problème en supprimant les dépendances inutiles.
+
+Pour résoudre une dépendance circulaire :
+
+1. Dans votre modèle, recherchez la ressource identifiée dans la dépendance circulaire. 
+2. Pour cette ressource, examinez la propriété **dependsOn** et les utilisations de la fonction **référence** pour voir de quelles ressources elle dépend. 
+3. Examinez ces ressources pour voir de quelles ressources elles dépendent. Suivez les dépendances jusqu’à ce que vous trouviez une ressource qui dépend de la ressource d’origine.
+5. Pour les ressources impliquées dans la dépendance circulaire, examinez attentivement toutes les utilisations de la propriété **dependsOn** pour identifier les dépendances qui ne sont pas nécessaires. Supprimer ces dépendances. Si vous n’êtes pas certain qu’une dépendance soit nécessaire, essayez de la supprimer. 
+6. Redéployez le modèle.
+
+La suppression de valeurs de la propriété **dependsOn** peut provoquer des erreurs lors du déploiement du modèle. Si vous obtenez une erreur, rajoutez la dépendance dans le modèle. 
+
+Si cette approche ne résout pas le problème de dépendance circulaire, essayez de déplacer une partie de votre logique de déploiement dans les ressources enfants (par exemple, les extensions ou les paramètres de configuration). Configurez ces ressources enfants pour qu’elles se déploient après les ressources impliquées dans la dépendance circulaire. Par exemple, supposons que vous déployiez deux machines virtuelles, mais que vous deviez définir sur chacune d’elles des propriétés faisant référence les unes aux autres. Vous pouvez les déployer dans l’ordre suivant :
+
+1. Machine virtuelle 1
+2. Machine virtuelle 2
+3. L’extension sur la machine virtuelle 1 dépend des machines virtuelles 1 et 2. L’extension définit sur la machine virtuelle 1 des valeurs qu’elle obtient de la machine virtuelle 2.
+4. L’extension sur la machine virtuelle 2 dépend des machines virtuelles 1 et 2. L’extension définit sur la machine virtuelle 2 des valeurs qu’elle obtient de la machine virtuelle 1.
+
+Cette approche fonctionne aussi pour les applications App Service. Essayez de déplacer des valeurs de configuration dans une ressource enfant de la ressource d’application. Vous pouvez déployer deux applications web dans l’ordre suivant :
+
+1. Application web 1
+2. Application web 2
+3. La configuration de l’application web 1 dépend des applications web 1 et 2. Elle contient des paramètres d’application avec les valeurs de l’application web 2.
+4. La configuration de l’application web 2 dépend des applications web 1 et 2. Elle contient des paramètres d’application avec les valeurs de l’application web 1.

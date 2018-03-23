@@ -1,11 +1,11 @@
 ---
-title: "Guide de référence des vignettes du Concepteur de vues dans Azure Log Analytics | Microsoft Docs"
-description: "Grâce au Concepteur de vues de Log Analytics, vous pouvez créer des vues personnalisées dans le portail Azure qui affichent différentes visualisations de données dans votre espace de travail Log Analytics. Cet article est un guide de référence pour les paramètres des vignettes disponibles dans vos vues personnalisées."
+title: Guide de référence des vignettes du Concepteur de vues dans Azure Log Analytics | Microsoft Docs
+description: Grâce au Concepteur de vues de Log Analytics, vous pouvez créer des vues personnalisées dans le portail Azure qui affichent différentes visualisations de données dans votre espace de travail Log Analytics. Cet article est un guide de référence pour les paramètres des vignettes disponibles dans vos vues personnalisées.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
-editor: 
+editor: ''
 ms.assetid: 41787c8f-6c13-4520-b0d3-5d3d84fcf142
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: a14a6bf196c165bdffa0a9d5d343c0430cff7f29
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f341cb9430c7750909c1fc1f50c15f0620e74366
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Guide de référence des vignettes du Concepteur de vues dans Log Analytics
 Grâce au Concepteur de vues d’Azure Log Analytics, vous pouvez créer des vues personnalisées dans le portail Azure qui présentent différentes visualisations de données dans votre espace de travail Log Analytics. Cet article est un guide de référence pour les paramètres des vignettes disponibles dans vos vues personnalisées.
@@ -28,8 +28,6 @@ Pour plus d’informations sur le Concepteur de vues, consultez :
 * [Concepteur de vues](log-analytics-view-designer.md) : fournit une présentation du Concepteur de vues et des procédures de création et de modification des vues personnalisées.
 * [Référence des composants de visualisation](log-analytics-view-designer-parts.md) : fournit un guide de référence pour les paramètres des composants de visualisation disponibles dans vos vues personnalisées.
 
-> [!NOTE]
-> Si votre espace de travail a été mis à niveau vers le [nouveau langage de requête Log Analytics](log-analytics-log-search-upgrade.md), les requêtes de toutes les vues doivent être écrites à l’aide du [nouveau langage de requête](https://go.microsoft.com/fwlink/?linkid=856078). Toutes les vues créées avant la mise à niveau de l’espace de travail sont automatiquement converties.
 
 Les vignettes du Concepteur de vues disponibles sont décrites dans le tableau suivant :  
 
@@ -57,7 +55,7 @@ La vignette **Nombre** affiche à la fois le nombre d’enregistrements retourn�
 | Légende |Texte affiché sous la valeur. |
 | Requête |Requête exécutée. Le nombre d’enregistrements retournés par la requête est affiché. |
 | **Avancée** |**&gt; Vérification du flux de données** |
-| Activé |Sélectionnez ce lien si la vérification du flux de données doit être activée pour la vignette. Cette approche fournit un autre message si les données ne sont pas disponibles. Normalement, vous adoptez cette approche pour fournir un message entre l’installation de la vue et le moment où les données deviennent disponibles. |
+| activé |Sélectionnez ce lien si la vérification du flux de données doit être activée pour la vignette. Cette approche fournit un autre message si les données ne sont pas disponibles. Normalement, vous adoptez cette approche pour fournir un message entre l’installation de la vue et le moment où les données deviennent disponibles. |
 | Requête |Requête exécutée pour déterminer si les données sont disponibles pour la vue. Si la requête ne retourne aucun résultat, un message s’affiche à la place de la valeur de la requête principale. |
 | Message |Message affiché si la requête de vérification du flux de données ne retourne aucune donnée. Si vous ne fournissez aucun message, un message d’état *Exécution de l’évaluation* s’affiche. |
 
@@ -102,7 +100,7 @@ La vignette **Anneau** affiche un nombre unique qui résume une colonne de valeu
 | Couleurs |Couleur affiché pour chacune des trois premières propriétés. Pour spécifier d’autres couleurs pour des valeurs de propriété spécifiques, utilisez l’option *Mappage avancé des couleurs*. |
 | Mappage avancé des couleurs |Affiche une couleur qui représente des valeurs de propriété spécifiques. Si la valeur spécifiée figure parmi les trois premières, l’autre couleur s’affiche au lieu de la couleur standard. Si la propriété ne figure pas parmi les trois premières, la couleur ne s’affiche pas. |
 | **Avancée** |**&gt; Vérification du flux de données** |
-| Activé |Sélectionnez ce lien si la vérification du flux de données doit être activée pour la vignette. Cette approche fournit un autre message si les données ne sont pas disponibles. Normalement, vous adoptez cette approche pour fournir un message entre l’installation de la vue et le moment où les données deviennent disponibles. |
+| activé |Sélectionnez ce lien si la vérification du flux de données doit être activée pour la vignette. Cette approche fournit un autre message si les données ne sont pas disponibles. Normalement, vous adoptez cette approche pour fournir un message entre l’installation de la vue et le moment où les données deviennent disponibles. |
 | Requête |Requête exécutée pour déterminer si les données sont disponibles pour la vue. Si la requête ne retourne aucun résultat, un message s’affiche à la place de la valeur de la requête principale. |
 | Message |Message affiché si la requête de vérification du flux de données ne retourne aucune donnée. Si vous ne fournissez aucun message, un message d’état *Exécution de l’évaluation* s’affiche. |
 
@@ -120,7 +118,7 @@ Cette vignette est un graphique en courbes qui affiche plusieurs séries à part
 | Requête |Requête exécutée pour le graphique en courbes. La première propriété est une valeur de texte et la seconde une valeur numérique. Cette requête utilise habituellement le mot clé *measure* pour synthétiser les résultats. Si la requête utilise le mot clé *interval*, l’axe des abscisses (X) utilise cet intervalle de temps. Si la requête n’utilise pas le mot clé *interval*, l’axe des abscisses utilise des intervalles d’une heure. |
 | **Graphique en courbes** |**> Axe Y** |
 | Utiliser l’échelle logarithmique |Sélectionnez ce lien pour utiliser une échelle logarithmique pour l’axe des ordonnées (Y). |
-| Unités |Spécifiez les unités à utiliser pour exprimer les valeurs retournées par la requête. Ces informations sont utilisées pour afficher sur le graphique des étiquettes indiquant les types de valeurs et, le cas échéant, pour convertir des valeurs. Le **Type d’unité** spécifie la catégorie de l’unité et définit les valeurs de **Type d’unité en cours** disponibles. Si vous sélectionnez une valeur dans **Convertir en**, les valeurs numériques sont converties du type **Unité actuelle** dans le type **Convertir en**. |
+| Units |Spécifiez les unités à utiliser pour exprimer les valeurs retournées par la requête. Ces informations sont utilisées pour afficher sur le graphique des étiquettes indiquant les types de valeurs et, le cas échéant, pour convertir des valeurs. Le **Type d’unité** spécifie la catégorie de l’unité et définit les valeurs de **Type d’unité en cours** disponibles. Si vous sélectionnez une valeur dans **Convertir en**, les valeurs numériques sont converties du type **Unité actuelle** dans le type **Convertir en**. |
 | Étiquette personnalisée |Texte affiché pour l’axe Y en regard de l’étiquette du type d’*Unité*. Si aucune étiquette n’est spécifiée, seul le type d’*Unité* est affiché. |
 | **Avancée** |**&gt; Vérification du flux de données** |
 | activé |Sélectionnez ce lien si la vérification du flux de données doit être activée pour la vignette. Cette approche fournit un autre message si les données ne sont pas disponibles. Normalement, vous adoptez cette approche pour fournir un message entre l’installation de la vue et le moment où les données deviennent disponibles. |
@@ -145,7 +143,7 @@ Cette vignette contient à la fois un graphique en courbes avec plusieurs série
 | Opération |Opération effectuée sur la valeur de propriété afin de la résumer en une valeur unique pour la légende.<ul><li>Average : moyenne des valeurs de tous les enregistrements.</li><li>Count : nombre d’enregistrements retournés par la requête.</li><li>Last Sample : valeur du dernier intervalle inclus dans le graphique.</li><li>Max : valeur maximale des intervalles inclus dans le graphique.</li><li>Min : valeur minimale des intervalles inclus dans le graphique.</li><li>Sum : somme des valeurs de tous les enregistrements.</li></ul> |
 | **Graphique en courbes** |**> Axe Y** |
 | Utiliser l’échelle logarithmique |Sélectionnez ce lien pour utiliser une échelle logarithmique pour l’axe des ordonnées (Y). |
-| Unités |Spécifiez les unités à utiliser pour exprimer les valeurs retournées par la requête. Ces informations sont utilisées pour afficher sur le graphique des étiquettes indiquant les types de valeurs et, le cas échéant, pour convertir les valeurs. Le type d’*Unité* spécifie la catégorie de l’unité, et définit les valeurs de type *Unité actuelle* disponibles. Si vous sélectionnez une valeur pour l’option *Convertir en*, les valeurs numériques sont converties du type *Unité actuelle* au type *Convertir en*. |
+| Units |Spécifiez les unités à utiliser pour exprimer les valeurs retournées par la requête. Ces informations sont utilisées pour afficher sur le graphique des étiquettes indiquant les types de valeurs et, le cas échéant, pour convertir les valeurs. Le type d’*Unité* spécifie la catégorie de l’unité, et définit les valeurs de type *Unité actuelle* disponibles. Si vous sélectionnez une valeur pour l’option *Convertir en*, les valeurs numériques sont converties du type *Unité actuelle* au type *Convertir en*. |
 | Étiquette personnalisée |Texte affiché pour l’axe Y en regard de l’étiquette du type d’*Unité*. Si aucune étiquette n’est spécifiée, seul le type d’*Unité* est affiché. |
 | **Avancée** |**&gt; Vérification du flux de données** |
 | activé |Sélectionnez ce lien si la vérification du flux de données doit être activée pour la vignette. Cette approche fournit un autre message si les données ne sont pas disponibles. Normalement, vous adoptez cette approche pour fournir un message entre l’installation de la vue et le moment où les données deviennent disponibles. |

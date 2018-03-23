@@ -1,10 +1,11 @@
 ---
-title: "Reformation des modèles Machine Learning par programme | Microsoft Docs"
-description: "Apprenez à reformer un modèle par programme et à mettre à jour le service Web pour utiliser le modèle reformé dans Azure Machine Learning."
+title: Reformation des modèles Machine Learning par programme | Microsoft Docs
+description: Apprenez à reformer un modèle par programme et à mettre à jour le service Web pour utiliser le modèle reformé dans Azure Machine Learning.
 services: machine-learning
-documentationcenter: 
-author: raymondlaghaeian
-manager: jhubbard
+documentationcenter: ''
+author: serinakaye
+ms.author: serinak
+manager: mwinkle
 editor: cgronlun
 ms.assetid: 7ae4f977-e6bf-4d04-9dde-28a66ce7b664
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: raymondl;garye
-ms.openlocfilehash: d228021564cdfe5c898c67cce0038b3ec36d014b
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: a986d8c500eb994af81ad535568fbbd8364f4244
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="retrain-machine-learning-models-programmatically"></a>Reformation des modèles Machine Learning par programme
 Cette procédure pas à pas explique comment reformer par programmation un service web Azure Machine Learning en utilisant C# et le service d’exécution de lot Machine Learning.

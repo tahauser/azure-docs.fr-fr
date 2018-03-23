@@ -1,8 +1,8 @@
 ---
-title: "Activer Application Insights Profiler pour les applications qui sont hébergées sur les ressources Microsoft Azure Cloud Services | Microsoft Docs"
-description: "Découvrez comment configurer Application Insights Profiler sur une application qui s’exécute sur Azure Cloud Services."
+title: Activer Application Insights Profiler pour les applications qui sont hébergées sur les ressources Microsoft Azure Cloud Services | Microsoft Docs
+description: Découvrez comment configurer Application Insights Profiler sur une application qui s’exécute sur Azure Cloud Services.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: ramach-msft
 manager: carmonm
 ms.service: application-insights
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: ramach
-ms.openlocfilehash: 278d8241ddd67b6df64b7280d4a17c6d3152f223
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: a24695f7bbb5fb0546e27c934319a60a3418b9e1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-azure-cloud-services"></a>Activer Application Insights Profiler pour des machines virtuelles Azure, Service Fabric et Azure Cloud Services
 
@@ -46,8 +46,7 @@ Pour activer entièrement Profiler, vous devez changer la configuration dans tro
 
    ![Emplacement de la clé d’instrumentation](./media/enable-profiler-compute/CopyAIKey.png)
 
-3. Pour terminer la configuration de l’instance Application Insights pour Profiler, effectuez la procédure décrite dans [Activer Profiler](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-profiler).  
-    Vous n’avez pas besoin de lier les applications web, car les étapes sont spécifiques à la ressource de services d’application. Vérifiez simplement que Profiler est activé dans le volet **Configurer le profileur**.
+3. Pour terminer la configuration de l’instance Application Insights pour Profiler, effectuez la procédure décrite dans [Activer Profiler. Vous n’avez pas besoin de lier les applications web, car les étapes sont spécifiques à la ressource de services d’application. Vérifiez simplement que Profiler est activé dans le volet **Configurer le profileur**.
 
 
 ## <a name="set-up-the-application-source-code"></a>Configurer le code source de l’application
@@ -157,6 +156,8 @@ Pour configurer votre environnement, procédez comme suit :
 
       Pour plus d’informations sur l’ajout de l’extension Diagnostics à votre modèle de déploiement, consultez [Utiliser la surveillance et les diagnostics avec une machine virtuelle Windows et des modèles Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
+> [!TIP]
+> Pour les machines virtuelles, une alternative à la procédure basée sur json ci-dessus consiste à naviguer dans le portail Azure vers **Machines virtuelles** > **Paramètres de diagnostic** > **Récepteurs** > Définissez Envoyer des données de diagnostic vers Application Insights sur **Activé** et sélectionnez un compte Application Insights ou un ikey spécifique.
 
 ### <a name="azure-cloud-services"></a>Services cloud Azure
 
@@ -196,7 +197,7 @@ Pour configurer votre environnement, procédez comme suit :
 
 1. Déployez la définition du déploiement d’environnement modifiée.  
 
-   Pour appliquer les modifications, vous devez généralement effectuer un déploiement de modèle complet ou une publication des services cloud avec les cmdlets PowerShell ou Visual Studio.  
+   Pour appliquer les modifications, vous devez généralement effectuer un déploiement du modèle complet ou une publication basée sur les services cloud à travers des cmdlets PowerShell ou Visual Studio.  
 
    Voici une autre approche pour des machines virtuelles existantes qui touche uniquement l’extension Azure Diagnostics :  
 
@@ -229,7 +230,7 @@ L’activation de Profiler sur un serveur local correspond à l’exécution d�
 
 Nous ne prévoyons pas une prise en charge officielle de Profiler pour les serveurs locaux. Si vous souhaitez tester ce scénario, vous pouvez [télécharger le code de prise en charge](https://github.com/ramach-msft/AIProfiler-Standalone). Nous *ne sommes pas* responsables de la mise à jour de ce code, et nous ne répondons pas aux demandes de fonctionnalités ni aux questions relatives à des problèmes liés au code.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Générez le trafic vers votre application (par exemple, lancez un [test de disponibilité](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability)). Attendez ensuite 10 à 15 minutes le temps que les traces soient envoyées à l’instance Application Insights.
 - Consultez [Traces du profileur](https://docs.microsoft.com/azure/application-insights/app-insights-profiler#enable-the-profiler) dans le portail Azure.

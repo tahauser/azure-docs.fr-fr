@@ -1,26 +1,21 @@
 ---
-title: "Interface de ligne de commande Azure : Créer une base de données SQL | Microsoft Docs"
-description: "Découvrez comment créer un serveur logique SQL Database, une règle de pare-feu de niveau serveur et des bases de données à l’aide de l’interface de ligne de commande Azure."
-keywords: "didacticiel sur la base de données sql, créer une base de données sql"
+title: 'Interface de ligne de commande Azure : Créer une base de données SQL | Microsoft Docs'
+description: Découvrez comment créer un serveur logique SQL Database, une règle de pare-feu de niveau serveur et des bases de données à l’aide de l’interface de ligne de commande Azure.
+keywords: didacticiel sur la base de données sql, créer une base de données sql
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
-ms.workload: On Demand
-ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 10/11/2017
 ms.author: carlrab
-ms.openlocfilehash: 5076a9fcbfb0c46a0aebf858d5ec1dcbee839946
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 73639d59d047fbf1e07b242e21605a83e3c4b837
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-single-azure-sql-database-using-the-azure-cli"></a>Créer une base de données SQL Azure à l’aide de l’interface de ligne de commande Azure
 

@@ -1,11 +1,11 @@
 ---
-title: "Intégrer une solution de surveillance externe à Azure Stack | Microsoft Docs"
-description: "Découvrez comment intégrer Azure Stack à une solution de surveillance externe dans votre centre de données."
+title: Intégrer une solution de surveillance externe à Azure Stack | Microsoft Docs
+description: Découvrez comment intégrer Azure Stack à une solution de surveillance externe dans votre centre de données.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
 ms.service: azure-stack
 ms.workload: na
@@ -16,10 +16,10 @@ ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.openlocfilehash: 3435ada40afb9f1c6e57be64d1b9086d0cdaefd9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Intégrer une solution de surveillance externe à Azure Stack
 
@@ -75,7 +75,7 @@ Le plug-in fonctionne avec Nagios Enterprise et Nagios Core. Vous pouvez le tél
 
 Configurez le fichier du plug-in « Azurestack_plugin.py » avec les paramètres suivants :
 
-| Paramètre | Description | exemples |
+| Paramètre | Description | Exemples |
 |---------|---------|---------|
 | *arm_endpoint* | Point de terminaison Azure Resource Manager (administrateur) |https://adminmanagement.local.azurestack.external |
 | *api_endpoint* | Point de terminaison Azure Resource Manager (administrateur)  | https://adminmanagement.local.azurestack.external |
@@ -519,6 +519,6 @@ GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscriptio
 Pour plus d’informations sur la surveillance de l’intégrité intégrée, consultez [Surveiller l’intégrité et les alertes dans Azure Stack](azure-stack-monitor-health.md).
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Intégration de la sécurité](azure-stack-integrate-security.md)

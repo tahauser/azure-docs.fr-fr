@@ -1,25 +1,19 @@
 ---
-title: "Analyse des performances des données pour Azure SQL Database | Microsoft Docs"
-description: "La surveillance des performances des requêtes identifie les requêtes consommant le plus d’UC pour une base de données SQL Azure."
+title: Analyse des performances des données pour Azure SQL Database | Microsoft Docs
+description: La surveillance des performances des requêtes identifie les requêtes consommant le plus d’UC pour une base de données SQL Azure.
 services: sql-database
-documentationcenter: 
 author: stevestein
-manager: jhubbard
-editor: monicar
-ms.assetid: c2f580b2-3835-453f-89f5-140e02dd2ea7
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: 015f3255d0ff9691168899df1e983e70f35215b1
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 18d03ffcd586a809b37cbc1ca9a7843c25c7758d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-sql-database-query-performance-insight"></a>Query Performance Insight pour base de données SQL Azure
 La gestion et le réglage des performances des bases de données relationnelles est une tâche complexe qui nécessite une réelle expertise et un investissement en temps. Query Performance Insight vous permet de passer moins de temps à résoudre les problèmes de performances des bases de données en fournissant :
@@ -31,7 +25,8 @@ La gestion et le réglage des performances des bases de données relationnelles 
 
 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 * Query Performance Insight nécessite que le [magasin de requêtes](https://msdn.microsoft.com/library/dn817826.aspx) soit actif sur votre base de données. Si le magasin de requêtes ne fonctionne pas, le portail vous invite à l’activer.
 
 ## <a name="permissions"></a>Autorisations
@@ -62,7 +57,7 @@ Dans le [portail](http://portal.azure.com) , procédez comme suit :
 
 1. Accédez à une base de données SQL, puis cliquez sur **Tous les paramètres** > **Support et dépannage** > **Analyse des performances des requêtes**. 
    
-    ![Query performance insight][1]
+    ![Query Performance Insight][1]
    
     La vue des principales requêtes s’ouvre, affichant une liste des requêtes consommant le plus d’UC.
 2. Cliquez sur le graphique pour plus d’informations.<br>La première ligne affiche le pourcentage de DTU global de la base de données, tandis que les barres affichent le pourcentage d’UC consommé par les requêtes sélectionnées pendant l’intervalle sélectionné (par exemple, si **Semaine dernière** est sélectionné, chaque barre représente un jour).
@@ -86,7 +81,7 @@ Dans le [portail](http://portal.azure.com) , procédez comme suit :
    * le nombre de requêtes ;
    * la fonction d’agrégation.
      
-     ![Paramètres](./media/sql-database-query-performance/custom-tab.png)
+     ![paramètres](./media/sql-database-query-performance/custom-tab.png)
 
 ## <a name="viewing-individual-query-details"></a>Affichage des détails d’une requête individuelle
 Pour afficher les détails d’une requête :

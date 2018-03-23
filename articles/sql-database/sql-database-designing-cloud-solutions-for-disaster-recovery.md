@@ -1,9 +1,9 @@
 ---
-title: "Concevoir des services hautement disponibles à l’aide d’Azure SQL Database | Microsoft Docs"
-description: "Découvrez comment concevoir des applications pour des services hautement disponibles à l’aide d’Azure SQL Database."
-keywords: "récupération d’urgence cloud, solutions de récupération d’urgence, sauvegarde de données d’application, géo-réplication, planification de la continuité des activités"
+title: Concevoir des services hautement disponibles à l’aide d’Azure SQL Database | Microsoft Docs
+description: Découvrez comment concevoir des applications pour des services hautement disponibles à l’aide d’Azure SQL Database.
+keywords: récupération d’urgence cloud, solutions de récupération d’urgence, sauvegarde de données d’application, géo-réplication, planification de la continuité des activités
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: anosov1960
 manager: jhubbard
 editor: monicar
@@ -13,19 +13,22 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.date: 12/13/2017
 ms.workload: On Demand
+ms.date: 03/07/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 3d6ad95c1ca316b2e7c3f722315d2ddec03a3716
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: aa6a032a9d42038502cf074ef8aeff8e2e8b0b31
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="designing-highly-available-services-using-azure-sql-database"></a>Conception de services hautement disponibles à l’aide d’Azure SQL Database
 
 Pour créer et déployer des services hautement disponibles sur Azure SQL Database, vous devez utiliser des [groupes de basculement et une géoréplication active](sql-database-geo-replication-overview.md) en vue de fournir une tolérance aux défaillances régionales et aux défaillances graves. Les groupes de basculement et la géoréplication active permettent également une récupération rapide des bases de données secondaires. Cet article aborde les modèles d’application courants et présente les avantages et inconvénients de chacun d’eux. Pour plus d’informations sur la géoréplication active avec des pools élastiques, voir [Stratégies de récupération d’urgence de pool élastique](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+
+> [!NOTE]
+> Si vous utilisez des bases de données et des pools Premium, vous pouvez les rendre résistants aux pannes régionales en les transformant en configuration de déploiement redondante dans une zone (actuellement en préversion). Consultez [Zone-redundant databases](sql-database-high-availability.md) (Bases de données redondantes dans une zone).  
 
 ## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Scénario 1 : Utilisation de deux régions Azure pour la continuité d’activité avec temps d’arrêt minimal
 Dans ce scénario, les applications ont les caractéristiques suivantes : 
@@ -47,8 +50,7 @@ Le diagramme suivant illustre cette configuration avant une panne :
 Après une panne dans la région primaire, le service SQL Database détecte que la base de données primaire n’est pas accessible et déclenche un basculement vers la région secondaire conformément aux paramètres de la stratégie de basculement automatique (1). Selon le contrat de niveau de service (SLA) de votre application, vous pouvez choisir de configurer une période de grâce entre la détection de la panne et le basculement proprement dit. Il est possible que Traffic Manager démarre le basculement de point de terminaison avant que le groupe de basculement ne déclenche le basculement de la base de données. Dans ce cas, l’application web ne peut pas se reconnecter immédiatement à la base de données. Toutefois, une reconnexion automatique est effectuée dès que le basculement de la base de données est terminé. Lorsque la région défaillante est restaurée et de nouveau en ligne, l’ancienne région primaire se reconnecte automatiquement en tant que nouvelle région secondaire. Le diagramme ci-dessous illustre la configuration après le basculement.
  
 > [!NOTE]
-> Toutes les transactions validées après le basculement sont perdues lors de la reconnexion. Une fois le basculement terminé, l’application de la région B est en mesure de se reconnecter et de redémarrer le traitement des demandes utilisateur. L’application web et la base de données primaire se trouvent maintenant dans la région B et restent colocalisées. 
-n>
+> Toutes les transactions validées après le basculement sont perdues lors de la reconnexion. Une fois le basculement terminé, l’application de la région B est en mesure de se reconnecter et de redémarrer le traitement des demandes utilisateur. L’application web et la base de données primaire se trouvent maintenant dans la région B et restent colocalisées. n>
 
 ![Scénario 1 Configuration après le basculement](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-b.png)
 

@@ -1,25 +1,19 @@
 ---
-title: "Interroger des bases de données SQL Azure partitionnées | Microsoft Docs"
-description: "Exécutez des requêtes en utilisant la bibliothèque cliente des bases de données élastiques."
+title: Interroger des bases de données SQL Azure partitionnées | Microsoft Docs
+description: Exécutez des requêtes en utilisant la bibliothèque cliente des bases de données élastiques.
 services: sql-database
-documentationcenter: 
-manager: jhubbard
-author: torsteng
-editor: 
-ms.assetid: a4379c15-f213-4026-ab6f-a450ee9d5758
+manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: torsteng
-ms.openlocfilehash: 33128357bd5b2bd744c5c1c3032f658ebe865d49
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.author: sstein
+ms.openlocfilehash: 2712968f2929c48318e781fa846a8de525a0ef0c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="multi-shard-querying"></a>Requête sur plusieurs partitions
 ## <a name="overview"></a>Vue d'ensemble
@@ -32,7 +26,7 @@ Avec les [outils des bases de données élastiques](sql-database-elastic-scale-i
 5. Exécutez la commande en appelant la méthode **ExecuteQueryAsync ou ExecuteReader** ([Java](), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.executereader.aspx)).
 6. Affichez les résultats à l’aide de la classe **MultiShardResultSet ou MultiShardDataReader** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard._multi_shard_result_set), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multisharddatareader.aspx)). 
 
-## <a name="example"></a>Exemple
+## <a name="example"></a>Exemples
 Le code suivant illustre l'utilisation de la requête sur plusieurs partitions à l'aide d'une **ShardMap** donnée nommée *myShardMap*. 
 
 ```csharp

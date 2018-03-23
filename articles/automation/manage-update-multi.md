@@ -1,24 +1,18 @@
 ---
-title: "Gérer les mises à jour pour plusieurs machines virtuelles Azure | Microsoft Docs"
-description: "Cette rubrique décrit la gestion des mises à jour pour les machines virtuelles Azure."
+title: Gérer les mises à jour pour plusieurs machines virtuelles Azure
+description: Cette rubrique décrit la gestion des mises à jour pour les machines virtuelles Azure.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: 
-ms.assetid: 
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 11/30/2017
-ms.author: magoedte;gwallace
-ms.openlocfilehash: 1763077aa733fc93dd59147405db9942c6c98960
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+manager: carmonm
+ms.openlocfilehash: 29ab87b6afe31b7bbb40ef7d743e209f86811c9d
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gérer les mises à jour pour plusieurs ordinateurs
 
@@ -29,7 +23,8 @@ Vous pouvez utiliser la gestion des mises à jour pour gérer les mises à jour 
 - Planifier l’installation des mises à jour requises.
 - Passer en revue les résultats du déploiement pour vérifier que les mises à jour ont été appliquées correctement à toutes les machines virtuelles pour lesquelles la gestion des mises à jour est activée.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour utiliser la gestion des mises à jour, vous devez avoir :
 
@@ -112,9 +107,9 @@ Le tableau suivant décrit les sources connectées prises en charge par cette so
 
 | Source connectée | Prise en charge | Description |
 | --- | --- | --- |
-| Agents Windows |Oui |La gestion de la mise à jour collecte des informations sur les mises à jour système des agents et lance l’installation des mises à jour obligatoires. |
-| Agents Linux |Oui |La gestion de la mise à jour collecte des informations sur les mises à jour système des agents Linux et lance l’installation des mises à jour obligatoires sur les versions prises en charge. |
-| Groupe d’administration d’Operations Manager |Oui |La gestion de la mise à jour collecte des informations sur les mises à jour système des agents dans un groupe d’administration connecté. |
+| Agents Windows |OUI |La gestion de la mise à jour collecte des informations sur les mises à jour système des agents et lance l’installation des mises à jour obligatoires. |
+| Agents Linux |OUI |La gestion de la mise à jour collecte des informations sur les mises à jour système des agents Linux et lance l’installation des mises à jour obligatoires sur les versions prises en charge. |
+| Groupe d’administration d’Operations Manager |OUI |La gestion de la mise à jour collecte des informations sur les mises à jour système des agents dans un groupe d’administration connecté. |
 | Compte Azure Storage |Non  |Le stockage Azure n’inclut aucune information sur les mises à jour du système. |
 
 ### <a name="collection-frequency"></a>Fréquence de collecte

@@ -1,23 +1,24 @@
 ---
-title: "Utilisation de bases de données SQL sur Azure Stack | Microsoft Docs"
-description: "Découvrez comment déployer des bases de données SQL en tant que service sur Azure Stack et les étapes rapides à suivre pour déployer l’adaptateur de fournisseur de ressources SQL Server."
+title: Utilisation de bases de données SQL sur Azure Stack | Microsoft Docs
+description: Découvrez comment déployer des bases de données SQL en tant que service sur Azure Stack et les étapes rapides à suivre pour déployer l’adaptateur de fournisseur de ressources SQL Server.
 services: azure-stack
-documentationCenter: 
-author: JeffGoldner
-manager: bradleyb
-editor: 
+documentationCenter: ''
+author: mattbriggs
+manager: femila
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
-ms.author: JeffGo
-ms.openlocfilehash: bf52ed4986b4e0930b57721c0e38bbf748045a36
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 03/07/2018
+ms.author: mabrigg
+ms.reviewer: jeffgo
+ms.openlocfilehash: 4d2a00f04e5b07aeb3585fb3ab6c8966e0de7e19
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Utiliser des bases de données SQL sur Microsoft Azure Stack
 
@@ -38,11 +39,14 @@ Le fournisseur de ressources est constitué de trois composants :
 - **Le fournisseur de ressources proprement dit**, qui traite les demandes d’approvisionnement et expose les ressources de base de données.
 - **Les serveurs qui hébergent SQL Server**, qui offrent de la capacité pour les bases de données, et qui sont appelés serveurs d’hébergement.
 
-Vous devez créer une (ou plusieurs) instances de SQL Server et/ou fournir un accès aux instances SQL Server externes.
+Vous devez créer une (ou plusieurs) instances de SQL Server et/ou fournir un accès aux instances SQL Server externes.
+
+> [!NOTE]
+> Les serveurs d’hébergement installés sur des systèmes intégrés Azure Stack doivent être créés à partir d’un abonnement de locataire. Ils ne peuvent pas être créés à partir de l’abonnement du fournisseur par défaut. Ils doivent être créés à partir du portail du locataire ou à partir d’une session PowerShell avec un nom de connexion approprié. Tous les serveurs d’hébergement sont des machines virtuelles facturables et doivent disposer des licences appropriées. L’administrateur de service peut être le propriétaire de l’abonnement locataire.
 
 ## <a name="deploy-the-resource-provider"></a>Déployer le fournisseur de ressources
 
-1. Si ce n’est déjà fait, inscrivez votre Kit de développement et téléchargez l’image Windows Server 2016 Datacenter Core à partir de Gestion dans la Place de marché. Vous devez utiliser une image Windows Server 2016 Core. Vous pouvez également utiliser un script pour créer une [image de Windows Server 2016](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image). (Veillez à sélectionner l’option principale). Le runtime .NET 3.5 n’est plus nécessaire.
+1. Si ce n’est déjà fait, inscrivez votre Kit de développement et téléchargez l’image Windows Server 2016 Datacenter Core à partir de Gestion dans la Place de marché. Vous devez utiliser une image Windows Server 2016 Core. Vous pouvez également utiliser un script pour créer une [image de Windows Server 2016](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image). (Veillez à sélectionner l’option principale.)
 
 2. Connectez-vous à un hôte qui peut accéder à la machine virtuelle de point de terminaison privilégié.
 
@@ -51,22 +55,23 @@ Vous devez créer une (ou plusieurs) instances de SQL Server et/ou fournir un ac
     - Sur les systèmes à plusieurs nœuds, l’hôte doit être un système qui peut accéder au point de terminaison privilégié.
     
     >[!NOTE]
-    > Le système où le script est en cours d’exécution *doit* être un système Windows 10 ou Windows Server 2016 avec la dernière version du runtime .NET installé. Sinon l’installation échouera. Le kit de développement logiciel Azure Stack répond à ce critère.
+    > Le système où le script est en cours d’exécution *doit* être un système Windows 10 ou Windows Server 2016 avec la dernière version du runtime .NET installé. Sinon, l’installation échoue. Le kit de développement logiciel Azure Stack répond à ce critère.
 
 
 3. Téléchargez l’adaptateur du fournisseur de ressources SQL binaire. Exécutez ensuite l’auto-extracteur pour extraire le contenu dans un répertoire temporaire.
 
     >[!NOTE] 
-    > La build du fournisseur de ressources correspond aux builds Azure Stack. Vérifiez que vous téléchargez le binaire correct pour la version d’Azure Stack en cours d’exécution.
+    > Le fournisseur de ressources possède une build Azure Stack minimale correspondante. Vérifiez que vous téléchargez le binaire correct pour la version d’Azure Stack en cours d’exécution.
 
     | Build Azure Stack | Programme d’installation du fournisseur de ressources SQL |
     | --- | --- |
-    |1.0.180102.3, 1.0.180103.2 ou 1.0.180106.1 (nœuds multiples) | [SQL RP version 1.1.14.0](https://aka.ms/azurestacksqlrp1712) |
-    | 1.0.171122.1 | [SQL RP version 1.1.12.0](https://aka.ms/azurestacksqlrp1711) |
-    | 1.0.171028.1 | [SQL RP version 1.1.8.0](https://aka.ms/azurestacksqlrp1710) |
+    | 1802: 1.0.180302.1 | [SQL RP version 1.1.18.0](https://aka.ms/azurestacksqlrp1802) |
+    | 1712: 1.0.180102.3, 1.0.180103.2 ou 1.0.180106.1 (nœuds multiples) | [SQL RP version 1.1.14.0](https://aka.ms/azurestacksqlrp1712) |
+    | 1711: 1.0.171122.1 | [SQL RP version 1.1.12.0](https://aka.ms/azurestacksqlrp1711) |
+    | 1710: 1.0.171028.1 | [SQL RP version 1.1.8.0](https://aka.ms/azurestacksqlrp1710) |
   
 
-4. Le certificat racine Azure Stack est récupéré à partir du point de terminaison privilégié. Pour le kit de développement logiciel (SDK) Azure Stack, un certificat auto-signé est créé dans le cadre de ce processus. Pour plusieurs nœuds, vous devez fournir un certificat approprié.
+4. Le certificat racine Azure Stack est récupéré à partir du point de terminaison privilégié. Pour le kit de développement logiciel (SDK) Azure Stack, un certificat auto-signé est créé dans le cadre de ce processus. Pour les systèmes intégrés, vous devez fournir un certificat approprié.
 
    Pour fournir votre propre certificat, placez un fichier .pfx dans **DependencyFilesLocalPath** comme suit :
 
@@ -74,7 +79,7 @@ Vous devez créer une (ou plusieurs) instances de SQL Server et/ou fournir un ac
 
     - Ce certificat doit être fiable. Autrement dit, la chaîne d’approbation doit exister sans exiger de certificats intermédiaires.
 
-    - Il n’existe qu’un seul fichier de certificat unique dans le chemin local DependencyFilesLocalPath.
+    - Il ne peut exister qu’un seul fichier de certificat dans le répertoire vers lequel pointe le paramètre DependencyFilesLocalPath.
 
     - Le nom de fichier ne doit pas contenir de caractères spéciaux.
 
@@ -91,10 +96,10 @@ Vous devez créer une (ou plusieurs) instances de SQL Server et/ou fournir un ac
     - Déploiement d’une machine virtuelle à l’aide de l’image de Windows Server 2016 créée à l’étape 1, puis installation du fournisseur de ressources.
     - Inscription d’un enregistrement DNS local mappé à la machine virtuelle de votre fournisseur de ressources.
     - Inscription de votre fournisseur de ressources auprès de l’Azure Resource Manager local (utilisateur et administrateur).
+    - Installation éventuelle d’une seule mise à jour Windows pendant l’installation du fournisseur de ressources
 
-> [!NOTE]
-> Si l’installation prend plus de 90 minutes, elle risque d’échouer. Dans ce cas, un message d’erreur s’affiche à l’écran ainsi que dans le fichier journal, mais une nouvelle tentative de déploiement est effectuée à partir de l’étape ayant échoué. Les systèmes qui ne répondent pas aux spécifications recommandées en matière de mémoire et de processeur virtuel risquent de ne pas pouvoir déployer le fournisseur de ressources SQL.
->
+8. Nous vous conseillons de télécharger la dernière image Windows Server 2016 Core à partir de la Gestion de la Place de marché. Si vous devez installer une mise à jour, vous pouvez placer un seul package .MSU dans le chemin de dépendance local. Si plusieurs fichiers .MSU sont trouvés, le script échoue.
+
 
 Voici un exemple que vous pouvez exécuter à partir de l’invite de PowerShell. (Veillez à modifier les informations de compte et les mots de passe si nécessaire.)
 
@@ -104,11 +109,11 @@ Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
-# Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack and the default prefix is AzS.
-# For integrated systems, the domain and the prefix are the same.
+# Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"
-$prefix = "AzS"
-$privilegedEndpoint = "$prefix-ERCS01"
+
+# For integrated systems, use the IP address of one of the ERCS virtual machines
+$privilegedEndpoint = "AzS-ERCS01"
 
 # Point to the directory where the resource provider installation files were extracted.
 $tempDir = 'C:\TEMP\SQLRP'
@@ -118,7 +123,7 @@ $serviceAdmin = "admin@mydomain.onmicrosoft.com"
 $AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
 
-# Set credentials for the new Resource Provider VM.
+# Set credentials for the new resource provider VM local administrator account
 $vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
 
@@ -170,14 +175,20 @@ Vous pouvez spécifier ces paramètres dans la ligne de commande. Si vous ne le 
 
 
 ## <a name="update-the-sql-resource-provider-adapter-multi-node-only-builds-1710-and-later"></a>Mettre à jour l’adaptateur du fournisseur de ressources SQL (à plusieurs nœuds uniquement, versions 1710 et ultérieures)
-Chaque fois que la version d’Azure Stack est mise à jour, un nouvel adaptateur du fournisseur de ressources SQL est publié. Il est possible que l’adaptateur existant continue à fonctionner. Toutefois, nous recommandons la mise à jour vers la dernière version dès que possible après la mise à jour d’Azure Stack. 
+Un nouvel adaptateur de fournisseur de ressources SQL peut être publié quand des builds Azure Stack sont mises à jour. Même si l’adaptateur existant continue de fonctionner, nous vous recommandons d’effectuer une mise à jour dès que possible vers la build la plus récente. Les mises à jour doivent être installées dans l’ordre : vous ne pouvez pas ignorer des versions (voir le tableau à l’étape 3 de la section [Déployer le fournisseur de ressources](#deploy-the-resource-provider)).
 
-Le processus de mise à jour est similaire au processus d’installation décrit précédemment. Vous créez une machine virtuelle avec le dernier code de fournisseur de ressources. En outre, vous migrez les paramètres vers cette nouvelle instance, y compris les informations sur la base de données et sur le serveur d’hébergement. Vous migrez également l’enregistrement DNS nécessaire.
+Pour mettre à jour le fournisseur de ressources, vous utilisez le script *UpdateSQLProvider.ps1*. Le processus est semblable au processus utilisé pour installer un fournisseur de ressources, comme décrit dans la section [Déployer le fournisseur de ressources](#deploy-the-resource-provider) de cet article. Le script est inclus avec le téléchargement du fournisseur de ressources.
 
-Utilisez le script UpdateSQLProvider.ps1 script avec les mêmes arguments que ceux décrits précédemment. Vous devez fournir le certificat ici également.
+Le script *UpdateSQLProvider.ps1* crée une machine virtuelle avec le dernier code de fournisseur de ressources et migre les paramètres de l’ancienne machine virtuelle vers la nouvelle. Les paramètres qui migrent incluent des informations sur la base de données et le serveur d’hébergement, ainsi que l’enregistrement DNS nécessaire.
+
+Le script exige d’utiliser les mêmes arguments que ceux décrits pour le script DeploySqlProvider.ps1. Fournissez également le certificat ici. 
+
+Nous vous conseillons de télécharger la dernière image Windows Server 2016 Core à partir de la Gestion de la Place de marché. Si vous devez installer une mise à jour, vous pouvez placer un seul package .MSU dans le chemin de dépendance local. Si plusieurs fichiers .MSU sont trouvés, le script échoue.
+
+Voici un exemple du script *UpdateSQLProvider.ps1* que vous pouvez exécuter à partir de l’invite PowerShell. Veillez à modifier les informations de compte et les mots de passe si nécessaire : 
 
 > [!NOTE]
-> Ce processus de mise à jour est uniquement prise en charge sur les systèmes à plusieurs nœuds.
+> Le processus de mise à jour s’applique uniquement aux systèmes intégrés.
 
 ```
 # Install the AzureRM.Bootstrapper module, set the profile, and install the AzureRM and AzureStack modules.
@@ -185,11 +196,11 @@ Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
-# Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack and the default prefix is AzS.
-# For integrated systems, the domain and the prefix are the same.
+# Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"
-$prefix = "AzS"
-$privilegedEndpoint = "$prefix-ERCS01"
+
+# For integrated systems, use the IP address of one of the ERCS virtual machines
+$privilegedEndpoint = "AzS-ERCS01"
 
 # Point to the directory where the resource provider installation files were extracted.
 $tempDir = 'C:\TEMP\SQLRP'
@@ -237,6 +248,103 @@ Vous pouvez spécifier ces paramètres dans la ligne de commande. Si vous ne le 
 | **DebugMode** | Empêche le nettoyage automatique en cas d’échec. | Non  |
 
 
+## <a name="collect-diagnostic-logs"></a>Collecter des journaux de diagnostic
+Le fournisseur de ressources SQL est une machine virtuelle verrouillée. S’il s’avère nécessaire de collecter des journaux à partir de la machine virtuelle, un point de terminaison PowerShell JEA (Just Enough Administration) _DBAdapterDiagnostics_ est fourni à cette fin. Deux commandes sont disponibles via ce point de terminaison :
+
+* Get-AzsDBAdapterLog : prépare un package zip contenant des journaux de diagnostic de fournisseur de ressources et le place sur le lecteur de l’utilisateur de session. La commande peut être appelée sans paramètres. Elle collecte alors les journaux des quatre dernières heures.
+* Remove-AzsDBAdapterLog : nettoie les packages de journaux existants sur la machine virtuelle du fournisseur de ressources.
+
+Un compte d’utilisateur appelé _dbadapterdiag_ est créé pendant le déploiement ou la mise à jour d’un fournisseur de ressources pour se connecter au point de terminaison de diagnostics et extraire les journaux de fournisseur de ressources. Le mot de passe de ce compte est le même que celui fourni pour le compte d’administrateur local pendant le déploiement/la mise à jour.
+
+Pour utiliser ces commandes, vous devez créer une session PowerShell à distance sur la machine virtuelle du fournisseur de ressources, puis appeler la commande. Vous pouvez éventuellement fournir les paramètres FromDate et ToDate. Si vous ne spécifiez pas l’un de ces paramètres, ou les deux, la valeur FromDate est quatre heures avant l’heure actuelle et la valeur ToDate est l’heure actuelle.
+
+Cet exemple de script illustre l’utilisation de ces commandes :
+
+```
+# Create a new diagnostics endpoint session.
+$databaseRPMachineIP = '<RP VM IP>'
+$diagnosticsUserName = 'dbadapterdiag'
+$diagnosticsUserPassword = '<see above>'
+
+$diagCreds = New-Object System.Management.Automation.PSCredential `
+        ($diagnosticsUserName, $diagnosticsUserPassword)
+$session = New-PSSession -ComputerName $databaseRPMachineIP -Credential $diagCreds `
+        -ConfigurationName DBAdapterDiagnostics
+
+# Sample captures logs from the previous one hour
+$fromDate = (Get-Date).AddHours(-1)
+$dateNow = Get-Date
+$sb = {param($d1,$d2) Get-AzSDBAdapterLog -FromDate $d1 -ToDate $d2}
+$logs = Invoke-Command -Session $session -ScriptBlock $sb -ArgumentList $fromDate,$dateNow
+
+# Copy the logs
+$sourcePath = "User:\{0}" -f $logs
+$destinationPackage = Join-Path -Path (Convert-Path '.') -ChildPath $logs
+Copy-Item -FromSession $session -Path $sourcePath -Destination $destinationPackage
+
+# Cleanup logs
+$cleanup = Invoke-Command -Session $session -ScriptBlock {Remove- AzsDBAdapterLog }
+# Close the session
+$session | Remove-PSSession
+```
+
+## <a name="maintenance-operations-integrated-systems"></a>Opérations de maintenance (systèmes intégrés)
+Le fournisseur de ressources SQL est une machine virtuelle verrouillée. La mise à jour de la sécurité de la machine virtuelle du fournisseur de ressources peut être effectuée par le biais du point de terminaison JEA (Just Enough Administration) PowerShell _DBAdapterMaintenance_.
+
+Pour faciliter ces opérations, un script est fourni avec le package d’installation du fournisseur de ressources.
+
+### <a name="update-the-virtual-machine-operating-system"></a>Mettre à jour le système d’exploitation de la machine virtuelle
+Il existe plusieurs façons de mettre à jour la machine virtuelle Windows Server :
+* Installer le package de fournisseur de ressources le plus récent à l’aide d’une image corrigée de Windows Server 2016 Core
+* Installer un package Windows Update pendant l’installation ou la mise à jour du fournisseur de ressources
+
+
+### <a name="update-the-virtual-machine-windows-defender-definitions"></a>Mettre à jour les définitions Windows Defender de machine virtuelle
+
+Suivez les étapes ci-après pour mettre à jour les définitions Defender :
+
+1. Télécharger la mise à jour des définitions Windows Defender à partir de [Définitions Windows Defender](https://www.microsoft.com/en-us/wdsi/definitions)
+
+    Dans cette page, sous « Télécharger et installer les définitions manuellement », télécharger le fichier 64 bits « Antivirus Windows Defender pour Windows 10 et Windows 8.1 » 
+    
+    Lien direct : https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64
+
+2. Créer une session PowerShell sur le point de terminaison de maintenance de la machine virtuelle de l’adaptateur de fournisseur de ressources SQL
+3. Copier le fichier de mise à jour des définitions pour la machine de l’adaptateur de base de données à l’aide de la session du point de terminaison de maintenance
+4. Sur la session PowerShell de maintenance, appeler la commande _Update-DBAdapterWindowsDefenderDefinitions_
+5. Après l’installation, il est recommandé de supprimer le fichier de mise à jour des définitions utilisé. Vous pouvez le supprimer dans la session de maintenance à l’aide de la commande _Remove-ItemOnUserDrive)_.
+
+
+Voici un exemple de script pour mettre à jour les définitions Defender (remplacer l’adresse ou le nom de la machine virtuelle par la valeur réelle) :
+
+```
+# Set credentials for the diagnostic user
+$diagPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$diagCreds = New-Object System.Management.Automation.PSCredential `
+    ("dbadapterdiag", $vmLocalAdminPass)$diagCreds = Get-Credential
+
+# Public IP Address of the DB adapter machine
+$databaseRPMachine  = "XX.XX.XX.XX"
+$localPathToDefenderUpdate = "C:\DefenderUpdates\mpam-fe.exe"
+ 
+# Download Windows Defender update definitions file from https://www.microsoft.com/en-us/wdsi/definitions. 
+Invoke-WebRequest -Uri https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64 `
+    -Outfile $localPathToDefenderUpdate 
+
+# Create session to the maintenance endpoint
+$session = New-PSSession -ComputerName $databaseRPMachine `
+    -Credential $diagCreds -ConfigurationName DBAdapterMaintenance
+# Copy defender update file to the db adapter machine
+Copy-Item -ToSession $session -Path $localPathToDefenderUpdate `
+     -Destination "User:\mpam-fe.exe"
+# Install the update file
+Invoke-Command -Session $session -ScriptBlock `
+    {Update-AzSDBAdapterWindowsDefenderDefinitions -DefinitionsUpdatePackageFile "User:\mpam-fe.exe"}
+# Cleanup the definitions package file and session
+Invoke-Command -Session $session -ScriptBlock `
+    {Remove-AzSItemOnUserDrive -ItemPath "User:\mpam-fe.exe"}
+$session | Remove-PSSession
+```
 
 ## <a name="remove-the-sql-resource-provider-adapter"></a>Supprimer l’adaptateur du fournisseur de ressources SQL
 

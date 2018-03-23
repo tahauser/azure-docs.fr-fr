@@ -1,11 +1,11 @@
 ---
-title: "Comment configurer des appareils hybrides joints à Azure Active Directory | Microsoft Docs"
-description: "Découvrez comment configurer des appareils hybrides joints à Azure Active Directory."
+title: Comment configurer des appareils hybrides joints à Azure Active Directory | Microsoft Docs
+description: Découvrez comment configurer des appareils hybrides joints à Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 203e36b198186db63b7e902db296adeaa9ffb4ee
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 188f02aa69d7b39bc5bc4873b437825107a7ae4e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Comment configurer des appareils hybrides joints à Azure Active Directory
 
@@ -34,7 +34,7 @@ Avant de commencer à configurer des appareils hybrides joints à Azure AD dans
 
 Si vous comptez sur [l’outil de préparation système (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)), assurez-vous que vous créez des images à partir d’une installation de Windows qui n’a pas été encore inscrite auprès d’Azure AD.
 
-Tous les appareils joints à un domaine qui exécutent Mise à jour anniversaire Windows 10 et Windows Server 2016 s’inscrivent automatiquement auprès d’Azure AD lors du redémarrage des appareils ou de la connexion des utilisateurs une fois les étapes de configuration mentionnées ci-dessous terminées. Si ce comportement d’inscription automatique n’est pas recommandé, ou si un lancement contrôlé est souhaité, suivez tout d’abord les instructions de la section Contrôle du déploiement et du lancement ci-dessous pour activer ou désactiver le lancement automatique de manière sélective avant de suivre les autres étapes de configuration.  
+Tous les appareils joints à un domaine qui exécutent Mise à jour anniversaire Windows 10 et Windows Server 2016 s’inscrivent automatiquement auprès d’Azure AD lors du redémarrage des appareils ou de la connexion des utilisateurs une fois les étapes de configuration mentionnées ci-dessous terminées. **Si ce comportement d’inscription automatique n’est pas recommandé, ou si un lancement contrôlé est souhaité**, suivez tout d’abord les instructions de la section « Étape 4 : Contrôle du déploiement et du lancement » ci-dessous pour activer ou désactiver le lancement automatique de manière sélective avant de suivre les autres étapes de configuration.  
 
 Pour améliorer la lisibilité des descriptions, cet article utilise les termes suivants : 
 
@@ -61,6 +61,7 @@ Pour améliorer la lisibilité des descriptions, cet article utilise les termes 
 
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Avant de commencer à activer des appareils hybrides joints à Azure AD dans votre organisation, vous devez vous assurer que vous exécutez une version à jour d’Azure AD Connect.
 
@@ -542,7 +543,7 @@ Une fois que vous avez exécuté les étapes requises, les appareils joints à u
 
 ### <a name="remarks"></a>Remarques
 
-- Vous pouvez utiliser un objet de stratégie de groupe pour contrôler le déploiement de l’inscription automatique des ordinateurs Windows 10 et Windows Server 2016 joints à un domaine.
+- Vous pouvez utiliser un objet de stratégie de groupe pour contrôler le déploiement de l’inscription automatique des ordinateurs Windows 10 et Windows Server 2016 joints à un domaine. **Si vous ne souhaitez pas que ces appareils soient automatiquement inscrits auprès d’Azure AD ou si vous souhaitez contrôler leur inscription**, vous devez déployer la stratégie de groupe. Pour cela, désactivez l’inscription automatique pour tous les appareils, puis effectuez les étapes de configuration. Une fois la configuration terminée, et lorsque vous êtes prêt à effectuer les tests, vous devez déployer la stratégie de groupe en activant l’inscription automatique uniquement pour les appareils de test, puis pour les appareils de votre choix.
 
 - La mise à jour de novembre 2015 de Windows 10 effectue automatiquement la jonction à Azure AD **uniquement** si l’objet de stratégie de groupe de lancement est défini.
 
@@ -587,7 +588,7 @@ Vous pouvez vérifier les appareils qui ont été correctement joints dans votre
 
 La sortie de cette applet de commande affiche les appareils qui sont enregistrés et joints à Azure AD. Pour obtenir tous les appareils, utilisez le paramètre **-All**, puis filtrez-les à l’aide de la propriété **deviceTrustType**. Les appareils joints à un domaine présentent la valeur **Joint au domaine**.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Présentation de la gestion des appareils dans Azure Active Directory](device-management-introduction.md)
 

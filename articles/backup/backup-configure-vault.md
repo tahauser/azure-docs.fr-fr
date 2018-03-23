@@ -1,11 +1,11 @@
 ---
-title: "Utiliser l’agent Azure Backup pour sauvegarder des fichiers et des dossiers | Microsoft Docs"
-description: "Utilisez l’agent Microsoft Azure Backup pour sauvegarder vos fichiers et dossiers Windows dans Azure. Créez un coffre Recovery Services, installez l’agent Backup, définissez la stratégie de sauvegarde et exécutez la sauvegarde initiale sur les fichiers et dossiers."
+title: Utiliser l’agent Azure Backup pour sauvegarder des fichiers et des dossiers | Microsoft Docs
+description: Utilisez l’agent Microsoft Azure Backup pour sauvegarder vos fichiers et dossiers Windows dans Azure. Créez un coffre Recovery Services, installez l’agent Backup, définissez la stratégie de sauvegarde et exécutez la sauvegarde initiale sur les fichiers et dossiers.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
+editor: ''
 keywords: coffre de sauvegarde ; sauvegarder un serveur Windows ; sauvegarder windows ;
 ms.assetid: 7f5b1943-b3c1-4ddb-8fb7-3560533c68d5
 ms.service: backup
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/5/2018
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: 0adb2565299a2cd613068539736d4272d59a2397
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 88a588322d88f817937cf06e25b5b25a147f03d0
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Sauvegarder un client Windows ou un serveur Windows Server dans Azure et le modèle de déploiement Resource Manager
 Cet article explique comment sauvegarder vos fichiers et dossiers Windows Server (ou d’un client Windows) sur Azure avec Azure Backup et le modèle de déploiement Resource Manager.
@@ -143,6 +143,9 @@ Maintenant que vous avez créé un coffre, préparez votre infrastructure de sau
   Les informations d’identification du coffre sont téléchargées dans le dossier Téléchargements. Une fois cette opération terminée, une fenêtre contextuelle s’affiche, vous demandant si vous voulez ouvrir ou enregistrer ces informations. Cliquez sur **Enregistrer**. Si vous cliquez sur **Ouvrir** par erreur, attendez que la boîte de dialogue qui s’affiche annonce l’échec de la tentative d’ouverture des informations d’identification du coffre. En effet, vous ne pouvez pas les ouvrir. Passez à l'étape suivante. Les informations d’identification du coffre se trouvent dans le dossier Téléchargements.   
 
   ![Fin du téléchargement des informations d’identification du coffre](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
+
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="install-and-register-the-agent"></a>Installer et inscrire l’agent
 

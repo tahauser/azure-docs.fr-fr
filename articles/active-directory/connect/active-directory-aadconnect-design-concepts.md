@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect : principes de conception | Microsoft Docs"
-description: "Cette rubrique détaille certains aspects de la conception de l’implémentation"
+title: 'Azure AD Connect : principes de conception | Microsoft Docs'
+description: Cette rubrique détaille certains aspects de la conception de l’implémentation
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4114a6c0-f96a-493c-be74-1153666ce6c9
 ms.service: active-directory
 ms.custom: azure-ad-connect
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 510efc4ae6674a3987c2bb5d7cd155ea8c710c83
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 179a669e4c9567950d22ed76a693ec6ab7a2db8d
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Principes de conception Azure AD Connect
 L’objectif de cette rubrique est de décrire les principes qui doivent présider à la conception de l’implémentation d’Azure AD Connect. Il s’agit d’une exploration approfondie de certains aspects. Ces concepts sont également décrits brièvement dans d’autres rubriques.
@@ -45,7 +45,7 @@ La valeur de l’attribut doit respecter les règles suivantes :
 * elle ne doit pas contenir les caractères spéciaux suivants : &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ’ ; : , [ ] " @ _
 * elle doit être globalement unique
 * elle doit être une chaîne, un entier ou une valeur binaire
-* elle ne doit pas être basée sur le nom de l’utilisateur, celui-ci est susceptible de changer
+* elle ne doit pas être basée sur le nom de l’utilisateur, car celui-ci est susceptible de changer
 * elle ne doit pas respecter la casse et doit éviter les valeurs qui peuvent varier selon la casse
 * elle doit être assignée lorsque l’objet est créé.
 

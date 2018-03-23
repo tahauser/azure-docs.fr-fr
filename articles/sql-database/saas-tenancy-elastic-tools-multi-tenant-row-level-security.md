@@ -1,25 +1,20 @@
 ---
-title: "Applications mutualisées avec une SNL et des outils de base de données élastique | Microsoft Docs"
-description: "Utilisez les outils de base de données élastique avec une sécurité au niveau des lignes pour générer une application avec une couche Données hautement évolutive."
+title: Applications mutualisées avec une SNL et des outils de base de données élastique | Microsoft Docs
+description: Utilisez les outils de base de données élastique avec une sécurité au niveau des lignes pour générer une application avec une couche Données hautement évolutive.
 metakeywords: azure sql database elastic tools multi tenant row level security rls
 services: sql-database
-documentationcenter: 
-manager: jhubbard
+manager: craigg
 author: tmullaney
-ms.assetid: e72d3cfe-e9be-4326-b776-9c6d96c0a18e
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
-ms.author: thmullan;torsteng
-ms.openlocfilehash: f874800e8647eac6ed94945d79e904df86207b0f
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.author: thmullan
+ms.openlocfilehash: 62213eeeee0b1d93cabc32101ad6fe51bf394080
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Applications multi-locataires avec des outils de base de données élastique et la sécurité au niveau des lignes
 
@@ -39,7 +34,8 @@ L’objectif est d’utiliser les API de [routage dépendant des données](sql-d
 
 ## <a name="download-the-sample-project"></a>Téléchargement de l’exemple de projet
 
-### <a name="prerequisites"></a>Composants requis
+### <a name="prerequisites"></a>Prérequis
+
 
 - Exécuter Visual Studio version 2012 ou plus 
 - Créer trois bases de données SQL Microsoft Azure 
@@ -48,7 +44,7 @@ L’objectif est d’utiliser les API de [routage dépendant des données](sql-d
 
 Ce projet étend celui que décrit la section [Outils de base de données pour base de données SQL Microsoft Azure - Intégration d’Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) , en ajoutant la prise en charge des bases de données de partition multi-locataires. Le projet crée une application de console simple pour la création de blogs et de publications. Le projet inclut quatre locataires, ainsi que deux bases de données de partition mutualisée. Cette configuration est illustrée dans le précédent diagramme. 
 
-Générez et exécutez l’application. Cette exécution démarre le gestionnaire de mappage de la partition dédiée aux outils de base de données élastique et effectue les tests suivants : 
+Générez et exécutez l'application. Cette exécution démarre le gestionnaire de mappage de la partition dédiée aux outils de base de données élastique et effectue les tests suivants : 
 
 1. À l’aide d’Entity Framework et de LINQ, créez un blog et affichez tous les blogs pour chaque client.
 2. À l’aide de la fonction SqlClient ADO.NET, affichez tous les blogs d’un locataire.
@@ -353,7 +349,7 @@ Les outils de base de données élastique et la fonction de sécurité au niveau
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 - [Qu’est-ce qu’un pool élastique Azure ?](sql-database-elastic-pool.md)
-- [Montée en charge avec Base de données SQL Azure](sql-database-elastic-scale-introduction.md)
+- [Montée en charge avec Azure SQL Database](sql-database-elastic-scale-introduction.md)
 - [Modèles de conception pour les applications SaaS mutualisées avec Base de données SQL Azure](saas-tenancy-app-design-patterns.md)
 - [Authentification sur les applications mutualisées, avec Azure AD et OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
 - [Application Tailspin Surveys](../guidance/guidance-multitenant-identity-tailspin.md)

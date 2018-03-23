@@ -1,25 +1,19 @@
 ---
-title: "Gérer des bases de données SQL Azure à l’aide d’Azure Automation | Microsoft Docs"
-description: "Découvrez comment le service Azure Automation peut être utilisé pour gérer les bases de données SQL Azure à grande échelle."
+title: Gérer des bases de données SQL Azure à l’aide d’Azure Automation | Microsoft Docs
+description: Découvrez comment le service Azure Automation peut être utilisé pour gérer les bases de données SQL Azure à grande échelle.
 services: sql-database, automation
-documentationcenter: 
-author: jodoglevy
-manager: jhubbard
-editor: monicar
-ms.assetid: 77c262a1-9b93-456d-b3c7-b2f23bdfcd61
+author: CarlRabeler
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
-ms.author: jhubbard
-ms.openlocfilehash: c5f7e6da09c6ca8ddc6cc3ddcbcf7c5b53116e26
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.author: carlrab
+ms.openlocfilehash: 0174b2b1dd5942e17ea60c2dce624c87fd1289c8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="managing-azure-sql-databases-using-azure-automation"></a>Gestion des bases de données SQL Azure à l'aide d'Azure Automation
 Ce guide vous présente le service Azure Automation et la manière de l'utiliser pour gérer plus simplement vos bases de données SQL Azure.

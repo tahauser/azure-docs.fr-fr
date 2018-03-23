@@ -1,11 +1,11 @@
 ---
-title: "Contrôler le routage et les appliances virtuelles dans un modèle Azure | Microsoft Docs"
-description: "Découvrez comment contrôler le routage et les appliances virtuelles à l’aide d’un modèle Azure Resource Manager."
+title: Contrôler le routage et les appliances virtuelles dans un modèle Azure | Microsoft Docs
+description: Découvrez comment contrôler le routage et les appliances virtuelles à l’aide d’un modèle Azure Resource Manager.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 832c7831-d0e9-449b-b39c-9a09ba051531
 ms.service: virtual-network
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
-ms.openlocfilehash: b2c962d5449d18b51cfd84b0e1992695b54d1c48
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: a00b908f9811822f262d2c6113e3ff5fc364b1b4
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-user-defined-routes-udr-using-a-template"></a>Créer des routages définis par l’utilisateur à l’aide d’un modèle
 
 > [!div class="op_single_selector"]
-> * [PowerShell](virtual-network-create-udr-arm-ps.md)
-> * [Interface de ligne de commande Azure](virtual-network-create-udr-arm-cli.md)
+> * [PowerShell](tutorial-create-route-table-powershell.md)
+> * [interface de ligne de commande Azure](tutorial-create-route-table-cli.md)
 > * [Modèle](virtual-network-create-udr-arm-template.md)
 > * [PowerShell (classique)](virtual-network-create-udr-classic-ps.md)
 > * [Interface de ligne de commande (classique)](virtual-network-create-udr-classic-cli.md)
@@ -75,7 +75,7 @@ Pour associer le routage défini par l’utilisateur au sous-réseau frontal, vo
 
 Notez que la même opération est effectuée pour le groupe de sécurité réseau frontal et le sous-réseau principal (back-end) dans le modèle.
 
-Vous devez également vous assurer que la machine virtuelle **FW1** dispose de la propriété de transfert d'adresse IP activée sur la carte réseau qui sera utilisée pour recevoir et transmettre les paquets. La section ci-dessous illustre la définition de la carte réseau pour FW1 dans le fichier azuredeploy-nsg-udr.json, selon le scénario ci-dessus.
+Vous devez également vous assurer que la machine virtuelle **FW1** dispose de la propriété de transfert d'adresse IP activée sur la carte réseau qui sera utilisée pour recevoir et transmettre les paquets. La section suivante illustre la définition de la carte réseau pour FW1 dans le fichier azuredeploy-nsg-udr.json, selon le scénario.
 
     "apiVersion": "2015-06-15",
     "type": "Microsoft.Network/networkInterfaces",
@@ -112,9 +112,9 @@ Vous devez également vous assurer que la machine virtuelle **FW1** dispose de l
     }
 
 ## <a name="deploy-the-template-by-using-click-to-deploy"></a>Déployer le modèle en un clic
-L’exemple de modèle disponible dans le référentiel public utilise un fichier de paramètres contenant les valeurs par défaut utilisées pour générer le scénario décrit ci-dessus. Pour déployer ce modèle en un clic, suivez [ce lien](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR), cliquez sur **Déployer dans Azure**, remplacez les valeurs de paramètre par défaut si nécessaire, puis suivez les instructions dans le portail.
+L’exemple de modèle disponible dans le référentiel public utilise un fichier de paramètres contenant les valeurs par défaut utilisées pour générer le scénario décrit précédemment. Pour déployer ce modèle en un clic, suivez [ce lien](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR), cliquez sur **Déployer dans Azure**, remplacez les valeurs de paramètre par défaut si nécessaire, puis suivez les instructions dans le portail.
 
-1. Si vous n’avez jamais utilisé Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) et suivez les instructions jusqu’à la fin pour vous connecter à Azure et sélectionner votre abonnement.
+1. Si vous n'avez jamais utilisé Azure PowerShell, consultez la page [Installation et configuration d'Azure PowerShell](/powershell/azure/overview) et suivez les instructions jusqu'à la fin pour vous connecter à Azure et sélectionner votre abonnement.
 2. Utilisez la commande suivante pour créer un groupe de ressources :
 
     ```powershell
@@ -173,7 +173,7 @@ L’exemple de modèle disponible dans le référentiel public utilise un fichie
 
 ## <a name="deploy-the-template-by-using-the-azure-cli"></a>Déployer le modèle à l’aide de l’interface de ligne de commande Azure
 
-Pour déployer le modèle ARM à l’aide d’Azure CLI, procédez comme suit :
+Pour déployer le modèle Azure Resource Manager à l’aide d’Azure CLI, procédez comme suit :
 
 1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, consultez [Installer et configurer l’interface de ligne de commande Azure](../cli-install-nodejs.md) et suivez les instructions jusqu’à l’étape où vous sélectionnez votre compte et votre abonnement Azure.
 2. Exécutez la commande suivante pour passer en mode Resource Manager :
@@ -182,11 +182,11 @@ Pour déployer le modèle ARM à l’aide d’Azure CLI, procédez comme suit :
     azure config mode arm
     ```
 
-    Voici le résultat attendu pour la commande ci-dessus :
+    Voici le résultat attendu pour la commande précédente :
 
         info:    New mode is arm
 
-3. À partir de votre navigateur, accédez à **https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, copiez le contenu du fichier json, puis collez-le dans un nouveau fichier sur votre ordinateur. Pour ce scénario, les valeurs ci-dessous sont à copier dans un fichier nommé **c:\udr\azuredeploy.parameters.json**.
+3. À partir de votre navigateur, accédez à **https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, copiez le contenu du fichier json, puis collez-le dans un nouveau fichier sur votre ordinateur. Pour ce scénario, copiez les valeurs suivantes dans un fichier nommé **c:\udr\azuredeploy.parameters.json**.
 
     ```json
         {
@@ -206,7 +206,7 @@ Pour déployer le modèle ARM à l’aide d’Azure CLI, procédez comme suit :
         }
     ```
 
-4. Exécutez la commande suivante pour déployer le nouveau réseau virtuel en utilisant le modèle et les fichiers de paramètres que vous avez téléchargés et modifiés plus haut :
+4. Exécutez la commande suivante pour déployer le nouveau réseau virtuel en utilisant le modèle et les fichiers de paramètres que vous avez téléchargés et modifiés précédemment :
 
     ```azurecli
     azure group create -n TestRG -l westus --template-uri 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json' -e 'c:\udr\azuredeploy.parameters.json'
@@ -404,5 +404,5 @@ Pour déployer le modèle ARM à l’aide d’Azure CLI, procédez comme suit :
             info:    group show command OK
 
 > [!TIP]
-> Si vous ne voyez pas toutes les ressources, exécutez la commande `azure group deployment show` pour vérifier que l’état d’approvisionnement du déploiement indique *Succeded*.
+> Si vous ne voyez pas toutes les ressources, exécutez la commande `azure group deployment show` pour vérifier que l’état d’approvisionnement du déploiement indique *Succeeded*.
 > 

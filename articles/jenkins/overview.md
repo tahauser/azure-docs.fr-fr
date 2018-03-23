@@ -1,6 +1,6 @@
 ---
-title: "Vue d’ensemble de Jenkins et Azure | Microsoft Docs"
-description: "Hébergez la build Jenkins et déployez le serveur Automation dans Azure et utilisez les ressources de calcul et de stockage Azure pour étendre vos pipelines d’intégration et de livraison continues."
+title: Vue d’ensemble de Jenkins et Azure | Microsoft Docs
+description: Hébergez la build Jenkins et déployez le serveur Automation dans Azure et utilisez les ressources de calcul et de stockage Azure pour étendre vos pipelines d’intégration et de livraison continues.
 services: jenkins
 author: rloutlaw
 manager: justhe
@@ -11,11 +11,11 @@ ms.workload: na
 ms.date: 08/22/2017
 ms.author: routlaw
 ms.custom: mvc
-ms.openlocfilehash: 69bb79a1f02e601b9ed0104dde00211612473adc
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 08906939ecc80999de94ad7e7141081f959fb6f2
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-and-jenkins"></a>Azure et Jenkins
 
@@ -31,7 +31,7 @@ Hébergez Jenkins dans Azure pour centraliser l’automatisation de votre build 
 - [Machines virtuelles Azure](/azure/virtual-machines/linux/overview). Consultez notre [didacticiel](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd) pour créer une instance de Jenkins sur une machine virtuelle.
 - Sur un cluster Kubernetes qui exécute [Azure Container Service](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough), consultez nos [procédures](/azure/container-service/kubernetes/container-service-kubernetes-jenkins).
 
-Surveiller et gérer votre déploiement Azure Jenkins à l’aide [Log Analytics](/azure/log-analytics/log-analytics-overview), [Operations Management Suite](/azure/operations-management-suite/operations-management-suite-overview)et [Azure CLI] (/cli/azure/overview).
+Surveiller et gérer votre déploiement Azure Jenkins à l’aide de [Log Analytics](/azure/log-analytics/log-analytics-overview), d’[Operations Management Suite](/azure/operations-management-suite/operations-management-suite-overview) et d’[Azure CLI](/cli/azure).
 
 ## <a name="scale-your-build-automation-on-demand"></a>Mettre à l’échelle l’automatisation de votre build à la demande
 

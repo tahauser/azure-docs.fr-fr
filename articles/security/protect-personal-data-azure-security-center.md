@@ -1,29 +1,29 @@
 ---
-title: "Protéger les données personnelles avec Azure Security Center | Microsoft Docs"
-description: "protéger les données personnelles à l’aide d’Azure Security Center"
+title: Protéger les données personnelles avec Azure Security Center | Microsoft Docs
+description: utiliser le centre de sécurité pour protéger des données personnelles. Ceci peut être utilisé pour se conformer au Règlement général sur la protection des données (RGPD)
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: 3a941389713a4d3dbffbbfe8a717409927d85c6d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: ''
+ms.openlocfilehash: 118752a030a1c300306aa3e05571bb9b624a2c20
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="protect-personal-data-from-breaches-and-attacks-azure-security-center"></a>Protéger les données personnelles contre les violations et attaques : Azure Security Center
 
-Cet article va vous aider à comprendre comment utiliser Azure Security Center pour protéger les données personnelles contre les violations et attaques.
+Cet article va vous aider à comprendre comment utiliser Azure Security Center pour protéger les données personnelles contre les violations et attaques. Les informations incluses dans cette rubrique vous aideront à être conforme au Règlement général sur la protection des données (RGPD).
 
 ## <a name="scenario"></a>Scénario 
 
@@ -48,7 +48,7 @@ Elle nécessite une solide ligne de défense contre les attaques complexes et or
 
 Un des objectifs de la compagnie consiste à assurer la confidentialité des données personnelles des clients et employés en les protégeant contre les menaces. Un de ses objectifs vise à répondre immédiatement aux signes de violation pour en atténuer l’impact. Elle nécessite un moyen d’évaluer l’état actuel de la sécurité, d’identifier les configurations vulnérables et de les corriger.
 
-## <a name="solutions"></a>Solutions
+## <a name="solutions"></a>solutions
 
 Microsoft Azure Security Center (ASC) fournit une solution de surveillance de sécurité et de gestion de stratégie intégrée. Il offre des fonctionnalités de prévention, de détection et de réponse aux menaces efficaces et faciles à utiliser.
 
@@ -201,7 +201,7 @@ Pour obtenir des instructions sur la façon d’implémenter une solution d’é
 
 - [Guide de démarrage rapide d’Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-get-started)
 
-- [Présentation du Centre de sécurité Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- [Présentation d’Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
 
 - [Intégration des alertes Azure Security Center aux journaux Azure](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration)
 

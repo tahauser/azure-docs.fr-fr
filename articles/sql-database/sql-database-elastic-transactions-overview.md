@@ -1,25 +1,20 @@
 ---
-title: "Transactions distribuées entre bases de données cloud"
-description: "Vue d’ensemble des transactions de bases de données élastiques avec la base de données SQL Azure"
+title: Transactions distribuées entre bases de données cloud
+description: Vue d’ensemble des transactions de bases de données élastiques avec la base de données SQL Azure
 services: sql-database
-documentationcenter: 
-author: torsteng
-manager: jhubbard
-editor: torsteng
-ms.assetid: e14df7a3-7788-4cfb-bcd1-7ad6433ef1f9
+author: stevestein
+manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.custom: scale out apps
 ms.workload: On Demand
 ms.date: 05/27/2016
-ms.author: torsteng
-ms.openlocfilehash: 012fc38075285b898599517f3e6ed5a3c9eb854d
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.author: sstein
+ms.openlocfilehash: 65657a4813467edd45a6eee4fa98964b4a781663
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Transactions distribuées entre bases de données cloud
 Les transactions de bases de données élastiques pour la base de données SQL Azure (SQL DB) vous permettent d’exécuter des transactions qui s’étendent sur plusieurs bases de données dans SQL DB. Ces transactions sont disponibles pour les applications .NET utilisant ADO .NET et s’intègrent à une expérience de programmation familière basée sur les classes [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) . Pour obtenir la bibliothèque, consultez [.NET Framework 4.6.1 (programme d’installation web)](https://www.microsoft.com/download/details.aspx?id=49981).
@@ -133,9 +128,9 @@ Utilisez les vues de gestion dynamique (DMV) dans la base de données SQL pour s
 
 Les vues de gestion dynamique ci-dessous sont particulièrement utiles :
 
-* **sys.dm\_tran\_active\_transactions** : répertorie les transactions actives et leur état. La colonne UOW (Unit Of Work) peut identifier les différentes transactions enfants qui appartiennent à la même transaction distribuée. Toutes les transactions associées à la même transaction distribuée ont la même valeur UOW. Pour plus d’informations, consultez la [documentation DMV](https://msdn.microsoft.com/library/ms174302.aspx) .
-* **sys.dm\_tran\_database\_transactions** : fournit des informations supplémentaires sur les transactions, telles que le placement de la transaction dans le journal. Pour plus d’informations, consultez la [documentation DMV](https://msdn.microsoft.com/library/ms186957.aspx) .
-* **sys.dm\_tran\_locks** : fournit des informations sur les verrous maintenus par les transactions en cours. Pour plus d’informations, consultez la [documentation DMV](https://msdn.microsoft.com/library/ms190345.aspx) .
+* **sys.dm\_tran\_active\_transactions** : répertorie les transactions actives et leur état. La colonne UOW (Unit Of Work) peut identifier les différentes transactions enfants qui appartiennent à la même transaction distribuée. Toutes les transactions associées à la même transaction distribuée ont la même valeur UOW. Pour plus d’informations, consultez la [documentation DMV](https://msdn.microsoft.com/library/ms174302.aspx).
+* **sys.dm\_tran\_database\_transactions** : fournit des informations supplémentaires sur les transactions, telles que le placement de la transaction dans le journal. Pour plus d’informations, consultez la [documentation DMV](https://msdn.microsoft.com/library/ms186957.aspx).
+* **sys.dm\_tran\_locks** : fournit des informations sur les verrous maintenus par les transactions en cours. Pour plus d’informations, consultez la [documentation DMV](https://msdn.microsoft.com/library/ms190345.aspx).
 
 ## <a name="limitations"></a>Limites
 Les limites suivantes s’appliquent actuellement aux transactions de bases de données élastiques dans la base de données SQL :

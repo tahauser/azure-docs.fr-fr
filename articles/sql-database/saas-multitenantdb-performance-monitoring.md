@@ -1,26 +1,20 @@
 ---
-title: "Surveiller les performances d’une base de données SQL Azure multi-locataire partitionnée dans une application SaaS multi-locataire | Microsoft Docs"
-description: "Surveiller et gérer les performances d’une base de données SQL Azure multi-locataire partitionnée dans une application SaaS multi-locataire"
-keywords: "didacticiel sur les bases de données SQL"
+title: Surveiller les performances d’une base de données SQL Azure multi-locataire partitionnée dans une application SaaS multi-locataire | Microsoft Docs
+description: Surveiller et gérer les performances d’une base de données SQL Azure multi-locataire partitionnée dans une application SaaS multi-locataire
+keywords: didacticiel sur les bases de données SQL
 services: sql-database
-documentationcenter: 
 author: stevestein
 manager: craigg
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: sstein
-ms.openlocfilehash: 3e97f0635a856256dd08c29d33d8058be9c8d8b4
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 53d8c099d68fd7eb3f00fb4d1be7ec54404521ff
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Surveiller et gérer les performances d’une base de données SQL Azure multi-locataire partitionnée dans une application SaaS multi-locataire
 
@@ -28,7 +22,7 @@ Ce didacticiel aborde plusieurs scénarios de gestion de performance clés utili
 
 L’application de base de données multi-locataire SaaS Wingtip Tickets utilise un modèle de données multi-locataires partitionnées, où les données du lieu (locataire) peuvent être réparties par ID de locataire sur plusieurs bases de données. Comme de nombreuses applications SaaS, le modèle de charge de travail de locataire anticipé est imprévisible et sporadique. En d’autres termes, les ventes de tickets peuvent se produire à tout moment. Pour tirer parti de ce modèle d’utilisation de base de données type, vous pouvez augmenter ou réduire la taille des bases de données pour optimiser le coût d’une solution. Avec ce type de modèle, il est important de surveiller l’utilisation des ressources des bases de données pour veiller à ce que les charges soient raisonnablement équilibrées entre éventuellement plusieurs bases de données. Vous devez également veiller à ce que les bases de données aient des ressources appropriées et qu’elles n’atteignent pas les limites [DTU](sql-database-what-is-a-dtu.md). Ce didacticiel explore plusieurs moyens de surveiller et de gérer des bases de données et montre comment prendre des mesures correctives en réponse aux variations de la charge de travail.
 
-Ce didacticiel vous explique comment effectuer les opérations suivantes :
+Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 
@@ -37,10 +31,10 @@ Ce didacticiel vous explique comment effectuer les opérations suivantes :
 > * Augmenter la taille de la base de données en réponse à la charge accrue sur la base de données
 > * Provisionner un locataire dans une base de données à un seul locataire
 
-Pour suivre ce tutoriel, vérifiez que les conditions préalables suivantes sont bien satisfaites :
+Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis :
 
 * L’application de base de données multilocataire SaaS Wingtip Tickets est déployée. Pour procéder à un déploiement en moins de cinq minutes, consultez [Déployer et explorer l’application de base de données multi-locataire SaaS Wingtip Tickets](saas-multitenantdb-get-started-deploy.md)
-* Azure PowerShell est installé. Pour plus d’informations, consultez [Bien démarrer avec Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* Azure PowerShell est installé. Pour plus d’informations, voir [Bien démarrer avec Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 ## <a name="introduction-to-saas-performance-management-patterns"></a>Présentation des modèles de gestion de la performance SaaS
 
@@ -59,7 +53,7 @@ Pour les scénarios de volume important où vous travaillez avec de nombreuses r
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Obtenir les scripts et le code source de l’application de base de données multi-locataire SaaS Wingtip Tickets
 
-Les scripts et le code de l’application de base de données multi-locataire SaaS Wingtip Tickets sont disponibles dans le dépôt GitHub [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB). Consultez les [conseils généraux](saas-tenancy-wingtip-app-guidance-tips.md) avant de télécharger et de débloquer les scripts Wingtip Tickets SaaS.
+Les scripts et le code source de l’application de base de données multilocataire Wingtip Tickets SaaS sont disponibles dans le dépôt GitHub [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB). Consultez les [conseils généraux](saas-tenancy-wingtip-app-guidance-tips.md) avant de télécharger et de débloquer les scripts Wingtip Tickets SaaS.
 
 ## <a name="provision-additional-tenants"></a>Approvisionner des locataires supplémentaires
 
@@ -84,7 +78,7 @@ Le script *Demo-PerformanceMonitoringAndManagement.ps1* simule une charge de tra
 | 2 | Générer une charge d’intensité normale (environ 30 DTU) |
 | 3 | Générer une charge avec des pics plus longs par locataire|
 | 4 | Générer une charge avec des pics de DTU plus élevés par locataire (environ 70 DTU)|
-| 5 | Générer une intensité élevée (environ 90 DTU) sur un locataire unique, plus une charge d’intensité normale sur tous les autres locataires |
+| 5. | Générer une intensité élevée (environ 90 DTU) sur un locataire unique, plus une charge d’intensité normale sur tous les autres locataires |
 
 Le générateur de charge applique une charge CPU *synthétique* à chaque base de données de locataire. Le générateur démarre un travail pour chaque base de données de locataire, qui appelle périodiquement une procédure stockée qui génère la charge. Les niveaux de charge (exprimés en DTU), la durée et les intervalles varient selon les bases de données pour simuler l’activité d’un locataire imprévisible.
 
@@ -151,7 +145,7 @@ Revenez à **tenants1** > **Vue d’ensemble** pour afficher les graphiques de s
 
 La base de données reste en ligne et entièrement disponible tout au long du processus. Le code d’application doit toujours être écrit de façon à retenter les connexions ignorées et à ce que la reconnexion à la base de données ait lieu.
 
-## <a name="provision-a-new-tenant-in-its-own-database"></a>Provisionner un nouveau locataire dans sa propre base de données 
+## <a name="provision-a-new-tenant-in-its-own-database"></a>Approvisionner un nouveau locataire dans sa propre base de données 
 
 Le modèle multi-locataire partitionné vous permet de choisir s’il faut provisionner un nouveau locataire dans une base de données multi-locataire avec d’autres locataires, ou provisionner le locataire dans sa propre base de données. Quand vous provisionnez un locataire dans sa propre base de données, celui-ci tire parti de l’isolation inhérente à la base de données distincte, ce qui vous permet de gérer le niveau de performance de ce locataire indépendamment des autres, de le restaurer indépendamment des autres, etc. Par exemple, vous pouvez placer les clients standard ou ceux profitant d’un essai gratuit dans une base de données multi-locataire, et placer les clients premium dans des bases de données individuelles.  Si vous créez des bases de données à locataire unique isolées, vous pouvez continuer de les gérer collectivement dans un pool élastique pour optimiser les coûts des ressources.
 
@@ -189,7 +183,7 @@ Quand l’utilisation globale du locataire suit des modèles d’utilisation pr�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ce didacticiel vous explique comment effectuer les opérations suivantes :
+Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Simuler l’utilisation sur une base de données multi-locataire partitionnée en exécutant un générateur de charge fourni

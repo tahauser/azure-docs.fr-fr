@@ -1,13 +1,13 @@
 ---
-title: "Vue d’ensemble des zones de disponibilité | Microsoft Docs"
-description: "Cet article fournit une vue d’ensemble des zones de disponibilité Azure."
-services: 
-documentationcenter: 
+title: Vue d’ensemble des zones de disponibilité | Microsoft Docs
+description: Cet article fournit une vue d’ensemble des zones de disponibilité Azure.
+services: ''
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: azure
 ms.devlang: na
 ms.topic: article
@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 03/05/2018
 ms.author: markgal
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: db4801d105a6ca7382756224aa84c9e7b305194f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9274cb1fc490ab61e962e8a7918a9c44976dc755
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="overview-of-availability-zones-in-azure-preview"></a>Vue d’ensemble des zones de disponibilité dans Azure (préversion)
 
@@ -45,6 +45,7 @@ Les services Azure qui prennent en charge les zones de disponibilité sont les s
 - Managed Disks
 - Équilibreur de charge
 - Adresse IP publique
+- Stockage redondant dans une zone
 - Base de données SQL
 
 ## <a name="get-started-with-the-availability-zones-preview"></a>Prise en main de la préversion des zones de disponibilité

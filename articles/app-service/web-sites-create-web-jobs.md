@@ -1,9 +1,9 @@
 ---
-title: "Exécuter des tâches en arrière-plan avec WebJobs dans Azure App Service"
-description: "Découvrez comment utiliser des tâches web pour exécuter des tâches en arrière-plan dans des applications Web Azure App Service, des applications API ou des applications mobiles."
+title: Exécuter des tâches en arrière-plan avec WebJobs dans Azure App Service
+description: Découvrez comment utiliser des tâches web pour exécuter des tâches en arrière-plan dans des applications Web Azure App Service, des applications API ou des applications mobiles.
 services: app-service
-documentationcenter: 
-author: ggailey777
+documentationcenter: ''
+author: tdykstra
 manager: erikre
 editor: jimbe
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2017
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 91839d8f547340d55f6badb3350a393a48a13c7d
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 3652e0171e0c6a53c16fb5b5fde20df9ed2ab7c7
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Exécuter des tâches en arrière-plan avec WebJobs dans Azure App Service
 

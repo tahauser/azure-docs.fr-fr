@@ -1,28 +1,30 @@
 ---
-title: "Guide de sécurité Azure Storage | Microsoft Docs"
-description: "Présente en détail les nombreuses méthodes de sécurisation d’Azure Storage, notamment (liste non exhaustive) RBAC, Storage Service Encryption, le chiffrement côté client, SMB 3.0 et Azure Disk Encryption."
+title: Guide de sécurité Azure Storage | Microsoft Docs
+description: Présente en détail les nombreuses méthodes de sécurisation d’Azure Storage, notamment (liste non exhaustive) RBAC, Storage Service Encryption, le chiffrement côté client, SMB 3.0 et Azure Disk Encryption.
 services: storage
-documentationcenter: .net
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 6f931d94-ef5a-44c6-b1d9-8a3c9c327fb2
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 03/06/2018
 ms.author: tamram
-ms.openlocfilehash: 9cb109dd9ce5a14bb80be61577c10d7191ec5ce6
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: d1a81a9029f2e9b8a36ecebdcc4be44984e82515
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="azure-storage-security-guide"></a>Guide de sécurité Azure Storage
-## <a name="overview"></a>Vue d’ensemble
-Azure Storage propose un ensemble complet de fonctionnalités de sécurité dont l’utilisation combinée permet aux développeurs de créer des applications sécurisées. Le compte de stockage proprement dit peut être sécurisé à l’aide du contrôle d’accès en fonction du rôle et d’Azure Active Directory. Les données peuvent être sécurisées en transit entre une application et Azure au moyen du [chiffrement côté client](../storage-client-side-encryption.md), de HTTPS ou de SMB 3.0. Les données peuvent être définies de façon à être automatiquement chiffrées du moment où elles sont écrites dans Azure Storage en utilisant [Storage Service Encryption (SSE)](storage-service-encryption.md). Les disques de système d’exploitation et de données utilisés par les machines virtuelles peuvent être définis de façon à être chiffrés à l’aide d’ [Azure Disk Encryption](../../security/azure-security-disk-encryption.md). Il est possible d’accorder un accès délégué aux objets de données d’Azure Storage en utilisant des [signatures d’accès partagé](../storage-dotnet-shared-access-signature-part-1.md).
+
+## <a name="overview"></a>Vue d'ensemble
+
+Stockage Azure propose un ensemble complet de fonctionnalités de sécurité qui, une fois réunies, permettent aux développeurs de créer des applications sécurisées :
+
+- Toutes les données écrites dans le stockage Azure sont automatiquement chiffrées à l’aide du [Chiffrement de service de stockage (SSE)](storage-service-encryption.md). Pour plus d’informations, consultez [Annonce du chiffrement par défaut des objets blob, fichiers, tables et stockages de file d’attente Azure](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
+- Le compte de stockage proprement dit peut être sécurisé à l’aide du contrôle d’accès en fonction du rôle et d’Azure Active Directory. 
+- Les données peuvent être sécurisées en transit entre une application et Azure au moyen du [chiffrement côté client](../storage-client-side-encryption.md), de HTTPS ou de SMB 3.0.  
+- Les disques de système d’exploitation et de données utilisés par les machines virtuelles Azure peuvent être chiffrés à l’aide [d’Azure Disk Encryption](../../security/azure-security-disk-encryption.md). 
+- Il est possible d’accorder un accès délégué aux objets de données d’Azure Storage en utilisant des [signatures d’accès partagé](../storage-dotnet-shared-access-signature-part-1.md).
 
 Cet article fournit une vue d’ensemble sur chacune de ces fonctionnalités de sécurité, qui peuvent être utilisées avec Azure Storage. Des liens vers des articles détaillés vous sont proposés pour vous permettre d’explorer de façon plus détaillée chaque fonctionnalité.
 
@@ -30,7 +32,7 @@ Voici les sujets qui sont abordés dans cet article :
 
 * [Sécurité du plan de gestion](#management-plane-security) – Sécurisation de votre compte de stockage
 
-  Le plan de gestion se compose des ressources utilisées pour gérer votre compte de stockage. Dans cette section, nous allons parler du modèle de déploiement Azure Resource Manager et de la façon d’utiliser le contrôle d’accès en fonction du rôle (RBAC) pour contrôler l’accès à vos comptes de stockage. Nous évoquerons aussi la gestion des clés de compte de stockage et vous expliquerons comment les régénérer.
+  Le plan de gestion se compose des ressources utilisées pour gérer votre compte de stockage. Cette section, couvre modèle de déploiement Azure Resource Manager et la façon d’utiliser le contrôle d’accès en fonction du rôle (RBAC) pour contrôler l’accès à vos comptes de stockage. Il évoque aussi la gestion des clés de compte de stockage et vous expliquerons comment les régénérer.
 * [Sécurité du plan de données](#data-plane-security) – Sécurisation de l’accès à vos données
 
   Dans cette section, nous verrons comment autoriser l’accès aux objets de données réels de votre compte de stockage (objets blob, fichiers, files d’attente et tables) en utilisant des signatures d’accès partagé et des stratégies d’accès stockées. Nous évoquerons à la fois les signatures d’accès partagé (SAP) au niveau des services et les signatures d’accès partagé au niveau des comptes. Nous verrons aussi comment limiter l’accès à une adresse IP spécifique (ou à une plage d’adresses IP), comment limiter le protocole utilisé pour HTTPS et comment révoquer une signature d’accès partagé sans attendre son expiration.
@@ -39,7 +41,7 @@ Voici les sujets qui sont abordés dans cet article :
   Cette section explique comment sécuriser les données pendant leur transfert vers et à partir d’Azure Storage. Nous vous livrerons des recommandations concernant l’utilisation de HTTPS et vous parlerons du chiffrement utilisé par SMB 3.0 pour les partages de fichiers Azure. Nous nous intéresserons aussi au chiffrement côté client, qui vous permet de chiffrer les données avant leur transfert vers Storage dans une application cliente et de déchiffrer les données après leur transfert à partir de Storage.
 * [Chiffrement au repos](#encryption-at-rest)
 
-  Nous nous pencherons sur Storage Service Encryption (SSE) et sur la procédure d’activation de ce service pour un compte de stockage, qui a pour effet de chiffrer automatiquement les objets blob de bloc, les objets blog de pages et les objets blob d’ajout quand ils sont écrits dans Azure Storage. Nous verrons aussi comment utiliser Azure Disk Encryption et explorerons les différences fondamentales entre Disk Encryption, SSE et le chiffrement côté client, ainsi que des cas d’utilisation. Nous nous pencherons brièvement sur la conformité aux normes FIPS des ordinateurs de l’administration américaine.
+  Nous parlerons du chiffrement de service de stockage (SSE), qui est maintenant activé automatiquement pour les comptes de stockage nouveaux et existants. Nous verrons aussi comment utiliser Azure Disk Encryption et explorerons les différences fondamentales entre Disk Encryption, SSE et le chiffrement côté client, ainsi que des cas d’utilisation. Nous nous pencherons brièvement sur la conformité aux normes FIPS des ordinateurs de l’administration américaine.
 * Audit de l’accès d’Azure Storage à l’aide de [Storage Analytics](#storage-analytics)
 
   Cette section explique comment rechercher des informations dans les journaux d’analyse du stockage pour une demande donnée. Nous examinerons des données de journal d’analyse de stockage réelles et verrons comment déterminer si une demande est formulée avec la clé de compte de stockage, une signature d’accès partagé ou de façon anonyme, et si elle a abouti ou échoué.
@@ -55,7 +57,7 @@ Quand vous créez un compte de stockage, vous sélectionnez un modèle de déplo
 Ce guide porte essentiellement sur le modèle Resource Manager, qui est la méthode recommandée pour créer des comptes de stockage. Au lieu d’accorder l’accès à l’ensemble de l’abonnement, les comptes de stockage Resource Manager vous permettent de contrôler l’accès au plan de gestion à un niveau plus limité en utilisant le contrôle d’accès en fonction du rôle (RBAC).
 
 ### <a name="how-to-secure-your-storage-account-with-role-based-access-control-rbac"></a>Comment sécuriser un compte de stockage en utilisant le contrôle d’accès en fonction du rôle (RBAC)
-Pour commencer, expliquons ce qu’est RBAC et voyons comment l’utiliser. À chaque abonnement Azure correspond un annuaire Azure Active Directory. Les utilisateurs, les groupes et les applications de cet annuaire peuvent être autorisés à gérer les ressources de l’abonnement Azure qui reposent sur le modèle de déploiement Gestionnaire de ressources. C’est ce que l’on appelle le contrôle d’accès en fonction du rôle (RBAC). Pour gérer cet accès, vous pouvez utiliser le [Portail Azure](https://portal.azure.com/), les [outils de l’interface de ligne de commande Azure](../../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs) ou les [API REST du fournisseur de ressources de stockage Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx).
+Pour commencer, expliquons ce qu’est RBAC et voyons comment l’utiliser. À chaque abonnement Azure correspond un annuaire Azure Active Directory. Les utilisateurs, les groupes et les applications de cet annuaire peuvent être autorisés à gérer les ressources de l’abonnement Azure qui reposent sur le modèle de déploiement Gestionnaire de ressources. Ce type de sécurité porte le nom de contrôle d’accès en fonction du rôle (RBAC). Pour gérer cet accès, vous pouvez utiliser le [Portail Azure](https://portal.azure.com/), les [outils de l’interface de ligne de commande Azure](../../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs) ou les [API REST du fournisseur de ressources de stockage Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx).
 
 Avec le modèle Gestionnaire de ressources, vous devez placer le compte de stockage dans un groupe de ressources et contrôler l’accès au plan de gestion de ce compte de stockage spécifique à l’aide d’Azure Active Directory. Par exemple, vous pouvez permettre à certains utilisateurs d’accéder aux clés de compte de stockage, pendant que d’autres pourront voir les informations relatives au compte de stockage, mais pas accéder aux clés de compte de stockage.
 
@@ -97,7 +99,7 @@ Voici les principaux points à prendre en compte pour accéder aux opérations d
   Cet article montre comment utiliser l’API REST pour gérer RBAC.
 * [Informations de référence sur l’API REST du fournisseur de ressources Azure Storage](https://msdn.microsoft.com/library/azure/mt163683.aspx)
 
-  Ces informations de référence portent sur l’API que vous pouvez utiliser pour gérer votre compte de stockage par programmation.
+  Cette référence d’API décrit les API que vous pouvez utiliser pour gérer votre compte de stockage par programmation.
 * [Developer’s guide to auth with Azure Resource Manager API (Guide du développeur pour l’authentification avec l’API Azure Resource Manager)](http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/)
 
   Cet article explique l’authentification avec les API Resource Manager.
@@ -119,7 +121,7 @@ La décision de régénérer les clés de compte de stockage peut être motivée
 #### <a name="key-regeneration-plan"></a>Plan de régénération de clé
 Vous ne pouvez pas vous permettre de régénérer la clé que vous utilisez sans aucune planification. Vous risqueriez en effet de couper tous les accès au compte de stockage, ce qui provoquerait une interruption majeure. C’est la raison pour laquelle il existe deux clés. Nous vous recommandons de régénérer une seule clé à la fois.
 
-Avant de régénérer vos clés, veillez à dresser une liste qui recense toutes les applications qui dépendent du compte de stockage, ainsi que tous les autres services que vous utilisez dans Azure, le cas échéant. Par exemple, si vous utilisez Azure Media Services et que ce produit dépend de votre compte de stockage, vous devez resynchroniser les clés d’accès avec ce services après avoir régénéré la clé. Si vous utilisez des applications telles que Storage Explorer, vous devrez aussi fournir les nouvelles clés à ces applications. Notez que si vous disposez de machines virtuelles dont les fichiers VHD sont stockés dans le compte de stockage, elles ne seront pas affectées par la régénération des clés de compte de stockage.
+Avant de régénérer vos clés, veillez à dresser une liste qui recense toutes les applications qui dépendent du compte de stockage, ainsi que tous les autres services que vous utilisez dans Azure, le cas échéant. Par exemple, si vous utilisez Azure Media Services et que ce produit dépend de votre compte de stockage, vous devez resynchroniser les clés d’accès avec ce service après avoir régénéré la clé. Si vous utilisez des applications telles que Storage Explorer, vous devrez aussi fournir les nouvelles clés à ces applications. Si vous disposez de machines virtuelles dont les fichiers VHD sont stockés dans le compte de stockage, elles ne seront pas affectées par la régénération des clés de compte de stockage.
 
 Vous pouvez régénérer vos clés dans le Portail Azure. Une fois les clés régénérées, leur synchronisation au niveau des services de stockage peut prendre jusqu’à 10 minutes.
 
@@ -212,18 +214,18 @@ Par exemple, avec notre URL ci-dessus, si l’URL pointe vers un fichier au lieu
 * Une signature d’accès partagé de niveau service permet d’accéder à des ressources spécifiques dans un compte de stockage. À titre d’exemple, il peut s’agir de la récupération d’une liste d’objets blob dans un conteneur, du téléchargement d’un objet blob, de la mise à jour d’une entité dans une table, de l’ajout de messages à une file d’attente ou du chargement d’un fichier sur un partage de fichiers.
 * Une signature d’accès partagé de niveau compte permet d’accéder à tout ce pour quoi une signature d’accès partagé de niveau service peut être utilisée. En outre, elle peut proposer des options pour des ressources qui ne sont pas autorisées avec une signature d’accès partagé de niveau service, telles que la capacité de créer des conteneurs, tables, files d’attente et partages de fichiers. Vous pouvez également spécifier l’accès à plusieurs services à la fois. Par exemple, vous pouvez accorder à un utilisateur l’accès à la fois aux objets blob et aux fichiers dans votre compte de stockage.
 
-#### <a name="creating-an-sas-uri"></a>Création d’un URI SAP
-1. Vous pouvez créer un URI approprié à la demande, en définissant chaque fois l’ensemble des paramètres de requête.
+#### <a name="creating-a-sas-uri"></a>Création d’un URI SAS
+1. Vous pouvez créer un URI à la demande, en définissant chaque fois l’ensemble des paramètres de requête.
 
-   Cette opération est vraiment flexible mais, si vous avez un ensemble logique de paramètres qui sont chaque fois similaires, il est plus judicieux d’utiliser une stratégie d’accès stockée.
-2. Vous pouvez créer une stratégie d’accès stockée pour un conteneur entier, un partage de fichiers, une table ou une file d’attente. Vous pouvez ensuite l’utiliser comme base pour les URI SAP que vous créez. Les autorisations basées sur les stratégies d’accès stockées peuvent être facilement révoquées. Jusqu’à 5 stratégies peuvent être définies sur chaque conteneur, file d’attente, table ou partage de fichiers.
+   Cette approche est flexible, mais si vous avez un ensemble logique de paramètres qui sont chaque fois similaires, il est plus judicieux d’utiliser une stratégie d’accès stockée.
+2. Vous pouvez créer une stratégie d’accès stockée pour un conteneur entier, un partage de fichiers, une table ou une file d’attente. Vous pouvez ensuite l’utiliser comme base pour les URI SAP que vous créez. Les autorisations basées sur les stratégies d’accès stockées peuvent être facilement révoquées. Jusqu’à cinq stratégies peuvent être définies sur chaque conteneur, file d’attente, table ou partage de fichiers.
 
    Par exemple, si un grand nombre de personnes doivent lire les objets blob dans un conteneur spécifique, vous pouvez créer une stratégie d’accès stockée qui indique « d’accorder l’accès en lecture » et tous les autres paramètres qui seront chaque fois les mêmes. Vous pouvez ensuite créer un URI SAP en utilisant les paramètres de la stratégie d’accès stockée et en spécifiant la date/l’heure d’expiration. L’avantage de cette opération est que vous n’avez pas à spécifier chaque fois tous les paramètres de requête.
 
 #### <a name="revocation"></a>Révocation
 Supposons que votre signature d’accès partagé a été compromise ou que vous voulez la modifier en raison des exigences de sécurité de l’entreprise ou de conformité aux réglementations. Comment révoquer l’accès à une ressource à l’aide de cette signature ? Cela dépend de la façon dont vous avez créé l’URI SAP.
 
-Si vous utilisez des URI appropriés, vous avez trois possibilités. Vous pouvez émettre des jetons SAP avec des stratégies de délai d’expiration court et attendre simplement que la signature d’accès partagé expire. Vous pouvez renommer ou supprimer la ressource (en supposant que le jeton a été étendu à un objet unique). Vous pouvez modifier les clés de compte de stockage. Cette dernière option peut avoir un impact important, en fonction du nombre de services qui utilisent ce compte de stockage, et n’est probablement pas souhaitable sans une certaine planification.
+Si vous utilisez des URI appropriés, vous avez trois possibilités. Vous pouvez émettre des jetons SAP avec des stratégies de délai d’expiration court et attendre que la signature d’accès partagé expire. Vous pouvez renommer ou supprimer la ressource (en supposant que le jeton a été étendu à un objet unique). Vous pouvez modifier les clés de compte de stockage. Cette dernière option peut avoir un impact important, en fonction du nombre de services qui utilisent ce compte de stockage, et n’est probablement pas souhaitable sans une certaine planification.
 
 Si vous utilisez une signature d’accès partagé dérivée d’une stratégie d’accès stockée, vous pouvez supprimer l’accès en révoquant la stratégie d’accès stockée : vous pouvez simplement la modifier de sorte qu’elle ait déjà expiré, ou la supprimer complètement. Cette opération prend effet immédiatement et invalide toutes les signatures d’accès partagé créées à l’aide de cette stratégie d’accès stockée. La mise à jour ou la suppression de la stratégie d’accès stockée peut avoir un impact sur les personnes qui accèdent à ce conteneur, ce partage de fichiers, cette table ou cette file d’attente spécifique via une signature d’accès partagé, mais si les clients sont écrits pour demander une nouvelle signature quand l’ancienne n’est plus valide, cela fonctionne correctement.
 
@@ -262,9 +264,9 @@ Pour disposer d’un canal de communication sécurisé, vous devez toujours util
 Vous pouvez appliquer l’utilisation du protocole HTTPS lorsque vous appelez les API REST pour accéder aux objets dans les comptes de stockage en activant l’option [Transfert sécurisé requis](../storage-require-secure-transfer.md) pour le compte de stockage. Les connexions utilisant le protocole HTTP seront refusées une fois cette option activée.
 
 ### <a name="using-encryption-during-transit-with-azure-file-shares"></a>Utilisation du chiffrement pendant le transit avec des partages de fichiers Azure
-Azure Files prend en charge HTTPS avec l’API REST, mais il est plus couramment utilisé comme partage de fichiers SMB attaché à une machine virtuelle. SMB 2.1 ne prend pas en charge le chiffrement. Les connexions sont donc autorisées uniquement dans la même région Azure. Toutefois, SMB 3.0 prend en charge le chiffrement et est disponible dans Windows Server 2012 R2, Windows 8, Windows 8.1 et Windows 10, ce qui rend possibles l’accès entre les régions et même l’accès sur le bureau.
+Azure Files prend en charge HTTPS avec l’API REST, mais il est plus couramment utilisé comme partage de fichiers SMB attaché à une machine virtuelle. SMB 2.1 ne prend pas en charge le chiffrement. Les connexions sont donc autorisées uniquement dans la même région Azure. Toutefois, SMB 3.0 prend en charge le chiffrement et est disponible dans Windows Server 2012 R2, Windows 8, Windows 8.1 et Windows 10, ce qui rend possibles l’accès entre les régions et l’accès sur le bureau.
 
-Notez que les partages de fichiers Azure peuvent être utilisés avec Unix, mais comme le client SMB de Linux ne prend pas encore en charge le chiffrement, l’accès est autorisé uniquement dans une région Azure. La prise en charge du chiffrement pour Linux est prévue par les développeurs Linux responsables de la fonctionnalité SMB. Quand ce chiffrement sera pris en charge, vous pourrez accéder à un partage de fichiers Azure sur Linux de la même manière que sur Windows.
+Si les partages de fichiers Azure peuvent être utilisés avec Unix, le client SMB de Linux ne prend pas encore en charge le chiffrement. L’accès est donc autorisé uniquement dans une région Azure. La prise en charge du chiffrement pour Linux est prévue par les développeurs Linux responsables de la fonctionnalité SMB. Quand ce chiffrement sera pris en charge, vous pourrez accéder à un partage de fichiers Azure sur Linux de la même manière que sur Windows.
 
 Vous pouvez appliquer l’utilisation du chiffrement avec le service Azure Files en activant l’option [Transfert sécurisé requis](../storage-require-secure-transfer.md) pour le compte de stockage. Si vous utilisez les API REST, le protocole HTTPS est requis. Pour SMB, seules les connexions SMB qui prennent en charge le chiffrement seront établies avec succès.
 
@@ -284,22 +286,17 @@ Le chiffrement côté client est une autre méthode possible pour garantir la s�
 Le chiffrement côté client est aussi une méthode qui vous permet de chiffrer vos données au repos, car les données sont stockées dans leur forme chiffrée. Nous discuterons de ce point plus en détail dans la section sur le [chiffrement au repos](#encryption-at-rest).
 
 ## <a name="encryption-at-rest"></a>Chiffrement au repos
-Il existe trois fonctionnalités Azure qui fournissent un chiffrement au repos. La première, Azure Disk Encryption, s’utilise pour chiffrer les disques de données et de système d’exploitation utilisés par des machines virtuelles IaaS. Les deux autres, le chiffrement côté client et SSE, sont utilisées pour chiffrer les données dans Azure Storage. Nous allons étudier chacune de ces fonctionnalités, les comparer, puis déterminer quand les utiliser.
+Il existe trois fonctionnalités Azure qui fournissent un chiffrement au repos. La première, Azure Disk Encryption, s’utilise pour chiffrer les disques de données et de système d’exploitation utilisés par des machines virtuelles IaaS. Le chiffrement côté client et SSE, sont utilisés pour chiffrer les données dans Azure Storage. 
 
-Vous pouvez utiliser le chiffrement côté client pour chiffrer les données en transit (ces données sont également stockées dans leur forme chiffrée dans Azure Storage). Si vous préférez, vous pouvez aussi simplement utiliser le protocole HTTPS pendant le transfert et utiliser un autre moyen de votre choix pour chiffrer automatiquement les données stockées. Il existe deux méthodes possibles : Azure Disk Encryption et SSE. La première chiffre les données directement sur les disques de données et de système d’exploitation. La seconde chiffre les données qui sont écrites dans le stockage Azure Blob Storage.
+Vous pouvez utiliser le chiffrement côté client pour chiffrer les données en transit (ces données sont également stockées dans leur forme chiffrée dans Azure Storage). Si vous préférez, vous pouvez aussi utiliser le protocole HTTPS pendant le transfert et utiliser un autre moyen de votre choix pour chiffrer automatiquement les données stockées. Il existe deux méthodes possibles : Azure Disk Encryption et SSE. La première chiffre les données directement sur les disques de données et de système d’exploitation. La seconde chiffre les données qui sont écrites dans le stockage Azure Blob Storage.
 
 ### <a name="storage-service-encryption-sse"></a>Storage Service Encryption (SSE)
-SSE vous permet de demander que le service de stockage chiffre automatiquement les données lors de leur écriture dans le Stockage Azure. Les données lues à partir d’Azure Storage sont déchiffrées par le service de stockage avant d’être renvoyées. Grâce à ce processus, vous sécurisez vos données sans avoir à modifier le code existant ni à ajouter du code dans les applications.
 
-Il s’agit d’un paramètre qui s’applique à l’ensemble du compte de stockage. Vous pouvez activer ou désactiver cette fonctionnalité en modifiant la valeur du paramètre. Pour cela, vous pouvez utiliser le Portail Azure, PowerShell, l’interface de ligne de commande Azure, l’API REST du fournisseur de ressources de stockage ou la bibliothèque cliente de stockage .NET. Par défaut, SSE est désactivé.
+SSE est activé pour tous les comptes de stockage et ne peut pas être désactivé. SSE chiffre automatiquement vos données lors de leur écriture dans le stockage Azure. Lorsque vous lisez des données depuis le stockage Azure, elles déchiffrées par le stockage Azure avant d’être retournées. SSE vous permet de sécuriser vos données sans avoir à modifier le code existant ni à ajouter du code dans les applications.
 
-Actuellement, les clés utilisées pour le chiffrement sont gérées par Microsoft. Nous créons initialement les clés, puis nous gérons le stockage sécurisé des clés ainsi que leur rotation régulière, conformément à la politique interne de Microsoft en la matière. À l’avenir, vous pourrez gérer vos propres clés de chiffrement et fournir un chemin de migration des clés gérées par Microsoft en clés gérées par le client.
+Les clés utilisées pour SSE sont gérées par Microsoft. Microsoft crée initialement les clés, puis gère leur stockage sécurisé ainsi que leur rotation régulière, conformément à la politique interne de Microsoft en la matière. Les clés gérées par le client finiront par être disponibles, avec un chemin de migration des clés gérées par Microsoft en clés gérées par le client.
 
-Cette fonctionnalité est disponible pour les comptes de Stockage Standard et Premium créés avec le modèle de déploiement Resource Manager. SSE s’applique à tous types de données : objets blob de blocs, objets blob de pages, objets blob d’ajout, tables, files d’attente et fichiers.
-
-Les données sont chiffrées uniquement si la fonctionnalité SSE est activée. Le chiffrement s’effectue pendant l’écriture des données dans le stockage Blob Storage. L’activation ou la désactivation de SSE n’a pas d’impact sur les données existantes. En d’autres termes, quand vous activez cette fonctionnalité, les données qui existent déjà ne sont pas chiffrées ; de la même façon, si vous la désactivez, les données existantes ne sont pas déchiffrées.
-
-Si vous souhaitez utiliser cette fonctionnalité avec un compte de stockage Classic, vous pouvez créer un compte de stockage Resource Manager et utiliser AzCopy pour copier les données dans ce nouveau compte.
+Le chiffrement du service de stockage chiffre automatiquement les données pour tous les niveaux de performance (Standard ou Premium), tous les modèles de déploiement (Azure Resource Manager et Classic) et tous les services de Stockage Azure (blob, file d’attente, table et fichier). 
 
 ### <a name="client-side-encryption"></a>chiffrement côté client
 Nous avons déjà mentionné le chiffrement côté client quand nous avons parlé du chiffrement des données en transit. Cette fonctionnalité vous permet de chiffrer par programmation vos données dans une application cliente avant de les envoyer via le réseau vers Azure Storage, et de les déchiffrer par programmation une fois que vous les avez récupérées d’Azure Storage.
@@ -308,7 +305,7 @@ Elle fournit le chiffrement en transit, mais également le chiffrement au repos.
 
 Par exemple, utilisez cette fonctionnalité si vous avez une application web qui stocke et récupère des objets blob, et si vous souhaitez sécuriser au maximum l’application et les données. Dans ce cas, le chiffrement côté client est la méthode appropriée. Le trafic entre le client et le service Azure Blob contient la ressource chiffrée, et personne ne peut interpréter les données en transit et les reconstituer dans vos objets blob privés.
 
-Le chiffrement côté client est intégré aux bibliothèques clientes de stockage Java et .NET, qui utilisent à leur tour les API Azure Key Vault, ce qui rend son implémentation très facile. Le processus de chiffrement et déchiffrement des données utilise la technique d’enveloppe, et stocke les métadonnées utilisées par le chiffrement dans chaque objet de stockage. Par exemple, pour les objets blob, il les stocke dans les métadonnées d’objet blob et, pour les files d’attente, il les ajoute à chaque message de file d’attente.
+Le chiffrement côté client est intégré aux bibliothèques clientes de stockage Java et .NET, qui utilisent à leur tour les API Azure Key Vault, ce qui rend son implémentation facile. Le processus de chiffrement et déchiffrement des données utilise la technique d’enveloppe, et stocke les métadonnées utilisées par le chiffrement dans chaque objet de stockage. Par exemple, pour les objets blob, il les stocke dans les métadonnées d’objet blob et, pour les files d’attente, il les ajoute à chaque message de file d’attente.
 
 Pour le chiffrement proprement dit, vous pouvez créer et gérer vos propres clés de chiffrement. Vous pouvez également utiliser les clés générées par la bibliothèque cliente Azure Storage, ou demander à Azure Key Vault de générer les clés. Vous pouvez stocker vos clés de chiffrement dans votre stockage de clés local, ou les stocker dans un coffre Azure Key Vault. Azure Key Vault vous permet d’accorder l’accès à des clés secrètes dans Azure Key Vault à des utilisateurs spécifiques à l’aide d’Azure Active Directory. De cette manière, vous limitez les personnes autorisées à accéder au coffre de clés Azure Key Vault et à récupérer les clés que vous utilisez pour le chiffrement côté client.
 
@@ -357,34 +354,35 @@ Cette fonctionnalité garantit que toutes les données sur les disques de vos ma
 * [Chiffrement de disque Azure pour des machines virtuelles Windows et Linux IaaS](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)
 
 ### <a name="comparison-of-azure-disk-encryption-sse-and-client-side-encryption"></a>Comparaison entre Azure Disk Encryption, SSE et le chiffrement côté client
-#### <a name="iaas-vms-and-their-vhd-files"></a>Machines virtuelles IaaS et fichiers VHD associés
-Pour les disques utilisés par des machines virtuelles IaaS, nous vous recommandons d’utiliser le chiffrement Azure Disk Encryption. Vous pouvez activer SSE pour chiffrer les fichiers VHD qui sont utilisés pour la sauvegarde des disques dans Azure Storage. Notez que cette fonctionnalité chiffre uniquement les nouvelles données écrites. Autrement dit, si vous créez une machine virtuelle et activez ensuite SSE sur le compte de stockage qui contient le fichier VHD, les modifications apportées sont chiffrées, mais pas le fichier VHD d’origine.
 
-Si vous créez une machine virtuelle à partir d’une image issue d’Azure Marketplace, Azure effectue une [copie superficielle](https://en.wikipedia.org/wiki/Object_copying) de l’image dans votre compte de stockage dans Azure Storage, mais elle ne chiffre pas les données, même si SSE est activé. SSE commence le chiffrement des données après avoir créé la machine virtuelle et démarré la mise à jour de l’image. Pour cette raison, il est préférable d’utiliser Azure Disk Encryption sur des machines virtuelles créées à partir d’images dans Place de marché Azure pour garantir le chiffrement de toutes les données.
+#### <a name="iaas-vms-and-their-vhd-files"></a>Machines virtuelles IaaS et fichiers VHD associés
+
+Pour les disques de données utilisés par des machines virtuelles IaaS, nous vous recommandons d’utiliser le chiffrement Azure Disk Encryption. Si vous créez une machine virtuelle à partir d’une image issue d’Azure Marketplace, Azure effectue une [copie superficielle](https://en.wikipedia.org/wiki/Object_copying) de l’image dans votre compte de stockage dans Azure Storage, mais elle ne chiffre pas les données, même si SSE est activé. SSE commence le chiffrement des données après avoir créé la machine virtuelle et démarré la mise à jour de l’image. Pour cette raison, il est préférable d’utiliser Azure Disk Encryption sur des machines virtuelles créées à partir d’images dans Place de marché Azure pour garantir le chiffrement de toutes les données.
 
 Si vous ajoutez une machine virtuelle déjà chiffrée dans Azure à partir d’un emplacement local, vous pouvez charger les clés de chiffrement dans Azure Key Vault et continuer à utiliser le chiffrement qui était utilisé localement pour cette machine virtuelle. Dans ce scénario, le chiffrement Azure Disk Encryption est activé.
 
 Si vous utilisez un fichier VHD local non chiffré, vous pouvez le charger dans la galerie comme une image personnalisée et approvisionner une machine virtuelle à partir de cette image. Si vous le faites à l’aide de modèles Resource Manager, vous pouvez demander l’activation de la fonctionnalité Azure Disk Encryption au démarrage de la machine virtuelle.
 
-Quand vous ajoutez un disque de données et le montez ensuite sur la machine virtuelle, vous pouvez activer Azure Disk Encryption sur ce disque. Azure Disk Encryption chiffrera d’abord ce disque de données localement, puis la couche de gestion de service effectuera une écriture différée sur le stockage pour en chiffrer le contenu.
+Quand vous ajoutez un disque de données et le montez ensuite sur la machine virtuelle, vous pouvez activer Azure Disk Encryption sur ce disque. Azure Disk Encryption chiffrera d’abord ce disque de données localement, puis la couche de modèle de déploiement classique effectuera une écriture différée sur le stockage pour en chiffrer le contenu.
 
 #### <a name="client-side-encryption"></a>chiffrement côté client
-Le chiffrement côté client est la méthode la plus sûre pour chiffrer vos données, car il chiffre les données avant leur transit et il chiffre les données au repos. Toutefois, cette méthode vous oblige à ajouter du code dans vos applications qui utilisent le stockage, ce qui peut ne pas vous convenir. Dans ce cas, vous pouvez utiliser le protocole HTTPS pour vos données en transit, et SSE pour chiffrer les données au repos.
+Le chiffrement côté client est la méthode la plus sûre pour chiffrer vos données, car il chiffre les données avant leur transit.  Toutefois, cette méthode vous oblige à ajouter du code dans vos applications qui utilisent le stockage, ce qui peut ne pas vous convenir. Dans ce cas, vous pouvez utiliser le protocole HTTPS pour sécuriser vos données en transit. Une fois que les données atteignent le stockage Azure, elles sont chiffrées par SSE.
 
-Le chiffrement côté client vous permet de chiffrer des entités de table, des messages de file d’attente et des objets blob. Avec SSE, vous ne pouvez chiffrer que des objets blob. Si vous devez chiffrer des données de table et de file d’attente, utilisez le chiffrement côté client.
+Le chiffrement côté client vous permet de chiffrer des entités de table, des messages de file d’attente et des objets blob. 
 
 Le chiffrement côté client est entièrement géré par l’application. C’est l’approche la plus sûre, mais elle vous oblige à effectuer des modifications par programmation dans votre application et à mettre en place des processus de gestion des clés. Choisissez cette méthode pour bénéficier d’une sécurité maximale pendant le transit des données et si vous souhaitez que vos données stockées soient chiffrées.
 
 Le chiffrement côté client entraîne une plus grande charge pour le client. Vous devez donc tenir compte de ce paramètre dans vos plans d’extensibilité, en particulier si vous chiffrez et transférez une grande quantité de données.
 
 #### <a name="storage-service-encryption-sse"></a>Storage Service Encryption (SSE)
-SSE est géré par le Stockage Azure. SSE ne sécurise pas les données en transit, mais chiffre les données quand elles sont écrites dans Azure Storage. L’utilisation de cette fonctionnalité n’a pas d’impact sur les performances.
+
+SSE est géré par le Stockage Azure. SSE ne sécurise pas les données en transit, mais chiffre les données quand elles sont écrites dans Azure Storage. Le chiffrement du service de stockage n’affecte pas les performances de Stockage Azure.
 
 Il est possible de chiffrer tous types de données du compte de stockage avec SSE (objets blob de blocs, objets blob d’ajout, objets blob de pages, données de table, données de file d’attente et fichiers).
 
-Si vous utilisez une archive ou une bibliothèque de fichiers VHD comme base pour créer des machines virtuelles, créez un compte de stockage, activez le chiffrement SSE, puis chargez les fichiers VHD dans le nouveau compte. Ces fichiers VHD seront chiffrés par Azure Storage.
+Si vous utilisez une archive ou une bibliothèque de fichiers VHD comme base pour créer des machines virtuelles, créez un compte de stockage, puis chargez les fichiers VHD dans le nouveau compte. Ces fichiers VHD seront chiffrés par Azure Storage.
 
-Si Azure Disk Encryption est activé pour les disques dans une machine virtuelle et que SSE est activé sur le compte de stockage contenant les fichiers VHD, tout fonctionne correctement. Toutes les données qui viennent d’être écrites sont alors chiffrées deux fois.
+Si Azure Disk Encryption est activé pour les disques dans une machine virtuelle, toutes les données qui viennent d’être écrites sont chiffrées par SSE et par le chiffrement de disque Azure.
 
 ## <a name="storage-analytics"></a>Storage Analytics
 ### <a name="using-storage-analytics-to-monitor-authorization-type"></a>Utilisation de Storage Analytics pour surveiller le type d’autorisation
@@ -392,14 +390,14 @@ Pour chaque compte de stockage, vous pouvez activer Azure Storage Analytics pour
 
 Les journaux d’analyse du stockage vous permettent de voir un autre élément de données : la méthode d’authentification utilisée par un utilisateur lors de l’accès au stockage. Par exemple, avec Blob Storage, vous pouvez voir s’il a utilisé une signature d’accès partagé ou les clés de compte de stockage, ou si l’objet blob qui a fait l’objet d’un accès est public.
 
-Cela peut être très utile si vous surveillez étroitement l’accès au stockage. Par exemple, dans Blob Storage, vous pouvez définir tous les conteneurs comme privés et implémenter l’utilisation d’un service SAP dans toutes vos applications. Vous pouvez alors vérifier régulièrement les journaux pour voir si vos objets blob font l’objet d’un accès à l’aide de clés de compte de stockage, ce qui peut indiquer une violation de la sécurité, ou si les objets blob sont publics alors qu’ils ne devraient pas l’être.
+Cela peut être utile si vous surveillez étroitement l’accès au stockage. Par exemple, dans Blob Storage, vous pouvez définir tous les conteneurs comme privés et implémenter l’utilisation d’un service SAP dans toutes vos applications. Vous pouvez alors vérifier régulièrement les journaux pour voir si vos objets blob font l’objet d’un accès à l’aide de clés de compte de stockage, ce qui peut indiquer une violation de la sécurité, ou si les objets blob sont publics alors qu’ils ne devraient pas l’être.
 
 #### <a name="what-do-the-logs-look-like"></a>Comment se présentent les journaux ?
 Une fois que vous avez activé les métriques de compte de stockage et la journalisation par le biais du Portail Azure, les données d’analyse commencent à s’accumuler rapidement. La journalisation et les métriques de chaque service sont distinctes : la journalisation est écrite uniquement en cas d’activité dans ce compte de stockage, tandis que les métriques sont consignées chaque minute, chaque heure ou chaque jour, en fonction de leur configuration.
 
 Les journaux sont stockés dans des objets blob de blocs se trouvant dans un conteneur nommé $logs dans le compte de stockage. Ce conteneur est automatiquement créé quand Storage Analytics est activé. Une fois ce conteneur créé, vous ne pouvez pas le supprimer, même si vous pouvez en supprimer le contenu.
 
-Sous le conteneur $logs se trouve un dossier correspondant à chaque service, puis des sous-dossiers pour l’année/le mois/le jour/l’heure. Sous les heures, les journaux sont simplement numérotés. La structure des répertoires se présente ainsi :
+Sous le conteneur $logs se trouve un dossier correspondant à chaque service, puis des sous-dossiers pour l’année/le mois/le jour/l’heure. Sous les heures, les journaux sont numérotés. La structure des répertoires se présente ainsi :
 
 ![Affichage des fichiers journaux](./media/storage-security-guide/image1.png)
 
@@ -414,7 +412,7 @@ Un article répertorié dans les ressources ci-dessous fournit la liste des nomb
 
 ![Instantané des champs d’un fichier journal](./media/storage-security-guide/image3.png)
 
-Nous nous intéressons aux entrées pour GetBlob, et comment elles sont authentifiées. Nous devons donc rechercher les entrées avec operation-type « Get-Blob » et vérifier l’état de la requête (4<sup>e</sup> colonne) et le type d’autorisation (8<sup>e</sup> colonne).
+Nous nous intéressons aux entrées pour GetBlob, et comment elles sont authentifiées. Nous devons donc rechercher les entrées avec operation-type « Get-Blob » et vérifier l’état de la requête (quatrième</sup> colonne) et le type d’autorisation (huitième</sup> colonne).
 
 Par exemple, dans les premières lignes de la liste ci-dessus, l’état de la requête est « Success » et le type d’autorisation est « authenticated ». Cela signifie que la requête a été validée à l’aide de la clé du compte de stockage.
 

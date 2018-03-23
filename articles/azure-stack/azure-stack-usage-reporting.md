@@ -1,30 +1,30 @@
 ---
-title: "Signaler les données d’utilisation Azure Stack à Azure | Microsoft Docs"
-description: "Découvrez comment configurer les la génération de rapports de données d’utilisation dans Azure Stack."
+title: Signaler les données d’utilisation Azure Stack à Azure | Microsoft Docs
+description: Découvrez comment configurer les la génération de rapports de données d’utilisation dans Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
-ms.assetid: 2A397C83-1A6C-4290-B0EF-FDC34EE290CD
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
-ms.author: mabrigg;AlfredoPizzirani
-ms.openlocfilehash: 451e8c604e48d9cfc42284f2413fa5ed4fea03bc
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.date: 02/22/2018
+ms.author: mabrigg
+ms.reviewer: alfredop
+ms.openlocfilehash: 29d53f63bf3d551823ca27df04f0e385a92cdec7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Signaler les données d’utilisation Azure Stack à Azure 
 
 Les données d’utilisation, également appelées « données de consommation », représentent la quantité de ressources utilisées. 
 
-Les systèmes multinœuds Azure Stack qui utilisent un modèle de facturation basé sur la consommation doivent communiquer les données d’utilisation à Azure à des fins de facturation.  Les opérateurs Azure Stack doivent configurer leur instance Azure Stack pour communiquer les données d’utilisation à Azure.
+Les systèmes à plusieurs nœuds Azure Stack qui utilisent un modèle de facturation basé sur la consommation doivent communiquer les données d’utilisation à Azure à des fins de facturation.  Les opérateurs Azure Stack doivent configurer leur instance Azure Stack pour communiquer les données d’utilisation à Azure.
 
 > [!NOTE]
 > Les rapports d’utilisation des données sont nécessaires pour les utilisateurs des systèmes intégrés Azure Stack qui attribuent des licences sous le modèle de paiement à l’utilisation. Ceci est facultatif pour les clients qui attribuent des licences sous le modèle de capacité (consultez la page [Comment acheter Azure Stack](https://azure.microsoft.com/overview/azure-stack/how-to-buy/ to learn more about pricing in Azure Stack)). Pour les utilisateurs du Kit de développement Azure Stack, les opérateurs Azure Stack peuvent communiquer des données d’utilisation et tester la fonctionnalité. Les utilisateurs ne sont cependant pas facturés pour l’utilisation qu’elles impliquent. 
@@ -36,7 +36,7 @@ Les données d’utilisation sont envoyées d’Azure Stack à Azure via le pon
 
 ## <a name="set-up-usage-data-reporting"></a>Configurer la génération de rapports de données d’utilisation
 
-Pour configurer la génération de rapports de données d’utilisation, vous devez [inscrire votre instance Azure Stack auprès d’Azure](azure-stack-register.md). Dans le cadre du processus d’inscription, le composant Azure Bridge d’Azure Stack, qui connecte Azure Stack à Azure et envoie les données d’utilisation, est configuré. Les données d’utilisation suivantes sont envoyées d’Azure Stack à Azure :
+Pour configurer la génération de rapports de données d’utilisation, vous devez [inscrire votre instance Azure Stack auprès d’Azure](azure-stack-register.md). Le composant Azure Bridge d’Azure Stack, qui connecte Azure Stack à Azure et envoie les données d’utilisation, est configuré dans le cadre du processus d’inscription. Les données d’utilisation suivantes sont envoyées d’Azure Stack à Azure :
 
 - **ID du compteur** : ID unique de la ressource consommée.
 - **Quantité** : quantité d’utilisation des ressources.
@@ -108,3 +108,4 @@ Il existe toujours un délai entre le moment où les données d’utilisation so
 * [API d’utilisation du fournisseur](azure-stack-provider-resource-api.md)  
 * [API d’utilisation du locataire](azure-stack-tenant-resource-usage-api.md)
 * [Forum Aux Questions sur l’utilisation](azure-stack-usage-related-faq.md)
+* [Gérer l’utilisation et la facturation en tant que fournisseur de services cloud](azure-stack-add-manage-billing-as-a-csp.md)

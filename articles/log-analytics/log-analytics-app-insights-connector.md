@@ -1,11 +1,11 @@
 ---
-title: "Consulter les données d’application d’Azure Application Insights | Microsoft Docs"
-description: "Vous pouvez utiliser la solution Application Insights Connector pour diagnostiquer les problèmes de performances et comprendre ce que les utilisateurs font avec votre application lorsqu’Application Insights les surveille."
+title: Consulter les données d’application d’Azure Application Insights | Microsoft Docs
+description: Vous pouvez utiliser la solution Application Insights Connector pour diagnostiquer les problèmes de performances et comprendre ce que les utilisateurs font avec votre application lorsqu’Application Insights les surveille.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 49280cad-3526-43e1-a365-c6a3bf66db52
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: magoedte
-ms.openlocfilehash: bf3259909a84e1e1f5325ff4e39d5c10f1abc831
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 1556e91710990351d6723325789201afa99b1943
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Solution de gestion Application Insights Connector (préversion)
 
@@ -44,7 +44,8 @@ Contrairement à la plupart des autres solutions Log Analytics, les données ne 
 | [Groupe d’administration SCOM](log-analytics-om-agents.md) | Non  | La solution ne collecte aucune information à partir d’agents dans un groupe d’administration SCOM connecté. |
 | [Compte Azure Storage](log-analytics-azure-storage.md) | Non  | La solution ne collecte aucune information à partir de stockage Azure. |
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
+
 
 - Pour accéder aux informations d’Application Insights Connector, vous devez posséder un abonnement Azure.
 - Vous devez disposer d’au moins une ressource Application Insights configurée.
@@ -64,7 +65,7 @@ Après environ 30 minutes, les données deviennent disponibles et la vignette A
 Autres points à garder à l’esprit :
 
 - Vous pouvez lier les applications Application Insights à un seul espace de travail Log Analytics.
-- Vous pouvez uniquement lier des [ressources Application Insights Standard ou Premium](https://azure.microsoft.com/pricing/details/application-insights) à Log Analytics. Cependant, vous pouvez utiliser le niveau Gratuit de Log Analytics.
+- Vous pouvez uniquement lier des [ressources Application Insights de base ou d’entreprise](https://azure.microsoft.com/pricing/details/application-insights) à Log Analytics. Cependant, vous pouvez utiliser le niveau Gratuit de Log Analytics.
 
 ## <a name="management-packs"></a>Packs d’administration
 

@@ -1,12 +1,12 @@
 ---
-title: "Singletons avec état dans l’extension Fonctions durables - Azure"
-description: "Découvrez comment implémenter un singleton avec état dans l’extension Fonctions durables d’Azure Functions."
+title: Singletons avec état dans l’extension Fonctions durables - Azure
+description: Découvrez comment implémenter un singleton avec état dans l’extension Fonctions durables d’Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
 ms.openlocfilehash: 46cdd8523117e1100e7ce2a29ade9eb2dc0afe75
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="stateful-singletons-in-durable-functions---counter-sample"></a>Singletons avec état dans l’extension Fonctions durables - Échantillon de compteur
 
@@ -31,7 +31,8 @@ Les fonctions d’orchestrateur ne sont pas des implémentations d’« acteur �
 
 Cet article explique comment exécuter l’échantillon de *compteur*. Cet échantillon détaille un objet de singleton qui prend en charge les opérations *d’incrémentation* et de *décrémentation*, en mettant à jour son état interne comme il convient.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
+
 
 * Suivez les instructions indiquées dans la section [Installer des fonctions durables](durable-functions-install.md) pour configurer l’exemple.
 * Cet article suppose que vous avez déjà parcouru l’exemple de procédure pas à pas [Séquence Hello](durable-functions-sequence.md).
@@ -153,7 +154,7 @@ Vous pouvez continuer à envoyer de nouvelles opérations à cette instance, et 
 > [!WARNING]
 > Au moment de l’écriture de cet article, il existe des conditions de concurrence connues lors de l’appel de l’élément `ContinueAsNew` en parallèle avec le traitement des messages, par exemple de demandes d’arrêt ou des événements externes. Pour en savoir plus sur ces conditions de concurrence, consultez cet [article de GitHub](https://github.com/Azure/azure-functions-durable-extension/issues/67).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Cet exemple a montré comment gérer les [événements externes](durable-functions-external-events.md) et implémenter les [orchestrations externes](durable-functions-eternal-orchestrations.md) dans les [singletons avec état](durable-functions-singletons.md). L’exemple suivant montre comment utiliser les événements externes et les [minuteurs durables](durable-functions-timers.md) pour gérer l’interaction humaine.
 

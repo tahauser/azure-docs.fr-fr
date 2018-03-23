@@ -1,26 +1,23 @@
 ---
-title: "Continuité des activités cloud - récupération de base de données - SQL Database | Microsoft Docs"
-description: "Découvrez comment Azure SQL Database prend en charge la continuité des activités cloud et la récupération de base de données et vous aide à maintenir les applications cloud opérationnelles."
-keywords: "continuité des activités, continuité des activités cloud, récupération d’urgence de base de données, récupération de base de données"
+title: Continuité des activités cloud - récupération de base de données - SQL Database | Microsoft Docs
+description: Découvrez comment Azure SQL Database prend en charge la continuité des activités cloud et la récupération de base de données et vous aide à maintenir les applications cloud opérationnelles.
+keywords: continuité des activités, continuité des activités cloud, récupération d’urgence de base de données, récupération de base de données
 services: sql-database
-documentationcenter: 
 author: anosov1960
-manager: jhubbard
-editor: 
-ms.assetid: 18e5d3f1-bfe5-4089-b6fd-76988ab29822
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 08/25/2017
 ms.author: sashan
-ms.openlocfilehash: c2c5f18b736c83c281d56e0bdda977a9f8c48101
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 160e65130efc78bc1a98a0feceb1c824cf226156
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Vue d’ensemble de la continuité de l’activité avec la base de données Azure SQL
 

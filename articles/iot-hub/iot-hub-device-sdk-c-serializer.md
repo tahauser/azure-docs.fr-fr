@@ -1,11 +1,11 @@
 ---
-title: "Azure IoT device SDK pour C - Serializer | Microsoft Docs"
-description: "Guide d’utilisation de la bibliothèque Serializer dans Azure IoT device SDK pour C pour créer des applications d’appareil qui communiquent avec un IoT Hub."
+title: Azure IoT device SDK pour C - Serializer | Microsoft Docs
+description: Guide d’utilisation de la bibliothèque Serializer dans Azure IoT device SDK pour C pour créer des applications d’appareil qui communiquent avec un IoT Hub.
 services: iot-hub
-documentationcenter: 
-author: olivierbloch
+documentationcenter: ''
+author: yzhong94
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: defbed34-de73-429c-8592-cd863a38e4dd
 ms.service: iot-hub
 ms.devlang: cpp
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2016
-ms.author: obloch
-ms.openlocfilehash: d8b9e147b68d16c6c166e92cbabf5b5b63e23e8d
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.author: yizhon
+ms.openlocfilehash: da9a2dd8bad68c03bb75d1772cf9e5dc539892aa
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>Kit de développement logiciel (SDK) Azure IoT device pour C : en savoir plus sur serializer
 Le [premier article](iot-hub-device-sdk-c-intro.md) de cette série a présenté le **Kit de développement logiciel (SDK) d’appareil Azure IoT (Azure IoT device SDK) pour C**. L’article suivant donne une description plus détaillée [**d’IoTHubClient**](iot-hub-device-sdk-c-iothubclient.md). Dans cet article, nous terminerons sur le sujet du Kit de développement logiciel (SDK) avec une description plus détaillée du composant restant : la bibliothèque **sérialiseur** .
@@ -64,7 +64,7 @@ Cet exemple n’illustre pas les types de données supplémentaires pris en char
 ### <a name="supported-data-types"></a>Types de données pris en charge
 Les types de données suivants sont pris en charge dans les modèles créés avec la bibliothèque **serializer** :
 
-| Type | Description |
+| type | Description |
 | --- | --- |
 | double |nombre à virgule flottante double précision |
 | int |entier 32 bits |
@@ -74,7 +74,7 @@ Les types de données suivants sont pris en charge dans les modèles créés ave
 | int16\_t |entier 16 bits |
 | int32\_t |entier 32 bits |
 | int64\_t |entier 64 bits |
-| valeur booléenne |booléenne |
+| bool |booléenne |
 | ascii\_char\_ptr |Chaîne ASCII |
 | EDM\_DATE\_TIME\_OFFSET |décalage de date et d’heure |
 | EDM\_GUID |GUID |

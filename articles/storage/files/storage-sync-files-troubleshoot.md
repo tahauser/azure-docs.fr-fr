@@ -1,8 +1,8 @@
 ---
-title: "Résoudre les problèmes de synchronisation de fichiers Azure (préversion) | Microsoft Docs"
-description: "Découvrez comment résoudre les problèmes courants avec Azure File Sync."
+title: Résoudre les problèmes de synchronisation de fichiers Azure (préversion) | Microsoft Docs
+description: Découvrez comment résoudre les problèmes courants avec Azure File Sync.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: wmgries
 manager: klaasl
 editor: jgerend
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 5558a69756075dd83f890d5e9e00c9944d841591
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 4f022bf227c8d460d014ea9bbc5dc426f0ada511
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Résoudre les problèmes de synchronisation de fichiers Azure (préversion)
 Utilisez Azure File Sync (préversion) pour centraliser les partages de fichiers de votre organisation dans Azure Files, tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -51,7 +51,7 @@ Examinez le fichier installer.log pour déterminer la cause de l’échec de l�
 Pour résoudre cela, transférez le rôle de contrôleur de domaine principal à un autre contrôleur de domaine avec Windows Server 2012 R2 ou une version plus récente, puis synchronisez.
 
 <a id="agent-installation-websitename-failure"></a>**L’installation de l’agent échoue avec l’erreur : « L’Assistant Agent de synchronisation de stockage s’est terminé prématurément »**  
-Ce problème peut se produire si le nom par défaut du site web IIS est changé. Pour contourner ce problème, renommez le site web par défaut IIS en « Site web par défaut » et réessayez l’installation. Ce problème sera résolu dans une mise à jour ultérieure de l’agent. 
+Ce problème peut survenir avec l’agent de la version 1.x et si le nom par défaut du site web IIS est modifié. Pour contourner ce problème, utilisez notre agent 2.0.11+.
 
 <a id="server-registration-missing"></a>**Le serveur n’est pas listé sous Serveurs inscrits sur le Portail Azure**  
 Si un serveur n’est pas listé sous **Serveurs inscrits** pour un service de synchronisation de stockage :

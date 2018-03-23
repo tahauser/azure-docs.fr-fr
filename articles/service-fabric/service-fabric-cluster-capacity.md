@@ -1,11 +1,11 @@
 ---
-title: "Planification de la capacité du cluster Service Fabric | Microsoft Docs"
-description: "Considérations en matière de planification de la capacité du cluster Service Fabric. Types de nœuds, opérations, durabilité et niveaux de fiabilité"
+title: Planification de la capacité du cluster Service Fabric | Microsoft Docs
+description: Considérations en matière de planification de la capacité du cluster Service Fabric. Types de nœuds, opérations, durabilité et niveaux de fiabilité
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4c584f4a-cb1f-400c-b61f-1f797f11c982
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2018
 ms.author: chackdan
-ms.openlocfilehash: 8e2fceaf7e8a0d6c177d3122bd07de5b8c11f295
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: ad5f396cd71eb0136fe683bbccb9360291be2d59
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considérations en matière de planification de la capacité du cluster Service Fabric
 Pour un déploiement de production, la planification de la capacité est une étape importante. Voici certains éléments que vous devez prendre en compte dans ce processus.
@@ -88,10 +88,11 @@ Vous devez choisir un niveau de durabilité pour chacun de vos types de nœuds. 
  
 1. Des déploiements vers vos groupes de machines virtuelles identiques et d’autres ressources Azure associées peuvent être retardés, dépasser le délai d’attente, ou être entièrement bloqués par des problèmes au sein de votre cluster ou au niveau de l’infrastructure. 
 2. Augmente le nombre d’[événements du cycle de vie d’un réplica](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle ) (par exemple, les permutations principales) en raison de l’automatisation des désactivations de nœud durant les opérations de l’infrastructure Azure.
+3. Met des nœuds hors service pendant les mises à jour logicielles de la plateforme Azure ou la maintenance du matériel. Vous pouvez voir l’état En cours de désactivation/Désactivé des nœuds pendant ces activités. La capacité de votre cluster est temporairement réduite, mais cela ne devrait pas avoir d’impact sur sa disponibilité ou sur celle de vos applications.
 
 ### <a name="recommendations-on-when-to-use-silver-or-gold-durability-levels"></a>Recommandations relatives au moment opportun pour utiliser les niveaux de durabilité Silver ou Gold
 
-Utilisez les niveaux de durabilité Silver ou Gold pour tous les types de nœuds qui hébergent des services avec état dont vous prévoyez une diminution fréquente de la taille des instances (réduction du nombre d’instances de machine virtuelle), si vous préférez que les opérations de déploiement soient retardées au profit d’une simplification de ces opérations de diminution de la taille des instances. Les scénarios d’augmentation de la taille des instances (ajout d’instances de machine virtuelle) n’ayant aucune incidence sur le choix du niveau de durabilité, seuls les scénarios de diminution de la taille des instances doivent être pris en considération.
+Utilisez les niveaux de durabilité Silver ou Gold pour tous les types de nœuds qui hébergent des services avec état dont vous prévoyez une diminution fréquente de la taille des instances (réduction du nombre d’instances de machine virtuelle), si vous préférez que les opérations de déploiement soient retardées et que la capacité soit réduite au profit d’une simplification de ces opérations de diminution de la taille des instances. Les scénarios d’augmentation de la taille des instances (ajout d’instances de machine virtuelle) n’ayant aucune incidence sur le choix du niveau de durabilité, seuls les scénarios de diminution de la taille des instances doivent être pris en considération.
 
 ### <a name="changing-durability-levels"></a>Modification des niveaux de durabilité
 - Les types de nœuds avec des niveaux de durabilité Argent ou Or ne peuvent pas être rétrogradés à Bronze.

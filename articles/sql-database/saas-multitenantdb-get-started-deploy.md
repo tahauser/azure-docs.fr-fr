@@ -1,25 +1,21 @@
 ---
-title: "Déployer une application SaaS multilocataire partitionnée qui utilise Azure SQL Database | Microsoft Docs"
-description: "Déployez et explorez l’application de base de données Wingtip Tickets SaaS multilocataire partitionnée, qui présente les modèles SaaS à l’aide d’Azure SQL Database."
-keywords: "didacticiel sur les bases de données SQL"
+title: Déployer une application SaaS multilocataire partitionnée qui utilise Azure SQL Database | Microsoft Docs
+description: Déployez et explorez l’application de base de données Wingtip Tickets SaaS multilocataire partitionnée, qui présente les modèles SaaS à l’aide d’Azure SQL Database.
+keywords: didacticiel sur les bases de données SQL
 services: sql-database
-documentationcenter: 
 author: MightyPen
 manager: craigg
-editor: billgib;anjangsh
 ms.service: sql-database
 ms.custom: scale out apps
 ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: genemi
-ms.openlocfilehash: 3bbfdccd020f5efc7510d9688ea38f5e1af4ebde
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 82983c8926bdf3c7256c529448e5b4f3b2c2381c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Déployer et explorer une application multilocataire partitionnée qui utilise Azure SQL Database
 
@@ -50,6 +46,7 @@ N’importe quel utilisateur peut télécharger le code source C# et PowerShell
 Une série de didacticiels associés, basés sur ce déploiement initial, est disponible. Les didacticiels explorent une gamme de modèles de conception et de gestion de SaaS. Lorsque vous utilisez les didacticiels, vous êtes encouragé à parcourir les scripts fournis pour voir comment les différents modèles SaaS sont implémentés.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis :
 

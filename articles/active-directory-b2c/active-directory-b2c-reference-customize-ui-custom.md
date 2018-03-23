@@ -1,12 +1,12 @@
 ---
-title: "Azure Active Directory B2C : référence : personnaliser l’interface utilisateur d’un parcours utilisateur avec des stratégies personnalisées | Microsoft Docs"
-description: "Une rubrique sur les stratégies personnalisées Azure Active Directory B2C"
+title: 'Azure Active Directory B2C : référence : personnaliser l’interface utilisateur d’un parcours utilisateur avec des stratégies personnalisées | Microsoft Docs'
+description: Une rubrique sur les stratégies personnalisées Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
+documentationcenter: ''
 author: rojasja
 manager: mtillman
 editor: rojasja
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 04/25/2017
 ms.author: joroja
 ms.openlocfilehash: 40245c25a7f80db27a25a0d34eb20f1057fc5e02
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Personnaliser l’interface utilisateur d’un parcours utilisateur avec des stratégies personnalisées
 
@@ -72,7 +72,7 @@ Pour vous assurer que tout fonctionne comme prévu, vous devez effectuer les op�
 - Utiliser des URL absolues comme https://yourdomain/content pour tous les liens et le contenu CSS
 
 > [!TIP]
-> Pour vérifier que CORS est activé sur le site sur lequel votre contenu est hébergé et pour tester vos demandes CORS, vous pouvez utiliser le site http://test-cors.org/. Grâce à ce site, vous pouvez soit envoyer la demande CORS à un serveur distant (pour déterminer si CORS est pris en charge), soit envoyer la demande CORS à un serveur de test (pour découvrir certaines fonctionnalités de CORS).
+> Pour vérifier que CORS est activé sur le site sur lequel votre contenu est hébergé et pour tester vos requêtes CORS, vous pouvez utiliser le site http://test-cors.org/. Grâce à ce site, vous pouvez soit envoyer la demande CORS à un serveur distant (pour déterminer si CORS est pris en charge), soit envoyer la demande CORS à un serveur de test (pour découvrir certaines fonctionnalités de CORS).
 
 > [!TIP]
 > Le site http://enable-cors.org/ est également une ressource précieuse pour en savoir plus sur CORS.
@@ -122,7 +122,7 @@ Le mécanisme CORS (Cross-Origin Resource Sharing) doit être activé sur votre 
 
 Pour vérifier que CORS est activé sur le compte de stockage sur lequel vous hébergez votre contenu, procédez comme suit :
 
-1. Ouvrez une session de navigation et accédez à la page *unified.html* à l’aide de l’URL complète de son emplacement dans votre compte de stockage, `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`. Par exemple, https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
+1. Ouvrez une session de navigation et accédez à la page *unified.html* à l’aide de l’URL complète de son emplacement dans votre compte de stockage, `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`. Par exemple : https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
 2. Accédez à http://test-cors.org. Ce site vous permet de vérifier que CORS est activé pour la page que vous utilisez.  
 <!--
 ![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
@@ -160,7 +160,7 @@ Le tableau ci-après décrit l’ensemble d’ID de définition de contenu recon
 | ID de définition du contenu | Description |
 |-----------------------|-------------|
 | *api.error* | **Page d’erreur**. Cette page s’affiche lorsqu’une exception ou une erreur est rencontrée. |
-| *api.idpselections* | **Page de sélection du fournisseur d’identité**. Cette page contient une liste de fournisseurs d’identité parmi lesquels l’utilisateur peut faire son choix lors de la connexion. Il s’agit de fournisseurs d’identité d’entreprise, d’identité de réseaux sociaux tels que Facebook et Google + ou de comptes locaux (basés sur une adresse e-mail ou un nom d’utilisateur). |
+| *api.idpselections* | **Page de sélection du fournisseur d’identité**. Cette page contient une liste de fournisseurs d’identité parmi lesquels l’utilisateur peut faire son choix lors de la connexion. Il s’agit de fournisseurs d’identité d’entreprise, d’identité de réseaux sociaux tels que Facebook et Google+ ou de comptes locaux (basés sur une adresse e-mail ou un nom d’utilisateur). |
 | *api.idpselections.signup* | **Sélection du fournisseur d’identité pour l’inscription**. Cette page contient une liste de fournisseurs d’identité parmi lesquels l’utilisateur peut faire son choix lors de l’inscription. Il s’agit de fournisseurs d’identité d’entreprise, d’identité de réseaux sociaux tels que Facebook et Google+ ou de comptes locaux (basés sur une adresse e-mail ou un nom d’utilisateur). |
 | *api.localaccountpasswordreset* | **Page de mot de passe oublié**. Cette page contient un formulaire que l’utilisateur doit remplir pour lancer une réinitialisation de mot de passe.  |
 | *api.localaccountsignin* | **Page de connexion à un compte local**. Cette page contient un formulaire de connexion que l’utilisateur doit renseigner lors de la connexion à un compte local basé sur une adresse e-mail ou un nom d’utilisateur. Le formulaire peut contenir une zone de saisie de texte et une zone de saisie de mot de passe. |
@@ -170,5 +170,5 @@ Le tableau ci-après décrit l’ensemble d’ID de définition de contenu recon
 | *api.selfasserted.profileupdate* | **Page de mise à jour de profil**. Cette page contient un formulaire dont l’utilisateur peut se servir pour mettre à jour son profil. Cette page est semblable à la page d’inscription à un compte local précédente, à l’exception des champs de saisie de mot de passe. |
 | *api.signuporsignin* | **Page de connexion ou d’inscription unifiée**.  Cette page gère l’inscription et la connexion des utilisateurs, qui peuvent utiliser les fournisseurs d’identité d’entreprise, de réseaux sociaux, tels que Facebook ou Google+, ou de comptes locaux.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Understanding the custom policies of the Azure AD B2C Custom Policy starter pack](active-directory-b2c-reference-custom-policies-understanding-contents.md) (Comprendre les stratégies personnalisées du pack de démarrage AD B2C Custom Policy)

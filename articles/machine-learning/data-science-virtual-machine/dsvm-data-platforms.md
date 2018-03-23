@@ -1,25 +1,25 @@
 ---
-title: "Plateformes de données pour la machine virtuelle DSVM - Azure | Microsoft Docs"
-description: "Plateformes de données pour la machine virtuelle DSVM."
-keywords: "outils de science des données, machine virtuelle science des données, outils pour la science des données, science des données linux"
+title: Plateformes de données pour la machine virtuelle DSVM - Azure | Microsoft Docs
+description: Plateformes de données pour la machine virtuelle DSVM.
+keywords: outils de science des données, machine virtuelle science des données, outils pour la science des données, science des données linux
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2017
-ms.author: gokuma;bradsev
-ms.openlocfilehash: 9b8beb51c555c6125fa3b0abbad892d627a180b9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 03/16/2018
+ms.author: gokuma;
+ms.openlocfilehash: 921ccf67e5e0320e742066186b7929643536424f
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="data-platforms"></a>Plateformes de données
 
@@ -31,7 +31,7 @@ Les outils de plateforme de données pris en charge sur la machine virtuelle DSV
 
 | | |
 | ------------- | ------------- |
-| Qu’est-ce que c’est ?   | Une instance de base de données relationnelle locale      |
+| Qu’est-ce que c’est ?   | Une instance de base de données relationnelle locale      |
 | Éditions DSVM prises en charge      | Windows      |
 | Utilisations classiques      | Développement rapide localement avec le plus petit jeu de données <br/> Exécution de R en base de données   |
 | Liens vers des exemples      |    Un petit échantillon du jeu de données New York City est chargé dans la base de données SQL `nyctaxi`. <br/> Vous trouverez un exemple Jupyter illustrant l’analytique Microsoft R et en base de données à l’emplacement suivant :<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`  |
@@ -66,7 +66,7 @@ Le serveur SQL est installé de manière standard. Il se trouve dans `C:\Program
 
 | | |
 | ------------- | ------------- |
-| Qu’est-ce que c’est ?   | Une instance autonome (nœud unique in-process) de la plateforme populaire Apache Spark, un système pour le traitement des données et l’apprentissage automatique rapides et à grande échelle     |
+| Qu’est-ce que c’est ?   | Une instance autonome (nœud unique in-process) de la plateforme populaire Apache Spark, un système pour le traitement des données et l’apprentissage automatique rapides et à grande échelle     |
 | Éditions DSVM prises en charge      | Linux <br /> Windows (Expérimental)      |
 | Utilisations classiques      | * Développement rapide d’applications Spark/PySpark localement avec un jeu de données plus petit et un déploiement ultérieur sur des clusters Spark volumineux tels qu’Azure HDInsight<br/> * Test du contexte Spark Microsoft R Server <br />* Utiliser la bibliothèque [MMLSpark](https://github.com/Azure/mmlspark) Open Source de SparkML ou de Microsoft pour créer des applications ML  |
 | Liens vers des exemples      |    Exemple Jupyter : <br />&nbsp;&nbsp;* ~/notebooks/SparkML/pySpark <br /> &nbsp;&nbsp;* ~/notebooks/MMLSpark <br /> Microsoft R Server (contexte Spark) : /dsvm/samples/MRS/MRSSparkContextSample.R |

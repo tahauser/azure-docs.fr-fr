@@ -1,26 +1,20 @@
 ---
-title: "Concevoir des solutions de récupération d’urgence - Azure SQL Database | Microsoft Docs"
-description: "Apprenez à concevoir votre solution cloud pour la récupération d’urgence en choisissant le modèle de basculement approprié."
+title: Concevoir des solutions de récupération d’urgence - Azure SQL Database | Microsoft Docs
+description: Apprenez à concevoir votre solution cloud pour la récupération d’urgence en choisissant le modèle de basculement approprié.
 services: sql-database
-documentationcenter: 
 author: anosov1960
-manager: jhubbard
-editor: monicar
-ms.assetid: 2db99057-0c79-4fb0-a7f1-d1c057ec787f
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.date: 12/13/2017
+ms.date: 03/05/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.workload: Inactive
-ms.openlocfilehash: 9d12fb8a7dbd3bb763e42fd0981d7ef18b57248b
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 6ec202237a0b3fb1b7f0b7158c0aa454b4d65770
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Stratégies de récupération d’urgence pour les applications utilisant les pools élastiques de bases de données SQL
 Au fil des années, nous avons constaté que les services cloud n’étaient pas infaillibles et que des catastrophes avaient lieu. SQL Database offre un certain nombre de fonctionnalités pour assurer la continuité des activités de votre application en cas d’incident. Les [pools élastiques](sql-database-elastic-pool.md) et les bases de données uniques prennent en charge le même type de fonctionnalités de récupération d’urgence. Cet article décrit plusieurs stratégies de récupération d’urgence pour les pools élastiques qui tirent parti de ces fonctionnalités de continuité des activités de la base de données SQL.
@@ -30,6 +24,9 @@ Cet article utilise le modèle d’application d’éditeur de logiciels indépe
 <i>Une nouvelle application web basée dans le cloud configure une base de données SQL pour chaque utilisateur final. L’éditeur de logiciels indépendant a de nombreux clients et utilise donc de nombreuses bases de données, appelées bases de données client. Comme les bases de données client ont généralement des modèles d’activité non prévisibles, l’ISV utilise un pool élastique afin de pouvoir prévoir à long terme les coûts des bases de données. Le pool élastique simplifie également la gestion des performances lors des pics d’activité de l’utilisateur. Outre les bases de données client, l’application utilise plusieurs bases de données pour gérer les profils utilisateur et la sécurité, recueillir des modèles d’utilisation, etc. La disponibilité des locataires individuels n’affecte pas la disponibilité de l’application dans son ensemble. Toutefois, la disponibilité et les performances des bases de données de gestion sont essentielles au bon fonctionnement de l’application. Ainsi, si les bases de données de gestion sont hors connexion, l’application l’est également.</i>  
 
 Cet article aborde les stratégies de récupération d’urgence applicables à des scénarios allant des applications de start-ups soucieuses des coûts aux applications présentant des exigences de disponibilité strictes.
+
+> [!NOTE]
+> Si vous utilisez des bases de données et des pools Premium, vous pouvez les rendre résistants aux pannes régionales en les transformant en configuration de déploiement redondante dans une zone (actuellement en préversion). Consultez [Zone-redundant databases](sql-database-high-availability.md) (Bases de données redondantes dans une zone).
 
 ## <a name="scenario-1-cost-sensitive-startup"></a>Scénario 1 Start-up soucieuse des coûts
 <i>Ma jeune entreprise a un budget très serré.  Je souhaite simplifier le déploiement et la gestion de l’application et peux avoir un contrat SLA limité pour chacun de mes clients. Mais je veux être sûr que l’application ne sera jamais hors connexion.</i>

@@ -1,11 +1,11 @@
 ---
-title: "Remplacer un composant matériel sur un nœud d’unité d’échelle Azure Stack | Microsoft Docs"
-description: "Découvrez comment remplacer un composant matériel sur un système intégré Azure Stack."
+title: Remplacer un composant matériel sur un nœud d’unité d’échelle Azure Stack | Microsoft Docs
+description: Découvrez comment remplacer un composant matériel sur un système intégré Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: c6e036bf-8c80-48b5-b2d2-aa7390c1b7c9
 ms.service: azure-stack
 ms.workload: na
@@ -44,7 +44,7 @@ L’organigramme suivant illustre le processus FRU général de remplacement d�
 
 * Cette action n’est peut-être pas requise. Elle dépend de l’état du matériel.
 
-**Votre fournisseur de matériel OEM peut ou non échanger le composant et mettre à jour le microprogramme. Cela dépend de votre contrat de support.
+\*\*Votre fournisseur de matériel OEM peut ou non échanger le composant et mettre à jour le microprogramme. Cela dépend de votre contrat de support.
 
 ## <a name="review-alert-information"></a>Examiner les informations sur l’alerte
 
@@ -70,7 +70,7 @@ Les étapes suivantes fournissent une vue d’ensemble du processus de remplacem
 6. Utilisez le point de terminaison privilégié pour [vérifier l’état de réparation du disque virtuel](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair). Avec de nouveaux lecteurs de données, une opération de réparation de stockage complète peut prendre plusieurs heures en fonction de la charge du système et de l’espace utilisé.
 7. Une fois la réparation terminée, vérifiez que toutes les alertes actives ont été automatiquement fermées.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 - Pour plus d’informations sur le remplacement d’un disque physique échangeable à chaud, voir [Remplacer un disque](azure-stack-replace-disk.md).
 - Pour plus d’informations sur le remplacement d’un nœud physique, voir [Remplacer un nœud d’unité d’échelle](azure-stack-replace-node.md).

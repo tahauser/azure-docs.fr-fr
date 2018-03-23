@@ -1,29 +1,29 @@
 ---
-title: "Protéger les données personnelles avec des contrôles d’accès et d’identité Azure | Microsoft Docs"
-description: "Utilisation des contrôles d’accès et d’identité Azure pour protéger vos données personnelles"
+title: Protéger les données personnelles avec des contrôles d’accès et d’identité Azure | Microsoft Docs
+description: Les contrôles d’accès et d’identité Azure vous aident à protéger des données personnelles et peuvent être utiles pour se conformer au Règlement général sur la protection des données (RGPD).
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/13/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: e6de9526a1a72cfc81caca51207e000f8b3673cc
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.custom: ''
+ms.openlocfilehash: fd3beb57cda4993f922fb935263b0e962b38da6a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory et Multi-Factor Authentication : protéger les données personnelles avec des contrôles d’accès et d’identité
 
-Cet article fournit des informations et des procédures que vous pouvez utiliser pour protéger des données personnelles à l’aide des services et fonctionnalités de sécurité Azure Active Directory et Multi-Factor Authentication.
+Cet article fournit des informations et des procédures que vous pouvez utiliser pour protéger des données personnelles à l’aide des services et fonctionnalités de sécurité Azure Active Directory et Multi-Factor Authentication. Les informations contenues dans cet article peuvent soutenir vos efforts de conformité avec le Règlement général sur la protection des données (RGPD).
 
 ## <a name="scenario"></a>Scénario
 
@@ -41,7 +41,7 @@ La compagnie doit protéger la confidentialité des données personnelles de ses
 
 L’objectif de la compagnie est de garantir que l’accès aux données personnelles est strictement contrôlé. Il est essentiel que les identités des utilisateurs ayant accès aux données personnelles soient protégées par une forte authentification. Une stratégie de [privilège minimum] (https://en.wikipedia.org/wiki/Principle_of_least_privilege) doit s’appliquer afin que les utilisateurs légitimes aient uniquement le niveau d’accès dont ils ont besoin, et pas plus.
 
-## <a name="solutions"></a>Solutions
+## <a name="solutions"></a>solutions
 
 Microsoft Azure fournit des outils de gestion des identités et des accès pour aider les entreprises à contrôler qui a accès aux ressources qui contiennent des données personnelles.
 

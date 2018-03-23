@@ -1,9 +1,9 @@
 ---
-title: "Créer des alertes de journal d’activité et les gérer avec la nouvelle expérience Alertes (préversion) dans Azure Monitor | Microsoft Docs"
-description: "Cet article donne des informations sur la création d’alertes de journal d’activité avec l’onglet Alertes (préversion) sous Azure Monitor. Il décrit en détail la nouvelle expérience utilisateur de cette fonctionnalité."
+title: Créer des alertes de journal d’activité et les gérer avec la nouvelle expérience Alertes (préversion) dans Azure Monitor | Microsoft Docs
+description: Cet article donne des informations sur la création d’alertes de journal d’activité avec l’onglet Alertes (préversion) sous Azure Monitor. Il décrit en détail la nouvelle expérience utilisateur de cette fonctionnalité.
 author: JYOTHIRMAISURI
 manager: vvithal
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: aabc0e57-78cd-44dd-a8d1-af5e1e567360
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: v-jysur
-ms.custom: 
-ms.openlocfilehash: afdd82617c47f0dee22c229feba87bdf79b90a69
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.custom: ''
+ms.openlocfilehash: a7553e4155df0d4ee49b798f44ca636dc7ecdcd2
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="create-activity-log-alerts-using-the-new-alerts-preview-experience"></a>Créer des alertes de journal d’activité avec la nouvelle expérience Alertes (préversion)
 
@@ -89,7 +89,7 @@ Procédez comme suit :
 
      ![Sélectionner la cible](./media/monitoring-activity-log-alerts-new-experience/select-target.png)
 
-    - Sous **Critères de la cible, cliquez sur **Ajouter des critères** et sélectionnez le type de signal **Journal d’activité**.
+    - Sous **Critères de la cible**, cliquez sur **Ajouter des critères** et sélectionnez le type de signal **Journal d’activité**.
 
     - Sélectionnez le signal dans la liste qui s’affiche.
 
@@ -111,7 +111,7 @@ Procédez comme suit :
 
         ![ criteria selected](./media/monitoring-activity-log-alerts-new-experience/criteria-selected.png)
 
-4. Sous **Définir des règles d’alerte**, indiquez les informations suivantes :
+4. Sous **Définir les détails des règles d’alerte**, indiquez les informations suivantes :
 
     - **Nom de la règle d’alerte** : nom de la nouvelle règle d’alerte.
     - **Description** : description de la nouvelle règle d’alerte.

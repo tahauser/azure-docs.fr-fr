@@ -1,25 +1,25 @@
 ---
-title: "Actualisation asynchrone pour les modèles Azure Analysis Services | Microsoft Docs"
-description: "En savoir plus sur le codage de l’actualisation asynchrone à l’aide de l’API REST."
+title: Actualisation asynchrone pour les modèles Azure Analysis Services | Microsoft Docs
+description: En savoir plus sur le codage de l’actualisation asynchrone à l’aide de l’API REST.
 services: analysis-services
-documentationcenter: 
+documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: analysis-services
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/14/2018
+ms.date: 03/05/2018
 ms.author: owend
-ms.openlocfilehash: 1f31c05554db16d604a9825ef9b1317a0f281456
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4c317736af30b4181fa975713258a41b42ed0da3
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Actualisation asynchrone avec l’API REST
 À l’aide de n’importe quel langage de programmation qui prend en charge les appels REST, vous pouvez effectuer des opérations d’actualisation des données asynchrones sur vos modèles tabulaires Azure Analysis Services. Cela inclut la synchronisation des réplicas en lecture seule pour la montée en puissance des requêtes. 
@@ -67,8 +67,11 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 Tous les appels doivent être authentifiés avec un jeton d’Azure Active Directory (OAuth 2) valide dans l’en-tête d’autorisation et doivent respecter les conditions suivantes :
 
 - Le jeton doit être un jeton d’utilisateur ou un principal de service d’application.
-- L’utilisateur ou l’application doit avoir des autorisations suffisantes sur le serveur ou le modèle pour effectuer l’appel requis. Le niveau d’autorisation est déterminé par les rôles au sein du modèle ou du groupe d’administration sur le serveur.
 - L’audience appropriée pour le jeton doit avoir la valeur `https://*.asazure.windows.net`.
+- L’utilisateur ou l’application doit avoir des autorisations suffisantes sur le serveur ou le modèle pour effectuer l’appel requis. Le niveau d’autorisation est déterminé par les rôles au sein du modèle ou du groupe d’administration sur le serveur.
+
+    > [!IMPORTANT]
+    > Actuellement, les autorisations du rôle **administrateur de serveur** sont requis.
 
 ## <a name="post-refreshes"></a>POST /refreshes
 

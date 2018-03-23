@@ -1,29 +1,28 @@
 ---
-title: "Protection des données personnelles dans les documents avec les outils de rapport Azure | Microsoft Docs"
-description: "comment utiliser les technologies et services de création de rapports Azure pour mieux protéger la confidentialité des données personnelles."
+title: Protection des données personnelles dans les documents avec les outils de rapport Azure | Microsoft Docs
+description: utiliser les services de rapports Azure pour protéger la confidentialité des données personnelles dans le cadre d’initiatives ayant pour objectif la conformité avec le Règlement général de protection des données (RGPD).
 services: security
 documentationcenter: na
 author: barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 397161cf2eaea9712fec352a45f5fc49e8da486c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2c677a1dea001c6a414304fbaa683c3787b355b1
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>Protection des données personnelles dans les documents avec les outils de rapport Azure
 
-Cet article décrit comment utiliser les technologies et services de création de rapports Azure pour mieux protéger la confidentialité des données personnelles.
-
+Cet article décrit comment utiliser les technologies et services de création de rapports Azure pour mieux protéger la confidentialité des données personnelles. Ces informations peuvent être utilisées pour se conformer aux réglementations industrielles ou gouvernementales, telles que le Règlement général règlement de Protection des données (RGPD).
 ## <a name="scenario"></a>Scénario
 
 Une importante compagnie de croisière, dont le siège se situe aux États-Unis, étend ses opérations afin de proposer des circuits dans les Mers Méditerranée, Adriatique et Baltique, ainsi que dans les îles Britanniques. Pour soutenir cet effort, elle a fait l’acquisition de plusieurs lignes de croisière plus petites basées en Italie, en Allemagne, au Danemark et au Royaume-Uni.

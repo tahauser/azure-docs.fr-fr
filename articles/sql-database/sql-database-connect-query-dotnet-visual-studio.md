@@ -1,31 +1,27 @@
 ---
-title: "Utilisation de Visual Studio et de .NET pour interroger Azure SQL Database | Microsoft Docs"
-description: "Cette rubrique vous explique comment utiliser Visual Studio pour créer un programme qui se connecte à une base de données SQL Azure et l’interroger à l’aide d’instructions Transact-SQL."
+title: Utilisation de Visual Studio et de .NET pour interroger Azure SQL Database | Microsoft Docs
+description: Cette rubrique vous explique comment utiliser Visual Studio pour créer un programme qui se connecte à une base de données SQL Azure et l’interroger à l’aide d’instructions Transact-SQL.
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: devcenter
-ms.workload: Active
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/29/2017
 ms.author: carlrab
-ms.openlocfilehash: 913055fca46580d870dc2e015f442b431c9ff6e0
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: a76b9058f0bf7afdc332cee4ff7a49fa0e6987a6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-net-c-with-visual-studio-to-connect-and-query-an-azure-sql-database"></a>Utilisation de NET (C#) avec Visual Studio pour se connecter à une base de données SQL Azure et l’interroger
 
 Ce didacticiel de démarrage rapide indique comment utiliser le [.NET Framework](https://www.microsoft.com/net/) pour créer un programme C# avec Visual Studio qui se connecte à une base de données SQL Azure et utiliser des instructions Transact-SQL pour interroger des données.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour suivre ce didacticiel de démarrage rapide, vérifiez que vous avez :
 
@@ -122,7 +118,7 @@ namespace sqltest
 }
 ```
 
-## <a name="run-the-code"></a>Exécution du code
+## <a name="run-the-code"></a>Exécuter le code
 
 1. Appuyez sur **F5** pour exécuter l'application.
 2. Vérifiez que les 20 premières lignes sont renvoyées, puis fermez la fenêtre d’application.

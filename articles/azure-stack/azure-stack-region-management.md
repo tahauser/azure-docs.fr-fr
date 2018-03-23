@@ -1,24 +1,25 @@
 ---
-title: "Gestion des régions dans Azure Stack | Microsoft Docs"
-description: "Vue d’ensemble de la gestion des régions dans Azure Stack."
+title: Gestion des régions dans Azure Stack | Microsoft Docs
+description: Vue d’ensemble de la gestion des régions dans Azure Stack.
 services: azure-stack
-documentationcenter: 
-author: efemmano
-manager: dsavage
-editor: 
+documentationcenter: ''
+author: brenduns
+manager: femila
+editor: ''
 ms.assetid: e94775d5-d473-4c03-9f4e-ae2eada67c6c
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: efemmano
-ms.openlocfilehash: d1310f0cb9a820366ab8712a782785e955a24134
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/27/2018
+ms.author: brenduns
+ms.reviewer: efemmano
+ms.openlocfilehash: 0a19490ce276eec9a46bc0ea4343e3449a9dc93c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="region-management-in-azure-stack"></a>Gestion des régions dans Azure Stack
 
@@ -41,19 +42,13 @@ Azure Stack dispose d’un ensemble de fonctionnalités de gestion des régions 
 
 2. **Alertes**. Cette vignette répertorie les alertes à l’échelle du système et fournit des détails sur chacune de ces alertes.
 
-3. **Mises à jour**. Dans cette vignette, vous pouvez consulter la version actuelle de votre infrastructure Azure Stack.
+3. **Mises à jour**. Dans cette vignette, vous pouvez consulter la version actuelle de votre infrastructure Azure Stack, les mises à jour disponibles et l’historique des mises à jour. Vous pouvez également mettre à jour votre système intégré.
 
-4. **Fournisseurs de ressources**. La zone Fournisseurs de ressources est l’endroit où gérer les fonctionnalités de locataire offertes par les composants nécessaires pour exécuter Azure Stack. Chaque fournisseur de ressources est fourni avec une expérience d’administration. Cette expérience peut inclure des alertes relatives au fournisseur spécifique, aux mesures et à d’autres fonctionnalités de gestion propres au fournisseur de ressources.
- 
-5. **Rôles d’infrastructure**. Les rôles d’infrastructure sont les composants nécessaires à l’exécution d’Azure Stack. Seuls les rôles d’infrastructure qui signalent des alertes sont répertoriés. En cliquant sur un rôle, vous pouvez afficher les alertes qui sont associées à ce rôle spécifique et aux instances de rôle où il est en cours d’exécution. Même s’il est possible de démarrer, de redémarrer ou d’arrêter une instance de rôle d’infrastructure, ne le faites **pas** dans un environnement de kit de développement. Ces options sont conçues uniquement pour un environnement à plusieurs nœuds, où il existe plusieurs instances de rôle par rôle d’infrastructure. Le redémarrage d’une instance de rôle (notamment AzS-Xrp01) dans le Kit de développement entraîne une instabilité du système.
+4. **Fournisseurs de ressources**. La zone Fournisseurs de ressources est l’endroit où gérer les fonctionnalités d’utilisateur offertes par les composants nécessaires pour exécuter Azure Stack. Chaque fournisseur de ressources est fourni avec une expérience d’administration. Cette expérience peut inclure des alertes relatives au fournisseur spécifique, aux mesures et à d’autres fonctionnalités de gestion propres au fournisseur de ressources.
+
+5. **Rôles d’infrastructure**. Les rôles d’infrastructure sont les composants nécessaires à l’exécution d’Azure Stack. Seuls les rôles d’infrastructure qui signalent des alertes sont répertoriés. En cliquant sur un rôle, vous pouvez afficher les alertes qui sont associées à ce rôle spécifique et aux instances de rôle où il est en cours d’exécution.
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Surveiller l’intégrité et les alertes dans Azure Stack](azure-stack-monitor-health.md)
 
 [Gérer les mises à jour dans Azure Stack](azure-stack-updates.md)
-
-
-
-
-
-

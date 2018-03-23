@@ -1,26 +1,19 @@
 ---
-title: "Implémenter une solution de base de données SQL Azure géo-distribuée | Microsoft Docs"
-description: "Découvrez comment configurer votre base de données et votre application SQL Azure pour le basculement vers une base de données répliquée et tester le basculement."
+title: Implémenter une solution de base de données SQL Azure géo-distribuée | Microsoft Docs
+description: Découvrez comment configurer votre base de données et votre application SQL Azure pour le basculement vers une base de données répliquée et tester le basculement.
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,business continuity
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 05/26/2017
 ms.author: carlrab
-ms.openlocfilehash: 910be8ff5f9a882c7bb8ae875b8bf5fc74d1fb9a
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: ea94a311d409d8c5d6142746dc1009ff67ef3a82
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="implement-a-geo-distributed-database"></a>Implémenter une base de données géo-distribuée
 
@@ -36,9 +29,10 @@ Dans ce didacticiel, vous configurez une application et une base de données SQL
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce tutoriel, vérifiez que les conditions préalables suivantes sont bien satisfaites :
+
+Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis :
 
 - La dernière version d’[Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) est installée. 
 - Une base de données SQL Azure est installée. Ce didacticiel utilise la base de données exemple AdventureWorksLT nommée **mySampleDatabase** créée à partir de l’un des démarrages rapides suivants :

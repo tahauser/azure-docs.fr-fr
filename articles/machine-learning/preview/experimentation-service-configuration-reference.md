@@ -1,6 +1,6 @@
 ---
-title: "Fichiers de configuration du service d’expérimentation Azure Machine Learning"
-description: "Ce document décrit en détail les paramètres de configuration du service d’expérimentation Azure ML."
+title: Fichiers de configuration du service d’expérimentation Azure Machine Learning
+description: Ce document décrit en détail les paramètres de configuration du service d’expérimentation Azure ML.
 services: machine-learning
 author: gokhanuluderya-msft
 ms.author: gokhanu
@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 00e98ff07d144db791fcf074699614f1e664634b
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 75b55b45c355f585fd73bdc1d97bc6adbbc4e9a0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Fichiers de configuration du service d’expérimentation Azure Machine Learning
 
@@ -206,12 +206,12 @@ L’exemple suivant remplace les références « mylocal.datasource » dans le
  
 ```
 DataSourceSubstitutions:
-    myocal.dsource: myremote.dsource
+    mylocal.dsource: myremote.dsource
 ```
 
 Suite à cette substitution, l’exemple de code suivant lit la source de données « myremote.dsource » au lieu de « mylocal.dsource » sans que les utilisateurs modifient leur code.
 ```
 df = datasource.load_datasource('mylocal.dsource')
 ```
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur la [configuration du service d’expérimentation](experimentation-service-configuration.md).

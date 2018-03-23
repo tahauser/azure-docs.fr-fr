@@ -1,21 +1,21 @@
 ---
-title: "Guide de démarrage rapide pour installer les services Azure Machine Learning | Microsoft Docs"
-description: "Dans ce démarrage rapide, vous découvrez comment créer des ressources Azure Machine Learning et comment installer et prendre en main Azure Machine Learning Workbench."
+title: Guide de démarrage rapide pour installer les services Azure Machine Learning | Microsoft Docs
+description: Dans ce démarrage rapide, vous découvrez comment créer des ressources Azure Machine Learning et comment installer et prendre en main Azure Machine Learning Workbench.
 services: machine-learning
 author: hning86
-ms.author: haining, raymondl, chhavib, j-martens
+ms.author: chhavib
 manager: mwinkle
-ms.reviewer: jmartens, jasonwhowell, mldocs, gcampanella
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 3/7/2018
-ms.openlocfilehash: ac206d7fdcf6aba1e0ab83f84d8c583d085a36fa
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: c760901b108d8aaeb990f0e726adc7f139a5163a
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="quickstart-install-and-get-started-with-azure-machine-learning-services"></a>Démarrage rapide : Installer et prendre en main les services Azure Machine Learning
 Les services Azure Machine Learning (préversion) forment une solution d’analytique avancée et de science des données de bout en bout intégrée. Cette solution permet aux scientifiques des données professionnels de préparer des données, de développer des expériences et de déployer des modèles à l’échelle du cloud.

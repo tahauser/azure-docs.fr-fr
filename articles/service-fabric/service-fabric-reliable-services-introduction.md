@@ -1,6 +1,6 @@
 ---
-title: "Présentation du modèle de programmation Reliable Services de Service Fabric | Microsoft Docs"
-description: "Apprenez-en plus sur le modèle de programmation Service fiable de Service Fabric et commencez à écrire vos propres services."
+title: Présentation du modèle de programmation Reliable Services de Service Fabric | Microsoft Docs
+description: Apprenez-en plus sur le modèle de programmation Service fiable de Service Fabric et commencez à écrire vos propres services.
 services: Service-Fabric
 documentationcenter: .net
 author: masnider
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/9/2018
 ms.author: masnider;
-ms.openlocfilehash: cf647c078728c9fbe357fea5bef4aa6dfb86c975
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 1cbc116a8d595cfea0e87cd17b556e005f276774
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="reliable-services-overview"></a>Présentation de Reliable Services
 Azure Service Fabric simplifie l’écriture et la gestion de Reliable Services avec et sans état. Cette rubrique couvre :
@@ -34,7 +34,7 @@ Service Fabric gère la durée de vie des services, depuis l’approvisionnemen
 ## <a name="what-are-reliable-services"></a>Définition de Reliable Services
 Reliable Services vous offre un modèle de programmation global, simple et puissant qui vous aidera à faire ressortir ce qui est important dans votre application. Avec le modèle de programmation Reliable Services, vous obtenez :
 
-* Accès au reste des API de programmation de Service Fabric. Contrairement aux services Service Fabric modélisés en tant [qu’invités exécutables](service-fabric-deploy-existing-app.md), Reliable Services peut utiliser directement les autres API de Service Fabric. Les services peuvent ainsi :
+* Accès au reste des API de programmation de Service Fabric. Contrairement aux services Service Fabric modélisés en tant [qu’invités exécutables](service-fabric-guest-executables-introduction.md), Reliable Services peut utiliser directement les autres API de Service Fabric. Les services peuvent ainsi :
   * interroger le système
   * créer des rapports sur l’intégrité des entités dans le cluster
   * recevoir des notifications sur les modifications de la configuration et du code

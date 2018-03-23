@@ -1,29 +1,29 @@
 ---
-title: "Découvrir, identifier et classer des données personnelles dans Microsoft Azure | Microsoft Docs"
-description: "En savoir plus sur la recherche, la classification, la découverte et l’identification de données"
+title: Découvrir, identifier et classer des données personnelles dans Microsoft Azure | Microsoft Docs
+description: des données de recherche, de classification, de découverte et d’identification dans Azure peuvent vous aider à être conforme au Règlement général de protection des données (RGPD)
 services: security
 documentationcenter: na
 author: barclayn
 manager: MBaldwin
 editor: TShinder
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: 011fe26c297ff991af1282c1ff3914031a99f1e4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: ''
+ms.openlocfilehash: 21308faf5d3efd3908eccab4f37acb0cfccdcb8e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Découvrir, identifier et classer des données personnelles dans Microsoft Azure
 
-Cet article donne des indications sur la façon de découvrir, identifier et classer des données personnelles dans plusieurs outils et services Azure, notamment en utilisant Azure Data Catalog, Azure Active Directory, SQL Database, Power Query pour clusters Hadoop dans Azure HDInsight, Azure Information Protection, la Recherche Azure et les requêtes SQL pour Azure Cosmos DB.
+Cet article donne des indications sur la façon de découvrir, identifier et classer des données personnelles dans plusieurs outils et services Azure, notamment en utilisant Azure Data Catalog, Azure Active Directory, SQL Database, Power Query pour clusters Hadoop dans Azure HDInsight, Azure Information Protection, la Recherche Azure et les requêtes SQL pour Azure Cosmos DB. Ces outils et processus peuvent être utilisés pour se conformer au Règlement général sur la protection des données (RGPD).
 
 ## <a name="scenario-problem-statement-and-goal"></a>Scénario, énoncé du problème et objectifs
 
@@ -114,7 +114,7 @@ Pour savoir comment créer une base de données de cette manière, consultez le 
 >[!Note]
 Les administrateurs Windows ont tendance à utiliser PowerShell, mais certains d’entre eux préfèrent Azure CLI.
 
-### <a name="how-do-i-search-for-personal-data-in-sql-database-in-the-azure-portal"></a>Comment rechercher des données personnelles dans une base de données SQL dans le portail Azure ?**
+### <a name="how-do-i-search-for-personal-data-in-sql-database-in-the-azure-portal"></a>Comment rechercher des données personnelles dans une base de données SQL dans le portail Azure ?
 
 Vous pouvez utiliser l’outil Éditeur de requêtes intégré au portail Azure pour rechercher des données personnelles. Pour cela, vous devez vous connecter avec votre compte de connexion et votre mot de passe d’administrateur SQL Server, puis entrer une requête.
 

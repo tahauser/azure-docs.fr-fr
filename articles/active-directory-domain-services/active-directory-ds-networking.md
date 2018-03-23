@@ -1,8 +1,8 @@
 ---
-title: "Services de domaine Azure AD : instructions de mise en réseau | Microsoft Docs"
-description: "Considérations relatives à la mise en réseau pour les services de domaine Azure Active Directory"
+title: 'Services de domaine Azure AD : instructions de mise en réseau | Microsoft Docs'
+description: Considérations relatives à la mise en réseau pour les services de domaine Azure Active Directory
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: a6f0089f13de10ba8bc1f9a656a2d21f9c559047
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: eee7905db4faedef3217118e8d491e2cb019fa30
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Considérations relatives à la mise en réseau pour les services de domaine Azure AD
 ## <a name="how-to-select-an-azure-virtual-network"></a>Comment sélectionner un réseau virtuel Azure
@@ -53,6 +53,7 @@ Les instructions suivantes vous aident à sélectionner un réseau virtuel en vu
 * N’appliquez pas de groupes de sécurité réseau au sous-réseau dédié pour votre domaine géré. Si vous devez appliquer des groupes de sécurité réseau au sous-réseau dédié, veillez à **ne pas bloquer les ports requis pour l’entretien et la gestion de votre domaine**.
 * Ne limitez pas de manière excessive le nombre d’adresses IP disponibles au sein du sous-réseau dédié de votre domaine géré. Cette limitation empêche le service de mettre à disposition deux contrôleurs de domaine pour votre domaine géré.
 * **N’activez pas les services de domaine Azure AD dans le sous-réseau de passerelle** de votre réseau virtuel.
+* Ne bloquez pas l’accès sortant du sous-réseau dans lequel votre domaine managé est activé.
 
 > [!WARNING]
 > Lorsque vous associez un groupe de sécurité réseau et un sous-réseau dans lequel les services de domaine Azure AD sont activés, vous pouvez affecter la capacité de Microsoft à gérer le domaine. En outre, la synchronisation entre votre client Azure AD et votre domaine géré est interrompue. **Le contrat de niveau de service (SLA) ne concerne pas les déploiements dans lesquels un groupe de sécurité réseau a été appliqué et qui empêche les services de domaine Azure AD de mettre à jour et de gérer votre domaine.**
@@ -89,6 +90,8 @@ Les ports suivants sont requis pour les services de domaine Azure AD pour l’en
 * Il est utilisé pour activer ou désactiver l’accès LDAP sécurisé à votre domaine managé sur Internet.
 * L’ouverture de ce port via votre groupe de sécurité réseau est facultative. Ouvrez le port uniquement si vous disposez d’un accès LDAP sécurisé sur Internet activé.
 * Vous pouvez limiter l’accès entrant à ce port aux adresses IP sources à partir desquelles vous pensez vous connecter via un accès LDAP sécurisé.
+
+**Accès sortant** : Azure AD Domain Services a besoin d’un accès sortant à différents services Azure afin de gérer, de sauvegarder et de surveiller votre domaine managé. Ne bloquez pas l’accès sortant du sous-réseau dédié dans lequel votre domaine managé est activé.
 
 
 ## <a name="network-security-groups"></a>Network Security Group

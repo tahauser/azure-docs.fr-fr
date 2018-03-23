@@ -1,26 +1,26 @@
 ---
-title: "Réinitialisation de mot de passe en libre-service Azure AD avec réécriture du mot de passe | Microsoft Docs"
-description: "Utilisation d’Azure AD et d’Azure AD Connect pour l’écriture différée des mots de passe dans un annuaire local"
+title: Réinitialisation de mot de passe en libre-service Azure AD avec réécriture du mot de passe | Microsoft Docs
+description: Utilisation d’Azure AD et d’Azure AD Connect pour l’écriture différée des mots de passe dans un annuaire local
 services: active-directory
-keywords: "Gestion des mots de passe Active Directory, gestion des mots de passe, réinitialisation de mot de passe en libre-service Azure AD"
-documentationcenter: 
+keywords: Gestion des mots de passe Active Directory, gestion des mots de passe, réinitialisation de mot de passe en libre-service Azure AD
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: b4a14d3c79f93988eeac1525da09cf70dc2de634
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: bcb7074a6d590a08ad683c8746156245bc60c5e8
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="password-writeback-overview"></a>Vue d’ensemble de la réécriture du mot de passe
 
@@ -31,6 +31,7 @@ La réécriture du mot de passe fournit les fonctionnalités suivantes :
 * **Retour d’informations immédiat** : l’écriture différée des mots de passe est une opération synchrone. Vos utilisateurs sont informés immédiatement si leur mot de passe ne respecte pas la stratégie définie ou s’il n’a pas pu être réinitialisé ou modifié pour une raison quelconque.
 * **Prise en charge de la réinitialisation des mots de passe pour les utilisateurs ayant recours à des services de fédération Active Directory (AD FS) ou autres technologies de fédération** : avec l’écriture différée des mots de passe, tant que les comptes d’utilisateur fédérés sont synchronisés dans votre client Azure AD, ils sont en mesure de gérer leurs mots de passe Active Directory locaux à partir du cloud.
 * **Prise en charge de la réinitialisation des mots de passe pour les utilisateurs ayant recours à la** [synchronisation de hachage de mot de passe](./connect/active-directory-aadconnectsync-implement-password-synchronization.md) : lorsque le service de réinitialisation des mots de passe détecte qu’un compte d’utilisateur synchronisé est activé pour la synchronisation de hachage de mot de passe, nous réinitialisons simultanément le mot de passe local de ce compte et le mot de passe du cloud.
+* **Prise en charge de la réinitialisation de mot de passe pour les utilisateurs qui utilisent l’authentification directe** : avec la réécriture du mot de passe, tant que les comptes d’authentification directe sont synchronisés dans votre locataire Azure AD, ils peuvent gérer leurs mots de passe locaux Active Directory partir du cloud.
 * **Prise en charge de la modification des mots de passe à partir du panneau d’accès et d’Office 365** : lorsque des utilisateurs fédérés ou synchronisés par mot de passe modifient leurs mots de passe (ceux-ci ayant ou non expiré), nous réécrivons ces mots de passe dans votre environnement Active Directory local.
 * **Prise en charge de l’écriture différée des mots de passe lorsqu’un administrateur les réinitialise depuis le portail Azure** : chaque fois qu’un administrateur réinitialise le mot de passe d’un utilisateur dans le [portail Azure](https://portal.azure.com), dès lors que cet utilisateur est fédéré ou qu’il dispose de la synchronisation de mot de passe, nous définissons également le mot de passe sélectionné par l’administrateur dans l’annuaire Active Directory local. Actuellement, cette fonctionnalité n’est pas prise en charge dans le portail d’administration Office.
 * **Application de vos stratégies de mot de passe Active Directory locales** : lorsqu’un utilisateur réinitialise son mot de passe, nous nous assurons qu’il répond à votre stratégie Active Directory locale avant de le valider dans l’annuaire. Ainsi, nous vérifions l’historique, la complexité, l’âge, les filtres de mot de passe et toute autre restriction de mot de passe éventuellement définie dans l’annuaire Active Directory local.

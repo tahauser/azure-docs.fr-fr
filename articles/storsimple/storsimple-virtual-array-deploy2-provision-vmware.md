@@ -1,11 +1,11 @@
 ---
 title: Approvisionner StorSimple Virtual Array dans VMware | Microsoft Docs
-description: "Ce deuxième didacticiel de déploiement de StorSimple Virtual Array implique la configuration d'un appareil virtuel dans VMware."
+description: Ce deuxième didacticiel de déploiement de StorSimple Virtual Array implique la configuration d'un appareil virtuel dans VMware.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 0425b2a9-d36f-433d-8131-ee0cacef95f8
 ms.service: storsimple
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 495ef6a93ee06423495269306ad06e76dda13e10
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: be737550aa1cff22bc413ee8ce243f8d8588f6a5
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Déploiement de StorSimple Virtual Array - Configuration dans VMware
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
@@ -127,7 +127,7 @@ Procédez comme suit pour configurer un appareil virtuel dans votre hyperviseur.
 17. Sur la page **Stockage** , sélectionnez le magasin de données que vous souhaitez utiliser pour configurer votre machine virtuelle.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image18.png)
-18. Sur la page **Version de la machine virtuelle**, sélectionnez **Version de la machine virtuelle : 8**. Notez que les versions 8 à 11 sont toutes prises en charge.
+18. Sur la page **Version de la machine virtuelle**, sélectionnez **Version de la machine virtuelle : 8**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image19.png)
 19. Sur la page **Système d’exploitation invité**, sélectionnez le **système d’exploitation invité** **Windows**. Pour **Version**, dans la liste déroulante, sélectionnez **Microsoft Windows Server 2012 (64 bits)**.
@@ -157,7 +157,7 @@ Procédez comme suit pour configurer un appareil virtuel dans votre hyperviseur.
 27. Sur la page **Prêt à finaliser** , passez en revue tous les paramètres associés à la nouvelle machine virtuelle. cochez la case **Modifier les paramètres de la machine virtuelle avant de finaliser**. Cliquez sur **Continuer**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image28.png)
-28. Sur la page **Propriétés des machines virtuelles**, dans l’onglet **Matériel**, localisez le matériel du périphérique. Sélectionnez **Nouveau disque dur**. Cliquez sur **Ajouter**.
+28. Sur la page **Propriétés des machines virtuelles**, dans l’onglet **Matériel**, localisez le matériel du périphérique. Sélectionnez **Nouveau disque dur**. Cliquez sur **Add**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image29.png)
 29. Une fenêtre **Ajout de matériel** apparaît. Sur la page **Type d’appareil**, sous **Choisir le type d’appareil à ajouter**, sélectionnez **Disque**, puis cliquez sur **Suivant**.

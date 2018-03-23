@@ -1,18 +1,18 @@
 ---
-title: "Reprotéger les machines virtuelles Azure basculées vers la région Azure principale avec Azure Site Recovery | Microsoft Docs"
-description: "Décrit comment reprotéger les machines virtuelles Azure dans une région secondaire, après basculement à partir d’une région principale, à l’aide d’Azure Site Recovery."
+title: Reprotéger les machines virtuelles Azure basculées vers la région Azure principale avec Azure Site Recovery | Microsoft Docs
+description: Décrit comment reprotéger les machines virtuelles Azure dans une région secondaire, après basculement à partir d’une région principale, à l’aide d’Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 03/05/2018
 ms.author: rajanaki
-ms.openlocfilehash: d24376c57c468a562fc6d6dd52b4e9b01b53c3da
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 47056c85c6cb66a7fa28d623a4472b827d970dab
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Reprotéger les machines virtuelles Azure basculées vers la région principale
 
@@ -29,7 +29,7 @@ Lorsque vous [basculez](site-recovery-failover.md) des machines virtuelles Azure
 - Après l’exécution de la reprotection et de la réplication des machines virtuelles, vous pouvez les basculer de la région secondaire vers la région principale.
 
 > [!WARNING]
-> Si vous avez [migré](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration) des machines de la région principale vers la région secondaire, déplacé la machine virtuelle vers un autre groupe de ressources ou supprimé la machine virtuelle Azure, vous ne pouvez pas reprotéger la machine virtuelle ou la rebasculer.
+> Si vous avez [migré](migrate-overview.md#what-do-we-mean-by-migration) des machines de la région principale vers la région secondaire, déplacé la machine virtuelle vers un autre groupe de ressources ou supprimé la machine virtuelle Azure, vous ne pouvez pas reprotéger la machine virtuelle ou la rebasculer.
 
 
 ## <a name="prerequisites"></a>Prérequis

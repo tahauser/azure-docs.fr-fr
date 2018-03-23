@@ -1,29 +1,29 @@
 ---
-title: "Protéger les données personnelles avec les fonctionnalités de sécurité réseau Azure | Microsoft Docs"
-description: "Protéger les données personnelles à l’aide des fonctionnalités de sécurité réseau Azure"
+title: Protéger les données personnelles avec les fonctionnalités de sécurité réseau Azure | Microsoft Docs
+description: Protéger les données personnelles à l’aide des fonctionnalités de sécurité réseau Azure. Ceci peut être utilisé pour se conformer au Règlement général sur la protection des données (RGPD).
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: 2510a4aed34b6a156cc9a9da6215de5956aac023
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: ''
+ms.openlocfilehash: 54aeb22a501e248105931df341d23e524448155a
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="protect-personal-data-with-network-security-features-azure-application-gateway-and-network-security-groups"></a>Protéger les données personnelles avec les fonctionnalités de sécurité réseau : Azure Application Gateway et groupes de sécurité réseau
 
-Cet article fournit des informations et procédures qui vous aideront à utiliser Azure Application Gateway et des groupes de sécurité réseau pour protéger les données personnelles.
+Cet article fournit des informations et procédures qui vous aideront à utiliser Azure Application Gateway et des groupes de sécurité réseau pour protéger les données personnelles. Ces informations peuvent soutenir vos efforts de conformité avec le Règlement général sur la protection des données (RGPD).
 
 Un moyen de se défendre contre l’exploitation courante de certaines vulnérabilités, notamment l’injection de code SQL ou les scripts de site à site, est un élément important de toute stratégie de sécurité multicouche visant à protéger la confidentialité des données personnelles. En maintenant le trafic réseau indésirable en dehors de votre réseau virtuel Azure, vous vous protégez contre des possibilités de violation des données sensibles. Microsoft Azure vous propose des outils pour vous aider à protéger vos données contre les pirates.
 

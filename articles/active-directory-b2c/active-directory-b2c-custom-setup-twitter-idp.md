@@ -1,12 +1,12 @@
 ---
-title: "Azure Active Directory B2C : ajoutez Twitter en tant que fournisseur d’identité OAuth1 à l’aide de stratégies personnalisées"
-description: "Utiliser Twitter en tant que fournisseur d’identité à l’aide du protocole OAuth1"
+title: 'Azure Active Directory B2C : ajoutez Twitter en tant que fournisseur d’identité OAuth1 à l’aide de stratégies personnalisées'
+description: Utiliser Twitter en tant que fournisseur d’identité à l’aide du protocole OAuth1
 services: active-directory-b2c
-documentationcenter: 
+documentationcenter: ''
 author: yoelhor
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,17 +15,18 @@ ms.devlang: na
 ms.date: 10/23/2017
 ms.author: yoelh
 ms.openlocfilehash: 629e0bbaa7c62ef5d381085588c6a99c203c41cb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="azure-active-directory-b2c-add-twitter-as-an-oauth1-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C : ajoutez Twitter en tant que fournisseur d’identité OAuth1 à l’aide de stratégies personnalisées
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 Cet article indique comment activer la connexion pour les utilisateurs d’un compte Twitter à l’aide de [stratégies personnalisées](active-directory-b2c-overview-custom.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md).
 
 ## <a name="step-1-create-a-twitter-account-application"></a>Étape 1 : Créer une application de compte Twitter
@@ -39,9 +40,9 @@ Pour utiliser Twitter en tant que fournisseur d’identité dans Azure Active Di
  
     a. Entrez le **nom** et une **description** pour votre nouvelle application. 
 
-    b. Dans la zone **Website** (Site web), collez **https://login.microsoftonline.com**. 
+    b. Dans la zone **Site web**, collez **https://login.microsoftonline.com**. 
 
-    c. Dans la zone **Callback URL** (URL de rappel), collez **https://login.microsoftonline.com/te/{locataire}.onmicrosoft.com/oauth2/authresp**. Remplacez {*locataire*} par le nom de votre locataire (par exemple contosob2c.onmicrosoft.com). Assurez-vous d'utiliser le schéma HTTPS. 
+    c. Dans la zone **URL de rappel**, entrez **https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/oauth2/authresp**. Remplacez {*locataire*} par le nom de votre locataire (par exemple contosob2c.onmicrosoft.com). Assurez-vous d'utiliser le schéma HTTPS. 
 
     d. En bas de la page, lisez les conditions et acceptez-les, puis sélectionnez **Create your Twitter application** (Créer votre application Twitter).
 

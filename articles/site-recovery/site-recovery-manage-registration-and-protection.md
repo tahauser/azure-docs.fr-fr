@@ -1,18 +1,18 @@
 ---
-title: "Supprimer les serveurs et désactiver la protection | Microsoft Docs"
-description: "Cet article montre comment annuler l’inscription des serveurs à partir d’un coffre Site Recovery et comment désactiver la protection des machines virtuelles et serveurs physiques."
+title: Supprimer les serveurs et désactiver la protection | Microsoft Docs
+description: Cet article montre comment annuler l’inscription des serveurs à partir d’un coffre Site Recovery et comment désactiver la protection des machines virtuelles et serveurs physiques.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 03/05/2018
 ms.author: raynew
-ms.openlocfilehash: b26766ec26cc5afd82ec86c21e52d2737512fe8a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 16a5eaac1138d328f81cfa7d50f8705da867e352
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="remove-servers-and-disable-protection"></a>Supprimer des serveurs et désactiver la protection
 
@@ -24,8 +24,8 @@ Cet article explique comment annuler l’inscription des serveurs à partir d’
 Si vous répliquez des machines virtuelles VMware ou des serveurs physiques Windows/Linux sur Azure, vous pouvez annuler l’inscription d’un serveur de configuration non connecté à partir d’un coffre, en procédant comme suit :
 
 1. [Désactivez la protection des machines virtuelles](#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure).
-2. [Dissociez](site-recovery-setup-replication-settings-vmware.md#dissociate-a-configuration-server-from-a-replication-policy) et [supprimez](site-recovery-setup-replication-settings-vmware.md#delete-a-replication-policy) toutes les stratégies de réplication.
-3. [Supprimez le serveur de configuration](site-recovery-vmware-to-azure-manage-configuration-server.md#delete-or-unregister-a-configuration-server).
+2. [Dissociez ou supprimez](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) les stratégies de réplication.
+3. [Supprimez le serveur de configuration](vmware-azure-manage-configuration-server.md#delete-or-unregister-a-configuration-server).
 
 ## <a name="unregister-a-vmm-server"></a>Annuler l’inscription d’un serveur VMM
 

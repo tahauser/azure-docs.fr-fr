@@ -1,11 +1,11 @@
 ---
-title: "Comment utiliser une identité du service administré (MSI) d’une machine virtuelle Windows pour accéder à Azure Data Lake Store"
-description: "Un didacticiel qui vous montre comment utiliser une identité du service administré (MSI) d’une machine virtuelle Windows pour accéder à Azure Data Lake Store."
+title: Comment utiliser une identité du service administré (MSI) d’une machine virtuelle Windows pour accéder à Azure Data Lake Store
+description: Un didacticiel qui vous montre comment utiliser une identité du service administré (MSI) d’une machine virtuelle Windows pour accéder à Azure Data Lake Store.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,10 @@ ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 742b76e17b7ad00a70b0d18895c0b59ebe044d47
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Utiliser une identité du service administré (MSI) d’une machine virtuelle Windows pour accéder à Azure Data Lake Store
 
@@ -33,13 +33,14 @@ Ce didacticiel montre comment utiliser une MSI pour une machine virtuelle Window
 
 ## <a name="prerequisites"></a>Prérequis
 
+
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
 [!INCLUDE [msi-tut-prereqs](~/includes/active-directory-msi-tut-prereqs.md)]
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au portail Azure depuis l’adresse [https://portal.azure.com](https://portal.azure.com).
+Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Création d'une machine virtuelle Windows dans un nouveau groupe de ressources
 
@@ -100,7 +101,7 @@ Dans ce didacticiel, vous vous authentifiez sur l’API REST du système de fich
 1. Dans le portail, accédez à **Machines virtuelles** et accédez à votre machine virtuelle Windows puis, dans **Vue d’ensemble**, cliquez sur **Connecter**.
 2. Entrez le **Nom d’utilisateur** et le **Mot de passe** que vous avez ajoutés lorsque vous avez créé la machine virtuelle Windows. 
 3. Maintenant que vous avez créé une **Connexion au Bureau à distance** avec la machine virtuelle, ouvrez **PowerShell** dans la session à distance. 
-4. À l’aide de l’applet de commande `Invoke-WebRequest` de Powershell, adressez une requête au point de terminaison de la MSI locale pour obtenir un jeton d’accès pour Azure Data Lake Store.  L’identificateur de ressource pour Data Lake Store est « https://datalake.azure.net/ ».  Data Lake effectue une correspondance exacte sur l’identificateur de ressource et la barre oblique est importante.
+4. À l’aide de l’applet de commande `Invoke-WebRequest` de Powershell, adressez une requête au point de terminaison de la MSI locale pour obtenir un jeton d’accès pour Azure Data Lake Store.  L’identificateur de ressources pour Data Lake Store est « https://datalake.azure.net/ ».  Data Lake effectue une correspondance exacte sur l’identificateur de ressource et la barre oblique est importante.
 
    ```powershell
    $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://datalake.azure.net/"} -Headers @{Metadata="true"}

@@ -1,24 +1,24 @@
 ---
-title: "Connexion de Microsoft Advanced Threat Analytics à Azure Security Center | Microsoft Docs"
-description: "Découvrez comment Azure Security Center s’intègre avec Microsoft Advanced Threat Analytics."
+title: Connexion de Microsoft Advanced Threat Analytics à Azure Security Center | Microsoft Docs
+description: Découvrez comment Azure Security Center s’intègre avec Microsoft Advanced Threat Analytics.
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 5d80bf91-16c3-40b3-82fc-e0805e6708db
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 03/05/2018
 ms.author: yurid
-ms.openlocfilehash: e1b9e598af3b55c1d9591e5c1e529a80ae3319ca
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 02e14315018f6586644eb560894785e6b6eb022e
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="connecting-microsoft-advanced-threat-analytics-to-azure-security-center"></a>Connexion de Microsoft Advanced Threat Analytics à Azure Security Center
 Ce document vous aide à configurer l’intégration entre Microsoft Advanced Threat Analytics et Azure Security Center.
@@ -61,7 +61,7 @@ En supposant qu’ATA est déjà installé et fonctionne correctement localement
 12. Installez cet agent dans l’ATA Center. Pendant l’installation, veillez à activer l’option **Connecter l’agent à Azure Log Analytique (OMS)** et à fournir l’*ID de l’espace de travail* et la *clé primaire* quand vous y êtes invité.
 
 
-Lorsque vous avez fini l’installation, l’intégration est terminée et vous pouvez voir les nouvelles alertes envoyées à partir d’ATA au Security Center dans **Alertes de sécurité** et **Recherche**. La solution apparaît dans la page **Solutions de sécurité** sous **Solutions connectées**. 
+Lorsque vous avez fini l’installation, l’intégration est terminée et vous pouvez voir les nouvelles alertes envoyées à partir d’ATA au Security Center dans les résultats de **Recherche**. La solution apparaît dans la page **Solutions de sécurité** sous **Solutions connectées**. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce document, vous avez découvert comment connecter Microsoft ATA à Security Center. Pour plus d’informations sur Security Center, consultez les articles suivants :

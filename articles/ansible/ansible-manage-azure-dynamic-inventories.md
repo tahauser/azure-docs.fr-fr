@@ -1,6 +1,6 @@
 ---
-title: "Utiliser Ansible pour gérer vos inventaires dynamiques Azure"
-description: "Découvrez comment utiliser Ansible pour gérer vos inventaires dynamiques Azure"
+title: Utiliser Ansible pour gérer vos inventaires dynamiques Azure
+description: Découvrez comment utiliser Ansible pour gérer vos inventaires dynamiques Azure
 ms.service: ansible
 keywords: ansible, azure, devops, bash, cloudshell, inventaire dynamique
 author: tomarcher
@@ -8,16 +8,17 @@ manager: routlaw
 ms.author: tarcher
 ms.date: 01/14/2018
 ms.topic: article
-ms.openlocfilehash: 8753d039582abdf22f105bf7f139a35c224e7c59
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 799be6d2bb521de38af952376bf8ee14a18846de
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>Utiliser Ansible pour gérer vos inventaires dynamiques Azure
 Ansible peut être utilisé pour extraire des informations d’inventaire de diverses sources (y compris les sources cloud comme Azure) dans un *inventaire dynamique*. Dans cet article, vous utilisez [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) pour configurer un inventaire dynamique Azure Ansible dans lequel vous créez deux machines virtuelles, étiquetez l’une d’entre elles et installez Nginx sur la machine virtuelle étiquetée.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 - **Abonnement Azure** : si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
 
@@ -59,7 +60,7 @@ Vous pouvez [utiliser des étiquettes pour organiser vos ressources Azure](https
 Entrez la commande suivante [az resource tag](/cli/azure/resource?view=azure-cli-latest.md#az_resource_tag) pour étiqueter la machine virtuelle `ansible-inventory-test-vm1` avec la clé `nginx` :
 
 ```azurecli-interactive
-az resource tag --tags nginx --id /subscriptions/&lt;YourAzureSubscriptionID>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/ansible-inventory-test-vm1
+az resource tag --tags nginx --id /subscriptions/<YourAzureSubscriptionID>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/ansible-inventory-test-vm1
 ```
 
 ## <a name="generate-a-dynamic-inventory"></a>Générer un inventaire dynamique

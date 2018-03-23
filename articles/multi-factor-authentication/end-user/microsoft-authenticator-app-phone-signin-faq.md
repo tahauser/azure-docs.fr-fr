@@ -1,11 +1,11 @@
 ---
-title: "Connexion par téléphone Microsoft Authenticator - Comptes Microsoft et Azure | Microsoft Docs"
-description: "Utilisez votre téléphone pour vous connecter à votre compte Microsoft au lieu de taper votre mot de passe. Cet article répond aux questions fréquentes concernant cette fonctionnalité."
+title: Connexion par téléphone Microsoft Authenticator - Comptes Microsoft et Azure | Microsoft Docs
+description: Utilisez votre téléphone pour vous connecter à votre compte Microsoft au lieu de taper votre mot de passe. Cet article répond aux questions fréquentes concernant cette fonctionnalité.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -16,10 +16,10 @@ ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
 ms.openlocfilehash: 86cf6ba2f2ec86a609b4ec60cc143b07d9e542b3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>Connectez-vous avec votre téléphone, et non votre mot de passe
 
@@ -72,7 +72,7 @@ Non. La connexion à votre compte Microsoft avec votre téléphone est considér
 
 ### <a name="what-if-i-lose-my-phone-or-dont-have-it-with-me-how-can-i-access-my-account"></a>Et si je perds mon téléphone ou je ne l’ai pas sur moi, comment puis-je accéder à mon compte ?  
 
-Vous pouvez toujours cliquer sur **Utiliser votre mot de passe à la place** sur la page de connexion pour revenir à la saisie du mot de passe. Notez bien que si vous utilisez la vérification en deux étapes, vous avez toujours besoin d’une deuxième méthode pour vérifier votre connexion. C’est pourquoi nous vous recommandons vivement d’avoir des informations de sécurité supplémentaires à jour dans votre compte. Vous pouvez gérer vos informations de sécurité à l’adresse https://account.live.com/proofs/manage.
+Vous pouvez toujours cliquer sur **Utiliser votre mot de passe à la place** sur la page de connexion pour revenir à la saisie du mot de passe. Notez bien que si vous utilisez la vérification en deux étapes, vous avez toujours besoin d’une deuxième méthode pour vérifier votre connexion. C’est pourquoi nous vous recommandons vivement d’avoir des informations de sécurité supplémentaires à jour dans votre compte. Vous pouvez gérer vos informations de sécurité sous https://account.live.com/proofs/manage.
  
 ### <a name="how-do-i-stop-using-this-feature-and-go-back-to-entering-my-password"></a>Comment faire pour arrêter d’utiliser cette fonctionnalité et revenir à la saisie du mot de passe ?
 

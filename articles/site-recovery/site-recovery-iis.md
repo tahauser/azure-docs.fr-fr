@@ -1,26 +1,20 @@
 ---
-title: "Répliquer une application web multiniveau basée sur IIS à l’aide d’Azure Site Recovery | Microsoft Docs"
-description: "Découvrez comment répliquer les machines virtuelles d’une batterie de serveurs web IIS avec Azure Site Recovery."
+title: Répliquer une application web multiniveau basée sur IIS à l’aide d’Azure Site Recovery | Microsoft Docs
+description: Découvrez comment répliquer les machines virtuelles d’une batterie de serveurs web IIS avec Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
 author: nsoneji
 manager: gauravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/05/2018
 ms.author: nisoneji
-ms.openlocfilehash: a4a8ea14fecac73b187c9c7d3f9ca318bb2671c5
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 1ed0184ac76b5fb3e607458559327da5e8fe90c5
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/08/2018
 ---
-# <a name="replicate-a-multi-tier-iis-based-web-application-by-using-site-recovery"></a>Répliquer une application web multiniveau basée sur IIS à l’aide de Site Recovery
+# <a name="replicate-a-multi-tier-iis-based-web-application"></a>Répliquer une application web multiniveau basée sur IIS
 
 Les logiciels d’application sont le moteur de la productivité dans une organisation. Des applications web diverses peuvent répondre aux différents besoins d’une organisation. Certaines applications, telles que les applications utilisées pour le traitement des paies, les applications financières et les sites Web destinés aux clients, peuvent être essentielles à une entreprise. Afin d’éviter une perte de productivité, il est fondamental pour l’entreprise que ces applications soient opérationnelles en permanence. Plus important encore, le maintien de la disponibilité de ces applications peut contribuer à préserver de toute nuisance l’image ou la marque de l’entreprise.
 
@@ -34,9 +28,10 @@ Cet article explique comment protéger une application web qui s’appuie sur In
 
 ## <a name="prerequisites"></a>Prérequis
 
+
 Avant de commencer, assurez-vous que vous savez accomplir les tâches suivantes :
 
-* [Répliquer une machine virtuelle vers Azure](site-recovery-vmware-to-azure.md)
+* [Répliquer une machine virtuelle vers Azure](vmware-azure-tutorial.md)
 * [Constituer un réseau de récupération](site-recovery-network-design.md)
 * [Effectuer un test de basculement vers Azure](site-recovery-test-failover-to-azure.md)
 * [Procéder à un basculement vers Azure](site-recovery-failover.md)
@@ -75,7 +70,7 @@ Azure|N/D|OUI
 
 Pour démarrer la réplication de toutes les machines virtuelles de la batterie de serveurs IIS web vers Azure, suivez les instructions dans [Tester le basculement vers Azure dans Site Recovery](site-recovery-test-failover-to-azure.md).
 
-Si vous utilisez une adresse IP statique, vous pouvez spécifier l’adresse IP que vous souhaitez attribuer à la machine virtuelle. Pour définir l’adresse IP, accédez à **Paramètres Calcul et réseau** > [**ADRESSE IP CIBLE**](./site-recovery-replicate-vmware-to-azure.md#view-and-manage-vm-properties).
+Si vous utilisez une adresse IP statique, vous pouvez spécifier l’adresse IP que vous souhaitez attribuer à la machine virtuelle. Pour définir l’adresse IP, accédez à **Paramètres Calcul et réseau** > **ADRESSE IP CIBLE**.
 
 ![Capture d’écran illustrant la définition de l’adresse IP cible dans le volet Calcul et réseau de Site Recovery](./media/site-recovery-active-directory/dns-target-ip.png)
 

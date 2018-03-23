@@ -1,26 +1,20 @@
 ---
-title: "Guide de procédures relatives aux notifications par e-mail pour le réglage automatique - Azure SQL Database | Microsoft Docs"
-description: "Azure SQL Database analyse la requête SQL et s’adapte automatiquement aux charges de travail utilisateur."
+title: Guide de procédures relatives aux notifications par e-mail pour le réglage automatique - Azure SQL Database | Microsoft Docs
+description: Azure SQL Database analyse la requête SQL et s’adapte automatiquement aux charges de travail utilisateur.
 services: sql-database
-documentationcenter: 
 author: danimir
-manager: drasumic
+manager: craigg
 ms.reviewer: carlrab
-editor: 
-ms.assetid: 
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Active
 ms.date: 02/05/2018
 ms.author: v-daljep
-ms.openlocfilehash: 611c30639b5fb36bb08ebd3e73c90f8aa2bd09d4
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: a2799e45fbb54531289a89082f13e5ce0856c376
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Notifications par e-mail pour le réglage automatique
 

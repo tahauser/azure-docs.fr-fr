@@ -1,20 +1,20 @@
 ---
-title: "Utiliser des rapports de gestion des coûts dans Azure Cost Management | Microsoft Docs"
-description: "Cet article décrit comment utiliser les différents rapports Azure Cost Management dans le portail Cloudyn."
+title: Utiliser des rapports de gestion des coûts dans Azure Cost Management | Microsoft Docs
+description: Cet article décrit comment utiliser les différents rapports Azure Cost Management dans le portail Cloudyn.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
-ms.custom: 
-ms.openlocfilehash: 0a4f6a5940ccffe897a5609b837ddaeea98d87aa
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.custom: ''
+ms.openlocfilehash: 8078591b1e2ad120190a23dd29800bd0f1ae33ea
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="use-cost-management-reports"></a>Utiliser les rapports Azure Cost Management
 
@@ -152,7 +152,7 @@ Utilisez le rapport des coûts dans le temps pour :
 3. Ajoutez des groupes.
 4. Choisissez un modèle de coût que vous avez créé précédemment.
 5. Sélectionnez des coûts réels ou des coûts amortis.
-6. Décidez d’appliquer ou non des règles d’affectation pour afficher les données de facturation brutes ou pour recalculer les coûts avec Cloudyn.
+6. Choisissez l’application des règles d’allocation pour afficher les données de facturation brutes ou pour la vue des coûts recalculés.
 
 Voici un exemple du rapport.
 

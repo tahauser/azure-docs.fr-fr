@@ -1,11 +1,11 @@
 ---
-title: "Effectuer des mises à jour dans Azure Stack | Microsoft Docs"
-description: "Découvrez comment importer et installer des mises à jour Microsoft pour un système Azure Stack intégré."
+title: Effectuer des mises à jour dans Azure Stack | Microsoft Docs
+description: Découvrez comment importer et installer des mises à jour Microsoft pour un système Azure Stack intégré.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
 ms.workload: na
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 10e82c13dc2bb8461fb628435484a3a6e1877aa8
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0f23216c6aced60dc651a0f10179281bc9a29c2c
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="apply-updates-in-azure-stack"></a>Effectuer des mises à jour dans Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack*
 
 En tant qu’opérateur Azure Stack, vous pouvez appliquer des packages de mise à jour Microsoft pour Azure Stack en utilisant la vignette Mise à jour dans le portail d’administration. Vous devez télécharger la mise à jour Microsoft, importer les fichiers du package dans Azure Stack, puis installer la mise à jour. 
 
@@ -67,7 +67,7 @@ La procédure suivante montre comment importer et installer des mises à jour da
  
     ![Indique où charger chaque fichier de package](media/azure-stack-apply-updates/ApplyUpdates6.png)
 
-8. Répétez les étapes 6 et 7 pour les fichiers *PackageName*.bin et Metadata.xml. 
+8. Répétez les étapes 6 et 7 pour les fichiers *PackageName*.bin et Metadata.xml. N’importez pas le fichier Notification supplémentaire.txt s’il est inclus.
 9. Lorsque vous avez terminé, vous pouvez examiner les notifications (icône représentant une cloche dans le coin supérieur droit du portail). Les notifications doivent indiquer que le chargement est terminé. 
 10. Revenez à la vignette Mise à jour dans le tableau de bord. La vignette doit indiquer qu’une mise à jour est disponible. Cliquez sur la vignette pour vérifier la mise à jour récemment ajoutée.
 11. Pour installer la mise à jour, sélectionnez le package marqué comme étant **Prêt**, cliquez dessus avec le bouton droit et sélectionnez **Mettre à jour maintenant** ou cliquez sur l’action **Mettre à jour maintenant** située en haut.

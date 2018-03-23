@@ -1,27 +1,27 @@
 ---
-title: "Déployer votre application sur Azure App Service avec un fichier ZIP | Microsoft Docs"
-description: "Découvrez comment déployer votre application sur Azure App Service avec un fichier ZIP."
+title: Déployer votre application sur Azure App Service avec un fichier ZIP ou WAR | Microsoft Docs
+description: Découvrez comment déployer votre application sur Azure App Service avec un fichier ZIP (ou un fichier WAR pour les développeurs Java).
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 03/07/2018
 ms.author: cephalin;sisirap
-ms.openlocfilehash: a0e4df0ef0a1c873f1efcac1d8dbfe3cada18218
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 41fb529f6b4ae923f2920919306324c86a2baa45
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/09/2018
 ---
-# <a name="deploy-your-app-to-azure-app-service-with-a-zip-file"></a>Déployer votre application sur Azure App Service avec un fichier ZIP
+# <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Déployer votre application sur Azure App Service avec un fichier ZIP ou WAR
 
-Cet article montre comment utiliser un fichier ZIP pour déployer votre application web sur [Azure App Service](app-service-web-overview.md). 
+Cet article montre comment utiliser un fichier ZIP ou WAR pour déployer votre application web sur [Azure App Service](app-service-web-overview.md). 
 
 Ce déploiement de fichier ZIP utilise le même service Kudu que celui qui pilote les déploiements continus basés sur l’intégration. Kudu prend en charge les fonctionnalités suivantes pour le déploiement de fichier ZIP : 
 
@@ -32,7 +32,12 @@ Ce déploiement de fichier ZIP utilise le même service Kudu que celui qui pilot
 
 Pour plus d’informations, consultez la [documentation Kudu](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
 
+Le fichier [WAR](https://wikipedia.org/wiki/WAR_(file_format)) est déployé sur App Service pour exécuter votre application web Java. Consultez [Déployer un fichier WAR](#deploy-war-file).
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>Prérequis
+
 
 Pour accomplir les étapes décrites dans cet article :
 
@@ -58,23 +63,13 @@ zip -r <file-name>.zip .
 Compress-Archive -Path * -DestinationPath <file-name>.zip
 ``` 
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [Deploy ZIP file](../../includes/app-service-web-deploy-zip.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## <a name="deploy-zip-file-with-azure-cli"></a>Déployer le fichier ZIP avec Azure CLI
 
-## <a name="upload-zip-file-to-cloud-shell"></a>Charger le fichier ZIP vers Cloud Shell
+Vérifiez que votre version d’Azure CLI est égale ou supérieure à 2.0.21. Pour vérifier votre version, exécutez la commande `az --version` dans la fenêtre de terminal.
 
-Si vous choisissez plutôt d’exécuter Azure CLI à partir de votre terminal local, ignorez cette étape.
-
-Suivez les étapes ci-après pour charger votre fichier ZIP vers Cloud Shell. 
-
-[!INCLUDE [app-service-web-upload-zip.md](../../includes/app-service-web-upload-zip-no-h.md)]
-
-Pour plus d’informations, consultez [Conserver des fichiers dans Azure Cloud Shell](../cloud-shell/persisting-shell-storage.md).
-
-## <a name="deploy-zip-file"></a>Déployer un fichier Zip
-
-Déployez le fichier ZIP chargé sur votre application web à l’aide de la commande [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_zip). Si vous choisissez de ne pas utiliser Cloud Shell, vérifiez que votre version d’Azure CLI est 2.0.21 ou version ultérieure. Pour vérifier votre version, exécutez la commande `az --version` dans la fenêtre de terminal locale. 
+Déployez le fichier ZIP chargé sur votre application web à l’aide de la commande [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_zip).  
 
 L’exemple suivant déploie le fichier ZIP que vous avez chargé. Quand vous utilisez une installation locale d’Azure CLI, spécifiez le chemin de votre fichier ZIP local pour `--src`.   
 
@@ -84,9 +79,34 @@ az webapp deployment source config-zip --resource-group myResouceGroup --name <a
 
 Cette commande déploie les fichiers et répertoires du fichier ZIP vers votre dossier d’applications App Service par défaut (`\home\site\wwwroot`), puis redémarre l’application. Si un processus de génération personnalisé supplémentaire est configuré, il est également exécuté. Pour plus d’informations, consultez la [documentation Kudu](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
 
-Pour afficher la liste des déploiements pour cette application, vous devez utiliser les API REST (voir la section suivante). 
-
 [!INCLUDE [app-service-deploy-zip-push-rest](../../includes/app-service-deploy-zip-push-rest.md)]  
+
+## <a name="deploy-war-file"></a>Déployer un fichier WAR
+
+Pour déployer un fichier WAR sur App Service, envoyez une requête POST à https://<app_name>.scm.azurewebsites.net/api/wardeploy. La requête POST doit contenir le fichier .war dans le corps du message. Les informations d’identification de déploiement pour votre application sont fournies dans la demande avec l’authentification de base HTTP. 
+
+Pour l’authentification HTTP BASIC, vous avez besoin de vos informations d’identification de déploiement App Service. Pour découvrir comment définir les informations d’identification de votre déploiement, consultez [Définir et réinitialiser les informations d’identification de niveau utilisateur](app-service-deployment-credentials.md#userscope).
+
+### <a name="with-curl"></a>With cURL
+
+L’exemple suivant utilise l’outil cURL pour déployer un fichier .war. Remplacez les espaces réservés `<username>`, `<war_file_path>` et `<app_name>`. Quand vous y êtes invité par cURL, tapez le mot de passe.
+
+```bash
+curl -X POST -u <username> --data-binary @"<war_file_path>" https://<app_name>.scm.azurewebsites.net/api/wardeploy
+```
+
+### <a name="with-powershell"></a>Avec PowerShell
+
+L’exemple suivant utilise [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) pour envoyer une requête qui contient le fichier .war. Remplacez les espaces réservés `<deployment_user>`, `<deployment_password>`, `<zip_file_path>` et `<app_name>`.
+
+```PowerShell
+$username = "<deployment_user>"
+$password = "<deployment_password>"
+$filePath = "<war_file_path>"
+$apiUrl = "https://<app_name>.scm.azurewebsites.net/api/wardeploy"
+$base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f $username, $password)))
+Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)} -Method POST -InFile $filePath -ContentType "multipart/form-data"
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

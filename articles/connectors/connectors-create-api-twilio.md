@@ -1,11 +1,11 @@
 ---
-title: "Ajouter le connecteur Twilio à vos applications logiques Azure | Microsoft Docs"
-description: "Vue d’ensemble du connecteur Twilio avec les paramètres d’API REST"
+title: Ajouter le connecteur Twilio à vos applications logiques Azure | Microsoft Docs
+description: Vue d’ensemble du connecteur Twilio avec les paramètres d’API REST
 services: logic-apps
-documentationcenter: 
-author: MandiOhlinger
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 43116187-4a2f-42e5-9852-a0d62f08c5fc
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/19/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 50361a3342a0d14ae02b2cb478bbb0f74b61bba0
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 2bb7961c850fc8a35f3e114d9497941b188cf51b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-twilio-connector"></a>Prise en main du connecteur Twilio
 Connectez-vous à Twilio pour envoyer et recevoir des SMS, des MMS, et des adresses IP. Avec Twilio, vous pouvez :

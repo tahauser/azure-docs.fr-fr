@@ -1,12 +1,12 @@
 ---
-title: "Résolution des échecs de sauvegarde Azure : état de l’agent invité non disponible | Microsoft Docs"
-description: "Symptômes, causes et résolution des défaillances de la Sauvegarde Azure liées à l’agent, à l’extension et aux disques."
+title: 'Résolution des échecs de sauvegarde Azure : état de l’agent invité non disponible | Microsoft Docs'
+description: Symptômes, causes et résolution des défaillances de la Sauvegarde Azure liées à l’agent, à l’extension et aux disques.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
-keywords: "Sauvegarde Azure ; agent de machine virtuelle ; connectivité réseau ;"
+editor: ''
+keywords: Sauvegarde Azure ; agent de machine virtuelle ; connectivité réseau ;
 ms.assetid: 4b02ffa4-c48e-45f6-8363-73d536be4639
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: c205023b025a477ee05ddcbfc536573f31426167
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: a18718aba3ef7f70caa541c6eb56311082d02bed
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Résoudre les problèmes de défaillance de la Sauvegarde Azure : problèmes d’agent ou d’extension
 
@@ -30,9 +30,6 @@ Cet article indique les étapes à suivre pour résoudre les erreurs de la Sauve
 ## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>L’agent de machine virtuelle ne parvient pas à communiquer avec la Sauvegarde Azure
 
 Message d’erreur : « L’agent de machine virtuelle ne parvient pas à communiquer avec la Sauvegarde Azure »
-
-> [!NOTE]
-> Si vos sauvegardes de machines virtuelles Linux Azure échouent en affichant cette erreur à partir du 4 janvier 2018, exécutez la commande suivante dans la machine virtuelle et réessayez les sauvegardes : `sudo rm -f /var/lib/waagent/*.[0-9]*.xml`.
 
 Dès que vous avez enregistré et planifié une machine virtuelle dans le service de sauvegarde, ce dernier lance la tâche en communiquant avec l’agent de la machine virtuelle pour prendre un instantané à la date et l’heure. Il est possible que l’une des conditions suivantes empêche le déclenchement de l’instantané. Lorsque un instantané n’est pas déclenché, la sauvegarde risque d’échouer. Suivez les étapes de dépannage ci-dessous dans l’ordre indiqué, puis réessayez l’opération :
 
@@ -58,9 +55,8 @@ Message d’erreur : « Échec de l’opération d’extension VMSnapshot »
 Après avoir enregistré et planifié une machine virtuelle pour le service Azure Backup , ce dernier lance le travail en communiquant avec l’extension de sauvegarde de la machine virtuelle pour prendre un instantané à un moment donné. Il est possible que l’une des conditions suivantes empêche le déclenchement de l’instantané. Si la capture instantanée n’est pas déclenchée, un échec de sauvegarde risque de se produire. Suivez les étapes de dépannage ci-dessous dans l’ordre indiqué, puis réessayez l’opération :  
 **Cause 1 : [Impossible de récupérer l’état de l’instantané ou de capturer un instantané](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **Cause 2 : [Impossible de mettre à jour ou de charger l’extension de sauvegarde](#the-backup-extension-fails-to-update-or-load)**  
-**Cause 3 : [La machine virtuelle n’a pas accès à Internet](#the-vm-has-no-internet-access)**  
-**Cause 4 : [L’agent est installé dans la machine virtuelle, mais ne répond pas (machines virtuelles Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
-**Cause 5 : [L’agent installé dans la machine virtuelle est obsolète (machines virtuelles Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
+**Cause 3 : [L’agent est installé dans la machine virtuelle, mais ne répond pas (machines virtuelles Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**Cause 4 : [L’agent installé dans la machine virtuelle est obsolète (machines virtuelles Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
 
 ## <a name="backup-fails-because-the-vm-agent-is-unresponsive"></a>La sauvegarde échoue, car l’agent de machine virtuelle ne répond pas
 
@@ -168,7 +164,7 @@ La plupart des échecs des machines virtuelles Linux liés aux agents ou aux ext
 Si nous exigeons une journalisation détaillée pour waagent, procédez comme suit :
 
 1. Dans le fichier /etc/waagent.conf, recherchez la ligne suivante : **Activer l’enregistrement des informations détaillées (o|n)**
-2. Modifiez la valeur **Logs.Verbose** en remplaçant *n* par *O*.
+2. Passez la valeur **Logs.Verbose** de *N* à *O*.
 3. Enregistrez la modification, puis redémarrez waagent en suivant les étapes détaillées plus haut dans cette section.
 
 ###  <a name="the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Impossible de récupérer l’état de l’instantané ou de capturer un instantané
@@ -179,7 +175,6 @@ Voici les causes possibles de l’échec de la tâche de capture instantanée :
 
 | Cause : | Solution |
 | --- | --- |
-| La sauvegarde SQL Server a été configurée que la machine virtuelle. | Par défaut, la sauvegarde de machine virtuelle exécute une sauvegarde complète avec le Service VSS sur les machines virtuelles Windows. Sur celles qui exécutent des serveurs SQL Server et sur lesquelles la sauvegarde SQL Server est configurée, des retards d’exécution des captures instantanées peuvent se produire.<br><br>Si un échec de sauvegarde se produit en raison de problèmes de capture instantanée, définissez la clé de Registre suivante :<br><br>**[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE"** |
 | L’état de la machine virtuelle est rapporté de manière incorrecte, car la machine virtuelle est arrêtée dans le protocole RDP (Remote Desktop Protocol). | Si vous avez arrêté la machine virtuelle dans le protocole RDP, retournez sur le portail pour vérifier que son état est correct. Si ce n’est pas le cas, arrêtez la machine virtuelle dans le portail à l’aide de l’option **Arrêter** dans le tableau de bord de la machine virtuelle. |
 | La machine virtuelle ne parvient pas à récupérer l’adresse d’hôte/de structure à partir du protocole DHCP. | Le protocole DHCP doit être activé dans l’invité pour que la sauvegarde de la machine virtuelle IaaS fonctionne. Si la machine virtuelle ne parvient pas à récupérer l’adresse d’hôte/de structure à partir de la réponse 245 DHCP, elle ne peut ni télécharger, ni exécuter des extensions. Si vous avez besoin d’une adresse IP privée statique, configurez-la sur la plateforme. L’option DHCP à l’intérieur de la machine virtuelle doit être laissée désactivée. Pour plus d’informations, consultez la section [Définir une adresse IP privée interne statique](../virtual-network/virtual-networks-reserved-private-ip.md). |
 
@@ -188,12 +183,7 @@ Si les extensions ne sont pas chargées, la sauvegarde échoue, car il n’est p
 
 #### <a name="solution"></a>Solution
 
-**Pour les invités Windows :** vérifiez que le service iaasvmprovider est activé et qu’il a un type de démarrage *automatique*. S’il n’est pas configuré de cette façon, activez-le pour déterminer si la sauvegarde suivante réussit.
-
-**Pour les invités Linux :** vérifiez que la dernière version de VMSnapshot pour Linux (extension utilisée par la sauvegarde) est 1.0.91.0.<br>
-
-
-Si l’extension de sauvegarde rencontre toujours un échec lors de la mise à jour ou du chargement, désinstallez-la pour forcer le rechargement de l’extension VMSnapshot. La prochaine tentative de sauvegarde rechargera l’extension.
+Désinstallez l’extension pour forcer le rechargement de l’extension VMSnapshot. La prochaine tentative de sauvegarde rechargera l’extension.
 
 Pour désinstaller l’extension :
 

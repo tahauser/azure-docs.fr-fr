@@ -1,26 +1,19 @@
 ---
-title: "Accorder l’accès à Azure SQL Database | Microsoft Docs"
-description: "Découvrez comment accorder l’accès à Microsoft Azure SQL Database."
+title: Accorder l’accès à Azure SQL Database | Microsoft Docs
+description: Découvrez comment accorder l’accès à Microsoft Azure SQL Database.
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 8e71b04c-bc38-4153-8f83-f2b14faa31d9
+manager: craigg
 ms.service: sql-database
 ms.custom: security
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 02/06/2017
 ms.author: carlrab
-ms.openlocfilehash: 28c1ec79752f822939fefe6ce3686ace8ad1b6b0
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 85d3e7819ef06fd943c207e1410c95168f574a7d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-sql-database-access-control"></a>Contrôle d’accès à Azure SQL Database
 Pour assurer la sécurité, SQL Database contrôle l’accès avec des règles de pare-feu qui limitent la connectivité par adresse IP, des mécanismes d’authentification qui obligent les utilisateurs à prouver leur identité, et des mécanismes d’autorisation qui les restreignent à certaines actions et données. 

@@ -1,0 +1,39 @@
+- name: "Documentation Batch\_AI"
+  href: index.md
+- name: Vue d'ensemble
+  items:
+    - name: "Qu’est ce que Batch\_AI\_?"
+      href: overview.md
+- name: Prise en main
+  expanded: true
+  items:
+    - name: Exécution d’un travail de formation - CLI
+      href: quickstart-cli.md
+    - name: Exécution d’un travail de formation - Python
+      href: quickstart-python.md
+- name: Informations de référence
+  items:
+    - name: Azure CLI
+      href: /cli/azure/batchai
+    - name: .NET
+      href: /dotnet/api/overview/azure/batchai
+    - name: Java
+      href: /java/api/overview/azure/batchai
+    - name: Node.js
+      href: /javascript/api/overview/azure/batchai
+    - name: Python
+      href: /python/api/overview/azure/batchai
+    - name: REST
+      href: /rest/api/batchai
+- name: Ressources
+  items:
+    - name: Recettes de formation
+      href: 'https://github.com/Azure/BatchAI'
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Tarifs
+      href: 'https://azure.microsoft.com/pricing/details/batch-ai'
+    - name: Calculatrice de prix
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Disponibilité régionale
+      href: 'https://azure.microsoft.com/regions/services/'

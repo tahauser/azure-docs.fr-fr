@@ -1,23 +1,23 @@
 ---
-title: "Haute disponibilité de SAP HANA sur les machines virtuelles Azure | Microsoft Docs"
-description: "Créer une haute disponibilité de SAP HANA sur des machines virtuelles Azure."
+title: Configuration de la réplication système SAP HANA sur les machines virtuelles Azure | Microsoft Docs
+description: Créer une haute disponibilité de SAP HANA sur des machines virtuelles Azure.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: MSSedusch
 manager: timlt
-editor: 
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/25/2017
+ms.date: 12/12/2017
 ms.author: sedusch
-ms.openlocfilehash: 5f6ef18e93b8f77162b3524f31cb632e1db38f80
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 2bf9ed176f37c315aa4496894315f2318370ce7f
+ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="high-availability-of-sap-hana-on-azure-virtual-machines-vms"></a>Haute disponibilité de SAP HANA sur des machines virtuelles Azure
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 12/08/2017
 [template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-converged%2Fazuredeploy.json
 
 En local, vous pouvez utiliser soit la réplication système HANA soit un stockage partagé pour établir une haute disponibilité pour SAP HANA.
-Azure ne prend en charge actuellement que la configuration de la réplication système HANA. La réplication SAP HANA se compose d’un nœud principal et d’au moins un nœud subordonné. Les modifications apportées aux données sur le nœud principal sont répliquées vers les nœuds subordonnés de manière synchrone ou asynchrone.
+Sur les machines virtuelles Azure, la réplication système SAP HANA dans Azure est la seule fonction de haute disponibilité prise en charge actuellement. La réplication SAP HANA se compose d’un nœud principal et d’au moins un nœud secondaire. Les modifications apportées aux données sur le nœud principal sont répliquées vers les nœuds secondaires de manière synchrone ou asynchrone.
 
 Cet article décrit comment déployer et configurer les machines virtuelles, installer l’infrastructure de cluster, et installer et configurer la réplication système SAP HANA.
 Les exemples de configuration et les commandes d’installation utilisent le numéro d’instance 03 et l’ID système HANA HDB.
@@ -83,23 +83,23 @@ La Place de marché Azure contient une image de SUSE Linux Enterprise Server fo
 1. Créer un groupe à haute disponibilité  
    Définir un domaine de mise à jour maximal
 1. Créer un équilibrage de charge (interne)  
-   Sélectionner le réseau virtuel de l’étape précédente
-1. Créer la machine virtuelle 1  
-   Utiliser au moins SLES4SAP 12 SP1. Dans cet exemple, nous utiliserons l’image BYOS SLES4SAP 12 SP1 https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
-   SLES For SAP Applications 12 SP1 (BYOS)  
-   Sélectionner le compte de stockage 1  
+   Sélectionnez le réseau virtuel créé à la deuxième étape
+1. Créer la machine virtuelle 1   
+   Utilisez au moins SLES4SAP 12 SP1, dans cet exemple, l’image BYOS SLES4SAP 12 SP1 https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
+   SLES For SAP Applications 12 SP1 (BYOS) est utilisé  
+   Sélectionner le compte de stockage 1   
    Sélectionner le groupe à haute disponibilité  
-1. Créer la machine virtuelle 2  
-   Utiliser au moins SLES4SAP 12 SP1. Dans cet exemple, nous utiliserons l’image BYOS SLES4SAP 12 SP1 https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
-   SLES For SAP Applications 12 SP1 (BYOS)  
-   Sélectionner le compte de stockage 2   
+1. Créer la machine virtuelle 2   
+   Utilisez au moins SLES4SAP 12 SP1, dans cet exemple, l’image BYOS SLES4SAP 12 SP1 https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
+   SLES For SAP Applications 12 SP1 (BYOS) est utilisé  
+   Sélectionner le compte de stockage 2    
    Sélectionner le groupe à haute disponibilité  
 1. Ajouter des disques de données
 1. Configurer l’équilibrage de charge
     1. Créer un pool d’adresse IP frontal
         1. Ouvrir l’équilibrage de charge, sélectionner le pool d’adresses IP frontal et cliquer sur Ajouter
         1. Entrer le nom du nouveau pool d’adresses IP frontal (par exemple hana-frontend)
-        1. Click OK
+        1. Cliquez sur OK
         1. Une fois le pool d’adresses IP frontal créé, noter son adresse IP
     1. Créer un pool principal
         1. Ouvrir l’équilibrage de charge, sélectionner les pools principaux et cliquer sur Ajouter
@@ -107,12 +107,12 @@ La Place de marché Azure contient une image de SUSE Linux Enterprise Server fo
         1. Cliquer sur Ajouter une machine virtuelle
         1. Sélectionner le groupe à haute disponibilité créé précédemment
         1. Sélectionner les machines virtuelles du cluster SAP HANA
-        1. Click OK
+        1. Cliquez sur OK
     1. Créer une sonde d’intégrité
         1. Ouvrir l’équilibrage de charge, sélectionner les sondes d’intégrité et cliquer sur Ajouter
         1. Entrer le nom de la nouvelle sonde d’intégrité (par exemple hana-hp)
         1. Sélectionner le protocole TCP et le port 625**03**, et conserver un intervalle de 5 et un seuil de défaillance de 2
-        1. Click OK
+        1. Cliquez sur OK
     1. Créer des règles d’équilibrage de charge
         1. Ouvrir l’équilibrage de charge, sélectionner les règles d’équilibrage de charge et cliquer sur Ajouter
         1. Entrer le nom de la nouvelle règle d’équilibrage de charge (par exemple hana-lb-3**03**15)
@@ -120,24 +120,25 @@ La Place de marché Azure contient une image de SUSE Linux Enterprise Server fo
         1. Conserver le protocole TCP et choisir le port 3**03**15
         1. Augmenter le délai d’inactivité à 30 minutes
         1. **Veiller à activer IP flottante**
-        1. Click OK
+        1. Cliquez sur OK
         1. Répéter les étapes ci-dessus pour le port 3**03**17
 
 ### <a name="deploy-with-template"></a>Déployer avec un modèle
-Vous pouvez utiliser un des modèles de démarrage rapide disponibles sur github pour déployer toutes les ressources nécessaires. Le modèle déploie les machines virtuelles, l’équilibreur de charge, le groupe à haute disponibilité, etc. Suivez ces étapes pour déployer le modèle :
+Vous pouvez utiliser un des modèles de démarrage rapide disponibles sur github pour déployer toutes les ressources nécessaires. Le modèle déploie les machines virtuelles, l’équilibrage de charge, le groupe à haute disponibilité, etc. Suivez ces étapes pour déployer le modèle :
 
-1. Ouvrez le [modèle de base de données][template-multisid-db] ou le [modèle convergé][template-converged] sur le portail Azure. Le modèle de base de données crée uniquement les règles d’équilibrage de charge pour une base de données, tandis que le modèle convergé crée également les règles d’équilibrage de charge pour une instance ASCS/SCS et une instance ERS (Linux uniquement). Si vous prévoyez d’installer un système SAP NetWeaver et souhaitez également installer l’instance ASC/SCS sur les mêmes machines, utilisez le [modèle convergé][template-converged].
+1. Ouvrez le [modèle de base de données][template-multisid-db] ou [modèle convergé][template-converged] sur le portail Azure. 
+   Le modèle de base de données crée uniquement les règles d’équilibrage de charge pour une base de données, tandis que le modèle convergé crée également les règles d’équilibrage de charge pour une instance ASCS/SCS et une instance ERS (Linux uniquement). Si vous prévoyez d’installer un système SAP NetWeaver et souhaitez également installer l’instance ASC/SCS sur les mêmes machines, utilisez le [modèle convergé][template-converged].
 1. Entrez les paramètres suivants
     1. ID du système SAP  
-       Entrez l’ID du système SAP que vous souhaitez installer. Cet ID sera utilisé comme préfixe pour les ressources déployées.
-    1. Type de pile (applicable uniquement si vous utilisez le modèle convergé)  
+       Entrez l’ID du système SAP que vous souhaitez installer. Cet ID est utilisé comme préfixe pour les ressources déployées.
+    1. Type de pile (applicable uniquement si vous utilisez le modèle convergé)   
        Sélectionnez le type de pile de SAP NetWeaver
     1. Type de système d’exploitation  
        Sélectionnez l’une des distributions Linux. Dans cet exemple, sélectionnez SLES 12 BYOS
     1. Type de base de données  
        Sélectionnez HANA
     1. Taille du système SAP  
-       Le nombre de SAP fournis par le nouveau système. Si vous ne savez pas combien de SAP sont requis par le système, demandez à votre partenaire technologique SAP ou un intégrateur système
+       La quantité de SAP que le nouveau système va fournir. Si vous ne savez pas combien de SAP sont exigés par le système, demandez à votre partenaire technologique SAP ou un intégrateur système
     1. Disponibilité du système  
        Sélectionnez la haute disponibilité (HA).
     1. Nom d’utilisateur et mot de passe d’administrateur  
@@ -145,7 +146,7 @@ Vous pouvez utiliser un des modèles de démarrage rapide disponibles sur github
     1. Sous-réseau nouveau ou existant  
        Détermine s’il faut créer un réseau virtuel et un sous-réseau, ou utiliser un sous-réseau existant. Si vous disposez déjà d’un réseau virtuel connecté à votre réseau local, sélectionnez existant.
     1. ID de sous-réseau  
-    ID du sous-réseau auquel les machines virtuelles doivent être connectées. Sélectionnez le sous-réseau de votre VPN ou réseau virtuel ExpressRoute pour connecter la machine virtuelle à votre réseau local. L’identifiant se présente généralement comme suit : /abonnements/`<subscription ID`>/groupesderessources/`<resource group name`>/fournisseurs/Réseau.Microsoft/réseauxVirtuels/`<virtual network name`>/sous-réseaux/`<subnet name`>
+    ID du sous-réseau auquel les machines virtuelles doivent être connectées. Sélectionnez le sous-réseau de votre VPN ou réseau virtuel Express Route pour connecter la machine virtuelle à votre réseau local. L’identifiant se présente généralement comme suit : /abonnements/`<subscription ID`>/groupesderessources/`<resource group name`>/fournisseurs/Réseau.Microsoft/réseauxVirtuels/`<virtual network name`>/sous-réseaux/`<subnet name`>
 
 ## <a name="setting-up-linux-ha"></a>Configuration de la haute disponibilité Linux
 
@@ -201,7 +202,7 @@ Les éléments suivants sont précédés de [A] \(applicable à tous les nœuds)
 
 1. [A] Configurer la disposition du disque
     1. LVM  
-    En général, nous recommandons d’utiliser LVM pour les volumes qui stockent des données et des fichiers journaux. L’exemple ci-dessous part du principe que les machines virtuelles disposent de quatre disques de données joints qui doivent être utilisés pour créer deux volumes.
+    En général, nous recommandons d’utiliser LVM pour les volumes qui stockent des données et des fichiers journaux. L’exemple suivant part du principe que les machines virtuelles disposent de quatre disques de données joints qui doivent être utilisés pour créer deux volumes.
         * Créez des volumes physiques pour tous les disques que vous souhaitez utiliser.
     <pre><code>
     sudo pvcreate /dev/sdc
@@ -310,7 +311,7 @@ Les éléments suivants sont précédés de [A] \(applicable à tous les nœuds)
     
     ```
 
-1. [A] Configurer corosync pour utiliser les autres transports et ajouter la liste de nœuds. Le cluster ne fonctionnera pas dans le cas contraire.
+1. [A] Configurer corosync pour utiliser les autres transports et ajouter la liste de nœuds. Sinon, le cluster ne va pas fonctionner. 
     ```bash
     sudo vi /etc/corosync/corosync.conf    
     
@@ -362,7 +363,7 @@ Consultez le chapitre 4 de la publication [SAP HANA SR Performance Optimized Sc
     * Do you want to add additional hosts to the system? (y/n) [n] : -> ENTRÉE
     * Enter SAP HANA System ID : <SID of HANA e.g. HDB>
     * Enter Instance Number [00] :   
-  Numéro d’instance HANA. Utilisez 03 si vous avez utilisé le modèle Azure ou si vous avez suivi l’exemple ci-dessus
+  Numéro d’instance HANA. Utilisez 03 si vous avez utilisé le modèle Azure ou si vous avez suivi le déploiement manuel
     * Select Database Mode / Enter Index [1] : -> ENTRÉE
     * Select System Usage / Enter Index [4] :  
   Select the system Usage
@@ -381,7 +382,7 @@ Consultez le chapitre 4 de la publication [SAP HANA SR Performance Optimized Sc
     * Enter Database User (SYSTEM) Password:
     * Confirm Database User (SYSTEM) Password:
     * Restart system after machine reboot? [n] : -> ENTRÉE
-    * Do you want to continue? (y/n) :  
+    * Do you want to continue? (y/n) :   
   Validez le résumé et entrez y pour continuer
 1. [A] Mettre à niveau l’agent hôte SAP  
   Téléchargez la dernière archive de l’agent hôte SAP à partir du [SAP Softwarecenter][sap-swcenter] et exécutez la commande suivante pour mettre à niveau l’agent. Remplacez le chemin d’accès à l’archive pour pointer vers le fichier que vous avez téléchargé.
@@ -446,11 +447,11 @@ sudo crm configure load update crm-defaults.txt
 
 ### <a name="create-stonith-device"></a>Créer le périphérique STONITH
 
-Le périphérique STONITH utilise un principal de service pour l’autorisation sur Microsoft Azure. Pour créer un principal de service, procédez comme suit.
+L’appareil STONITH utilise un principal de service pour l’autorisation sur Microsoft Azure. Pour créer un principal de service, effectuez les étapes suivantes.
 
 1. Accédez à <https://portal.azure.com>
 1. Ouvrez le panneau Azure Active Directory  
-   Accédez aux propriétés et notez l’ID de répertoire. Il s’agit de **l’ID du locataire**.
+   Accédez aux propriétés et notez l’ID de répertoire. Cet ID est **l’ID du locataire**.
 1. Cliquez sur Inscriptions d’applications
 1. Cliquez sur Ajouter.
 1. Entrez un nom, sélectionnez le type d’application « Application web/API », entrez une URL de connexion (par exemple, http://localhost) et cliquez sur Créer
@@ -458,9 +459,9 @@ Le périphérique STONITH utilise un principal de service pour l’autorisation 
 1. Sélectionnez la nouvelle application et cliquez sur Clés dans l’onglet Paramètres
 1. Entrez une description pour la nouvelle clé, sélectionnez « N’expire jamais » et cliquez sur Enregistrer
 1. Notez la valeur. Cette valeur est utilisée comme **mot de passe** pour le principal de service
-1. Notez l’ID de l’application. Cet identifiant est utilisé comme nom d’utilisateur (**ID de connexion** dans la procédure ci-dessous) du principal de service
+1. Notez l’ID de l’application. Cet identifiant est utilisé comme nom d’utilisateur (**ID de connexion** dans la procédure suivante) du principal de service
 
-Par défaut, le principal de service ne possède pas les autorisations d’accéder à vos ressources Azure. Vous devez accorder au principal de service les autorisations de démarrer et arrêter (libérer) toutes les machines virtuelles du cluster.
+Par défaut, le principal de service ne possède pas les autorisations d’accéder à vos ressources Azure. Accordez au principal de service les autorisations de démarrer et arrêter (libérer) toutes les machines virtuelles du cluster.
 
 1. Accédez à https://portal.azure.com
 1. Ouvrez le panneau Toutes les ressources
@@ -468,8 +469,8 @@ Par défaut, le principal de service ne possède pas les autorisations d’accé
 1. Cliquez sur Contrôle d’accès (IAM)
 1. Cliquez sur Ajouter.
 1. Sélectionnez le rôle de propriétaire
-1. Entrez le nom de l’application que vous avez créée ci-dessus
-1. Click OK
+1. Entrez le nom de l’application que vous avez créée lors des étapes précédentes
+1. Cliquez sur OK
 
 Une fois que vous avez modifié les autorisations pour les machines virtuelles, vous pouvez configurer les périphériques STONITH dans le cluster.
 
@@ -553,7 +554,7 @@ sudo crm configure load update crm-saphana.txt
 </pre>
 
 ### <a name="test-cluster-setup"></a>Tester la configuration du cluster
-Le chapitre suivant vous explique comment tester votre configuration. Chaque test suppose que vous êtes connecté en tant que root et que le nœud principal SAP HANA est en cours d’exécution sur la machine virtuelle saphanavm1.
+Ce chapitre explique comment vous pouvez tester votre configuration. Chaque test suppose que vous êtes connecté en tant que root et que le nœud principal SAP HANA est en cours d’exécution sur la machine virtuelle saphanavm1.
 
 #### <a name="fencing-test"></a>Test de délimitation
 
@@ -566,7 +567,7 @@ sudo ifdown eth0
 La machine virtuelle doit maintenant être redémarrée ou arrêtée en fonction de la configuration de votre cluster.
 Si vous désactivez l’action stonith, la machine virtuelle est arrêtée et les ressources sont migrées vers la machine virtuelle en cours d’exécution.
 
-Une fois que vous redémarrez la machine virtuelle, la ressource SAP HANA ne peut pas démarrer en tant que ressource secondaire si vous définissez AUTOMATED_REGISTER="false". Dans ce cas, vous devez configurer l’instance HANA en tant que ressource secondaire en exécutant la commande suivante :
+Une fois que vous redémarrez la machine virtuelle, la ressource SAP HANA ne peut pas démarrer en tant que ressource secondaire si vous définissez AUTOMATED_REGISTER="false". Dans ce cas, configurez l’instance HANA comme étant secondaire en exécutant cette commande :
 
 <pre><code>
 su - <b>hdb</b>adm
@@ -587,7 +588,7 @@ Vous pouvez tester un basculement manuel en arrêtant le service pacemaker sur l
 service pacemaker stop
 </code></pre>
 
-Après le basculement, vous pouvez démarrer de nouveau le service. La ressource SAP HANA sur saphanavm1 ne peut pas démarrer en tant que ressource secondaire si vous définissez AUTOMATED_REGISTER="false". Dans ce cas, vous devez configurer l’instance HANA en tant que ressource secondaire en exécutant la commande suivante :
+Après le basculement, vous pouvez démarrer de nouveau le service. La ressource SAP HANA sur saphanavm1 ne peut pas démarrer en tant que ressource secondaire si vous définissez AUTOMATED_REGISTER="false". Dans ce cas, configurez l’instance HANA comme étant secondaire en exécutant cette commande :
 
 <pre><code>
 service pacemaker start
@@ -598,7 +599,7 @@ sapcontrol -nr <b>03</b> -function StopWait 600 10
 hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b> 
 
 
-# switch back to root and cleanup the failed state
+# Switch back to root and cleanup the failed state
 exit
 crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>03</b> <b>saphanavm1</b>
 </code></pre>
@@ -611,8 +612,8 @@ crm resource migrate msl_SAPHana_<b>HDB</b>_HDB<b>03</b> <b>saphanavm2</b>
 crm resource migrate g_ip_<b>HDB</b>_HDB<b>03</b> <b>saphanavm2</b>
 </code></pre>
 
-Cette commande permet de migrer vers saphanavm2 le nœud principal SAP HANA et le groupe qui contient l’adresse IP virtuelle.
-La ressource SAP HANA sur saphanavm1 ne peut pas démarrer en tant que ressource secondaire si vous définissez AUTOMATED_REGISTER="false". Dans ce cas, vous devez configurer l’instance HANA en tant que ressource secondaire en exécutant la commande suivante :
+Si vous définissez AUTOMATED_REGISTER="false", cette séquence de commandes permet de migrer vers saphanavm2 le nœud principal SAP HANA et le groupe qui contient l’adresse IP virtuelle.
+La ressource SAP HANA sur saphanavm1 ne peut pas démarrer en tant que ressource secondaire. Dans ce cas, configurez l’instance HANA comme étant secondaire en exécutant cette commande :
 
 <pre><code>
 su - <b>hdb</b>adm
@@ -627,14 +628,14 @@ La migration crée des contraintes d’emplacement qui doivent être de nouveau 
 <pre><code>
 crm configure edited
 
-# delete location constraints that are named like the following contraint. You should have two constraints, one for the SAP HANA resource and one for the IP address group.
+# Delete location constraints that are named like the following contraint. You should have two constraints, one for the SAP HANA resource and one for the IP address group.
 location cli-prefer-g_ip_<b>HDB</b>_HDB<b>03</b> g_ip_<b>HDB</b>_HDB<b>03</b> role=Started inf: <b>saphanavm2</b>
 </code></pre>
 
 Vous devez également nettoyer l’état de la ressource du nœud secondaire
 
 <pre><code>
-# switch back to root and cleanup the failed state
+# Switch back to root and cleanup the failed state
 exit
 crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>03</b> <b>saphanavm1</b>
 </code></pre>

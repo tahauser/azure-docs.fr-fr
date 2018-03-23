@@ -1,11 +1,11 @@
 ---
 title: Utilisation du portail Azure Stack | Microsoft Docs
-description: "Découvrez comment accéder au portail utilisateur et l’utiliser dans Azure Stack."
+description: Découvrez comment accéder au portail utilisateur et l’utiliser dans Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 5aa00123-5b87-45e0-a671-4165e66bfbc6
 ms.service: azure-stack
 ms.workload: na
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.openlocfilehash: 7c34d7a225be63da95f664525b0366ff89b28838
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="using-the-azure-stack-portal"></a>Utilisation du portail Azure Stack
 
-*S’applique à : systèmes intégrés Azure Stack intégré systèmes et Kit de développement Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 En tant que consommateur des services Azure Stack, vous pouvez utiliser le portail Azure Stack pour vous abonner à des offres publiques et utiliser les services dispensés via ces offres. Si vous avez déjà utilisé le portail Azure, l’interface utilisateur vous semblera familière.
 
@@ -64,7 +64,7 @@ Si vous avez besoin d’aide pour savoir comment utiliser les services disponibl
      
       Vous pouvez utiliser la documentation Azure en tant que référence générale pour un service, mais devez avoir conscience de ces différences. Comprenez que les liens de documentation dans la vignette **Tutoriels de prise en main** pointent sur la documentation Azure.
 
-## <a name="get-support"></a>Obtenir de l'aide
+## <a name="get-support"></a>Obtenir de l’aide
 
 Si vous avez besoin d’une assistance supplémentaire, contactez votre organisation ou votre fournisseur de services pour obtenir de l’aide. 
 

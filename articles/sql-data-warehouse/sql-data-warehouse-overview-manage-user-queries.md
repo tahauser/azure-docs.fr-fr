@@ -1,25 +1,24 @@
 ---
-title: "Surveillance des requêtes d’utilisateur dans Azure SQL Data Warehouse | Microsoft Docs"
-description: "Vue d’ensemble des considérations, meilleures pratiques et tâches de surveillance des requêtes d’utilisation dans Azure SQL Data Warehouse."
+title: Surveillance des requêtes d’utilisateur dans Azure SQL Data Warehouse | Microsoft Docs
+description: Vue d’ensemble des considérations, meilleures pratiques et tâches de surveillance des requêtes d’utilisation dans Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: sqlmojo
 manager: jhubbard
-editor: 
-ms.assetid: 1d0960db-5dcf-4a08-b1dc-6c5d3d5a616d
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 10/31/2016
+ms.date: 03/15/2018
 ms.author: joeyong;barbkess
-ms.openlocfilehash: 65509a65c2b34553822cc02d7a7fa5a614adc57f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 23b5edd559fd4b97554df4547d5ac16742d00a9f
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="monitor-user-queries-in-azure-sql-data-warehouse"></a>Surveillance des requêtes d’utilisateur dans Azure SQL Data Warehouse
 Vue d’ensemble des considérations, meilleures pratiques et tâches de surveillance des requêtes d’utilisation dans SQL Data Warehouse.
@@ -36,7 +35,7 @@ Pour plus de conseils sur la gestion, consultez [Vue d’ensemble de la gestion]
 
 <!--Article references-->
 [Find long-running queries]: sql-data-warehouse-manage-monitor.md
-[Concurrency and workload management]: sql-data-warehouse-develop-concurrency.md
+[Concurrency and workload management]: resource-classes-for-workload-management.md
 [Management overview]: sql-data-warehouse-overview-manage.md
 
 <!--MSDN references-->

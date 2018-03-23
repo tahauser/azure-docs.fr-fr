@@ -1,24 +1,24 @@
 ---
-title: "API d’utilisation des ressources de fournisseur | Microsoft Docs"
-description: "Informations de référence sur l’utilisation de ressources API, lesquelles récupèrent des informations relatives à l’utilisation d’Azure Stack"
+title: API d’utilisation des ressources de fournisseur | Microsoft Docs
+description: Informations de référence sur l’utilisation de ressources API, lesquelles récupèrent des informations relatives à l’utilisation d’Azure Stack
 services: azure-stack
-documentationcenter: 
-author: AlfredoPizzirani
-manager: byronr
-editor: 
-ms.assetid: b6055923-b6a6-45f0-8979-225b713150ae
+documentationcenter: ''
+author: mattbriggs
+manager: femila
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
-ms.author: alfredop
-ms.openlocfilehash: 0c45ce3bc93945ed8700464beebabcda07e8d77c
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.date: 02/22/2018
+ms.author: mabrigg
+ms.reviewer: alfredop
+ms.openlocfilehash: 763b0af9c258a70392e8c7ebbb4c107e94fce5b2
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="provider-resource-usage-api"></a>API Utilisation des ressources de fournisseur
 Le terme *fournisseur* s’applique à l’administrateur de services et à tous les fournisseurs délégués. Les opérateurs et fournisseurs délégués Azure Stack peuvent utiliser l’API d’utilisation du fournisseur pour consulter l’utilisation de leurs locataires directs. Par exemple, comme indiqué dans le diagramme, P0 peut appeler l’API du fournisseur pour obtenir des informations sur l’utilisation directe de P1 et de P2, et P1 peut effectuer un appel pour obtenir des informations relatives à l’utilisation de P3 et P4.
@@ -26,7 +26,7 @@ Le terme *fournisseur* s’applique à l’administrateur de services et à tous
 ![Modèle conceptuel de la hiérarchie des fournisseurs](media/azure-stack-provider-resource-api/image1.png)
 
 ## <a name="api-call-reference"></a>Référence de l’appel d’API
-### <a name="request"></a>Demande
+### <a name="request"></a>Requête
 La requête obtient les détails de la consommation pour les abonnements demandés et pour la période demandée. Il n’existe aucun corps de demande.
 
 Cette API d’utilisation est une API de fournisseur. Un rôle Propriétaire, Collaborateur ou Lecteur doit donc être affecté à l’appelant dans l’abonnement du fournisseur.
@@ -47,7 +47,7 @@ Cette API d’utilisation est une API de fournisseur. Un rôle Propriétaire, Co
 | *api-version* |Version du protocole utilisé pour effectuer cette requête. Cette valeur est définie sur *2015-06-01-preview*. |
 | *continuationToken* |Jeton récupéré à partir du dernier appel au fournisseur d’API d’utilisation. Ce jeton est nécessaire quand une réponse comprend plus de 1 000 lignes. Il joue alors le rôle de signet pour la progression. En l'absence du jeton, les données sont récupérées à partir du début de la journée ou de l’heure, en fonction de la granularité transmise. |
 
-### <a name="response"></a>Réponse
+### <a name="response"></a>response
 GET /subscriptions/sub1/providers/Microsoft.Commerce/subscriberUsageAggregates?reportedStartTime=reportedStartTime=2014-05-01T00%3a00%3a00%2b00%3a00&reportedEndTime=2015-06-01T00%3a00%3a00%2b00%3a00&aggregationGranularity=Daily&subscriberId=sub1.1&api-version=1.0
 
 ```json
@@ -88,6 +88,18 @@ meterID1",
 | *instanceData* |Paires clé-valeur des détails de l’instance (dans un nouveau format) :<br> *resourceUri* : ID de ressource complet, qui inclut les groupes de ressources et le nom de l’instance. <br> *location* : région dans laquelle ce service a été exécuté. <br> *tags* : balises de ressources spécifiées par l’utilisateur. <br> *additionalInfo* : informations supplémentaires sur la ressource consommée, par exemple, la version du système d’exploitation ou le type d’image. |
 | *quantity* |Quantité de ressources consommées au cours de cette période. |
 | *meterId* |ID unique de la ressource consommée (également appelé *ResourceID*). |
+
+
+## <a name="retrieve-usage-information"></a>Récupérer les informations sur l’utilisation
+
+Pour générer les données d’utilisation, vous devez disposer de ressources en cours d’exécution qui utilisent activement le système, comme une machine virtuelle active ou un compte de stockage contenant des données. Si vous ne savez pas si vous avez des ressources en cours d’exécution dans la Place de marché Azure Stack, déployez une machine virtuelle et consultez le panneau d’analyse de la machine virtuelle pour vous assurer qu’elle est en cours d’exécution. Pour afficher les données d’utilisation, utilisez les cmdlets PowerShell suivantes :
+
+1. [Installer PowerShell pour Azure Stack.](azure-stack-powershell-install.md)
+2. [Configurer l’environnement PowerShell de l’utilisateur Azure Stack](user/azure-stack-powershell-configure-user.md) ou [Configurer l’environnement PowerShell de l’opérateur Azure Stack](azure-stack-powershell-configure-admin.md) 
+3. Pour récupérer les données d’utilisation, utilisez la cmdlet PowerShell [Get-UsageAggregates](/powershell/module/azurerm.usageaggregates/get-usageaggregates) :
+```powershell
+Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Informations de référence sur l’API d’utilisation des ressources de locataire](azure-stack-tenant-resource-usage-api.md)

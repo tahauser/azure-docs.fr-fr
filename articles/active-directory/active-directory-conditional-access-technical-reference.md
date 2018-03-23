@@ -1,8 +1,8 @@
 ---
-title: "Référence des paramètres d’accès conditionnel Azure Active Directory | Microsoft Docs"
-description: "Découvrez les paramètres pris en charge dans une stratégie d’accès conditionnel Azure Active Directory."
+title: Référence des paramètres d’accès conditionnel Azure Active Directory | Microsoft Docs
+description: Découvrez les paramètres pris en charge dans une stratégie d’accès conditionnel Azure Active Directory.
 services: active-directory.
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 56a5bade-7dcc-4dcf-8092-a7d4bf5df3c1
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2018
+ms.date: 03/07/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: fd82d77e79f05a67f8e818095753b8dc22ccf314
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ba93e1b597bb6bdb752563f2873b8e0c5f7a8181
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Référence des paramètres d’accès conditionnel Azure Active Directory
 
@@ -136,9 +136,19 @@ Ce paramètre fonctionne avec tous les navigateurs. Toutefois, pour satisfaire �
 | macOS                  | Chrome, Safari                      | ![Vérification][1] |
 
 
-> [!NOTE]
-> La prise en charge de Chrome nécessite l’installation de Windows 10 Creators Update (version 1703) ou version ultérieure.<br>
-> Vous pouvez installer [cette extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+
+#### <a name="chrome-support"></a>Prise en charge Chrome
+
+Dans **Windows 10 Creators Update (version 1703)** ou version ultérieure, la prise en charge de Chrome nécessite l’installation de [cette extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+
+Pour la prise en charge de Chrome dans **Windows 8.1 et 7**, créez la clé de Registre suivante :
+
+|    |    |
+|--- | ---|
+|path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+|NOM | 1 |
+|type | REG_SZ (String) |
+|Données | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}|
 
 Ces navigateurs prennent en charge l’authentification des appareils, ce qui permet de les identifier et de les valider par rapport à une stratégie. La vérification de l’appareil échoue si le navigateur est en cours d’exécution en mode privé. 
 
@@ -183,6 +193,10 @@ Dans votre stratégie d’accès conditionnel, vous pouvez exiger que toute tent
 Ce paramètre s’applique aux applications clientes suivantes :
 
 
+- Microsoft Intune Managed Browser
+- Microsoft PowerBI
+- Microsoft Invoicing
+- Microsoft Launcher
 - Microsoft Azure Information Protection
 - Microsoft Excel
 - Microsoft Kaizala 

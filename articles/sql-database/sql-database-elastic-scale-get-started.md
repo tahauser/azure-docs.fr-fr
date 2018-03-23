@@ -1,31 +1,26 @@
 ---
-title: "Bien démarrer avec les outils de base de données élastique - Azure | Microsoft Docs"
-description: "Explication basique de la fonctionnalité Outils de base de données élastique d’Azure SQL Database, comprenant un exemple d’application simple à exécuter."
+title: Bien démarrer avec les outils de base de données élastique - Azure | Microsoft Docs
+description: Explication basique de la fonctionnalité Outils de base de données élastique d’Azure SQL Database, comprenant un exemple d’application simple à exécuter.
 services: sql-database
-documentationcenter: 
-manager: jstrauss
+manager: craigg
 author: anumjs
-editor: CarlRabeler
-ms.assetid: b6911f8d-2bae-4d04-9fa8-f79a3db7129d
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: On Demand
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: anjangsh
-ms.openlocfilehash: 615e5b0bf299a844ea2d37476fc704c48e17b363
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 28ff3f6eee2316a078badcf29e6780f3844f3a54
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Bien démarrer avec les outils de base de données élastique
 Ce document présente l’expérience du développeur dans la [bibliothèque cliente de base de données élastique](sql-database-elastic-database-client-library.md) en vous aidant à exécuter un exemple d’application. L’exemple d’application crée une application partitionnée simple et explore les fonctionnalités clés des outils de base de données élastique d’Azure SQL Database. Il s’intéresse aux cas d’utilisation pour la [gestion des cartes de partition](sql-database-elastic-scale-shard-map-management.md), le [routage dépendant des données](sql-database-elastic-scale-data-dependent-routing.md) et [l’interrogation de plusieurs partitions](sql-database-elastic-scale-multishard-querying.md). La bibliothèque cliente est disponible pour .NET ainsi que Java. 
 
 ## <a name="elastic-database-tools-for-java"></a>Outils de base de données élastique pour Java
 ### <a name="prerequisites"></a>Prérequis
+
 * JDK (Java Developer Kit) version 1.8 ou ultérieure
 * [Maven](http://maven.apache.org/download.cgi)
 * Serveur logique dans Azure ou instance SQL Server locale
@@ -69,6 +64,7 @@ Pour ajouter la bibliothèque cliente à votre propre projet Maven, ajoutez la d
 
 ## <a name="elastic-database-tools-for-net"></a>Outils de base de données élastique pour .NET 
 ### <a name="prerequisites"></a>Prérequis
+
 * Visual Studio 2012 ou ultérieur avec C#. Téléchargez une version gratuite à la page [Téléchargements Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 * NuGet 2.7 ou ultérieur. Pour obtenir la toute dernière version, consultez la page [Installation de NuGet](http://docs.nuget.org/docs/start-here/installing-nuget).
 
@@ -83,7 +79,7 @@ Pour télécharger et exécuter les exemples, procédez comme suit :
 
 3. Dans la solution de l’exemple de projet, ouvrez le fichier *app.config*. Suivez alors les instructions incluses dans le fichier pour ajouter le nom du serveur Azure SQL Database et vos informations de connexion (nom d’utilisateur et mot de passe).
 
-4. Générez et exécutez l’application. À l’invite, autorisez Visual Studio à restaurer les packages NuGet de la solution. Cette action permet de télécharger la dernière version de la bibliothèque cliente de bases de données élastiques à partir de NuGet.
+4. Générez et exécutez l'application. À l’invite, autorisez Visual Studio à restaurer les packages NuGet de la solution. Cette action permet de télécharger la dernière version de la bibliothèque cliente de bases de données élastiques à partir de NuGet.
 
 5. Pour découvrir les fonctionnalités de la bibliothèque cliente, essayez les différentes options. Notez les étapes suivies par l’application dans la sortie de la console. N’hésitez pas à explorer le code en arrière-plan.
    

@@ -1,12 +1,12 @@
 ---
-title: "Utiliser une image Docker personnalisée pour Web App for Containers - Azure | Microsoft Docs"
-description: "Comment utiliser une image Docker personnalisée pour Web App pour conteneurs."
+title: Utiliser une image Docker personnalisée pour Web App for Containers - Azure | Microsoft Docs
+description: Comment utiliser une image Docker personnalisée pour Web App pour conteneurs.
 keywords: azure app service, application web, linux, docker, conteneur
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: SyntaxC4
 manager: SyntaxC4
-editor: 
+editor: ''
 ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
 ms.service: app-service
 ms.workload: na
@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: b7f05f02249f86e6bee7f89c6ecf8016ede9c4fb
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: acfe066d9ad4882bcff85b7fd51dc7d3b2278235
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Utiliser une image Docker personnalisée pour Web App for Containers
 
@@ -38,6 +38,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 [!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -193,7 +194,7 @@ Vous pouvez héberger des applications Linux natives dans le cloud en utilisant 
 
 ### <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)] 
 
 ### <a name="create-a-linux-app-service-plan"></a>Créer un plan App Service Linux
 

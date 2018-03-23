@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect : Authentification unique transparente - Démarrage rapide | Microsoft Docs"
-description: "Cet article explique comment bien démarrer avec l’authentification unique transparente d’Azure Active Directory"
+title: 'Azure AD Connect : Authentification unique transparente - Démarrage rapide | Microsoft Docs'
+description: Cet article explique comment bien démarrer avec l’authentification unique transparente d’Azure Active Directory
 services: active-directory
-keywords: "Qu’est-ce qu’Azure AD Connect, Installation d’Active Directory, Composants requis pour Azure AD, SSO, Authentification unique"
-documentationcenter: 
+keywords: Qu’est-ce qu’Azure AD Connect, Installation d’Active Directory, Composants requis pour Azure AD, SSO, Authentification unique
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: billmath
 ms.openlocfilehash: 58ca992f9fcf9a03d917f0dc250a292c4d5f49e5
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/14/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Authentification unique transparente Azure Active Directory - Démarrage rapide
 
@@ -101,7 +101,7 @@ Par défaut, le navigateur calcule automatiquement la zone appropriée, Internet
 
     Le résultat ressemble à :
 
-    Valeur : https://autologon.microsoftazuread-sso.com
+    Valeur: https://autologon.microsoftazuread-sso.com
   
     Data 1
 
@@ -129,7 +129,7 @@ Mozilla Firefox n'utilise pas automatiquement l’authentification Kerberos. Cha
 1. Exécutez Firefox et entrez `about:config` dans la barre d’adresses. Ignorez les notifications que vous voyez.
 2. Recherchez la préférence **network.negotiate-auth.trusted-URI**. Cette préférence répertorie les sites de confiance de Firefox pour l’authentification Kerberos.
 3. Cliquez avec le bouton droit et sélectionnez **Modifier**.
-4. Saisissez https://autologon.microsoftazuread-sso.com dans le champ.
+4. Entrez https://autologon.microsoftazuread-sso.com dans le champ.
 5. Sélectionnez **OK** puis rouvrez le navigateur.
 
 #### <a name="safari-mac-os"></a>Safari (Mac OS)
@@ -138,7 +138,7 @@ Assurez-vous que l’ordinateur utilisant Mac OS est connecté à Azure AD. Pour
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (toutes les plateformes)
 
-Si vous avez remplacé les paramètres de stratégie [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) ou [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) dans votre environnement, veillez à y ajouter également l’URL d’Azure AD (https://autologon.microsoftazuread-sso.com).
+Si vous avez remplacé les paramètres de stratégie [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) ou [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) dans votre environnement, veillez à y ajouter également l’URL d’Azure AD (https://autologon.microsoftazuread-sso.com)).
 
 #### <a name="google-chrome-mac-os-only"></a>Google Chrome (Mac OS uniquement)
 
@@ -159,11 +159,11 @@ Pour tester la fonctionnalité d’un utilisateur spécifique, assurez-vous que 
   - Vous avez [déployé la fonctionnalité](##step-3-roll-out-the-feature) pour cet utilisateur via la stratégie de groupe.
 
 Pour tester le scénario dans lequel l’utilisateur entre uniquement le nom d’utilisateur, mais pas le mot de passe :
-   - Connectez-vous à https://myapps.microsoft.com/ dans une nouvelle session de navigation privée.
+   - Connectez-vous à https://myapps.microsoft.com/ dans une nouvelle session de navigateur privée.
 
 Pour tester le scénario dans lequel l’utilisateur n’a pas à entrer le nom d’utilisateur ou le mot de passe, effectuez l'une des étapes suivantes : 
-   - Connectez-vous à https://myapps.microsoft.com/contoso.onmicrosoft.com dans une nouvelle session de navigation privée. Remplacez *contoso* par le nom de votre locataire.
-   - Connectez-vous à https://myapps.microsoft.com/contoso.com dans une nouvelle session de navigation privée. Remplacez *contoso.com* par un domaine vérifié (pas un domaine fédéré) dans votre locataire.
+   - Connectez-vous à https://myapps.microsoft.com/contoso.onmicrosoft.com dans une nouvelle session de navigateur privée. Remplacez *contoso* par le nom de votre locataire.
+   - Connectez-vous à https://myapps.microsoft.com/contoso.com dans une nouvelle session de navigateur privée. Remplacez *contoso.com* par un domaine vérifié (pas un domaine fédéré) dans votre locataire.
 
 ## <a name="step-5-roll-over-keys"></a>Étape 5 : substituer les clés
 
@@ -172,7 +172,7 @@ Pour tester le scénario dans lequel l’utilisateur n’a pas à entrer le nom 
 >[!IMPORTANT]
 >Vous n’avez pas besoin d’effectuer cette étape _immédiatement_ après avoir activé la fonctionnalité. Substituez les clés de déchiffrement Kerberos au moins une fois tous les 30 jours.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Présentation technique approfondie](active-directory-aadconnect-sso-how-it-works.md) : découvrez comment fonctionne la fonctionnalité Authentification unique transparente.
 - [Forum aux questions](active-directory-aadconnect-sso-faq.md) : obtenez des réponses aux questions fréquentes sur l’authentification unique transparente.

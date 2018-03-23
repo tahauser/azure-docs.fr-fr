@@ -1,12 +1,12 @@
 ---
 title: Utilisation des proxys dans Azure Functions | Microsoft Docs
-description: "Présentation de l’utilisation de Azure Functions Proxies"
+description: Présentation de l’utilisation de Azure Functions Proxies
 services: functions
-documentationcenter: 
+documentationcenter: ''
 author: alexkarcher-msft
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 75b568c12fd58d5599b6878dedb6c2266b6cb649
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 0e7fe474c3b247baa6550770c661af62e83b3737
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="work-with-azure-functions-proxies"></a>Utilisation d’Azure Functions Proxies
 
@@ -106,7 +106,7 @@ Par exemple, dans une URL de serveur principal de *https://%ORDER_PROCESSING_HOS
 
 ## <a name="debugProxies"></a>Résolution des problèmes de proxy
 
-En ajoutant l’indicateur `"debug":true` à tout proxy de votre instance `proxy.json`, vous activez la journalisation du débogage. Les journaux sont stockés dans `D:\home\LogFiles\Application\Proxies\DetailedTrace` et accessibles via les outils avancés (kudu). Toute réponse HTTP comporte également un en-tête `Proxy-Trace-Location` avec une URL dirigeant vers le fichier journal.
+En ajoutant l’indicateur `"debug":true` à tout proxy de votre instance `proxies.json`, vous activez la journalisation du débogage. Les journaux sont stockés dans `D:\home\LogFiles\Application\Proxies\DetailedTrace` et accessibles via les outils avancés (kudu). Toute réponse HTTP comporte également un en-tête `Proxy-Trace-Location` avec une URL dirigeant vers le fichier journal.
 
 Pour déboguer un proxy du côté client, ajoutez un jeu d’en-têtes `Proxy-Trace-Enabled` à `true`. Ce faisant, vous enregistrez également une trace sur le système de fichiers et renvoyez l’URL de suivi en tant qu’en-tête dans la réponse.
 
@@ -114,7 +114,7 @@ Pour déboguer un proxy du côté client, ajoutez un jeu d’en-têtes `Proxy-Tr
 
 Pour des raisons de sécurité, vous pouvez interdire tout appel à votre service et ainsi éviter toute génération de trace. Le cas échéant, les utilisateurs ne pourront pas accéder aux contenu de suivi sans vos informations de connexion. Notez toutefois que la génération de trace consomme des ressources et expose votre utilisation des proxys de fonction.
 
-Désactivez les traces en ajoutant `"debug":false` à tout proxy de votre instance `proxy.json`.
+Désactivez les traces en ajoutant `"debug":false` à tout proxy de votre instance `proxies.json`.
 
 ## <a name="advanced-configuration"></a>Configuration avancée
 

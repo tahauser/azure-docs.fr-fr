@@ -1,8 +1,8 @@
 ---
-title: "Planification d’un déploiement Azure File Sync (préversion) | Microsoft Docs"
-description: "Découvrez les éléments à prendre en compte lors de la planification d’un déploiement Azure Files."
+title: Planification d’un déploiement Azure File Sync (préversion) | Microsoft Docs
+description: Découvrez les éléments à prendre en compte lors de la planification d’un déploiement Azure Files.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: wmgries
 manager: klaasl
 editor: jgerend
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 8f20e8d4329d815351147f90b598180839ce917a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5f42bee31e3bc1a23c9b0c6de9d6748e23c94713
+ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/09/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planification d’un déploiement Azure File Sync (préversion)
 Utilisez Azure File Sync (préversion) pour centraliser les partages de fichiers de votre organisation dans Azure Files, tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -49,7 +49,7 @@ L’agent Azure File Sync est un package téléchargeable qui permet à Windows 
 Un point de terminaison de serveur représente un emplacement spécifique sur un serveur inscrit, comme un dossier sur un volume de serveur. Plusieurs points de terminaison de serveur peuvent se trouver sur le même volume si leurs espaces de noms ne se chevauchent pas (par exemple, `F:\sync1` et `F:\sync2`). Vous pouvez configurer des stratégies de hiérarchisation cloud individuellement pour chaque point de terminaison de serveur. Actuellement, vous ne pouvez pas créer de point de terminaison de serveur pour la racine d’un volume (par exemple `F:\` ou `C:\myvolume`, si un volume est monté comme point de montage).
 
 > [!Note]  
-> Un point de terminaison de serveur peut se trouver sur le volume système Windows. La hiérarchisation cloud n’est pas prise en charge sur le volume système.
+> Seuls les volumes non amovibles sont pris en charge.  Les lecteurs mappés à partir d’un partage distant ne sont pas pris en charge pour un chemin d’accès au point de terminaison du serveur.  En outre, un point de terminaison de serveur peut se trouver sur le volume système Windows, bien que la hiérarchisation cloud ne soit pas prise en charge sur le volume système.
 
 Si vous ajoutez un emplacement de serveur contenant un ensemble de fichiers comme point de terminaison de serveur à un groupe de synchronisation, ces fichiers sont fusionnés avec les autres fichiers déjà présents sur les autres points de terminaison dans le groupe de synchronisation.
 
@@ -92,7 +92,7 @@ Nous prévoyons d’ajouter la prise en charge de versions ultérieures de Windo
 | Points d’analyse | Ignoré | |
 | Compression NTFS | Entièrement pris en charge | |
 | Fichiers partiellement alloués | Entièrement pris en charge | Les fichiers partiellement alloués sont synchronisés (ils ne sont pas bloqués), mais ils sont synchronisés dans le cloud sous forme de fichiers complets. Si le contenu d’un fichier change dans le cloud (ou sur un autre serveur), le fichier n’est plus partiellement alloué quand le changement est téléchargé. |
-| Autres flux de données | Conservés, mais pas synchronisés | |
+| Autres flux de données | Conservés, mais pas synchronisés | Par exemple, les balises de classification créées par l’infrastructure de classification des fichiers ne sont pas synchronisées. Les balises de classification qui existent sur des fichiers à chacun des points de terminaison du serveur ne sont pas affectées. |
 
 > [!Note]  
 > Seuls les volumes NTFS sont pris en charge. ReFS, FAT, FAT32 et les autres systèmes de fichiers ne sont pas pris en charge.
@@ -142,7 +142,7 @@ Tout comme les solutions antivirus, les solutions de sauvegarde peuvent provoque
 La prise en charge des solutions de chiffrement dépend de la façon dont elles sont implémentées. Azure File Sync est connu pour fonctionner avec les solutions suivantes :
 
 - Chiffrement BitLocker
-- Azure Rights Management Services (Azure RMS) (et Active Directory RMS hérité)
+- Azure Information Protection, Azure Rights Management Services (Azure RMS) et Active Directory RMS
 
 Azure File Sync est connu pour ne pas fonctionner avec les solutions suivantes :
 
