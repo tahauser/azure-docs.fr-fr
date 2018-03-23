@@ -1,4 +1,4 @@
----
+﻿---
 title: "Démarrage rapide Azure Security Center - Intégrer un abonnement Azure à Security Center Standard | Microsoft Docs"
 description: "Ce guide de démarrage rapide explique comment passer au niveau tarifaire Standard de Security Center pour renforcer la sécurité."
 services: security-center
@@ -26,7 +26,7 @@ Azure Security Center propose des fonctionnalités unifiées de gestion de la s�
 
 Cet article montre comment passer au niveau Standard pour renforcer la sécurité et comment installer Microsoft Monitoring Agent sur les machines virtuelles pour surveiller les menaces et les failles de sécurité.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Configuration requise
 Pour utiliser le Centre de sécurité, vous devez disposer d’un abonnement à Microsoft Azure. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire pour avoir un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
 Pour mettre à niveau un abonnement et passer au niveau Standard, vous devez avoir le rôle de propriétaire de l’abonnement, de collaborateur de l’abonnement ou d’administrateur de la sécurité.
