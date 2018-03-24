@@ -1,24 +1,24 @@
 ---
-title: "Documentation sur les groupes de machines virtuelles identiques Azure - Didacticiels, informations de référence sur les API | Microsoft Docs"
-description: "Apprenez à utiliser Virtual Machine Scale Sets pour créer des machines virtuelles Windows ou Linux prenant en charge la mise à l’échelle automatique dans le cadre de solutions de calculs volumineux, de solutions Big Data et de solutions en conteneur."
+title: Documentation sur les groupes de machines virtuelles identiques Azure - Didacticiels, informations de référence sur les API | Microsoft Docs
+description: Apprenez à utiliser Virtual Machine Scale Sets pour créer des machines virtuelles Windows ou Linux prenant en charge la mise à l’échelle automatique dans le cadre de solutions de calculs volumineux, de solutions Big Data et de solutions en conteneur.
 services: virtual-machine-scale-sets
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: f6c51a605a3fe28fb906e8c35a68a885a46136ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 53a6db483ff760c143d98a209e622e1214762ce3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="virtual-machine-scale-sets-documentation"></a>Documentation sur les groupes de machines virtuelles identiques
+# <a name="virtual-machine-scale-sets-documentation"></a>Documentation sur les groupes de machines virtuelles identiques
 
 Découvrez comment utiliser Virtual Machine Scale Sets pour déployer et gérer un ensemble de machines virtuelles Windows ou Linux identiques prenant en charge la mise à l’échelle automatique. La documentation vous montre comment utiliser Scale Sets pour prendre en charge des services qui ciblent des solutions de calculs volumineux, des solutions Big Data et des solutions en conteneur.
 
@@ -82,7 +82,7 @@ Découvrez comment utiliser Virtual Machine Scale Sets pour déployer et gérer 
 
 ---
 
-<h2>Référence</h2>
+<h2>Informations de référence</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -91,7 +91,7 @@ Découvrez comment utiliser Virtual Machine Scale Sets pour déployer et gérer 
                     <div class="cardText">
                         <h3>Ligne de commande</h3>
                         <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
-                        <p><a href="/cli/azure/vm">Interface de ligne de commande Azure</a></p>
+                        <p><a href="/cli/azure/vm">interface de ligne de commande Azure</a></p>
                     </div>
                 </div>
             </div>

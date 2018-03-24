@@ -1,24 +1,24 @@
 ---
-title: "Documentation Azure Traffic Manager - Didacticiels, informations de référence sur les API | Microsoft Docs"
-description: "Apprenez à gérer le trafic entrant pour des performances applicatives optimales. La documentation montre comment répartir le trafic sur les points de terminaison de service Azure ou externes."
+title: Documentation Azure Traffic Manager - Didacticiels, informations de référence sur les API | Microsoft Docs
+description: Apprenez à gérer le trafic entrant pour des performances applicatives optimales. La documentation montre comment répartir le trafic sur les points de terminaison de service Azure ou externes.
 services: traffic-manager
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: traffic-manager
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 10e7e7c95dc0dd614c7c01581cb746f1e854a9e1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ce3699f4838c30eaaa0ab2938190c05de1feb781
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="traffic-manager-documentation"></a>Documentation Traffic Manager
+# <a name="traffic-manager-documentation"></a>Documentation Traffic Manager
 
 Découvrez comment utiliser Traffic Manager pour acheminer le trafic entrant de manière à optimiser les performances et la fiabilité de vos applications. Les didacticiels, références d’API et autres documents vous montrent comment gérer le trafic vers les points de terminaison de service Azure ou externes.
 
@@ -99,7 +99,7 @@ Découvrez comment utiliser Traffic Manager pour acheminer le trafic entrant de 
 
 ---
 
-## <a name="reference"></a>Référence
+## <a name="reference"></a>Informations de référence
 
 <ul class="panelContent cardsW">
     <li>
@@ -109,7 +109,7 @@ Découvrez comment utiliser Traffic Manager pour acheminer le trafic entrant de 
                     <div class="cardText">
                         <h3>Langues</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.trafficmanager/v2.5.0/azurerm.trafficmanager">PowerShell</a></p>
-                        <p><a href="/cli/azure/network/traffic-manager">Interface de ligne de commande Azure</a></p>
+                        <p><a href="/cli/azure/network/traffic-manager">interface de ligne de commande Azure</a></p>
                         <p><a href="/java/api/com.microsoft.azure.management.trafficmanager">Java</a></p>
                         <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/">Node.JS</a></p>
                         <p><a href="http://www.rubydoc.info/gems/azure_mgmt_traffic_manager">Ruby</a></p>
@@ -125,7 +125,7 @@ Découvrez comment utiliser Traffic Manager pour acheminer le trafic entrant de 
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/mt163667.aspx">Référence d’API REST</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt163667.aspx">Référence d’API REST</a></p>
                     </div>
                 </div>
             </div>

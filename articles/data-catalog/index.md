@@ -1,24 +1,24 @@
 ---
-title: "Documentation Azure Data Catalog - Didacticiels, informations de référence sur les API | Microsoft Docs"
-description: "Découvrez comment configurer un catalogue de données dans lequel votre organisation peut rechercher, comprendre et utiliser des sources de données. Didacticiels, référence d’API et autres documents."
+title: Documentation Azure Data Catalog - Didacticiels, informations de référence sur les API | Microsoft Docs
+description: Découvrez comment configurer un catalogue de données dans lequel votre organisation peut rechercher, comprendre et utiliser des sources de données. Didacticiels, référence d’API et autres documents.
 services: data-catalog
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: data-catalog
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/25/2017
 ms.author: carolz
-ms.openlocfilehash: c901562753be86613ac4ca4dec1e727d1383e626
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7ec21b9b55015c247cef3f216dbb14f4ddc30e8d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="data-catalog-documentation"></a>Documentation Data Catalog
+# <a name="data-catalog-documentation"></a>Documentation Data Catalog
 
 Découvrez comment configurer Data Catalog pour aider votre organisation et votre équipe à découvrir, comprendre et utiliser vos sources de données. Des didacticiels, une référence d’API REST et d’autres documents vous montrent comment planifier et configurer un référentiel de données dans lequel les consommateurs de données peuvent découvrir les sources de données disponibles et accéder aux connaissances fournies par des experts.
 
@@ -63,7 +63,7 @@ Découvrez comment configurer Data Catalog pour aider votre organisation et votr
 
 ---
  
-<h2>Référence</h2>
+<h2>Informations de référence</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">

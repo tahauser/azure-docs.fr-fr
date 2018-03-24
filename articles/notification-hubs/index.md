@@ -1,24 +1,24 @@
 ---
-title: "Documentation Azure Notification Hubs - Didacticiels, informations de référence sur les API | Microsoft Docs"
-description: "Découvrez comment envoyer des notifications push entre n’importe quelle infrastructure et n’importe quel appareil mobile avec Notification Hubs. Didacticiels, références d’API et autres documents."
+title: Documentation Azure Notification Hubs - Didacticiels, informations de référence sur les API | Microsoft Docs
+description: Découvrez comment envoyer des notifications push entre n’importe quelle infrastructure et n’importe quel appareil mobile avec Notification Hubs. Didacticiels, références d’API et autres documents.
 services: notification-hubs
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: notification-hubs
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: f7b8560d4ce7374e36d5f7e8a5d2056396e4f089
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8f4921e4c7571b05bb8612dcd6fe9750f83a7142
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="notification-hubs-documentation"></a>Documentation Notification Hubs
+# <a name="notification-hubs-documentation"></a>Documentation Notification Hubs
 
 Apprenez à utiliser Notification Hubs, un moteur de notifications push multiplateforme et évolutif conçu pour envoyer rapidement des millions de messages. Des didacticiels, références d’API et autres documents vous montrent comment configurer et envoyer des notifications push entre n’importe quelle infrastructure et n’importe quel appareil mobile. 
 
@@ -171,7 +171,7 @@ Apprenez à utiliser Notification Hubs, un moteur de notifications push multipla
 
 ---
 
-<h2>Référence</h2>
+<h2>Informations de référence</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -203,7 +203,7 @@ Apprenez à utiliser Notification Hubs, un moteur de notifications push multipla
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/notificationhubs">Référence d’API REST</a></p>
+                        <p><a href="/rest/api/notificationhubs">Référence d’API REST</a></p>
                     </div>
                 </div>
             </div>

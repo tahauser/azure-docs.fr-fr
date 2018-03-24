@@ -1,24 +1,24 @@
 ---
-title: "Documentation Azure DevTest Labs - Didacticiels | Microsoft Docs"
-description: "Découvrez comment créer rapidement des environnements de test d’application à l’aide d’artefacts réutilisables. Des didacticiels, des vidéos, etc. vous montrent comment créer, gérer et sécuriser des laboratoires."
+title: Documentation Azure DevTest Labs - Didacticiels | Microsoft Docs
+description: Découvrez comment créer rapidement des environnements de test d’application à l’aide d’artefacts réutilisables. Des didacticiels, des vidéos, etc. vous montrent comment créer, gérer et sécuriser des laboratoires.
 services: devtest-lab
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: devtest-lab
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 92aab190dfba196d48feacbfcc81a0097102b810
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 41b7ae5ecf87f4ca544e03c3e62b6c850cf799d0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="devtest-labs-documentation"></a>Documentation DevTest Labs
+# <a name="devtest-labs-documentation"></a>Documentation DevTest Labs
 
 Découvrez comment utiliser DevTest Labs pour créer rapidement des environnements de test d’application à l’aide d’artefacts réutilisables. Des didacticiels, des vidéos et d’autres documents vous montrent comment créer, gérer et sécuriser des laboratoires, et ajouter et gérer des artefacts.
 
@@ -117,7 +117,7 @@ Découvrez comment utiliser DevTest Labs pour créer rapidement des environnemen
 
 ---
 
-<h2>Référence</h2>
+<h2>Informations de référence</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -125,7 +125,7 @@ Découvrez comment utiliser DevTest Labs pour créer rapidement des environnemen
                 <div class="card">
                     <div class="cardText">
                         <h3>Ligne de commande</h3>
-                        <p><a href="/cli/azure/lab">CLI 2.0</a></p>
+                        <p><a href="/cli/azure/lab">CLI 2.0</a></p>
                         <p><a href="/powershell/module/azurerm.devtestlabs/#devtest_labs">PowerShell</a></p>
                         <p><a href="/azure/devtest-lab/devtest-lab-use-arm-and-powershell-for-lab-resources">PowerShell : Créer ou modifier des laboratoires automatiquement</a></p>
                     </div>

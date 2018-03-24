@@ -1,24 +1,24 @@
 ---
-title: "Documentation Azure Resource Manager - Didacticiels, informations de référence sur les API | Microsoft Docs"
-description: "Découvrez comment utiliser Resource Manager pour déployer et gérer des ressources de solution en tant que groupe et créer des modèles de déploiement de ressources cohérents et reproductibles."
+title: Documentation Azure Resource Manager - Didacticiels, informations de référence sur les API | Microsoft Docs
+description: Découvrez comment utiliser Resource Manager pour déployer et gérer des ressources de solution en tant que groupe et créer des modèles de déploiement de ressources cohérents et reproductibles.
 services: azure-resource-manager
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: ab6725298c9e9c496d2e20b4e68ff72af1432bb2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 471ed43d5eec54a138262b7c4c89802020683fdc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="azure-resource-manager-documentation"></a>Documentation Azure Resource Manager
+# <a name="azure-resource-manager-documentation"></a>Documentation Azure Resource Manager
 
 Apprenez à utiliser Resource Manager pour déployer, surveiller et gérer des ressources de solution en tant que groupe. Des didacticiels, des références d’API et d’autres documents vous montrent comment configurer des groupes de ressources et créer des modèles de déploiement cohérents et reproductibles.
 
@@ -117,7 +117,7 @@ Apprenez à utiliser Resource Manager pour déployer, surveiller et gérer des r
 
 ---
  
-<h2>Référence</h2>
+<h2>Informations de référence</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -126,7 +126,7 @@ Apprenez à utiliser Resource Manager pour déployer, surveiller et gérer des r
                     <div class="cardText">
                         <h3>Ligne de commande</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources">PowerShell</a></p>
-                        <p><a href="/cli/azure/resource">Interface de ligne de commande Azure</a></p>
+                        <p><a href="/cli/azure/resource">interface de ligne de commande Azure</a></p>
                     </div>
                 </div>
             </div>
