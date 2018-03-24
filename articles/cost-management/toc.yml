@@ -19,7 +19,7 @@
       href: tutorial-review-usage.md
     - name: 2 - Prévoir les dépenses
       href: tutorial-forecast-spending.md
-    - name: 3 - Gérer les coûts
+    - name: 3 - Gérez les coûts
       href: tutorial-manage-costs.md
     - name: 4 - Optimiser les instances réservées
       href: tutorial-optimize-reserved-instances.md
@@ -28,7 +28,7 @@
 - name: Concepts
   items:
     - name: Compréhension des rapports sur les coûts
-      href: understading-cost-reports.md
+      href: understanding-cost-reports.md
 - name: Procédures
   items:
     - name: Activer des abonnements et comptes Azure

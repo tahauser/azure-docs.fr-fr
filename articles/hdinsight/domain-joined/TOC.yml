@@ -2,12 +2,10 @@
   href: /azure/hdinsight
 - name: Sécurité d’entreprise
   items:
-    - name: Vue d’ensemble
+    - name: Vue d'ensemble
       href: apache-domain-joined-introduction.md
     - name: Planifier des clusters joints à un domaine
       href: apache-domain-joined-architecture.md
-    - name: Configurer un environnement de bac à sable joint à un domaine
-      href: apache-domain-joined-configure.md
     - name: "Configurer des clusters joints à un domaine à l’aide d’Azure\_AD\_DS"
       href: apache-domain-joined-configure-using-azure-adds.md
     - name: "Synchroniser les utilisateurs Azure\_AD vers un cluster HDInsight"

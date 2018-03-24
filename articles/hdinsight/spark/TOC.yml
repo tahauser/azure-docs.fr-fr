@@ -97,8 +97,6 @@
           href: apache-spark-structured-streaming-overview.md
         - name: Créer des travaux de diffusion en continu Spark dans YARN
           href: apache-spark-streaming-high-availability.md
-        - name: Flux structuré à l’aide d’Event Hubs
-          href: apache-spark-eventhub-structured-streaming.md
         - name: Structured streaming avec Kafka
           href: ../hdinsight-apache-kafka-spark-structured-streaming.md
           maintainContext: true
