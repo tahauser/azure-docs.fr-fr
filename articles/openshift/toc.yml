@@ -1,0 +1,21 @@
+- name: Documentation OpenShift
+  href: index.md
+- name: Démarrages rapides
+  expanded: true
+  items:
+    - name: 'OpenShift : modèle de communauté'
+      href: 'https://azure.microsoft.com/en-us/resources/templates/openshift-origin-rhel/'
+- name: Didacticiels
+  items:
+    - name: Déployer sur des machines virtuelles Azure
+      href: /azure/virtual-machines/linux/openshift-get-started
+- name: Ressources
+  items:
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Modèle de conteneur OpenShift
+      href: 'https://github.com/Microsoft/openshift-container-platform'
+    - name: OpenShift Origin
+      href: 'https://docs.openshift.org/latest/getting_started/index.html'
+    - name: Site OpenShift
+      href: 'https://docs.openshift.org/latest/welcome/index.html'

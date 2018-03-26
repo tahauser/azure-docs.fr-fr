@@ -66,7 +66,7 @@
 # Identity Experience Framework (Infrastructure d’expérience d’identité)
 ## [Stratégies personnalisées](active-directory-b2c-overview-custom.md)
 ## Guides
-### [Prise en main](active-directory-b2c-get-started-custom.md)
+### [Démarrer](active-directory-b2c-get-started-custom.md)
 ### Configurer les fournisseurs OIDC et OAUTH
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
 #### [Compte Microsoft](active-directory-b2c-custom-setup-msa-idp.md)
@@ -91,7 +91,8 @@
 #### [Complexité du mot de passe](active-directory-b2c-reference-password-complexity-custom.md)
 #### [Modification de mot de passe](active-directory-b2c-reference-password-change-custom.md)
 #### [Activer le maintien de la connexion](active-directory-b2c-reference-kmsi-custom.md)
-### Résolution de problèmes
+### Résolution des problèmes et journaux d’évènements
+#### [Créer des événements personnalisés avec Application Insights](active-directory-b2c-custom-guide-eventlogger-appins.md)
 #### [Collecter les journaux à l’aide d’Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Informations de référence
 ### [Notes de publication](active-directory-b2c-developer-notes-custom.md)

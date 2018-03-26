@@ -2,7 +2,7 @@
   href: index.md
 - name: Architecture et conception
   href: azure-security.md
-  expanded: true
+  expanded: false
   items:
     - name: Détection avancée des menaces
       href: azure-threat-detection.md
@@ -67,6 +67,8 @@
       items:
         - name: Meilleures pratiques
           href: azure-security-identity-management-best-practices.md
+        - name: Appliquer l’authentification multifacteur sur les administrateurs de l’abonnement
+          href: azure-security-global-admin.md
     - name: Sécurité du réseau
       href: security-network-overview.md
       items:

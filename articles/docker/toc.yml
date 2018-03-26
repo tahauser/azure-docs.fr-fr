@@ -1,0 +1,33 @@
+- name: Documentation Docker
+  href: index.md
+- name: Démarrage rapide
+  expanded: true
+  items:
+    - name: Modèle Marketplace Docker
+      href: 'https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CanonicalandMSOpenTech.DockerOnUbuntuServer1404LTS'
+- name: Didacticiels
+  items:
+    - name: Application web Python avec Docker et PostgreSQL
+      href: /azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app
+    - name: CI/CD avec Docker Swarm et VSTS
+      href: /azure/container-service/container-service-docker-swarm-mode-setup-ci-cd-acs-engine
+    - name: 'CI/CD avec Docker, Jenkins et Linux'
+      href: /azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd
+- name: Procédures
+  items:
+    - name: Extension de machine virtuelle Docker
+      href: /azure/virtual-machines/linux/dockerextension
+    - name: Machine Docker
+      href: /azure/virtual-machines/linux/docker-machine
+    - name: Registre de conteneurs Docker
+      href: /azure/container-registry/container-registry-get-started-portal
+- name: Ressources
+  items:
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Pilote Docker Azure
+      href: 'https://docs.docker.com/machine/drivers/azure/'
+    - name: Site Docker Azure
+      href: 'https://www.docker.com/docker-azure'
+    - name: Site Docker
+      href: 'https://docker.com'
