@@ -236,6 +236,7 @@
 ## [REST](/rest/api/media/mediaservice)
 ## Spécifications
 ### [Ingestion en direct - Spécification d’ingestion en direct au format MP4 fragmenté](media-services-fmp4-live-ingest-overview.md)
+### [Ingestion en direct - Signalisation des métadonnées temporisées dans le streaming en direct](media-services-specifications-live-timed-metadata.md)
 ### [Smooth Streaming HEVC](media-services-specifications-ms-sstr-ammendment-hevc.md)
 
 # Ressources

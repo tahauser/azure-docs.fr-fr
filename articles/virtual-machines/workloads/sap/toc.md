@@ -1,5 +1,5 @@
 # Vue d'ensemble
-## [Prise en main](get-started.md)
+## [Démarrer](get-started.md)
 ## [Certifications](sap-certifications.md)
 # SAP HANA sur Azure (grandes instances)
 ## [Présentation et architecture](hana-overview-architecture.md)
@@ -40,6 +40,7 @@
 #### [Windows avec disque partagé pour l’instance (A)SCS](sap-high-availability-infrastructure-wsfc-shared-disk.md)
 #### [Windows avec partage de fichiers SOFS pour l’instance (A)SCS](sap-high-availability-infrastructure-wsfc-file-share.md)
 #### [SUSE Linux avec NFS pour l’instance (A)SCS](high-availability-guide-suse.md)
+#### [Pacemaker sur SLES](high-availability-guide-suse-pacemaker.md)
 ### Installation de SAP
 #### [Windows avec disque partagé pour l’instance (A)SCS](sap-high-availability-installation-wsfc-shared-disk.md)
 #### [Windows avec partage de fichiers SOFS pour l’instance (A)SCS](sap-high-availability-installation-wsfc-file-share.md)

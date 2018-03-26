@@ -208,9 +208,11 @@
       href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Acheminer des événements vers un point de terminaison personnalisé
       href: storage-blob-event-quickstart.md
-    - name: Domaines personnalisés
+    - name: Récupérer des objets blob supprimées
+      href: storage-blob-soft-delete.md
+    - name: Configuration d’un domaine personnalisé
       href: storage-custom-domain-name.md
-    - name: Recherche dans le Stockage Blob avec la Recherche Azure
+    - name: Rechercher dans le Stockage Blob avec la Recherche Azure
       href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Transfert de données
       items:

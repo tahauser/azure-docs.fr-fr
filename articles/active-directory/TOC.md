@@ -77,7 +77,8 @@
 ## [Gérer les groupes et les membres](active-directory-manage-groups.md)
 ### Gérer les groupes
 #### [Portail Azure](active-directory-groups-create-azure-portal.md)
-#### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [Modèle de Azure PowerShell Azure Resource Manager ](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [Modèle de déploiement de Azure PowerShell classic ](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### [Sélectionner les membres du groupe](active-directory-groups-members-azure-portal.md)
 ### [Gérer les propriétaires de groupe](active-directory-accessmanagement-managing-group-owners.md)
 ### [Ajouter une appartenance à un groupe](active-directory-groups-membership-azure-portal.md)
@@ -94,9 +95,8 @@
 ### [Afficher tous les groupes](active-directory-groups-view-azure-portal.md)
 ### [Ajouter l’accès de groupe aux applications SaaS](active-directory-accessmanagement-group-saasapps.md)
 ### [Restaurer un groupe Office 365 supprimé](active-directory-groups-restore-azure-portal.md)
-### Gérer les paramètres de groupe
-#### [Portail Azure](active-directory-groups-settings-azure-portal.md)
-#### [Applets de commande](active-directory-accessmanagement-groups-settings-cmdlets.md)
+### [Gérer les paramètres de groupe](active-directory-groups-settings-azure-portal.md)
+
 ### Créer des règles avancées
 #### [Portail Azure](active-directory-groups-dynamic-membership-azure-portal.md)
 ### [Configurer des groupes libre-service](active-directory-accessmanagement-self-service-group-management.md)
@@ -215,12 +215,12 @@
 ##### [Page d’accueil personnalisée](application-proxy-office365-app-launcher.md)
 ##### [Traduire les liens inclus](application-proxy-link-translation.md)
 ##### [Applications génériques](active-directory-application-proxy-wildcard.md)
-
+##### [Proxy d’Application Azure AD et Qlik Sens](active-directory-application-proxy-qlik.md) 
 #### Publication de procédures pas à pas
 ##### [Bureau à distance](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
-#### [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview)
+#### [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management)
 #### [Résolution des problèmes](active-directory-application-proxy-troubleshoot.md)
 
 
@@ -310,7 +310,7 @@
 #### [Conditions](active-directory-conditional-access-conditions.md)
 #### [Condition d’emplacement](active-directory-conditional-access-locations.md)
 #### [Contrôles](active-directory-conditional-access-controls.md)
-#### [Prise en main](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Démarrer](active-directory-conditional-access-azure-portal-get-started.md)
 #### [meilleures pratiques](active-directory-conditional-access-best-practices.md)
 #### [Comprendre les stratégies d’appareil pour les services Office 365](active-directory-conditional-access-device-policies.md)
 #### [Migrer les stratégies classiques](active-directory-conditional-access-migration.md)
@@ -332,7 +332,7 @@
 ### Authentification par certificat
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
-#### [Prise en main](active-directory-certificate-based-authentication-get-started.md)
+#### [Démarrer](active-directory-certificate-based-authentication-get-started.md)
 
 ### [Azure AD Identity Protection](active-directory-identityprotection.md)
 #### [Activer](active-directory-identityprotection-enable.md)

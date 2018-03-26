@@ -6,18 +6,14 @@
       href: azure-stack-poc.md
     - name: Notes de publication
       items:
-        - name: Notes de publication du kit de développement
-          href: azure-stack-asdk-release-notes.md
-        - name: Notes de publication des systèmes intégrés
-          items:
-            - name: "mise à jour\_1802"
-              href: azure-stack-update-1802.md
-            - name: mise à jour 1712
-              href: azure-stack-update-1712.md
-            - name: mise à jour 1711
-              href: azure-stack-update-1711.md
-            - name: mise à jour 1710
-              href: azure-stack-update-1710.md
+        - name: "mise à jour\_1802"
+          href: azure-stack-update-1802.md
+        - name: mise à jour 1712
+          href: azure-stack-update-1712.md
+        - name: mise à jour 1711
+          href: azure-stack-update-1711.md
+        - name: mise à jour 1710
+          href: azure-stack-update-1710.md
 - name: Démarrages rapides
   expanded: true
   items:
@@ -67,8 +63,6 @@
               href: validate-pki-certs.md
         - name: Intégration des identités
           href: azure-stack-integrate-identity.md
-        - name: Inscrire Azure Stack
-          href: azure-stack-registration.md
         - name: Surveillance externe
           href: azure-stack-integrate-monitor.md
         - name: Intégration de la sécurité
@@ -77,31 +71,14 @@
       href: azure-stack-servicing-policy.md
     - name: Principaux concepts et fonctionnalités
       href: azure-stack-key-features.md
-    - name: Architecture du kit de développement
-      href: azure-stack-architecture.md
     - name: Informations de base sur l’administration
       href: azure-stack-manage-basics.md
 - name: Procédures
   items:
-    - name: Déployer l’ASDK
-      items:
-        - name: |
-            Prérequis
-          href: azure-stack-deploy.md
-        - name: Télémétrie
-          href: azure-stack-telemetry.md
-        - name: Déployer
-          href: azure-stack-run-powershell-script.md
-        - name: Installer PowerShell
-          href: azure-stack-powershell-install.md
-        - name: 'Register '
-          href: azure-stack-register.md
-        - name: Se connecter à Azure Stack
-          href: azure-stack-connect-azure-stack.md
-        - name: Ajouter une image par défaut
-          href: azure-stack-add-default-image.md
-        - name: Créer une machine virtuelle de test
-          href: azure-stack-provision-vm.md
+    - name: Configurer la collecte de données de télémétrie
+      href: azure-stack-telemetry.md
+    - name: Inscrire Azure Stack
+      href: azure-stack-registration.md
     - name: gérer
       items:
         - name: Gestion des régions
@@ -247,7 +224,7 @@
               href: azure-stack-app-service-add-worker-roles.md
             - name: Configurer des sources de déploiement
               href: azure-stack-app-service-configure-deployment-sources.md
-            - name: Notes de publication relatives à la première mise à jour d’App Service
+            - name: Notes de publication d’App Service sur Azure Stack Update 1
               href: azure-stack-app-service-release-notes-update-one.md
         - name: Renseigner le Marketplace
           items:
@@ -319,6 +296,8 @@
   items:
     - name: Documentation sur les utilisateurs Azure Stack
       href: /azure/azure-stack/user/
+    - name: Documentation ASDK
+      href: /azure/azure-stack/asdk/
 - name: Ressources
   items:
     - name: Feuille de route Azure Stack
