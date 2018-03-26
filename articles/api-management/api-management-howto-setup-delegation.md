@@ -173,7 +173,7 @@ Pour plus d’informations sur la délégation, regardez la vidéo suivante :
 [Delegating developer sign-in and sign-up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
 [Demandez un jeton d'authentification unique (SSO)]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
-[create a user]: http://go.microsoft.com/fwlink/?LinkId=507655#CreateUser
+[Créez un utilisateur]: http://go.microsoft.com/fwlink/?LinkId=507655#CreateUser
 [appelant l'API REST pour l'abonnement au produit]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
 [Next steps]: #next-steps
 [exemple de code ci-dessous]: #delegate-example-code
