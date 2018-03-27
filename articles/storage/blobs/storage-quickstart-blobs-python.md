@@ -1,19 +1,19 @@
 ---
-title: "Démarrage rapide Azure - Charger, télécharger et répertorier des objets blob dans Stockage Azure à l’aide de Python | Microsoft Docs"
-description: "Dans le cadre de ce démarrage rapide, vous créez un compte de stockage et un conteneur. Ensuite, vous utilisez la bibliothèque de client de stockage pour Python, afin de charger un objet blob dans Stockage Azure, de télécharger un objet blob et de répertorier les objets blob dans un conteneur."
+title: Démarrage rapide Azure - Charger, télécharger et répertorier des objets blob dans Stockage Azure à l’aide de Python | Microsoft Docs
+description: Dans le cadre de ce démarrage rapide, vous créez un compte de stockage et un conteneur. Ensuite, vous utilisez la bibliothèque de client de stockage pour Python, afin de charger un objet blob dans Stockage Azure, de télécharger un objet blob et de répertorier les objets blob dans un conteneur.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 03/15/2018
 ms.author: tamram
-ms.openlocfilehash: a82ec92449730a784e7cd36d7f364a9a4516c15f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: d4c489bc41a9c04b15e2ee28b944edc1f15ef81c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-python"></a>Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide de Python
 
@@ -21,9 +21,10 @@ Dans ce guide de démarrage rapide, vous apprenez à utiliser Python pour charge
 
 ## <a name="prerequisites"></a>Prérequis
 
+
 Pour effectuer ce démarrage rapide : 
 * Installez [Python](https://www.python.org/downloads/)
-* Téléchargez et installez le [SDK Stockage Azure pour Python](storage-python-how-to-use-blob-storage.md#download-and-install-azure-storage-sdk-for-python). 
+* Téléchargez et installez le [SDK Stockage Azure pour Python](storage-python-how-to-use-blob-storage.md). 
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -160,6 +161,18 @@ block_blob_service.delete_container(container_name)
 os.remove(full_path_to_file)
 os.remove(full_path_to_file2)
 ```
+## <a name="resources-for-developing-python-applications-with-blobs"></a>Ressources sur le développement d’applications Python avec des objets blob
+
+Consultez ces ressources supplémentaires sur le développement Python avec le stockage Blob :
+
+### <a name="binaries-and-source-code"></a>Fichiers binaires et code source
+
+- Affichez, téléchargez et installez le [code source de la bibliothèque de client Python](https://github.com/Azure/azure-storage-python) pour Stockage Azure sur GitHub.
+
+### <a name="client-library-reference-and-samples"></a>Référence et exemples de la bibliothèque de client
+
+- Consultez la [référence API Python](https://docs.microsoft.com/python/api/overview/azure/storage) pour plus d’informations sur la bibliothèque de client Python.
+- Explorez les [exemples de Stockage Blob](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=python&term=blob) écrits avec la bibliothèque de client Python.
 
 ## <a name="next-steps"></a>Étapes suivantes
  
@@ -168,5 +181,4 @@ Dans ce guide de démarrage rapide, vous avez appris à transférer des fichiers
 > [!div class="nextstepaction"]
 > [Guide pratique des opérations Stockage Blob](./storage-python-how-to-use-blob-storage.md)
  
-
 Pour plus d’informations sur l’Explorateur Stockage et les objets blob, consultez [Gérer les ressources de stockage Blob Azure avec l’Explorateur Stockage](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

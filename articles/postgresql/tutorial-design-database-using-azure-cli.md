@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Concevoir votre première base de données Azure Database pour PostgreSQL à l’aide d’Azure CLI"
-description: "Ce didacticiel montre comment créer, configurer et interroger votre première base de données Azure Database pour PostgreSQL à l’aide de l’interface Azure CLI."
+title: 'Didacticiel : Concevoir une base de données Azure Database pour PostgreSQL à l’aide d’Azure CLI'
+description: Ce didacticiel montre comment créer, configurer et interroger votre première base de données Azure Database pour PostgreSQL à l’aide de l’interface Azure CLI.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -11,13 +11,13 @@ ms.custom: mvc
 ms.devlang: azure-cli
 ms.topic: tutorial
 ms.date: 02/28/2018
-ms.openlocfilehash: 7eeb3b01ddaea56b1e11fc37bbeba7d3f328772d
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 56425ec7ccb1d6629b82db6683a02a57ab9999b4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="tutorial-design-your-first-azure-database-for-postgresql-using-azure-cli"></a>Didacticiel : Concevoir votre première base de données Azure Database pour PostgreSQL à l’aide d’Azure CLI 
+# <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>Didacticiel : Concevoir une base de données Azure Database pour PostgreSQL à l’aide d’Azure CLI 
 Dans ce didacticiel, vous allez utiliser l’interface Azure CLI (interface de ligne de commande) et d’autres utilitaires pour apprendre à :
 > [!div class="checklist"]
 > * Créer un serveur Azure Database pour PostgreSQL
@@ -163,9 +163,9 @@ CREATE DATABASE mypgsqldb;
 ```
 
 ## <a name="create-tables-in-the-database"></a>Créer des tables dans la base de données
-Maintenant que vous savez comment vous connecter à la base de données Azure pour PostgreSQL, nous pouvons aborder certaines tâches de base.
+Maintenant que vous savez comment vous connecter à la base de données Azure Database pour PostgreSQL, vous pouvez effectuer certaines tâches de base :
 
-Tout d’abord, nous pouvons créer une table et y charger des données. Nous allons créer une table qui assure le suivi des informations d’inventaire :
+Tout d’abord, créez une table et chargez-y des données. Par exemple, créez une table qui assure le suivi des informations d’inventaire :
 ```sql
 CREATE TABLE inventory (
     id serial PRIMARY KEY, 
@@ -180,7 +180,7 @@ Vous pouvez localiser cette nouvelle table dans la liste des tables en tapant :
 ```
 
 ## <a name="load-data-into-the-table"></a>Charger des données dans la table
-Maintenant que nous disposons d’une table, nous pouvons y insérer des données. Dans la fenêtre d’invite de commandes ouverte, exécutez la requête suivante pour insérer des lignes de données :
+Maintenant qu’une table a été créée, insérez des données dans celle-ci. Dans la fenêtre d’invite de commandes ouverte, exécutez la requête suivante pour insérer des lignes de données :
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);

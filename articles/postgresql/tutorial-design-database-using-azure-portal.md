@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel - Concevoir votre première base de données Azure Database pour PostgreSQL à l’aide du portail Azure"
-description: "Ce didacticiel montre comment concevoir votre première base de données Azure pour PostgreSQL à l’aide du portail Azure."
+title: 'Didacticiel : Concevoir une base de données Azure Database pour PostgreSQL à l’aide du portail Azure'
+description: Ce didacticiel montre comment concevoir votre première base de données Azure pour PostgreSQL à l’aide du portail Azure.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -10,13 +10,13 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 02/28/2018
-ms.openlocfilehash: df8f308b17879d7fd22d033fb535b59bd8a85086
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 9f4d886bbbf2b9111d736e291e420b822de9766a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="tutorial-design-your-first-azure-database-for-postgresql-using-the-azure-portal"></a>Didacticiel : Concevoir votre première base de données Azure Database pour PostgreSQL à l’aide du portail Azure
+# <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>Didacticiel : Concevoir une base de données Azure Database pour PostgreSQL à l’aide du portail Azure
 
 Base de données Azure pour PostgreSQL est un service géré qui vous permet d’exécuter, de gérer et de mettre à l’échelle des bases de données PostgreSQL hautement disponibles dans le cloud. À l’aide du portail Azure, vous pouvez facilement gérer votre serveur et concevoir une base de données.
 
@@ -31,6 +31,7 @@ Ce didacticiel vous montre comment utiliser le portail Azure pour :
 > * Restaurer des données
 
 ## <a name="prerequisites"></a>Prérequis
+
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="log-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.

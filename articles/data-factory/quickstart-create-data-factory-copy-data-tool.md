@@ -1,8 +1,8 @@
 ---
-title: "Copier des données à l’aide de l’outil Copier des données d’Azure | Microsoft Docs"
-description: "Créez une fabrique de données Azure, puis utilisez l’outil Copier des données pour copier des données depuis un dossier dans un stockage d’objets Blob Azure vers un autre dossier."
+title: Copier des données à l’aide de l’outil Copier des données d’Azure | Microsoft Docs
+description: Créez une fabrique de données Azure, puis utilisez l’outil Copier des données pour copier des données depuis un emplacement dans un stockage d’objets Blob Azure vers un autre emplacement.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
 manager: jhubbard
 editor: spelluru
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.topic: hero-article
 ms.date: 01/16/2018
 ms.author: jingwang
-ms.openlocfilehash: aa9cdba4f4e891d5321eb8af6349d8b141faee03
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: d09422f31a2dda5e14fb891fa07f65fdcceb72c1
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="use-the-copy-data-tool-to-copy-data"></a>Utiliser l’outil Copier des données pour copier des données 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
@@ -41,7 +41,7 @@ Dans ce guide de démarrage rapide, vous utilisez le portail Azure pour créer u
       
    ![Page « Nouvelle fabrique de données »](./media/quickstart-create-data-factory-copy-data-tool/new-azure-data-factory.png)
  
-   Le nom de la fabrique de données Azure doit être un nom *global unique*. Si l’erreur suivante s’affiche, changez le nom de la fabrique de données (par exemple, **&lt;votrenom&gt;ADFTutorialDataFactory**), puis tentez de la recréer. Consultez l’article [Data Factory - Règles d’affectation des noms](naming-rules.md) pour savoir comment nommer les artefacts Data Factory.
+   Le nom de la fabrique de données Azure doit être un nom *global unique*. Si l’erreur suivante s’affiche, changez le nom de la fabrique de données (par exemple, **&lt;votrenom&gt;ADFTutorialDataFactory**), puis tentez de la recréer. Consultez l’article [Data Factory - Règles d’affectation des noms](naming-rules.md) pour en savoir plus sur les règles d’affectation des noms d’artefacts Data Factory.
   
    ![Erreur quand le nom n’est pas disponible](./media/quickstart-create-data-factory-portal/name-not-available-error.png)
 3. Pour **Abonnement**, sélectionnez l’abonnement Azure dans lequel vous voulez créer la fabrique de données. 

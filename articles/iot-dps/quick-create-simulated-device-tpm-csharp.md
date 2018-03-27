@@ -1,22 +1,22 @@
 ---
-title: "Approvisionner un appareil TPM simulé auprès du service Azure IoT Hub à l’aide de C# | Microsoft Docs"
-description: "Démarrage rapide d’Azure : Créer et approvisionner un appareil TPM simulé auprès du service Azure IoT Hub Device Provisioning à l’aide du C# Device SDK"
+title: Approvisionner un appareil TPM simulé auprès du service Azure IoT Hub à l’aide de C# | Microsoft Docs
+description: 'Démarrage rapide d’Azure : Créer et approvisionner un appareil TPM simulé auprès du service Azure IoT Hub Device Provisioning à l’aide du C# Device SDK'
 services: iot-dps
-keywords: 
+keywords: ''
 author: JimacoMS2
 ms.author: v-jamebr
 ms.date: 12/21/2017
 ms.topic: hero-article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 6b13f95f00883a12ff0e922567829fa6fac06642
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 7dd8d90ca3201fce0680b88b5530712126997efe
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Créer et approvisionner un appareil TPM simulé auprès du service IoT Hub Device Provisioning à l’aide du C# Device SDK
 
@@ -80,7 +80,7 @@ Veillez à compléter les étapes décrites dans la section relative à la [conf
 
    Lorsque l’inscription aboutit, *l’ID d’inscription* de votre appareil s’affiche dans la liste sous l’onglet *Inscriptions individuelles*. 
 
-6. Appuyez sur Entrée pour inscrire l’appareil simulé. Notez les messages qui simulent le démarrage et la connexion de l’appareil au service d’approvisionnement d’appareil pour obtenir des informations concernant votre IoT Hub. 
+6. Appuyez sur Entrée dans la fenêtre de commande (qui affichait la **_paire de clés de type EK (Endorsement Key)_**, **_l’ID d’inscription_** et un **_ID d’appareil_**) pour inscrire l’appareil simulé. Notez les messages qui simulent le démarrage et la connexion de l’appareil au service d’approvisionnement d’appareil pour obtenir des informations concernant votre IoT Hub. 
 
 1. Vérifiez que l’appareil a bien été approvisionné. En cas de réussite de l’approvisionnement de l’appareil simulé sur le hub IoT lié à votre service d’approvisionnement, l’ID de l’appareil s’affiche dans le panneau **IoT Devices** (Appareils IoT) du hub. 
 

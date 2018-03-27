@@ -1,19 +1,19 @@
-﻿---
-title: "Démarrage rapide : Cluster Azure Kubernetes pour Linux"
-description: "Découvrez rapidement comment créer un cluster Kubernetes pour des conteneurs Linux dans ACS avec Azure CLI."
+---
+title: 'Démarrage rapide : Cluster Azure Kubernetes pour Linux'
+description: Découvrez rapidement comment créer un cluster Kubernetes pour des conteneurs Linux dans ACS avec Azure CLI.
 services: container-service
 author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 02/26/2018
+ms.date: 03/14/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 817b204cde8708ff06507c30e1725c0e46185877
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 3005023e45bc6516732f077f152aed93564be38b
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Déployer un cluster Azure Container Service (ACS)
 
@@ -27,10 +27,14 @@ Ce guide de démarrage rapide suppose une compréhension élémentaire des conce
 
 Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande en local, ce démarrage rapide nécessite que vous exécutiez la version 2.0.27 minimum d’Azure CLI. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][azure-cli-install].
 
-## <a name="enabling-aks-preview-for-your-azure-subscription"></a>Activation de la préversion d’AKS pour votre abonnement Azure
-Tant que AKS est en préversion, la création de nouveaux clusters exige un indicateur de fonctionnalité dans votre abonnement. Vous pouvez demander cette fonctionnalité pour les abonnements que vous souhaitez utiliser, quel qu’en soit le nombre. Utilisez la commande `az provider register` pour inscrire le fournisseur AKS :
+## <a name="enabling-aks-preview"></a>Activation de la préversion d’AKS
+
+Assurez-vous que les fournisseurs de services Azure requis sont activés à l’aide de la commande `az provider register`. 
 
 ```azurecli-interactive
+az provider register -n Microsoft.Network
+az provider register -n Microsoft.Storage
+az provider register -n Microsoft.Compute
 az provider register -n Microsoft.ContainerService
 ```
 
@@ -64,7 +68,7 @@ Output:
 
 ## <a name="create-aks-cluster"></a>Créer un cluster ACS
 
-L’exemple suivant crée un cluster à un nœud nommé *myAKSCluster*.
+Utilisez la commande [az aks create][az-aks-create] pour créer un cluster AKS. L’exemple suivant crée un cluster à un nœud nommé *myAKSCluster*.
 
 ```azurecli-interactive
 az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --generate-ssh-keys
@@ -76,14 +80,14 @@ Au bout de quelques minutes, la commande se termine et retourne des informations
 
 Pour gérer un cluster Kubernetes, utilisez [kubectl][kubectl], le client de ligne de commande Kubernetes.
 
-Si vous utilisez Azure Cloud Shell, l’outil kubectl est déjà installé. Si vous souhaitez l’installer localement, exécutez la commande suivante.
+Si vous utilisez Azure Cloud Shell, l’outil kubectl est déjà installé. Pour l’installer en local, utilisez la commande [az aks install-cli][az-aks-install-cli].
 
 
 ```azurecli
 az aks install-cli
 ```
 
-Pour configurer kubectl afin qu’il se connecte à votre cluster Kubernetes, exécutez la commande suivante. Cette étape télécharge les informations d’identification et configure l’interface de ligne de commande Kubernetes pour leur utilisation.
+Pour configurer kubectl afin qu’il se connecte à votre cluster Kubernetes, utilisez la commande [az aks get-credentials][az-aks-get-credentials]. Cette étape télécharge les informations d’identification et configure l’interface de ligne de commande Kubernetes pour leur utilisation.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -244,7 +248,9 @@ Pour en savoir plus sur ACS et parcourir le code complet de l’exemple de dépl
 
 <!-- LINKS - internal -->
 [az-aks-browse]: /cli/azure/aks?view=azure-cli-latest#az_aks_browse
+[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az_aks_create
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials
+[az aks install-cli]: /cli/azure/aks?view=azure-cli-latest#az_aks_install_cli
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli-install]: /cli/azure/install-azure-cli

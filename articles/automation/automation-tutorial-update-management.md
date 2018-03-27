@@ -1,25 +1,18 @@
 ---
-title: "Gérer les mises à jour et les correctifs pour vos machines virtuelles Windows Azure | Microsoft Docs"
-description: "Cet article fournit une vue d’ensemble de l’utilisation d’Azure Automation - Gestion des mises à jour pour gérer les mises à jour et les correctifs pour vos machines virtuelles Windows Azure."
+title: Gérer les mises à jour et les correctifs pour vos machines virtuelles Windows Azure
+description: Cet article fournit une vue d’ensemble de l’utilisation d’Azure Automation - Gestion des mises à jour pour gérer les mises à jour et les correctifs pour vos machines virtuelles Windows Azure.
 services: automation
-documentationcenter: 
 author: zjalexander
-manager: jwhit
-editor: 
-ms.assetid: 
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/28/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 614b5bd7a2663c3b61f511dcc6b6a49218ac439a
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: bded1621dc56a6e621408e567ce39a3107bec7c9
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="manage-windows-updates-with-azure-automation"></a>Gérer les mises à jour Windows avec Azure Automation
 
@@ -38,6 +31,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
+
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [activer vos avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer [un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -46,7 +40,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au Portail Azure à l’adresse http://portal.azure.com.
+Connectez-vous au portail Azure à l’adresse http://portal.azure.com.
 
 ## <a name="enable-update-management"></a>Activer la gestion des mises à jour
 

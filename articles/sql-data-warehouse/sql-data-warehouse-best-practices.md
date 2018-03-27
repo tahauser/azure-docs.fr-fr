@@ -1,25 +1,24 @@
 ---
 title: Meilleures pratiques pour Azure SQL Data Warehouse | Microsoft Docs
-description: "Recommandations et meilleures pratiques que vous devez connaître pour développer des solutions pour Azure SQL Data Warehouse. Elles vous aideront à réussir."
+description: Recommandations et meilleures pratiques que vous devez connaître pour développer des solutions pour Azure SQL Data Warehouse. Elles vous aideront à réussir.
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jenniehubbard
-editor: 
-ms.assetid: 7b698cad-b152-4d33-97f5-5155dfa60f79
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 02/20/2018
+ms.date: 03/15/2018
 ms.author: barbkess
-ms.openlocfilehash: 50d02b657ec3063b0ca4078844563b4ba7932f37
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 53ad9f654c498f562d66de461a2a489895d0a46b
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Meilleures pratiques pour Azure SQL Data Warehouse
 Cet article rassemble les nombreuses meilleures pratiques qui vous permettront d’obtenir des performances optimales de votre Azure SQL Data Warehouse.  Certains des concepts de cet article sont basiques et faciles à expliquer, d’autres concepts sont plus avancés et nous ne faisons que les survoler dans cet article.  L’objectif de cet article est de vous donner quelques conseils de base et de vous informer des points importants à prendre en compte lorsque vous créez votre entrepôt de données.  Chaque section présente un concept et vous dirige ensuite vers des articles plus détaillés qui expliquent davantage le concept.
@@ -89,12 +88,12 @@ Voir aussi [Index de table][Table indexes], [Guide des index columnstore][Column
 ## <a name="use-larger-resource-class-to-improve-query-performance"></a>Utiliser une classe de ressource plus grande pour améliorer les performances des requêtes
 SQL Data Warehouse utilise des groupes de ressources pour allouer de la mémoire aux requêtes.  Dès le départ, tous les utilisateurs sont affectés à la petite classe de ressource qui accorde 100 Mo de mémoire par distribution.  Dans la mesure où il existe toujours 60 distributions et que chaque distribution reçoit un minimum de 100 Mo au niveau du système, l’allocation de mémoire totale est de 6 000 Mo, ou juste en dessous de 6 Go.  Certaines requêtes, telles que des grandes jointures ou des charges dans des tables columnstore en cluster, bénéficieront d’allocations de mémoire supérieures.  Certaines requêtes, comme les analyses pures, ne tireront aucun avantage.  En revanche, l’utilisation de classes de ressource plus grandes affecte l’accès concurrentiel ; par conséquent, vous devez prendre ce point en considération avant de déplacer tous les utilisateurs vers une grande classe de ressource.
 
-Voir aussi [Gestion de la concurrence et des charges de travail][Concurrency and workload management]
+Voir également [Classes de ressources pour la gestion des charges de travail](resource-classes-for-workload-management.md)
 
 ## <a name="use-smaller-resource-class-to-increase-concurrency"></a>Utiliser une classe ressource plus petite pour augmenter l’accès concurrentiel
 Si vous constatez que les requêtes utilisateur semblent avoir un délai trop long, cela peut signifier que vos utilisateurs s’exécutent dans des classes de ressource plus grandes et consomment beaucoup d’emplacements de concurrence entraînant la mise en file d’attente des autres requêtes.  Pour voir si les requêtes des utilisateurs sont en attente, exécutez `SELECT * FROM sys.dm_pdw_waits` pour déterminer si des lignes sont renvoyées.
 
-Voir aussi [Gestion de la concurrence et des charges de travail][Concurrency and workload management], [sys.dm_pdw_waits][sys.dm_pdw_waits]
+Voir également [Classes de ressources pour la gestion des charges de travail](resource-classes-for-workload-management.md), [sys.dm_pdw_waits][sys.dm_pdw_waits]
 
 ## <a name="use-dmvs-to-monitor-and-optimize-your-queries"></a>Utiliser des DMV pour surveiller et optimiser vos requêtes
 SQL Data Warehouse dispose de plusieurs DMV qui peuvent être utilisées pour surveiller l’exécution de la requête.  L’article ci-dessous sur la surveillance fournit des instructions étape par étape sur la façon d’examiner les détails d’une requête en cours d’exécution.  Pour trouver rapidement des requêtes dans ces DMV, l’utilisation de l’option LABEL avec vos requêtes peut aider.
@@ -112,7 +111,6 @@ Enfin, utilisez la page des [commentaires relatifs à Azure SQL Data Warehouse][
 
 <!--Article references-->
 [Create a support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[Concurrency and workload management]: ./sql-data-warehouse-develop-concurrency.md
 [Create table as select (CTAS)]: ./sql-data-warehouse-develop-ctas.md
 [Table overview]: ./sql-data-warehouse-tables-overview.md
 [Table data types]: ./sql-data-warehouse-tables-data-types.md

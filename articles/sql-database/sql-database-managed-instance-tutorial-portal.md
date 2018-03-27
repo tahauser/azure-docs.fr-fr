@@ -1,24 +1,21 @@
 ---
-title: "Portail Azure : Créer une option Azure SQL Database Managed Instance | Microsoft Docs"
-description: "Créez une option Azure SQL Database Managed Instance dans un réseau virtuel et utilisez SSMS pour restaurer la sauvegarde de base de données Wide World Importers."
-keywords: "didacticiel sql database, créer une option sql database managed instance"
+title: 'Portail Azure : Créer une option Azure SQL Database Managed Instance | Microsoft Docs'
+description: Créez une option Azure SQL Database Managed Instance dans un réseau virtuel et utilisez SSMS pour restaurer la sauvegarde de base de données Wide World Importers.
+keywords: didacticiel sql database, créer une option sql database managed instance
 services: sql-database
 author: bonova
 ms.reviewer: carlrab, srbozovi
 ms.service: sql-database
 ms.custom: managed instance
-ms.workload: Active
-ms.tgt_pltfrm: portal
-ms.devlang: 
 ms.topic: tutorial
-ms.date: 03/07/2018
+ms.date: 03/14/2018
 ms.author: bonova
-manager: cguyer
-ms.openlocfilehash: 0d6261392dfdab0d48cb0c524d1fcf416c85d72c
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+manager: craigg
+ms.openlocfilehash: 774a761465cfd886b85378a35dd43ac656a7ee48
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>Créer une option Azure SQL Database Managed Instance dans le portail Azure
 
@@ -26,6 +23,9 @@ Ce didacticiel montre comment créer une option Azure SQL Database Managed Insta
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
+> [!IMPORTANT]
+> Pour obtenir la liste des régions dans lesquelles Managed Instance est actuellement disponible, consultez [Migrate your databases to a fully managed service with Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/) (Migrer vos bases de données vers un service totalement géré avec Azure SQL Database Managed Instance).
+ 
 ## <a name="log-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
 Connectez-vous au [portail Azure](https://portal.azure.com/#create/Microsoft.SQLManagedInstance).
@@ -284,7 +284,7 @@ Les étapes suivantes vous montrent comment télécharger et installer SSMS, pui
     ![configuration de sécurité renforcée d’Internet Explorer](./media/sql-database-managed-instance-tutorial/internet-explorer-security-configuration.png)  
 4. Ouvrez **Internet Explorer** à partir de la barre des tâches.
 5. Sélectionnez **Utiliser les paramètres de sécurité et de compatibilité recommandés**, puis cliquez sur **OK** pour terminer la configuration d’Internet Explorer 11.
-6. Entrez https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms dans la zone d’adresse URL et cliquez sur **Entrée**. 
+6. Entrez https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms dans la zone d’adresse d’URL et cliquez sur **Entrée**. 
 7. Téléchargez la version la plus récente de SQL Server Management Studio et cliquez sur **Exécuter** quand vous y êtes invité.
 8. À l’invite, cliquez sur **Installer** pour commencer.
 9. Une fois l’installation terminée, cliquez sur **Fermer**.
@@ -299,7 +299,7 @@ Après vous être connecté, vous pouvez voir votre système et vos bases de don
 
 Suivez la procédure ci-après pour télécharger le fichier de sauvegarde Wide World Importers - Standard.
 
-À l’aide d’Internet Explorer, entrez https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Standard.bak dans la zone d’adresse URL et, lorsque vous y êtes invité, cliquez sur **Enregistrer** pour enregistrer ce fichier dans le dossier **Téléchargements**.
+À l’aide d’Internet Explorer, entrez https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Standard.bak dans la zone d’adresse d’URL et, lorsque vous y êtes invité, cliquez sur **Enregistrer** pour enregistrer ce fichier dans le dossier **Téléchargements**.
 
 ## <a name="create-azure-storage-account-and-upload-backup-file"></a>Créer le compte de stockage Azure et charger le fichier de sauvegarde
 

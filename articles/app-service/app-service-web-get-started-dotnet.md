@@ -1,39 +1,40 @@
 ---
-title: "Créer une application web ASP.NET Core dans Azure | Microsoft Docs"
-description: "Découvrez comment exécuter des applications web dans Azure App Service en déployant l’application web ASP.NET Core par défaut."
+title: Créer une application web ASP.NET Core dans Azure | Microsoft Docs
+description: Découvrez comment exécuter des applications web dans Azure App Service en déployant l’application web ASP.NET Core par défaut.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 02/05/2018
+ms.date: 03/18/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: a7f098b6c66109cb5cafbcb19e463daa15a65b59
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 4b7dbf7609b6ca7fb11391e01a1ac0ce2bc2e897
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Créer une application web ASP.NET Core dans Azure
 
 > [!NOTE]
-> Cet article explique comment déployer une application sur App Service sous Windows. Pour déployer une application App Service sur _Linux_, consultez [Créer et déployer une application web .NET Core sur App Service sur Linux](./containers/quickstart-dotnetcore.md).
+> Cet article explique comment déployer une application sur App Service sous Windows. Pour déployer une application App Service sur _Linux_, consultez [Créer et déployer une application web .NET Core sur App Service sur Linux](./containers/quickstart-dotnetcore.md). 
 >
 > Si vous recherchez des étapes pour une application ASP.NET Framework, consultez [Créer une application web ASP.NET Framework dans Azure](app-service-web-get-started-dotnet-framework.md). 
 >
 
-[Azure Web Apps](app-service-web-overview.md) offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques.  Ce guide de démarrage rapide montre comment déployer votre première application web ASP.NET Core sur Azure Web Apps. Lorsque vous aurez terminé, vous disposerez d’un groupe de ressources constitué d’un plan App Service et d’une application web Azure avec une application web déployée.
+[Azure Web Apps](app-service-web-overview.md) offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques.  Ce guide de démarrage rapide montre comment déployer votre première application web ASP.NET Core sur Azure Web Apps. Lorsque vous aurez terminé, vous disposerez d’un groupe de ressources constitué d’un plan App Service et d’une application web Azure avec une application web déployée. Vous pouvez [regarder une vidéo](#video) qui explique comment effectuer ces étapes entièrement depuis Visual Studio 2017.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Pour suivre ce didacticiel :
 
@@ -186,6 +187,10 @@ Vous voyez apparaître la page Vue d’ensemble de votre application web. Ici, v
 Le menu de gauche fournit différentes pages vous permettant de configurer votre application. 
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
+
+## <a name="video"></a>Vidéo
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/AEfG9PWPAxg]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

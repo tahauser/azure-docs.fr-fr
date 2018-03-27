@@ -1,8 +1,8 @@
 ---
-title: "Utilisation d’Azure AD Connect Health avec AD FS | Microsoft Docs"
-description: "Ceci est la page d’Azure AD Connect Health spécifiant comment surveiller votre infrastructure AD FS locale."
+title: Utilisation d’Azure AD Connect Health avec AD FS | Microsoft Docs
+description: Ceci est la page d’Azure AD Connect Health spécifiant comment surveiller votre infrastructure AD FS locale.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: karavar
 manager: mtillman
 editor: curtand
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f363119ae75a1adb5a01d584de70fba0f3852dfc
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4e82b1364593ff70ed87efcaa24c135277002904
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Surveiller AD FS avec Azure AD Connect Health
 La documentation suivante est spécifique à la surveillance de votre infrastructure AD FS avec Azure AD Connect Health. Pour plus d’informations sur la surveillance de la synchronisation Azure AD Connect avec Azure AD Connect Health, consultez [Utilisation d’Azure AD Connect Health pour la synchronisation](active-directory-aadconnect-health-sync.md). En outre, pour plus d’informations sur la surveillance des services de domaine Active Directory avec Azure AD Connect Health, consultez [Utilisation d’Azure AD Connect Health avec AD DS](active-directory-aadconnect-health-adds.md).
@@ -78,10 +78,7 @@ L’analyse des performances Azure AD Connect Health fournit des informations d�
 
 Si vous sélectionnez l’option Filtre en haut du panneau, vous pouvez filtrer par serveur afin d’afficher les mesures spécifiques à chacun d’entre eux. Pour modifier la métrique, cliquez avec le bouton droit sur le graphique de surveillance situé sous le panneau de surveillance, puis sélectionnez Modifier le graphique (ou cliquez sur le bouton Modifier le graphique). Dans le nouveau panneau ouvert, vous pouvez sélectionner des mesures supplémentaires à partir de la liste déroulante et spécifier un intervalle de temps pour l’affichage des données de performances.
 
-## <a name="reports-for-ad-fs"></a>Rapports pour AD FS
-Azure AD Connect Health fournit des rapports sur l’activité et les performances des services AD FS. Ces rapports aident les administrateurs à obtenir des informations sur les activités sur leurs serveurs AD FS.
-
-### <a name="top-50-users-with-failed-usernamepassword-logins"></a>Les 50 utilisateurs dont la combinaison nom d’utilisateur/mot de passe échoue le plus souvent.
+## <a name="top-50-users-with-failed-usernamepassword-logins"></a>Les 50 utilisateurs dont la combinaison nom d’utilisateur/mot de passe échoue le plus souvent.
 Des informations d’identification erronées sont souvent à l’origine d’une demande d’authentification ayant échoué sur un serveur AD, autrement dit, un nom d’utilisateur ou un mot de passe incorrect. Ces erreurs sont généralement le résultat de mots de passe trop complexes, oubliés ou de fautes de frappe.
 
 Cependant, d’autres raisons peuvent donner lieu au traitement d’un nombre inattendu de demandes par vos serveurs AD FS, par exemple lorsqu’une application met en cache les informations d’identification utilisateur et que ces dernières expirent par la suite, ou lorsqu’un utilisateur malveillant tente de se connecter à un compte à l’aide d’une série de mots de passe bien connus. Ces deux exemples peuvent conduire à une augmentation considérable des demandes.
@@ -95,7 +92,7 @@ Dans ce rapport, vous pouvez facilement retrouver les informations suivantes :
 * Nombre total de demandes ayant échoué en raison d’un nom d’utilisateur/mot de passe incorrect au cours des 30 derniers jours
 * Nombre moyen d’utilisateurs dont la connexion a échoué en raison d’un nom d’utilisateur/mot de passe incorrect par jour.
 
-Lorsque vous cliquez sur cette section, vous accédez au panneau de rapport principal, qui fournit des détails supplémentaires. Ce panneau inclut un graphique contenant des informations sur les tendances qui permettent d’établir un point de comparaison des demandes dont le nom d’utilisateur ou le mot de passe est incorrect. En outre, il fournit la liste des 50 utilisateurs présentant le plus grand nombre de tentatives infructueuses au cours de la dernière semaine.
+Lorsque vous cliquez sur cette section, vous accédez au panneau de rapport principal, qui fournit des détails supplémentaires. Ce panneau inclut un graphique contenant des informations sur les tendances qui permettent d’établir un point de comparaison des demandes dont le nom d’utilisateur ou le mot de passe est incorrect. En outre, il fournit la liste des 50 utilisateurs présentant le plus grand nombre de tentatives infructueuses au cours de la dernière semaine. Remarquez que les 50 premiers utilisateurs de la dernière semaine ont aidé à l’identification des pics de mots de passe incorrects.  
 
 Ce graphique fournit les informations suivantes :
 
@@ -119,8 +116,90 @@ Ce rapport fournit les informations suivantes :
 >
 >
 
-### <a name="risky-ip-report"></a>Rapport de l’adresse IP risquée 
-Version préliminaire prochainement disponible.
+## <a name="risky-ip-report"></a>Rapport de l’adresse IP risquée 
+Les clients AD FS peuvent exposer des points de terminaison d’authentification par mot de passe à Internet pour fournir des services d’authentification permettant aux utilisateurs finaux d’accéder aux applications SaaS telles qu’Office 365. Dans ce cas, il est possible pour un mauvais acteur de tenter de se connecter à votre système AD FS pour deviner le mot de passe d’un utilisateur final et accéder aux ressources de l’application. AD FS fournit la fonctionnalité de verrouillage de compte extranet pour éviter ce type d’attaques depuis AD FS dans Windows Server 2012 R2. Si vous utilisez une version antérieure, nous vous recommandons vivement de mettre à niveau votre système AD FS vers Windows Server 2016. <br />
+En outre, il est possible qu’une seule adresse IP tente de se connecter plusieurs fois à la place de plusieurs utilisateurs. Dans ce cas, le nombre de tentatives par utilisateur peut se trouver sous le seuil pour la protection par verrouillage de compte dans AD FS. Azure AD Connect Health fournit désormais le « rapport d’adresse IP risquée » qui détecte cette condition et informe les administrateurs lorsque cela se produit. Voici les principaux avantages de ce rapport : 
+- Détection des adresses IP qui dépassent un seuil d’échecs de connexion basée sur mot de passe
+- Prise en charge des échecs de connexion dus à un mot de passe incorrect ou à un état de verrouillage extranet
+- Notification par e-mail signalant la problème aux administrateurs dès qu’il survient avec paramètres d’e-mail personnalisables
+- Paramètres de seuil personnalisables qui correspondent à la stratégie de sécurité d’une organisation
+- Rapports téléchargeables pour analyse hors connexion et intégration avec d’autres systèmes via automatisation
+
+> [!NOTE]
+> Pour utiliser ce rapport, vous devez vous assurer que l’audit AD FS est activé. Pour plus d’informations, consultez [Activer l’audit pour AD FS](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs).
+>
+>
+
+### <a name="what-is-in-the-report"></a>Contenu du rapport
+Chaque élément du rapport d’adresse IP risquée affiche des informations agrégées sur les échecs de connexion AD FS qui dépassent le seuil défini. Il fournit les informations suivantes : ![Portail Azure AD Connect Health](./media/active-directory-aadconnect-health-adfs/report4a.png)
+
+| Élément de rapport | Description |
+| ------- | ----------- |
+| Horodatage | Affiche l’horodatage basé sur l’heure locale du portail Azure au démarrage de la fenêtre de temps détection.<br /> Tous les événements quotidiens sont générés à minuit, heure UTC. <br />L’horodatage des événements se produisant toutes les heures est arrondi au début de l’heure. Vous pouvez trouver l’heure de début de la première activité sous l’élément « firstAuditTimestamp » du fichier exporté. |
+| Type de déclencheur | Affiche le type de fenêtre de temps de détection. Les types de déclencheurs sont regroupés par heure ou par jour. Cela permet de faire la différence entre une attaque par force brute haute fréquence et une attaque lente, où le nombre de tentatives est distribué sur toute la journée. |
+| Adresse IP | L’adresse IP risquée unique présentant une activité de mot de passe incorrect ou de connexion avec verrouillage extranet. Il peut s’agir d’une adresse IPv4 ou IPv6. |
+| Nombre de mots de passe incorrects | Le nombre d’erreurs dues à un mot de passe incorrect sur l’adresse IP lors de la fenêtre de temps de détection. Les erreurs de mot de passe incorrect peuvent se produire plusieurs fois sur certains utilisateurs. Notez que cela n’inclut pas les tentatives ayant échoué en raison de mots de passe expirés. |
+| Nombre d’erreurs de verrouillage extranet | Le nombre d’erreurs dues à un verrouillage extranet sur l’adresse IP lors de la fenêtre de temps de détection. Les erreurs de verrouillage extranet peuvent se produire plusieurs fois sur certains utilisateurs. Ces erreurs ne sont visibles que si le verrouillage extranet est configuré dans AD FS (versions 2012R2 ou une version ultérieure). <b>Remarque</b> Nous vous recommandons fortement d’activer cette fonction si vous autorisez les connexions extranet basées sur des mots de passe. |
+| Tentative d’utilisateurs uniques | Le nombre de tentatives d’utilisateurs uniques sur l’adresse IP lors de la fenêtre de temps de détection. Cet élément permet de différencier une attaque d’utilisateur unique et une attaque de plusieurs utilisateurs.  |
+
+Par exemple, l’élément de rapport ci-dessous indique que dans la fenêtre de 18h00 à 19h00, le 28/02/2018, l’adresse IP <i>104.2XX.2XX.9</i> n’affichait aucune erreur de mot de passe incorrect et présentait 284 erreurs de verrouillage extranet. 14 utilisateurs uniques ont été affectés. L’événement d’activité a dépassé le seuil par heure défini pour le rapport. 
+
+![portail Azure AD Connect Health](./media/active-directory-aadconnect-health-adfs/report4b.png)
+
+> [!NOTE]
+> - Seules les activités dépassant le seuil désigné s’affichent dans la liste des rapports. 
+> - Ce rapport peut contenir les activités des 30 derniers jours.
+> - Ce rapport d’alerte n’affiche pas les adresses IP Exchange ou les adresses IP privées. Elles sont tout de même incluses dans la liste d’exportation. 
+>
+
+
+![portail Azure AD Connect Health](./media/active-directory-aadconnect-health-adfs/report4c.png)
+
+### <a name="download-risky-ip-report"></a>Télécharger le rapport d’adresse IP risquée
+Vous pouvez exporter la liste complète des adresses IP risquées des 30 derniers jours à l’aide de la fonctionnalité **Télécharger** du portail Connect Health Portal. Le résultat de l’exportation inclut tous les échecs de connexion à AD FS pour chaque fenêtre de temps de détection. Vous pouvez personnaliser les filtres après l’exportation. Outre les agrégations en surbrillance dans le portail, le résultat de l’exportation montre également plus de détails sur les activités de connexion ayant échoué par adresse IP :
+
+|  Élément de rapport  |  Description  | 
+| ------- | ----------- | 
+| firstAuditTimestamp | Affiche l’horodatage des premiers échecs pendant la fenêtre de temps de détection.  | 
+| lastAuditTimestamp | Affiche l’horodatage des derniers échecs pendant la fenêtre de temps de détection.  | 
+| attemptCountThresholdIsExceeded | Un marquage indique si les activités en cours dépassent le seuil d’alerte.  | 
+| isWhitelistedIpAddress | Un marquage indique si l’adresse IP est filtrée des alertes et des rapports. Les adresses IP privées (<i>10.x.x.x, 172.x.x.x et 192.168.x.x</i>) et les adresses IP Exchange sont filtrées et marquées comme True. Si vous voyez des plages d’adresses IP privées, il est très probable que votre équilibreur de charge externe n’envoie pas l’adresse IP client lorsqu’il transmet la requête au serveur proxy d’application web.  | 
+
+### <a name="configure-notification-settings"></a>Configurer les paramètres de notification
+Les administrateurs à contacter pour le rapport peuvent être mis à jour via les **Paramètres de notification**. Par défaut, la notification par e-mail des alertes d’adresse IP risquée est désactivée. Vous pouvez activer/désactiver la notification sous « Obtenir des notifications par e-mail pour les adresses IP dépassant le rapport de seuil d’échec d’activité ». Tout comme les paramètres de notification d’alerte génériques dans Connect Health, cela vous permet de personnaliser la liste des contacts à alerter sur les rapports d’adresse IP risquée. Vous pouvez également informer tous les administrateurs généraux lors de la modification de ce paramètre. 
+
+### <a name="configure-threshold-settings"></a>Configurer les paramètres de seuil
+Le seuil d’alerte peut être mis à jour dans les paramètres de seuil. Le seuil est initialement défini par défaut dans le système. Il existe quatre catégories dans les paramètres de seuil du rapport d’adresse IP risquée :
+
+![portail Azure AD Connect Health](./media/active-directory-aadconnect-health-adfs/report4d.png)
+
+| Élément de seuil | Description |
+| --- | --- |
+| (Verrouillage U/P + extranet incorrect) / Jour  | Paramètre de seuil permettant de signaler l’activité et de déclencher la notification d’alerte lorsque le nombre de mots de passe erronés et de verrouillages extranet dépasse ce seuil par **jour**. |
+| (Verrouillage U/P + extranet incorrect) / Heure | Paramètre de seuil permettant de signaler l’activité et de déclencher la notification d’alerte lorsque le nombre de mots de passe erronés et de verrouillages extranet dépasse ce seuil par **heure**. |
+| Verrouillage extranet / Jour | Paramètre de seuil permettant de signaler l’activité et de déclencher la notification d’alerte lorsque le nombre de verrouillages extranet dépasse ce seuil par **jour**. |
+| Verrouillage extranet / Heure| Paramètre de seuil permettant de signaler l’activité et de déclencher la notification d’alerte lorsque le nombre de verrouillages extranet dépasse ce seuil par **heure**. |
+
+> [!NOTE]
+> - La modification du seuil du rapport est appliquée une heure après la modification de ce paramètre. 
+> - Les éléments signalés existants ne seront pas affectés par la modification du seuil. 
+> - Nous vous recommandons d’analyser le nombre d’événements détectés dans votre environnement et de régler le seuil en conséquence. 
+>
+>
+
+### <a name="faq"></a>Forum Aux Questions
+1. Pourquoi vois-je des plages d’adresses IP privées dans le rapport ?  <br />
+Les adresses IP privées (<i>10.x.x.x, 172.x.x.x et 192.168.x.x</i>) et les adresses IP Exchange sont filtrées et marquées comme True dans la liste blanche d’adresses IP. Si vous voyez des plages d’adresses IP privées, il est très probable que votre équilibreur de charge externe n’envoie pas l’adresse IP client lorsqu’il transmet la requête au serveur proxy d’application web.
+
+2. Que faire pour bloquer l’adresse IP ?  <br />
+Vous devez ajouter l’adresse IP malveillante identifiée dans le pare-feu ou la bloquer dans Exchange.   <br />
+Pour les services AD FS 2016 + 1803.C+ QFE, vous pouvez bloquer l’adresse IP directement dans AD FS. 
+
+3. Pourquoi ne vois-je aucun élément dans ce rapport ? <br />
+   - Les activités de connexion ayant échoué ne dépassent pas les paramètres de seuil. 
+   - Assurez-vous qu’aucune alerte vous avertissant que le service Health n’est pas à jour n’est active dans la liste des serveurs AD FS.  En savoir plus sur [la résolution de cette alerte](active-directory-aadconnect-health-data-freshness.md).
+   - Les audits ne sont pas activés dans les batteries de serveurs AD FS.
+
 
 ## <a name="related-links"></a>Liens connexes
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)

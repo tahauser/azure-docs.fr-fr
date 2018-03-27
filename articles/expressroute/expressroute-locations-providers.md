@@ -1,24 +1,24 @@
 ---
-title: "Emplacements et fournisseurs de connectivité : Azure ExpressRoute | Microsoft Docs"
-description: "Cet article fournit une vue d’ensemble détaillée des emplacements où les services sont proposés et de la façon de se connecter à des régions Azure. Trié par emplacement."
+title: 'Emplacements et fournisseurs de connectivité : Azure ExpressRoute | Microsoft Docs'
+description: Cet article fournit une vue d’ensemble détaillée des emplacements où les services sont proposés et de la façon de se connecter à des régions Azure. Trié par emplacement.
 services: expressroute
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: feb67da3-5abc-4acb-bad4-f78e3c541ded
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/07/2018
+ms.date: 03/09/2018
 ms.author: pareshmu
-ms.openlocfilehash: b626ebae8032902bae168460eeede00dfdc7dfc2
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 277bde74283f847c915cc5e91e92bad50d401021
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partenaires ExpressRoute et emplacements d’homologation
 
@@ -82,7 +82,7 @@ Le tableau suivant présente les emplacements de connectivité et les fournisseu
 | **Londres** |AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telehouse - KDDI, Telenor, Verizon, Vodafone, Zayo |
 | **Los Angeles** |CoreSite, Equinix, Megaport, NTT, Zayo |
 | **Melbourne** |AARNet, Equinix, Megaport, NEXTDC, Telstra Corporation |
-| **Miami** |C3ntro+, Megaport, Neutrona Networks |
+| **Miami** |C3ntro+, Equinix, Megaport, Neutrona Networks |
 | **Montréal** |Bell Canada, Cologix, Telus, Zayo |
 | **Mumbai** |Airtel+, Global CloudXchange (GCX), Sify, Tata Communications |
 | **New York** |Coresite, Equinix, Level 3 Communications, Megaport, Zayo |

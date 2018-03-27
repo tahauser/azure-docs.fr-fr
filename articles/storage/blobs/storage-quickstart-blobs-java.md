@@ -1,25 +1,26 @@
 ---
-title: "Démarrage rapide Azure - Charger, télécharger et répertorier des objets blob dans Stockage Azure à l’aide de Java | Microsoft Docs"
-description: "Dans le cadre de ce démarrage rapide, vous créez un compte de stockage et un conteneur. Ensuite, vous utilisez la bibliothèque de client de stockage pour Java, afin de charger un objet blob dans Stockage Azure, de télécharger un objet blob et de répertorier les objets blob dans un conteneur."
+title: Démarrage rapide Azure - Charger, télécharger et répertorier des objets blob dans Stockage Azure à l’aide de Java | Microsoft Docs
+description: Dans le cadre de ce démarrage rapide, vous créez un compte de stockage et un conteneur. Ensuite, vous utilisez la bibliothèque de client de stockage pour Java, afin de charger un objet blob dans Stockage Azure, de télécharger un objet blob et de répertorier les objets blob dans un conteneur.
 services: storage
 author: roygara
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 03/15/2018
 ms.author: rogarana
-ms.openlocfilehash: cde366e75e4111a911be67795a2ad4dfa73778ea
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 44e5f921ca9303e680c76d439ab7503ea3c39680
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-java"></a>Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide de Java
 
 Dans ce guide de démarrage rapide, vous apprenez à utiliser Java pour charger, télécharger et lister des objets blob de blocs dans un conteneur de stockage blob Azure.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Pour effectuer ce démarrage rapide :
 
@@ -202,6 +203,19 @@ downloadedFile.deleteOnExit();
 if(sourceFile != null)
 sourceFile.deleteOnExit();
 ```
+
+## <a name="resources-for-developing-java-applications-with-blobs"></a>Ressources sur le développement d’applications Java avec des objets blob
+
+Consultez ces ressources supplémentaires sur le développement Java avec le stockage Blob :
+
+### <a name="binaries-and-source-code"></a>Fichiers binaires et code source
+
+- Affichez et téléchargez le [code source de la bibliothèque de client Java](https://github.com/Azure/azure-storage-java) pour Stockage Azure sur GitHub.
+
+### <a name="client-library-reference-and-samples"></a>Référence et exemples de la bibliothèque de client
+
+- Consultez les [Informations de référence sur l’API Java](https://docs.microsoft.com/en-us/java/api/overview/azure/storage) pour en savoir plus sur la bibliothèque de client Java.
+- Explorez les [exemples de Stockage Blob](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=java&term=blob) écrits avec la bibliothèque de client Java.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

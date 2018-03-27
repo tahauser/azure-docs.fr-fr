@@ -1,10 +1,10 @@
 ---
-title: "Présentation de Log Analytics | Microsoft Docs"
-description: "Log Analytics est un service d’Azure qui vous permet de collecter et d’analyser les données opérationnelles générées par les ressources de votre cloud et de vos environnements locaux.  Cet article fournit une vue d'ensemble des différents composants de Log Analytics ainsi que des liens vers un contenu détaillé."
+title: Qu’est-ce qu’Azure Log Analytics ? | Microsoft Docs
+description: Log Analytics est un service d’Azure qui vous permet de collecter et d’analyser les données opérationnelles générées par les ressources de votre cloud et de vos environnements locaux.  Cet article fournit une vue d'ensemble des différents composants de Log Analytics ainsi que des liens vers un contenu détaillé.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: bd90b460-bacf-4345-ae31-26e155beac0e
 ms.service: log-analytics
@@ -12,67 +12,95 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/24/2018
+ms.date: 03/14/2018
 ms.author: bwren
-ms.openlocfilehash: a95528f5bd259a36ea96c7bc0660ca082c09d6e6
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: b951d41dab4d349a8d648e7eaa7e23b73ced2ced
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="what-is-log-analytics"></a>Présentation de Log Analytics
-Log Analytics est un service d’Azure qui surveille vos environnements cloud et locaux et assure leur disponibilité et leurs performances.  Il collecte les données générées par les ressources de votre cloud et de vos environnements locaux et d’autres outils d’analyse pour fournir une analyse sur plusieurs sources.  Cet article traite brièvement de la valeur apportée par Log Analytics, fournit une vue d’ensemble de son fonctionnement et des liens vers des contenus plus détaillés pour aller plus loin.
+# <a name="what-is-azure-log-analytics"></a>Qu’est-ce qu’Azure Log Analytics ?
+Log Analytics joue un rôle central dans la gestion Azure : il collecte les données de télémétrie et d’autres données à partir de diverses sources et fournit un langage de requêtes et un moteur d’analyse qui vous donnent des informations sur le fonctionnement de vos applications et de vos ressources.  Vous pouvez interagir directement avec les données Log Analytics par le biais des recherches dans les journaux et des affichages, ou utiliser les outils d’analyse dans d’autres services Azure qui stockent leurs données dans Log Analytics, comme Application Insights ou Azure Security Center.  
 
-## <a name="is-log-analytics-for-you"></a>Log Analytics est-il adapté à vos besoins ?
-Si aucune analyse n’est actuellement mise en place pour votre environnement Azure, vous devez commencer avec [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) qui recueille et analyse les données de vos ressources Azure.  Log Analytics peut [collecter des données à partir d’Azure Monitor](log-analytics-azure-storage.md) pour les corréler avec d’autres données et fournir une analyse supplémentaire.
-
-Si vous souhaitez analyser votre environnement local ou si vous disposez déjà d’une analyse existante effectuée à l’aide de services comme Azure Monitor ou System Center Operations Manager, sachez que Log Analytics peut se révéler très utile.  La collecte peut s’effectuer directement à partir de vos agents et également de ces autres outils vers un référentiel unique.  Les outils d’analyse de Log Analytics, tels que les recherches de journaux, les vues et les solutions fonctionnent avec toutes les données collectées. Vous disposez ainsi d’une analyse centralisée de l’ensemble de votre environnement.
+Log Analytics nécessite peu de configuration et est déjà intégré à d’autres services Azure.  Vous devez simplement créer un espace de travail qui permettra la collecte.  Vous pouvez ensuite installer des agents sur des machines virtuelles afin de les inclure dans l’espace de travail et d’utiliser des solutions de gestion qui incluent la logique pour fournir des informations supplémentaires sur les différentes applications.  Dans les coulisses, les types de données sont prédéfinis ou créés automatiquement lorsque les données sont collectées.
 
 
-## <a name="using-log-analytics"></a>Utilisation de Log Analytics
-Vous pouvez accéder à Log Analytics via le portail Azure qui s’exécute dans un navigateur et vous donne accès aux paramètres de configuration et à plusieurs outils pour analyser et agir sur les données collectées.  À partir du portail, vous pouvez utiliser des [recherches dans les journaux](log-analytics-log-searches.md) pour créer des requêtes et analyser les données collectées, des [tableaux de bord](log-analytics-dashboards.md) personnalisables avec des vues graphiques de vos recherches les plus précieuses, et des [solutions](log-analytics-add-solutions.md) intégrant des fonctionnalités et des outils d’analyse supplémentaires.
+## <a name="role-in-monitoring"></a>Rôle dans la surveillance
 
-L’image ci-dessous affiche l’écran de Vue d’ensemble présentant des informations résumées pour les [solutions](#add-functionality-with-management-solutions) installées dans l’espace de travail.  Vous pouvez cliquer sur n’importe quelle vignette pour explorer les données de cette solution.
+Les différents services de surveillance dans Azure sont décrits dans [Surveillance des applications et des ressources Azure](../monitoring-and-diagnostics/monitoring-overview.md).  Log Analytics joue un rôle central : il consolide les données de surveillance à partir de différentes sources et fournit un langage de requête puissant en vue de la consolidation et de l’analyse.  
 
-![Portail OMS](media/log-analytics-overview/portal.png)
+Log Analytics ne se contente cependant pas de surveiller les ressources Azure.  Il peut recueillir des données à partir de ressources locales ou dans d’autres clouds afin de créer un environnement d’analyse hybride, et peut se connecter directement à System Center Operations Manager pour collecter les données de télémétrie des agents existants.  Les outils d’analyse de Log Analytics, tels que les recherches dans les journaux, les vues et les solutions de gestion, fonctionnent avec toutes les données collectées. Vous pouvez ainsi analyser l’ensemble de votre environnement de manière centralisée.
 
-Log Analytics inclut un langage de requête pour rapidement récupérer et consolider les données dans le référentiel.  Vous pouvez créer et enregistrer des [recherches de journaux](log-analytics-log-searches.md) afin d’analyser les données dans le portail, ou exécuter automatiquement des recherches de journaux pour créer une alerte si les résultats de la requête signalent une condition importante.
 
-![Recherche dans les journaux](media/log-analytics-overview/log-search.png)
 
-Pour analyser des données en dehors de Log Analytics, vous pouvez exporter les données vers des outils tels que [Power BI](log-analytics-powerbi.md) ou Excel.  Vous pouvez également utiliser les [API de recherche de journal](log-analytics-log-search-api.md) pour créer des solutions personnalisées qui exploitent les données Log Analytics, ou pour les intégrer à d'autres systèmes.
+## <a name="data-collection"></a>Collecte des données
+Log Analytics peut recueillir des données de diverses sources.  Une fois collectées, les données sont organisées dans différents tableaux en fonction du type de données. Toutes les données sont ainsi analysées ensemble, quelle que soit leur source d’origine.
+
+Les méthodes de collecte des données dans Log Analytics incluent :
+
+- la configuration d’Azure Monitor pour copier les métriques et les journaux collectés à partir des ressources Azure ;
+- les agents sur les machines virtuelles [Windows](log-analytics-windows-agent.md) et [Linux](log-analytics-linux-agents.md) envoient les données de télémétrie du système d’exploitation invité et des applications à Log Analytics en fonction des [sources de données](log-analytics-data-sources.md) que vous configurez ;  
+- la connexion d’un [groupe d’administration System Center Operations Manager](log-analytics-om-agents.md) pour Log Analytics, afin de collecter des données à partir de ses agents ;
+- les services Azure tels que [Application Insights](https://docs.microsoft.com/azure/application-insights/) et [Azure Security Center](https://docs.microsoft.com/azure/security-center/) stockent leurs données directement dans Log Analytics, sans aucune configuration ;
+- l’écriture des données à partir d’une ligne de commande PowerShell ou d’un [runbook Azure Automation](../automation/automation-runbook-types.md) à l’aide des cmdlets Log Analytics.
+- Si vous avez des besoins spécifiques, vous pouvez utiliser l’[API de collecte de données HTTP](log-analytics-data-collector-api.md) pour écrire des données dans Log Analytics à partir de n’importe quel client de l’API REST.
+
+
+![Composants de Log Analytics](media/log-analytics-overview/collecting-data.png)
 
 ## <a name="add-functionality-with-management-solutions"></a>Ajouter des fonctionnalités avec des solutions de gestion
-Les [solutions de gestion](log-analytics-add-solutions.md) ajoutent des fonctionnalités à Log Analytics en fournissant des données et des outils d’analyse supplémentaires à Log Analytics.  Elles peuvent également définir de nouveaux types d’enregistrements à collecter qui peuvent être analysés avec des recherches de journaux ou via une interface utilisateur supplémentaire fournie par la solution dans le tableau de bord.  L’image de l’exemple ci-dessous montre la [solution de suivi des modifications](log-analytics-change-tracking.md)
+Les [solutions de gestion](log-analytics-add-solutions.md) offrent une logique préconfigurée pour un scénario ou un produit donné.  Elles permettent de recueillir des données supplémentaires dans Log Analytics ou de traiter des données déjà collectées.  Elles incluent généralement une vue vous permettant de mieux analyser ces données supplémentaires.  Les solutions sont disponibles pour diverses fonctions et des solutions supplémentaires sont ajoutées régulièrement.  Vous pouvez facilement parcourir les solutions disponibles et [les ajouter à votre espace de travail](log-analytics-add-solutions.md) à partir d’Azure Marketplace.  
 
-![Solution de suivi des modifications](media/log-analytics-overview/change-tracking.png)
+![Marketplace](media/log-analytics-overview/solutions.png)
 
-Les solutions sont disponibles pour diverses fonctions et des solutions supplémentaires sont ajoutées régulièrement.  Vous pouvez facilement parcourir les solutions disponibles et [les ajouter à votre espace de travail](log-analytics-add-solutions.md) à partir d’Azure Marketplace.  Nombre d’entre elles sont automatiquement déployées et immédiatement opérationnelles, tandis que d’autres peuvent nécessiter une configuration.
 
-![Galerie de solutions](media/log-analytics-overview/solution-gallery.png)
+## <a name="query-language"></a>Langage de requête
 
-## <a name="log-analytics-components"></a>Composants de Log Analytics
-Au cœur de Log Analytics se trouve un référentiel de données collectées, qui est hébergé dans le cloud Azure.  Les données sont collectées à partir de sources connectées en configurant des sources de données et en ajoutant des solutions à votre abonnement.  Les sources de données et les solutions créeront chacune différents types d'enregistrements avec leur propre jeu de propriétés, mais elles peuvent toujours être analysées ensemble dans des requêtes vers le référentiel.  Vous pouvez ainsi utiliser les mêmes outils et méthodes pour travailler avec différents types de données collectées par différentes sources.
+Log Analytics inclut un [langage de requête riche](http://docs.loganalytics.io) pour rapidement récupérer, consolider et analyser les données collectées.  Vous pouvez créer et tester des requêtes à l’aide des [portails de recherche dans les journaux ou d’analyse avancée](log-analytics-log-search-portals.md), avant d’analyser directement les données à l’aide de ces outils ou d’enregistrer les requêtes pour les utiliser pour les visualisations, les alertes ou l’exportation vers d’autres outils tels que Power BI ou Excel.
 
-![Composants de Log Analytics](media/log-analytics-overview/overview.png)
+Le langage de requête Log Analytics est adapté aux recherches simples dans les journaux, mais inclut également des fonctionnalités avancées telles que les agrégations, les jointures et les analyses intelligentes. Il existe [plusieurs didacticiels](https://docs.loganalytics.io/docs/Learn/Tutorials) pour vous aider à apprendre le langage de requête.  Des conseils particuliers sont fournis aux utilisateurs qui connaissent déjà [SQL](https://docs.loganalytics.io/docs/Learn/References/SQL-to-Azure-Log-Analytics) et [Splunk](https://docs.loganalytics.io/docs/Learn/References/Splunk-to-Azure-Log-Analytics).
 
-Les sources connectées représentent les ordinateurs et autres ressources qui génèrent des données collectées par Log Analytics.  Cela peut inclure des agents installés sur des ordinateurs [Windows](log-analytics-windows-agent.md) et [Linux](log-analytics-linux-agents.md) directement connectés, ou des agents d’un [groupe d’administration System Center Operations Manager connecté](log-analytics-om-agents.md).  Pour les ressources Azure, Log Analytics collecte des données à partir d’[Azure Monitor et Azure Diagnostics](log-analytics-azure-storage.md).
+![Recherche dans les journaux](media/log-analytics-overview/analytics-query.png)
 
-[sources de données](log-analytics-data-sources.md) représentent les différents types de données collectées à partir de chaque source connectée.  Cela inclut les [événements](log-analytics-data-sources-windows-events.md) et les [données de performances](log-analytics-data-sources-performance-counters.md) d’agents [Windows](log-analytics-data-sources-windows-events.md) et Linux en plus des sources telles que les [journaux IIS](log-analytics-data-sources-iis-logs.md) et les [journaux de texte personnalisés](log-analytics-data-sources-custom-logs.md).  Vous configurez chaque source de données que vous souhaitez collecter, et la configuration est automatiquement remise à chaque source connectée.
 
-Si vous avez des besoins spécifiques, vous pouvez utiliser l’[API de collecte de données HTTP](log-analytics-data-collector-api.md) pour écrire des données dans le référentiel à partir d’un client de l’API REST.
+## <a name="visualize-log-analytics-data"></a>Visualiser les données Log Analytics
 
-## <a name="log-analytics-architecture"></a>Architecture Log Analytics
-Les exigences de déploiement de Log Analytics sont minimes car les composants centraux sont hébergés dans le cloud Azure.  Cela inclut le référentiel en plus des services qui vous permettent de mettre en corrélation et d’analyser les données collectées.  Le portail étant accessible depuis n'importe quel navigateur, aucun logiciel client n’est requis.
+Les [vues dans Log Analytics](log-analytics-view-designer.md) présentent de manière visuelle les données obtenues grâce aux recherches dans les journaux.  Chaque vue inclut plusieurs visualisations, par exemple sous forme de barres et de graphiques en courbes, en plus des listes résumant les données critiques.  Les [solutions de gestion](#add-functionality-with-management-solutions) incluent des vues qui synthétisent les données pour une application donnée. Vous pouvez créer vos propres vues pour présenter les données d’une recherche dans les journaux Log Analytics.
 
-Vous devez installer les agents sur des ordinateurs [Windows](log-analytics-windows-agent.md) et [Linux](log-analytics-linux-agents.md), mais aucun agent supplémentaire n’est nécessaire pour les ordinateurs déjà membres d’un [groupe d’administration SCOM connecté](log-analytics-om-agents.md).  Les agents SCOM continueront à communiquer avec les serveurs d’administration qui transmettront leurs données à Log Analytics.  Certaines solutions nécessiteront cependant que les agents communiquent directement avec Log Analytics.  La documentation de chaque solution spécifie les besoins de communication.
+![Vue Log Analytics](media/log-analytics-overview/view.png)
 
-Lorsque vous vous [inscrivez à Log Analytics](log-analytics-get-started.md), vous créez un espace de travail.  Considérez cet espace de travail comme un environnement Log Analytics unique avec son propre référentiel de données, et ses propres sources de données et solutions. Vous pouvez créer plusieurs espaces de travail dans votre abonnement afin de prendre en charge plusieurs environnements, par exemple de production et de test.
+Vous pouvez également épingler les résultats d’une requête Log Analytics sur un [tableau de bord Azure](../azure-portal/azure-portal-dashboards.md). Cela vous permet d’associer les vignettes de différents services Azure.  Vous pouvez même épingler une vue Log Analytics à un tableau de bord.
 
-![Architecture Log Analytics](media/log-analytics-overview/architecture.png)
+![Tableaux de bord Azure](media/log-analytics-overview/dashboard.png)
+
+## <a name="creating-alerts-from-log-analytics-data"></a>Création d’alertes à partir des données Log Analytics
+
+Utilisez les [alertes Azure](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) pour être informé de manière proactive de l’état des données Log Analytics qui vous intéressent.  Une requête est automatiquement exécutée à intervalles planifiés et une alerte créée si les résultats répondent à des critères spécifiques.  Vous pouvez ainsi combiner des alertes issues de Log Analytics avec celles d’autres sources, telles que les alertes en quasi-temps réel d’[Azure Monitor](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md) et les exceptions d’application [Application Insights](../application-insights/app-insights-alerts.md), et partager des [groupes d’actions](../monitoring-and-diagnostics/monitoring-action-groups.md) en cas de correspondance avec les conditions d’alerte.
+
+![Alerte](media/log-analytics-overview/alerts.png)
+
+
+## <a name="using-log-analytics-data-in-other-services"></a>Utilisation des données Log Analytics dans d’autres services
+Les services tels que Application Insights et Azure Security Center stockent leurs données dans Log Analytics.  Vous allez généralement utiliser les outils d’analyse riches fournis par ces services, mais vous pouvez également utiliser les requêtes Log Analytics pour accéder à leurs données et éventuellement les combiner avec des données provenant d’autres services.  
+
+Par exemple, la vue suivante provient d’Application Insights.  Si vous cliquez sur l’icône située dans le coin supérieur droit, la console d’analyse Log Analytics démarre avec les requêtes utilisées par le graphique.
+
+![Application Insights](media/log-analytics-overview/application-insights.png)
+
+
+## <a name="exporting-log-analytics-data"></a>Exportation des données Log Analytics
+
+Log Analytics met également ses données à disposition en dehors d’Azure.  Vous pouvez configurer [Power BI](log-analytics-powerbi.md) afin d’importer les résultats d’une requête à intervalles planifiés afin de bénéficier de ses fonctionnalités, telles que la combinaison de données provenant de différentes sources et le partage de rapports sur le Web et sur des appareils mobiles.  Vous pouvez également utiliser les [API de recherche de journal](log-analytics-log-search-api.md) pour créer des solutions personnalisées qui exploitent les données Log Analytics, ou pour les intégrer à d'autres systèmes.
+
+Vous pouvez utiliser [Logic Apps](../logic-apps/logic-apps-overview.md) dans Azure pour créer des flux de travail personnalisés en fonction des données Log Analytics.  Pour une logique plus complexe basée sur PowerShell, vous pouvez utiliser des [runbooks dans Azure Automation](../automation/automation-runbook-types.md).
+
+![Power BI](media/log-analytics-overview/export.png)
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Inscrivez-vous pour obtenir un compte Log Analytics gratuit](log-analytics-get-started.md) que vous pouvez tester dans votre environnement.
-* Affichez les différentes [sources de données](log-analytics-data-sources.md) disponibles pour collecter des données dans Log Analytics.
-* [Parcourez les solutions disponibles dans la galerie de solutions](log-analytics-add-solutions.md) pour ajouter des fonctionnalités à Log Analytics.
+- Commencez avec la [collecte de données à partir de machines virtuelles Azure](log-analytics-quick-collect-azurevm.md).
+- Découvrez un [didacticiel sur l’analyse des données Log Analytics à l’aide d’une requête simple](log-analytics-tutorial-viewdata.md).
+* [Parcourez les solutions disponibles](log-analytics-add-solutions.md) pour ajouter des fonctionnalités à Log Analytics.
 

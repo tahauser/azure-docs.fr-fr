@@ -1,12 +1,12 @@
 ---
-title: "Créer une application Ruby et la déployer sur App Service sur Linux | Microsoft Docs"
-description: "Apprenez à créer des applications Ruby avec App Service sur Linux."
+title: Créer une application Ruby et la déployer sur App Service sur Linux | Microsoft Docs
+description: Apprenez à créer des applications Ruby avec App Service sur Linux.
 keywords: azure app service, linux, oss, ruby
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: SyntaxC4
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
 ms.service: app-service
 ms.workload: na
@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.date: 10/10/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: db3086724c22e485e2a9a69c36a990fc5b8016a9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6668f02bb7ac9588e1bb11b3848d0a3e25cbed67
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-ruby-app-in-app-service-on-linux"></a>Créer une application Ruby dans App Service sur Linux
 
@@ -31,6 +31,7 @@ ms.lasthandoff: 02/01/2018
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 * <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Installez Ruby 2.4.1 ou version ultérieure</a>
 * <a href="https://git-scm.com/" target="_blank">Installez Git</a>
@@ -88,37 +89,23 @@ Votre application est désormais configurée. À l’aide de votre navigateur we
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-## <a name="create-a-ruby-web-app-on-azure"></a>Créer une application web Ruby sur Azure
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
 
-Un groupe de ressources est obligatoire pour contenir les ressources nécessaires pour votre application web. Pour créer un groupe de ressources, utilisez la commande [`az group create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create).
+[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-```azurecli-interactive
-az group create --location westeurope --name myResourceGroup
-```
+## <a name="create-a-web-app"></a>Créer une application web
 
-Utilisez la commande [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) pour créer un plan App Service pour votre application web.
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-ruby-linux-no-h.md)] 
 
-```azurecli-interactive
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --is-linux
-```
-
-Ensuite, utilisez la commande [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) pour créer l’application web qui utilise le plan de service nouvellement créé. Notez que le runtime est défini sur `ruby|2.3`. N’oubliez pas de remplacer `<app name>` par un nom d’application unique.
-
-```azurecli-interactive
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> \
---runtime "ruby|2.3" --deployment-local-git
-```
-
-La sortie de la commande révèle des informations sur l’application web qui vient d’être créée, ainsi que sur l’URL de déploiement. Elle doit être semblable à l’exemple suivant. Copiez l’URL pour une utilisation ultérieure dans ce didacticiel.
+Accédez au site pour voir votre nouvelle application web avec une image intégrée. Remplacez _&lt;nom de l’application>_ par le nom de votre application web.
 
 ```bash
-https://<deployment user name>@<app name>.scm.azurewebsites.net/<app name>.git
+http://<app_name>.azurewebsites.net
 ```
 
-Une fois l’application web créée, une page **Vue d’ensemble** est disponible à l’affichage. Naviguez vers cet emplacement. La page de démarrage suivante s’affiche :
+Voici à quoi doit ressembler votre nouvelle application web :
 
 ![Page de démarrage](./media/quickstart-ruby/splash-page.png)
-
 
 ## <a name="deploy-your-application"></a>Déployer votre application
 

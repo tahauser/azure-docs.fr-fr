@@ -1,12 +1,12 @@
 ---
-title: "Créer votre premier flux de travail automatisé : Azure Logic Apps| Microsoft Docs"
-description: "Ce guide de démarrage rapide montre comment automatiser votre premier flux de travail avec Azure Logic Apps pour les scénarios d’intégration système et d’Intégration d’Applications d’Entreprise (IAE) qui intègrent des systèmes et services cloud"
+title: 'Créer votre premier flux de travail automatisé : Azure Logic Apps| Microsoft Docs'
+description: Ce guide de démarrage rapide montre comment automatiser votre premier flux de travail avec Azure Logic Apps pour les scénarios d’intégration système et d’Intégration d’Applications d’Entreprise (IAE) qui intègrent des systèmes et services cloud
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-keywords: "flux de travail, services cloud, intégration système, intégration d’applications d’entreprise, IAE"
-documentationcenter: 
+keywords: flux de travail, services cloud, intégration système, intégration d’applications d’entreprise, IAE
+documentationcenter: ''
 ms.assetid: ce3582b5-9c58-4637-9379-75ff99878dcd
 ms.service: logic-apps
 ms.workload: na
@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 1/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: d382144c202b2b7f5623f2cca2a82c384387e8ca
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ccd00fbb3c5dc0f78a31adcaed31bbe6e4a6e785
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="quickstart-build-your-first-logic-app-workflow---azure-portal"></a>Démarrage rapide : créer votre premier flux de travail d’application logique (portail Azure)
 
@@ -38,7 +38,7 @@ Connectez-vous au <a href="https://portal.azure.com" target="_blank">portail Azu
 
 ## <a name="create-your-logic-app"></a>Créer votre application logique 
 
-1. Dans le menu principal Azure, choisissez **Créer une ressource** > **Enterprise Integration** > **Application logique**.
+1. Dans le menu principal Azure, choisissez **Créer une ressource** > **Intégration Entreprise** > **Application logique**.
 
    ![Créer une application logique](./media/quickstart-create-first-logic-app-workflow/create-logic-app.png)
 
@@ -60,6 +60,8 @@ Connectez-vous au <a href="https://portal.azure.com" target="_blank">portail Azu
    ![Choisir un modèle d’application logique vide](./media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png)
 
 Ensuite, ajoutez un [déclencheur](../logic-apps/logic-apps-overview.md#logic-app-concepts) qui s’active lorsqu’un nouvel élément de flux RSS apparaît. Chaque application logique doit démarrer avec un déclencheur, qui s’active lorsqu’un événement spécifique se produit ou lorsqu’une condition particulière est remplie. Chaque fois que le déclencheur s’active, le moteur Logic Apps crée une instance d’application logique qui démarre et exécute votre flux de travail.
+
+<a name="add-rss-trigger"></a>
 
 ## <a name="check-rss-feed-with-a-trigger"></a>Vérifier le flux RSS avec un déclencheur
 
@@ -144,7 +146,7 @@ Ajoutez une [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) qu
       ![Ajouter du contenu pour le corps de l’e-mail](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-body.png)
 
       | Paramètre | Description | 
-      | ----- | ----------- | 
+      | ------- | ----------- | 
       | **Titre du flux** | Titre de l’élément. | 
       | **Flux publié le** | Date et heure de publication de l’élément. | 
       | **Lien du flux principal** | URL de l’élément. | 
@@ -156,15 +158,16 @@ Ajoutez une [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) qu
 
 ## <a name="run-your-logic-app"></a>Exécuter votre application logique
 
-Pour lancer manuellement votre application logique, sélectionnez **Exécuter** dans la barre d’outils du concepteur. Vous pouvez également attendre que votre application logique s’exécute selon la planification que vous avez spécifiée (toutes les minutes). Si le flux RSS a de nouveaux éléments, votre application logique envoie un e-mail pour chaque nouvel élément. Néanmoins si le flux ne comporte aucun nouvel élément, votre application logique ignore l’activation du déclencheur et attend le prochain intervalle avant de procéder à une nouvelle vérification. 
+Pour lancer manuellement votre application logique, sélectionnez **Exécuter** dans la barre d’outils du concepteur. Vous pouvez également attendre que votre application logique vérifie le flux RSS selon la planification que vous avez spécifiée (toutes les minutes). Si le flux RSS a de nouveaux éléments, votre application logique envoie un e-mail pour chaque nouvel élément. Dans le cas contraire, votre application logique attend jusqu’à l’intervalle suivant avant de procéder à une nouvelle vérification. 
 
-Par exemple, voici un exemple d’e-mail envoyé par cette application logique :
+Par exemple, voici un e-mail classique envoyé par cette application logique. Si vous ne recevez aucun e-mail, vérifiez votre dossier Courrier indésirable.
 
 ![E-mail envoyé en raison d’un nouvel élément dans le flux RSS](./media/quickstart-create-first-logic-app-workflow/monitor-rss-feed-email.png)
 
-Si vous ne recevez pas d’e-mail, vérifiez le dossier Courrier indésirable de votre messagerie. Il se peut que le filtre de courrier indésirable redirige ces types de courrier. 
+Techniquement, lorsque le déclencheur vérifie le flux RSS et trouve de nouveaux éléments, le déclencheur s’active et le moteur Logic Apps crée une instance de workflow d’application logique qui exécute les actions dans le workflow.
+Si le déclencheur ne trouve pas de nouveaux éléments, il ne s’active pas et « ignore » l’instanciation du workflow.
 
-Félicitations ! Vous venez de créer et d’exécuter votre première application logique.
+Félicitations, vous avez correctement généré et exécuté votre première application logique avec le portail Azure !
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

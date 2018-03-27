@@ -1,8 +1,8 @@
 ---
-title: "Transformer des données à l’aide de Hive dans un réseau virtuel Azure | Microsoft Docs"
-description: "Ce didacticiel fournit des instructions détaillées de transformation des données à l’aide de l’activité Hive dans Azure Data Factory."
+title: Transformer des données à l’aide de Hive dans un réseau virtuel Azure | Microsoft Docs
+description: Ce didacticiel fournit des instructions détaillées de transformation des données à l’aide de l’activité Hive dans Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: shengcmsft
 manager: jhubbard
 editor: spelluru
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/04/2018
 ms.author: shengc
-ms.openlocfilehash: a7575549225d47e5266ca7e1778c3e61835de1cc
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8711d7ed1d02f0960ef00c1cf5053e97aa00ad5c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Transformer des données dans un réseau virtuel Azure à l’aide de l’activité Hive dans Azure Data Factory
 Dans ce didacticiel, vous utilisez le portail Azure pour créer un pipeline Azure Data Factory qui transforme des données à l’aide d’une activité Hive sur un cluster HDInsight qui se trouve dans un réseau virtuel Azure (VNet). Dans ce didacticiel, vous allez effectuer les étapes suivantes :
@@ -36,7 +36,8 @@ Dans ce didacticiel, vous utilisez le portail Azure pour créer un pipeline Azur
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 - **Compte Stockage Azure**. Vous créez un script Hive et le téléchargez vers le stockage Azure. La sortie du script Hive est stockée dans ce compte de stockage. Dans cet exemple, le cluster HDInsight utilise ce compte de stockage Azure en tant que stockage principal. 
 - **Réseau virtuel Azure.** Si vous ne disposez pas d’un réseau virtuel Azure, créez-le en suivant [ces instructions](../virtual-network/quick-create-portal.md). Dans cet exemple, HDInsight est dans un réseau virtuel Azure. Voici un exemple de configuration du réseau virtuel Azure. 
 
@@ -114,9 +115,9 @@ Le cluster Hadoop se trouvant dans un réseau virtuel, vous devez installer un r
 2. Dans la fenêtre **Installation du runtime d’intégration**, sélectionnez l’option **Perform data movement and dispatch activities to external computes** (Effectuer des activités de déplacement des données et distribuer des activités à des services de calcul), puis cliquez sur **Suivant**. 
 
    ![Sélectionner l’option d’exécution d’activités de déplacement des données et de distribution des activités](./media/tutorial-transform-data-using-hive-in-vnet-portal/select-perform-data-movement-compute-option.png)
-3. Sélectionnez **Réseau public**, puis cliquez sur **Suivant**.
+3. Sélectionnez **Réseau privé**, puis cliquez sur **Suivant**.
     
-   ![Sélectionner le réseau privé](./media/tutorial-transform-data-using-hive-in-vnet-portal/select-private-network.png)
+   ![Sélectionner un réseau privé](./media/tutorial-transform-data-using-hive-in-vnet-portal/select-private-network.png)
 4. Entrez **MySelfHostedIR** pour le **Nom**, puis cliquez sur **Suivant**. 
 
    ![Spécifier le nom du runtime d’intégration](./media/tutorial-transform-data-using-hive-in-vnet-portal/integration-runtime-name.png) 

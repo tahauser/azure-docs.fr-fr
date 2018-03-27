@@ -1,189 +1,204 @@
 ---
-title: "Gérer les ressources Azure Data Lake Store dans l’Explorateur Stockage Azure"
-description: "Permet aux utilisateurs d’accéder aux données et ressources ADLS et de les gérer dans l’Explorateur Stockage Azure"
+title: Gérer les ressources Azure Data Lake Store dans l’Explorateur Stockage Azure
+description: Découvrez comment accéder aux données et ressources Azure Data Lake Store et les gérer dans l’Explorateur Stockage Azure
 Keywords: Azure Data Lake Store, Azure Storage Explorer
 services: Data Lake Store
-documentationcenter: 
+documentationcenter: ''
 author: jejiang
 manager: DJ
 editor: Jenny Jiang
-ms.assetid: 
+ms.assetid: ''
 ms.service: Data Lake Store
 ms.custom: Azure Data Lake Store
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 02/05/2018
 ms.author: jejiang
-ms.openlocfilehash: 4c69acebceac6719cf3f12ff0a93879f1b5a8943
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a02844c678c08d8aefbceb16d3908faeffd755fb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="manage-azure-data-lake-store-resources-with-storage-explorer-preview"></a>Gérer les ressources Azure Data Lake Store avec l’Explorateur Stockage (préversion)
+# <a name="manage-azure-data-lake-store-resources-by-using-storage-explorer"></a>Gérer les ressources Azure Data Lake Store avec l’Explorateur Stockage
 
-[Azure Data Lake Store (ADLS)](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-overview) est un service destiné à stocker de grandes quantités de données non structurées, telles que des données de texte ou binaires. Les utilisateurs peuvent accéder aux données en tout lieu via HTTP ou HTTPS. Dans l’Explorateur Stockage Azure, ADLS permet aux utilisateurs d’accéder aux ressources et aux données ADLS et de les gérer. Il en va de même avec d’autres entités Azure telles que les objets blob et file d’attente. À présent, les utilisateurs peuvent se servir du même outil pour gérer leurs différentes entités Azure au même endroit.
+[Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-overview) est un service destiné à stocker de grandes quantités de données non structurées, telles que des données de texte ou binaires. Vous pouvez accéder aux données en tout lieu via HTTP ou HTTPS. Dans l’Explorateur Stockage Azure, Data Lake Store vous permet d’accéder aux ressources et aux données Data Lake Store et de les gérer. Il en va de même avec d’autres entités Azure telles que les objets blob et les files d’attente. À présent, vous pouvez utiliser le même outil pour gérer vos différentes entités Azure au même endroit.
 
-L’un des autres avantages est que les utilisateurs n’ont pas besoin de posséder une autorisation d’abonnement pour gérer les données ADLS. Dans l’Explorateur Stockage, les utilisateurs peuvent attacher le chemin d’accès ADLS au nœud « Local et attaché» tant que d’autres utilisateurs leur accordent l’autorisation.
+L’un des autres avantages est que vous n’avez pas besoin de posséder une autorisation d’abonnement pour gérer les données Data Lake Store. Dans l’Explorateur Stockage, vous pouvez joindre le chemin d’accès Data Lake Store au nœud **Local and Attached** (Local et attaché) tant qu’un utilisateur l’autorise.
 
 ## <a name="prerequisites"></a>Prérequis
+
 Pour effectuer les étapes indiquées dans cet article, vous avez besoin des éléments requis suivants :
 
 *   Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial).
 *   Un compte Azure Data Lake Store. Pour savoir comment en créer un, consultez [Prise en main d’Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal).
 
-## <a name="installation"></a>Installation
+## <a name="install-storage-explorer"></a>Installer l’Explorateur Stockage
 
-Installez la dernière version de l’Explorateur Stockage Azure ici : [Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/). Maintenant, nous prenons en charge les versions Windows, Linux et MAC.
+Installez la version la plus récente de l’Explorateur Stockage Azure à partir de la [page web du produit](https://azure.microsoft.com/features/storage-explorer/). Vous pouvez l’installer sur Windows, Linux et Mac.
 
 ## <a name="connect-to-an-azure-subscription"></a>Connexion à un abonnement Azure
 
-1. Après avoir installé l’**Explorateur Stockage Azure**, cliquez sur l’icône de **plug-in** à gauche, comme illustré dans l’image suivante.
+1. Dans l’Explorateur Stockage, sélectionnez l’icône de plug-in sur la gauche.
        
    ![Icône de plug-in](./media/data-lake-store-in-storage-explorer/plug-in-icon.png)
  
-2. Sélectionnez **Ajouter un compte Azure**, puis cliquez sur **Connexion**.
+2. Sélectionnez **Ajouter un compte Azure**, puis **Connexion**.
 
-   ![Se connecter à un abonnement Azure](./media/data-lake-store-in-storage-explorer/connect-to-azure-subscription.png)
+   ![Boîte de dialogue « Connexion au stockage Azure »](./media/data-lake-store-in-storage-explorer/connect-to-azure-subscription.png)
 
-2. Dans la boîte de dialogue **Connexion à Azure**, sélectionnez **Se connecter** et entrez vos informations d’identification Azure.
+2. Dans la boîte de dialogue de **connexion à votre compte**, saisissez vos informations d’identification Azure.
 
-    ![Se connecter](./media/data-lake-store-in-storage-explorer/sign-in.png)
+    ![Boîte de dialogue de connexion à Azure](./media/data-lake-store-in-storage-explorer/sign-in.png)
 
-3. Sélectionnez votre abonnement dans la liste, puis cliquez sur **Appliquer**.
+3. Sélectionnez votre abonnement dans la liste, puis **Appliquer**.
 
-    ![Appliquer](./media/data-lake-store-in-storage-explorer/apply-subscription.png)
+    ![Informations d’abonnement et bouton « Appliquer »](./media/data-lake-store-in-storage-explorer/apply-subscription.png)
 
-    Le volet Explorateur se met à jour et affiche les comptes de l’abonnement sélectionné.
+    Le volet **EXPLORATEUR** se met à jour et affiche les comptes de l’abonnement sélectionné.
 
     ![Liste de comptes](./media/data-lake-store-in-storage-explorer/account-list.png)
 
-    Vous êtes connecté à votre instance **Azure Data Lake Store** dans votre abonnement Azure.
+Vous êtes connecté à Azure Data Lake Store dans votre abonnement Azure.
 
 ## <a name="connect-to-data-lake-store"></a>Connexion à Data Lake Store
-Vous souhaitez accéder à des ressources, qui n’existent pas dans votre abonnement, mais d’autres personnes vous permettent d’accéder à l’URI de ces ressources. Le cas échéant, vous pouvez vous connecter à Data Lake Store à l’aide de l’URI une fois que vous êtes connecté. Procédez comme suit.
-1. Ouvrez l’Explorateur de stockage (version préliminaire).
+Vous pouvez accéder aux ressources qui n’existent pas dans votre abonnement si quelqu’un vous fournit l’URI des ressources. Vous pouvez alors vous connecter à Data Lake Store à l’aide de l’URI une fois que vous êtes connecté.
+1. Ouvrez l’Explorateur de stockage.
 2. Dans le volet gauche, développez **Local and Attached** (Local et attaché).
-3. Cliquez avec le bouton droit sur **Data Lake Store**, puis, dans le menu contextuel, sélectionnez **Connect to Data Lake Store...** (Se connecter à Data Lake Store...).
+3. Cliquez avec le bouton droit sur **Data Lake Store**, puis sélectionnez **Connexion à Data Lake Store**.
 
-      ![menu contextuel de connexion à Data Lake Store](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-uri-attach.png)
+      ![« Connexion à Data Lake Store » dans le menu contextuel](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-uri-attach.png)
 
-4. Entrez l’URI. L’outil accède alors à l’emplacement de l’URL que vous venez d’entrer.
+4. Entrez l’URI. L’outil accède à l’emplacement de l’URL que vous venez d’entrer.
 
-      ![boîte de dialogue contextuelle de connexion à Data Lake Store](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-uri-attach-dialog.png)
+      ![Boîte de dialogue « Connexion à Data Lake Store », avec la zone de texte permettant d’entrer l’URI](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-uri-attach-dialog.png)
 
-      ![résultat de la connexion à Data Lake Store](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-attach-finish.png)
+      ![Résultat de la connexion à Data Lake Store](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-attach-finish.png)
 
 ## <a name="view-an-azure-data-lake-store-accounts-contents"></a>Afficher le contenu d’un compte Azure Data Lake Store
 Les ressources d’un compte Azure Data Lake Store contiennent des fichiers et dossiers.
 
-La procédure suivante indique comment afficher le contenu d’un compte ADLS dans l’Explorateur Stockage (préversion) :
+La procédure suivante indique comment afficher le contenu d’un compte Data Lake Store dans l’Explorateur Stockage :
 
-1. Ouvrez l’Explorateur de stockage (version préliminaire).
+1. Ouvrez l’Explorateur de stockage.
 2. Dans le volet gauche, développez l’abonnement qui contient le compte Azure Data Lake Store que vous souhaitez afficher.
 3. Développez **Data Lake Store**.
-4. Cliquez avec le bouton droit sur le nœud du compte Azure Data Lake Store que vous souhaitez afficher, puis, dans le menu contextuel, sélectionnez **Ouvrir**. Vous pouvez également double-cliquer sur le compte ADLS à ouvrir. 
-5. Le volet principal affiche le contenu du compte ADLS.
+4. Cliquez avec le bouton droit sur le nœud du compte Azure Data Lake Store que vous souhaitez afficher, puis sélectionnez **Ouvrir**. Vous pouvez également double-cliquer sur le compte Data Lake Store pour l’ouvrir. 
+   
+   Le volet principal affiche le contenu du compte Data Lake Store.
 
-     ![volet principal](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-toolbar-mainpane.png) 
+   ![Volet principal avec une liste de dossiers](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-toolbar-mainpane.png) 
 
-## <a name="azure-data-lake-store-resources-management"></a>Gestion des ressources Azure Data Lake Store
+## <a name="manage-resources-in-azure-data-lake-store"></a>Gérer les ressources dans Azure Data Lake Store
 
 Vous pouvez gérer les ressources Azure Data Lake Store en effectuant les opérations suivantes :
-*   accéder aux ressources ADLS de plusieurs comptes ADL ;  
-*   utiliser une chaîne de connexion pour se connecter à ADLS et le gérer directement ; 
-*   afficher les ressources ADLS partagées par d’autres utilisateurs via ACL dans Local & Attached (Local et attaché) ;
+*   rechercher les ressources Data Lake Store dans plusieurs comptes Azure Data Lake ;  
+*   utiliser une chaîne de connexion pour vous connecter à Data Lake Store et le gérer directement ; 
+*   afficher les ressources Data Lake Store partagées par d’autres utilisateurs via une liste de contrôle d’accès dans **Local and Attached** (Local et attaché) ;
 *   effectuer des opérations CRUD sur fichier/dossier : prise en charge de fichiers à sélection multiple et de dossiers récursifs ; 
-*   faire glisser, déplacer et ajouter des dossiers pour bénéficier d’un accès rapide et aux emplacements récents, comme dans l’Explorateur de fichiers du Bureau ; 
-*   copier et ouvrir le lien hypertexte ADL en un clic avec l’Explorateur Stockage ; 
+*   faire glisser, déposer et ajouter un dossier pour accéder rapidement aux emplacements récents ; cette opération permet de bénéficier d’une expérience similaire à celle de l’Explorateur de fichiers ; 
+*   copier et ouvrir le lien hypertexte Azure Data Lake en un clic avec l’Explorateur Stockage ; 
 *   afficher le journal d’activité dans le volet inférieur droit pour afficher l’état de l’activité ;
-*   afficher la propriété de fichier et les statistiques des dossiers.
+*   afficher les propriétés des fichiers et les statistiques des dossiers.
 
 ## <a name="manage-resources-in-azure-storage-explorer"></a>Gérer les ressources dans l’Explorateur Stockage Azure
-Une fois que vous avez créé un compte Azure Data Lake Store, vous pouvez charger des dossiers et fichiers, procéder à des téléchargements et ouvrir des ressources sur votre ordinateur local. Vous pouvez également cliquer sur Épingler sur Accès rapide, Nouveau dossier, Copier l’URL et Sélectionner tout. En outre, vous pouvez copier, coller, renommer, supprimer et actualiser une sélection, et accéder aux statistiques des dossiers.
+Après avoir créé un compte Azure Data Lake Store, vous pouvez :
 
-Les éléments suivants indiquent comment gérer les ressources au sein d’un compte Azure Data Lake Store. Suivez ces étapes en fonction de la tâche que vous souhaitez effectuer :
-   * **Charger des fichiers**
+* charger des fichiers et des dossiers, télécharger des fichiers et des dossiers, et ouvrir des ressources sur votre ordinateur local ;
+* épingler des éléments à l’**accès rapide**, créer un nouveau dossier, copier une URL et sélectionner tout ;
+* copier et coller, renommer, supprimer, obtenir des statistiques sur les dossiers et actualiser les éléments.
 
-     1. Dans la barre d’outils du volet principal, sélectionnez **Charger**, puis **Charger des fichiers...** dans le menu déroulant.
+Les éléments suivants indiquent comment gérer les ressources au sein d’un compte Azure Data Lake Store. Suivez les étapes correspondant à la tâche que vous souhaitez effectuer.
 
-        ![Télécharger des fichiers - Menu](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-files-menu.png) 
+### <a name="upload-files"></a>Charger des fichiers
 
-     2. Dans la boîte de dialogue **Sélectionner les fichiers à charger**, sélectionnez les fichiers à charger.
+1. Dans la barre d’outils du volet principal, sélectionnez **Charger**, puis **Charger des fichiers** dans le menu déroulant.
 
-        ![Charger un dossier - Boîte de dialogue](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-files-dialog.png)
+   ![Élément de menu « Charger des fichiers »](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-files-menu.png) 
 
-     3. Sélectionnez **Ouvrir** pour commencer le chargement.
-   * **Charger un dossier**
+2. Dans la boîte de dialogue **Sélectionner les fichiers à charger**, sélectionnez les fichiers à charger.
 
-     1. Dans la barre d’outils du volet principal, sélectionnez **Charger**, puis **Upload Folder...** (Charger un dossier...) dans le menu déroulant.
+   ![Boîte de dialogue de chargement de fichiers](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-files-dialog.png)
 
-        ![Télécharger un dossier - Menu](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-folder-menu.png) 
-     2. Dans la boîte de dialogue **Select folder to Upload** (Sélectionner le dossier à charger), sélectionnez le dossier à charger.
+3. Sélectionnez **Ouvrir** pour commencer le chargement.
 
-        ![Charger un dossier - Boîte de dialogue](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-folder-dialog.png)      
+### <a name="upload-a-folder"></a>Charger un dossier
 
-     3. Sélectionnez **Sélectionner un dossier** pour commencer le chargement des dossiers.
+1. Dans la barre d’outils du volet principal, sélectionnez **Charger**, puis **Charger un dossier** dans le menu déroulant.
 
-        ![Charger un dossier - Boîte de dialogue](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-folder-drag.png) 
+   ![Élément de menu « Charger un dossier »](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-folder-menu.png) 
+     
+2. Dans la boîte de dialogue **Sélectionner le dossier à charger**, sélectionnez le dossier à charger. Puis cliquez sur **Sélectionner un dossier**.
 
-      > [!NOTE] 
-          > Vous pouvez directement faire glisser les dossiers et fichiers de l’ordinateur local pour implémenter le chargement. 
+   ![Boîte de dialogue de chargement de dossiers](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-folder-dialog.png)      
+
+   Le chargement commence.
+
+   ![Boîte de dialogue avec le chargement en cours](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-folder-drag.png) 
+
+> [!NOTE] 
+> Vous pouvez directement faire glisser les dossiers et fichiers sur un ordinateur local pour démarrer le chargement. 
        
-   * **Télécharger des dossiers ou des fichiers sur votre ordinateur local**
+### <a name="download-folders-or-files-to-your-local-computer"></a>Télécharger des dossiers ou des fichiers sur votre ordinateur local
 
-     1. Sélectionnez les dossiers ou fichiers que vous souhaitez télécharger.
-     2. Dans la barre d’outils du volet principal, sélectionnez **Télécharger**.
-     3. Dans la boîte de dialogue **Select a folder to save the downloaded files into** (Sélectionner un dossier pour y enregistrer les fichiers téléchargés), spécifiez l’emplacement de téléchargement des dossiers et fichiers. Indiquez également le nom que vous souhaitez lui attribuer.
-     4. Sélectionnez **Enregistrer**.
-   * **Ouvrir un dossier ou un fichier à partir de votre ordinateur local**
+1. Sélectionnez les dossiers ou fichiers que vous souhaitez télécharger.
+2. Dans la barre d’outils du volet principal, sélectionnez **Télécharger**.
+3. Dans la boîte de dialogue **Select a folder to save the downloaded files into** (Sélectionner un dossier pour y enregistrer les fichiers téléchargés), spécifiez l’emplacement et le nom.
+4. Sélectionnez **Enregistrer**.
 
-     1. Sélectionnez le dossier ou le fichier que vous souhaitez ouvrir.
-     2. Dans la barre d’outils du volet principal, sélectionnez **Ouvrir** ou cliquez avec le bouton droit sur le dossier ou le fichier sélectionné, puis cliquez sur **Ouvrir** dans le menu contextuel.
-     3. Le fichier est téléchargé et ouvert à l’aide de l’application associée au type sous-jacent du fichier. Le dossier est également ouvert dans le volet principal.
+### <a name="open-a-folder-or-file-from-your-local-computer"></a>Ouvrir un dossier ou un fichier à partir de votre ordinateur local
 
-        ![Ouvrir le fichier](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-open.png) 
+1. Sélectionnez le dossier ou le fichier que vous souhaitez ouvrir.
+2. Dans la barre d’outils du volet principal, sélectionnez **Ouvrir**. Ou cliquez avec le bouton droit sur le dossier ou le fichier sélectionné, puis sélectionnez **Ouvrir** dans le menu contextuel.
 
-   * **Copier des dossiers ou des fichiers dans le Presse-papiers**
+Le fichier est téléchargé et ouvert à l’aide de l’application associée au type sous-jacent du fichier. Le dossier est également ouvert dans le volet principal.
 
-     1. Sélectionnez les dossiers ou fichiers que vous souhaitez copier.
-     2. Dans la barre d’outils du volet principal, sélectionnez **Copier** ou cliquez avec le bouton droit sur les dossiers ou les fichiers sélectionnés, puis cliquez sur **Copier** dans le menu contextuel.
-     3. Dans le volet gauche, accédez à un autre compte ADLS, puis double-cliquez dessus pour l’afficher dans le volet principal.
-     4. Dans la barre d’outils du volet principal, sélectionnez **Coller** pour en créer une copie. Vous pouvez également cliquer sur l’option **Coller** du menu contextuel dans la destination.
+![Fichier ouvert](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-open.png) 
 
-        ![copier/coller un dossier ou un fichier](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-copy-paste.png)
+### <a name="copy-folders-or-files-to-the-clipboard"></a>Copier des dossiers ou des fichiers dans le Presse-papiers
 
-      > [!NOTE] 
-          > + L’opération Copier/Coller entre types de stockage **n’est pas** prise en charge. Vous pouvez copier des dossiers ou fichiers ADLS et les coller vers un autre compte ADLS, mais vous **ne pouvez pas** copier des dossiers ou fichiers ADLS et les coller dans le stockage d’objets blob, et inversement. 
-          > + Pour l’opération Copier/Coller, téléchargez les dossiers ou fichiers sur l’ordinateur local, puis chargez-les vers l’emplacement de destination. L’outil n’effectue **pas** l’action sur le serveur principal. L’exécution de l’opération Copier/Coller sur les fichiers volumineux est lente. L’optimisation de l’opération Copier/Déplacer des fichiers hautes performances est en cours.
-   * **Supprimer des dossiers ou des fichiers**
+1. Sélectionnez les dossiers ou fichiers que vous souhaitez copier.
+2. Dans la barre d’outils du volet principal, sélectionnez **Copier**. Ou cliquez avec le bouton droit sur les dossiers ou fichiers sélectionnés, puis sélectionnez **Copier** dans le menu contextuel.
+3. Dans le volet gauche, accédez à un autre compte Data Lake Store, puis double-cliquez dessus pour l’afficher dans le volet principal.
+4. Dans la barre d’outils du volet principal, sélectionnez **Coller** pour en créer une copie. Ou sélectionnez **Coller** dans le menu contextuel de destination.
 
-     1. Sélectionnez les dossiers ou fichiers que vous souhaitez supprimer.
-     2. Dans la barre d’outils du volet principal, sélectionnez **Supprimer** ou cliquez avec le bouton droit sur les dossiers ou les fichiers sélectionnés, puis cliquez sur **Supprimer** dans le menu contextuel.
-     3. Cliquez sur **Oui** dans la boîte de dialogue de confirmation.
+![Sélections pour la copie d’un dossier](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-copy-paste.png)
 
-        ![copier/coller un dossier ou un fichier](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-delete.png)
+> [!NOTE] 
+> Les opérations de Copier/Coller entre différents types de stockage ne sont pas prises en charge. Vous pouvez copier des dossiers ou fichiers Data Lake Store et les coller dans un autre compte Data Lake Store, mais vous *ne pouvez pas* copier des dossiers ou fichiers Data Lake Store et les coller dans le stockage Blob Azure, et inversement.
+> 
+> Pour l’opération de Copier/Coller, téléchargez les dossiers ou fichiers sur l’ordinateur local, puis chargez-les vers l’emplacement de destination. L’outil n’effectue *pas* l’action sur le serveur principal. L’exécution de l’opération Copier/Coller sur les fichiers volumineux est lente. L’optimisation de l’opération Copier/Déplacer des fichiers hautes performances est en cours.
 
-   * **Épingler sur Accès rapide**
+### <a name="delete-folders-or-files"></a>Supprimer des dossiers ou des fichiers
 
-     1. Sélectionnez le dossier à épingler.
-     2. Dans la barre d’outils du volet principal, sélectionnez **Épingler sur Accès rapide**.
-     3. Dans le volet gauche, vous voyez que le dossier sélectionné est ajouté au nœud **Accès rapide**.
+1. Sélectionnez les dossiers ou fichiers que vous souhaitez supprimer.
+2. Dans la barre d’outils du volet principal, sélectionnez **Supprimer**. Ou cliquez avec le bouton droit sur les dossiers ou fichiers sélectionnés, puis sélectionnez **Supprimer** dans le menu contextuel.
+3. Cliquez sur **Oui** dans la boîte de dialogue de confirmation.
 
-        ![épingler sur accès rapide](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-quick-access.png)
-     4. Après avoir créé l’accès rapide, vous pouvez accéder facilement aux ressources.
-   * **Liens ciblés**
-     1. Si vous disposez d’une URL, vous pouvez simplement l’entrer dans le chemin d’adresse de **l’Explorateur de fichiers** ou du navigateur.
-     2. **Storage Explorer.exe** est alors lancé automatiquement pour accéder à l’emplacement de l’URL que vous venez d’entrer.
+![Sélections pour la suppression d’un dossier](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-delete.png)
 
-        ![lien ciblé dans l’explorateur de fichiers](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-deep-link.png)
+### <a name="pin-to-quick-access"></a>Épingler sur Accès rapide
+
+1. Sélectionnez le dossier à épingler.
+2. Dans la barre d’outils du volet principal, sélectionnez **Épingler sur Accès rapide**.
+
+   Dans le volet gauche, le dossier sélectionné est ajouté au nœud **Accès rapide**.
+
+   ![Sélections pour l’épinglage d’un dossier sur « Accès rapide »](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-quick-access.png)
+
+Une fois qu’un dossier a été épinglé au nœud **Accès rapide**, vous pouvez facilement accéder aux ressources.
+
+### <a name="use-deep-links"></a>Utiliser les liens ciblés
+Si vous disposez d’une URL, vous pouvez l’entrer dans le chemin d’adresse de l’Explorateur de fichiers ou d’un navigateur. Storage Explorer.exe s’exécute ensuite automatiquement pour accéder à l’emplacement de l’URL.
+
+![Lien ciblé dans l’Explorateur de fichiers](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-deep-link.png)
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Consultez les [dernières notes de publication et vidéos de l’Explorateur de stockage (version préliminaire)](http://www.storageexplorer.com).
+* Consultez les [dernières notes de publication et vidéos de l’Explorateur Stockage](http://www.storageexplorer.com).
 * Découvrez comment [gérer Azure Cosmos DB dans l’Explorateur Stockage Azure](https://docs.microsoft.com/en-us/azure/cosmos-db/storage-explorer).
-* Pour en savoir plus sur l’Explorateur Stockage, voir [Prise en main de l’Explorateur Stockage (préversion)](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer).
-* Pour la prise en main d’Azure Data Lake Store (ADLS), voir [Présentation d’Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-overview).
-* Visionnez la vidéo suivante pour voir [comment utiliser Azure Cosmos DB dans l’Explorateur Stockage Azure](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
+* [Prise en main de l’Explorateur Stockage](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+* [Prise en main d’Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-overview).
+* Visionnez une [vidéo YouTube pour découvrir comment utiliser Azure Cosmos DB dans l’Explorateur Stockage Azure](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).

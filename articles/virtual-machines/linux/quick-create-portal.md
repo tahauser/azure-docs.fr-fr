@@ -1,26 +1,26 @@
 ---
-title: "Démarrage rapide avec Azure - Portail pour la création d’une machine virtuelle | Microsoft Docs"
-description: "Démarrage rapide avec Azure - Portail pour la création d’une machine virtuelle"
+title: Démarrage rapide avec Azure - Portail pour la création d’une machine virtuelle | Microsoft Docs
+description: Démarrage rapide avec Azure - Portail pour la création d’une machine virtuelle
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
+author: iainfoulds
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/11/2017
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a9a2e2ace4c4b6867e5d8b318c5d80a9df124ecc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d4bd596257b7430a03ec81a0f378286fda8cbace
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-portal"></a>Créer un groupe de machines virtuelles identiques Linux avec le portail Azure
 
@@ -42,9 +42,9 @@ Vous trouverez plus d’informations sur ce processus [ici](https://docs.microso
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure 
 
-Connectez-vous au Portail Azure à l’adresse http://portal.azure.com.
+Connectez-vous au portail Azure à l’adresse http://portal.azure.com.
 
-## <a name="create-virtual-machine"></a>Create virtual machine
+## <a name="create-virtual-machine"></a>Créer une machine virtuelle
 
 1. Cliquez sur **Créer une ressource** en haut à gauche du portail Azure.
 
