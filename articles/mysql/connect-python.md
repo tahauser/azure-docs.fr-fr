@@ -1,6 +1,6 @@
 ---
-title: "Se connecter à Azure Database pour MySQL à partir de Python"
-description: "Ce guide de démarrage rapide fournit plusieurs exemples de code Python, que vous pouvez utiliser pour vous connecter et interroger des données d’Azure Database pour MySQL."
+title: Se connecter à Azure Database pour MySQL à partir de Python
+description: Ce guide de démarrage rapide fournit plusieurs exemples de code Python, que vous pouvez utiliser pour vous connecter et interroger des données d’Azure Database pour MySQL.
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
@@ -11,16 +11,17 @@ ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 4003c1258fcc0a6d04c4ae8d234eba4d0224b8a0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 08725493f9d050da762a6527363b77af6eeed6e6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>Azure Database pour MySQL : Utiliser Python pour se connecter et interroger des données
 Ce guide de démarrage rapide vous explique comment utiliser [Python](https://python.org) pour se connecter à une base de données Azure Database pour MySQL. Il utilise des instructions SQL pour interroger, insérer, mettre à jour et supprimer des données de la base de données sur des plateformes Mac OS et Ubuntu Linux et Windows. Cette rubrique part du principe que vous connaissez les bases du développement à l’aide de Python et que vous ne savez pas utiliser Azure Database pour MySQL.
 
 ## <a name="prerequisites"></a>Prérequis
+
 Ce guide de démarrage rapide s’appuie sur les ressources créées dans l’un de ces guides :
 - [Créer un serveur de base de données Azure pour MySQL à l’aide du Portail Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Création d’un serveur de base de données Azure pour MySQL à l’aide d’Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
@@ -37,7 +38,7 @@ Installez [Python](https://www.python.org/downloads/) et le [connecteur MySQL po
 1. Sous Linux (Ubuntu), Python est généralement installé dans le cadre de l’installation par défaut.
 2. Vérifiez l’installation de Python en lançant l’interpréteur de commandes Bash. Exécutez la commande `python -V` à l’aide du commutateur V majuscule pour voir le numéro de version.
 3. Vérifier l’installation de PIP en exécutant la commande `pip show pip -V` pour voir le numéro de version. 
-4. PIP peut être inclus dans certaines versions de Python. Si PIP n’est pas installé, vous pouvez installer le package [PIP] (https://pip.pypa.io/en/stable/installing/) en exécutant la commande `sudo apt-get install python-pip`.
+4. PIP peut être inclus dans certaines versions de Python. Si PIP n’est pas installé, vous pouvez installer le package [PIP](https://pip.pypa.io/en/stable/installing/) en exécutant la commande `sudo apt-get install python-pip`.
 5. Passez à la dernière version de PIP en exécutant la commande `pip install -U pip`.
 6. Installez le connecteur MySQL pour Python et ses dépendances à l’aide de la commande PIP :
 

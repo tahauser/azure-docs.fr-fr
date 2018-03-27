@@ -1,6 +1,6 @@
 ---
-title: "Créer un service fiable Azure Service Fabric avec C#"
-description: "Créer, déployer et déboguer une application Reliable Services basée sur Azure Service Fabric avec Visual Studio."
+title: Créer un service fiable Azure Service Fabric avec C#
+description: Créer, déployer et déboguer une application Reliable Services basée sur Azure Service Fabric avec Visual Studio.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/19/2018
+ms.date: 03/14/2018
 ms.author: ryanwi
-ms.openlocfilehash: 43f77a1a2e1bbe28bb646aa23c28c253c20e8dda
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 858e322fd7e516f756aa209be92745efa6cf75f7
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>Création de votre première application Reliable Services avec état C# Service Fabric
 
@@ -28,7 +28,7 @@ Découvrez comment déployer votre première application Azure Service Fabric po
 
 Avant de commencer, assurez-vous que vous avez bien [configuré votre environnement de développement](service-fabric-get-started.md). Ce processus inclut l’installation du Kit de développement logiciel (SDK) de Service Fabric et de Visual Studio 2017 ou 2015.
 
-## <a name="create-the-application"></a>Création de l’application
+## <a name="create-the-application"></a>Création de l'application
 
 1. Démarrez Visual Studio en tant qu’administrateur.
 
@@ -40,7 +40,7 @@ Avant de commencer, assurez-vous que vous avez bien [configuré votre environnem
 
    ![Boîte de dialogue Nouveau projet dans Visual Studio][1]
 
-5. Vous pouvez créer n’importe quel type d’application Service Fabric à partir de la boîte de dialogue suivante. Pour ce démarrage rapide, choisissez **Service avec état**.
+5. Vous pouvez créer n’importe quel type d’application Service Fabric à partir de la boîte de dialogue suivante. Pour ce démarrage rapide, choisissez **.Net Core 2.0** > **Service avec état**.
 
 6. Appelez le service **MyStatefulService**. Sélectionnez ensuite **OK**.
 

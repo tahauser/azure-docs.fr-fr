@@ -1,25 +1,25 @@
 ---
-title: "Références SKU héritées de passerelle de réseau virtuel Azure | Microsoft Docs"
-description: "Anciennes références SKU de passerelle de réseau virtuel."
+title: Anciennes références SKU de passerelle VPN de réseau virtuel Azure | Microsoft Docs
+description: Comment utiliser les anciennes références SKU de passerelle de réseau virtuel ; de base, standard et HighPerformance.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: 
+manager: jpconnock
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/31/2017
+ms.date: 03/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: d5127c7fa512bad49817fa4c8edf3a16ca2f7d60
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 4feecb9c1e91e1bc6c66a610c092e7bf894886e5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>Utilisation des références SKU de passerelle de réseau virtuel (anciennes références SKU)
 
@@ -37,33 +37,27 @@ Cet article contient des informations sur les anciennes références SKU de pas
 
 [!INCLUDE [Table requirements for old SKUs](../../includes/vpn-gateway-table-requirements-legacy-sku-include.md)]
 
-## <a name="resize"></a>Redimensionner une passerelle (modifier la référence SKU d’une passerelle)
+## <a name="resize"></a>Redimensionner une passerelle
 
-Vous pouvez redimensionner la référence SKU d’une passerelle au sein de la même famille de références SKU. Par exemple, si vous avez une référence SKU standard, vous pouvez redimensionner selon une référence SKU HighPerformance. Vous ne pouvez pas redimensionner vos passerelles VPN entre d’anciennes références SKU est de nouvelles familles de références SKU. Par exemple, vous ne pouvez pas aller d’une référence SKU standard à une référence SKU VpnGw2.
+Vous pouvez redimensionner votre passerelle selon une référence SKU de passerelle au sein de la même famille de références SKU. Par exemple, si vous avez une référence SKU standard, vous pouvez redimensionner selon une référence SKU HighPerformance. Cependant, vous ne pouvez pas redimensionner votre passerelle VPN entre d’anciennes références SKU est de nouvelles familles de références SKU. Par exemple, vous ne pouvez pas aller d’une référence SKU standard à une référence SKU VpnGw2, ou d’une référence SKU de base à VpnGw1.
 
->[!IMPORTANT]
->Le redimensionnement d’une passerelle implique un temps d’arrêt de 20 à 30 minutes pour celle-ci pendant l’opération.
->
->
-
-Pour redimensionner une référence SKU de passerelle pour le modèle de déploiement classique, utilisez la commande suivante :
+Pour redimensionner une passerelle pour le modèle de déploiement classique, utilisez la commande suivante :
 
 ```powershell
 Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
 ```
 
-Pour redimensionner une référence SKU de passerelle pour le modèle de déploiement du Gestionnaire de ressources, utilisez la commande suivante :
+Pour redimensionner une passerelle pour le modèle de déploiement du Gestionnaire des ressources à l’aide de PowerShell, utilisez la commande suivante :
 
 ```powershell
 $gw = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
 ```
+Vous pouvez également redimensionner une passerelle dans le portail Azure.
 
-## <a name="migrate"></a>Migration vers les nouvelles références SKU de passerelle
+## <a name="change"></a>Basculer vers les nouvelles références SKU de passerelle
 
-Si vous utilisez le modèle de déploiement du Gestionnaire de ressources, vous pouvez migrer vers les nouvelles références SKU de la passerelle. Si vous utilisez le modèle de déploiement classique, vous ne pouvez pas migrer vers les nouvelles références SKU et devez continuer à utiliser les anciennes références SKU.
-
-[!INCLUDE [Migrate SKU](../../includes/vpn-gateway-migrate-legacy-sku-include.md)]
+[!INCLUDE [Change to the new SKUs](../../includes/vpn-gateway-gwsku-change-legacy-sku-include.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,11 +1,11 @@
 ---
-title: "Vue d’ensemble de la passerelle VPN : Créer des connexions VPN entre locaux vers les réseaux virtuels Azure | Microsoft Docs"
-description: "Cette article explique ce qu’est un passerelle VPN et comment se connecter à des réseaux virtuels Azure à l’aide d’une connexion VPN via Internet. Des diagrammes de configuration de connexion de base sont inclus."
+title: 'Vue d’ensemble de la passerelle VPN : Créer des connexions VPN entre locaux vers les réseaux virtuels Azure | Microsoft Docs'
+description: Cette article explique ce qu’est un passerelle VPN et comment se connecter à des réseaux virtuels Azure à l’aide d’une connexion VPN via Internet. Des diagrammes de configuration de connexion de base sont inclus.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 2358dd5a-cd76-42c3-baf3-2f35aadc64c8
 ms.service: vpn-gateway
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/16/2018
+ms.date: 03/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: dadddeaac2a7856f8e249db981b018de070e1f3f
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: ef6d61e9dfc7c30910d897478f07dabc14136b48
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="about-vpn-gateway"></a>À propos de la passerelle VPN
 
@@ -53,12 +53,15 @@ Lorsque vous configurez votre passerelle VPN, les étapes à suivre varient en f
 
 Le tableau suivant peut vous aider à déterminer la meilleure option de connectivité pour votre solution.
 
-[!INCLUDE [vpn-gateway-cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
-
+[!INCLUDE [cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
 ## <a name="gwsku"></a>SKU de passerelle
 
-[!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
+Lorsque vous créez une passerelle de réseau virtuel, vous spécifiez la référence SKU de passerelle que vous voulez utiliser. Sélectionnez la référence SKU qui répond à vos besoins en fonction des types de charges de travail, des débits, des fonctionnalités et des contrats de niveau de service. Pour plus d’informations sur les références SKU de passerelle, y compris les fonctionnalités prises en charge, production et developpement-test et les étapes de configuration, consultez [SKU de passerelle](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+
+### <a name="benchmark"></a>Références SKU de passerelle par tunnel, connexion et débit
+
+[!INCLUDE [Aggregated throughput by SKU](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
 ## <a name="diagrams"></a>Diagrammes de topologie de connexion
 
@@ -86,7 +89,7 @@ Ce type de connexion est une variante de la connexion site à site. Vous créez 
 
 ### <a name="deployment-models-and-methods-for-site-to-site-and-multi-site"></a>Modèles et méthodes de déploiement pour les connexions site à site et multi-sites
 
-[!INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
+[!INCLUDE [site-to-site and multi-site table](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
 ## <a name="P2S"></a>Point à site (VPN via IKEv2 ou SSTP)
 

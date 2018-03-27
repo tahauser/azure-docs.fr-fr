@@ -47,7 +47,7 @@ Pour créer une base de données SQL vide, suivez la procédure suivante.
    > [!IMPORTANT]
    > \* Les tailles de stockage supérieures à la quantité de stockage inclue sont en version préliminaire et des coûts supplémentaires s’appliquent. Pour en savoir plus, voir [Tarification de la base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\* Au niveau Premium, plus de 1 To de stockage est actuellement disponible dans les régions suivantes : Est de l’Australie, Sud-Est de l’Australie, Centre du Canada, Est du Canada, France-Centre, Centre de l’Allemagne, Japon de l’Est, Corée Centre, Sud du centre des États-Unis, Sud-Est asiatique, Est des États-Unis 2, Ouest des États-Unis, Gouvernement des États-Unis - Virginie et Europe de l’Ouest. Consultez [Limitations actuelles P11-P15](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >\* Au niveau Premium, plus de 1 To de stockage est actuellement disponible dans les régions suivantes : Centre du Canada, Est du Canada, France-Centre, Centre de l’Allemagne, Japon de l’Est, Corée Centre, Sud du centre des États-Unis, Sud-Est asiatique, Est des États-Unis 2, Ouest des États-Unis, Gouvernement des États-Unis - Virginie et Europe de l’Ouest. Consultez [Limitations actuelles P11-P15](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. Après avoir sélectionné le niveau du serveur, le nombre de DTU et la quantité de stockage, cliquez sur **Appliquer**.  

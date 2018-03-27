@@ -1,6 +1,6 @@
 ---
-title: "Concevoir votre première base de données Azure Database pour MySQL - Portail Azure"
-description: "Ce didacticiel explique comment créer et gérer un serveur de base de données Azure pour MySQL à l’aide du portail Azure."
+title: 'Didacticiel : Créer une base de données Azure Database pour MySQL à l’aide du portail Azure'
+description: Ce didacticiel explique comment créer et gérer un serveur de base de données Azure pour MySQL à l’aide du portail Azure.
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -10,13 +10,13 @@ ms.service: mysql-database
 ms.topic: tutorial
 ms.date: 02/28/2018
 ms.custom: mvc
-ms.openlocfilehash: 272c1ba67fb1a907d739d23ce1d965f57c3a1074
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 67f1a1ced8e36adf5d391415aae9b16df43950bb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="design-your-first-azure-database-for-mysql-database"></a>Concevoir votre première base de données Azure pour MySQL
+# <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>Didacticiel : Créer une base de données Azure Database pour MySQL à l’aide du portail Azure
 Base de données Azure pour MySQL est un service géré qui vous permet d’exécuter, de gérer et de mettre à l’échelle des bases de données MySQL hautement disponibles dans le cloud. À l’aide du portail Azure, vous pouvez facilement gérer votre serveur et concevoir une base de données.
 
 Ce didacticiel vous montre comment utiliser le portail Azure pour :

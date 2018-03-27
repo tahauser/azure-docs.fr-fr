@@ -1,10 +1,14 @@
+**Pour télécharger des script de configuration de périphérique VPN :**
+
+En fonction du périphérique VPN dont vous disposez, vous pourrez peut-être télécharger un script de configuration de périphérique VPN. Pour plus d’informations, consultez la page [Télécharger des script de configuration de périphérique VPN](../articles/vpn-gateway/vpn-gateway-download-vpndevicescript.md).
+
 **Pour plus d’informations sur la configuration, consultez les liens suivants :**
 
 - Pour plus d’informations sur les périphériques VPN compatibles, consultez la page [Périphériques VPN](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md).
 
 - Avant de configurer votre périphérique VPN, identifiez également les éventuels [Problèmes de compatibilité connus avec le matériel](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#known) pour le périphérique VPN que vous souhaitez utiliser.
 
-- Vous trouverez des liens vers les paramètres de configuration des périphériques sur la page [Périphériques VPN validés](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable). Les liens de configuration des périphériques sont fournis dans la mesure du possible. Il est toujours préférable de vérifier les dernières informations de configuration auprès du fabricant du périphérique. La liste fournie répertorie les versions que nous avons testées. L’absence de votre système d’exploitation de cette liste n’exclut pas sa compatibilité. Pour savoir si la version du système d’exploitation de votre périphérique VPN est compatible, renseignez-vous auprès du fabricant de ce périphérique.
+- Vous trouverez des liens vers les paramètres de configuration des périphériques sur la page [Périphériques VPN validés](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable). Les liens de configuration des périphériques sont fournis dans la mesure du possible. Il est toujours préférable de vérifier les dernières informations de configuration auprès du fabricant du périphérique. La liste répertorie les versions que nous avons testées. L’absence de votre système d’exploitation de cette liste n’exclut pas sa compatibilité. Pour savoir si la version du système d’exploitation de votre périphérique VPN est compatible, renseignez-vous auprès du fabricant de ce périphérique.
 
 - Pour une vue d’ensemble de la configuration du périphérique VPN, consultez [Vue d’ensemble des configurations de périphériques VPN tiers](../articles/vpn-gateway/vpn-gateway-3rdparty-device-config-overview.md).
 

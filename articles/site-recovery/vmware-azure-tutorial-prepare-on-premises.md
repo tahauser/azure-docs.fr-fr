@@ -1,19 +1,19 @@
 ---
-title: "Préparer des serveurs VMware locaux à la récupération d’urgence de machines virtuelles VMware vers Azure | Microsoft Docs"
-description: "Découvrez comment préparer des serveurs VMware à la récupération d’urgence vers Azure avec le service Azure Site Recovery."
+title: Préparer des serveurs VMware locaux à la récupération d’urgence de machines virtuelles VMware vers Azure | Microsoft Docs
+description: Découvrez comment préparer des serveurs VMware à la récupération d’urgence vers Azure avec le service Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/08/2018
+ms.date: 03/15/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 07f62775c9286250d33635febe01dbad4362df12
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 6898f725d1d3cbf3f8d9d90faeafc13fbc8cb201
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Préparer des serveurs VMware locaux à la récupération d’urgence vers Azure
 
@@ -59,34 +59,16 @@ Le service Mobilité doit être installé sur la machine virtuelle que vous souh
 3. Pour une installation sur des machines virtuelles Linux, préparez un compte racine sur le serveur Linux source.
 
 
-## <a name="check-vmware-server-requirements"></a>Vérifier les exigences des serveurs VMware
+## <a name="check-vmware-requirements"></a>Vérifier les conditions requises VMware
 
-Les serveurs VMware doivent répondre aux exigences suivantes.
+Vérifiez que les machines virtuelles et serveurs VMware respectent les conditions requises.
 
-**Composant** | **Prérequis**
---- | ---
-**Serveur vCenter** | vCenter 6.5, 6.0 ou 5.5
-**Hôte vSphere** | vSphere 6.5, 6.0 ou 5.5
+1. [Vérifiez](vmware-physical-azure-support-matrix.md#on-premises-virtualization-servers) les conditions requises pour les serveurs VMware.
+2. Pour Linux, [vérifiez](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) les conditions requises en matière de système de fichiers et stockage. 
+3. Vérifiez la prise en charge du [réseau](vmware-physical-azure-support-matrix.md#network) et du [stockage](vmware-physical-azure-support-matrix.md#storage) locaux. 
+4. Vérifiez ce qui est pris en charge pour la [mise en réseau Azure](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), le [stockage](vmware-physical-azure-support-matrix.md#azure-storage) et le [calcul](vmware-physical-azure-support-matrix.md#azure-compute) après le basculement.
+5. Les machines virtuelles locales que vous répliquez vers Azure doivent respecter les [conditions requises pour les machines virtuelles Azure](vmware-physical-azure-support-matrix.md#azure-vm-requirements).
 
-## <a name="check-vmware-vm-requirements"></a>Vérifier les exigences des machines virtuelles VMware
-
-Assurez-vous que les machines virtuelles sont conformes aux exigences d’Azure résumées dans le tableau suivant.
-
-**Exigences des machines virtuelles** | **Détails**
---- | ---
-**Taille du disque du système d’exploitation** | Jusqu’à 2048 Go
-**Nombre de disques du système d’exploitation** | 1
-**Nombre de disques de données** | 64 ou moins
-**Taille du disque dur virtuel de données** | Jusqu’à 4095 Go
-**Adaptateurs réseau** | Prise en charge de plusieurs adaptateurs réseau.
-**Disque dur virtuel partagé** | Non pris en charge
-**Disque FC** | Non pris en charge
-**Format de disque dur** | VHD ou VHDX.<br/><br/> Bien que VDHX ne soit pas actuellement pris en charge dans Azure, Site Recovery convertit automatiquement VHDX en VHD quand vous effectuez un basculement vers Azure. Quand vous procédez à la restauration automatique en local, les machines continue à utiliser le format VHDX.
-**BitLocker** | Non pris en charge. À désactiver avant d’activer la réplication pour une machine virtuelle.
-**Nom de la machine virtuelle** | Entre 1 et 63 caractères.<br/><br/> Uniquement des lettres, des chiffres et des traits d’union. Le nom de la machine virtuelle doit commencer et se terminer par une lettre ou un chiffre.
-**Type de machine virtuelle** | Génération 1 - Linux ou Windows<br/><br/>Génération 2 -- Windows uniquement
-
-La machine virtuelle doit également exécuter un système d’exploitation pris en charge. Consultez la [matrice de prise en charge des serveurs physiques ou VMware](vmware-physical-azure-support-matrix.md#replicated-machines) pour obtenir la liste complète des versions prises en charge.
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Préparer la connexion aux machines virtuelles Azure après le basculement
 

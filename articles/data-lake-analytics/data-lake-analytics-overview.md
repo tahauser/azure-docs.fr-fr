@@ -1,8 +1,8 @@
 ---
 title: Vue d'ensemble de Microsoft Azure Data Lake Analytics | Microsoft Docs
-description: "Data Lake Analytics vous permet de gérer votre entreprise grâce aux informations obtenues dans vos données cloud, à n’importe quelle échelle."
+description: Data Lake Analytics vous permet de gérer votre entreprise grâce aux informations obtenues dans vos données cloud, à n’importe quelle échelle.
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: saveenr
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/23/2017
 ms.author: saveenr
-ms.openlocfilehash: a788c7ad6eca0abea6f6ab400cbe2d0e5914eed8
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4ee0bdf486fa59c2d32b0d28ee25618996a57c6e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="overview-of-azure-data-lake-analytics"></a>Vue d’ensemble d’Azure Data Lake Analytics
 

@@ -1,8 +1,8 @@
 ---
-title: "Résoudre les problèmes d’Azure IoT Edge | Microsoft Docs"
-description: "Résoudre les problèmes courants et découvrir les compétences de dépannage requises pour Azure IoT Edge"
+title: Résoudre les problèmes d’Azure IoT Edge | Microsoft Docs
+description: Résoudre les problèmes courants et découvrir les compétences de dépannage requises pour Azure IoT Edge
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -10,11 +10,11 @@ ms.date: 12/15/2017
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 7b9f9f8295aac0920ae4726289c535aae12c4482
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4d6dd0d46d909acfbfc04a23be74a571953ce660
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problèmes courants et résolutions pour Azure IoT Edge
 
@@ -30,10 +30,16 @@ Lorsque vous rencontrez un problème, obtenez des informations supplémentaires 
    docker logs <container name>
    ```
 
-* Affichez les messages acheminés via Edge Hub et recueillez des insights sur les mises à jour des propriétés de l’appareil à l’aide de journaux détaillés issus des conteneurs du runtime. Vous pouvez éventuellement ajouter l’option "--auto-cert-gen-force-no-passwords" si sous suivez les articles de démarrage rapide.
+* Affichez les messages acheminés via Edge Hub et recueillez des insights sur les mises à jour des propriétés de l’appareil à l’aide de journaux détaillés issus des conteneurs du runtime.
 
    ```cmd
    iotedgectl setup --connection-string "{device connection string}" --runtime-log-level debug
+   ```
+   
+* Affichez les journaux détaillés à partir des commandes iotedgectl :
+
+   ```cmd
+   iotedgectl --verbose DEBUG <command>
    ```
 
 * Si vous rencontrez des problèmes de connectivité, examinez les variables d’environnement de votre appareil edge, comme la chaîne de connexion de votre appareil :

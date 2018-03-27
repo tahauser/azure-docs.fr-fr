@@ -1,26 +1,20 @@
 ---
-title: "Portail Azure : Créer une base de données SQL | Microsoft Docs"
-description: "Créez un serveur logique SQL Database, une règle de pare-feu au niveau du serveur et une base de données dans le Portail Azure, puis interrogez cette dernière."
-keywords: "didacticiel sur la base de données sql, créer une base de données sql"
+title: 'Portail Azure : Créer une base de données SQL | Microsoft Docs'
+description: Créez un serveur logique SQL Database, une règle de pare-feu au niveau du serveur et une base de données dans le Portail Azure, puis interrogez cette dernière.
+keywords: didacticiel sur la base de données sql, créer une base de données sql
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
-ms.workload: Active
-ms.tgt_pltfrm: portal
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 02/16/2018
+ms.date: 03/15/2018
 ms.author: carlrab
-ms.openlocfilehash: 56fb52cb2dbca1939aac2eb9dd4971a93bf8c0dc
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 2c1e8d8f59e42e75a5895b58e4e7500a2fa2c9a2
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Création d’une base de données SQL Azure à l’aide du portail Azure
 
@@ -93,7 +87,7 @@ Suivez ces étapes pour créer une base de données SQL contenant les exemples d
    > [!IMPORTANT]
    > \* Les tailles de stockage supérieures à la quantité de stockage inclue sont en version préliminaire et des coûts supplémentaires s’appliquent. Pour en savoir plus, voir [Tarification de la base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/).
    >
-   >\* Au niveau Premium, plus de 1 To de stockage est actuellement disponible dans les régions suivantes : Est de l’Australie, Sud-Est de l’Australie, Sud du Brésil, Centre du Canada, Est du Canada, Centre des États-Unis, France-Centre, Centre de l’Allemagne, Est du Japon, Ouest du Japon, Corée Centre, Nord du centre des États-Unis, Europe du Nord, Sud du centre des États-Unis, Sud-Est asiatique, Royaume-Uni Sud, Royaume-Uni Ouest, Est des États-Unis 2, Ouest des États-Unis, Gouvernement des États-Unis – Virginie et Europe de l’Ouest. Consultez [Limitations actuelles P11-P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >\* Au niveau Premium, plus de 1 To de stockage est actuellement disponible dans les régions suivantes : Sud du Brésil, Centre du Canada, Est du Canada, Centre des États-Unis, France-Centre, Centre de l’Allemagne, Est du Japon, Ouest du Japon, Corée Centre, Nord du centre des États-Unis, Europe du Nord, Sud du centre des États-Unis, Sud-Est asiatique, Royaume-Uni Sud, Royaume-Uni Ouest, Est des États-Unis 2, Ouest des États-Unis, Gouvernement des États-Unis - Virginie et Europe de l’Ouest. Consultez [Limitations actuelles P11-P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    >
 
 9. Après avoir sélectionné le niveau du serveur, le nombre de DTU et la quantité de stockage, cliquez sur **Appliquer**.  

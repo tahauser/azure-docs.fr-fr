@@ -1,12 +1,12 @@
 ---
-title: "Créer une application Service Fabric .NET dans Azure | Microsoft Docs"
-description: "Dans le cadre de ce démarrage rapide, vous créez une application .NET pour Azure à l’aide d’un exemple d’application de services fiables Service Fabric."
+title: Créer une application Service Fabric .NET dans Azure | Microsoft Docs
+description: Dans le cadre de ce démarrage rapide, vous créez une application .NET pour Azure à l’aide d’un exemple d’application de services fiables Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
 manager: msfussell
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: quickstart
@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/25/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 5187aadf686a49f6d78fc4f5c2b2c42487e56c13
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 4c81baec0c047b551e1bdac2152b330f010baa18
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="quickstart-create-a-net-service-fabric-application-in-azure"></a>Démarrage rapide : créer une application Service Fabric dans Azure
 Azure Service Fabric est une plateforme de systèmes distribués pour le déploiement et la gestion de microservices et conteneurs extensibles et fiables. 
@@ -39,6 +39,7 @@ Cette application vous permet d’apprendre à :
 > * Effectuer une mise à niveau propagée d’application
 
 ## <a name="prerequisites"></a>Prérequis
+
 Pour effectuer ce démarrage rapide :
 1. [Installez Visual Studio 2017](https://www.visualstudio.com/) avec les charges de travail **Développement Azure** et **Développement web et ASP.NET**.
 2. [Installez Git](https://git-scm.com/)
@@ -125,15 +126,19 @@ Pour déployer l’application sur Azure, vous avez besoin d’un cluster Servic
 ### <a name="join-a-party-cluster"></a>Rejoindre un cluster Party
 Les clusters tiers sont des clusters Service Fabric gratuits et limités dans le temps, hébergés sur Azure et gérés par l’équipe Service Fabric, où chacun peut déployer des applications et découvrir la plateforme. Le cluster utilise un seul certificat auto-signé pour la sécurité de nœud à nœud et de client à nœud. 
 
-Connectez-vous et [rejoignez un cluster Windows](http://aka.ms/tryservicefabric). Téléchargez le certificat PFX sur votre ordinateur en cliquant sur le lien **PFX**. Le certificat et la valeur **Point de terminaison de connexion** sont utilisés dans les étapes suivantes.
+Connectez-vous et [rejoignez un cluster Windows](http://aka.ms/tryservicefabric). Téléchargez le certificat PFX sur votre ordinateur en cliquant sur le lien **PFX**. Cliquez sur le lien **Comment se connecter à un cluster tiers sécurisé ?** et copiez le mot de passe du certificat. Le certificat, le mot de passe du certificat et la valeur **Point de terminaison de connexion** sont utilisés dans les étapes suivantes.
 
 ![Certificat PFX et point de terminaison de connexion](./media/service-fabric-quickstart-dotnet/party-cluster-cert.png)
 
-Sur un ordinateur Windows, installez le certificat PFX dans le magasin de certificats *CurrentUser\My*.
+> [!Note]
+> Le nombre de clusters tiers disponibles par heure est limité. Si vous obtenez une erreur lors de votre inscription à un cluster tiers, attendez un peu et réessayez, ou suivez ces étapes dans le didacticiel [Déployer une application .NET](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster#deploy-the-sample-application) pour créer un cluster Service Fabric dans votre abonnement Azure et déployez-y l’application. Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Après avoir déployé et vérifié l’application dans votre cluster, vous pouvez passer à l’étape [Mise à l’échelle d’applications et de services dans un cluster](#scale-applications-and-services-in-a-cluster) de ce guide de démarrage rapide.
+>
+
+
+Sur votre ordinateur Windows, installez le certificat PFX dans le magasin de certificats *CurrentUser\My*.
 
 ```powershell
-PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
-\CurrentUser\My
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:\CurrentUser\My -Password (ConvertTo-SecureString 873689604 -AsPlainText -Force)
 
 
    PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
@@ -155,7 +160,7 @@ N’oubliez pas l’empreinte numérique, elle sera utilisée dans une étape su
 1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur **Voting**, puis choisissez **Publier**. La boîte de dialogue Publier s’affiche.
 
 
-2. Copiez le **Point de terminaison de connexion** depuis la page du cluster tiers dans le champ **Point de terminaison de connexion**. Par exemple : `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Cliquez sur **Paramètres de connexion avancés** et renseignez les informations suivantes.  Les valeurs *FindValue* et *ServerCertThumbprint* doivent correspondre à l’empreinte numérique du certificat installé lors d’une étape précédente. 
+2. Copiez le **Point de terminaison de connexion** depuis la page du cluster tiers dans le champ **Point de terminaison de connexion**. Par exemple : `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Cliquez sur **Paramètres de connexion avancés** et veillez à ce que les valeurs *FindValue* et *ServerCertThumbprint* doivent correspondre à l’empreinte numérique du certificat installé lors d’une étape précédente. 
 
     ![Boîte de dialogue Publier](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
@@ -165,7 +170,7 @@ N’oubliez pas l’empreinte numérique, elle sera utilisée dans une étape su
 
 4. Ouvrez un navigateur et tapez l’adresse du cluster suivie de « :8080 » pour accéder à l’application dans le cluster, par exemple, `http://zwin7fh14scd.westus.cloudapp.azure.com:8080`. Vous devez à présent voir l’application en cours d’exécution dans le cluster dans Azure.
 
-![Frontal de l’application](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
+    ![Frontal de l’application](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
 
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Mettre à l’échelle les applications et services dans un cluster
 Les services Service Fabric peuvent facilement être mis à l’échelle dans un cluster pour prendre en compte une modification de la charge sur les services. Pour mettre à l’échelle un service, vous modifiez le nombre d’instances s’exécutant dans le cluster. Plusieurs méthodes sont disponibles pour mettre à l’échelle vos services. Vous pouvez utiliser des scripts ou des commandes de PowerShell ou de l’interface CLI de Service Fabric (sfctl). Dans cet exemple, utilisez Service Fabric Explorer.

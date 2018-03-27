@@ -1,23 +1,23 @@
 ---
-title: "Didacticiel de déploiement d’un modèle pour les services Azure Machine Learning (préversion) | Microsoft Docs"
-description: "Ce didacticiel complet montre comment utiliser les services Azure Machine Learning (préversion) de bout en bout. Il s’agit de la troisième partie qui décrit le modèle de déploiement."
+title: Didacticiel de déploiement d’un modèle pour les services Azure Machine Learning
+description: Ce didacticiel complet montre comment utiliser les services Azure Machine Learning de bout en bout. Il s’agit de la troisième partie qui décrit le modèle de déploiement.
 services: machine-learning
-author: raymondl
-ms.author: raymondl, j-martens, aashishb
+author: aashishb
+ms.author: aashishb
 manager: mwinkle
-ms.reviewer: jmartens, jasonwhowell, mldocs, gcampanella
+ms.reviewer: jmartens, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 3/7/2018
-ms.openlocfilehash: 13ddc0ef8c7eac86e6cd7abb684ce35ae18fba84
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.date: 3/13/2018
+ms.openlocfilehash: 87d1e605bfd7603e4e07f6b427033fe2c1d2b83e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="tutorial-classify-iris-part-3-deploy-a-model"></a>Didacticiel : Troisième partie de la classification d’Iris (déploiement d’un modèle)
+# <a name="tutorial-3-classify-iris-deploy-a-model"></a>Didacticiel 3 : Classifier Iris : déployer un modèle
 Azure Machine Learning (préversion) est une solution d’analytique avancée et de science des données intégrée de bout en bout destinée aux experts en science des données. Les scientifiques des données peuvent l’utiliser pour préparer des données, développer des expérimentations et déployer des modèles à l’échelle du cloud.
 
 Ce didacticiel est **le troisième d’une série de trois**. Dans cette partie du didacticiel, vous utilisez Machine Learning (préversion) pour effectuer les tâches suivantes :
@@ -30,18 +30,16 @@ Ce didacticiel est **le troisième d’une série de trois**. Dans cette partie 
 > * Exécuter le service web en temps réel.
 > * Examiner les données d’objet blob de sortie. 
 
-Ce didacticiel utilise le [jeu de données Iris de Fisher](https://en.wikipedia.org/wiki/iris_flower_data_set) intemporel. Les captures d’écran sont spécifiques à Windows, mais l’expérience Mac OS est presque identique.
-
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+Ce didacticiel utilise le [jeu de données Iris de Fisher](https://en.wikipedia.org/wiki/Iris_flower_data_set) intemporel. 
 
 ## <a name="prerequisites"></a>Prérequis
 
-Effectuer les deux premières parties de cette série de didacticiels :
 
-   * Suivez le [didacticiel Préparer les données](tutorial-classifying-iris-part-1.md) pour créer des ressources Machine Learning et installer l’application Azure Machine Learning Workbench.
-   * Suivez le [didacticiel Générer un modèle](tutorial-classifying-iris-part-2.md) pour créer un modèle de régression logistique dans Machine Learning.
-
-Un moteur Docker doit être installé et exécuté en local. Vous pouvez également déployer un cluster Azure Container Service dans Azure.
+Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
+- Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
+- Un compte d’expérimentation et Azure Machine Learning Workbench installé, comme décrit dans ce [démarrage rapide](quickstart-installation.md)
+- Le modèle de classification de la [partie 2 du didacticiel](tutorial-classifying-iris-part-2.md)
+- Un moteur Docker installé et exécuté en local
 
 ## <a name="download-the-model-pickle-file"></a>Télécharger le fichier pickle de modèle
 Dans la partie précédente du didacticiel, le script **iris_sklearn.py** a été exécuté localement dans Machine Learning Workbench. Cette action a sérialisé le modèle de régression logistique à l’aide du package de sérialisation d’objets Python populaire [pickle](https://docs.python.org/3/library/pickle.html). 
@@ -92,7 +90,7 @@ Pour déployer le service web ainsi que le fichier de modèle, vous avez égalem
 
 4. Pour obtenir le fichier de schéma, exécutez le script. Sélectionnez l’environnement **local** et le script **score_iris.py** dans la barre de commandes, puis sélectionnez **Exécuter**. 
 
-5. Ce script crée un fichier JSON dans la section **Sorties**, qui capture le schéma de données d’entrée requis par le modèle.
+   Ce script crée un fichier JSON dans la section **Sorties**, qui capture le schéma de données d’entrée requis par le modèle.
 
 6. Notez le volet **Travaux** situé à droite du volet **Tableau de bord du projet**. Attendez que le dernier travail **score_iris.py** affiche l’état vert **Terminé**. Sélectionnez ensuite le lien hypertexte **score_iris.py** de la dernière exécution du travail afin d’afficher les détails de l’exécution. 
 
@@ -129,7 +127,10 @@ Utilisez le déploiement _en mode local_ pour effectuer une exécution dans des 
 Vous pouvez utiliser le _mode local_ pour le développement et de test. Le moteur Docker doit être en cours d’exécution localement pour que vous puissiez effectuer les étapes suivantes d’opérationnalisation du modèle. Vous pouvez utiliser l’indicateur `-h` à la fin de chaque commande pour afficher le message d’aide correspondant.
 
 >[!NOTE]
->Si vous n’avez pas de moteur Docker en local, vous pouvez toujours poursuivre en créant un cluster dans Azure à des fins de déploiement. Veillez simplement à supprimer le cluster après le didacticiel afin de ne peut subir de frais permanents.
+>Si vous n’avez pas de moteur Docker en local, vous pouvez toujours poursuivre en créant un cluster dans Azure à des fins de déploiement. Vous pouvez conserver le cluster pour le réutiliser ou le supprimer après le didacticiel, afin de ne pas être facturé.
+
+>[!NOTE]
+>Les services web déployés localement ne s’affichent pas dans la liste des services du portail Azure. Ils s’exécuteront dans Docker sur l’ordinateur local.
 
 1. Ouvrez l’interface de ligne de commande (CLI).
    Dans l’application Machine Learning Workbench, dans le menu **Fichier**, sélectionnez **Ouvrir l’invite de commandes**.

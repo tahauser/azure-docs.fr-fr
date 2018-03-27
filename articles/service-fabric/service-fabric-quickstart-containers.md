@@ -1,12 +1,12 @@
-﻿---
-title: "Créer une application de conteneur Windows Azure Service Fabric | Microsoft Docs"
-description: "Dans ce démarrage rapide, créez votre première application conteneur Windows sur Microsoft Azure Service Fabric."
+---
+title: Créer une application de conteneur Windows Azure Service Fabric | Microsoft Docs
+description: Dans ce démarrage rapide, créez votre première application conteneur Windows sur Microsoft Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
 editor: vturecek
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: quickstart
@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/27/18
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 7a8d28ef842ba77355628c79c20fa7fd3c693380
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: d4fe2d410152fc4d65f2d22bc26e5e72b91bc282
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="quickstart-deploy-a-service-fabric-windows-container-application-on-azure"></a>Démarrage rapide : Déployer une application conteneur Windows Service Fabric sur Azure
 Azure Service Fabric est une plateforme de systèmes distribués pour le déploiement et la gestion de microservices et conteneurs extensibles et fiables. 
@@ -35,7 +35,8 @@ Dans ce guide de démarrage rapide, vous apprenez à :
 > * Créer et placer l’application Service Fabric dans un package
 > * Déployer l’application de conteneur dans Azure
 
-## <a name="prerequisites"></a>Configuration requise
+## <a name="prerequisites"></a>Prérequis
+
 * Un abonnement Azure (vous pouvez créer un [ compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)).
 * Un ordinateur de développement exécutant :
   * Visual Studio 2015 ou Visual Studio 2017.
@@ -83,7 +84,7 @@ Configurez le mappage de ports de type port à hôte du conteneur afin que les r
 Un exemple de fichier ApplicationManifest.xml complet est fourni à la fin de cet article.
 
 ## <a name="create-a-cluster"></a>Créer un cluster
-Pour déployer l’application sur un cluster dans Azure, vous pouvez choisir d’utiliser un cluster tiers. Les clusters tiers sont des clusters Service Fabric gratuits et limités dans le temps, hébergés sur Azure et gérés par l’équipe Service Fabric, où chacun peut déployer des applications et découvrir la plateforme. Le cluster utilise un seul certificat auto-signé pour la sécurité de nœud à nœud et de client à nœud. 
+Pour déployer l’application sur un cluster dans Azure, vous pouvez choisir d’utiliser un cluster tiers. Les clusters tiers sont des clusters Service Fabric gratuits et limités dans le temps, hébergés sur Azure et gérés par l’équipe Service Fabric, où chacun peut déployer des applications et découvrir la plateforme.  Le cluster utilise un seul certificat auto-signé pour la sécurité de nœud à nœud et de client à nœud. Les clusters tiers prennent en charge les conteneurs. Si vous configurez votre propre cluster, toutefois, le cluster doit s’exécuter sur Windows Server 2016 avec Containers afin d’exécuter des conteneurs.
 
 Connectez-vous et [rejoignez un cluster Windows](http://aka.ms/tryservicefabric). Téléchargez le certificat PFX sur votre ordinateur en cliquant sur le lien **PFX**. Le certificat et la valeur **Point de terminaison de connexion** sont utilisés dans les étapes suivantes.
 

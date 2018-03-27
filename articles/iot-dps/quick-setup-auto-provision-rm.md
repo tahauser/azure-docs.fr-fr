@@ -1,22 +1,22 @@
 ---
-title: "Configurer Device Provisioning à l’aide d’un modèle Azure Resource Manager | Microsoft Docs"
-description: "Démarrage rapide d’Azure : Configurer le service Azure IoT Hub Device Provisioning à l’aide d’un modèle"
+title: Configurer Device Provisioning à l’aide d’un modèle Azure Resource Manager | Microsoft Docs
+description: 'Démarrage rapide d’Azure : Configurer le service Azure IoT Hub Device Provisioning à l’aide d’un modèle'
 services: iot-dps
-keywords: 
+keywords: ''
 author: JimacoMS2
 ms.author: v-jamebr
 ms.date: 02/26/2018
 ms.topic: hero-article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 827be2be6915b0f0c9892e73b8f0a293a9659b6e
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 389691bddf1a7d6cab0845ca0a0cf1bde1152507
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Configurer le service IoT Hub Device Provisioning avec le modèle Azure Resource Manager
 
@@ -24,6 +24,7 @@ Vous pouvez utiliser [Azure Resource Manager](https://docs.microsoft.com/en-us/a
 
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 - Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 - Ce démarrage rapide nécessite que vous exécutiez l’interface Azure CLI localement. Vous devez avoir installé Azure CLI 2.0 ou ultérieur. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau l’interface CLI, consultez l’article [Installation d’Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
@@ -340,7 +341,7 @@ Pour supprimer un groupe de ressources et toutes ses ressources, exécutez la co
 az group delete --name {your resource group name}
 ```
 
-Vous pouvez également supprimer des groupes de ressources et des ressources individuelles à l’aide du portail Azure, de PowerShell ou des API REST ou des Kits de développement logiciel (SDK) de plateforme prise en charge publiés pour Azure Resource Manager ou IoT Hub et le service Device Provisioning.
+Vous pouvez également supprimer des groupes de ressources et des ressources individuelles à l’aide du portail Azure, de PowerShell ou des API REST ou des Kits de développement logiciel (SDK) de plateforme prise en charge publiés pour Azure Resource Manager ou le service IoT Hub Device Provisioning.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

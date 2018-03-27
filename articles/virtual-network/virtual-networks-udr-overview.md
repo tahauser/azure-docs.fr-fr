@@ -1,12 +1,12 @@
 ---
-title: "Routage de trafic de réseaux virtuels Azure | Microsoft Docs"
-description: "Découvrez comment Azure achemine le trafic de réseau virtuel, et comment vous pouvez personnaliser le routage d’Azure."
+title: Routage de trafic de réseaux virtuels Azure | Microsoft Docs
+description: Découvrez comment Azure achemine le trafic de réseau virtuel, et comment vous pouvez personnaliser le routage d’Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
-ms.custom: 
-ms.openlocfilehash: 4f4c4e9749eb5f0f6ba1950521f459f140cb5221
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.custom: ''
+ms.openlocfilehash: 9afaa7d34665f5c8ef4c4c819fe3b7e995bd71d3
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Routage du trafic de réseau virtuel
 
@@ -132,6 +132,9 @@ Si plusieurs itinéraires contiennent le même préfixe d’adresse, Azure chois
 1. Itinéraire défini par l’utilisateur
 2. Itinéraire BGP
 3. Itinéraire du système
+
+> [!NOTE]
+> Les itinéraires système pour le trafic lié au réseau virtuel, aux homologations de réseaux virtuels ou aux points de terminaison de service de réseau virtuel, sont les itinéraires sélectionnés par défaut, même si les itinéraires BGP sont plus spécifiques.
 
 Par exemple, une table de routage contient les itinéraires suivants :
 

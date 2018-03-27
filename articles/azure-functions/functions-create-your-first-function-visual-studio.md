@@ -1,27 +1,27 @@
 ---
-title: "Créer votre première fonction dans Azure à l’aide de Visual Studio | Microsoft Docs"
-description: "Créez et publiez une fonction HTTP déclenchée simple vers Azure à l’aide d’Azure Functions Tools pour Visual Studio 2017."
+title: Créer votre première fonction dans Azure à l’aide de Visual Studio | Microsoft Docs
+description: Créez et publiez une fonction HTTP déclenchée simple vers Azure à l’aide d’Azure Functions Tools pour Visual Studio 2017.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure functions, functions, traitement des événements, calcul, architecture sans serveur"
+editor: ''
+tags: ''
+keywords: azure functions, functions, traitement des événements, calcul, architecture sans serveur
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.service: functions
 ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/17/2018
+ms.date: 03/13/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: fa17a021526a728c6fabc9607b1d00f5521cbb21
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 9b43ec7106c70b7d9b326208043d2fe874fb7e20
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Créer votre première fonction à l’aide de Visual Studio
 
@@ -35,13 +35,16 @@ Cette rubrique inclut [une vidéo](#watch-the-video) qui présente les mêmes é
 
 ## <a name="prerequisites"></a>Prérequis
 
+
 Pour suivre ce didacticiel :
 
-* Installez [Visual Studio 2017 version 15.4](https://www.visualstudio.com/vs/) ou une version ultérieure comprenant la charge de travail **Développement Azure**.
+* Installez [Visual Studio 2017 version 15.5](https://www.visualstudio.com/vs/) ou une version ultérieure comprenant la charge de travail **Développement Azure**.
 
     ![Installer Visual Studio 2017 avec la charge de travail de développement Azure](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
-* Assurez-vous d’avoir procédé à la mise à jour vers la version la plus récente d’Azure Functions et de WebJobs Tools. Effectuez cette vérification dans **Mises à jour** > **Visual Studio Marketplace** dans **Extensions et mises à jour**.
+    Si vous avez déjà installé Visual Studio, assurez-vous que vous n’avez pas de mises à jour en attente. 
+
+* Si vous avez installé la charge de travail Développement Azure avec Visual Studio 2017 version 15.4 ou antérieure, vous devrez peut-être également [mettre à jour vos outils Azure Functions](functions-develop-vs.md#check-your-tools-version). 
     
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 

@@ -1,27 +1,19 @@
 ---
-title: "Qu’est-ce que le service Azure SQL Database ? | Microsoft Docs"
-description: "Introduction à la base de données SQL : détails techniques et fonctionnalités du système de gestion des bases de données relationnelles Microsoft dans le cloud."
-keywords: "introduction à sql, intro à sql, qu’est-ce qu’une base de données sql"
+title: Qu’est-ce que le service Azure SQL Database ? | Microsoft Docs
+description: 'Introduction à la base de données SQL : détails techniques et fonctionnalités du système de gestion des bases de données relationnelles Microsoft dans le cloud.'
+keywords: introduction à sql, intro à sql, qu’est-ce qu’une base de données sql
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
+manager: craigg
 ms.service: sql-database
-ms.custom: overview
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
 ms.date: 03/07/2018
-ms.workload: Active
 ms.author: carlrab
-ms.reviewer: carlrab
-ms.openlocfilehash: a1c4426acec8e9e006c2349b886297f45cc8ecb2
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7a06ed8433ebcf728c7b090f5e984d4e3ebeb846
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Qu’est-ce que le service Azure SQL Database ? 
 
@@ -37,7 +29,8 @@ SQL Database partage sa base de code avec le [moteur de base de données Micros
 
 SQL Database offre des performances prévisibles à plusieurs niveaux de service qui permettent une évolutivité dynamique avec aucun temps mort, une optimisation intelligente intégrée, une évolutivité et une disponibilité globales, ainsi que des options avancées de sécurité, et tout cela sans (presque) aucune tâche d’administration. Ces fonctionnalités vous permettent de vous concentrer sur le développement rapide de vos applications et d’accélérer leur mise sur le marché, plutôt que de consacrer du temps et des ressources à la gestion des machines virtuelles et de leur infrastructure. Le service SQL Database est actuellement présent dans 38 centres de données du monde entier, et de plus en plus de centres de données passent en ligne régulièrement, ce qui vous permet d’exécuter votre base de données dans un centre de données proche de chez vous.
 
-> [! IMPORTANT] SQL Database Managed Instance est actuellement en préversion et est uniquement disponible à un seul niveau de service. Pour plus d’informations, consultez [SQL Database Managed Instance](sql-database-managed-instance.md).
+> [!IMPORTANT]
+> SQL Database Managed Instance est actuellement en préversion et est uniquement disponible à un seul niveau de service. Pour plus d’informations, consultez [SQL Database Managed Instance](sql-database-managed-instance.md).
 >
 
 ## <a name="scalable-performance-and-pools"></a>Pools et performances évolutives

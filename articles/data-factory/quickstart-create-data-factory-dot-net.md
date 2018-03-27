@@ -1,23 +1,23 @@
 ---
-title: "Créer une fabrique de données Azure avec .NET | Microsoft Docs"
-description: "Créez une fabrique de données Azure pour copier les données d’un emplacement dans un stockage Blob Azure vers un autre emplacement du même stockage Blob."
+title: Créer une fabrique de données Azure avec .NET | Microsoft Docs
+description: Créez une fabrique de données Azure pour copier les données d’un emplacement dans le stockage Blob Azure vers un autre emplacement.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
 manager: jhubbard
 editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: b430f5932bcd54d5e2ab787fb6c4491b48dbc416
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 4829fde008516aff70652cff337838a162582c24
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>Créer une fabrique de données et un pipeline avec le kit .NET SDK
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,6 +34,7 @@ Ce guide de démarrage rapide explique comment utiliser le kit SDK .NET pour cr�
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 ### <a name="azure-subscription"></a>Abonnement Azure
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.

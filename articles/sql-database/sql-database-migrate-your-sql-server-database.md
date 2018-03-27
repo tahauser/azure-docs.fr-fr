@@ -1,26 +1,19 @@
 ---
-title: "Migrer une base de données SQL Server vers Azure SQL Database | Microsoft Docs"
-description: "Apprenez à migrer votre base de données SQL Server vers Azure SQL Database."
+title: Migrer une base de données SQL Server vers Azure SQL Database | Microsoft Docs
+description: Apprenez à migrer votre base de données SQL Server vers Azure SQL Database.
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,migrate
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: Active
-ms.date: 01/29/2018
+ms.date: 03/15/2018
 ms.author: carlrab
-ms.openlocfilehash: acba1aff0af8d54fca44af62ab46e1fd1a9d607e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c333fd4f87f30d9aa1ace755c7414423ab348e03
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>Migrer votre base de données SQL Server vers Azure SQL Database
 
@@ -35,6 +28,7 @@ Le déplacement de votre base de données SQL Server vers une base de données S
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis :
 
@@ -91,7 +85,7 @@ Pour créer une base de données SQL vide, suivez la procédure suivante.
    > [!IMPORTANT]
    > \* Les tailles de stockage supérieures à la quantité de stockage inclue sont en version préliminaire et des coûts supplémentaires s’appliquent. Pour en savoir plus, voir [Tarification de la base de données SQL](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\* Au niveau Premium, plus de 1 To de stockage est actuellement disponible dans les régions suivantes : Est de l’Australie, Sud-Est de l’Australie, Sud du Brésil, Centre du Canada, Est du Canada, Centre des États-Unis, France-Centre, Centre de l’Allemagne, Est du Japon, Ouest du Japon, Corée Centre, Nord du centre des États-Unis, Europe du Nord, Sud du centre des États-Unis, Sud-Est asiatique, Royaume-Uni Sud, Royaume-Uni Ouest, Est des États-Unis 2, Ouest des États-Unis, Gouvernement des États-Unis - Virginie et Europe de l’Ouest. Consultez [Limitations actuelles P11-P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >\* Au niveau Premium, plus de 1 To de stockage est actuellement disponible dans les régions suivantes : Sud du Brésil, Centre du Canada, Est du Canada, Centre des États-Unis, France-Centre, Centre de l’Allemagne, Est du Japon, Ouest du Japon, Corée Centre, Nord du centre des États-Unis, Europe du Nord, Sud du centre des États-Unis, Sud-Est asiatique, Royaume-Uni Sud, Royaume-Uni Ouest, Est des États-Unis 2, Ouest des États-Unis, Gouvernement des États-Unis - Virginie et Europe de l’Ouest. Consultez [Limitations actuelles P11-P15](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. Après avoir sélectionné le niveau du serveur, le nombre de DTU et la quantité de stockage, cliquez sur **Appliquer**.  

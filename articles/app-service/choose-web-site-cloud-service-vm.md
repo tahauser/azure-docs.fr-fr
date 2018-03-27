@@ -1,8 +1,8 @@
 ---
 title: Comparaison entre Azure App Service, Virtual Machines, Service Fabric et Cloud Services | Microsoft Docs
-description: "Découvrez comment choisir entre Azure App Service, Virtual Machines, Service Fabric et Cloud Services pour l’hébergement d’applications web."
+description: Découvrez comment choisir entre Azure App Service, Virtual Machines, Service Fabric et Cloud Services pour l’hébergement d’applications web.
 services: app-service\web, virtual-machines, cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: ggailey777
 manager: erikre
 editor: jimbe
@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 627782d3d6dd9f2eeff1b79e9cf721f9a4eb4ac2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f930cec984a8b92e00ec613ce3bba91a40518911
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Comparaison entre Azure App Service, Virtual Machines, Service Fabric et Cloud Services
 ## <a name="overview"></a>Vue d'ensemble
@@ -49,7 +49,7 @@ Le tableau suivant compare les fonctionnalités d’Azure App Service, Azure Clo
 | Hébergement des services Web ou niveaux d'une architecture multiniveau |X |X |X |X | |
 | Hébergement du niveau intermédiaire d'une architecture multiniveau |X |X |X |X |Les applications web App Service peuvent facilement héberger un niveau intermédiaire d’API REST et la fonctionnalité [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) peut héberger des tâches de traitement en arrière-plan. Vous pouvez exécuter WebJobs sur un site web dédié pour obtenir une flexibilité indépendante pour cette couche. |
 | Prise en charge intégrée de MySQL-as-a-service |X |X | | | |
-| Prise en charge d'ASP.NET, d'ASP, de Node.js, de PHP et de Python |X |X |X |X |Service Fabric prend en charge la création d’un serveur web frontal à l’aide [d’ASP.NET 5](../service-fabric/service-fabric-reliable-services-communication-aspnetcore.md), ou vous pouvez déployer n’importe quel type d’application (Node.js, Java, etc.) en tant que [fichier exécutable invité](../service-fabric/service-fabric-deploy-existing-app.md). |
+| Prise en charge d'ASP.NET, d'ASP, de Node.js, de PHP et de Python |X |X |X |X |Service Fabric prend en charge la création d’un serveur web frontal à l’aide [d’ASP.NET 5](../service-fabric/service-fabric-reliable-services-communication-aspnetcore.md), ou vous pouvez déployer n’importe quel type d’application (Node.js, Java, etc.) en tant que [fichier exécutable invité](../service-fabric/service-fabric-guest-executables-introduction.md). |
 | Montée en charge vers plusieurs instances sans redéploiement |X |X |X |X |Bien que les machines virtuelles puissent évoluer vers plusieurs instances, les services exécutés sur celles-ci doivent être écrits de manière à prendre en charge cette montée en charge. Vous devez configurer un programme d'équilibrage de la charge pour acheminer les demandes entre les machines et créer un groupe d'affinités afin d'empêcher les redémarrages simultanés de toutes les instances en cas de maintenance ou de panne matérielle. |
 | Prise en charge de SSL |X |X |X |X |Pour les applications web App Service, le protocole SSL pour les noms de domaine personnalisés est pris en charge uniquement en mode De base et Standard. Pour plus d’informations sur l’utilisation de SSL avec les applications web, consultez la page [Configuration d’un certificat SSL pour un site web Azure](app-service-web-tutorial-custom-ssl.md). |
 | Intégration de Visual Studio |X |X |X |X | |
@@ -59,7 +59,7 @@ Le tableau suivant compare les fonctionnalités d’Azure App Service, Azure Clo
 | Prise en charge d' [Azure Traffic Manager](/azure/traffic-manager/) |X |X |X |X | |
 | Surveillance intégrée des points de terminaison |X |X |X | | |
 | Accès aux serveurs via le Bureau à distance | |X |X |X | |
-| Installez n'importe quel MSI personnalisé | |X |X |X |Service Fabric vous permet d’héberger n’importe quel fichier exécutable en tant que [fichier exécutable invité](../service-fabric/service-fabric-deploy-existing-app.md) ou vous pouvez installer n’importe quelle application sur les machines virtuelles. |
+| Installez n'importe quel MSI personnalisé | |X |X |X |Service Fabric vous permet d’héberger n’importe quel fichier exécutable en tant que [fichier exécutable invité](../service-fabric/service-fabric-guest-executables-introduction.md) ou vous pouvez installer n’importe quelle application sur les machines virtuelles. |
 | Possibilité de définir et d'exécuter des tâches de démarrage | |X |X |X | |
 | Possibilité d'écouter des événements ETW | |X |X |X | |
 

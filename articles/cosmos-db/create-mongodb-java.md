@@ -1,33 +1,34 @@
 ---
-title: "Azure Cosmos DB : Développer une application console avec Java et l’API MongoDB | Microsoft Docs"
-description: "Cet article présente un exemple de code Java que vous pouvez utiliser pour vous connecter à l’API MongoDB d’Azure Cosmos DB, et pour l’interroger."
+title: 'Azure Cosmos DB : Développer une application console avec Java et l’API MongoDB | Microsoft Docs'
+description: Cet article présente un exemple de code Java que vous pouvez utiliser pour vous connecter à l’API MongoDB d’Azure Cosmos DB, et pour l’interroger.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: mimig1
 manager: jhubbard
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: mimig
-ms.openlocfilehash: 81bf338d3be18905fd04e07a53284432b5feb491
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 199ea35d7df405ebc148185094a6865a1c373941
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-java-and-the-azure-portal"></a>Azure Cosmos DB : Développer une application console API MongoDB avec Java et le Portail Azure
 
-Azure Cosmos DB est un service de base de données multi-modèles mondialement distribué par Microsoft. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur, et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB. 
+Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur, et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB. 
 
-Ce guide de démarrage rapide explique comment créer, à l’aide du Portail Azure, un compte Azure Cosmos DB, une base de données de documents, ainsi qu’une collection. Vous allez ensuite créer et déployer une application console basée sur le [pilote Java MongoDB](https://docs.mongodb.com/ecosystem/drivers/java/). 
+Ce guide de démarrage rapide explique comment créer, à l’aide du portail Azure, un compte Azure Cosmos DB, une base de données de documents, ainsi qu’une collection. Vous allez ensuite créer et déployer une application console basée sur le [pilote Java MongoDB](https://docs.mongodb.com/ecosystem/drivers/java/). 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Avant de pouvoir exécuter cet exemple, vous devez posséder les composants requis suivants :
 * JDK 1.7 + (exécutez `apt-get install default-jdk` si vous ne possédez pas JDK)
@@ -52,17 +53,17 @@ Nommez votre nouvelle base de données, **db**, et votre nouvelle collection, **
 
 1. Ouvrez une fenêtre de terminal git, comme git bash, et accédez à un répertoire de travail à l’aide de la commande `cd`.  
 
-2. Exécutez la commande suivante pour cloner l’exemple de référentiel. 
+2. Exécutez la commande suivante pour cloner l’exemple de référentiel : 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-getting-started.git
     ```
 
-3. Ouvrez le fichier de solution dans Visual Studio. 
+3. Ouvrez ensuite le code dans votre éditeur préféré. 
 
-## <a name="review-the-code"></a>Examiner le code
+## <a name="review-the-code"></a>Vérifier le code
 
-Passons rapidement en revue ce qu’il se passe dans l’application. Ouvrez le fichier `Program.cs` et vous découvrirez que ces lignes de code créent les ressources Azure Cosmos DB. 
+Passons rapidement en revue ce qu’il se passe dans l’application. Ouvrez le fichier `Program.java` et vous découvrirez que ces lignes de code créent les ressources Azure Cosmos DB. 
 
 * Le DocumentClient est initialisé.
 
@@ -102,7 +103,7 @@ Maintenant, retournez sur le Portail Azure afin d’obtenir vos informations de 
 
 2. Ouvrez le fichier `Program.java`, remplacez l’argument au constructeur MongoClientURI par la chaîne de connexion. Vous venez de mettre à jour votre application avec toutes les informations nécessaires pour communiquer avec Azure Cosmos DB. 
     
-## <a name="run-the-console-app"></a>Exécuter l’application console
+## <a name="run-the-console-app"></a>Exécution de l’application console
 
 1. Exécutez `mvn package` sur un terminal pour installer les modules npm requis.
 
@@ -110,7 +111,7 @@ Maintenant, retournez sur le Portail Azure afin d’obtenir vos informations de 
 
 Vous pouvez maintenant utiliser [Robomongo](mongodb-robomongo.md) / [Studio 3T](mongodb-mongochef.md) pour interroger ces nouvelles données, pour les modifier, et pour travailler avec elles.
 
-## <a name="review-slas-in-the-azure-portal"></a>Examiner les SLA dans le Portail Azure
+## <a name="review-slas-in-the-azure-portal"></a>Vérification des contrats SLA dans le portail Azure
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
@@ -119,7 +120,7 @@ Vous pouvez maintenant utiliser [Robomongo](mongodb-robomongo.md) / [Studio 3T](
 Si vous ne pensez pas continuer à utiliser cette application, supprimez toutes les ressources créées durant ce guide de démarrage rapide dans le Portail Azure en procédant de la façon suivante :
 
 1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis sur le nom de la ressource que vous avez créée. 
-2. Dans la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
+2. Sur la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

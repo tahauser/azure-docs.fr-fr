@@ -1,24 +1,24 @@
 ---
-title: "Présentation d’ExpressRoute : étendre votre réseau local à Azure via une connexion privée | Microsoft Docs"
-description: "Cette présentation technique d’ExpressRoute détaille le fonctionnement d’une connexion ExpressRoute pour étendre votre réseau local à Azure via une connexion privée."
+title: 'Présentation d’ExpressRoute : étendre votre réseau local à Azure via une connexion privée | Microsoft Docs'
+description: Cette présentation technique d’ExpressRoute détaille le fonctionnement d’une connexion ExpressRoute pour étendre votre réseau local à Azure via une connexion privée.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fd95dcd5-df1d-41d6-85dd-e91d0091af05
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/30/2017
+ms.date: 03/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: e5584eee07121fa4644e09e23e3ba6b59fdd5a6e
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 75d69669945d31fbc9876d0c1e709b37f96aee6d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="expressroute-overview"></a>Présentation d’ExpressRoute
 Microsoft Azure ExpressRoute vous permet d’étendre vos réseaux locaux au cloud de Microsoft via une connexion privée assurée par un fournisseur de connectivité. Grâce à ExpressRoute, vous pouvez établir des connexions aux services de cloud computing Microsoft, comme Microsoft Azure, Office 365 et Dynamics 365.
@@ -45,10 +45,9 @@ Pour plus d’informations, consultez le [Forum Aux Questions ExpressRoute](expr
 Microsoft utilise le protocole de routage dynamique standard (BGP) pour échanger des routages entre votre réseau local, vos instances dans Azure et les adresses publiques Microsoft.  Nous établissons plusieurs sessions BGP avec votre réseau pour tester différents profils de trafic. Vous trouverez plus de détails à ce sujet dans l’article [Circuit ExpressRoute et domaines de routage](expressroute-circuit-peerings.md) .
 
 ### <a name="redundancy"></a>Redondance
-Chaque circuit ExpressRoute se compose de deux connexions à deux routeurs Microsoft Enterprise Edge (MSEE) entre le fournisseur de connectivité et le périmètre de votre réseau. Microsoft nécessite une double connexion BGP entre le fournisseur de connectivité et vous, une pour chaque routeur MSEE. Vous pouvez choisir de ne pas déployer des appareils redondants/circuits Ethernet de votre côté. Cependant, les fournisseurs de connectivité utilisent des appareils redondants pour garantir que vos connexions sont transmises à Microsoft de manière redondante. Une configuration de connectivité de couche 3 redondante est nécessaire à la validité de notre [SLA](https://azure.microsoft.com/support/legal/sla/) .
+Chaque circuit ExpressRoute se compose de deux connexions à deux routeurs Microsoft Enterprise Edge (MSEE) entre le fournisseur de connectivité et le périmètre de votre réseau. Microsoft nécessite une double connexion BGP entre le fournisseur de connectivité et vous, une pour chaque routeur MSEE. Vous pouvez choisir de ne pas déployer d’appareils redondants/de circuits Ethernet de votre côté. Cependant, les fournisseurs de connectivité utilisent des appareils redondants pour garantir que vos connexions sont transmises à Microsoft de manière redondante. Une configuration de connectivité de couche 3 redondante est nécessaire à la validité de notre [SLA](https://azure.microsoft.com/support/legal/sla/) .
 
 ### <a name="connectivity-to-microsoft-cloud-services"></a>Connectivité aux services de cloud Microsoft
-[!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 Les connexions ExpressRoute permettent d’accéder aux services suivants :
 
@@ -56,7 +55,11 @@ Les connexions ExpressRoute permettent d’accéder aux services suivants :
 * Services Microsoft Office 365
 * Microsoft Dynamics 365
 
-Vous pouvez visiter la page [Forum Aux Questions ExpressRoute](expressroute-faqs.md) pour consulter une liste détaillée des services pris en charge via ExpressRoute.
+> [!NOTE]
+> [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
+> 
+
+Pour consulter une liste détaillée des services pris en charge via ExpressRoute, visitez la page [Forum Aux Questions ExpressRoute](expressroute-faqs.md) 
 
 ### <a name="connectivity-to-all-regions-within-a-geopolitical-region"></a>Connectivité à toutes les zones d’une région géopolitique
 Vous pouvez vous connecter à Microsoft dans un de nos [emplacements d’homologation](expressroute-locations.md) et ainsi accéder à toutes les zones de la région géopolitique. 
@@ -67,7 +70,7 @@ Par exemple, si vous êtes connecté via ExpressRoute à Microsoft, à Amsterdam
 Vous pouvez activer la fonctionnalité du module complémentaire ExpressRoute premium pour étendre la connectivité au-delà des limites géopolitiques. Par exemple, si vous êtes connecté à Microsoft à Amsterdam via ExpressRoute, vous aurez accès à tous les services de cloud Microsoft hébergés dans toutes les régions du monde (à l’exception des clouds nationaux). Vous pouvez accéder aux services déployés en Amérique du Sud ou en Australie de la même façon que vous accédez aux régions d’Europe du Nord et d’Europe occidentales.
 
 ### <a name="rich-connectivity-partner-ecosystem"></a>Riche écosystème de partenaires de connectivité
-ExpressRoute offre un écosystème sans cesse croissant de fournisseurs de connectivité et de partenaires intégrateurs de systèmes. Vous pouvez consulter l’article [Fournisseurs et emplacements ExpressRoute](expressroute-locations.md) pour obtenir les dernières informations.
+ExpressRoute offre un écosystème sans cesse croissant de fournisseurs de connectivité et de partenaires intégrateurs de systèmes. Vous pouvez consulter l’article [Partenaires ExpressRoute et emplacements d’homologation](expressroute-locations.md) pour obtenir les dernières informations.
 
 ### <a name="connectivity-to-national-clouds"></a>Connectivité aux clouds nationaux
 Microsoft gère des environnements de cloud isolés dans des régions géopolitiques et des segments de clientèle spécifiques. Reportez-vous à la page [Fournisseurs et emplacements ExpressRoute](expressroute-locations.md) pour obtenir la liste des clouds nationaux et des fournisseurs.

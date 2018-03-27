@@ -1,19 +1,19 @@
 ---
-title: "Démarrage rapide Azure - Charger, télécharger et répertorier des objets blob dans Stockage Azure à l’aide de .NET | Microsoft Docs"
-description: "Dans le cadre de ce démarrage rapide, vous créez un compte de stockage et un conteneur. Ensuite, vous utilisez la bibliothèque de client de stockage pour .NET, afin de charger un objet blob dans Stockage Azure, de télécharger un objet blob et de répertorier les objets blob dans un conteneur."
+title: Démarrage rapide Azure - Charger, télécharger et répertorier des objets blob dans Stockage Azure à l’aide de .NET | Microsoft Docs
+description: Dans le cadre de ce démarrage rapide, vous créez un compte de stockage et un conteneur. Ensuite, vous utilisez la bibliothèque de client de stockage pour .NET, afin de charger un objet blob dans Stockage Azure, de télécharger un objet blob et de répertorier les objets blob dans un conteneur.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 03/01/2018
+ms.date: 03/15/2018
 ms.author: tamram
-ms.openlocfilehash: 8d1f09a39e865500aa8e4d093473d4989f134c3d
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 716e61840f4bfb5a68a995683e67dae0b43d3854
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-net"></a>Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide de .NET
 
@@ -254,13 +254,13 @@ Consultez ces ressources supplémentaires sur le développement .NET avec le sto
 
 ### <a name="binaries-and-source-code"></a>Fichiers binaires et code source
 
-- Téléchargez le package NuGet pour obtenir la dernière version de la [bibliothèque de client de Stockage .NET](https://www.nuget.org/packages/WindowsAzure.Storage/). 
-- Consultez le [code source de la bibliothèque de client de Stockage .NET](https://github.com/Azure/azure-storage-net) sur GitHub.
+- Téléchargez le package NuGet pour obtenir la dernière version de la [bibliothèque de client .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) pour le stockage Azure. 
+- Consultez le [code source de la bibliothèque de client .NET](https://github.com/Azure/azure-storage-net) sur GitHub.
 
 ### <a name="client-library-reference-and-samples"></a>Référence et exemples de la bibliothèque de client
 
-- Consultez la [référence API du Stockage .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage) pour plus d’informations sur la bibliothèque de client.
-- Explorez les [exemples de Stockage Blob](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob) écrits avec la bibliothèque de client de Stockage .NET.
+- Consultez la [référence API .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage) pour plus d’informations sur la bibliothèque de client .NET.
+- Explorez les [exemples de Stockage Blob](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob) écrits avec la bibliothèque de client .NET.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

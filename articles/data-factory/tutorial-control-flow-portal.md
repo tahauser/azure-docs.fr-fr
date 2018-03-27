@@ -1,8 +1,8 @@
 ---
-title: "Création de branches dans un pipeline Azure Data Factory | Microsoft Docs"
-description: "Découvrez comment contrôler le flux de données dans Azure Data Factory à l’aide d’activités de création de branches et de chaînage."
+title: Création de branches dans un pipeline Azure Data Factory | Microsoft Docs
+description: Découvrez comment contrôler le flux de données dans Azure Data Factory à l’aide d’activités de création de branches et de chaînage.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
 manager: jhubbard
 editor: spelluru
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 2b1e3fa7fa57d92dbc3a33af20ed258d674e1625
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 00b377b8ed7454c64d146a2de1867eca8ab1fb67
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Activités de création de branches et chaînage dans un pipeline Azure Data Factory
 Dans ce didacticiel, vous créez un pipeline Data Factory qui présente certaines des fonctionnalités de flux de contrôle. Ce pipeline est une simple copie depuis un conteneur Stockage Blob Azure vers un autre conteneur dans le même compte de stockage. Si l’activité de copie réussit, le pipeline envoie les détails de l’opération de copie réussie (par exemple, la quantité de données écrites) dans un e-mail d’avis de réussite. Si l’activité de copie échoue, le pipeline envoie les détails de l’échec de la copie (par exemple, le message d’erreur) dans un e-mail d’avis d’échec. Tout au long de ce didacticiel, vous allez apprendre à passer des paramètres.
@@ -42,6 +42,7 @@ Dans ce didacticiel, vous allez effectuer les étapes suivantes :
 Ce didacticiel utilise le portail Azure. Vous pouvez utiliser d’autres mécanismes pour interagir avec Azure Data Factory. Consultez « Guides de démarrage rapide » dans la table des matières.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 * **Abonnement Azure**. Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * **Compte Stockage Azure**. Vous utilisez le stockage blob comme magasins de données **source**. Si vous n’avez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../storage/common/storage-create-storage-account.md#create-a-storage-account) pour découvrir comment en créer un.
@@ -309,7 +310,7 @@ Dans cette étape, vous allez créer un pipeline avec une activité de copie et 
 3. Dans la fenêtre **Exécution de pipeline**, procédez comme suit : 
 
     1. Entrez **adftutorial/dummy/input** pour le paramètre **sourceBlobContainer**. Assurez-vous que le dossier factice n’existe pas dans le conteneur adftutorial. 
-    2. Entrez **adftutorial/dummy/input** pour le paramètre **sinkBlobContainer**. 
+    2. Entrez **adftutorial/dummy/output** pour le paramètre **sinkBlobContainer**. 
     3. Entrez une **adresse e-mail** du **récepteur**. 
     4. Cliquez sur **Terminer**.
 

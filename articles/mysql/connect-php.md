@@ -1,6 +1,6 @@
 ---
-title: "Se connecter à Azure Database pour MySQL à partir de PHP"
-description: "Ce guide de démarrage rapide fournit plusieurs exemples de code PHP, que vous pouvez utiliser pour vous connecter et interroger des données de la base de données Azure pour MySQL."
+title: Se connecter à Azure Database pour MySQL à partir de PHP
+description: Ce guide de démarrage rapide fournit plusieurs exemples de code PHP, que vous pouvez utiliser pour vous connecter et interroger des données de la base de données Azure pour MySQL.
 services: mysql
 author: mswutao
 ms.author: wuta
@@ -10,16 +10,17 @@ ms.service: mysql-database
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: d20aaf8a4cabd4e013e7ff43010c0f463eaccb79
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 581d3f181f5237d2cb3e469295b06eacd31b784f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>Base de données Azure pour MySQL : Utilisation de PHP pour se connecter et interroger des données
 Ce guide de démarrage rapide vous explique comment vous connecter à une base de données Azure pour MySQL en utilisant une application [PHP](http://php.net/manual/intro-whatis.php). Il détaille l’utilisation d’instructions SQL pour interroger la base de données, la mettre à jour, y insérer des données ou en supprimer. Cette rubrique part du principe que vous connaissez les bases du développement à l’aide de PHP et que vous ne savez pas utiliser Azure Database pour MySQL.
 
 ## <a name="prerequisites"></a>Prérequis
+
 Ce guide de démarrage rapide s’appuie sur les ressources créées dans l’un de ces guides :
 - [Créer un serveur de base de données Azure pour MySQL à l’aide du Portail Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Création d’un serveur de base de données Azure pour MySQL à l’aide d’Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
@@ -230,4 +231,4 @@ mysqli_close($conn);
 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]
-> [Se connecter à Azure Database pour MySQL via SSL] (howto-configure-ssl.md)
+> [Se connecter à Azure Database pour MySQL via SSL](howto-configure-ssl.md)

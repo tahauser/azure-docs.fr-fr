@@ -1,8 +1,8 @@
 ---
-title: "Diagnostiquer les problèmes de performances à l’aide d’Azure Application Insights | Microsoft Docs"
-description: "Didacticiel vous permettant de rechercher et de diagnostiquer les problèmes de performances dans votre application à l’aide d’Azure Application Insights."
+title: Diagnostiquer les problèmes de performances à l’aide d’Azure Application Insights | Microsoft Docs
+description: Didacticiel vous permettant de rechercher et de diagnostiquer les problèmes de performances dans votre application à l’aide d’Azure Application Insights.
 services: application-insights
-keywords: 
+keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/18/2017
@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 26f5acf369dd80d7877ab760806e0e08a49cfe6d
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 8489992303425cc00c15994b55ade958d77549e4
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Rechercher et diagnostiquer les problèmes de performances à l’aide d’Azure Application Insights
 
@@ -29,6 +29,7 @@ Azure Application Insights collecte des données de télémétrie à partir de v
 
 ## <a name="prerequisites"></a>Prérequis
 
+
 Pour suivre ce didacticiel :
 
 - Installez [Visual Studio 2017](https://www.visualstudio.com/downloads/) avec les charges de travail suivantes :
@@ -41,7 +42,7 @@ Pour suivre ce didacticiel :
 Connectez-vous au portail Azure à l’adresse [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="identify-slow-server-operations"></a>Identifier les opérations lentes côté serveur
-Application Insights collecte des informations sur les performances pour les différentes opérations de votre application.  En identifiant ces opérations sur la plus longue période, vous pouvez diagnostiquer les problèmes potentiels ou mieux cibler votre développement actuel afin d’améliorer les performances globales de l’application.
+Application Insights collecte des informations sur les performances pour les différentes opérations de votre application. En identifiant ces opérations sur la plus longue période, vous pouvez diagnostiquer les problèmes potentiels ou mieux cibler votre développement actuel afin d’améliorer les performances globales de l’application.
 
 1. Sélectionnez **Application Insights** choisissez votre abonnement.  
 1. Pour ouvrir le panneau **Performances**, sélectionnez **Performances** sous le menu **Examiner**, ou cliquez sur le graphique **Temps de réponse du serveur**.

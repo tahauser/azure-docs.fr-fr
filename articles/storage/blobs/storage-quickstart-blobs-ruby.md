@@ -1,25 +1,26 @@
 ---
-title: "Démarrage rapide Azure - Charger, télécharger et répertorier des objets blob dans Stockage Azure à l’aide de Ruby | Microsoft Docs"
-description: "Dans le cadre de ce démarrage rapide, vous créez un compte de stockage et un conteneur. Ensuite, vous utilisez la bibliothèque de client de stockage pour Ruby, afin de charger un objet blob dans Stockage Azure, de télécharger un objet blob et de répertorier les objets blob dans un conteneur."
+title: Démarrage rapide Azure - Charger, télécharger et répertorier des objets blob dans Stockage Azure à l’aide de Ruby | Microsoft Docs
+description: Dans le cadre de ce démarrage rapide, vous créez un compte de stockage et un conteneur. Ensuite, vous utilisez la bibliothèque de client de stockage pour Ruby, afin de charger un objet blob dans Stockage Azure, de télécharger un objet blob et de répertorier les objets blob dans un conteneur.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 03/15/2018
 ms.author: seguler
-ms.openlocfilehash: df885849e879317be6379767a09dd30a93687902
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: fa92875fe859e7d1364267d6157f7a706d9eb8df
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide de Ruby
 
 Dans ce guide de démarrage rapide, vous apprenez à utiliser Ruby pour charger, télécharger et lister des objets blob de blocs dans un conteneur de stockage blob Azure. 
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Pour effectuer ce démarrage rapide : 
 * Installer [Ruby](https://www.ruby-lang.org/en/downloads/)
@@ -177,6 +178,12 @@ blob_client.delete_container(container_name)
 File.delete(full_path_to_file)
 File.delete(full_path_to_file2)    
 ```
+## <a name="resources-for-developing-ruby-applications-with-blobs"></a>Ressources sur le développement d’applications Ruby avec des objets blob
+
+Consultez ces ressources supplémentaires sur le développement Ruby avec le stockage Blob :
+
+- Affichez et téléchargez le [code source de la bibliothèque de client Ruby](https://github.com/Azure/azure-storage-ruby) pour Stockage Azure sur GitHub.
+- Explorez les [exemples de Stockage Blob](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=ruby&term=blob) écrits avec la bibliothèque de client Ruby.
 
 ## <a name="next-steps"></a>Étapes suivantes
  
