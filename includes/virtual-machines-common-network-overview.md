@@ -1,3 +1,19 @@
+---
+title: Fichier Include
+description: Fichier Include
+services: virtual-machines-windows
+author: cynthn
+ms.service: virtual-machines-windows
+ms.topic: include
+ms.date: 03/11/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: 6729c4281f4aa10b653d1c4f29104fd10a08a96e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 03/16/2018
+---
 Lorsque vous créez une machine virtuelle Azure, vous devez créer un [réseau virtuel](../articles/virtual-network/virtual-networks-overview.md) ou en utiliser un existant. Vous devez également décider de la façon dont vos machines virtuelles doivent accéder au réseau virtuel. Il est essentiel de [planifier les choses avant de créer des ressources](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) et de s’assurer que vous connaissez les [limites des ressources réseau](../articles/azure-subscription-service-limits.md#networking-limits).
 
 Dans l’illustration suivante, les machines virtuelles sont représentées en tant que serveurs web et serveurs de base de données. Chaque ensemble de machines virtuelles est attribué à différents sous-réseaux du réseau virtuel.
@@ -75,7 +91,7 @@ Ce tableau répertorie les méthodes que vous pouvez utiliser pour créer un ré
 | [Portail Azure](../articles/virtual-network/quick-create-portal.md) | Si vous autorisez Azure à créer un réseau virtuel lors de la création d’une machine virtuelle, le nom attribué sera une combinaison du nom du groupe de ressources qui contient le réseau virtuel et de **-vnet**. L’espace d’adressage est 10.0.0.0/24, le nom du sous-réseau nécessaire est **default**, et la plage d’adresses de sous-réseau est 10.0.0.0/24. |
 | [Azure PowerShell](../articles/virtual-network/quick-create-powershell.md) | Vous utilisez [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmVirtualNetworkSubnetConfig) et [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmVirtualNetwork) pour créer un sous-réseau et un réseau virtuel. Vous pouvez également utiliser [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig) pour ajouter un sous-réseau à un réseau virtuel existant. |
 | [interface de ligne de commande Azure](../articles/virtual-network/quick-create-cli.md) | Le sous-réseau et le réseau virtuel sont créés en même temps. Fournissez un paramètre **--subnet-name** à [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) avec le nom du sous-réseau. |
-| [Modèle](../articles/virtual-network/virtual-networks-create-vnet-arm-template-click.md) | Le moyen le plus simple pour créer un réseau virtuel et des sous-réseaux consiste à télécharger un modèle existant, tel que [rVirtual Network with two Subnets](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets) et de le modifier en fonction de vos besoins. |
+| Modèle | Le moyen le plus simple de créer un réseau virtuel et des sous-réseaux consiste à télécharger un modèle existant, tel que [Virtual Network with two Subnets](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets), et à le modifier en fonction de vos besoins. |
 
 ## <a name="network-security-groups"></a>Groupes de sécurité réseau
 

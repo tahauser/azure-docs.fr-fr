@@ -1,9 +1,9 @@
 ---
-title: "Mise à l’échelle d’un cluster Azure Container Service pour Machine Learning | Microsoft Docs"
-description: "Mise à l’échelle d’un cluster ACS - Mise à l’échelle automatique et mise à l’échelle statique ; mise à l’échelle du nombre de nœuds dans le cluster"
+title: Mise à l’échelle d’un cluster Azure Container Service pour Machine Learning | Microsoft Docs
+description: Mise à l’échelle d’un cluster ACS - Mise à l’échelle automatique et mise à l’échelle statique ; mise à l’échelle du nombre de nœuds dans le cluster
 services: machine-learning
-author: raymondl
-ms.author: raymondl
+author: aashishb
+ms.author: aashishb
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/04/2017
-ms.openlocfilehash: 690068edf749a2c79d328337618d94936520d501
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 58709b5a5b060552e1bc349a6f720d3f45348ba0
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="scaling-the-cluster-to-manage-web-service-throughput"></a>Mise à l’échelle du cluster pour gérer le débit des services web
 
@@ -59,7 +59,7 @@ L’exécution de cette opération nécessite quelques minutes. Pour plus d’in
 
 ### <a name="scaling-the-number-of-kubernetes-pod-replicas-in-a-cluster"></a>Mise à l’échelle du nombre de réplicas de pods Kubernetes dans un cluster
  
-Vous pouvez mettre à l’échelle le nombre de réplicas de pods attribués au cluster en utilisant l’interface de ligne de commande Azure Machine Learning ou le [tableau de bord Kubernetes] (https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/).
+Vous pouvez mettre à l’échelle le nombre de réplicas de pods affecté au cluster à l’aide de l’interface CLI Azure Machine Learning ou du [tableau de bord Kubernetes] (https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/).
 
 Pour plus d’informations sur les réplicas de pods Kubernetes, consultez la documentation relative aux [pods Kubernetes](https://kubernetes.io/docs/concepts/workloads/pods/pod/).
 

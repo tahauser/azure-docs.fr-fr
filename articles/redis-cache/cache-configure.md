@@ -14,11 +14,11 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: fa78c42ce93729379d3c532f94bc67bb8c069d53
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 2e2e22c17bce4bdaf4988001db8de31b68f497fc
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Configuration de Cache Redis Azure
 Cette rubrique décrit les configurations disponibles pour vos instances de Cache Redis Azure. Cette rubrique décrit également la configuration par défaut du serveur Redis pour les instances de Cache Redis Azure.
@@ -279,8 +279,6 @@ Vous pouvez spécifier des règles de pare-feu avec une des valeurs de début et
 
 > [!IMPORTANT]
 > Les connexions depuis les systèmes de surveillance de cache Redis Azure sont toujours autorisées, même si des règles de pare-feu sont configurées.
-> 
-> Les règles de pare-feu son uniquement disponibles pour les caches de niveau Premium.
 > 
 > 
 

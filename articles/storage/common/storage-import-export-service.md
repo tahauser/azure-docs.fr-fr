@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: muralikk
-ms.openlocfilehash: 7eaf4c3c9b390e87dd8494cd6bfb2ea155451608
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: d096d6fd4664fecc9c759d683ed79e76cda9b6af
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Transférer des données vers Stockage Azure à l’aide du service Microsoft Azure Import/Export
 Cet article fournit des instructions pas à pas sur l’utilisation du service Azure Import/Export pour transférer en toute sécurité des volumes importants de données vers Stockage Blob Azure et Azure Files en expédiant des lecteurs de disques vers un centre de données Azure. Vous pouvez également utiliser ce service pour transférer des données de Stockage Blob Azure vers des lecteurs de disques durs et les expédier vers vos sites locaux. Les données d’un seul lecteur de disque SATA interne peuvent être importées dans Stockage Blob Azure ou Azure Files. 
@@ -29,7 +29,7 @@ Suivez les étapes ci-dessous si les données sur le disque doivent être import
 2.  En fonction de la taille totale des données, procurez-vous le nombre requis de SSD de 2,5 pouces ou HDD SATA II ou III de 2,5 ou 3,5 pouces.
 3.  Attachez les disques durs directement à l’aide de SATA ou avec des adaptateurs USB externes à un ordinateur Windows.
 1.  Créez un seul volume NTFS sur chaque disque dur et affectez-lui une lettre de lecteur. Pas de points de montage.
-2.  Pour activer le chiffrement sur l’ordinateur Windows, activez le chiffrement BitLocker sur le volume NTFS. Suivez les instructions à l’adresse https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx.
+2.  Pour activer le chiffrement sur l’ordinateur Windows, activez le chiffrement BitLocker sur le volume NTFS. Suivez les instructions sur https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx.
 3.  Copiez entièrement les données vers ces volumes NTFS uniques chiffrés sur les disques à l’aide des fonctions Copier/Coller ou Glisser-déplacer, de Robocopy ou de n’importe quel outil de ce type.
 7.  Téléchargez WAImportExport V1 à partir de https://www.microsoft.com/en-us/download/details.aspx?id=42659
 8.  Effectuez la décompression dans le dossier par défaut waimportexportv1. Par exemple, C:\WaImportExportV1  
@@ -37,7 +37,7 @@ Suivez les étapes ci-dessous si les données sur le disque doivent être import
 10. Copiez la ligne de commande suivante dans un éditeur de texte et modifiez-la pour en créer une autre :
 
     ```
-    ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ 
+    ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ /skipwrite 
     ```
     
     Les options de ligne de commande sont décrites dans le tableau suivant :
@@ -47,16 +47,16 @@ Suivez les étapes ci-dessous si les données sur le disque doivent être import
     |/j:     |Nom du fichier journal, avec l’extension .jrn. Un fichier journal est généré par lecteur. Il est recommandé d’utiliser le numéro de série du disque comme nom de fichier journal.         |
     |/sk:     |Clé de compte de stockage Azure.         |
     |/t:     |Lettre de lecteur du disque à expédier. Exemple : lecteur `D`.         |
-    |/bk:     |Clé BitLocker du lecteur.         |
+    |/bk:     |Clé BitLocker du lecteur. Son mot de passe numérique à partir de la sortie de ` manage-bde -protectors -get D: `      |
     |/srcdir:     |Lettre de lecteur du disque à expédier suivie de `:\`. Par exemple : `D:\`.         |
     |/dstdir:     |Nom du conteneur de destination dans Stockage Azure.         |
-
+    |/skipwrite:     |Option qui spécifie qu’aucune nouvelle donnée ne doit être copiée et que les données existantes sur le disque doivent être préparées         |
 1. Répétez l’étape 10 pour chaque disque qui doit être expédié.
 2. Un fichier journal avec le nom fourni avec le paramètre /j: est créé pour chaque exécution de la ligne de commande.
 
 ### <a name="step-2-create-an-import-job-on-azure-portal"></a>Étape 2 : Créer une tâche d’importation dans le portail Azure.
 
-1. Ouvrez une session sur https://portal.azure.com/ et sous Autres services-> STOCKAGE -> Tâches d’importation/exportation, cliquez sur **Créer une tâche d’importation/exportation**.
+1. Ouvrez une session sur https://portal.azure.com/ et, sous Autres services-> STOCKAGE -> Tâches d’importation/exportation, cliquez sur **Créer une tâche d’importation/exportation**.
 
 2. Dans la section Fonctions de base, sélectionnez « Importer dans Azure », entrez une chaîne pour le nom de la tâche, sélectionnez un abonnement, entrez ou sélectionnez un groupe de ressources. Indiquez un nom décrivant le travail d’importation. Notez que le nom que vous entrez ne peut contenir que des minuscules, des chiffres, des tirets et des traits de soulignement, qu'il doit commencer par une lettre et qu'il ne peut pas contenir d'espaces. Le nom choisi servira à suivre les tâches en cours et terminées.
 

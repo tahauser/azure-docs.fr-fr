@@ -493,7 +493,7 @@ Pour définir un jeu de données d’objet blob Azure, définissez le **type** d
 Pour plus d’informations, consultez l’article [Azure Blob connector (connecteur d’objet blob Azure)](data-factory-azure-blob-connector.md#dataset-properties).
 
 ### <a name="blobsource-in-copy-activity"></a>BlobSource dans l’activité de copie
-Si vous copiez des données à partir d’un stockage d’objets blob Azure, définissez le **type de source** de l’activité de copie sur **BlobSource** et spécifiez les propriétés suivantes dans la section ** source ** :
+Si vous copiez des données à partir d’un stockage d’objets blob Azure, définissez le **type de source** de l’activité de copie sur **BlobSource** et spécifiez les propriétés suivantes dans la section **source** :
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |

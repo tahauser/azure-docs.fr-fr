@@ -1,24 +1,24 @@
 ---
-title: "Créer votre premier microservice Azure basé sur acteur en C# | Microsoft Docs"
-description: "Ce didacticiel vous guide dans les étapes de création, de débogage et de déploiement d’un service simple basé sur acteur à l’aide de Service Fabric Reliable Actors."
+title: Créer votre premier microservice Azure basé sur acteur en C# | Microsoft Docs
+description: Ce didacticiel vous guide dans les étapes de création, de débogage et de déploiement d’un service simple basé sur acteur à l’aide de Service Fabric Reliable Actors.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d4aebe72-1551-4062-b1eb-54d83297f139
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/20/2017
+ms.date: 03/16/2018
 ms.author: vturecek
-ms.openlocfilehash: ea17cf744779f390fe4b3f4049deb0c1ad985024
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 20786522a9a25d84a32a53e5e111b4b542501287
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="getting-started-with-reliable-actors"></a>Prise en main de Reliable Actors
 > [!div class="op_single_selector"]
@@ -27,7 +27,8 @@ ms.lasthandoff: 12/21/2017
 
 Cet article décrit la création et le débogage d'une simple application Reliable Actors dans Visual Studio. Pour plus d’informations sur Reliable Actors, consultez l’article [Présentation du modèle Reliable Actors de Service Fabric](service-fabric-reliable-actors-introduction.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Avant de commencer, assurez-vous d’avoir configuré l’environnement de développement Service Fabric, y compris Visual Studio, sur votre ordinateur. Pour plus de détails, voir [Configuration de l’environnement de développement](service-fabric-get-started.md).
 
@@ -37,7 +38,7 @@ Lancez Visual Studio 2015 ou version ultérieure en tant qu’administrateur, pu
 
 ![Outils Service Fabric pour Visual Studio - nouveau projet][1]
 
-Dans la boîte de dialogue suivante, choisissez **Service d'acteur** puis nommez le service.
+Dans la boîte de dialogue suivante, choisissez **Service d’acteur** sous **.Net Core 2.0** et nommez le service.
 
 ![Modèles de projets Service Fabric][5]
 

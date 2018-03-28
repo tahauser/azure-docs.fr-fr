@@ -6,13 +6,13 @@ author: lakasa
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/14/2018
 ms.author: lakasa
-ms.openlocfilehash: 6b56cbb4220ce1c8767724938dd531b8ae5c3920
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: d9df2218acc218a796e502fa4e3b94573af86ca8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Azure Storage Service Encryption pour les données au repos
 
@@ -62,17 +62,13 @@ R : Storage Service Encryption est activé par défaut lors de la création d�
 
 R : Aucun coût supplémentaire n’est facturé.
 
-**Q : Qui gère les clés de chiffrement ?**
-
-R : Microsoft gère les clés.
-
 **Q : Puis-je utiliser mes propres clés de chiffrement ?**
 
-R : Pas pour l’instant.
+R : Oui, vous pouvez utiliser vos propres clés de chiffrement. Pour plus d’informations, consultez [Chiffrement du service de stockage à l’aide de clés gérées par le client dans Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
 
 **Q : Est-il possible de révoquer l’accès aux clés de chiffrement ?**
 
-R : Pas pour l’instant. Microsoft gère entièrement les clés.
+R : Oui, si vous [utilisez vos propres clés de chiffrement](storage-service-encryption-customer-managed-keys.md) dans Azure Key Vault.
 
 **Q : Storage Service Encryption est-il activé par défaut lorsque je crée un compte de stockage ?**
 

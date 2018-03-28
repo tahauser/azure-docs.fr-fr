@@ -57,10 +57,12 @@ Voici certaines des fonctionnalités du stockage Premium :
 
     Un compte de stockage Premium prend uniquement en charge le stockage localement redondant comme option de réplication. Le stockage localement redondant conserve trois copies des données dans une même région. Pour la récupération d’urgence régionale, vous devez sauvegarder vos disques de machines virtuelles dans une autre région à l’aide de [Sauvegarde Azure](../articles/backup/backup-introduction-to-azure-backup.md). Vous devez également utiliser un compte de stockage géoredondant (GRS) comme coffre de sauvegarde. 
 
-    Azure utilise votre compte de stockage comme conteneur pour vos disques non gérés. Lorsque vous créez une machine virtuelle Azure de série DS, DSv2, GS ou Fs avec des disques non gérés et que vous sélectionnez un compte de stockage Premium, votre système d’exploitation et les disques de données sont stockés dans ce compte de stockage.
+    Azure utilise votre compte de stockage comme conteneur pour vos disques non gérés. Lorsque vous créez une machine virtuelle Azure qui prend en charge le Stockage Premium avec des disques non managés, puis sélectionnez un compte Stockage Premium, votre système d’exploitation et les disques de données sont stockés dans ce compte de stockage.
 
 ## <a name="supported-vms"></a>Machines virtuelles prises en charge
-Le stockage Premium prend en charge les machines virtuelles des séries DS, DSv2, GS, Ls, Fs et B. Vous pouvez utiliser des disques de stockage Standard et Premium avec ces types de machines virtuelles. Vous ne pouvez pas utiliser des disques de stockage Premium avec des séries de machines virtuelles qui ne sont pas compatibles avec le stockage Premium.
+
+Le Stockage Premium prend en charge les machines virtuelles des séries B, DS, DSv2, DSv3, GS, Ls, M et Fs. Vous pouvez utiliser des disques de stockage Standard et Premium avec ces types de machines virtuelles. Vous ne pouvez pas utiliser des disques de stockage Premium avec des séries de machines virtuelles qui ne sont pas compatibles avec le stockage Premium.
+
 
 Pour plus d’informations sur les types et les tailles de machines virtuelles dans Azure pour Windows, consultez [Tailles des machines virtuelles Windows](../articles/virtual-machines/windows/sizes.md). Pour plus d’informations sur les types et les tailles de machines virtuelles dans Azure pour Linux, consultez [Tailles des machines virtuelles Linux](../articles/virtual-machines/linux/sizes.md).
 

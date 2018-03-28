@@ -1,24 +1,18 @@
 ---
-title: Solution Update Management dans Azure | Microsoft Docs
-description: "Cet article vise à vous aider à comprendre comment utiliser cette solution pour gérer les mises à jour de vos ordinateurs Windows et Linux."
+title: Solution Update Management dans Azure
+description: Cet article vise à vous aider à comprendre comment utiliser cette solution pour gérer les mises à jour de vos ordinateurs Windows et Linux.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: 
-ms.assetid: e33ce6f9-d9b0-4a03-b94e-8ddedcc595d2
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/28/2018
+author: georgewallace
 ms.author: gwallace
-ms.openlocfilehash: 9280925cdd5cccf8d1d2f2b33a7de8523a07cd14
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.date: 03/16/2018
+ms.topic: article
+manager: carmonm
+ms.openlocfilehash: 202c75366477ae3445f607f75d08faf0335de79f
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Solution Update Management dans Azure
 
@@ -58,8 +52,8 @@ Le tableau suivant répertorie la liste des systèmes d’exploitation pris en c
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Prend uniquement en charge les évaluations de mises à jour.         |
 |Windows Server 2008 R2 SP1 et versions ultérieures     |.NET Framework 4.5 et WMF 5.0 ou des versions ultérieures sont nécessaires pour Windows Server 2008 R2 SP1.        |
-|CentOS 6 (x86/x64) et 7 (x 64)      | Les agents Linux doivent avoir accès à un référentiel de mise à jour.        |
-|Red Hat Enterprise 6 (x86/x64) et 7 (x 64)     | Les agents Linux doivent avoir accès à un référentiel de mise à jour.        |
+|CentOS 6 (x86/x64) et 7 (x64)      | Les agents Linux doivent avoir accès à un référentiel de mise à jour.        |
+|Red Hat Enterprise 6 (x86/x64) et 7 (x64)     | Les agents Linux doivent avoir accès à un référentiel de mise à jour.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) et 12 (x64)     | Les agents Linux doivent avoir accès à un référentiel de mise à jour.        |
 |Ubuntu 12.04 LTS et x86/x64 plus récente       |Les agents Linux doivent avoir accès à un référentiel de mise à jour.         |
 
@@ -144,7 +138,7 @@ Pour vérifier qu’un groupe d’administration Operations Manager communique a
 ### <a name="supported-agents"></a>Agents pris en charge
 Le tableau suivant décrit les sources connectées qui sont prises en charge par cette solution.
 
-| Source connectée | Prise en charge | DESCRIPTION |
+| Source connectée | Prise en charge | Description |
 | --- | --- | --- |
 | Agents Windows |OUI |La solution de collecte des informations sur les mises à jour système des agents et lance l’installation des mises à jour obligatoires. |
 | Agents Linux |OUI |La solution collecte des informations sur les mises à jour système des agents Linux et lance l’installation des mises à jour obligatoires sur les versions prises en charge. |
@@ -187,7 +181,7 @@ Cliquez sur **Déploiements de mises à jour** pour afficher la liste des déplo
 
 Pour créer un déploiement de mises à jour, cliquez sur le bouton **Planifier le déploiement de la mise à jour** situé en haut de l’écran pour ouvrir la page **Nouveau déploiement de mises à jour**. Vous devez fournir des valeurs pour les propriétés dans le tableau suivant :
 
-| Propriété | DESCRIPTION |
+| Propriété | Description |
 | --- | --- |
 | NOM |Nom unique identifiant le déploiement de mises à jour. |
 |Système d’exploitation| Linux ou Windows|
@@ -205,7 +199,7 @@ En plus des détails fournis dans le portail, des recherches peuvent être effec
 
 Le tableau suivant fournit des exemples de recherches dans les journaux d’enregistrements de mise à jour collectés par cette solution :
 
-| Requête | DESCRIPTION |
+| Requête | Description |
 | --- | --- |
 |Mettre à jour<br>&#124; where UpdateState == "Needed" and Optional == false<br>&#124; project Computer, Title, KBID, Classification, PublishedDate |Ensemble des ordinateurs avec des mises à jour manquantes<br>Ajoutez une des valeurs suivantes pour limiter le système d’exploitation :<br>OSType = "Windows"<br>OSType == "Linux" |
 | Mettre à jour<br>&#124; where UpdateState == "Needed" and Optional == false<br>&#124; where Computer == "ContosoVM1.contoso.com"<br>&#124; project Computer, Title, KBID, Product, PublishedDate |Mises à jour manquantes pour un ordinateur spécifique (remplacer la valeur par le nom de votre ordinateur)|
@@ -255,7 +249,7 @@ Si vous rencontrez des problèmes lorsque vous essayez d’intégrer la solution
 | The certificate presented by the service <wsid>.oms.opinsights.azure.com<br>was not issued by a certificate authority<br>used for Microsoft services. Contact<br>your network administrator to see if they are running a proxy that intercepts<br>TLS/SSL communication. (Le certificat présenté par le service .oms.opinsights.azure.com n’a pas été émis par une autorité de certification utilisée par les services Microsoft. Veuillez contacter votre administrateur réseau pour déterminer si un proxy en cours d’exécution intercepte la communication TLS/SSL.) |Proxy/passerelle/pare-feu bloquant la communication | [Passez en revue la configuration requise pour le réseau](automation-offering-get-started.md#network-planning)|  
 | Unable to Register Machine for Patch Management,<br>Registration Failed with Exception<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>Failed to create a self-signed certificate. ---><br>System.UnauthorizedAccessException: Access is denied. (Impossible d’inscrire la machine pour la gestion des correctifs, l’inscription a échoué avec l’exception AgentService.HybridRegistration. PowerShell.Certificates.CertificateCreationException : échec de la création d’un certificat auto-signé. --->System.UnauthorizedAccessException : accès refusé.) | Échec de génération du certificat auto-signé | Vérifiez que le compte système a<br>un accès en lecture au dossier :<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA**|  
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Poursuivez avec le tutoriel pour apprendre à gérer les mises à jour pour vos machines virtuelles Windows.
 

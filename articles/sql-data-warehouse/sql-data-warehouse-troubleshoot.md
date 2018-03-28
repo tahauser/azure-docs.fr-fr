@@ -1,25 +1,24 @@
 ---
-title: "Résolution des problèmes d’Azure SQL Data Warehouse | Microsoft Docs"
-description: "Résolution des problèmes d’Azure SQL Data Warehouse."
+title: Résolution des problèmes d’Azure SQL Data Warehouse | Microsoft Docs
+description: Résolution des problèmes d’Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
 manager: jhubbard
-editor: 
-ms.assetid: 51f1e444-9ef7-4e30-9a88-598946c45196
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 03/30/2017
+ms.date: 03/15/2018
 ms.author: kevin;barbkess
-ms.openlocfilehash: 48318397f9c5e463c82320ad9d7c23a1a62af77e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 0829d448e8b925d0dcc032ed143d8fff42ab1b69
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Résolution des problèmes d’Azure SQL Data Warehouse
 Cette rubrique répertorie les questions les plus courantes relatives à la résolution des problèmes que nous posent nos clients.
@@ -60,7 +59,7 @@ Cette rubrique répertorie les questions les plus courantes relatives à la rés
 ## <a name="polybase"></a>Polybase
 | Problème | Résolution : |
 |:--- |:--- |
-| Échec du chargement en raison des grandes lignes |Actuellement, la prise en charge des grandes lignes n’est pas disponible pour Polybase.  Cela signifie que si votre table contient VARCHAR(MAX), NVARCHAR(MAX) ou VARBINARY(MAX), les tables externes ne peuvent pas être utilisés pour charger vos données.  Actuellement, les charges pour les grandes lignes sont uniquement prises en charge via Azure Data Factory (avec BCP), Azure Stream Analytics, SSIS, BCP ou la classe .NET SQLBulkCopy. La prise en charge de PolyBase pour les grandes lignes sera ajoutée dans une version ultérieure. |
+| Échec du chargement en raison des grandes lignes |Actuellement, la prise en charge des grandes lignes n’est pas disponible pour Polybase.  Cela signifie que si votre table contient VARCHAR(MAX), NVARCHAR(MAX) ou VARBINARY(MAX), les tables externes ne peuvent pas être utilisés pour charger vos données.  Le chargement des grandes lignes est uniquement pris en charge via Azure Data Factory (avec BCP), Azure Stream Analytics, SSIS, BCP ou la classe .NET SQLBulkCopy. La prise en charge de PolyBase pour les grandes lignes sera ajoutée dans une version ultérieure. |
 | Échec de chargement BCP d’une table avec le type de données MAX |Il existe un problème connu qui nécessite que VARCHAR(MAX), NVARCHAR(MAX) ou VARBINARY(MAX) soient placés à la fin de la table dans certains scénarios.  Essayez de déplacer vos colonnes MAX à la fin de la table. |
 
 ## <a name="differences-from-sql-database"></a>Différences par rapport à la base de données SQL
@@ -74,7 +73,7 @@ Cette rubrique répertorie les questions les plus courantes relatives à la rés
 | Les fonctions définies par l’utilisateur ne prennent pas en charge les instructions SELECT |Il s’agit d’une limitation actuelle de nos fonctions définies par l’utilisateur.  Consultez [CREATE FUNCTION][CREATE FUNCTION] pour connaître la syntaxe que nous prenons en charge. |
 
 ## <a name="next-steps"></a>Étapes suivantes
-Si les ressources ci-dessus ne vous ont pas permis de trouver une solution à votre problème, voici d’autres ressources que vous pouvez consulter.
+Pour obtenir une aide supplémentaire lors de la recherche d’une solution à votre problème, voici d’autres ressources auxquelles vous pouvez recourir.
 
 * [Blogs]
 * [Demandes de fonctionnalités]
@@ -113,7 +112,7 @@ Si les ressources ci-dessus ne vous ont pas permis de trouver une solution à vo
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
 [Poor columnstore index quality]: ./sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
 [Rebuild indexes to improve segment quality]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
-[Workload management]: ./sql-data-warehouse-develop-concurrency.md
+[Workload management]: ./resource-classes-for-workload-management.md
 [Using CTAS to work around unsupported UPDATE and DELETE syntax]: ./sql-data-warehouse-develop-ctas.md#using-ctas-to-work-around-unsupported-features
 [UPDATE workarounds]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
 [DELETE workarounds]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements

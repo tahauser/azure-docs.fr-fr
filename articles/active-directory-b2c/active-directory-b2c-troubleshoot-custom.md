@@ -1,8 +1,8 @@
 ---
-title: "Résoudre les problèmes liés aux stratégies personnalisées grâce à Application Insights - Azure AD B2C | Documents Microsoft"
-description: "configuration d’Application Insights pour suivre l’exécution de stratégies personnalisées"
+title: Résoudre les problèmes liés aux stratégies personnalisées grâce à Application Insights - Azure AD B2C | Documents Microsoft
+description: configuration d’Application Insights pour suivre l’exécution de stratégies personnalisées
 services: active-directory-b2c
-documentationcenter: 
+documentationcenter: ''
 author: saeedakhter-msft
 manager: mtillman
 editor: parakhj
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: saeda
-ms.openlocfilehash: 65a39479b4d4b86d569501636e4a0678b052d426
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 4f71380917a5a29497da9831791cd9f86ec4c8ca
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C : collecte des journaux
 
@@ -105,6 +105,8 @@ Pour plus d’informations sur l’outil Analytics, cliquez [ici](https://docs.m
 
 >[!NOTE]
 >La communauté a développé une visionneuse du parcours utilisateur pour aider les développeurs d’identité.  Elle n’est pas prise en charge par Microsoft et est mise à disposition tel quel.  Elle lit les données de votre instance d’Application Insights et présente les événements du parcours utilisateur d’une façon bien structurée.  Vous obtenez le code source et le déployez dans votre propre solution.
+
+La version de la visionneuse qui lit les événements Application Insights se trouve [ici](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/wingtipgamesb2c/src/WingTipUserJourneyPlayerWebApplication).
 
 >[!NOTE]
 >Actuellement, les journaux d’activité détaillés décrits ici sont conçus **UNIQUEMENT** pour faciliter le développement de stratégies personnalisées. N’utilisez pas le mode de développement en production.  Les journaux recueillent toutes les revendications envoyées par et aux fournisseurs d’identité au cours du développement.  En cas d’utilisation en production, le développeur assume la responsabilité des informations d’identification personnelle (PII) recueillies dans le journal Application Insights dont il est propriétaire.  Ces journaux détaillés ne sont collectés que si la stratégie est en **MODE DE DÉVELOPPEMENT**.

@@ -1,18 +1,18 @@
 ---
-title: "Sécurité et authentification Azure Event Grid"
-description: "Détaille le service Azure Event Grid et ses concepts."
+title: Sécurité et authentification Azure Event Grid
+description: Détaille le service Azure Event Grid et ses concepts.
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/15/2018
 ms.author: babanisa
-ms.openlocfilehash: 9d2b32df6e4b931539eac34d09135ea33069b936
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0b7ef71cf940f82f46a7f053e5c9f7ef64342b6e
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Sécurité et authentification Azure Event Grid 
 
@@ -24,9 +24,9 @@ Azure Event Grid dispose de trois types d’authentification :
 
 ## <a name="webhook-event-delivery"></a>Remise d’événement WebHook
 
-Webhook constitue l’un des nombreux moyens de réception d’événements en temps réel depuis Azure Event Grid. Chaque fois qu’un nouvel événement est prêt à être remis, le webhook Event Grid envoie une requête HTTP au point de terminaison HTTP configuré avec l’événement dans le corps.
+Un Webhook constitue l’un des nombreux moyens de recevoir des événements provenant d’Azure Event Grid. Quand un nouvel événement est prêt, le Webhook Event Grid envoie une requête HTTP au point de terminaison HTTP configuré avec l’événement dans le corps.
 
-Lorsque vous inscrivez votre point de terminaison WebHook avec Event Grid, le WebHook vous envoie une requête POST avec un code de validation simple pour prouver que vous êtes le propriétaire du point de terminaison. Votre application doit répondre en renvoyant le code de validation. Event Grid ne remet aucun événement aux points de terminaison WebHook qui n’ont pas été validés.
+Lorsque vous inscrivez votre point de terminaison WebHook auprès d’Event Grid, le WebHook vous envoie une requête POST avec un code de validation simple pour prouver que vous êtes le propriétaire du point de terminaison. Votre application doit répondre en renvoyant le code de validation. Event Grid ne remet aucun événement aux points de terminaison WebHook qui n’ont pas été validés.
 
 ### <a name="validation-details"></a>Détails de validation
 
@@ -34,6 +34,7 @@ Lorsque vous inscrivez votre point de terminaison WebHook avec Event Grid, le We
 * L’événement contient une valeur d’en-tête « Aeg-Event-Type: SubscriptionValidation ».
 * Le corps de l’événement dispose du même schéma que les autres événements Event Grid.
 * Les données d’événement incluent une propriété « validationCode » avec une chaîne générée de façon aléatoire, par exemple « validationCode: acb13… ».
+* Le tableau contient uniquement l’événement de validation. Les autres événements sont envoyés dans une requête distincte, une fois que vous avez renvoyé le code de validation.
 
 Un exemple de SubscriptionValidationEvent est illustré ci-dessous :
 
@@ -52,7 +53,7 @@ Un exemple de SubscriptionValidationEvent est illustré ci-dessous :
 }]
 ```
 
-Afin de prouver que vous êtes propriétaire du point de terminaison, renvoyez le code de validation dans la propriété validationResponse, comme indiqué dans l’exemple suivant :
+Pour prouver que vous êtes propriétaire du point de terminaison, renvoyez le code de validation dans la propriété validationResponse, comme indiqué dans l’exemple suivant :
 
 ```json
 {
@@ -65,11 +66,11 @@ Vous pouvez sécuriser votre point de terminaison Webhook en ajoutant des param�
 
 Lorsque vous modifiez l’abonnement aux événements, les paramètres de requête ne sont pas affichés ni retournés, sauf si le paramètre [--include-full-endpoint-url](https://docs.microsoft.com/en-us/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_show) est utilisé dans [Azure CLI](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest).
 
-Enfin, il est important de noter qu’Azure Event Grid ne prend en charge que les points de terminaison HTTPS webhook.
+Enfin, il est important de noter qu’Azure Event Grid ne prend en charge que les points de terminaison de Webhook HTTPS.
 
 ## <a name="event-subscription"></a>Abonnement à un événement
 
-Pour vous abonner à un événement, vous devez disposer de l’autorisation **Microsoft.EventGrid/EventSubscriptions/Write** sur la ressource nécessaire. Il vous faut cette autorisation, car vous rédigez un nouvel abonnement dans la portée de la ressource. La ressource nécessaire diffère si vous vous abonnez à une rubrique du système ou à une rubrique personnalisée. Les deux types sont décrits dans cette section.
+Pour vous abonner à un événement, vous devez disposer de l’autorisation **Microsoft.EventGrid/EventSubscriptions/Write** sur la ressource nécessaire. Vous avez besoin de cette autorisation, car vous rédigez un nouvel abonnement dans la portée de la ressource. La ressource nécessaire diffère si vous vous abonnez à une rubrique du système ou à une rubrique personnalisée. Les deux types sont décrits dans cette section.
 
 ### <a name="system-topics-azure-service-publishers"></a>Rubriques du système (éditeurs du service Azure)
 
@@ -79,7 +80,7 @@ Par exemple, pour vous abonner à un événement sur un compte de stockage nomm�
 
 ### <a name="custom-topics"></a>Rubriques personnalisées
 
-Dans les rubriques personnalisées, il vous faut l’autorisation de rédiger un nouvel abonnement à un événement dans la portée de la rubrique Event Grid. La ressource est au format suivant : `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
+Dans les rubriques personnalisées, vous avez besoin de l’autorisation de rédiger un nouvel abonnement à un événement dans la portée de la rubrique Event Grid. La ressource est au format suivant : `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
 
 Par exemple, pour vous abonner à une rubrique personnalisée nommée **mytopic**, il vous faut l’autorisation Microsoft.EventGrid/EventSubscriptions/Write sur :`/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
 
@@ -103,7 +104,7 @@ aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==
 
 Les jetons SAP pour Event Grid incluent la ressource, un délai d’expiration et une signature. Le jeton SAP est au format suivant : `r={resource}&e={expiration}&s={signature}`.
 
-La ressource représente le chemin d’accès à la rubrique à laquelle vous envoyez des événements. Par exemple, un chemin d’accès de ressource valide est :`https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events`
+La ressource représente le chemin de la rubrique Event Grid à laquelle vous envoyez des événements. Par exemple, un chemin d’accès de ressource valide est :`https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events`
 
 Vous générez la signature à partir d’une clé.
 
@@ -140,7 +141,7 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 
 ## <a name="management-access-control"></a>Contrôle d’accès à la gestion
 
-Azure Event Grid vous permet de contrôler le niveau d’accès offert aux utilisateurs, leur permettant d’effectuer différentes opérations de gestion telles que répertorier et créer des abonnements aux événements et générer des clés. Event Grid utilise la vérification d’accès par rôle (RBAC) d’Azure.
+Azure Event Grid vous permet de contrôler le niveau d’accès offert aux utilisateurs, leur permettant d’effectuer différentes opérations de gestion telles que répertorier et créer des abonnements aux événements et générer des clés. Event Grid utilise le contrôle d’accès en fonction du rôle (RBAC) d’Azure.
 
 ### <a name="operation-types"></a>Types d’opération
 

@@ -1,11 +1,11 @@
 ---
-title: "Création d’une image de machine virtuelle pour Azure Marketplace | Microsoft Docs"
-description: "Instructions détaillées sur la façon de créer une image de machine virtuelle pour Azure Marketplace et en permettre la commercialisation auprès des autres utilisateurs."
+title: Création d’une image de machine virtuelle pour Azure Marketplace | Microsoft Docs
+description: Instructions détaillées sur la façon de créer une image de machine virtuelle pour Azure Marketplace et en permettre la commercialisation auprès des autres utilisateurs.
 services: Azure Marketplace
-documentationcenter: 
-author: HannibalSII
-manager: hascipio
-editor: 
+documentationcenter: ''
+author: msmbaldwin
+manager: mbaldwin
+editor: ''
 ms.assetid: 5c937b8e-e28d-4007-9fef-624046bca2ae
 ms.service: marketplace
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
-ms.author: hascipio; v-divte
-ms.openlocfilehash: 0379592f1c4f6e9d3f6fd2127b8e34e99a8b0176
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: mbaldwin
+ms.openlocfilehash: f7b19066ca3fa156456766ff82afeadadc6b1efa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guide à la création d’une image de machine virtuelle pour Azure Marketplace
 Cet article, **étape 2**, vous guide dans la préparation des disques durs virtuels (VHD) que vous allez déployer dans Azure Marketplace. Vos disques durs virtuels constituent le fondement de votre référence SKU. Le processus varie selon que vous fournissez une référence SKU Linux ou Windows. Cet article aborde ces deux scénarios. Ce processus peut être exécuté parallèlement à la procédure de [création de compte et d’enregistrement][link-acct-creation].
@@ -28,8 +28,8 @@ Dans cette section, vous apprenez à définir les offres et leurs références S
 
 Une offre constitue le « parent » des références SKU associées. Vous pouvez proposer plusieurs offres. Il vous revient de définir les modalités de structuration de vos offres. Lorsqu’une offre est déployée dans un environnement intermédiaire, les références SKU associées le sont également. Choisissez avec soin vos identificateurs SKU, car ceux-ci apparaissent dans l’URL.
 
-* Azure.com : http://azure.microsoft.com/marketplace/partners/{espace_de_noms_partenaire}/{ID_offre}-{ID_référence}
-* Portail Azure en préversion : https://portal.azure.com/#gallery/{espace_de_noms_éditeur}.{ID_offre}{ID_référence}  
+* Azure.com : http://azure.microsoft.com/marketplace/partners/{PartnerNamespace}/{OfferIdentifier}-{SKUidentifier}
+* Portail Azure en préversion : https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{SKUIDdentifier}  
 
 Une référence SKU désigne le nom commercial d’une image de machine virtuelle. Une image de machine virtuelle contient un disque de système d’exploitation et aucun ou plusieurs disques de données. Il s’agit en fait du profil de stockage complet d’une machine virtuelle. Chaque disque a un disque dur virtuel est nécessaire par disque. Même les disques de données vides ont besoin de la création d’un disque dur virtuel.
 
@@ -372,7 +372,7 @@ Voici les étapes pour générer des URL SAS à l’aide d’Azure Storage Explo
 
 Voici les étapes pour générer des URL SAS à l’aide de Microsoft Azure Storage Explorer
 
-1.  Téléchargez Microsoft Azure Storage Explorer depuis le site web [http://storageexplorer.com/](http://storageexplorer.com/). Accédez à [Microsoft Azure Storage Explorer](http://storageexplorer.com/releasenotes.html) et cliquez sur **Download for Windows**.
+1.  Téléchargez l’Explorateur Stockage Microsoft Azure à partir du site web [http://storageexplorer.com/](http://storageexplorer.com/). Accédez à [Microsoft Azure Storage Explorer](http://storageexplorer.com/releasenotes.html) et cliquez sur **Download for Windows**.
 
     ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_10.png)
 
@@ -430,7 +430,7 @@ Voici les étapes pour générer des URL SAS à l’aide de Microsoft Azure Stor
 
 Voici les étapes pour générer des URL SAS à l’aide de l’interface de ligne de commande Azure
 
-1.  Téléchargez l’interface de ligne de commande Microsoft Azure [ici](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). Vous y trouverez également les différents liens pour  **[Windows](http://aka.ms/webpi-azure-cli)**  et  **[Mac OS](http://aka.ms/mac-azure-cli)**.
+1.  Téléchargez l’interface de ligne de commande Microsoft Azure [ici](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). Vous y trouverez également les différents liens pour **[Windows](http://aka.ms/webpi-azure-cli)** et  **[Mac OS](http://aka.ms/mac-azure-cli)**.
 
 2.  Après le téléchargement, veuillez effectuer l’installation
 
@@ -519,9 +519,10 @@ Une fois que vous avez créé votre offre et votre référence SKU, vous devez r
 |Échec lors de la copie d’images : « sp=rl » n’est pas présent dans l’URL SAS|Échec : copie d’images. Impossible de télécharger l’objet blob avec l’URI SAS fournie|Mettez à jour l’URL SAS avec les autorisations définies sur « Lecture » et « Liste »|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |Échec lors de la copie d’images : l’URL SAS contient des espaces blancs dans le nom du disque dur virtuel|Échec : copie d’images. Impossible de télécharger l’objet blob avec l’URI SAS fournie.|Mettez à jour l’URL SAS sans espaces blancs|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |Échec lors de la copie d’images : erreur d’autorisation d’URL SAS|Échec : copie d’images. Impossible de télécharger l’objet blob en raison d’une erreur d’autorisation|Générez à nouveau l’URL SAS|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Échec lors de la copie d’images : les paramètres « st » et « se » de l’URL de la signature d’accès partagé ne possèdent pas de spécification complète de date-heure|Échec : copie d’images. Impossible de télécharger l’objet blob en raison d’une URL de signature d’accès partagé incorrecte |Les paramètres Date de début et Date de fin (« st », « se ») de l’URL de la signature d’accès partagé doivent impérativement comporter une spécification complète de date-heure, par exemple 11-02-2017T00:00:00Z, et par seulement la date ou les versions raccourcies de l’heure. Il est possible de rencontrer ce scénario dans Azure CLI 2.0 (commande az). Veillez à indiquer la spécification complète de date-heure et à régénérer l’URL de la signature d’accès partagé.|[https://docs.microsoft.com/fr-fr/azure/storage/storage-dotnet-shared-access-signature-part-1](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Échec lors de la copie d’images : les paramètres « st » et « se » de l’URL de la signature d’accès partagé ne possèdent pas de spécification complète de date-heure|Échec : copie d’images. Impossible de télécharger l’objet blob en raison d’une URL de signature d’accès partagé incorrecte |Les paramètres Date de début et Date de fin (« st », « se ») de l’URL de la signature d’accès partagé doivent impérativement comporter une spécification complète de date-heure, par exemple 11-02-2017T00:00:00Z, et par seulement la date ou les versions raccourcies de l’heure. Il est possible de rencontrer ce scénario dans Azure CLI 2.0 (commande az). Veillez à indiquer la spécification complète de date-heure et à régénérer l’URL de la signature d’accès partagé.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 
-## <a name="next-step"></a>Étape suivante
+## <a name="next-step"></a>Étapes suivantes
+
 Une fois que vous avez terminé avec les détails de la référence SKU, vous pouvez consulter le [Guide de contenu marketing Azure Marketplace][link-pushstaging]. Dans cette étape du processus de publication, vous devez fournir le contenu marketing, la tarification et d’autres informations nécessaires avant l’ **étape 3 : test de votre machine virtuelle en mode intermédiaire**, où vous testez divers scénarios de cas d’utilisation avant de déployer l’offre sur Azure Marketplace pour une visibilité publique et l’achat.  
 
 ## <a name="see-also"></a>Voir aussi

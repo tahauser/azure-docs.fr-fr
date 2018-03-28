@@ -1,6 +1,6 @@
 ---
-title: "Guide de planification et de conception de réseau virtuel Azure | Microsoft Docs"
-description: "Découvrez comment planifier et concevoir des réseaux virtuels dans Azure selon vos besoins en isolement, connectivité et emplacements."
+title: Guide de planification et de conception de réseau virtuel Azure | Microsoft Docs
+description: Découvrez comment planifier et concevoir des réseaux virtuels dans Azure selon vos besoins en isolement, connectivité et emplacements.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-ms.openlocfilehash: ecdc3a847821fd83718f9cfc42308667460feabc
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: f11b2d1b4061b395918a274c4c53688bf34fbae1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>Planifier et concevoir des réseaux virtuels Azure
 La création d’un réseau virtuel à titre d’essai est assez facile, mais vous risquez de déployer plusieurs réseaux virtuels au fil du temps pour prendre en charge les besoins en production de votre organisation. La planification et la conception vous permettent de déployer des réseaux virtuels et de vous connecter aux ressources dont vous avez besoin plus efficacement. Si vous n’êtes pas familiarisé avec les réseaux virtuels, il est recommandé de [découvrir les réseaux virtuels](virtual-networks-overview.md) et d’apprendre [comment en déployer](quick-create-portal.md) un avant de continuer.
@@ -248,7 +248,7 @@ Les conditions requises suivantes sont associées au contrôle d’accès :
 En fonction de ces conditions requises, vous pouvez ajouter des utilisateurs de l’équipe réseau au rôle intégré **Collaborateur de réseau** dans chaque abonnement et créer un rôle personnalisé pour les développeurs d’applications dans chaque abonnement en leur donnant les droits d’ajouter des machines virtuelles aux sous-réseaux existants.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Déployer un réseau virtuel](virtual-networks-create-vnet-arm-template-click.md) selon un scénario.
+* [Déployer un réseau virtuel](quick-create-portal.md).
 * Découvrir comment [équilibrer la charge](../load-balancer/load-balancer-overview.md) des machines virtuelles IaaS et [gérer le routage entre plusieurs régions Azure](../traffic-manager/traffic-manager-overview.md).
-* En savoir plus sur les [groupes de sécurité réseau et comment planifier et concevoir](virtual-networks-nsg.md) une solution de groupe de sécurité réseau.
+* En savoir plus sur les [groupes de sécurité réseau](security-overview.md) dans une solution NSG.
 * En savoir plus sur vos [options de connectivité de réseau virtuel et entre locaux](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti).

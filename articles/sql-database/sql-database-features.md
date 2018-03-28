@@ -2,19 +2,18 @@
 title: Comparaison des fonctionnalités d’Azure SQL Database | Microsoft Docs
 description: Cet article compare les fonctionnalités d’Azure SQL Database et de Managed Instance entre eux et avec SQL Server.
 services: sql-database
-documentationcenter: ''
 author: jovanpop-msft
 ms.reviewer: bonova, carlrab
 ms.service: sql-database
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/16/2018
 ms.author: jovanpop
-manager: cguyer
-ms.openlocfilehash: 34aafdc377acf0b67674dbac2e67237440ed1420
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+manager: craigg
+ms.openlocfilehash: 4c50adeef0d6e811af6e144aa7351d9b65c1bd76
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Comparaison des fonctionnalités d’Azure SQL Database comparées à celles de SQL Server 
 
@@ -52,7 +51,7 @@ Le tableau suivant répertorie les principales fonctionnalités de SQL Server et
 | [Utilisateurs contenus](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | OUI | OUI |
 | [Contrôle des mots clés de langage de flux](https://docs.microsoft.com/sql/t-sql/language-elements/control-of-flow) | OUI | OUI |
 | [Requêtes entre plusieurs bases de données](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Non - voir [Requêtes élastiques](sql-database-elastic-query-overview.md) | Oui, plus [Requêtes élastiques](sql-database-elastic-query-overview.md) |
-| [Transactions entre bases de données]((https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine)) | Non  | OUI |
+| [Transactions entre bases de données](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Non  | OUI |
 | [Curseurs](https://docs.microsoft.com/sql/t-sql/language-elements/cursors-transact-sql) | OUI |OUI | 
 | [Compression des données](https://docs.microsoft.com/sql/relational-databases/data-compression/data-compression) | OUI |OUI |
 | [Messagerie de base de données](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail) | Non  | OUI |

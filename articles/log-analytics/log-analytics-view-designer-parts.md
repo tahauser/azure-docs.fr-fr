@@ -1,24 +1,24 @@
 ---
-title: "Guide de référence des composants du Concepteur de vues dans Azure Log Analytics | Microsoft Docs"
-description: "Grâce au Concepteur de vues de Log Analytics, vous pouvez créer des vues personnalisées dans le portail Azure qui affichent différentes visualisations de données dans votre espace de travail Log Analytics. Cet article est un guide de référence pour les paramètres des composants de visualisation disponibles dans vos vues personnalisées."
+title: Guide de référence des composants du Concepteur de vues dans Azure Log Analytics | Microsoft Docs
+description: Grâce au Concepteur de vues de Log Analytics, vous pouvez créer des vues personnalisées dans le portail Azure qui affichent différentes visualisations de données dans votre espace de travail Log Analytics. Cet article est un guide de référence pour les paramètres des composants de visualisation disponibles dans vos vues personnalisées.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
-manager: jwhit
-editor: 
+manager: carmonm
+editor: ''
 ms.assetid: 5718d620-b96e-4d33-8616-e127ee9379c4
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 03/12/2018
 ms.author: bwren
-ms.openlocfilehash: 6fd19cce955e1f06c9b6f5a9ef5d85d9fd63c1c1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a2573eef3c90c1840c0d53b2f8aa2cfe2d3a7242
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Guide de référence des composants de visualisation du Concepteur de vues dans Log Analytics
 Grâce au Concepteur de vues d’Azure Log Analytics, vous pouvez créer des vues personnalisées dans le portail Azure qui présentent différentes visualisations de données de votre espace de travail Log Analytics. Cet article est un guide de référence pour les paramètres des composants de visualisation disponibles dans vos vues personnalisées.
@@ -28,21 +28,19 @@ Pour plus d’informations sur le Concepteur de vues, consultez :
 * [Concepteur de vues](log-analytics-view-designer.md) : fournit une présentation du Concepteur de vues et des procédures de création et de modification des vues personnalisées.
 * [Référence de la vignette](log-analytics-view-designer-tiles.md) : fournit une référence pour les paramètres de chaque vignette disponible dans vos vues personnalisées.
 
->[!NOTE]
-> Si votre espace de travail a été mis à niveau vers le [nouveau langage de requête Log Analytics](log-analytics-log-search-upgrade.md), les requêtes de toutes les vues doivent être écrites à l’aide du [nouveau langage de requête](https://go.microsoft.com/fwlink/?linkid=856078). Toutes les vues créées avant la mise à niveau de l’espace de travail sont automatiquement converties.
 
 Les types de vignettes du Concepteur de vues disponibles sont décrites dans le tableau suivant :
 
 | Type de vue | Description |
 |:--- |:--- |
 | [Liste de requêtes](#list-of-queries-part) |Affiche une liste des requêtes de recherche dans le journal. Vous pouvez sélectionner chaque requête pour afficher ses résultats. |
-| [Nombre et liste](#number-amp-list-part) |L’en-tête affiche une valeur qui indique le nombre d’enregistrements obtenus à partir d’une requête de recherche dans les journaux. La liste affiche les dix premiers résultats d’une requête, avec un graphique qui indique la valeur relative d’une colonne numérique ou ses changements avec le temps. |
-| [Deux nombres et liste](#two-numbers-amp-list-part) |L’en-tête affiche deux valeurs qui indiquent les nombres d’enregistrements obtenus à partir de requêtes de recherche distinctes dans les journaux. La liste affiche les dix premiers résultats d’une requête, avec un graphique qui indique la valeur relative d’une colonne numérique ou ses changements avec le temps. |
-| [Anneau et liste](#donut-amp-list-part) |L’en-tête affiche un nombre unique qui résume une colonne de valeur dans une requête de journal. L’anneau affiche sous forme graphique les résultats des trois premiers enregistrements. |
-| [Deux chronologies et liste](#two-timelines-amp-list-part) |L’en-tête affiche les résultats de deux requêtes de journal dans le temps, sous forme d’histogrammes avec une légende affichant un nombre qui résume une colonne de valeur dans une requête de journal. La liste affiche les dix premiers résultats d’une requête, avec un graphique qui indique la valeur relative d’une colonne numérique ou ses changements avec le temps. |
+| [Nombre et liste](#number-and-list-part) |L’en-tête affiche une valeur qui indique le nombre d’enregistrements obtenus à partir d’une requête de recherche dans les journaux. La liste affiche les dix premiers résultats d’une requête, avec un graphique qui indique la valeur relative d’une colonne numérique ou ses changements avec le temps. |
+| [Deux nombres et liste](#two-numbers-and-list-part) |L’en-tête affiche deux valeurs qui indiquent les nombres d’enregistrements obtenus à partir de requêtes de recherche distinctes dans les journaux. La liste affiche les dix premiers résultats d’une requête, avec un graphique qui indique la valeur relative d’une colonne numérique ou ses changements avec le temps. |
+| [Anneau et liste](#donut-and-list-part) |L’en-tête affiche un nombre unique qui résume une colonne de valeur dans une requête de journal. L’anneau affiche sous forme graphique les résultats des trois premiers enregistrements. |
+| [Deux chronologies et liste](#two-timelines-and-list-part) |L’en-tête affiche les résultats de deux requêtes de journal dans le temps, sous forme d’histogrammes avec une légende affichant un nombre qui résume une colonne de valeur dans une requête de journal. La liste affiche les dix premiers résultats d’une requête, avec un graphique qui indique la valeur relative d’une colonne numérique ou ses changements avec le temps. |
 | [Informations](#information-part) |L’en-tête affiche un texte statique et un lien facultatif. La liste affiche un ou plusieurs éléments avec un titre et un texte statiques. |
-| [Graphique en courbes, légende et liste](#line-chart-callout-amp-list-part) |L’en-tête affiche un graphique en courbes avec plusieurs séries à partir d’une requête de journal dans le temps, et une légende avec une valeur de synthèse. La liste affiche les dix premiers résultats d’une requête, avec un graphique qui indique la valeur relative d’une colonne numérique ou ses changements avec le temps. |
-| [Graphique en courbes et liste](#line-chart-amp-list-part) |L’en-tête affiche un graphique en courbes avec plusieurs séries à partir d’une requête de journal dans le temps. La liste affiche les dix premiers résultats d’une requête, avec un graphique qui indique la valeur relative d’une colonne numérique ou ses changements avec le temps. |
+| [Graphique en courbes, légende et liste](#line-chart-callout-and-list-part) |L’en-tête affiche un graphique en courbes avec plusieurs séries à partir d’une requête de journal dans le temps, et une légende avec une valeur de synthèse. La liste affiche les dix premiers résultats d’une requête, avec un graphique qui indique la valeur relative d’une colonne numérique ou ses changements avec le temps. |
+| [Graphique en courbes et liste](#line-chart-and-list-part) |L’en-tête affiche un graphique en courbes avec plusieurs séries à partir d’une requête de journal dans le temps. La liste affiche les dix premiers résultats d’une requête, avec un graphique qui indique la valeur relative d’une colonne numérique ou ses changements avec le temps. |
 | [Partie de pile de graphiques de courbes](#stack-of-line-charts-part) |Affiche trois graphiques en courbes distincts avec plusieurs séries à partir d’une requête de journal dans le temps. |
 
 Les sections suivantes décrivent les types de vignettes et leurs propriétés en détail.
@@ -78,13 +76,14 @@ L’en-tête affiche une valeur qui indique le nombre d’enregistrements obtenu
 | **Titre** | |
 | Légende |Texte affiché en haut de l’en-tête. |
 | Requête |Requête à exécuter pour l’en-tête. Le nombre d’enregistrements retournés par la requête est affiché. |
+| Navigation par clic | Action effectuée lorsque vous cliquez sur l’en-tête.  Pour plus d’informations, consultez [Paramètres courants](#click-through-navigation). |
 | **Liste** | |
 | Requête |Requête à exécuter pour obtenir la liste. Les deux premières propriétés des dix premiers enregistrements dans les résultats sont affichées. La première propriété est une valeur de texte et la seconde une valeur numérique. Les barres sont créées automatiquement en fonction de la valeur relative de la colonne numérique.<br><br>Utilisez la commande `Sort` dans la requête pour trier les enregistrements de la liste. Pour exécuter la requête et retourner tous les enregistrements, vous pouvez sélectionner **Afficher tout**. |
 | Masquer le graphique |Sélectionnez ce lien pour désactiver le graphique à droite de la colonne numérique. |
-| Activer les graphiques Sparkline |Sélectionnez ce lien pour afficher un graphique Sparkline au lieu d’une barre horizontale. Pour plus d’informations, consultez [Paramètres courants](#sparklines). |
+| Activation des sparklines |Sélectionnez ce lien pour afficher un graphique Sparkline au lieu d’une barre horizontale. Pour plus d’informations, consultez [Paramètres courants](#sparklines). |
 | Couleur |Couleur des barres ou graphiques Sparkline. |
 | Séparateur de noms et de valeurs |Délimiteur de caractère unique à utiliser pour analyser la propriété de texte en plusieurs valeurs. Pour plus d’informations, consultez [Paramètres courants](#sparklines). |
-| Requête de navigation |Requête à exécuter quand vous sélectionnez un élément dans la liste. Pour plus d’informations, consultez [Concepts Paramètres](#navigation-query). |
+| Navigation par clic | Action effectuée lorsque vous cliquez sur un élément dans la liste.  Pour plus d’informations, consultez [Paramètres courants](#click-through-navigation). |
 | **Liste** |**> Titres des colonnes** |
 | NOM |Texte affiché en haut de la première colonne. |
 | Valeur |Texte affiché en haut de la deuxième colonne. |
@@ -103,6 +102,8 @@ L’en-tête affiche deux valeurs indiquant le nombre d’enregistrements obtenu
 | Nouveau groupe |Sélectionnez ce lien pour créer un groupe dans la vue, en commençant avec la vue actuelle. |
 | Icône |Fichier image affiché à côté du résultat dans l’en-tête. |
 | Icône Utiliser |Sélectionnez ce lien pour afficher l’icône. |
+| **Navigation par titre** | |
+| Navigation par clic | Action effectuée lorsque vous cliquez sur l’en-tête.  Pour plus d’informations, consultez [Paramètres courants](#click-through-navigation). |
 | **Titre** | |
 | Légende |Texte affiché en haut de l’en-tête. |
 | Requête |Requête à exécuter pour l’en-tête. Le nombre d’enregistrements retournés par la requête est affiché. |
@@ -113,7 +114,7 @@ L’en-tête affiche deux valeurs indiquant le nombre d’enregistrements obtenu
 | Couleur |Couleur des barres ou graphiques Sparkline. |
 | Opération |Opération à effectuer pour le graphique Sparkline. Pour plus d’informations, consultez [Paramètres courants](#sparklines). |
 | Séparateur de noms et de valeurs |Délimiteur de caractère unique à utiliser pour analyser la propriété de texte en plusieurs valeurs. Pour plus d’informations, consultez [Paramètres courants](#sparklines). |
-| Requête de navigation |Requête à exécuter quand vous sélectionnez un élément dans la liste. Pour plus d’informations, consultez [Concepts Paramètres](#navigation-query). |
+| Navigation par clic | Action effectuée lorsque vous cliquez sur un élément dans la liste.  Pour plus d’informations, consultez [Paramètres courants](#click-through-navigation). |
 | **Liste** |**> Titres des colonnes** |
 | NOM |Texte affiché en haut de la première colonne. |
 | Valeur |Texte affiché en haut de la deuxième colonne. |
@@ -137,6 +138,7 @@ L’en-tête affiche un nombre unique qui résume une colonne de valeur dans une
 | Sous-titre |Texte affiché sous le titre en haut de l’en-tête. |
 | **Anneau** | |
 | Requête |Requête à exécuter pour obtenir l’anneau. La première propriété est une valeur de texte et la seconde une valeur numérique. |
+| Navigation par clic | Action effectuée lorsque vous cliquez sur l’en-tête.  Pour plus d’informations, consultez [Paramètres courants](#click-through-navigation). |
 | **Anneau** |**&gt; Centrer** |
 | Texte |Texte affiché sous la valeur à l’intérieur de l’anneau. |
 | Opération |Opération à effectuer sur la valeur de propriété afin de la résumer en une valeur unique.<ul><li>Sum : additionne les valeurs de tous les enregistrements.</li><li>Percentage : pourcentage des enregistrements retournés par les valeurs figurant dans **Valeurs de résultat utilisées dans l’opération relative au centre** par rapport au nombre total d’enregistrements dans la requête.</li></ul> |
@@ -153,7 +155,7 @@ L’en-tête affiche un nombre unique qui résume une colonne de valeur dans une
 | Couleur |Couleur des barres ou graphiques Sparkline. |
 | Opération |Opération à effectuer pour le graphique Sparkline. Pour plus d’informations, consultez [Paramètres courants](#sparklines). |
 | Séparateur de noms et de valeurs |Délimiteur de caractère unique à utiliser pour analyser la propriété de texte en plusieurs valeurs. Pour plus d’informations, consultez [Paramètres courants](#sparklines). |
-| Requête de navigation |Requête à exécuter quand vous sélectionnez un élément dans la liste. Pour plus d’informations, consultez [Concepts Paramètres](#navigation-query). |
+| Navigation par clic | Action effectuée lorsque vous cliquez sur un élément dans la liste.  Pour plus d’informations, consultez [Paramètres courants](#click-through-navigation). |
 | **Liste** |**> Titres des colonnes** |
 | NOM |Texte affiché en haut de la première colonne. |
 | Valeur |Texte affiché en haut de la deuxième colonne. |
@@ -172,6 +174,8 @@ L’en-tête affiche les résultats de deux requêtes de journal dans le temps, 
 | Nouveau groupe |Sélectionnez ce lien pour créer un groupe dans la vue, en commençant avec la vue actuelle. |
 | Icône |Fichier image affiché à côté du résultat dans l’en-tête. |
 | Icône Utiliser |Sélectionnez ce lien pour afficher l’icône. |
+| **Navigation par titre** | |
+| Navigation par clic | Action effectuée lorsque vous cliquez sur l’en-tête.  Pour plus d’informations, consultez [Paramètres courants](#click-through-navigation). |
 | **Premier graphique<br>Deuxième graphique** | |
 | Légende |Texte affiché sous la légende de la première série. |
 | Couleur |Couleur à utiliser pour les colonnes de la série. |
@@ -183,7 +187,7 @@ L’en-tête affiche les résultats de deux requêtes de journal dans le temps, 
 | Activation des sparklines |Sélectionnez ce lien pour afficher un graphique Sparkline au lieu d’une barre horizontale. Pour plus d’informations, consultez [Paramètres courants](#sparklines). |
 | Couleur |Couleur des barres ou graphiques Sparkline. |
 | Opération |Opération à effectuer pour le graphique Sparkline. Pour plus d’informations, consultez [Paramètres courants](#sparklines). |
-| Requête de navigation |Requête à exécuter quand vous sélectionnez un élément dans la liste. Pour plus d’informations, consultez [Concepts Paramètres](#navigation-query). |
+| Navigation par clic | Action effectuée lorsque vous cliquez sur un élément dans la liste.  Pour plus d’informations, consultez [Paramètres courants](#click-through-navigation). |
 | **Liste** |**> Titres des colonnes** |
 | NOM |Texte affiché en haut de la première colonne. |
 | Valeur |Texte affiché en haut de la deuxième colonne. |
@@ -208,7 +212,7 @@ L’en-tête affiche un texte statique et un lien facultatif. La liste affiche u
 | Étiquette |Texte du lien. |
 | Url |URL du lien. |
 | **Éléments d’information** | |
-| Titre |Texte affiché pour le titre de chaque élément. |
+| Intitulé |Texte affiché pour le titre de chaque élément. |
 | Contenu |Texte affiché pour chaque élément. |
 
 ## <a name="line-chart-callout-and-list-part"></a>Partie Graphique en courbes, légende et liste
@@ -228,6 +232,7 @@ L’en-tête affiche un graphique en courbes avec plusieurs séries à partir d�
 | Sous-titre |Texte affiché sous le titre en haut de l’en-tête. |
 | **Graphique en courbes** | |
 | Requête |Requête à exécuter pour obtenir le graphique en courbes. La première propriété est une valeur de texte et la seconde une valeur numérique. Cette requête utilise habituellement le mot clé *measure* pour synthétiser les résultats. Si la requête utilise le mot clé *interval*, l’axe des abscisses (X) du graphique utilise cet intervalle de temps. Si la requête ne contient pas le mot clé *interval*, l’axe des abscisses utilise des intervalles d’une heure. |
+| Navigation par clic | Action effectuée lorsque vous cliquez sur l’en-tête.  Pour plus d’informations, consultez [Paramètres courants](#click-through-navigation). |
 | **Graphique en courbes** |**&gt; Légende** |
 | Titre de la légende |Texte affiché au-dessus de la valeur de la légende. |
 | Nom de la série |Valeur de propriété pour la série à utiliser pour la valeur de la légende. Si aucune série n’est fournie, tous les enregistrements de la requête sont utilisés. |
@@ -243,7 +248,7 @@ L’en-tête affiche un graphique en courbes avec plusieurs séries à partir d�
 | Couleur |Couleur des barres ou graphiques Sparkline. |
 | Opération |Opération à effectuer pour le graphique Sparkline. Pour plus d’informations, consultez [Paramètres courants](#sparklines). |
 | Séparateur de noms et de valeurs |Délimiteur de caractère unique à utiliser pour analyser la propriété de texte en plusieurs valeurs. Pour plus d’informations, consultez [Paramètres courants](#sparklines). |
-| Requête de navigation |Requête à exécuter quand vous sélectionnez un élément dans la liste. Pour plus d’informations, consultez [Concepts Paramètres](#navigation-query). |
+| Navigation par clic | Action effectuée lorsque vous cliquez sur un élément dans la liste.  Pour plus d’informations, consultez [Paramètres courants](#click-through-navigation). |
 | **Liste** |**> Titres des colonnes** |
 | NOM |Texte affiché en haut de la première colonne. |
 | Valeur |Texte affiché en haut de la deuxième colonne. |
@@ -267,6 +272,7 @@ L’en-tête affiche un graphique en courbes avec plusieurs séries à partir d�
 | Sous-titre |Texte affiché sous le titre en haut de l’en-tête. |
 | **Graphique en courbes** | |
 | Requête |Requête à exécuter pour obtenir le graphique en courbes. La première propriété est une valeur de texte et la seconde une valeur numérique. Cette requête utilise habituellement le mot clé *measure* pour synthétiser les résultats. Si la requête utilise le mot clé *interval*, l’axe des abscisses (X) du graphique utilise cet intervalle de temps. Si la requête ne contient pas le mot clé *interval*, l’axe des abscisses utilise des intervalles d’une heure. |
+| Navigation par clic | Action effectuée lorsque vous cliquez sur l’en-tête.  Pour plus d’informations, consultez [Paramètres courants](#click-through-navigation). |
 | **Graphique en courbes** |**> Axe Y** |
 | Utiliser l’échelle logarithmique |Sélectionnez ce lien pour utiliser une échelle logarithmique pour l’axe des ordonnées (Y). |
 | Units |Spécifiez les unités à utiliser pour exprimer les valeurs retournées par la requête. Ces informations sont utilisées pour afficher sur le graphique des étiquettes indiquant les types de valeurs et, le cas échéant, pour convertir les valeurs. Le type d’*Unité* spécifie la catégorie de l’unité, et définit les valeurs de type *Unité actuelle* disponibles. Si vous sélectionnez une valeur pour l’option *Convertir en*, les valeurs numériques sont converties du type *Unité actuelle* au type *Convertir en*. |
@@ -278,7 +284,7 @@ L’en-tête affiche un graphique en courbes avec plusieurs séries à partir d�
 | Couleur |Couleur des barres ou graphiques Sparkline. |
 | Opération |Opération à effectuer pour le graphique Sparkline. Pour plus d’informations, consultez [Paramètres courants](#sparklines). |
 | Séparateur de noms et de valeurs |Délimiteur de caractère unique à utiliser pour analyser la propriété de texte en plusieurs valeurs. Pour plus d’informations, consultez [Paramètres courants](#sparklines). |
-| Requête de navigation |Requête à exécuter quand vous sélectionnez un élément dans la liste. Pour plus d’informations, consultez [Concepts Paramètres](#navigation-query). |
+| Navigation par clic | Action effectuée lorsque vous cliquez sur un élément dans la liste.  Pour plus d’informations, consultez [Paramètres courants](#click-through-navigation). |
 | **Liste** |**> Titres des colonnes** |
 | NOM |Texte affiché en haut de la première colonne. |
 | Valeur |Texte affiché en haut de la deuxième colonne. |
@@ -301,6 +307,7 @@ La pile de graphique en courbes affiche trois graphiques en courbes distincts av
 | Sous-titre |Texte affiché sous le titre en haut du graphique. |
 | **Graphique 1<br>Graphique 2<br>Graphique 3** |**Graphique en courbes** |
 | Requête |Requête à exécuter pour obtenir le graphique en courbes. La première propriété est une valeur de texte et la seconde une valeur numérique. Cette requête utilise habituellement le mot clé *measure* pour synthétiser les résultats. Si la requête utilise le mot clé *interval*, l’axe des abscisses (X) du graphique utilise cet intervalle de temps. Si la requête ne contient pas le mot clé *interval*, l’axe des abscisses utilise des intervalles d’une heure. |
+| Navigation par clic | Action effectuée lorsque vous cliquez sur l’en-tête.  Pour plus d’informations, consultez [Paramètres courants](#click-through-navigation). |
 | **Graphique** |**> Axe Y** |
 | Utiliser l’échelle logarithmique |Sélectionnez ce lien pour utiliser une échelle logarithmique pour l’axe des ordonnées (Y). |
 | Units |Spécifiez les unités à utiliser pour exprimer les valeurs retournées par la requête. Ces informations sont utilisées pour afficher sur le graphique des étiquettes indiquant les types de valeurs et, le cas échéant, pour convertir les valeurs. Le type d’*Unité* spécifie la catégorie de l’unité, et définit les valeurs de type *Unité actuelle* disponibles. Si vous sélectionnez une valeur pour l’option *Convertir en*, les valeurs numériques sont converties du type *Unité actuelle* au type *Convertir en*. |
@@ -314,20 +321,28 @@ Le séparateur de noms et de valeurs est le délimiteur à caractère unique à 
 
 Par exemple, imaginez une propriété nommée *Location* incluant des valeurs telles que *Redmond-Building 41* et *Bellevue-Building 12*. Vous pouvez spécifier un tiret (-) comme séparateur de noms et de valeurs, et *City-Building* comme nom. Chaque valeur est alors analysée en deux propriétés respectivement nommées *City* et *Building*.
 
-### <a name="navigation-query"></a>Requête de navigation
-La requête de navigation est la requête à exécuter quand vous sélectionnez un élément dans la liste. Utilisez *{selected item}* pour inclure la syntaxe de l’élément sélectionné par l’utilisateur.
+### <a name="click-through-navigation"></a>Navigation par clic
+La navigation par clic définit l’action à effectuer quand vous cliquez sur un en-tête ou élément de liste dans une vue.  Soit une requête s’ouvre dans le [portail de recherche dans les journaux](log-analytics-log-search-portals.md#log-search), soit une autre vue apparaît.
 
-Par exemple, si la requête comprend une colonne nommée *Computer* et que la requête de navigation est *{selected item}*, une requête telle que *Computer="MyComputer"* est exécutée quand vous sélectionnez un ordinateur. Si la requête de navigation est *Type=Event {selected item}*, la requête *Type=Event Computer="MyComputer"* est exécutée.
+Le tableau suivant décrit les paramètres de la navigation par clic.
+
+| Paramètre           | Description |
+|:--|:--|
+| Recherche dans les journaux (automatique) | Recherche dans les journaux à exécuter quand vous sélectionnez un élément d’en-tête.  Il s’agit de la même recherche dans les journaux que celle sur laquelle se base l’élément.
+| Recherche dans les journaux        | Recherche dans les journaux à exécuter quand vous sélectionnez un élément dans une liste.  Tapez la requête dans la zone **Requête de navigation**.   Utilisez *{selected item}* pour inclure la syntaxe de l’élément sélectionné par l’utilisateur.  Par exemple, si la requête comprend une colonne nommée *Computer* et que la requête de navigation est *{selected item}*, une requête telle que *Computer="MyComputer"* est exécutée quand vous sélectionnez un ordinateur. Si la requête de navigation est *Type=Event {selected item}*, la requête *Type=Event Computer="MyComputer"* est exécutée. |
+| Affichage              | Vue à ouvrir lorsque vous sélectionnez un élément d’en-tête ou un élément dans une liste.  Sélectionnez le nom d’une vue dans votre espace de travail dans la zone **Nom de la vue**. |
+
+
 
 ### <a name="sparklines"></a>Graphiques Sparkline
-Un graphique Sparkline est un petit graphique en courbes qui illustre la valeur d’une entrée de liste au fil du temps. Pour les parties de visualisation avec une liste, vous pouvez sélectionner si vous souhaitez afficher une barre horizontale, qui indique la valeur relative d’une colonne numérique, ou un graphique Sparkline, qui indique sa valeur au fil du temps.
+Une sparkline est un petit graphique en courbes qui illustre la valeur d’une entrée de liste au fil du temps. Pour les parties de visualisation avec une liste, vous pouvez sélectionner si vous souhaitez afficher une barre horizontale, qui indique la valeur relative d’une colonne numérique, ou un graphique Sparkline, qui indique sa valeur au fil du temps.
 
 Le tableau suivant décrit les paramètres pour les graphiques Sparkline :
 
 | Paramètre | Description |
 |:--- |:--- |
-| Activer les graphiques Sparkline |Sélectionnez ce lien pour afficher un graphique Sparkline au lieu d’une barre horizontale. |
-| Opération |Si les graphiques Sparklines sont activés, il s’agit de l’opération à effectuer sur chaque propriété dans la liste pour calculer les valeurs du graphique Sparkline.<ul><li>Last Sample : dernière valeur de la série sur l’intervalle de temps.</li><li>Max : valeur maximale de la série sur l’intervalle de temps.</li><li>Min : valeur minimale de la série sur l’intervalle de temps.</li><li>Sum : somme des valeurs de la série sur l’intervalle de temps.</li><li>Summary : utilise la même commande `measure` que la requête dans l’en-tête.</li></ul> |
+| Activation des sparklines |Sélectionnez ce lien pour afficher un graphique Sparkline au lieu d’une barre horizontale. |
+| Opération |Si les sparklines sont activées, il s’agit de l’opération à effectuer sur chaque propriété dans la liste pour calculer les valeurs du graphique sparkline.<ul><li>Last Sample : dernière valeur de la série sur l’intervalle de temps.</li><li>Max : valeur maximale de la série sur l’intervalle de temps.</li><li>Min : valeur minimale de la série sur l’intervalle de temps.</li><li>Sum : somme des valeurs de la série sur l’intervalle de temps.</li><li>Summary : utilise la même commande `measure` que la requête dans l’en-tête.</li></ul> |
 
 ### <a name="thresholds"></a>Seuils
 Les seuils vous permettent d’afficher une icône de couleur en regard de chaque élément dans une liste. Ils fournissent un indicateur visuel rapide des éléments qui dépassent une valeur particulière ou sont compris dans une plage particulière. Par exemple, vous pouvez afficher une icône verte pour les éléments avec une valeur acceptable, jaune si la valeur est dans une plage qui indique un avertissement, et rouge si elle dépasse une valeur d’erreur.
@@ -341,7 +356,7 @@ Le tableau suivant décrit les paramètres pour les seuils :
 | Paramètre | Description |
 |:--- |:--- |
 | Activer les seuils |Sélectionnez ce lien pour afficher une icône de couleur à gauche de chaque valeur. L’icône indique l’intégrité de la valeur par rapport aux seuils spécifiés. |
-| Nom |Nom de la valeur de seuil. |
+| NOM |Nom de la valeur de seuil. |
 | Seuil |Valeur du seuil. La couleur d’intégrité de chaque élément de liste est définie sur la couleur de la valeur du seuil le plus élevé dépassée par la valeur de l’élément. Si aucune valeur de seuil n’est dépassée, une couleur par défaut est utilisée. |
 | Couleur |Couleur qui indique la valeur de seuil. |
 

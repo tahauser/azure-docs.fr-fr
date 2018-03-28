@@ -1,25 +1,21 @@
 ---
-title: "Configurer l’authentification avec Amazon Web Services | Microsoft Docs"
-description: "Cet article décrit comment créer et valider des informations d’identification AWS pour les runbooks dans Azure Automation gérant des ressources AWS."
-services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: tysonn
+title: Configurer l’authentification avec Amazon Web Services
+description: Cet article décrit comment créer et valider des informations d’identification AWS pour les runbooks dans Azure Automation gérant des ressources AWS.
 keywords: authentification AWS, configurer aws
-ms.assetid: b6dde4bb-26ac-4876-9aa9-e586bed30d6b
+services: automation
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/15/2018
 ms.topic: article
-ms.date: 09/29/2017
-ms.author: magoedte
-ms.openlocfilehash: 68805a6b28fc9454262cb0503daa23af93c76a7e
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: 476d978bd53f689038ad3ed58b3f64c40925a998
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="authenticate-runbooks-with-amazon-web-services"></a>Authentification des Runbooks avec Amazon Web Services
 Il est possible d’automatiser les tâches courantes avec les ressources Amazon Web Services (AWS) à l’aide des runbooks Automation dans Azure.  Vous pouvez automatiser de nombreuses tâches dans AWS à l’aide des runbooks Automation, tout comme avec les ressources dans Azure.  Pour ce faire, deux choses sont nécessaires :

@@ -1,12 +1,12 @@
 ---
 title: API HTTP dans Fonctions durables - Azure
-description: "Découvrez comment implémenter des API HTTP dans l’extension Fonctions durables d’Azure Functions."
+description: Découvrez comment implémenter des API HTTP dans l’extension Fonctions durables d’Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: bb5361022e4c9693812753ae33df5aeb037b5aaa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5fa5d9e66912bdeffdf553ddc0cb7d3feb0a5b77
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>API HTTP dans Fonctions durables (Azure Functions)
 
@@ -28,7 +28,8 @@ L’extension Tâche durable expose un ensemble d’API HTTP qui peut être util
 * Envoyer un événement à une instance d’orchestration en attente.
 * Mettre fin à une instance d’orchestration en cours d’exécution.
 
-Chacune de ces API HTTP est une opération « webhook » gérée directement par l’extension Tâche durable. Elles ne sont pas spécifiques à une fonction dans l’application de fonction.
+
+Chacune de ces API HTTP est une opération webhook gérée directement par l’extension Tâche durable. Elles ne sont pas spécifiques à une fonction dans l’application de fonction.
 
 > [!NOTE]
 > Ces opérations peuvent également être appelées directement à l’aide des API de gestion d’instance sur la classe [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html). Pour plus d’informations, consultez [Gestion d’instance](durable-functions-instance-management.md).
@@ -78,7 +79,7 @@ La réponse HTTP mentionnée précédemment est conçue pour faciliter l’impl�
 Ce protocole permet de coordonner les processus à long terme avec des clients ou des services externes qui prennent en charge l’interrogation d’un point de terminaison HTTP et le suivi de l’en-tête `Location`. Les éléments fondamentaux sont déjà intégrés aux API HTTP de Fonctions durables.
 
 > [!NOTE]
-> Par défaut, toutes les actions basées sur HTTP fournies par [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) prennent en charge le modèle d’opération asynchrone standard. Cela permet d’incorporer une fonction durable à long terme dans un flux de travail Logic Apps. Plus d’informations sur la prise en charge des modèles HTTP asynchrones par Logic Apps, consultez la [documentation sur les actions de flux de travail et les déclencheurs Azure Logic Apps](../logic-apps/logic-apps-workflow-actions-triggers.md#asynchronous-patterns).
+> Par défaut, toutes les actions basées sur HTTP fournies par [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) prennent en charge le modèle d’opération asynchrone standard. Cette fonctionnalité permet d’incorporer une fonction durable de longue durée dans un flux de travail Logic Apps. Plus d’informations sur la prise en charge des modèles HTTP asynchrones par Logic Apps, consultez la [documentation sur les actions de flux de travail et les déclencheurs Azure Logic Apps](../logic-apps/logic-apps-workflow-actions-triggers.md#asynchronous-patterns).
 
 ## <a name="http-api-reference"></a>Référence sur l'API HTTP
 
@@ -90,6 +91,8 @@ Toutes les API HTTP implémentées par l’extension utilisent les paramètres s
 | taskHub    | Chaîne de requête    | Le nom du [hub de tâches](durable-functions-task-hubs.md). S’il n’est pas spécifié, le nom de hub de tâches de l’application de fonction en cours est supposé. |
 | connection | Chaîne de requête    | Le **nom** de la chaîne de connexion du compte de stockage. Si elle n’est pas spécifiée, la chaîne de connexion par défaut pour l’application de la fonction est supposée. |
 | systemKey  | Chaîne de requête    | La clé d’autorisation requise pour appeler l’API. |
+| showHistory| Chaîne de requête    | Paramètre facultatif. Si la valeur est définie sur `true`, l’historique d’exécution de l’orchestration est inclus dans la charge utile de réponse.| 
+| showHistoryOutput| Chaîne de requête    | Paramètre facultatif. Si la valeur est définie sur `true`, les sorties de l’activité sont incluses dans l’historique d’exécution de l’orchestration.| 
 
 `systemKey` est une clé d’autorisation automatiquement générée par l’hôte Azure Functions. Elle accorde l’accès aux API de l’extension Tâche durable et peut être gérée de la même façon que les [autres clés d’autorisation](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). La façon la plus simple pour découvrir la valeur `systemKey` consiste à utiliser l’API `CreateCheckStatusResponse` mentionnée précédemment.
 
@@ -99,7 +102,7 @@ Les quelques sections suivantes présentent les API HTTP spécifiques prises en 
 
 Obtient l'état d'une instance d’orchestration spécifiée.
 
-#### <a name="request"></a>Demande
+#### <a name="request"></a>Requête
 
 Pour Functions 1.0, le format de la demande est le suivant :
 
@@ -110,10 +113,10 @@ GET /admin/extensions/DurableTaskExtension/instances/{instanceId}?taskHub={taskH
 Le format de Functions 2.0 a les mêmes paramètres, mais avec un préfixe d’URL légèrement différent :
 
 ```http
-GET /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}
+GET /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
 ```
 
-#### <a name="response"></a>Réponse
+#### <a name="response"></a>response
 
 Plusieurs valeurs de code d’état possibles peuvent être retournées.
 
@@ -122,29 +125,68 @@ Plusieurs valeurs de code d’état possibles peuvent être retournées.
 * **HTTP 400 (Bad Request)** : l’instance spécifiée a échoué ou a été arrêtée.
 * **HTTP 404 (Not Found)** : l’instance spécifiée n’existe pas ou n’a pas démarré.
 
-La charge utile de réponse pour les cas **HTTP 200** et **HTTP 202** est un objet JSON avec les champs suivants.
+La charge utile de réponse pour les cas **HTTP 200** et **HTTP 202** est un objet JSON avec les champs suivants :
 
 | Champ           | Type de données | Description |
 |-----------------|-----------|-------------|
-| runtimeStatus   | string    | L’état d’exécution de l’instance. Les valeurs sont *Running*, *Pending*, *Failed*, *Canceled*, *Terminated*, *Completed*. |
+| runtimeStatus   | chaîne    | L’état d’exécution de l’instance. Les valeurs sont *Running*, *Pending*, *Failed*, *Canceled*, *Terminated*, *Completed*. |
 | entrée           | JSON      | Les données JSON utilisées pour initialiser l’instance. |
 | sortie          | JSON      | La sortie JSON de l’instance. Ce champ est `null` si l’instance n’est pas dans un état terminé. |
-| createdTime     | string    | Heure à laquelle l’instance a été créée. Utilise la notation étendue ISO 8601. |
-| lastUpdatedTime | string    | Heure du dernier état persistant de l’instance. Utilise la notation étendue ISO 8601. |
+| createdTime     | chaîne    | Heure à laquelle l’instance a été créée. Utilise la notation étendue ISO 8601. |
+| lastUpdatedTime | chaîne    | Heure du dernier état persistant de l’instance. Utilise la notation étendue ISO 8601. |
+| historyEvents   | JSON      | Tableau JSON contenant l’historique d’exécution de l’orchestration. Ce champ est `null`, sauf si le paramètre de chaîne de requête `showHistory` a la valeur `true`.  | 
 
-Voici un exemple de charge utile de réponse (mis en forme pour une meilleure lisibilité) :
+Voici un exemple de charge utile de réponse incluant l’historique et les sorties de l’activité d’exécution d’orchestration (mis en forme pour une meilleure lisibilité) :
 
 ```json
 {
-  "runtimeStatus": "Completed",
-  "input": null,
-  "output": [
-    "Hello Tokyo!",
-    "Hello Seattle!",
-    "Hello London!"
+  "createdTime": "2018-02-28T05:18:49Z",
+  "historyEvents": [
+      {
+          "EventType": "ExecutionStarted",
+          "FunctionName": "E1_HelloSequence",
+          "Timestamp": "2018-02-28T05:18:49.3452372Z"
+      },
+      {
+          "EventType": "TaskCompleted",
+          "FunctionName": "E1_SayHello",
+          "Result": "Hello Tokyo!",
+          "ScheduledTime": "2018-02-28T05:18:51.3939873Z",
+          "Timestamp": "2018-02-28T05:18:52.2895622Z"
+      },
+      {
+          "EventType": "TaskCompleted",
+          "FunctionName": "E1_SayHello",
+          "Result": "Hello Seattle!",
+          "ScheduledTime": "2018-02-28T05:18:52.8755705Z",
+          "Timestamp": "2018-02-28T05:18:53.1765771Z"
+      },
+      {
+          "EventType": "TaskCompleted",
+          "FunctionName": "E1_SayHello",
+          "Result": "Hello London!",
+          "ScheduledTime": "2018-02-28T05:18:53.5170791Z",
+          "Timestamp": "2018-02-28T05:18:53.891081Z"
+      },
+      {
+          "EventType": "ExecutionCompleted",
+          "OrchestrationStatus": "Completed",
+          "Result": [
+              "Hello Tokyo!",
+              "Hello Seattle!",
+              "Hello London!"
+          ],
+          "Timestamp": "2018-02-28T05:18:54.3660895Z"
+      }
   ],
-  "createdTime": "2017-10-06T18:30:24Z",
-  "lastUpdatedTime": "2017-10-06T18:30:30Z"
+  "input": null,
+  "lastUpdatedTime": "2018-02-28T05:18:54Z",
+  "output": [
+      "Hello Tokyo!",
+      "Hello Seattle!",
+      "Hello London!"
+  ],
+  "runtimeStatus": "Completed"
 }
 ```
 
@@ -154,7 +196,7 @@ La réponse **HTTP 202** inclut également un en-tête de réponse **Location** 
 
 Envoie un message de notification d’événement à une instance d’orchestration en cours d’exécution.
 
-#### <a name="request"></a>Demande
+#### <a name="request"></a>Requête
 
 Pour Functions 1.0, le format de la demande est le suivant :
 
@@ -168,14 +210,14 @@ Le format de Functions 2.0 a les mêmes paramètres, mais avec un préfixe d’U
 POST /webhookextensions/handler/DurableTaskExtension/instances/{instanceId}/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection={connection}&code={systemKey}
 ```
 
-Les paramètres de la demande pour cette API incluent l’ensemble par défaut mentionné précédemment, ainsi que les paramètres uniques suivants.
+Les paramètres de requête pour cette API incluent l’ensemble par défaut mentionné précédemment, ainsi que les paramètres uniques suivants :
 
 | Champ       | Type de paramètre  | Type de données | Description |
 |-------------|-----------------|-----------|-------------|
-| eventName   | URL             | string    | Le nom de l’événement que l’instance d’orchestration cible attend. |
+| eventName   | URL             | chaîne    | Le nom de l’événement que l’instance d’orchestration cible attend. |
 | {content}   | Contenu de la demande | JSON      | La charge utile de l’événement au format JSON. |
 
-#### <a name="response"></a>Réponse
+#### <a name="response"></a>response
 
 Plusieurs valeurs de code d’état possibles peuvent être retournées.
 
@@ -184,7 +226,7 @@ Plusieurs valeurs de code d’état possibles peuvent être retournées.
 * **HTTP 404 (Not Found)** : l’instance spécifiée est introuvable.
 * **HTTP 410 (Gone)** : l’instance spécifiée est terminée ou a échoué et ne peut traiter aucun événement déclenché.
 
-Voici un exemple de demande qui envoie la chaîne JSON `"incr"` à une instance en attente d’un événement nommé **operation** (issu de l’exemple [Counter](durable-functions-counter.md)) :
+Voici un exemple de requête qui envoie la chaîne JSON `"incr"` à une instance en attente d’un événement nommé **operation** :
 
 ```
 POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/raiseEvent/operation?taskHub=DurableFunctionsHub&connection=Storage&code=XXX
@@ -200,7 +242,7 @@ Les réponses pour cette API sont vides.
 
 Arrête une instance d’orchestration en cours d’exécution.
 
-#### <a name="request"></a>Demande
+#### <a name="request"></a>Requête
 
 Pour Functions 1.0, le format de la demande est le suivant :
 
@@ -218,9 +260,9 @@ Les paramètres de la demande pour cette API incluent l’ensemble par défaut m
 
 | Champ       | Type de paramètre  | Type de données | Description |
 |-------------|-----------------|-----------|-------------|
-| motif      | Chaîne de requête    | string    | facultatif. Motif d’arrêt de l’instance d’orchestration. |
+| motif      | Chaîne de requête    | chaîne    | facultatif. Motif d’arrêt de l’instance d’orchestration. |
 
-#### <a name="response"></a>Réponse
+#### <a name="response"></a>response
 
 Plusieurs valeurs de code d’état possibles peuvent être retournées.
 

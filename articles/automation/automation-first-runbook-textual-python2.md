@@ -1,23 +1,20 @@
 ---
-title: "Mon premier Runbook Python dans Azure Automation | Microsoft Docs"
-description: "Ce didacticiel vous familiarise avec la création, le test et la publication d’un Runbook Python simple."
+title: Mon premier runbook Python dans Azure Automation
+description: Ce didacticiel vous familiarise avec la création, le test et la publication d’un Runbook Python simple.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: tysonn
 ms.service: automation
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/25/2017
+author: georgewallace
 ms.author: gwallace
-ms.openlocfilehash: 1f005ae28309879f36a28df499685937c37a3be0
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.date: 03/16/2018
+ms.topic: article
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: cf63f49ae4457628d250faeed6316ce12afa7a93
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="my-first-python-runbook"></a>Mon premier runbook Python
 
@@ -32,6 +29,7 @@ ms.lasthandoff: 01/29/2018
 Ce didacticiel vous guide dans la création d’un [Runbook Python](automation-runbook-types.md#python-runbooks) dans Azure Automation. Vous partez d’un runbook simple, que vous testez et publiez. Vous modifiez ensuite le runbook pour gérer les ressources Azure, en démarrant dans ce cas une machine virtuelle Azure. Enfin, vous le rendrez plus robuste en lui ajoutant des paramètres.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 

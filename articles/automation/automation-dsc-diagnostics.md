@@ -1,23 +1,20 @@
 ---
-title: "Transférer des données de rapport Azure Automation DSC à OMS Log Analytics | Microsoft Docs"
-description: "Cet article montre comment envoyer des données de rapport de configuration de l’état souhaité (DSC) à Microsoft Operations Management Suite Log Analytics, afin de fournir des informations supplémentaires et de simplifier la gestion."
+title: Transférer des données de rapport Azure Automation DSC à Log Analytics
+description: Cet article montre comment envoyer des données de rapport DSC (Desired State Configuration) à Log Analytics, afin de fournir des informations supplémentaires et de simplifier la gestion.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: tysonn
 ms.service: automation
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/24/2017
+author: georgewallace
 ms.author: gwallace
-ms.openlocfilehash: 5de22072a436e7a2dbaa7d413595c048f730189b
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.date: 03/16/2018
+ms.topic: article
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: d06ec240477c2defca7a463b2e9338bc5e3930ab
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="forward-azure-automation-dsc-reporting-data-to-oms-log-analytics"></a>Transférer des données de rapport Azure Automation DSC à OMS Log Analytics
 
@@ -30,7 +27,8 @@ L’état de conformité est visible dans le portail Azure, ou avec PowerShell, 
 * Mettre en corrélation l’état de conformité dans les comptes Automation
 * Visualiser votre historique de conformité associé aux nœuds au fil du temps
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour commencer à envoyer vos rapports Automation DSC à Log Analytics, vous devez disposer des éléments suivants :
 

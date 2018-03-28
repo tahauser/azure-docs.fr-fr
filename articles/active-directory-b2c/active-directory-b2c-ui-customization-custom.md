@@ -1,8 +1,8 @@
 ---
-title: "Personnalisation d’une interface utilisateur avec des stratégies personnalisées - Azure AD B2C | Microsoft Docs"
-description: "Apprenez comment personnaliser une interface utilisateur (UI) dans Azure AD B2C à l’aide de stratégies personnalisées."
+title: Personnalisation d’une interface utilisateur avec des stratégies personnalisées - Azure AD B2C | Microsoft Docs
+description: Apprenez comment personnaliser une interface utilisateur (UI) dans Azure AD B2C à l’aide de stratégies personnalisées.
 services: active-directory-b2c
-documentationcenter: 
+documentationcenter: ''
 author: saeedakhter-msft
 manager: mtillman
 editor: parakhj
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: saeedakhter-msft
-ms.openlocfilehash: c430b488016f038ed1d7a67a8d52c057df1ea40e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dcd8b6df68a68f5feb428b4fd98aee938b3bfe6c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C : Configurer la personnalisation de l’interface utilisateur dans une stratégie personnalisée
 
@@ -26,7 +26,8 @@ ms.lasthandoff: 12/11/2017
 
 Après avoir suivi cet article, vous disposerez d’une stratégie personnalisée d’inscription et de connexion avec votre marque et votre apparence. Avec Azure Active Directory B2C (Azure AD B2C), vous contrôlerez presque entièrement le contenu HTML et CSS présenté aux utilisateurs. Lorsque vous utilisez une stratégie personnalisée, vous configurez la personnalisation de l’interface utilisateur dans le code XML au lieu d’utiliser des contrôles dans le portail Azure. 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Avant de commencer, effectuez les étapes de la section [Bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md). Vous devez disposer d’une stratégie personnalisée fonctionnelle pour l’inscription et la connexion avec des comptes locaux.
 
@@ -66,7 +67,7 @@ Créez du contenu HTML dont le titre intègre le nom de la marque de votre produ
 
 Pour héberger ce contenu HTML dans le stockage Blob, procédez comme suit :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Dans le menu **Hub**, sélectionnez **Nouveau** > **Stockage** > **Compte de stockage**.
 3. Entrez un **nom** unique pour votre compte de stockage.
 4. Le champ **Modèle de déploiement** peut conserver la valeur **Gestionnaire de ressources**.
@@ -81,7 +82,7 @@ Pour héberger ce contenu HTML dans le stockage Blob, procédez comme suit :
 13. Cliquez sur **Créer** pour créer le compte de stockage.  
     Une fois le déploiement terminé, le panneau **Compte de stockage** s’ouvre automatiquement.
 
-## <a name="create-a-container"></a>Créer un conteneur
+## <a name="create-a-container"></a>Créez un conteneur.
 
 Pour créer un conteneur public dans le stockage Blob, procédez comme suit :
 
@@ -106,19 +107,19 @@ Configurez le stockage Blob pour le partage des ressources cross-origin en proc
 >Vous souhaitez tester la fonctionnalité de personnalisation de l’interface utilisateur à l’aide de notre exemple de code HTML et de contenu CSS ? Nous vous avons fourni [un outil d’assistance simple](active-directory-b2c-reference-ui-customization-helper-tool.md) qui charge et configure notre exemple de contenu sur votre compte de stockage Blob. Si vous utilisez l’outil, passez directement à la section [Modifier votre stratégie personnalisée d’inscription ou de connexion](#modify-your-sign-up-or-sign-in-custom-policy).
 
 1. Dans le panneau **Stockage**, sous **Paramètres**, ouvrez **CORS**.
-2. Cliquez sur **Ajouter**.
+2. Cliquez sur **Add**.
 3. Pour **Origines autorisées**, saisissez un astérisque (\*).
 4. Dans la liste déroulante **Verbes autorisés**, sélectionnez **GET** et **OPTIONS**.
 5. Pour **En-têtes autorisés**, saisissez un astérisque (\*).
 6. Pour **En-têtes exposés**, saisissez un astérisque (\*).
 7. Dans le champ **Âge maximal (secondes)**, saisissez **200**.
-8. Cliquez sur **Ajouter**.
+8. Cliquez sur **Add**.
 
 ## <a name="test-cors"></a>Tester CORS
 
 Vérifiez que vous êtes prêt en procédant comme suit :
 
-1. Accédez au site web [test-cors.org](http://test-cors.org/), puis collez l’URL dans le champ **URL distante**.
+1. Accédez au site web [www.test-cors.org](http://www.test-cors.org/), puis collez l’URL dans le champ **URL distante**.
 2. Cliquez sur **Envoyer la demande**.  
     Si vous recevez une erreur, assurez-vous que vos [paramètres CORS](#configure-cors) sont corrects. Vous serez peut-être amené à vider le cache de votre navigateur ou à ouvrir une fenêtre de navigation privée, en appuyant sur Ctrl+Maj+P.
 
@@ -149,7 +150,7 @@ Sous l’élément de niveau supérieur *\<TrustFrameworkPolicy\>*, vous devez t
 2. Sélectionnez la stratégie personnalisée que vous avez téléchargée, puis cliquez sur le bouton **Exécuter maintenant**.
 3. Vous devriez pouvoir vous inscrire avec une adresse e-mail.
 
-## <a name="reference"></a>Référence
+## <a name="reference"></a>Informations de référence
 
 Vous trouverez ici des exemples de modèles pour la personnalisation de l’interface utilisateur :
 

@@ -1,24 +1,20 @@
 ---
-title: "Créer un module d’intégration Azure Automation | Microsoft Docs"
-description: "Ce didacticiel vous guide tout au long des procédures de création et de test de modules d’intégration Azure Automation. Il est complété par un exemple d’utilisation."
+title: Créer un module d’intégration Azure Automation
+description: Ce didacticiel vous guide tout au long des procédures de création et de test de modules d’intégration Azure Automation. Il est complété par un exemple d’utilisation.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: 
-ms.assetid: 27798efb-08b9-45d9-9b41-5ad91a3df41e
 ms.service: automation
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 01/13/2017
-ms.author: magoedte
-ms.openlocfilehash: 4eddce9d355a4b709e266129935766376d352045
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: e1bcdb2938d1dcb2743b4c1c523ccefb322dd428
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-automation-integration-modules"></a>Modules d’intégration Azure Automation
 PowerShell est la technologie fondamentale derrière Azure Automation. Étant donné qu’Azure Automation est basé sur PowerShell, les modules PowerShell sont essentiels pour l’extensibilité d’Azure Automation. Dans cet article, nous vous guidons tout au long de l’utilisation détaillée des modules PowerShell dans Azure Automation, appelés « modules d’intégration », et vous présenterons les meilleures pratiques pour la création de vos propres modules PowerShell afin de garantir que ceux-ci fonctionnent en tant que modules d’intégration au sein d’Azure Automation. 
@@ -27,7 +23,7 @@ PowerShell est la technologie fondamentale derrière Azure Automation. Étant do
 Un module PowerShell est un groupe d’applets de commande PowerShell, telles que **Get-Date** ou **Copy-Item**, qui peut être utilisé à partir de la console PowerShell, de scripts, de flux de travail, de Runbooks et de ressources PowerShell DSC, telles que WindowsFeature ou File, pouvant être utilisées à partir de configurations PowerShell DSC. L’ensemble des fonctionnalités de PowerShell sont exposées via les applets de commande et les ressources DSC, et chaque applet de commande/ressource DSC est prise en charge par un module PowerShell ; un nombre important de ces modules est inclus dans PowerShell. Par exemple, l’applet de commande **Get-Date** fait partie du module PowerShell Microsoft.PowerShell.Utility, et l’applet de commande **Copy-Item** fait partie du module PowerShell Microsoft.PowerShell.Management. La ressource de Package DSC fait partie du module PowerShell PSDesiredStateConfiguration. Ces deux modules sont fournis avec PowerShell. Mais de nombreux modules PowerShell ne sont pas fournis avec PowerShell ; ils sont distribués avec des produits tiers ou internes, tels que System Center 2012 Configuration Manager ou par la vaste communauté PowerShell sur des sites comme PowerShell Gallery. Ces modules sont utiles car ils simplifient des tâches complexes grâce à la fonctionnalité d’encapsulation.  Vous pouvez en savoir plus sur les [modules PowerShell sur MSDN](https://msdn.microsoft.com/library/dd878324%28v=vs.85%29.aspx). 
 
 ## <a name="what-is-an-azure-automation-integration-module"></a>Qu’est-ce qu’un module d’intégration Azure Automation ?
-Un module d’intégration n’est pas différent d’un module PowerShell. Il s’agit simplement d’un module PowerShell contenant éventuellement un fichier supplémentaire : un fichier de métadonnées spécifiant un type de connexion Azure Automation à utiliser avec les applets de commande du module dans les Runbooks. Qu’ils contiennent ce fichier ou non, ces modules PowerShell peuvent être importés dans Azure Automation pour activer leurs applets de commande pour une utilisation dans les Runbooks et leurs ressources DSC disponibles au sein des configurations DSC. Dans les coulisses, Azure Automation stocke ces modules et, lors de l’exécution d’un travail de compilation de DSC ou d’une tâche de Runbook, les charge dans les bacs à sable (sandbox) Azure Automation où les Runbooks sont exécutés et les configurations DSC sont compilées. Toute ressource DSC dans les modules est automatiquement placée sur le serveur Automation DSC afin de pouvoir être extraite par les ordinateurs qui tentent d’appliquer des configurations DSC.  
+Un module d’intégration n’est pas différent d’un module PowerShell. Il s’agit simplement d’un module PowerShell contenant éventuellement un fichier supplémentaire : un fichier de métadonnées spécifiant un type de connexion Azure Automation à utiliser avec les applets de commande du module dans les Runbooks. Qu’ils contiennent ce fichier ou non, ces modules PowerShell peuvent être importés dans Azure Automation pour activer leurs applets de commande pour une utilisation dans les Runbooks et leurs ressources DSC disponibles au sein des configurations DSC. Dans les coulisses, Azure Automation stocke ces modules et, lors de l’exécution d’un travail de compilation de DSC ou d’une tâche de Runbook, les charges dans les bacs à sable (sandbox) Azure Automation où les Runbooks sont exécutés et les configurations DSC sont compilées. Toute ressource DSC dans les modules est automatiquement placée sur le serveur Automation DSC afin de pouvoir être extraite par les ordinateurs qui tentent d’appliquer des configurations DSC.  
 
 Dans Azure Automation, nous vous fournissons un certain nombre de modules Azure PowerShell prêts à l’emploi, pour une automatisation immédiate de la gestion Azure. Vous pouvez également importer des modules PowerShell pour les intégrer à tout système, service ou outil que vous souhaitez. 
 

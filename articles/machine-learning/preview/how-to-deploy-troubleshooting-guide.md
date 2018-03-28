@@ -1,9 +1,9 @@
 ---
-title: "Guide de résolution des problèmes de déploiement d’Azure Machine Learning | Microsoft Docs"
-description: "Guide de résolution des problèmes de déploiement et de création de services"
+title: Guide de résolution des problèmes de déploiement d’Azure Machine Learning | Microsoft Docs
+description: Guide de résolution des problèmes de déploiement et de création de services
 services: machine-learning
-author: raymondl
-ms.author: raymondl
+author: aashishb
+ms.author: aashishb
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/16/2017
-ms.openlocfilehash: 4cf372f17c3ded5c25a6ebde70b17b2c095a7169
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7b8d2f4fb52c6d4faed8e813779e3b01d1817355
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="troubleshooting-service-deployment-and-environment-setup"></a>Résolution des problèmes de configuration d’environnement et de déploiement de services
 Les informations suivantes peuvent vous aider à déterminer la cause des erreurs susceptibles de se produire lors de la configuration de l’environnement de gestion des modèles.
@@ -76,7 +76,7 @@ Donnez la valeur true à l’indicateur `-l` lors de la création d’un service
 
 
 ### <a name="add-error-handling-in-scoring-script"></a>Ajout de la gestion des erreurs dans le script de notation
-Utilisez la gestion des exceptions dans la fonction `scoring.py`run **de votre script**  pour renvoyer le message d’erreur dans la sortie de votre service web.
+Utilisez la gestion des exceptions dans la fonction `scoring.py`run**de votre script** pour renvoyer le message d’erreur dans la sortie de votre service web.
 
 Exemple Python :
 ```

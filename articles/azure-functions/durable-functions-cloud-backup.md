@@ -1,12 +1,12 @@
 ---
-title: "Scénarios fan-out/fan-in dans Fonctions durables - Azure"
-description: "Découvrez comment implémenter un scénario fan-out/fan-in dans l’extension Fonctions durables pour Azure Functions."
+title: Scénarios fan-out/fan-in dans Fonctions durables - Azure
+description: Découvrez comment implémenter un scénario fan-out/fan-in dans l’extension Fonctions durables pour Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,17 +14,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: a5d539172f03246e3c658f2485d29d3ae389ae52
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 446ddbff7d945e90ebfd12bc6e9e7a1f0e18267c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Scénario fan-out/fan-in dans Fonctions durables - exemple de sauvegarde cloud
 
 *Fan-out/fan-in* fait référence à un modèle incluant une exécution simultanée de plusieurs fonctions puis une agrégation à partir des résultats. Cet article décrit un exemple utilisant [Fonctions durables](durable-functions-overview.md) pour implémenter un scénario fan-in/fan-out. L’exemple représente une fonction durable qui sauvegarde tout ou partie du contenu du site d’une application dans Stockage Azure.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 * Suivez les instructions indiquées dans la section [Installer des fonctions durables](durable-functions-install.md) pour configurer l’exemple.
 * Cet article suppose que vous avez déjà parcouru l’exemple de procédure pas à pas [Séquence Hello](durable-functions-sequence.md).
@@ -150,7 +151,7 @@ Content-Type: application/json; charset=utf-8
 
 Vous pouvez maintenant voir que l’orchestration est terminée et la durée approximative de cette opération. Vous voyez également une valeur pour le champ `output`, indiquant qu’environ 450 ko de journaux ont été chargés.
 
-## <a name="visual-studio-sample-code"></a>Code d’exemple Visual Studio
+## <a name="visual-studio-sample-code"></a>Exemple de code Visual Studio
 
 Voici l’orchestration, présentée sous la forme d’un seul fichier C# dans un projet Visual Studio :
 
@@ -158,7 +159,7 @@ Voici l’orchestration, présentée sous la forme d’un seul fichier C# dans u
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Cet exemple a montré comment implémenter le modèle fan-out/fan-in. L’exemple suivant montre comment implémenter le modèle [singleton avec état](durable-functions-singletons.md) dans une [orchestration externe](durable-functions-eternal-orchestrations.md).
+Cet exemple a montré comment implémenter le modèle fan-out/fan-in. L’exemple suivant montre comment implémenter le modèle de surveillance à l’aide de [minuteurs durables](durable-functions-timers.md).
 
 > [!div class="nextstepaction"]
-> [Exécuter l’exemple de singleton avec état](durable-functions-counter.md)
+> [Exécuter l’exemple de surveillance](durable-functions-monitor.md)

@@ -1,25 +1,21 @@
 ---
-title: "Mon premier Runbook graphique dans Azure Automation | Microsoft Docs"
-description: "Ce didacticiel vous familiarise avec la création, le test et la publication d'un Runbook graphique simple."
+title: Mon premier runbook graphique dans Azure Automation
+description: Ce didacticiel vous familiarise avec la création, le test et la publication d'un Runbook graphique simple.
+keywords: runbook, modèle de runbook, automatisation des runbooks, runbook azure
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: 
-keywords: "runbook, modèle de runbook, automatisation des runbooks, runbook azure"
-ms.assetid: dcb88f19-ed2b-4372-9724-6625cd287c8a
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 05/17/2017
-ms.author: magoedte;bwren
-ms.openlocfilehash: 948510eaaf55854bbc14d49bf78a8584c43f182d
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.openlocfilehash: 85902975d6871eccc69ffd441aec509f9f63ec2f
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="my-first-graphical-runbook"></a>Mon premier Runbook graphique
 
@@ -32,7 +28,8 @@ ms.lasthandoff: 01/10/2018
 
 Ce didacticiel vous familiarise avec la création d’un [Runbook graphique](automation-runbook-types.md#graphical-runbooks) dans Azure Automation. Vous commencez avec un simple runbook qui teste et publie tout en expliquant comment suivre l’état du travail du runbook. Vous modifiez ensuite le runbook pour gérer les ressources Azure, en démarrant dans ce cas une machine virtuelle Azure. Enfin, vous terminez ce didacticiel en renforçant le runbook grâce à l’ajout des paramètres de runbook et des liens conditionnels.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -140,7 +137,7 @@ Maintenant que vous disposez d’une variable pour contenir l’ID d’abonnemen
 1. **Set-AzureRmContext** comporte plusieurs ensembles de paramètres et vous devez donc en sélectionner un pour fournir les valeurs de paramètre. Cliquez sur **Jeu de paramètres**, puis sélectionnez le jeu de paramètres **SubscriptionId**.
 1. Une fois que vous sélectionnez le jeu de paramètres, les paramètres apparaissent dans la page Configuration des paramètres d’activité. Cliquez sur **SubscriptionID**
 1. Dans la page Valeur du paramètre, sélectionnez **Ressource de variable** comme **Source de données** et sélectionnez **AzureSubscriptionId** dans la liste, puis cliquez deux fois sur **OK**.
-1. Pointez sur **Login to Azure** (Connexion à Azure) jusqu’à ce qu’un cercle apparaisse au bas de la forme. Cliquez sur le cercle et faites glisser la flèche vers **Specify Subscription Id**(Spécifier un ID d’abonnement).
+1. Pointez sur **Login to Azure** (Connexion à Azure) jusqu’à ce qu’un cercle apparaisse au bas de la forme. Cliquez sur le cercle et faites glisser la flèche vers **Specify Subscription Id** (Spécifier un ID d’abonnement).
 
 À ce stade, votre Runbook doit ressembler à ce qui suit :  <br>![Configuration de l’authentification de runbook](media/automation-first-runbook-graphical/runbook-auth-config.png)
 

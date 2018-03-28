@@ -1,3 +1,19 @@
+---
+title: Fichier Include
+description: Fichier Include
+services: virtual-machines
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: 1f4bd0d81d16997a9d627f918d77cb8e770a5b53
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 03/16/2018
+---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Comprendre les redémarrages des machines virtuelles : maintenance et temps d’arrêt
 Il existe trois scénarios pouvant affecter une machine virtuelle dans Azure : maintenance matérielle non planifiée, temps d’arrêt imprévu et maintenance planifiée.
 
@@ -15,7 +31,7 @@ Pour réduire l'effet des interruptions de service dues à un ou plusieurs de ce
 
 * [Configuration de plusieurs machines virtuelles dans un groupe à haute disponibilité pour assurer la redondance]
 * [Utilisation de disques gérés pour les machines virtuelles dans le groupe à haute disponibilité]
-* [Utiliser les événements planifiés pour répondre de façon proactive aux événements affectant les machines virtuelles ] (https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
+* [Utilisation d’événements planifiés pour répondre de façon proactive aux événements qui impactent les machines virtuelles] (https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events))
 * [Configuration de chaque couche application dans des groupes à haute disponibilité séparés]
 * [Combinaison de l’équilibrage de charge et des groupes à haute disponibilité]
 * [Utiliser les zones de disponibilité pour se protéger contre les défaillances au niveau du centre de données]

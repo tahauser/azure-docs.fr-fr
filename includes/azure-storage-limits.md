@@ -11,7 +11,7 @@
 
 <sup>1</sup>Inclut les comptes de stockage Standard et Premium. Si vous avez besoin de plus de 200 comptes de stockage, sollicitez le [Support Azure](https://azure.microsoft.com/support/faq/)pour obtenir une assistance. L’équipe Azure Storage examinera votre cas d’entreprise et pourra approuver jusqu’à 250 comptes de stockage. 
 
-<sup>2</sup> Pour que votre compte de stockage standard puisse dépasser les limites indiquées en matière de capacité, de taux d’entrée/sortie et de requêtes, envoyez une demande via le [Support Azure](https://azure.microsoft.com/support/faq/). L’équipe d’Azure Storage examinera la requête et peut approuver une augmentation des limites au cas par cas.
+<sup>2</sup> Si vous avez besoin d’étendre les limites de votre compte de stockage, contactez le [support Azure](https://azure.microsoft.com/support/faq/). L’équipe du service Stockage Azure examine la requête et peut approuver une augmentation des limites au cas par cas. Les comptes à usage général et les comptes de stockage Blob prennent en charge l’augmentation de la capacité, les entrées/sorties et le taux de requête par requête. Pour connaître les nouvelles valeurs maximales des comptes de stockage Blob, consultez [Announcing larger, higher scale storage accounts](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
 
 <sup>3</sup> Limité seulement par les limites d’entrées/sorties du compte. *Entrée* désigne toutes les données (demandes) envoyées à un compte de stockage. *Sortie* désigne toutes les données (réponses) reçues d'un compte de stockage.  
 
