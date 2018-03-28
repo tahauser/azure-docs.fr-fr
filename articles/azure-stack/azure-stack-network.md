@@ -1,25 +1,25 @@
 ---
-title: "Considérations relatives à l’intégration au réseau pour les systèmes intégrés Azure Stack | Microsoft Docs"
-description: "Découvrez ce que vous pouvez faire pour planifier l’intégration d’un système Azure Stack à plusieurs nœuds au réseau du centre de données."
+title: Considérations relatives à l’intégration au réseau pour les systèmes intégrés Azure Stack | Microsoft Docs
+description: Découvrez ce que vous pouvez faire pour planifier l’intégration d’un système Azure Stack à plusieurs nœuds au réseau du centre de données.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 03/12/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: a198ff5fe7135e17301025d6a712236b76be0ede
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 04cfe3c4ac6011b9c3d31b7d4ac3c018c350d67b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="network-connectivity"></a>Connectivité réseau
 Cet article fournit des informations sur l’infrastructure réseau d’Azure Stack qui vous aideront à déterminer la meilleure intégration possible d’Azure Stack dans votre environnement réseau existant. 
@@ -53,7 +53,9 @@ L’infrastructure réseau pour Azure Stack se compose de plusieurs réseaux log
 ![Diagramme de réseau logique et connexions de commutateurs](media/azure-stack-network/NetworkDiagram.png)
 
 ### <a name="bmc-network"></a>Réseau BMC
-Ce réseau est conçu pour connecter tous les contrôleurs de gestion de carte de base (également appelés processeurs de service ; par exemple, iDRAC, iLO, iBMC, etc.) au réseau de gestion. Le cas échéant, l’hôte HLH (Hardware Lifecycle Host) se trouve sur ce réseau et peut fournir des logiciels spécifiques OEM pour la maintenance et/ou la surveillance du matériel. 
+Ce réseau est conçu pour connecter tous les contrôleurs de gestion de carte de base (également appelés processeurs de service ; par exemple, iDRAC, iLO, iBMC, etc.) au réseau de gestion. S’il est présent, le Hardware Lifecycle Host (HLH) se trouve sur ce réseau et peut fournir des logiciels spécifiques aux OEM pour la maintenance ou l’analyse du matériel. 
+
+Le HLH héberge également le déploiement de machines virtuelles (DVM). Le DVM est utilisé au cours du déploiement Azure Stack et est supprimé lorsque le déploiement est terminé. Le DVM requiert un accès internet dans des scénarios de déploiement connecté pour tester, valider et accéder à plusieurs composants. Ces composants peuvent être à l’intérieur et en dehors de votre réseau d’entreprise ; par exemple NTP, DNS et Azure. Pour plus d’informations sur les exigences de connectivité, consultez la [section NAT dans l’intégration du pare-feu Azure Stack](azure-stack-firewall.md#network-address-translation). 
 
 ### <a name="private-network"></a>Réseau privé
 Ce réseau /24 (adresse IP hôte 254) est privé pour la région Azure Stack (ne développez pas au-delà de appareils de commutation limite de la région Azure Stack) et est divisé en deux sous-réseaux :

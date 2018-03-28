@@ -1,24 +1,24 @@
 ---
-title: "Développer votre activité à l’aide de la Place de marché Microsoft Azure"
-description: "Guide étape par étape et listes de contrôle de publication à destination des nouveaux éditeurs de la Place de marché Microsoft Azure"
+title: Développer votre activité à l’aide de la Place de marché Microsoft Azure
+description: Guide étape par étape et listes de contrôle de publication à destination des nouveaux éditeurs de la Place de marché Microsoft Azure
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: 
+documentationcenter: ''
 author: ellacroi
 manager: msmbaldwin
-editor: 
+editor: ''
 ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.workload: ''
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 51cc413d61e4951f28e9247efcee934af23572e5
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 85baba61d5603539641f45f7ab1d722ca98514ad
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="grow-your-business-by-using-the-azure-marketplace"></a>Développer votre activité à l’aide de la Place de marché Microsoft Azure
 
@@ -129,7 +129,8 @@ Pour optimiser l’impact de ces activités, il est préférable que votre plan 
 >[!NOTE]
 >Le catalogue One Commercial Partner Catalog (catalogue OCP) est l’un des avantages dont bénéficient les membres de Microsoft Partner Network. 
 
-![Avantages de la Place de marché concernant la commercialisation](./media/marketplace-publishers-guide/marketplace-gtm-promotion.png)
+[Avantages GTM de la place de marché](./media/marketplace-publishers-guide/marketplace-gtm-current-march-8.png)
+
 
 Pour la prise en charge, consultez [Microsoft Go To Market](https://www.microsoftgotomarket.com). Vous pouvez y trouver des modèles, du contenu web, des formations et des outils pour promouvoir votre entreprise.
 

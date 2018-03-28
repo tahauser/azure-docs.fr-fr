@@ -1,26 +1,21 @@
 ---
 title: PowerShell pour les alias DNS sur Azure SQL | Microsoft Docs
 description: Les cmdlets PowerShell, notamment New-AzureRMSqlServerDNSAlias, permettent de rediriger les nouvelles connexions clientes vers un autre serveur Azure SQL Database, sans toucher aux configurations clientes.
-keywords: "base de données sql dns"
+keywords: base de données sql dns
 services: sql-database
-documentationcenter: 
 author: MightyPen
 manager: craigg
-editor: 
 ms.service: sql-database
-ms.custom: 
-ms.workload: 
-ms.tgt_pltfrm: 
 ms.devlang: PowerShell
 ms.topic: article
 ms.date: 02/05/2018
 ms.reviewer: genemi;amagarwa;maboja
 ms.author: dmalik
-ms.openlocfilehash: ec638d7b48b443cda5755e3077c6304b0c5ad78e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2aae669364c3de2e9b00ffe8e28b1521d3a781e8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="powershell-for-dns-alias-to-azure-sql-database"></a>PowerShell pour les alias DNS sur Azure SQL Database
 
@@ -48,9 +43,10 @@ Pour connecter un serveur Azure SQL Database en particulier, un client tel que S
 
 ## <a name="prerequisites"></a>Prérequis
 
+
 Pour exécuter le script PowerShell de démonstration proposé dans cet article, les prérequis suivants s’appliquent :
 
-- Un compte et un abonnement Azure. Pour profiter d’un essai gratuit, cliquez sur [https://azure.microsoft.com/free/][https://azure.microsoft.com/free/].
+- Un compte et un abonnement Azure. Pour obtenir un essai gratuit, cliquez sur [https://azure.microsoft.com/free/][https://azure.microsoft.com/free/].
 
 - Le module Azure PowerShell avec la cmdlet **New-AzureRMSqlServerDNSAlias**.
     - Pour l’installer ou le mettre à niveau, consultez la section [Installer le module Azure PowerShell][install-azurerm-ps-84p].

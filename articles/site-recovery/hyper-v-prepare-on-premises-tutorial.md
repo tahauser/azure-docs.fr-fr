@@ -1,18 +1,18 @@
 ---
-title: "Préparer des serveurs Hyper-V locaux à la récupération d’urgence de machines virtuelles Hyper-V vers Azure | Microsoft Docs"
-description: "Découvrez comment préparer des machines virtuelles Hyper-V locales non gérées par System Center VMM à la récupération d’urgence vers Azure avec le service Azure Site Recovery."
+title: Préparer des serveurs Hyper-V locaux à la récupération d’urgence de machines virtuelles Hyper-V vers Azure | Microsoft Docs
+description: Découvrez comment préparer des machines virtuelles Hyper-V locales non gérées par System Center VMM à la récupération d’urgence vers Azure avec le service Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 03/15/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 9524ffde4a588d3ac029bc8a3df91726082e157d
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 1290a186ca8e83b09f53b286e80c5ce75f08d88c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Préparer des serveurs Hyper-V locaux à la récupération d’urgence vers Azure
 
@@ -28,25 +28,16 @@ Ce didacticiel est le deuxième de la série. Assurez-vous d’avoir[configuré 
 
 
 
-## <a name="review-server-requirements"></a>Examiner les exigences du serveur
+## <a name="review-requirements-and-prerequisites"></a>Réviser les exigences et les composants requis
 
-Assurez vous que les hôtes Hyper-V répondent aux exigences suivantes. Si vous gérez des hôtes dans des clouds System Center Virtual Machine Manager (VMM), vérifiez les exigences de VMM.
+Vérifiez que les machines virtuelles et hôtes VMware respectent les exigences.
 
+1. [Vérifiez](hyper-v-azure-support-matrix.md#on-premises-servers) les exigences relatives au serveur local.
+2. [Vérifiez les exigences](hyper-v-azure-support-matrix.md#replicated-vms) relatives aux machines virtuelles Hyper-V à répliquer vers Azure.
+3. Vérifiez la [mise en réseau](hyper-v-azure-support-matrix.md#hyper-v-network-configuration) de l’hôte Hyper-V ; et la prise en charge du [stockage](hyper-v-azure-support-matrix.md#hyper-v-host-storage) de l’hôte et de l’invité pour les hôtes Hyper-V locaux.
+4. Vérifiez ce qui est pris en charge pour la [mise en réseau Azure](hyper-v-azure-support-matrix.md#azure-vm-network-configuration-after-failover), le [stockage](hyper-v-azure-support-matrix.md#azure-storage) et le [calcul](hyper-v-azure-support-matrix.md#azure-compute-features) après le basculement.
+5. Les machines virtuelles locales que vous répliquez vers Azure doivent respecter les [exigences relatives aux machines virtuelles Azure](hyper-v-azure-support-matrix.md#azure-vm-requirements).
 
-**Composant** | **Hyper-V géré par VMM** | **Hyper-V sans VMM**
---- | --- | ---
-**Système d’exploitation hôte Hyper-V** | Windows Server 2016, 2012 R2 | N/D
-**VMM** | VMM 2012, VMM 2012 R2 | N/D
-
-
-## <a name="review-hyper-v-vm-requirements"></a>Examiner les exigences des machines virtuelles Hyper-V
-
-Assurez-vous que les machines virtuelles sont conformes aux exigences résumées dans le tableau.
-
-**Exigences des machines virtuelles** | **Détails**
---- | ---
-**Système d’exploitation invité** | N’importe quel système d’exploitation invité [pris en charge par Azure](https://technet.microsoft.com/library/cc794868.aspx).
-**Conditions requises pour Azure** | Les machines vituelles Hyper-V locales doivent respecter les exigences des machines virtuelles Azure (site-recovery-support-matrix-to-azure.md).
 
 ## <a name="prepare-vmm-optional"></a>Préparer VMM (facultatif)
 
@@ -89,6 +80,7 @@ Pour vous connecter à des machines virtuelles Windows à l’aide de RDP après
    Vérifiez que la stratégie SAN du système d’exploitation est définie sur **OnlineAll**. [Plus d’informations](https://support.microsoft.com/kb/3031135) Aucune mise à jour de Windows ne doit être en attente sur la machine virtuelle quand vous déclenchez un basculement. S’il y en a, vous ne pouvez pas vous connecter à la machine virtuelle avant la fin de la mise à jour.
 3. Sur la machine virtuelle Azure Windows, après le basculement, vérifiez les **Diagnostics de démarrage** pour afficher une capture d’écran de la machine virtuelle. Si vous ne pouvez pas vous connecter, vérifiez que la machine virtuelle est en cours d’exécution et lisez ces [conseils de résolution des problèmes](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
+Après le basculement, vous pouvez accéder à des machines virtuelles Azure à l’aide de la même adresse IP en tant que machine virtuelle répliquée locale ou une autre adresse IP. [En savoir plus](concepts-on-premises-to-azure-networking.md) sur la configuration d’adressage IP pour le basculement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,99 +1,99 @@
 ---
-title: "Comment diagnostiquer des erreurs à l’aide de l’Assistant Connexion Azure Active Directory"
-description: "L’Assistant de connexion Active Directory a détecté un type d’authentification incompatible"
+title: Comment diagnostiquer des erreurs avec le service connecté Azure Active Directory
+description: Le service connecté Active Directory a détecté un type d’authentification incompatible
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: kraigb
-manager: mtillman
-editor: 
+manager: ghogen
+editor: ''
 ms.assetid: dd89ea63-4e45-4da1-9642-645b9309670a
 ms.service: active-directory
 ms.workload: web
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2017
+ms.date: 03/12/2018
 ms.author: kraigb
 ms.custom: aaddev
-ms.openlocfilehash: 186bb1ede11c869b1352906b7ebafe57025f4f09
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ab81c3385479a96fbfa7e68c4e81129ff327ed4b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="diagnosing-errors-with-the-azure-active-directory-connection-wizard"></a>Diagnostic d’erreurs avec l’Assistant Connexion Azure Active Directory
-L'Assistant a trouvé un type d'authentification incompatible lors de l'opération de détection du code d'authentification précédent.   
+# <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>Diagnostic d’erreurs avec le service connecté Azure Active Directory
 
-## <a name="what-is-being-checked"></a>Quel est l'objet de la vérification ?
-**Remarque :** afin de détecter correctement le code d’authentification précédent dans un projet, le projet doit être généré.  Si vous avez rencontré cette erreur et que vous n’avez pas de code d’authentification précédent dans votre projet, régénérez et réessayez.
+Lors de la détection du code d'authentification précédent, le serveur de connexion Azure Active Director a détecté un type d’authentification incompatible.
 
-### <a name="project-types"></a>Types de projet
-L’Assistant vérifie le type de projet que vous développez afin d’y injecter la logique d’authentification appropriée.  S’il existe un contrôleur qui dérive de `ApiController` dans le projet, ce dernier est considéré comme un projet WebAPI.  S’il existe uniquement des contrôleurs qui dérivent de `MVC.Controller` dans le projet, ce dernier est considéré comme un projet MVC.  Les autres éléments ne sont pas pris en charge par l’assistant.
+Afin de détecter correctement le code d’authentification précédent dans un projet, le projet doit être généré.  Si vous avez rencontré cette erreur et que vous n’avez pas de code d’authentification précédent dans votre projet, régénérez et réessayez.
 
-### <a name="compatible-authentication-code"></a>Code d’authentification compatible
-L’Assistant vérifie également les paramètres d’authentification qui ont été précédemment configurés ou sont compatibles avec celui-ci.  Si tous les paramètres sont présents, il est considéré comme ré-entrant et l’Assistant s’ouvre en affichant les paramètres.  Si seuls certains paramètres sont présents, il est considéré comme une erreur.
+## <a name="project-types"></a>Types de projet
 
-Dans un projet MVC, l'Assistant vérifie les paramètres suivants, qui résultent de l'utilisation précédente de l'Assistant :
+Le service connecté vérifie le type de projet que vous développez afin de pouvoir y injecter la logique d’authentification appropriée. S’il existe un contrôleur qui dérive de `ApiController` dans le projet, ce dernier est considéré comme un projet WebAPI. S’il existe uniquement des contrôleurs qui dérivent de `MVC.Controller` dans le projet, ce dernier est considéré comme un projet MVC. Le service connecté ne prend en charge aucun autre type de projet.
+
+## <a name="compatible-authentication-code"></a>Code d’authentification compatible
+
+Le service connecté vérifie également les paramètres d’authentification qui ont été précédemment configurés ou sont compatibles avec le service. Si tous les paramètres sont présents, il est considéré comme un cas réentrant et le service connecté s’ouvre en affichant les paramètres.  Si seuls certains paramètres sont présents, il est considéré comme une erreur.
+
+Dans un projet MVC, le service connecté vérifie les paramètres suivants, qui résultent de l'utilisation précédente du service :
 
     <add key="ida:ClientId" value="" />
     <add key="ida:Tenant" value="" />
     <add key="ida:AADInstance" value="" />
     <add key="ida:PostLogoutRedirectUri" value="" />
 
-En outre, l'Assistant vérifie les paramètres suivants dans un projet d'API web, qui résultent de l'utilisation précédente de l'Assistant :
+En outre, le service connecté vérifie les paramètres suivants dans un projet Web API, qui résultent de l'utilisation précédente du service :
 
     <add key="ida:ClientId" value="" />
     <add key="ida:Tenant" value="" />
     <add key="ida:Audience" value="" />
 
-### <a name="incompatible-authentication-code"></a>Code d’authentification incompatible
-Pour terminer, l’Assistant détecte l’utilisation éventuelle de versions du code d’authentification configurées avec des versions antérieures de Visual Studio. Si cette erreur s'affiche, cela signifie que votre projet comporte un type d'authentification incompatible. L'Assistant détecte les types d'authentification suivants, provenant de versions antérieures de Visual Studio :
+## <a name="incompatible-authentication-code"></a>Code d’authentification incompatible
 
-* Authentification Windows 
-* Comptes d'utilisateur individuels 
-* Comptes professionnels 
+Pour terminer, le service connecté tente de détecter les versions du code d’authentification configurées avec des versions antérieures de Visual Studio. Si cette erreur s'affiche, cela signifie que votre projet comporte un type d'authentification incompatible. Le service connecté détecte les types d'authentification suivants, provenant de versions antérieures de Visual Studio :
 
-Pour détecter l’authentification Windows dans un projet MVC, l’Assistant recherche l’élément `authentication` à partir de votre fichier **web.config** .
+* Authentification Windows
+* Comptes d'utilisateur individuels
+* Comptes professionnels
 
-<pre>
-    &lt;configuration&gt;
-        &lt;system.web&gt;
-            <span style="background-color: yellow">&lt;authentication mode="Windows" /&gt;</span>
-        &lt;/system.web&gt;
-    &lt;/configuration&gt;
-</pre>
+Pour détecter l’authentification Windows dans un projet MVC, le service connecté recherche `authentication`l’élément dans votre fichier `web.config`.
 
-Pour détecter l’authentification Windows dans un projet API web, l’Assistant recherche l’élément `IISExpressWindowsAuthentication` à partir de votre fichier **.csproj** :
+```xml
+<configuration>
+    <system.web>
+        <span style="background-color: yellow"><authentication mode="Windows" /></span>
+    </system.web>
+</configuration>
+```
 
-<pre>
-    &lt;Project&gt;
-        &lt;PropertyGroup&gt;
-            <span style="background-color: yellow">&lt;IISExpressWindowsAuthentication&gt;enabled&lt;/IISExpressWindowsAuthentication&gt;</span>
-        &lt;/PropertyGroup>
-    &lt;/Project&gt;
-</pre>
+Pour détecter l’authentification Windows dans un projet Web API, le service connecté recherche `IISExpressWindowsAuthentication`l’élément dans le fichier `.csproj` de votre projet :
 
-Pour détecter l'authentification des comptes d'utilisateur individuels, l'Assistant recherche l'élément package à partir de votre fichier **Packages.config** .
+```xml
+<Project>
+    <PropertyGroup>
+        <span style="background-color: yellow"><IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication></span>
+    </PropertyGroup>
+</Project>
+```
 
-<pre>
-    &lt;packages&gt;
-        <span style="background-color: yellow">&lt;package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" /&gt;</span>
-    &lt;/packages&gt;
-</pre>
+Pour détecter l'authentification des comptes d'utilisateur individuels, le service connecté recherche l'élément de package dans votre fichier `packages.config`.
 
-Pour détecter une ancienne forme d’authentification d’un compte professionnel, l’Assistant recherche l’élément suivant à partir de votre fichier **web.config**:
+```xml
+<packages>
+    <span style="background-color: yellow"><package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" /></span>
+</packages>
+```
 
-<pre>
-    &lt;configuration&gt;
-        &lt;appSettings&gt;
-            <span style="background-color: yellow">&lt;add key="ida:Realm" value="***" /&gt;</span>
-        &lt;/appSettings&gt;
-    &lt;/configuration&gt;
-</pre>
+Pour détecter un ancien formulaire d’authentification d’un compte professionnel, le service connecté recherche l’élément suivant dans `web.config` :
 
-Pour modifier le type d'authentification, supprimez le type d'authentification incompatible, puis réexécutez l'Assistant.
+```xml
+<configuration>
+    <appSettings>
+        <span style="background-color: yellow"><add key="ida:Realm" value="***" /></span>
+    </appSettings>
+</configuration>
+```
+
+Pour modifier le type d'authentification, supprimez le type d'authentification incompatible, puis essayez d’ajouter le service connecté à nouveau.
 
 Pour plus d’informations, consultez la page [Scénarios d’authentification pour Azure AD](active-directory-authentication-scenarios.md).
-
-#<a name="next-steps"></a>Étapes suivantes
-- [Scénarios d’authentification pour Azure AD](active-directory-authentication-scenarios.md)

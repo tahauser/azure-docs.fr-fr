@@ -1,12 +1,12 @@
 ---
 title: Azure Service Fabric - Configurer la surveillance avec OMS Log Analytics | Microsoft Docs
-description: "Découvrez comment configurer Operations Management Suite pour visualiser et analyser des événements afin de surveiller vos clusters Azure Service Fabric."
+description: Découvrez comment configurer Operations Management Suite pour visualiser et analyser des événements afin de surveiller vos clusters Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/17/2017
 ms.author: dekapur
-ms.openlocfilehash: 288c7482058cd9f824b6001bb9ad36d1a5e0f8bf
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 98ac32b011744ce388762322edd538b467f93494
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="set-up-operations-management-suite-log-analytics-for-a-cluster"></a>Configurer Operations Management Suite Log Analytics pour un cluster
 
@@ -48,7 +48,7 @@ Si vous utilisez Windows, passez aux étapes suivantes pour connecter OMS au com
 >[!NOTE]
 >Cette expérience pour les clusters Linux n’est pas encore disponible. 
 
-### <a name="add-the-oms-agent-to-your-cluster"></a>Ajouter l’agent OMS à votre cluster 
+### <a name="connect-the-oms-workspace-to-your-cluster"></a>Connecter l’espace de travail OMS à votre cluster 
 
 1. L’espace de travail a besoin d’être connecté aux données de diagnostic provenant de votre cluster. Accédez au groupe de ressources dans lequel vous avez créé la solution Service Fabric Analytics. Sélectionnez **ServiceFabric\<nomEspaceTravailOMS\>** et accédez à sa page de présentation. À partir de là, vous pouvez modifier les paramètres de la solution, ceux de l’espace de travail et accéder au portail OMS.
 

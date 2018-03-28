@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/24/2018
-ms.openlocfilehash: b76fe7c0caa4a9aca76a9a3f50d1fced0ab67cba
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 444803eeb77e79a8bfe3271ddf27bd428042c875
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="enable-ssl-on-an-azure-machine-learning-compute-mlc-cluster"></a>Activer SSL sur un cluster Azure Machine Learning Compute (MLC) 
 
@@ -31,7 +31,7 @@ Ces instructions vous permettent de configurer SSL pour les appels de notation s
 
 Une fois les conditions préalables remplies, vous disposerez de deux fichiers :
 
-* Un fichier pour le certificat (par exemple `cert.pem`)
+* Un fichier pour le certificat, par exemple, `cert.pem`. Assurez-vous que le fichier contient la chaîne de certificats complète.
 * Un fichier pour la clé (par exemple `key.pem`)
 
 
@@ -55,7 +55,7 @@ Set-AzureRmMlOpCluster -ResourceGroupName my-rg -Name my-cluster -SslStatus Enab
 
 ## <a name="map-the-cname-and-the-ip-address"></a>Mapper le CNAME et l’adresse IP
 
-Créez un mappage entre le CNAME que vous avez sélectionné au départ et l’adresse IP du cluster frontal (FE) en temps réel. Pour découvrir l’adresse IP du FE, exécutez la commande ci-dessous. La sortie affiche un champ nommé « publicIpAddress » qui contient l’adresse IP du cluster frontal en temps réel. Reportez-vous aux instructions de votre fournisseur DNS pour configurer un enregistrement CNAME.
+Créez un mappage entre le CNAME que vous avez sélectionné au départ et l’adresse IP du cluster frontal (FE) en temps réel. Pour découvrir l’adresse IP du FE, exécutez la commande ci-dessous. La sortie affiche un champ nommé « publicIpAddress » qui contient l’adresse IP du cluster frontal en temps réel. Reportez-vous aux instructions de votre fournisseur DNS pour configurer un enregistrement à partir du FQDN utilisé dans le CNAME pour l’adresse IP publique.
 
 
 

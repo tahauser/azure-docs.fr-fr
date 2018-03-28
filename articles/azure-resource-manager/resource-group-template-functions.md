@@ -1,6 +1,6 @@
 ---
-title: "Fonctions des modèles Resource Manager | Microsoft Docs"
-description: "Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour récupérer des valeurs, utiliser des chaînes et des valeurs numériques, et récupérer des informations sur le déploiement."
+title: Fonctions des modèles Resource Manager | Microsoft Docs
+description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour récupérer des valeurs, utiliser des chaînes et des valeurs numériques, et récupérer des informations sur le déploiement.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: tomfitz
-ms.openlocfilehash: 725f12a6b5dcf4b66109512336e8a617013c5974
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54580abdca8b6be10576cf74ad23e8ff2665341c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-resource-manager-template-functions"></a>Fonctions des modèles Azure Resource Manager
-Cette rubrique décrit toutes les fonctions que vous pouvez utiliser dans un modèle Azure Resource Manager.
+Cet article décrit toutes les fonctions que vous pouvez utiliser dans un modèle Azure Resource Manager.
 
 Vous ajoutez des fonctions dans vos modèles en les plaçant entre crochets : `[` et `]`, respectivement. L’expression est évaluée lors du déploiement. Bien qu’écrit sous la forme d’un littéral de chaîne, le résultat de l’évaluation de l’expression peut être d’un type JSON différent, tel qu’un tableau, objet ou entier. Comme en JavaScript, les appels de fonction sont formatés comme suit : `functionName(arg1,arg2,arg3)`. Pour référencer des propriétés, vous utilisez les opérateurs point et [index].
 
@@ -37,6 +37,7 @@ Les fonctions des modèles et leurs paramètres ne respectent pas la casse. Par 
 <a id="empty" />
 <a id="first" />
 <a id="intersection" />
+<a id="json" />
 <a id="last" />
 <a id="length" />
 <a id="min" />
@@ -93,6 +94,21 @@ Resource Manager offre les fonctions ci-après pour l’obtention de valeurs à 
 * [parameters](resource-group-template-functions-deployment.md#parameters)
 * [variables](resource-group-template-functions-deployment.md#variables)
 
+<a id="and" />
+<a id="bool" />
+<a id="if" />
+<a id="not" />
+<a id="or" />
+
+## <a name="logical-functions"></a>Fonctions logiques
+Resource Manager fournit les fonctions suivantes pour vous permettre de travailler avec des conditions logiques :
+
+* [et](resource-group-template-functions-logical.md#and)
+* [bool](resource-group-template-functions-logical.md#bool)
+* [si](resource-group-template-functions-logical.md#if)
+* [non](resource-group-template-functions-logical.md#not)
+* [ou](resource-group-template-functions-logical.md#or)
+
 <a id="add" />
 <a id="copyindex" />
 <a id="div" />
@@ -103,15 +119,6 @@ Resource Manager offre les fonctions ci-après pour l’obtention de valeurs à 
 <a id="mod" />
 <a id="mul" />
 <a id="sub" />
-
-## <a name="logical-functions"></a>Fonctions logiques
-Resource Manager fournit les fonctions suivantes pour vous permettre de travailler avec des conditions logiques :
-
-* [et](resource-group-template-functions-logical.md#and)
-* [bool](resource-group-template-functions-logical.md#bool)
-* [si](resource-group-template-functions-logical.md#if)
-* [non](resource-group-template-functions-logical.md#not)
-* [ou](resource-group-template-functions-logical.md#or)
 
 ## <a name="numeric-functions"></a>Fonctions numériques
 Resource Manager fournit les expressions ci-après pour travailler avec des entiers :
@@ -155,6 +162,7 @@ Resource Manager offre les fonctions ci-après pour obtenir des valeurs de resso
 <a id="emptystring" />
 <a id="endswith" />
 <a id="firststring" />
+<a id="guid" />
 <a id="indexof" />
 <a id="laststring" />
 <a id="lastindexof" />

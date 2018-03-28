@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 4d05d816b43e04c2c2e88cab33b8e4c623ab9185
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: e04de7cb3fad1ba651d0ce21be7f244a89753c1a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Copier des données à partir de ServiceNow avec Azure Data Factory
 
@@ -112,7 +112,7 @@ Pour copier des données à partir de ServiceNow, définissez le type de source 
 Notez les points suivants lorsque vous spécifiez le schéma et une colonne pour ServiceNow dans la requête :
 
 - **Schéma :** spécifiez le schéma en tant qu’élément `Actual` ou `Display` dans la requête ServiceNow. Vous pouvez le voir comme paramètre de `sysparm_display_value` ayant la valeur true ou false lors de l’appel des [API RESTful de ServiceNow](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
-- **Colonne :** le nom de la colonne de la valeur réelle sous le schéma `Actual` est `[columne name]_value`, alors que la valeur affichée sous le schéma `Display` est `[columne name]_display_value`. Le nom de colonne doit correspondre au schéma utilisé dans la requête.
+- **Colonne :** le nom de la colonne pour une valeur réelle sous le schéma `Actual` est `[columne name]_value`, tandis que pour la valeur d’affichage, sous le schéma `Display`, le nom est `[columne name]_display_value`. Le nom de colonne doit correspondre au schéma utilisé dans la requête.
 
 **Exemple de requête :**
 `SELECT col_value FROM Actual.alm_asset` OR `SELECT col_display_value FROM Display.alm_asset`.

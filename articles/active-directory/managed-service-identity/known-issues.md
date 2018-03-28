@@ -1,24 +1,24 @@
 ---
-title: "FAQ et problèmes connus liés à l’identité du service administré (MSI) pour Azure Active Directory"
-description: "Problèmes connus liés à l’identité du service administré pour Azure Active Directory."
+title: FAQ et problèmes connus liés à l’identité du service administré (MSI) pour Azure Active Directory
+description: Problèmes connus liés à l’identité du service administré pour Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
 ms.service: active-directory
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: bd931b220c417f91b47278c82707d38de5c7f65e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 84390f73fdac6554699dd43a0a36d16eace9a2bb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>FAQ et problèmes connus liés à l’identité du service administré (MSI) pour Azure Active Directory
 
@@ -37,6 +37,10 @@ Non, et nous ne prévoyons pas de rendre possible l’utilisation de MSI dans Az
 ### <a name="does-msi-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>L’identité du service administré fonctionne-t-elle avec la bibliothèque d’authentification Active Directory (ADAL) et la bibliothèque d’authentification Microsoft (MSAL) ?
 
 Non, la fonction d’identité du service administré n’est pas encore intégrée aux bibliothèques ADAL et MSAL. Pour plus d’informations sur l’acquisition d’un jeton MSI à l’aide du point de terminaison REST de MSI, voir [Utilisation d’une identité du service administré (MSI) d’une machine virtuelle Azure pour obtenir des jetons](how-to-use-vm-token.md).
+
+### <a name="what-is-the-security-boundary-of-a-managed-service-identity"></a>Quelle est la limite de sécurité d’une identité de service administré ?
+
+La limite de sécurité de l’identité est la ressource à laquelle elle est attachée. Par exemple, celle d’un MSI de machine virtuelle est la machine virtuelle. Tout code s’exécutant sur cette machine virtuelle peut appeler le point de terminaison MSI et demander des jetons. L’expérience s’apparente à celle des autres ressources qui prennent en charge les MSI.
 
 ### <a name="what-are-the-supported-linux-distributions"></a>Quelles sont les distributions de Linux prises en charge ?
 

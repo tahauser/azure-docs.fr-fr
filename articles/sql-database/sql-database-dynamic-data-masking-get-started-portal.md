@@ -1,25 +1,19 @@
 ---
-title: "Portail Azure : masquage de données dynamiques de base de données SQL | Microsoft Docs"
-description: "Guide de prise en main du masquage des données dynamiques de base de données SQL dans le portail Azure"
+title: 'Portail Azure : masquage de données dynamiques de base de données SQL | Microsoft Docs'
+description: Guide de prise en main du masquage des données dynamiques de base de données SQL dans le portail Azure
 services: sql-database
-documentationcenter: 
 author: ronitr
-manager: jhubbard
-editor: 
-ms.assetid: "2"
+manager: craigg
 ms.service: sql-database
 ms.custom: security
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: Inactive
 ms.date: 11/22/2016
 ms.author: ronitr
-ms.openlocfilehash: 20d344bc6ae971012bd181d14d130432263a3b76
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 2db546d8165956dc6f9fad21f66af315ba301c11
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Prise en main du masquage des données dynamiques de base de données SQL dans le portail Azure
 
@@ -27,7 +21,7 @@ Cet article vous montre comment implémenter [le masquage des données dynamique
 
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-the-azure-portal"></a>Configuration du masquage des données dynamiques pour votre base de données à l’aide du portail Azure
-1. Accédez à l’adresse [https://portal.azure.com](https://portal.azure.com) et lancez le portail Azure.
+1. Lancez le portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 2. Accédez à la page des paramètres de la base de données comprenant les données sensibles que vous souhaitez masquer.
 3. Cliquez sur la vignette **Dynamic Data Masking** qui lance la page de configuration **Dynamic Data Masking**.
    

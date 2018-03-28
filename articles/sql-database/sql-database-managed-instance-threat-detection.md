@@ -3,18 +3,18 @@ title: Threat Detection - Azure SQL Database Managed Instance | Microsoft Docs
 description: Threat Detection permet de détecter les activités base de données anormales indiquant la présence potentielle de menaces de sécurité pour la base de données.
 services: sql-database
 author: rmatchoro
-manager: cguyer
+manager: craigg
 ms.service: sql-database
 ms.custom: security, managed instance
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: ronmat
 ms.reviewer: carlrab
-ms.openlocfilehash: f8c08bc16d622516958b8bd182179d07edfa4891
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 2112a0a3997af478de6b8c80abcf7924a66302f0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-sql-database-managed-instance-threat-detection"></a>Azure SQL Database Managed Instance Threat Detection
 
@@ -29,7 +29,7 @@ SQL Threat Detection fournit une nouvelle couche de sécurité qui permet aux cl
 SQL Threat Detection intègre les alertes avec [Azure Security Center](https://azure.microsoft.com/services/security-center/). Chaque Managed Instance protégée est facturée au même prix que le niveau Standard d’Azure Security Center, soit 15 USD/nœud/mois : chaque Managed Instance protégée est alors comptabilisée comme un seul nœud.  
 
 ## <a name="set-up-threat-detection-for-your-managed-instance-in-the-azure-portal"></a>Configurer Threat Detection pour votre Managed Instance dans le portail Azure
-1. Accédez à l’adresse [https://portal.azure.com](https://portal.azure.com) et lancez le portail Azure.
+1. Lancez le portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 2. Accédez à la page de configuration de Managed Instance que vous voulez protéger. Dans la page **Paramètres**, sélectionnez **Threat Detection**. 
 3. Page de configuration de Threat Detection 
    - **Activez** la détection des menaces.

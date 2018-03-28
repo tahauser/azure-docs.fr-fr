@@ -1,11 +1,11 @@
 ---
-title: "Déploiement d’un exécutable existant dans Azure Service Fabric | Microsoft Docs"
-description: "Procédure pas à pas pour empaqueter une application existante en tant que fichier exécutable invité afin de la déployer sur un cluster Service Fabric"
+title: Déploiement d’un exécutable existant dans Azure Service Fabric | Microsoft Docs
+description: Découvrez comment empaqueter une application existante en tant que fichier exécutable invité afin de la déployer sur un cluster Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: msfussell
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,68 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: mfussell;mikhegn
-ms.openlocfilehash: c851e1f756957d58d5f7372098620e4b7129b089
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 029a0e297469dd5845a82dbdc8fd5f898cfebccc
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="deploy-a-guest-executable-to-service-fabric"></a>Déploiement d'un exécutable invité dans Service Fabric
-Vous pouvez exécuter n’importe quel type de code, comme Node.js, Java ou C++ dans Azure Service Fabric en tant que service. Dans la terminologie Service Fabric, ces types de service sont appelés des exécutables invités.
-
-Les invités exécutables sont traités par le Service Fabric comme des services sans état. En conséquence, ils sont placés dans des nœuds dans un cluster, sur la base de la disponibilité et d’autres mesures. Cet article explique comment empaqueter et déployer un exécutable invité dans un cluster Service Fabric, en utilisant Visual Studio ou un utilitaire en ligne de commande.
-
-Dans cet article, nous abordons les étapes pour empaqueter un exécutable invité et le déployer dans Service Fabric.  
-
-## <a name="benefits-of-running-a-guest-executable-in-service-fabric"></a>Avantages de l'exécution d'un exécutable invité dans Service Fabric
-L’exécution d’un exécutable invité dans un cluster Service Fabric présente plusieurs avantages :
-
-* Haute disponibilité : Les applications qui sont exécutées dans Service Fabric sont hautement disponibles. Service Fabric s’assure que les instances d’une application sont en cours d’exécution.
-* Analyse du fonctionnement. La fonction d’analyse du fonctionnement de Service Fabric détecte si une application est en cours d’exécution et fournit des informations de diagnostic en cas d’échec.   
-* Gestion du cycle de vie des applications. Outre les mises à niveau sans temps d’arrêt, Service Fabric assure la restauration automatique de la version précédente en cas d’événement signalant un problème d’intégrité lors d’une mise à niveau.    
-* Densité. Vous pouvez exécuter plusieurs applications dans un cluster, ce qui élimine le besoin d’exécuter chaque application sur son propre matériel.
-* Détectabilité : À l’aide de REST, vous pouvez appeler le service d’attribution de noms Service Fabric pour trouver d’autres services dans le cluster. 
-
-## <a name="samples"></a>Exemples
-* [Exemple pour empaqueter et déployer un fichier exécutable invité](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Exemple de deux exécutables invités (C# et nodejs) communiquant via le service d’attribution de noms à l’aide de REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
-
-## <a name="overview-of-application-and-service-manifest-files"></a>Vue d’ensemble des fichiers du manifeste de service et d’application
-Dans le cadre du déploiement d’un exécutable invité, il est utile de comprendre le modèle d’empaquetage et de déploiement Service Fabric tel que décrit dans [Modèle d’application](service-fabric-application-model.md). Le modèle d’empaquetage Service Fabric repose sur deux fichiers XML : les manifestes d’application et de service. La définition de schéma pour les fichiers ApplicationManifest.xml et ServiceManifest.xml est installée avec le Kit de développement logiciel (SDK) Service Fabric sous *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
-
-* **Manifeste d’application** : le manifeste d’application permet de décrire l’application. Il répertorie les services qui la composent, ainsi que d’autres paramètres utilisés pour définir la manière dont les services doivent être déployés (comme le nombre d’instances).
-
-  Dans Service Fabric, une application est une unité de déploiement et de mise à niveau. Une application peut être mise à niveau en tant qu’unité simple, dans laquelle les défaillances (et restaurations) potentielles sont gérées. Service Fabric garantit la réussite de la mise à niveau. En cas d’échec, elle fait en sorte que l’application ne reste pas dans un état inconnu ou instable.
-* **Manifeste de service** : le manifeste de service décrit les composants d’un service. Il inclut des données telles que le nom et le type du service, ainsi que son code et sa configuration. Le manifeste de service inclut également des paramètres supplémentaires qui peuvent être utilisés pour configurer le service après son déploiement.
-
-## <a name="application-package-file-structure"></a>Structure de fichier d'un package d'application
-Pour que vous puissiez la déployer sur Service Fabric, votre application doit respecter une structure de répertoire prédéfinie. Voici un exemple de structure de ce type.
-
-```
-|-- ApplicationPackageRoot
-    |-- GuestService1Pkg
-        |-- Code
-            |-- existingapp.exe
-        |-- Config
-            |-- Settings.xml
-        |-- Data
-        |-- ServiceManifest.xml
-    |-- ApplicationManifest.xml
-```
-
-Le paramètre ApplicationPackageRoot contient le fichier ApplicationManifest.xml, qui définit l’application. Un sous-répertoire pour chaque service inclus dans l’application est utilisé pour contenir tous les artefacts nécessaires au service. Ces sous-répertoires correspondent au fichier ServiceManifest.xml et généralement aux éléments suivants :
-
-* *Code*. Ce répertoire contient le code du service.
-* *Config*. Ce répertoire contient un fichier Settings.xml (et d’autres fichiers si nécessaire) auquel le service peut accéder lors de l’exécution pour récupérer des paramètres de configuration spécifiques.
-* *Data*. Il s’agit d’un répertoire supplémentaire pour stocker des données locales supplémentaires dont le service peut avoir besoin. Le répertoire Data doit être utilisé uniquement pour stocker des données éphémères. Service Fabric ne copie et ne réplique pas les modifications dans le répertoire des données si le service doit être déplacé, par exemple, pendant le basculement.
-
-> [!NOTE]
-> Il est inutile de créer les répertoires `config` et `data` si vous n’en avez pas besoin.
->
->
-
-## <a name="package-an-existing-executable"></a>Empaqueter un exécutable existant
-Lors de l’empaquetage d’un exécutable invité, vous pouvez choisir d’utiliser un modèle de projet Visual Studio ou de [créer le package d’application manuellement](#manually). À l’aide de Visual Studio, la structure de package d’application et les fichiers manifeste sont créés pour vous par le modèle de nouveau projet.
+# <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Empaqueter et déployer un fichier exécutable existant sur Service Fabric
+Lors de l’empaquetage d’un fichier exécutable en tant [qu’exécutable invité](service-fabric-guest-executables-introduction.md), vous pouvez choisir d’utiliser un modèle de projet Visual Studio ou de [créer le package d’application manuellement](#manually). À l’aide de Visual Studio, la structure de package d’application et les fichiers manifeste sont créés pour vous par le modèle de nouveau projet.
 
 > [!TIP]
 > Pour empaqueter un exécutable Windows existant dans un service, le plus simple consiste à utiliser Visual Studio, ou Yeoman si vous êtes sur Linux.
@@ -95,9 +41,11 @@ Visual Studio fournit un modèle de service Service Fabric pour vous aider à d�
      * `CodePackage` indique que le répertoire de travail doit être défini sur la racine du package d’application (`GuestService1Pkg` dans la structure de fichiers indiquée précédemment).
      * `Work` spécifie que les fichiers sont placés dans un sous-répertoire appelé « work ».
 4. Donnez un nom à votre service et cliquez sur **OK**.
-5. Si votre service a besoin d’un point de terminaison pour les communications, vous pouvez désormais ajouter le protocole, le port et le type dans le fichier ServiceManifest.xml. Par exemple : `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`.
+5. Si votre service a besoin d’un point de terminaison pour les communications, vous pouvez désormais ajouter le protocole, le port et le type dans le fichier ServiceManifest.xml. Par exemple : `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`.
 6. Vous pouvez maintenant utiliser le package et exécuter l’action de publication sur votre cluster local, en effectuant le débogage de la solution dans Visual Studio. Vous pouvez, quand vous le souhaitez, publier l’application sur un cluster à distance ou archiver la solution pour contrôler le code source.
-7. Accédez à la fin de cet article pour découvrir comment afficher le service d’exécutable invité lancé dans Service Fabric Explorer.
+7. Lisez [votre application en cours d’exécution pour vérification](#check-your-running-application) et découvrez comment afficher votre service d’exécutable invité exécuté dans Service Fabric Explorer.
+
+Dans le cadre d’une procédure pas à pas, consultez [Créer votre première application de fichier exécutable invité à l’aide de Visual Studio](quickstart-guest-app.md).
 
 ## <a name="use-yeoman-to-package-and-deploy-an-existing-executable-on-linux"></a>Utiliser Yeoman pour empaqueter et déployer un exécutable existant sous Linux
 

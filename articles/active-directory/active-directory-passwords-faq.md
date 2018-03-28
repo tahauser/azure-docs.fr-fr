@@ -1,13 +1,13 @@
 ---
-title: "FAQ de la réinitialisation de mot de passe libre-service - Azure Active Directory"
-description: "Forum aux questions concernant la réinitialisation du mot de passe en libre-service Azure AD"
+title: FAQ de la réinitialisation de mot de passe libre-service - Azure Active Directory
+description: Forum aux questions concernant la réinitialisation du mot de passe en libre-service Azure AD
 services: active-directory
-keywords: "Gestion des mots de passe Active Directory, gestion des mots de passe, réinitialisation de mot de passe en libre-service Azure AD"
-documentationcenter: 
+keywords: Gestion des mots de passe Active Directory, gestion des mots de passe, réinitialisation de mot de passe en libre-service Azure AD
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: seohack1
-ms.openlocfilehash: 686cc2a94af729e6f872c334a6e5fda947d43725
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f5236b81c70caee4417777ffadcababebaa84620
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="password-management-frequently-asked-questions"></a>Forum Aux Questions sur la gestion des mots de passe
 
@@ -40,7 +40,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
 
 * **Q : Mes utilisateurs peuvent-ils inscrire leurs propres données de réinitialisation du mot de passe ?**
 
-  > **R :** Oui. Tant que la réinitialisation de mot de passe est activée et qu’ils disposent d’une licence, les utilisateurs peuvent accéder au portail d’inscription à la réinitialisation de mot de passe à l’adresse https://aka.ms/ssprsetup pour inscrire leurs informations d’authentification. Les utilisateurs peuvent également s’inscrire par le biais du volet d’accès (http://myapps.microsoft.com). Pour s’inscrire par le biais du volet d’accès, ils doivent sélectionner l’image de leur profil, sélectionner **Profil**, puis sélectionner l’option **Réinitialiser mon mot de passe**.
+  > **R :** Oui. Tant que la réinitialisation de mot de passe est activée et qu’ils disposent d’une licence, vos utilisateurs peuvent accéder au portail d’inscription à la réinitialisation de mot de passe (https://aka.ms/ssprsetup) pour inscrire leurs informations d’authentification. Ils peuvent également s’inscrire par le biais du volet d’accès (http://myapps.microsoft.com). Pour s’inscrire par le biais du volet d’accès, ils doivent sélectionner l’image de leur profil, sélectionner **Profil**, puis sélectionner l’option **Réinitialiser mon mot de passe**.
   >
   >
 * **Q : si j’active la réinitialisation du mot de passe pour un groupe, puis décide de l’activer pour tout le monde, mes utilisateurs doivent-ils se réenregistrer ?**
@@ -269,7 +269,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   >
 * **Q : Pour quels types de compte l’écriture différée du mot de passe fonctionne-t-elle ?**
 
-  > **R :** La réécriture du mot de passe fonctionne pour les utilisateurs fédérés et ceux disposant de la synchronisation du hachage de mot de passe.
+  > **R :** La réécriture du mot de passe fonctionne pour les comptes d’utilisateur synchronisés d’Active Directory en local vers Azure AD, y compris les utilisateurs fédérés, synchronisés avec hachage de mot de passe et à authentification directe.
   >
   >
 * **Q : L’écriture différée du mot de passe applique-t-elle les stratégies de mot de passe de mon domaine ?**

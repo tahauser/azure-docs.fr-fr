@@ -2,23 +2,18 @@
 title: Détection de menaces - Azure SQL Database | Microsoft Docs
 description: Threat Detection permet de détecter les activités base de données anormales indiquant la présence potentielle de menaces de sécurité pour la base de données.
 services: sql-database
-documentationcenter: ''
 author: rmatchoro
-manager: shaik
-editor: v-romcal
+manager: craigg
 ms.service: sql-database
 ms.custom: security
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: On Demand
 ms.date: 06/19/2017
 ms.author: ronmat
-ms.openlocfilehash: a01721b10305ac45082943fbe4fb7fb199a0e49f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4cb31eef4ba4b85ea28a58bb9b947b4e07cb0b58
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="sql-database-threat-detection"></a>Détection de menaces pour les bases de données SQL
 
@@ -33,7 +28,7 @@ Par exemple, l’injection SQL représente l’un des problèmes de sécurité a
 La détection des menaces SQL intègre les alertes avec [Azure Security Center](https://azure.microsoft.com/services/security-center/). Chaque serveur SQL Database protégé est facturé au même prix que le niveau Standard d’Azure Security Center, soit 15 USD/nœud/mois : chaque serveur SQL Database protégé est alors comptabilisé comme un seul nœud.  
 
 ## <a name="set-up-threat-detection-for-your-database-in-the-azure-portal"></a>Configurer la détection des menaces pour votre base de données dans le portail Azure
-1. Accédez à l’adresse [https://portal.azure.com](https://portal.azure.com) et lancez le portail Azure.
+1. Lancez le portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 2. Accédez à la page de configuration de l’instance SQL Database que vous voulez surveiller. Dans la page Paramètres, sélectionnez **Audit et détection des menaces**. 
     ![Volet de navigation][1]
 3. Dans la page de configuration **Audit et détection des menaces**, **activez** l’audit pour afficher les paramètres de détection des menaces.

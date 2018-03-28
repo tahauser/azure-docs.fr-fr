@@ -1,8 +1,8 @@
 ---
-title: "Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory | Microsoft Docs"
-description: "Découvrez comment utiliser les mappages d’expressions pour transformer des valeurs d’attributs dans un format acceptable lors de l’approvisionnement automatique des objets d’application SaaS dans Azure Active Directory."
+title: Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory | Microsoft Docs
+description: Découvrez comment utiliser les mappages d’expressions pour transformer des valeurs d’attributs dans un format acceptable lors de l’approvisionnement automatique des objets d’application SaaS dans Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: b13c51cd-1bea-4e5e-9791-5d951a518943
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: 5549fb8f20ac2eb07b52b3b8e1c418873e467c93
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: f1cf83044eb4f001ba341cabd0771b267c3f996d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory
 Quand vous configurez l’approvisionnement pour une application SaaS, l’un des types de mappages d’attributs que vous pouvez spécifier est un mappage d’expression. Dans ce cas, vous devez écrire une expression semblable à un script qui vous permet de transformer les données des utilisateurs dans des formats plus acceptables pour l’application SaaS.
@@ -62,7 +62,7 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 | NOM | Requis / Répétition | type | Notes |
 | --- | --- | --- | --- |
 | **source** |Obligatoire |Chaîne |Généralement le nom de l’attribut de l’objet source. |
-| **inputFormat** |Obligatoire |Chaîne |Format attendu de la valeur source. Pour plus d’informations sur les formats pris en charge, consultez [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+| **inputFormat** |Obligatoire |Chaîne |Format attendu de la valeur source. Pour connaitre les formats pris en charge, consultez [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
 | **outputFormat** |Obligatoire |Chaîne |Format de la date de sortie. |
 
 - - -
@@ -108,7 +108,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 - - -
 ### <a name="replace"></a>Replace
-**Fonction :**<br> ObsoleteReplace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
+**Fonction :**<br> Remplacer (source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
 **Description :**<br>
 Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les paramètres fournis :
@@ -119,13 +119,13 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 * Quand **oldValue** et **template** sont fournis :
   
   * Remplace toutes les occurrences d’**oldValue** dans le **template** par la valeur **source**.
-* Quand **oldValueRegexPattern**, **oldValueRegexGroupName** et **replacementValue** sont fournis :
+* Quand **regexPattern**, **regexGroupName** et **replacementValue** sont fournis :
   
   * Remplace toutes les valeurs correspondant à oldValueRegexPattern dans la chaîne source par replacementValue.
-* Quand **oldValueRegexPattern**, **oldValueRegexGroupName** et **replacementPropertyName** sont fournis :
+* Quand **regexPattern**, **regexGroupName**, **replacementPropertyName** sont fournis :
   
-  * Si **source** a une valeur, **source** est retourné.
-  * Si **source** n’a aucune valeur, la fonction utilise **oldValueRegexPattern** et **oldValueRegexGroupName** pour extraire la valeur de remplacement de la propriété avec **replacementPropertyName**. La valeur de remplacement est retournée comme résultat.
+  * Si **source** n’a pas de valeur, **source** est retourné
+  * Si **source** a une valeur, la fonction utilise **regexPattern** et **regexGroupName** pour extraire la valeur de remplacement de la propriété avec **replacementPropertyName**. La valeur de remplacement est retournée comme résultat.
 
 **Paramètres :**<br> 
 
@@ -213,6 +213,17 @@ Vous devez générer un alias d’utilisateur en prenant les trois premières le
 * **ENTRÉE** (givenName): « John »
 * **ENTRÉE** (surname) : « Doe »
 * **SORTIE** : « JohDoe »
+
+### <a name="remove-diacritics-from-a-string-and-convert-to-lowercase"></a>Supprimer les signes diacritiques d’une chaîne et les convertir en minuscules
+Vous devez supprimer les caractères spéciaux d’une chaîne et convertir les caractères en majuscules en minuscules.
+
+**Expression :** <br>
+`Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace([givenName], , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , )`
+
+**Exemple d’entrée/sortie :** <br>
+
+* **ENTRÉE** (givenName) : « Zoë »
+* **SORTIE** :  « zoe »
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Sortir une date sous la forme d’une chaîne dans un certain format
 Vous souhaitez envoyer des dates à une application SaaS dans un format donné. <br>

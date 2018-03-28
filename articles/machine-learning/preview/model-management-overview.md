@@ -1,6 +1,6 @@
 ---
-title: "Vue d’ensemble conceptuelle de la gestion des modèles Azure Machine Learning | Microsoft Docs"
-description: "Ce document explique les concepts de gestion des modèles pour Azure Machine Learning."
+title: Vue d’ensemble conceptuelle de la gestion des modèles Azure Machine Learning | Microsoft Docs
+description: Ce document explique les concepts de gestion des modèles pour Azure Machine Learning.
 services: machine-learning
 author: nk773
 ms.author: padou
@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 931dfae740996325cc62071a861e81ef5f67548b
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 89f95753248f74c7f6cb9ca1f680a01b07dd43d1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-machine-learning-model-management"></a>Gestion des modèles Azure Machine Learning
 
@@ -99,27 +99,27 @@ Le flux de travail complet décrivant ces concepts est illustré dans le schéma
 ![](media/model-management-overview/modelmanagementworkflow.png)
 
 ## <a name="frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ) 
-- Quels types de données sont pris en charge ? Est-il possible de passer des tableaux NumPy directement comme entrée au service web ?
+- **Quels types de données sont pris en charge ? Est-il possible de passer des tableaux NumPy directement comme entrée au service Web ?**
 
    Si vous indiquez le fichier de schéma qui a été créé à l’aide du Kit de développement logiciel (SDK) generate_schema, vous pouvez passer des tableaux NumPy et/ou des cadres de données Pandas. Vous pouvez aussi passer des entrées sérialisables JSON. Vous pouvez même passer une image sous forme de chaîne encodée binaire.
 
-- Le service web prend-il en charge plusieurs entrées ou analyse-t-il différentes entrées ? 
+- **Le service Web prend-il en charge plusieurs entrées ou analyse-t-il différentes entrées ?**
 
    Oui, vous pouvez prendre plusieurs entrées empaquetées dans la demande JSON en tant que dictionnaire. Chaque entrée correspond à une clé de dictionnaire unique.
 
-- L’appel activé par une demande adressée au service web est-il un appel bloquant ou un appel asynchrone ?
+- **L’appel activé par une requête adressée au service Web est-il un appel bloquant ou un appel asynchrone ?**
 
    Si le service a été créé en utilisant une option en temps réel dans l’interface CLI ou l’API, il s’agit d’un appel bloquant/synchrone. Il est supposé être en temps réel. En revanche, côté client, vous pouvez l’appeler en utilisant la bibliothèque HTTP asynchrone pour éviter de bloquer le thread client.
 
-- Combien de demandes le service web peut-il traiter simultanément ?
+- **Combien de requêtes le service Web peut-il traiter simultanément ?**
 
    Cela dépend de l’échelle du cluster et du service web. Si vous multipliez le nombre de réplicas par 100 dans votre service, celui-ci pourra traiter un grand nombre de demandes de façon simultanée. Vous pouvez aussi configurer le nombre maximal de demandes simultanées par réplica pour accroître le débit du service.
 
-- Combien de demandes le service web peut-il mettre en file d’attente ?
+- **Combien de requêtes le service Web peut-il mettre en file d’attente ?**
 
    Ce nombre est configurable. Par défaut, il est défini à environ 10 par réplica, mais vous pouvez accroître/réduire ce nombre en fonction des besoins de votre application. En règle générale, l’augmentation du nombre de demandes mises en file d’attente se traduit par une augmentation du débit du service, mais cela amplifie les latences aux centiles supérieurs. Pour maintenir la constance des latences, vous pouvez attribuer à la mise en file d’attente une valeur faible (1-5) et augmenter le nombre de réplicas pour gérer le débit. Vous pouvez aussi activer la mise à l’échelle automatique pour que le nombre de réplicas soit ajusté automatiquement en fonction de la charge. 
 
-- Est-il possible d’utiliser une même machine ou un même cluster pour plusieurs points de terminaison de service web ?
+- **Est-il possible d’utiliser une même machine ou un même cluster pour plusieurs points de terminaison de service Web ?**
 
    Absolument. Vous pouvez exécuter 100 fois plus de services/points de terminaison sur un même cluster. 
 

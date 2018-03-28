@@ -1,11 +1,11 @@
 ---
-title: "Prérequis non techniques pour créer une offre pour Azure Marketplace | Microsoft Docs"
-description: "Découvrez la configuration requise pour créer et déployer une offre dans Azure Marketplace que d’autres utilisateurs peuvent acheter."
+title: Prérequis non techniques pour créer une offre pour Azure Marketplace | Microsoft Docs
+description: Découvrez la configuration requise pour créer et déployer une offre dans Azure Marketplace que d’autres utilisateurs peuvent acheter.
 services: marketplace-publishing
-documentationcenter: 
-author: HannibalSII
-manager: hascipio
-editor: 
+documentationcenter: ''
+author: msmbaldwin
+manager: mbaldwin
+editor: ''
 ms.assetid: 3dae463b-8f48-4f52-8fa8-4e3975f09f43
 ms.service: marketplace
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/18/2016
-ms.author: hascipio
-ms.openlocfilehash: 4f86d444a2f2b97fd8605d480db358813bc39fd3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: 5c30e62bf345843fe83b3f17b728e1a937d19ce3
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="general-prerequisites-for-creating-an-offer-for-the-azure-marketplace"></a>Conditions préalables générales pour créer une offre pour Azure Marketplace
 Découvrez les conditions préalables générales centrées sur le processus d’entreprise qui sont nécessaires dans les étapes de création de l’offre.
@@ -43,7 +43,7 @@ Les administrateurs du portal de publication ajouter les autres membres de l’e
 4. Maintenant, connectez-vous au portail de publication avec l’ID de messagerie du coadministrateur.
 5. Accédez à Éditeurs->Sélectionnez votre compte->Administrateurs->Ajouter le compte (voir capture d’écran ci-dessous)
    
-    ![dessin](media/marketplace-publishing-pre-requisites/imgAddAdmin_05.png)
+    ![drawing](media/marketplace-publishing-pre-requisites/imgAddAdmin_05.png)
 6. Assurez-vous que les ID de messagerie fournis aux divers stades du processus de publication (par ex. centre de développement, portail de publication) sont surveillés pour toutes les communications de Microsoft.
 7. Pour l’inscription au centre de développement, évitez d’utiliser un compte associé à une seule personne. Cela est conseillé pour éviter la dépendance à un seul individu.
 8. Si vous rencontrez des problèmes durant l’inscription sur le centre de développement, envoyez un ticket à l’aide de ce [lien](https://developer.microsoft.com/en-us/windows/support).
@@ -55,7 +55,7 @@ Les administrateurs du portal de publication ajouter les autres membres de l’e
 2. Accédez à **Éditeurs** -> sélectionnez votre compte -> **Administrateurs** -> **Coadministrateurs**.
 3. Cliquez sur le bouton **X** en regard du coadministrateur que vous souhaitez supprimer (capture d’écran ci-dessous).
    
-    ![dessin](media/marketplace-publishing-pre-requisites/imgDeleteAdmin_03.png)
+    ![drawing](media/marketplace-publishing-pre-requisites/imgDeleteAdmin_03.png)
 
 > [!IMPORTANT]
 > Vous n’avez pas besoin de remplir les informations bancaires et fiscales de votre entreprise si vous prévoyez de ne publier que des offres gratuites (ou d’apporter votre propre licence).
@@ -65,7 +65,7 @@ Les administrateurs du portal de publication ajouter les autres membres de l’e
 > 
 
 ## <a name="acquire-an-azure-pay-as-you-go-subscription"></a>Acquisition d’un abonnement Azure avec « paiement à l’utilisation »
-C’est l’abonnement que vous utilisez pour créer vos images de machine virtuelle et les transférer dans [Azure Marketplace](https://azure.microsoft.com/marketplace/). Si vous n’avez pas d’abonnement, inscrivez-vous à l’adresse https://account.windowsazure.com/signup?offer=ms-azr-0003p.
+C’est l’abonnement que vous utilisez pour créer vos images de machine virtuelle et les transférer dans [Azure Marketplace](https://azure.microsoft.com/marketplace/). Si vous ne disposez pas d’un abonnement existant, veuillez vous inscrire sur https://account.windowsazure.com/signup?offer=ms-azr-0003p.
 
 ## <a name="sell-from-countries"></a>Pays à partir duquel vous vendez
 > [!WARNING]

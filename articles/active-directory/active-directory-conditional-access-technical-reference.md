@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/07/2018
+ms.date: 03/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: ba93e1b597bb6bdb752563f2873b8e0c5f7a8181
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 3e65371396b91c1dc97f504bac8b969093f5c518
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Référence des paramètres d’accès conditionnel Azure Active Directory
 
@@ -164,24 +164,25 @@ Dans votre stratégie d’accès conditionnel, vous pouvez sélectionner **Appli
 Ce paramètre a un impact sur les tentatives d’accès provenant des applications mobiles et des clients de bureau suivants : 
 
 
-|Applications clientes|Service cible|Plateforme|
-|---|---|---|
-|Application distante Azure|Service Application distante Azure|Windows 10, Windows 8.1, Windows 7, iOS, Android et MAC OS X|
-|Application Dynamics CRM|Dynamics CRM|Windows 10, Windows 8.1, Windows 7, iOS, Android|
-|Application de messagerie/calendrier/contacts, Outlook 2016, Outlook 2013 (avec l’authentification moderne)|Office 365 Exchange Online|Windows 10|
-|Stratégie MFA et d’emplacement pour les applications. Les stratégies basées sur les appareils ne sont pas prises en charge. |Tout service d’application Mes applications|Android et iOS|
-|Services Microsoft Teams, soit tous les services qui prennent en charge Microsoft Teams et toutes ses applications clientes : Bureau Windows, iOS, Android, WP et client web|Microsoft Teams|Windows 10, Windows 8.1, Windows 7, iOS, Android et macOS |
-|Applications Office 2016, Office 2013 (avec authentification moderne), client de synchronisation OneDrive (voir [notes](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|Office 365 SharePoint Online|Windows 8.1, Windows 7|
-|Applications Office 2016, applications Universal Office, Office 2013 (avec authentification moderne), client de synchronisation OneDrive (voir [notes](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), prise en charge à venir des groupes Office et de l’application SharePoint|Office 365 SharePoint Online|Windows 10|
-|Office 2016 pour Mac OS (Word, Excel, PowerPoint, OneNote uniquement). Prise en charge de OneDrive Entreprise prévue|Office 365 SharePoint Online|Mac OS X|
-|Applications mobiles Office|Office 365 SharePoint Online|Android, iOS|
-|Application Yammer Office|Office 365 Yammer|Windows 10, iOS, Android|
-|Outlook 2016 (Office pour Mac OS)|Office 365 Exchange Online|Mac OS X|
-|Outlook 2016, Outlook 2013 (avec authentification moderne), Skype Entreprise (avec authentification moderne)|Office 365 Exchange Online|Windows 8.1, Windows 7|
-|Application Outlook Mobile|Office 365 Exchange Online|Android, iOS|
-|Application PowerBI|Service PowerBI|Windows 10, Windows 8.1, Windows 7 et iOS|
-|Skype Entreprise|Office 365 Exchange Online|Android, IOS |
-|Application Visual Studio Team Services|Visual Studio Team Services|Windows 10, Windows 8.1, Windows 7, iOS, Android|
+| Applications clientes| Service cible| Plateforme |
+| --- | --- | --- |
+| Application distante Azure| Service Application distante Azure| Windows 10, Windows 8.1, Windows 7, iOS, Android et MAC OS X|
+| Application Dynamics CRM| Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS, Android|
+| Application de messagerie/calendrier/contacts, Outlook 2016, Outlook 2013 (avec l’authentification moderne)| Office 365 Exchange Online| Windows 10|
+| Stratégie MFA et d’emplacement pour les applications. Les stratégies basées sur les appareils ne sont pas prises en charge.| Tout service d’application Mes applications| Android et iOS|
+| Services Microsoft Teams, soit tous les services qui prennent en charge Microsoft Teams et toutes ses applications clientes : Bureau Windows, iOS, Android, WP et client web| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS, Android et macOS|
+| Applications Office 2016, Office 2013 (avec authentification moderne), client de synchronisation OneDrive (voir [notes](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))| Office 365 SharePoint Online| Windows 8.1, Windows 7|
+| Applications Office 2016, applications Universal Office, Office 2013 (avec authentification moderne), client de synchronisation OneDrive (voir [notes](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), prise en charge à venir des groupes Office et de l’application SharePoint| Office 365 SharePoint Online| Windows 10|
+| Office 2016 pour Mac OS (Word, Excel, PowerPoint, OneNote uniquement). Prise en charge de OneDrive Entreprise prévue| Office 365 SharePoint Online| Mac OS X|
+| Applications mobiles Office| Office 365 SharePoint Online| Android, iOS|
+| Application Yammer Office| Office 365 Yammer| Windows 10, iOS, Android|
+| Outlook 2016 (Office pour Mac OS)| Office 365 Exchange Online| Mac OS X|
+| Outlook 2016, Outlook 2013 (avec authentification moderne), Skype Entreprise (avec authentification moderne)| Office 365 Exchange Online| Windows 8.1, Windows 7|
+| Application Outlook Mobile| Office 365 Exchange Online| Android, iOS|
+| Application PowerBI| Service PowerBI| Windows 10, Windows 8.1, Windows 7, Android et iOS|
+| Skype Entreprise| Office 365 Exchange Online| Android, IOS|
+| Application Visual Studio Team Services| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS, Android|
+
 
 
 ## <a name="approved-client-app-requirement"></a>Spécification d’application cliente approuvée 
@@ -221,10 +222,6 @@ Ce paramètre s’applique aux applications clientes suivantes :
 - Exigence **Nécessite une application cliente approuvée** :
 
     - elle prend uniquement en charge iOS et Android pour la [condition de plate-forme de périphérique](#device-platforms-condition).
-
-    - elle ne prend pas en charge l’option **Navigateur** pour la [condition d’applications clientes](#supported-browsers).
-    
-    - elle remplace l’option **Applications mobiles et clients de bureau** pour la [condition d’applications clientes](#supported-mobile-apps-and-desktop-clients) lorsque cette option est sélectionnée.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

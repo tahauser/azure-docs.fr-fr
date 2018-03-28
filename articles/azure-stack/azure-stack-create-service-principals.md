@@ -1,6 +1,6 @@
 ---
-title: "Créer un principal de service pour Azure Stack | Microsoft Docs"
-description: "Explique comment créer un principal de service utilisable avec le contrôle d’accès en fonction du rôle dans Azure Resource Manager pour gérer l’accès aux ressources."
+title: Créer un principal de service pour Azure Stack | Microsoft Docs
+description: Explique comment créer un principal de service utilisable avec le contrôle d’accès en fonction du rôle dans Azure Resource Manager pour gérer l’accès aux ressources.
 services: azure-resource-manager
 documentationcenter: na
 author: mattbriggs
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/25/2018
+ms.date: 03/15/2018
 ms.author: mabrigg
-ms.openlocfilehash: 64c424ee7045ae20b3fba6433166039580387d76
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7b7028a92b93f29af10c5e4bc9ab4f671ca23961
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Fournir l’accès des applications à Azure Stack
 
@@ -51,14 +51,14 @@ Dans cette section, vous créez une application (principal de service) dans Azur
 Vous avez créé un principal de service pour votre application.
 
 ### <a name="get-credentials"></a>Récupérer les informations d’identification
-Si vous vous connectez par programmation, utilisez l’ID de votre application et une clé d’authentification. Pour obtenir ces valeurs, procédez comme suit :
+Si vous vous connectez par programmation, utilisez l’ID de votre application et une clé d’authentification pour une application Web / API. Pour obtenir ces valeurs, procédez comme suit :
 
 1. Dans **Inscriptions d’applications** dans Active Directory, sélectionnez votre application.
 
 2. Copiez l’**ID d’application** et stockez-le dans votre code d’application. Les applications de la section [Exemples d’applications](#sample-applications) font référence à cette valeur en tant qu’ID de client.
 
      ![ID CLIENT](./media/azure-stack-create-service-principal/image12.png)
-3. Pour générer une clé d’authentification, sélectionnez **Clés**.
+3. Pour générer une clé d’authentification pour une application Web / API, sélectionnez **Paramètres** > **Clés**. 
 
 4. Fournissez une description de la clé et la durée de la clé. Lorsque vous avez terminé, sélectionnez **Enregistrer**.
 
@@ -83,7 +83,7 @@ Requirements:
 Les informations suivantes sont nécessaires en entrée pour les paramètres Automation :
 
 
-|Paramètre|Description|exemples|
+|Paramètre|Description|Exemples|
 |---------|---------|---------|
 |NOM|Nom du compte SPN|MyAPP|
 |ClientCertificates|Tableau d’objets de certificat|Certificat X509|

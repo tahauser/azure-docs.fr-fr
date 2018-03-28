@@ -1,6 +1,6 @@
 ---
 title: Instructions et recommandations pour les collections fiables dans Azure Service Fabric | Microsoft Docs
-description: "Instructions et recommandations relatives à l’utilisation de collections fiables Fabric Service"
+description: Instructions et recommandations relatives à l’utilisation de collections fiables Fabric Service
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 12/10/2017
 ms.author: mcoskun
-ms.openlocfilehash: f9c48598a6bfb33f0151eff74ec5dd0ffb47b228
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 27ea71bcc378100e613a8edd1c57a93f3c9ed925
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Instructions et recommandations pour les collections fiables dans Azure Service Fabric
 Cette section fournit des instructions pour l’utilisation du gestionnaire d’état fiable et des collections fiables. L’objectif consiste à aider les utilisateurs à éviter les pièges courants.
@@ -26,7 +26,7 @@ Cette section fournit des instructions pour l’utilisation du gestionnaire d’
 Les directives sont organisées comme de simples recommandations avec les termes *Faire*, *Envisager*, *Éviter* et *Ne pas faire* en préfixe.
 
 * Ne modifiez pas un objet de type personnalisé renvoyé par les opérations de lecture (par exemple, `TryPeekAsync` ou `TryGetValueAsync`). Les Collections fiables, comme les Collections simultanées, renvoient une référence aux objets et non une copie.
-* Exécutez une copie complète de l’objet renvoyé de type personnalisé avant de le modifier. Comme les structures et les types intégrés ont une valeur de passage, vous n’avez pas besoin d’en effectuer une copie complète.
+* Exécutez une copie complète de l’objet renvoyé de type personnalisé avant de le modifier. Étant donné que les structures et les types intégrés sont de passage par valeur, vous n’avez pas besoin d’y effectuer une copie complète, sauf s’ils contiennent des champs ou des propriétés saisis par référence que vous souhaitez modifier.
 * N’utilisez pas `TimeSpan.MaxValue` pour les délais d’attente. Les délais d’expiration doivent être utilisés pour détecter des blocages.
 * N’utilisez pas une transaction une fois qu’elle a été validée, abandonnée ou supprimée.
 * N’utilisez pas une énumération en dehors de l’étendue de transaction dans laquelle elle a été créée.

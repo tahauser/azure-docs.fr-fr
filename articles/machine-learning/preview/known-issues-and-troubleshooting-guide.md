@@ -1,6 +1,6 @@
 ---
-title: "Problèmes connus et guide de dépannage | Microsoft Docs"
-description: "Liste des problèmes connus et guide de dépannage"
+title: Problèmes connus et guide de dépannage | Microsoft Docs
+description: Liste des problèmes connus et guide de dépannage
 services: machine-learning
 author: svankam
 ms.author: svankam
@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/12/2018
-ms.openlocfilehash: d1e3a4fd4415afb995f614ac687096f6fb8ece95
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 62207fa20c4660d1e828053ee73953cb68af1b9d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - Problèmes connus et guide de dépannage 
 Cet article vous permet de rechercher et corriger les erreurs ou défaillances rencontrées dans le cadre de l’utilisation de l’application Azure Machine Learning Workbench. 
@@ -23,7 +23,7 @@ Cet article vous permet de rechercher et corriger les erreurs ou défaillances r
 Lors de la communication avec l’équipe de support, il est important de préciser le numéro de build de l’application Workbench. Sous Windows, pour accéder au numéro de build, cliquez sur le menu **Aide** et choisissez **À propos d’Azure ML Workbench**. Sous macOS, cliquez sur le menu **Azure ML Workbench** et choisissez **À propos d’Azure ML Workbench**.
 
 ## <a name="machine-learning-msdn-forum"></a>Forum MSDN Machine Learning
-Nous avons un forum MSDN sur lequel vous pouvez poster des questions. L’équipe produit surveille le forum activement. L’URL du forum est la suivante : [https://aka.ms/azureml-forum](https://aka.ms/azureml-forum). 
+Nous avons un forum MSDN sur leque vous pouvez poster des questions. L’équipe produit surveille le forum activement. Le forum URL est [https://aka.ms/azureml-forum](https://aka.ms/azureml-forum). 
 
 ## <a name="gather-diagnostics-information"></a>Collecter des informations de diagnostic
 Parfois, fournir des informations de diagnostic quand vous demandez de l’aide peut se révéler utile. Les fichiers journaux se trouvent aux emplacements suivants :
@@ -102,7 +102,7 @@ Malheureusement, il n’existe aucune solution simple pour résoudre ce problèm
    - Supprimer le dossier `C:\Users\<Username>\AppData\Local\amlworkbench`
    - Supprimer le script `C:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
    - Supprimer le raccourci du Bureau qui lance le script ci-dessus
-   - Télécharger le programme d’installation https://aka.ms/azureml-wb-msi et réinstaller.
+   - télécharger le programme d’installation https://aka.ms/azureml-wb-msi et réinstaller.
 
 ## <a name="stuck-at-checking-experimentation-account-screen-after-logging-in"></a>Bloqué à l’écran « Vérification du compte d’expérimentation » après vous être connecté
 Une fois la connexion établie, l'application Workbench peut rester bloquée sur un écran vide avec un message indiquant « Vérification du compte d'expérimentation » avec une roue en rotation. Pour résoudre ce problème, procédez comme suit :
@@ -203,11 +203,14 @@ Vous pouvez également ajouter un disque de données et configurer le moteur Doc
 Ou bien, vous pouvez développer le disque du système d’exploitation, sans avoir à modifier la configuration du moteur Docker. Voici [comment étendre le disque du système d’exploitation](https://docs.microsoft.com/azure/virtual-machines/linux/expand-disks).
 
 ```azure-cli
-#Deallocate VM (stopping will not work)
+# Deallocate VM (stopping will not work)
 $ az vm deallocate --resource-group myResourceGroup  --name myVM
 
-# Update Disc Size
-$ az disk update --resource-group myResourceGroup --name myVM --size-gb 250
+# Get VM's Disc Name
+az disk list --resource-group myResourceGroup --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table
+
+# Update Disc Size using above name
+$ az disk update --resource-group myResourceGroup --name myVMdisc --size-gb 250
     
 # Start VM    
 $ az vm start --resource-group myResourceGroup  --name myVM
@@ -228,7 +231,7 @@ Vous pouvez également éviter le problème de partage, contre un léger amoindr
 ## <a name="wipe-clean-workbench-installation"></a>Réinitialiser l’installation de Workbench
 Cette opération n’est généralement pas nécessaire, mais au cas où vous devriez réinitialiser une installation, voici les étapes à effectuer :
 
-- Sur Windows :
+- Sous Windows :
   - Veillez d’abord à utiliser l’applet _Ajout / Suppression de programmes_ dans le _Panneau de configuration_ pour supprimer l’entrée de l’application _Azure Machine Learning Workbench_.  
   - Ensuite, vous pouvez télécharger et exécuter l’un des scripts suivants :
     - [Script de ligne de commande Windows](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.cmd).

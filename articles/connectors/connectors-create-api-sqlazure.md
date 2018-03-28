@@ -1,11 +1,11 @@
 ---
-title: "Ajouter le connecteur de base de données SQL Azure à vos applications logiques | Microsoft Docs"
-description: "Vue d’ensemble du connecteur de base de données SQL Azure avec les paramètres de l’API REST"
-services: 
-documentationcenter: 
-author: MandiOhlinger
+title: Ajouter le connecteur de base de données SQL Azure à vos applications logiques | Microsoft Docs
+description: Vue d’ensemble du connecteur de base de données SQL Azure avec les paramètres de l’API REST
+services: ''
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: d8a319d0-e4df-40cf-88f0-29a6158c898c
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: def2b65f009c377233c45356f8fa661b86d73f51
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 4313ead0c31ab2e72238701d58dc2f321f116fa6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-azure-sql-database-connector"></a>Prise en main du connecteur de base de données SQL Azure
 Créez des flux de travail pour votre organisation destinés à gérer les données dans vos tables à l’aide du connecteur de base de données SQL Azure. 
@@ -29,7 +29,7 @@ Avec Base de données SQL, vous pouvez effectuer les opérations suivantes :
 * Créez votre flux de travail en ajoutant un nouveau client à une base de données clients ou en mettant à jour une commande dans une base de données de commandes.
 * Utilisez des actions pour obtenir une ligne de données, insérer une nouvelle ligne ou en supprimer. Par exemple, quand un enregistrement est créé dans Dynamics CRM Online (déclencheur), insérez une ligne dans une base de données SQL Azure (action). 
 
-Cette rubrique explique comment utiliser le connecteur SQL Database dans une application logique, et répertorie les actions.
+Cet article explique comment utiliser le connecteur SQL Database dans une application logique, et liste également les actions.
 
 Pour plus d’informations sur Logic Apps, voir [Qu’est-ce qu’une application logique ?](../logic-apps/logic-apps-overview.md) et [Créer une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -54,11 +54,11 @@ Une action est une opération effectuée par le flux de travail défini dans une
 3. Dans la zone de texte, saisissez « sql » pour obtenir la liste de toutes les actions disponibles.
    
     ![](./media/connectors-create-api-sqlazure/sql-1.png) 
-4. Dans notre exemple, choisissez **SQL Server - Obtenir une ligne**. S’il existe déjà une connexion, sélectionnez le **nom de la table** dans la liste déroulante, puis entrez l’**ID de ligne** à retourner.
+4. Dans notre exemple, choisissez **SQL Server – Récupérer une ligne**. S’il existe déjà une connexion, sélectionnez le **nom de la table** dans la liste déroulante, puis entrez l’**ID de ligne** à retourner.
    
     ![](./media/connectors-create-api-sqlazure/sample-table.png)
    
-    Si vous êtes invité à saisir les informations de connexion, entrez les informations requises pour créer la connexion. La section [Créer la connexion](connectors-create-api-sqlazure.md#create-the-connection) dans cette rubrique décrit ces propriétés. 
+    Si vous êtes invité à saisir les informations de connexion, entrez les informations requises pour créer la connexion. La section [Créer la connexion](connectors-create-api-sqlazure.md#create-the-connection) de cet article décrit ces propriétés. 
    
    > [!NOTE]
    > Dans cet exemple, nous obtiendrons une ligne d’une table. Pour consulter les données de cette ligne, ajoutez une autre action qui crée un fichier en utilisant les champs de la table. Par exemple, ajoutez une action OneDrive qui utilise les champs FirstName et LastName pour créer un nouveau fichier dans le compte de stockage cloud. 
@@ -71,5 +71,5 @@ Une action est une opération effectuée par le flux de travail défini dans une
 Consultez l’ensemble des déclencheurs et actions définis dans le swagger, ainsi que les éventuelles limites dans les [détails des connecteurs](/connectors/sql/). 
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Créez une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md). Explorez les autres connecteurs disponibles dans les applications logiques en consultant notre [liste d’API](apis-list.md).
+[Créez une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md). Explorez les autres connecteurs disponibles dans Logic Apps en consultant la [liste des API](apis-list.md).
 

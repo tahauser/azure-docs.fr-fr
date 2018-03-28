@@ -9,11 +9,11 @@ ms.author: kgremban, ebertrams
 ms.date: 02/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: ce3c3abd00dba23887b5f811af6cab8d2c83323d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 792e754b84f1dc03a32780ed94d274c833be68f5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="store-data-at-the-edge-with-sql-server-databases"></a>Stocker des données en périphérie avec les bases de données SQL Server
 
@@ -68,7 +68,7 @@ Par défaut, le code de cette section crée un conteneur avec l’édition Déve
             "status": "running",
             "restartPolicy": "always",
             "settings": {
-              "image": "localhost:5000/filterfunction:latest",
+              "image": "<docker registry address>/filterfunction:latest",
               "createOptions": "{}"
             }
           },
@@ -95,7 +95,12 @@ Par défaut, le code de cette section crée un conteneur avec l’édition Déve
         }
    ```
 
-3. Selon le système d’exploitation que vous exécutez, mettez à jour les paramètres du module SQL avec le code suivant : 
+3. Remplacez le `<docker registry address>` par l’adresse renseignées à la fin du didacticiel [Déployer Azure Function en tant que module IoT Edge - préversion](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-function)
+
+   >[!NOTE]
+   >L’adresse du registre de conteneurs est la même que celle du serveur de connexion que vous avez copiée à partir de votre registre. Le format doit être `<your container registry name>.azurecr.io`
+
+4. Selon le système d’exploitation que vous exécutez, mettez à jour les paramètres du module SQL avec le code suivant : 
 
    * Windows :
 
@@ -111,11 +116,11 @@ Par défaut, le code de cette section crée un conteneur avec l’édition Déve
       "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"/var/opt/mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
       ```
 
-4. Enregistrez le fichier . 
-5. Dans la palette de commandes VS Code, sélectionnez **Edge: Create deployment for Edge device** (Edge : Créer un déploiement pour l’appareil Edge). 
-6. Sélectionnez votre ID d’appareil IoT Edge.
-7. Sélectionnez le fichier `deployment.json` mis à jour. Dans la fenêtre de sortie, vous pouvez voir les sorties correspondantes pour votre déploiement. 
-8. Pour démarrer votre runtime Edge, sélectionnez **Edge: Start Edge** (Edge : Démarrer Edge).
+5. Enregistrez le fichier . 
+6. Dans la palette de commandes VS Code, sélectionnez **Edge: Create deployment for Edge device** (Edge : Créer un déploiement pour l’appareil Edge). 
+7. Sélectionnez votre ID d’appareil IoT Edge.
+8. Sélectionnez le fichier `deployment.json` mis à jour. Dans la fenêtre de sortie, vous pouvez voir les sorties correspondantes pour votre déploiement. 
+9. Pour démarrer votre runtime Edge, sélectionnez **Edge: Start Edge** (Edge : Démarrer Edge).
 
 >[!TIP]
 >Chaque fois que vous créez un conteneur SQL Server dans un environnement de production, vous devez [modifier le mot de passe administrateur par défaut du système](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker#change-the-sa-password).

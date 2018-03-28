@@ -1,11 +1,11 @@
 ---
-title: "En quoi le point de terminaison Azure AD v2.0 est-il différent ? | Microsoft Docs"
-description: "Une comparaison entre la version Azure AD d’origine et les points de terminaison v2.0."
+title: En quoi le point de terminaison Azure AD v2.0 est-il différent ? | Microsoft Docs
+description: Une comparaison entre la version Azure AD d’origine et les points de terminaison v2.0.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 5060da46-b091-4e25-9fa8-af4ae4359b6c
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 4216c2215f494a81935cd4cdca52427b0cbac143
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 502bfa128422a029878513d6aa4533718bdddbb5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="whats-different-about-the-v20-endpoint"></a>Quelles sont les particularités du point de terminaison v2.0 ?
 Si vous connaissez bien le service Azure Active Directory ou si vous avez déjà intégré des applications à Azure AD dans le passé, il peut exister des différences dans le point de terminaison v2.0 auxquelles vous ne vous attendiez pas.  Pour votre bonne compréhension, ce document énumère ces différences.
@@ -59,7 +59,7 @@ Dans Azure Active Directory, une application peut se comporter comme une **resso
 * Identificateur de ressource, ou `AppID URI` : `https://graph.windows.net/`
 * Étendues, ou `OAuth2Permissions` : `Directory.Read`, `Directory.Write`, etc.  
 
-Tout ceci vaut pour le point de terminaison v2.0.  Une application peut toujours se comporter comme une ressource, définir des étendues et être identifiée par un URI.  Les applications clientes peuvent toujours demander l’accès à ces étendues.  Toutefois, la façon dont un client demande ces autorisations a changé.  Dans le passé, une demande d’autorisation OAuth 2.0 à Azure AD pouvait ressembler à ceci :
+Tout ceci est vrai pour le point de terminaison v2.0.  Une application peut toujours se comporter comme une ressource, définir des étendues et être identifiée par un URI.  Les applications clientes peuvent toujours demander l’accès à ces étendues.  Toutefois, la façon dont un client demande ces autorisations a changé.  Dans le passé, une demande d’autorisation OAuth 2.0 à Azure AD pouvait ressembler à ceci :
 
 ```
 GET https://login.microsoftonline.com/common/oauth2/authorize?

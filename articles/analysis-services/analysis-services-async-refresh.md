@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/05/2018
 ms.author: owend
-ms.openlocfilehash: 4c317736af30b4181fa975713258a41b42ed0da3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: bb3e50c3e481bcedc436b8382fb55d6402d058b2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Actualisation asynchrone avec l’API REST
 À l’aide de n’importe quel langage de programmation qui prend en charge les appels REST, vous pouvez effectuer des opérations d’actualisation des données asynchrones sur vos modèles tabulaires Azure Analysis Services. Cela inclut la synchronisation des réplicas en lecture seule pour la montée en puissance des requêtes. 
@@ -36,7 +36,7 @@ L’URL de base suit ce format :
 https://<rollout>.asazure.windows.net/servers/<serverName>/models/<resource>/
 ```
 
-Par exemple, considérez un modèle nommé AdventureWorks, sur un serveur nommé myserver, situé dans la région Ouest des États-Unis d’Azure. Le nom du serveur est alors :
+Prenons l’exemple d’un modèle nommé AdventureWorks, sur un serveur nommé myserver, situé dans la région Azure États-Unis de l’Ouest. Le nom du serveur est :
 
 ```
 asazure://westus.asazure.windows.net/myserver 
@@ -48,7 +48,7 @@ L’URL de base pour ce nom de serveur est la suivante :
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/ 
 ```
 
-À l’aide de l’URL de base, des ressources et des opérations peuvent être ajoutées selon les éléments suivants : 
+Avec l’URL de base, il est possible d’ajouter des ressources et des opérations en fonction des paramètres suivants : 
 
 ![Actualisation asynchrone](./media/analysis-services-async-refresh/aas-async-refresh-flow.png)
 
@@ -56,7 +56,7 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/
 - Tout ce qui se termine par **()** est une fonction.
 - Tout autre élément est un objet ou une ressource.
 
-Par exemple, vous pouvez utiliser le verbe POST sur la collection Refreshes pour effectuer une opération d’actualisation, comme suit :
+Par exemple, vous pouvez utiliser le verbe POST sur la collection Refreshes pour effectuer une opération d’actualisation :
 
 ```
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes
@@ -71,7 +71,7 @@ Tous les appels doivent être authentifiés avec un jeton d’Azure Active Direc
 - L’utilisateur ou l’application doit avoir des autorisations suffisantes sur le serveur ou le modèle pour effectuer l’appel requis. Le niveau d’autorisation est déterminé par les rôles au sein du modèle ou du groupe d’administration sur le serveur.
 
     > [!IMPORTANT]
-    > Actuellement, les autorisations du rôle **administrateur de serveur** sont requis.
+    > Actuellement, les autorisations du rôle **administrateur du serveur** sont nécessaires.
 
 ## <a name="post-refreshes"></a>POST /refreshes
 
@@ -106,7 +106,7 @@ La spécification des paramètres n’est pas nécessaire. La valeur par défaut
 |---------|---------|---------|---------|
 |type     |  Enum       |  Type de traitement à effectuer. Les types sont alignés sur les types de [commande d’actualisation](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) TMSL : full, clearValues, calculate, dataOnly, automatic, add et defragment.       |   automatique      |
 |CommitMode     |  Enum       |  Détermine si les objets doivent être validés par lot ou uniquement à la fin. Modes inclus : default, transactional, partialBatch.  |  transactional       |
-|MaxParallelism     |   Int      |  Cette valeur détermine le nombre maximal de threads sur lesquels exécuter des commandes de traitement en parallèle. Elle s’aligne sur la propriété MaxParallelism qui peut être définie dans la [commande de séquence](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) TMSL ou via d’autres méthodes.       | 10        |
+|MaxParallelism     |   Int      |  Cette valeur détermine le nombre maximal de threads sur lesquels exécuter des commandes de traitement en parallèle. Elle s’aligne sur la propriété MaxParallelism qui peut être définie dans la [commande de séquence](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) TMSL ou par d’autres méthodes.       | 10        |
 |RetryCount    |    Int     |   Indique le nombre de tentatives de l’opération avant échec.      |     0    |
 |Objets     |   Tableau      |   Tableau d’objets à traiter. Chaque objet inclut « table » lors du traitement de la table entière, ou « table » et « partition » lors du traitement d’une partition. Si aucun objet n’est spécifié, l’ensemble du modèle est actualisé. |   Traitement de l’ensemble du modèle      |
 
@@ -188,7 +188,7 @@ Pour vérifier l’état d’une opération de synchronisation, utilisez le verb
 }
 ```
 
-Valeurs de syncstate :
+Valeurs possibles de `syncstate` :
 
 - 0 : réplication. Les fichiers de base de données sont en cours de réplication vers un dossier cible.
 - 1 : réalimentation. La base de données est en cours réalimentation sur une ou plusieurs instances de serveur en lecture seule.
@@ -228,7 +228,7 @@ Cette forme d’authentification nécessite de créer une application Azure disp
 
     ![Ajouter un accès d'API](./media/analysis-services-async-refresh/aas-async-add.png)
 
-5.  Dans **Sélectionner une API**, saisissez **SQL Server Analysis Services** dans la zone de recherche, puis sélectionnez **Azure Analysis Services (SQL Server Analysis Services Azure)**.
+5.  Dans **Sélectionner une API**, tapez **Azure Analysis Services** dans la zone de recherche, puis sélectionnez-les.
 
     ![Sélectionner une API](./media/analysis-services-async-refresh/aas-async-select-api.png)
 
@@ -242,7 +242,7 @@ Cette forme d’authentification nécessite de créer une application Azure disp
 
 #### <a name="service-principal"></a>Principal du service
 
-Consultez le billet de blog relatif à l’[automation d’Azure Analysis Services avec les principaux de service et PowerShell](https://azure.microsoft.com/blog/automation-of-azure-analysis-services-with-service-principals-and-powershell/) pour savoir comment configurer un principal de service et attribuer les autorisations nécessaires dans Azure Analysis Services. Une fois que vous avez suivi les étapes décrites dans le billet de blog, effectuez les étapes supplémentaires suivantes :
+Consultez [Créer un principal du service – Portail Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md) et [Ajouter un principal de service au rôle d’administrateur du serveur](analysis-services-addservprinc-admins.md) pour plus d’informations sur la configuration du principal de service et l’attribution des autorisations nécessaires dans Azure AS. Après cette procédure, suivez les étapes complémentaires suivantes :
 
 1.  Dans l’exemple de code, recherchez **string authority = …**, puis remplacez **common** par l’ID client de votre organisation.
 2.  Ajoutez ou enlevez des marques de commentaire pour que la classe ClientCredential soit utilisée pour instancier l’objet d’informations d’identification. Vérifiez que les valeurs \<ID de l’application> et \<clé de l’application> valeurs sont accessibles de manière sécurisée, ou utilisez l’authentification par certificat pour les principaux de service.

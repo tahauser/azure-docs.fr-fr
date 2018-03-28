@@ -1,11 +1,11 @@
 ---
 title: 'Azure AD Connect : historique de publication des versions | Microsoft Docs'
-description: "Cet article répertorie toutes les versions d’Azure AD Connect et d’Azure AD Sync"
+description: Cet article répertorie toutes les versions d’Azure AD Connect et d’Azure AD Sync
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/16/2018
 ms.author: billmath
-ms.openlocfilehash: 81d08d3d3d08e9cc96b39cbdf2d639e939fdf3d4
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 0c6a0c43eb7d0187120c3264f1f439af66d73978
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect : historique de publication des versions
 L’équipe Azure Active Directory (Azure AD) met régulièrement à jour Azure AD Connect avec de nouvelles fonctions et fonctionnalités. Tous les ajouts ne sont pas applicables à toutes les configurations.
@@ -36,8 +36,19 @@ Autorisations requises | Pour plus d’informations sur les autorisations requis
 
 Télécharger| [Télécharger Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+## <a name="117500"></a>1.1.750.0
+État : publié pour certains clients. Cette version est actuellement distribuée à une petite sélection aléatoire de locataires AAD Connect qui ont activé la mise à niveau automatique. Nous augmenterons ce groupe de locataires dans les semaines à venir jusqu’à ce que 100 % de nos clients de mise à niveau automatique aient reçu cette version. Ensuite, nous publierons la version accessible au téléchargement général dans le lien de téléchargement ci-dessus.
+>[!NOTE]
+>Lorsque la mise à niveau vers cette nouvelle version s’exécute, elle déclenche automatiquement une synchronisation complète et une importation intégrale pour le Connecteur Azure AD, ainsi qu’une synchronisation complète pour le Connecteur AD. Selon la taille de l’environnement Azure AD Connect, cette opération peut prendre un certain temps ; veillez à prendre les mesures nécessaires pour qu’elle ne gêne pas vos activités, ou différez la mise à niveau jusqu’au moment opportun.
+
+### <a name="azure-ad-connect"></a>Azure AD Connect
+#### <a name="fixed-issues"></a>Problèmes résolus
+
+* Auparavant, la cmdlet Set-ADSyncAutoUpgrade bloquait la mise à niveau automatique lorsqu’elle était dans l’état Suspendu. Ce comportement a été modifié pour éviter de bloquer la mise à niveau automatique des versions futures.
+
 ## <a name="117490"></a>1.1.749.0
-État : publié pour certains clients. Cette version est actuellement distribuée à une petite sélection aléatoire de locataires AADConnect qui ont activé la mise à niveau automatique. Nous augmenterons ce groupe de locataires dans les semaines à venir jusqu’à ce que 100 % de nos clients de mise à niveau automatique aient reçu cette version. Ensuite, nous publierons la version à des fins de téléchargement général dans le lien de téléchargement ci-dessus (publication actuellement prévue pour la mi-mars 2018).
+État : version publiée à l’intention d’un panel de clients
+
 >[!NOTE]
 >Lorsque la mise à niveau vers cette nouvelle version s’exécute, elle déclenche automatiquement une synchronisation complète et une importation intégrale pour le Connecteur Azure AD, ainsi qu’une synchronisation complète pour le Connecteur AD. Étant donné que cette opération peut prendre un certain temps, selon la taille de votre environnement Azure AD Connect, assurez-vous que vous avez pris les mesures nécessaires pour que cette opération ne gêne pas vos activités, ou différez la mise à niveau jusqu’à ce que vous trouviez un moment opportun pour l’effectuer.
 
@@ -45,15 +56,15 @@ Télécharger| [Télécharger Azure AD Connect](http://go.microsoft.com/fwlink/?
 #### <a name="fixed-issues"></a>Problèmes résolus
 * Résolution du problème de fenêtre de synchronisation sur les tâches en arrière-plan pour la page Filtrage de partitions lors du passage à la page suivante
 
-* Correction d’un bogue qui entraînait une violation d’accès lors de l’action personnalisée ConfigDB
+* Correction d’un bogue qui entraînait une violation d’accès lors de l’action personnalisée ConfigDB.
 
 * Correction d’un bogue de récupération suite à un délai de connexion SQL
 
-* Correction d’un bogue qui entraînait l’échec d’une vérification des conditions préalables pour les certificats avec caractères génériques SAN
+* Correction d’un bogue qui entraînait l’échec d’une vérification des prérequis pour les certificats avec caractères génériques SAN.
 
 * Correction d’un bogue qui entraînait un incident d’exécution de miiserver.exe lors d’une exportation du Connecteur Azure AD
 
-* Correction d’un bogue concernant la journalisation d’une tentative d’utilisation d’un mot de passe incorrect sur le contrôleur de domaine lors de l’exécution de l’Assistant Azure AD Connect pour modifier la configuration
+* Correction d’un bogue concernant les tentatives d’ouverture de session avec un mot de passe incorrect sur le contrôleur de domaine lors de l’exécution de l’Assistant Azure AD Connect dans le but de modifier la configuration.
 
 
 #### <a name="new-features-and-improvements"></a>Améliorations et nouvelles fonctionnalités
@@ -223,7 +234,7 @@ Statut : 19 octobre 2017
 
 ### <a name="azure-ad-connect-sync"></a>Synchronisation d’Azure AD Connect
 >[!NOTE]
-> Remarque : Le service de synchronisation comprend une interface WMI qui vous permet de développer votre propre planificateur personnalisé. Cette interface est désormais dépréciée et sera supprimée des prochaines versions d’Azure AD Connect après le 30 juin 2018. Les clients qui souhaitent personnaliser le calendrier de synchronisation doivent utiliser le planificateur intégré (https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler).
+> Remarque : Le service de synchronisation comprend une interface WMI qui vous permet de développer votre propre planificateur personnalisé. Cette interface est désormais dépréciée et sera supprimée des prochaines versions d’Azure AD Connect après le 30 juin 2018. Les clients qui souhaitent personnaliser le calendrier de synchronisation doivent utiliser le [Planificateur intégré (https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler).
 
 #### <a name="fixed-issues"></a>Problèmes résolus
 * Lorsque l’Assistant Azure AD Connect créait le compte de connecteur AD pour la synchronisation des modifications apportées dans l’instance locale d’Active Directory, il n’attribuait pas l’autorisation au compte pour lire les objets PublicFolder. Ce problème concernait l’installation Express et l’installation personnalisée. Ce problème a été résolu.
@@ -497,7 +508,7 @@ CBool(
 #### <a name="issues-fixed"></a>Problèmes résolus
 
 * Les URL suivantes correspondent à de nouveaux points de terminaison WS-Federation introduits par Azure afin d’améliorer la résilience contre les pannes de courant. Elles seront ajoutées à la configuration de réponse de la partie de confiance AD FS :
-  * https://ests.Login.microsoftonline.com/login.srf
+  * https://ests.login.microsoftonline.com/login.srf
   * https://stamp2.login.microsoftonline.com/login.srf
   * https://ccs.login.microsoftonline.com/login.srf
   * https://ccs-sdf.login.microsoftonline.com/login.srf
@@ -787,8 +798,8 @@ Publication : février 2016
 
 * [Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md) pour les clients de la configuration rapide.
 * Prise en charge pour l’administrateur général par le biais d’Azure Multi-Factor Authentication et de Privileged Identity Management dans l’Assistant d’installation.
-  * Vous devez configurer votre proxy pour qu’il autorise également le trafic vers https://secure.aadcdn.microsoftonline-p.com si vous utilisez Multi-Factor Authentication.
-  * Vous devez ajouter https://secure.aadcdn.microsoftonline-p.com à votre liste de sites de confiance pour que Multi-Factor Authentication fonctionne correctement.
+  * Vous devrez configurer votre proxy pour qu’il autorise également le trafic vers https://secure.aadcdn.microsoftonline-p.com si vous utilisez Multi-Factor Authentication.
+  * Vous devrez ajouter https://secure.aadcdn.microsoftonline-p.com à votre liste de sites de confiance pour que Multi-Factor Authentication fonctionne correctement.
 * Autorisez la modification de la méthode de connexion de l’utilisateur après l’installation initiale.
 * Activez l’option [Filtrage par domaine et unité d’organisation](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) dans l’Assistant d’installation. Cela permet également la connexion à des forêts dans lesquelles tous les domaines ne sont pas disponibles.
 * [Scheduler](active-directory-aadconnectsync-feature-scheduler.md) est intégré dans le moteur de synchronisation.

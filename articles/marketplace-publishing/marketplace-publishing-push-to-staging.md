@@ -1,11 +1,11 @@
 ---
-title: "Préparer et tester votre offre pour le déploiement sur Azure Marketplace | Microsoft Docs"
-description: "Instructions détaillées sur l’indication de contenu marketing, la configuration de plans tarifaires et le test de votre offre avant le déploiement sur la Place de marché Azure."
+title: Préparer et tester votre offre pour le déploiement sur Azure Marketplace | Microsoft Docs
+description: Instructions détaillées sur l’indication de contenu marketing, la configuration de plans de tarification et le test de votre offre avant le déploiement sur Azure Marketplace.
 services: marketplace-publishing
-documentationcenter: 
-author: HannibalSII
-manager: hascipio
-editor: 
+documentationcenter: ''
+author: msmbaldwin
+manager: mbaldwin
+editor: ''
 ms.assetid: 3ccd2448-895b-477e-adf6-ab655a21d2fa
 ms.service: marketplace
 ms.devlang: na
@@ -13,20 +13,20 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/17/2016
-ms.author: hascipio
-ms.openlocfilehash: 7db86716cdf8f9eb921c3c1813970acae7a3016b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: 5bec9ac89487a824b9de9209547f0b96fa5fe678
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="complete-the-offer-creation-with-marketing-content"></a>Compléter la création d’offre avec du contenu marketing
-Dans cette étape du processus de publication, vous devez fournir du contenu marketing et des informations sur votre offre et/ou vos références SKU dans la Place de marché Azure. Par exemple, vous devez fournir une description de votre produit, le logo de votre entreprise, les offres tarifaires, le détail des offres et d’autres informations nécessaires pour envoyer votre offre et/ou référence SKU dans l’environnement intermédiaire. Ces informations sont utilisées comme contenu marketing dans le portail Azure. Vous allez commencer ce processus dans le [portail de publication][link-pubportal].
+Dans cette étape du processus de publication, vous devez fournir du contenu marketing et des informations sur votre offre et/ou vos références SKU dans Azure Marketplace. Par exemple, vous devez fournir une description de votre produit, le logo de votre entreprise, les offres tarifaires, le détail des offres et d’autres informations nécessaires pour envoyer votre offre et/ou référence SKU dans l’environnement intermédiaire. Ces informations sont utilisées comme contenu marketing dans le portail Azure. Vous allez commencer ce processus dans le [portail de publication][link-pubportal].
 
-## <a name="step-1-provide-marketplace-marketing-content"></a>Étape 1 : Fournir du contenu marketing sur la Place de marché
+## <a name="step-1-provide-marketplace-marketing-content"></a>Étape 1 : Fournir du contenu marketing au Marketplace
 **L’anglais est la langue par défaut et la seule prise en charge.** Assurez-vous que toutes les informations fournies dans les champs sont en anglais. Toutes les informations peuvent être modifiées à tout moment jusqu’à ce que vous procédiez au déploiement dans un environnement intermédiaire.
 
-1. Accédez au portail de publication à l’adresse [https://publish.windowsazure.com](https://publish.windowsazure.com)
+1. Allez au portail de publication, [https://publish.windowsazure.com](https://publish.windowsazure.com).
 2. Dans le menu de gauche, cliquez sur l’onglet **Marketing** .
 3. Dans le volet principal, cliquez sur le bouton **English (US)** .
    
@@ -48,11 +48,11 @@ Dans cette étape du processus de publication, vous devez fournir du contenu mar
 5. N’entrez pas deux fois le même texte sous le titre du plan et le résumé de l’offre.
 6. N’entrez pas de titres de plan identiques pour une offre avec plusieurs plans.
 7. Téléchargez des images des spécifications requises (mentionnées sur le portail de publication) au format PNG, une pour chaque taille.
-8. Vérifiez que les logos suivent les instructions relatives aux logos de la Place de marché Azure indiquées ci-dessous.
+8. Vérifiez que les logos suivent les instructions relatives aux logos Azure Marketplace indiquées ci-dessous.
    
-   ![dessin](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-details-02.png)
+   ![drawing](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-details-02.png)
 
-**Instructions relatives aux logos de la Place de marché Azure**
+**Instructions relatives aux logos Azure Marketplace**
 
 Tous les logos téléchargés dans le portail de publication doivent respecter les instructions ci-dessous :
 
@@ -68,24 +68,24 @@ Tous les logos téléchargés dans le portail de publication doivent respecter l
 * Les bannières doivent être de la taille 815 x 290 px
 
 > [!NOTE]
-> La bannière est facultative. L’éditeur peut choisir de ne pas télécharger de bannière. Toutefois l’icône ne peut pas être supprimée du portail de publication une fois téléchargée. À ce moment, le partenaire doit suivre les instructions de la Place de marché Azure pour les icônes.
+> La bannière est facultative. L’éditeur peut choisir de ne pas télécharger de bannière. Toutefois l’icône ne peut pas être supprimée du portail de publication une fois téléchargée. À ce moment, le partenaire doit suivre les instructions d’Azure Marketplace pour les icônes.
 > 
 > 
 
-  ![dessin](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-details-03.png)
+  ![drawing](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-details-03.png)
 
 **Recommandations supplémentaires pour les icônes de bannière (facultatif) :**
 
-* La bannière est facultative. L’éditeur peut choisir de ne pas télécharger de bannière. **Toutefois l’icône ne peut pas être supprimée du portail de publication une fois téléchargée. À ce moment, le partenaire doit suivre les instructions de la Place de marché Azure pour les icônes, sans quoi l’offre ne sera pas approuvée en production.**
+* La bannière est facultative. L’éditeur peut choisir de ne pas télécharger de bannière. **Toutefois l’icône ne peut pas être supprimée du portail de publication une fois téléchargée. À ce moment, le partenaire doit suivre les instructions d’Azure Marketplace pour les icônes, sans quoi l’offre ne sera pas approuvée en production.**
 * Le nom d’affichage de l’éditeur, le titre du plan et le résumé long de l’offre s’affichent en couleur de police blanche. Par conséquent, vous devez éviter de conserver toute couleur claire dans l’arrière-plan l’icône. Les arrière-plans noirs, blancs et transparents ne sont pas autorisés pour les icônes.
 * Le nom d’affichage de l’éditeur, le titre du plan, le résumé long de l’offre et le bouton Créer sont incorporés automatiquement à la bannière une fois l’offre publiée. Vous ne devez par conséquent pas saisir de texte lorsque vous concevez la bannière. Laissez un espace vide à droite, car nous incluons le texte (nom d’affichage de l’éditeur, titre du plan, résumé détaillé de l’offre) par programmation à cet emplacement. L’espace vide pour le texte doit être de 415 x 100 sur la droite (décalé de 370px à partir de la gauche).
   
-  ![dessin](media/marketplace-publishing-push-to-staging/pubportal-herobanner.png)
+  ![drawing](media/marketplace-publishing-push-to-staging/pubportal-herobanner.png)
 
 ### <a name="links"></a>Liens
 Sous l’onglet **Links** (Liens) de la barre de gauche, entrez des liens utiles ainsi que toute information susceptible d’aider les clients. Entrez un nom et une URL pour chaque lien.
 
-![dessin](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-link-01.png)
+![drawing](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-link-01.png)
 
 ### <a name="sample-images-optional"></a>Images d’exemple (facultatif)
 > [!NOTE]
@@ -96,12 +96,12 @@ Sous l’onglet **Links** (Liens) de la barre de gauche, entrez des liens utiles
 
 Sous l’onglet **Sample Images** (Images d’exemple) dans le menu de gauche, cliquez sur **Télécharger une nouvelle image** pour télécharger une image. Si vous avez déjà chargé une image que vous voulez remplacer, cliquez sur **Remplacer l’image**.
 
-![dessin](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-sampleimg-01.png)
+![drawing](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-sampleimg-01.png)
 
 ### <a name="legal"></a>Informations juridiques
 Sous l’onglet **Legal** (Informations légales), indiquez un lien vers votre politique ou vos conditions d’utilisation. Entrez ou collez les conditions d’utilisation dans la grande zone **Conditions d’utilisation** . La limite de caractères pour les conditions d'utilisation est de 1 000 000 caractères.
 
-![dessin](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-legal-01.png)
+![drawing](media/marketplace-publishing-push-to-staging/pubportal-marketingcontent-legal-01.png)
 
 **Remarque :** pour les offres de machines virtuelles, une fois qu’une offre/référence est présentée dans le portail Azure, vous ne pouvez pas modifier les champs ci-dessous :
 
@@ -109,7 +109,7 @@ Sous l’onglet **Legal** (Informations légales), indiquez un lien vers votre p
 * **Identificateur de référence :** [Portail de publication -&gt; Machines virtuelles -&gt; Sélectionnez votre offre -&gt; Onglet Références -&gt; Ajouter une référence]
 * **Espace de noms d’éditeur :** [Portail de publication -&gt; Machines virtuelles -&gt; Onglet Procédure pas à pas (en « Étape 2 : inscrire votre entreprise ») -&gt; Espace de noms d’éditeur -&gt; Espace de noms]
 
-Pour les offres de machines virtuelles, une fois qu’une offre/référence est présentée sur la Place de marché Azure, vous ne pouvez pas modifier les champs ci-dessous :
+Pour les offres de machines virtuelles, une fois qu’une offre/référence est présentée dans Azure Marketplace, vous ne pouvez pas modifier les champs ci-dessous :
 
 * **Identificateur de l’offre :** [Portail de publication -&gt; Machines virtuelles -&gt; Sélectionnez votre offre -&gt; Images de machines virtuelles -&gt; Identificateur de l’offre]
 * **Identificateur de référence :** [Portail de publication -&gt; Machines virtuelles -&gt; Sélectionnez votre offre -&gt; Onglet Références -&gt; Ajouter une référence]
@@ -121,8 +121,8 @@ Pour les offres de machines virtuelles, une fois qu’une offre/référence est 
 * **Modification du nombre de disques de données des références répertoriées**
 
 ## <a name="step-2-set-your-prices"></a>Étape 2 : Définir vos tarifs
-### <a name="pricing-models"></a>Modèles tarifaires
-| Modèle tarifaires | Description |
+### <a name="pricing-models"></a>Modèles de tarification
+| Modèle de tarification | Description |
 | --- | --- |
 | De base |Forfait mensuel payé au moment de l’achat, par exemple 10 $ par mois |
 | Consommation (également appelé Utilisation, Compteur) |Paiement à l’utilisation, définie par l’éditeur de l’offre. Le dépassement ne peut pas être exprimé en nombre d’utilisateurs ou de licences, puisqu’il est impossible d’utiliser une fraction d’utilisateur ou de calculer un prorata. L’utilisation est signalée par le partenaire sur une base horaire. Le client paye au terme du cycle de facturation mensuel, et non en avance comme pour les offres mensuelles. |
@@ -130,28 +130,28 @@ Pour les offres de machines virtuelles, une fois qu’une offre/référence est 
 | Niveau Gratuit |L’offre est toujours gratuite. |
 | Migration (également appelé conversion ou mise à niveau/rétrogradation) de l’offre |L’utilisateur change son offre actuelle pour une autre offre autorisée, définie par le partenaire. |
 
-**Modèles tarifaires disponibles par type d’offre**
+**Modèles de tarification disponibles par type d’offre**
 
 > [!IMPORTANT]
-> La disponibilité de certains modèles tarifaires varie en fonction du type d’offre. Consultez le tableau ci-dessous.
+> La disponibilité de certains modèles de tarification varie en fonction du type d’offre. Consultez le tableau ci-dessous.
 > 
 > 
 
 |  | De base uniquement | Consommation uniquement | De base + Consommation |
 | --- | --- | --- | --- |
-| Image de machine virtuelle |Non |Oui |Non |
-| Service de développement |Oui |Oui |Oui |
+| Image de machine virtuelle |Non  |OUI |Non  |
+| Service de développement |OUI |OUI |OUI |
 
 ### <a name="21-set-your-vm-prices"></a>2.1. Définir les prix de votre machine virtuelle
 Actuellement, nous proposons les **3 types de modèles de facturation**
 
 * **Horaire :** les clients sont facturés à l’heure en fonction des tarifs définis par les éditeurs sur les tailles de machine virtuelle. Dans le cas du modèle de **facturation horaire** des références, le prix total est la somme du coût logiciel facturé par l’éditeur et du coût d’infrastructure facturé par Microsoft. Ce coût total s’affichera pour le client sous forme de tarif horaire et mensuel lorsqu’ils considéreront l’achat (voir la capture d’écran ci-dessous). **L’éditeur reçoit 80 % du coût logiciel qu’il facture.** Par conséquent, calculez vos tarifs en conséquence avant de définir les prix pour vos références.
   
-    ![dessin](media/marketplace-publishing-push-to-staging/img2.1-01.png)
+    ![drawing](media/marketplace-publishing-push-to-staging/img2.1-01.png)
 * **Version d’évaluation gratuite :** il s’agit d’une autre version du modèle horaire. Ici, le client n’est pas facturé pour le coût logiciel (gratuit) pendant les 30 premiers jours après le déploiement de la machine virtuelle. Après ces 30 jours, les clients sont facturés à l’heure en fonction des tarifs définis par les éditeurs dans le modèle horaire.
 * **Apportez votre propre licence (BYOL) :** les éditeurs gèrent les licences des logiciels exécutés sur la machine virtuelle.
 
-**Important :** une fois qu’une offre/référence est présentée sur la Place de marché Azure, vous ne pouvez pas modifier les champs ci-dessous.
+**Important :** une fois qu’une offre/référence est présentée dans Azure Marketplace, vous ne pouvez pas modifier les champs ci-dessous.
 
 * **Modification de la tarification des références répertoriées**
 * **Modification du modèle de facturation des références répertoriées**
@@ -173,8 +173,8 @@ Vous devez considérer soigneusement dans lesquels vous rendrez vos références
 > 
 > 
 
-### <a name="211-how-to-setup-hourly-pricing-model-for-a-sku"></a>2.1.1 Comment configurer le modèle de tarif horaire pour une référence
-Suivez les étapes ci-dessous pour configurer un modèle de tarif horaire pour une référence :
+### <a name="211-how-to-setup-hourly-pricing-model-for-a-sku"></a>2.1.1 Comment configurer le modèle de tarification horaire pour une référence
+Suivez les étapes ci-dessous pour configurer un modèle de tarification horaire pour une référence :
 
 1. Connectez-vous au [portail de publication](https://publish.windowsazure.com).
 2. Accédez à l’onglet **MACHINES VIRTUELLES** et sélectionnez votre offre.
@@ -184,38 +184,38 @@ Suivez les étapes ci-dessous pour configurer un modèle de tarif horaire pour u
 6. Dans le menu de gauche, cliquez sur l’onglet **TARIFICATION** .
 7. Sélectionnez votre région de base.
    
-   ![dessin](media/marketplace-publishing-push-to-staging/img2.1.1_07.png)
+   ![drawing](media/marketplace-publishing-push-to-staging/img2.1.1_07.png)
 8. Définissez les prix de tous les cœurs. **Vous devez fournir des prix pour tous les cœurs d’une référence (SKU), même si votre référence ne le prend pas en charge.**
    
-    ![dessin](media/marketplace-publishing-push-to-staging/img2.1.1_08.png)
+    ![drawing](media/marketplace-publishing-push-to-staging/img2.1.1_08.png)
 9. Définissez les prix pour les autres régions manuellement, ou utilisez l’assistant TARIFICATION AUTOMATIQUE pour définir les prix des autres régions en fonction de la région de base. Pour utiliser l’assistant TARIFICATION AUTOMATIQUE, cliquez sur le bouton **TARIFICATION AUTOMATIQUE POUR LES AUTRES MARCHÉS EN FONCTION DES PRIX POUR LES ÉTATS-UNIS.** **Remarque :** le libellé du bouton peut être différent selon la région que vous avez sélectionnée. Comme nous avons sélectionné les États-Unis lors de la création de ce document, le bouton est intitulé « Tarification automatique pour les autres marchés en fonction des pris pour les États-Unis » dans la capture d’écran ci-dessous.
    
-   ![dessin](media/marketplace-publishing-push-to-staging/img2.1.1_09.png)
+   ![drawing](media/marketplace-publishing-push-to-staging/img2.1.1_09.png)
 10. L’Assistant de tarification automatique s’ouvre. La première page affiche la sélection pour le marché de base. Effectuez votre sélection et passez à la page suivante en cliquant sur le bouton « -> ».
     
-    ![dessin](media/marketplace-publishing-push-to-staging/img2.1.1_10.png)
+    ![drawing](media/marketplace-publishing-push-to-staging/img2.1.1_10.png)
 11. L’option permettant de sélectionner les cœurs et les plans s’affichera sur la page 2. Sélectionnez les plans voulus, puis cliquez sur « -> ». Cliquez sur le bouton **Activer/désactiver tout** pour sélectionner tous les **plans de service** et **compteurs**, ou vous pouvez cocher manuellement les cases. **Vous devez fournir des prix pour tous les cœurs d’une référence (SKU), même si votre référence ne le prend pas en charge.** Par conséquent, assurez-vous que toutes les tailles de cœur sont sélectionnées.
     
-    ![dessin](media/marketplace-publishing-push-to-staging/img2.1.1_11.png)
+    ![drawing](media/marketplace-publishing-push-to-staging/img2.1.1_11.png)
 12. La page 3 affiche les marchés et régions. Cliquez sur le bouton **Activer/désactiver tout** pour sélectionner toutes les régions, ou cochez-les manuellement. Cliquez sur le bouton « -> » pour passer à la page suivante. **Remarque :** les pays pour lesquels Microsoft verse les taxes sont indiqués par un symbole de maison. Pour plus d’informations, consultez la section Pays cibles de la référence sur cette page.
     
-    ![dessin](media/marketplace-publishing-push-to-staging/img2.1.1_12.png)
+    ![drawing](media/marketplace-publishing-push-to-staging/img2.1.1_12.png)
 13. La page 4 affiche le taux de change. Cliquez sur le bouton Terminer pour terminer la procédure.
 
-### <a name="212-how-to-setup-byol-pricing-model-for-a-sku"></a>2.1.2 Comment configurer le modèle tarifaire BYOL pour une référence
-Suivez les étapes ci-dessous pour configurer un modèle tarifaire BYOL pour une référence :
+### <a name="212-how-to-setup-byol-pricing-model-for-a-sku"></a>2.1.2 Comment configurer le modèle de tarification BYOL pour une référence
+Suivez les étapes ci-dessous pour configurer un modèle de tarification BYOL pour une référence :
 
 1. Connectez-vous au [portail de publication](https://publish.windowsazure.com).
 2. Accédez à l’onglet **MACHINES VIRTUELLES** et sélectionnez votre offre.
 3. Dans le menu de gauche, cliquez sur l’onglet **RÉFÉRENCES (SKU)** .
 4. Assurez-vous que la référence est marquée comme « Apportez votre propre licence ». Dans le cas contraire, cliquez sur le bouton MODIFIER pour rétablir le modèle de facturation. Une fenêtre s’affiche. Cochez la case « La facturation et la gestion des licences sont traitées à l’extérieur d’Azure (apportez votre propre licence) » et enregistrez les modifications.
    
-   ![dessin](media/marketplace-publishing-push-to-staging/img2.1.2_04.png)
+   ![drawing](media/marketplace-publishing-push-to-staging/img2.1.2_04.png)
 5. Dans le menu de gauche, cliquez sur l’onglet **TARIFICATION** .
 6. Sélectionnez la région de base et rendez la référence disponible dans la région en cochant la case à côté de la référence sous la section DISPONIBILITÉ DE LA RÉFÉRENCE AVEC LICENCE EXTERNE (BYOL) (voir la capture d’écran ci-dessous).
    
-   ![dessin](media/marketplace-publishing-push-to-staging/img2.1.2_06.png)
-7. Rendez la région disponible dans les autres régions manuellement ou utilisez l’assistant TARIFICATION AUTOMATIQUE à cette fin. Consultez les points #9 à &#13; (qui détaillent l’utilisation de l’assistant de tarification automatique) dans la section **2.1.1 Comment configurer le modèle de tarif horaire pour une référence** de cette page.
+   ![drawing](media/marketplace-publishing-push-to-staging/img2.1.2_06.png)
+7. Rendez la région disponible dans les autres régions manuellement ou utilisez l’assistant TARIFICATION AUTOMATIQUE à cette fin. Consultez les points #9 à &#13; (qui détaillent l’utilisation de l’assistant de tarification automatique) dans la section **2.1.1 Comment configurer le modèle de tarification horaire pour une référence** de cette page.
 
 ### <a name="22-set-your-developer-service-prices"></a>2.2. Définir le prix de vos services de développement
 Les offres peuvent constituer une combinaison quelconque de tarifs De base + Consommation, où De base est le tarif mensuel et Dépassement est le tarif à l’utilisation. (Voir détails ci-dessous)
@@ -240,44 +240,44 @@ Les coordonnées sont utilisées uniquement pour les communications internes ent
 3. Entrez les informations sous **Customer Support**(Service client). Si vous indiquez uniquement un support électronique, entrez un numéro de téléphone factice, et l’adresse de messagerie fournie sera utilisée.
 4. Entrez l’URL de support.
 
-## <a name="step-4-choose-azure-marketplace-categories"></a>Étape 4 : Choisir les catégories de la Place de marché Azure
-L’onglet **Catégories** offre diverses options. Votre offre peut appartenir à l’une d’elles et vous pouvez sélectionner jusqu’à cinq catégories.
+## <a name="step-4-choose-azure-marketplace-categories"></a>Étape 4 : Choisir les catégories Azure Marketplace
+L’onglet **Categories** (Catégories) offre diverses options. Votre offre peut appartenir à l’une d’elles et vous pouvez sélectionner jusqu’à cinq catégories.
 
 ## <a name="how-your-marketing-will-appear"></a>Présentation de votre contenu marketing
-Voici une vue détaillée de l’utilisation des informations marketing de l’offre sur le [site web de la Place de marché Azure](https://azure.microsoft.com/marketplace/) et le [portail Azure](https://portal.azure.com).
+Voici une vue détaillée de l’utilisation des informations marketing de l’offre sur le [site web Azure Marketplace](https://azure.microsoft.com/marketplace/) et dans le [portail Azure](https://portal.azure.com).
 
-### <a name="azure-marketplace-website"></a>Site web de la Place de marché Azure
-![dessin](media/marketplace-publishing-push-to-staging/acom-catalog-01.png)
+### <a name="azure-marketplace-website"></a>Site web Azure Marketplace
+![drawing](media/marketplace-publishing-push-to-staging/acom-catalog-01.png)
 
-![dessin](media/marketplace-publishing-push-to-staging/acom-catalog-02.png)
+![drawing](media/marketplace-publishing-push-to-staging/acom-catalog-02.png)
 
-*Liste des offres sur le site web de la Place de marché Azure*
+*Liste des offres sur le site web Azure Marketplace*
 
-![dessin](media/marketplace-publishing-push-to-staging/acom-listing-details-01.png)
+![drawing](media/marketplace-publishing-push-to-staging/acom-listing-details-01.png)
 
-*Détails de la description de l’offre sur le site web de la Place de marché Azure*
+*Détails de la description de l’offre sur le site web Azure Marketplace*
 
-![dessin](media/marketplace-publishing-push-to-staging/acom-listing-details-02.png)
+![drawing](media/marketplace-publishing-push-to-staging/acom-listing-details-02.png)
 
-*Détails des tarifs de l’offre sur le site web de la Place de marché Azure*
+*Détails de tarification de la description de l’offre sur le site web Azure Marketplace*
 
-### <a name="azure-portal"></a>portail Azure
-![dessin](media/marketplace-publishing-push-to-staging/azureportal-galleryblade-01.png)
+### <a name="azure-portal"></a>Portail Azure
+![drawing](media/marketplace-publishing-push-to-staging/azureportal-galleryblade-01.png)
 
 *Liste des offres dans le portail Azure*
 
-![dessin](media/marketplace-publishing-push-to-staging/azureportal-galleryblade-02.png)
+![drawing](media/marketplace-publishing-push-to-staging/azureportal-galleryblade-02.png)
 
 *Détails de la description de l’offre sur le portail Azure*
 
 ## <a name="next-steps"></a>Étapes suivantes
-Votre contenu étant chargé sur la Place de marché, nous allons maintenant tester votre offre dans l’environnement intermédiaire. Vous devez toutefois sélectionner le type d’offre approprié dans la liste ci-dessous, car les étapes diffèrent selon le type d’offre.
+Votre contenu Marketplace étant chargé, nous allons maintenant tester votre offre dans l’environnement intermédiaire. Vous devez toutefois sélectionner le type d’offre approprié dans la liste ci-dessous, car les étapes diffèrent selon le type d’offre.
 
 * [Tester votre offre de machine virtuelle dans un environnement intermédiaire](marketplace-publishing-vm-image-test-in-staging.md)
 * [Tester votre offre de modèle de solution en mode intermédiaire](marketplace-publishing-solution-template-test-in-staging.md)
 
 ## <a name="see-also"></a>Voir aussi
-* [Bien démarrer avec la publication d’une offre sur la Place de marché Azure](marketplace-publishing-getting-started.md)
+* [Mise en route : publication d’une offre dans Azure Marketplace](marketplace-publishing-getting-started.md)
 
 [img-map-acom]:media/marketplace-publishing-push-to-staging/pubportal-mapping-acom.jpg
 [img-map-portal]:media/marketplace-publishing-push-to-staging/pubportal-mapping-azure-portal.jpg
