@@ -1,11 +1,11 @@
 ---
-title: "Ajouter le connecteur Office 365 Users à des applications logiques | Microsoft Docs"
-description: "Vue d’ensemble du connecteur Office 365 Users avec les paramètres de l’API REST"
-services: 
-documentationcenter: 
-author: MandiOhlinger
+title: Ajouter le connecteur Office 365 Users à des applications logiques | Microsoft Docs
+description: Vue d’ensemble du connecteur Office 365 Users avec les paramètres de l’API REST
+services: ''
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: b2146481-9105-4f56-b4c2-7ae340cb922f
 ms.service: multiple
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 2e7827e32a03b6f6af46f5bc65f0ed74f3065f86
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 3d281bcb8e1d0ba4d1eb0b636bdd618340399898
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-office-365-users-connector"></a>Prise en main du connecteur Office 365 Users
 Connexion à Office 365 Users pour obtenir des profils, rechercher des utilisateurs, et plus encore. Avec Office 365 Users, vous pouvez :
@@ -36,7 +36,7 @@ Quand vous ajoutez ce connecteur à vos applications logiques, vous devez vous c
 > 
 > 
 
-Après avoir créé la connexion, vous entrez les propriétés Office 365 Users, notamment l’ID client. La section **Informations de référence sur l’API REST** dans cette rubrique décrit ces propriétés.
+Après avoir créé la connexion, vous entrez les propriétés Office 365 Users, notamment l’ID client. La section **Informations de référence sur l’API REST** de cet article décrit ces propriétés.
 
 ## <a name="connector-specific-details"></a>Détails spécifiques du connecteur
 

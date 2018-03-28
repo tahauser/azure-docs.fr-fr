@@ -1,11 +1,11 @@
 ---
-title: "Comment résoudre les problèmes courants lors de la création du disque dur virtuel | Microsoft Docs"
-description: "Réponses aux questions courantes de dépannage et aux problèmes rencontrés lors de la création du disque dur virtuel."
+title: Comment résoudre les problèmes courants lors de la création du disque dur virtuel | Microsoft Docs
+description: Réponses aux questions courantes de dépannage et aux problèmes rencontrés lors de la création du disque dur virtuel.
 services: Azure Marketplace
-documentationcenter: 
-author: HannibalSII
-manager: 
-editor: 
+documentationcenter: ''
+author: msmbaldwin
+manager: ''
+editor: ''
 ms.assetid: e39563d8-8646-4cb7-b078-8b10ac35b494
 ms.service: marketplace
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 09/26/2016
-ms.author: hascipio; v-divte
-ms.openlocfilehash: c4e88a9fbb15dd90d619b159ae1065dfacc1907f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: 65361ad5bd7c3311c428b64b8476ec8f2ea2d17b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-troubleshoot-common-issues-encountered-during-vhd-creation"></a>Comment résoudre les problèmes courants rencontrés lors de la création du disque dur virtuel
 Cet article aide les éditeurs et/ou coadministrateurs Azure Marketplace qui peuvent rencontrer un problème ou avoir des questions courantes lors de la publication ou de la gestion de leurs solutions de machine virtuelle.
@@ -32,19 +32,19 @@ Cet article aide les éditeurs et/ou coadministrateurs Azure Marketplace qui peu
    * [Référence pour les machines virtuelles Linux](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-classic-reset-access/)
 3. Comment générer de nouveaux certificats ssh ?
    
-   Reportez-vous au lien : [https://azure.microsoft.com/documentation/articles/virtual-machines-linux-classic-reset-access/](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-classic-reset-access/)
+   Veuillez vous reporter au lien : [https://azure.microsoft.com/documentation/articles/virtual-machines-linux-classic-reset-access/](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-classic-reset-access/)
 4. Comment configurer un certificat VPN ouvert ?
    
-   Reportez-vous au lien : [https://azure.microsoft.com/documentation/articles/vpn-gateway-point-to-site-create/](https://azure.microsoft.com/documentation/articles/vpn-gateway-point-to-site-create/)
+   Veuillez vous reporter au lien : [https://azure.microsoft.com/documentation/articles/vpn-gateway-point-to-site-create/](https://azure.microsoft.com/documentation/articles/vpn-gateway-point-to-site-create/)
 5. Quelle est la stratégie de prise en charge pour l’exécution de logiciels serveur Microsoft dans un environnement de machine virtuelle Microsoft Azure (infrastructure en tant que service) ?
    
-   Reportez-vous au lien : [https://support.microsoft.com/kb/2721672](https://support.microsoft.com/kb/2721672)
+   Veuillez vous reporter au lien : [https://support.microsoft.com/kb/2721672](https://support.microsoft.com/kb/2721672)
 6. Les machines virtuelles ont-elles un identificateur unique ?
    
    Azure encode l’ID unique de machine virtuelle Azure dans chaque machine virtuelle. Pour plus d’informations, consultez le blog et la documentation.
 7. Dans une machine virtuelle, comment puis-je gérer l’extension de script personnalisé lors de la tâche de démarrage ?
    
-   Reportez-vous au lien : [https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/)
+   Veuillez vous reporter au lien : [https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/)
 8. Comment créer une machine virtuelle à partir du portail Azure à l’aide du disque dur virtuel qui est téléchargé vers le stockage Premium ?
    
    Nous ne prenons pas encore en charge cette fonctionnalité.

@@ -1,11 +1,11 @@
 ---
-title: "Exemples et scénarios courants - Azure Logic Apps | Microsoft Docs"
-description: "Découvrez les applications logiques grâce à des exemples, des scénarios, des didacticiels et des procédures pas à pas."
+title: Exemples et scénarios courants - Azure Logic Apps | Microsoft Docs
+description: Découvrez les applications logiques grâce à des exemples, des scénarios, des didacticiels et des procédures pas à pas.
 services: logic-apps
 author: jeffhollan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
 ms.service: logic-apps
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 01/31/18
 ms.author: LADocs; jehollan
-ms.openlocfilehash: b979096731caa7513c02a9fb398c14da4d4819ae
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 02690284e5487dba8e5fb5d973958f944bfa339f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Scénarios, exemples, didacticiels et procédures pas à pas courants relatifs à Azure Logic Apps
 
@@ -81,7 +81,7 @@ Les applications logiques incluent de puissantes fonctionnalités de flux de con
 
 Vous pouvez développer et déployer des applications logiques entièrement avec Visual Studio, Visual Studio Team Services ou tout autre outil de compilation automatisée et contrôle de code source. Pour prendre en charge le déploiement de flux de travail et de connexions dépendantes d’un modèle de ressource, les applications logiques utilisent des modèles de déploiement de ressources Azure. Les outils Visual Studio génèrent automatiquement ces modèles, que vous pouvez archiver dans le contrôle de code source à des fins de contrôle de version.
 
-* [Créer et déployer des applications logiques à partir de Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md)
+* [Créer et déployer des applications logiques avec Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [Activer la surveillance, la journalisation et les alertes pour les applications logiques existantes](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 * [Créer un modèle de déploiement automatisé](../logic-apps/logic-apps-create-deploy-template.md)
 
@@ -91,7 +91,7 @@ Vous pouvez accéder à plusieurs types de contenu, les convertir et les transfo
 
 * [Fonctionnement des expressions de flux de travail dans les applications logiques](../logic-apps/logic-apps-author-definitions.md)
 * [Gérer les types de contenu non-JSON](../logic-apps/logic-apps-content-type.md), comme `application/xml`, `application/octet-stream` et`multipart/formdata`
-* [Référence : Langage de définition de flux de travail Azure Logic Apps](http://aka.ms/logicappsdocs)
+* [Schéma du langage de définition du flux de travail pour Azure Logic Apps](http://aka.ms/logicappsdocs)
 
 ## <a name="other-integrations-and-capabilities"></a>Autres intégrations et fonctionnalités
 
@@ -113,7 +113,7 @@ Les applications logiques offrent également une intégration avec de nombreux s
 
 Découvrez comment Azure Logic Apps, ainsi que d’autres services Azure et produits Microsoft, ont aidé [ces sociétés](https://aka.ms/logic-apps-customer-stories) à améliorer leur flexibilité et à se concentrer sur leurs activités principales en simplifiant, organisant, automatisant et orchestrant des processus complexes.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Créer à partir des définitions d’application logique avec JSON](../logic-apps/logic-apps-author-definitions.md)
 * [Gérer les erreurs et les exceptions dans Azure Logic Apps](../logic-apps/logic-apps-exception-handling.md)

@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 0231dc8336bb2442099984947897e5005767a8f5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 166171dc8d8d694ef253ed6809c53b54577535e2
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Sécurisation de l’accès privilégié pour les déploiements hybrides et cloud dans Azure AD
 
@@ -118,7 +118,7 @@ Les comptes d’accès d’urgence aident les organisations à restreindre l’a
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Activer l’authentification multifacteur et inscrire tous les autres comptes administrateur non fédérés utilisateur unique à privilèges élevés 
 
-Exigez Azure multi-Factor Authentication (MFA) lors de la connexion de tous les utilisateurs individuels auxquels sont affectés un ou plusieurs rôles d’administrateur Azure AD : Administrateur général, Administrateur de rôle privilégié, Administrateur Exchange Online et Administrateur SharePoint Online. Utilisez le guide pour activer [Multi-factor authentication (MFA) pour vos comptes administrateur](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) et assurez-vous que tous ces utilisateurs sont inscrits sur [https://aka.ms/mfasetup](https://aka.ms/mfasetup). Vous trouverez plus d’informations dans les étapes 2 et 3 du guide [Protect access to data and services in Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e) (Protéger l’accès aux données et services dans Office 365). 
+Exigez Azure multi-Factor Authentication (MFA) lors de la connexion de tous les utilisateurs individuels auxquels sont affectés un ou plusieurs rôles d’administrateur Azure AD : Administrateur général, Administrateur de rôle privilégié, Administrateur Exchange Online et Administrateur SharePoint Online. Suivez le guide pour activer [l’authentification multifacteur (MFA) pour vos comptes Administrateur](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) et vérifier que tous ces utilisateurs sont inscrits sur [https://aka.ms/mfasetup](https://aka.ms/mfasetup). Vous trouverez plus d’informations dans les étapes 2 et 3 du guide [Protect access to data and services in Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e) (Protéger l’accès aux données et services dans Office 365). 
 
 ## <a name="stage-2-mitigate-the-most-frequently-used-attack-techniques"></a>Étape 2 : atténuer les techniques d’attaque les plus fréquemment utilisées
 
@@ -176,16 +176,16 @@ Azure AD Identity Protection est un outil de surveillance et de rapports basé s
 
 #### <a name="obtain-your-office-365-secure-score-if-using-office-365"></a>Obtenir votre Office 365 Secure Score (si vous utilisez Office 365)
 
-Secure Score recherche les services Office 365 que vous utilisez (comme OneDrive, SharePoint et Exchange), puis examine vos paramètres et activités et les compare à une référence établie par Microsoft. Vous obtenez un score indiquant votre alignement sur les meilleures pratiques de sécurité. Toute personne disposant d’autorisations d’administration (administrateur général ou rôle d’administrateur personnalisé) pour un abonnement Office 365 Business Premium ou Enterprise peut accéder au Secure Score à l’adresse [https://securescore.office.com](https://securescore.office.com/).
+Secure Score recherche les services Office 365 que vous utilisez (comme OneDrive, SharePoint et Exchange), puis examine vos paramètres et activités et les compare à une référence établie par Microsoft. Vous obtenez un score indiquant votre alignement sur les meilleures pratiques de sécurité. Toute personne disposant d’autorisations d’administration (rôle Administrateur général ou personnalisé) pour un abonnement Office 365 Business Premium ou Enterprise peut accéder à Secure Score à l’adresse [https://securescore.office.com](https://securescore.office.com/).
 
-#### <a name="review-the-office-365-security-and-compliance-guidance-if-using-office365"></a>Passer en revue les conseils de sécurité et de conformité Office 365 (si vous utilisez Office 365)
+#### <a name="review-the-office-365-security-and-compliance-guidance-if-using-office-365"></a>Passer en revue l’aide Office 365 en matière de sécurité et de conformité (si vous utilisez Office 365)
 
 Le [plan de sécurité et de conformité](https://support.office.com/article/Plan-for-security-and-compliance-in-Office-365-dc4f704c-6fcc-4cab-9a02-95a824e4fb57) offre une vue d’ensemble de l’approche selon laquelle un client Office 365 doit configurer Office 365 et tirer parti d’autres fonctionnalités d’EMS. Passez ensuite en revue les étapes 3 à 6 de la procédure [Protect access to data and services in Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e) (Protéger l’accès aux données et services dans Office 365) et le guide de procédure [Monitor security and compliance in Office 365](https://support.office.com/article/Monitor-security-and-compliance-in-Office-365-b62f1722-fd39-44eb-8361-da61d21509b6) (Surveiller la sécurité et la conformité dans Office 365).
 
 
 #### <a name="configure-office-365-activity-monitoring-if-using-office-365"></a>Configurer la surveillance de l’activité Office 365 (si vous utilisez Office 365)
 
-Vous pouvez contrôler comment les personnes de votre organisation utilisent les services Office 365, vous permettant ainsi d’identifier les utilisateurs disposant d’un compte administrateur et n’ayant peut-être pas besoin d’un accès Office 365 du fait qu’ils ne se connectent pas à ces portails. Pour plus d’informations, consultez [Activity reports in the Office 365 admin center](https://support.office.com/article/Activity-Reports-in-the-Office-365-admin-center-0d6dfb17-8582-4172-a9a9-aed798150263) (Rapports d’activité dans le centre d’administration Office 365).
+Vous pouvez contrôler comment les personnes de votre organisation utilisent les services Office 365, vous permettant ainsi d’identifier les utilisateurs disposant d’un compte administrateur et n’ayant peut-être pas besoin d’un accès Office 365 du fait qu’ils ne se connectent pas à ces portails. Pour plus d’informations, consultez [Rapports d’activité dans le Centre d’administration Office 365](https://support.office.com/article/Activity-Reports-in-the-Office-365-admin-center-0d6dfb17-8582-4172-a9a9-aed798150263).
 
 #### <a name="establish-incidentemergency-response-plan-owners"></a>Définir des propriétaires de plan de réponse d’incident/d’urgence
 
@@ -201,7 +201,7 @@ Si votre locataire Azure Active Directory est synchronisé avec Active Directory
 
 Utilisez le portail Enterprise et le portail Azure pour identifier les abonnements de votre organisation qui hébergent des applications de production. 
 
-#### <a name="remove-microsoft-ccounts-from-admin-roles"></a>Supprimer des comptes Microsoft de rôles d’administrateur
+#### <a name="remove-microsoft-accounts-from-admin-roles"></a>Supprimer les comptes Microsoft des rôles Administrateur
 
 Les comptes Microsoft d’autres programmes, tels que Xbox Live et Outlook, ne doivent pas être utilisés en tant que comptes administrateur pour les abonnements d’organisation. Supprimez l’état d’administration de tous les comptes Microsoft et remplacez par des comptes professionnels ou scolaires Active Directory (par exemple, chris@contoso.com).
 
@@ -227,7 +227,7 @@ L’étape 3 s’appuie sur les atténuations de l’étape 2 et est conçue pou
 
 #### <a name="complete-an-access-review-of-users-in-administrator-roles"></a>Effectuer une vérification de l’accès des utilisateurs de rôles d’administrateur
 
-De plus en plus d’utilisateurs d’entreprise disposent d’un accès privilégié par le biais de services cloud, ce qui peut conduire à une plateforme non managée croissante. Ceci inclut des utilisateurs devenant des administrateurs généraux pour Office 365, des administrateurs d’abonnements Azure et des utilisateurs qui disposent d’un accès administrateur à des machines virtuelles ou via des applications SaaS. Au lieu de cela, dans les organisations, tous les employés, et plus particulièrement les administrateurs, doivent gérer les transactions quotidiennes en tant qu’utilisateurs sans privilège et ne disposer que des droits d’administrateur nécessaires. Le nombre d’utilisateurs dans des rôles d’administrateur pouvant avoir augmenté depuis l’adoption initiale, passez en revue l’accès afin d’identifier et de vérifier chaque utilisateur éligible pour activer des privilèges d’administrateur. 
+De plus en plus d’utilisateurs d’entreprise disposent d’un accès privilégié par le biais de services cloud, ce qui peut conduire à une plateforme non managée croissante. Il s’agit des utilisateurs devenant des administrateurs généraux pour Office 365, des administrateurs d’abonnements Azure et des utilisateurs disposant d’un accès Administrateur aux machines virtuelles ou par le biais d’applications SaaS. Au lieu de cela, dans les organisations, tous les employés, et plus particulièrement les administrateurs, doivent gérer les transactions quotidiennes en tant qu’utilisateurs sans privilège et ne disposer que des droits d’administrateur nécessaires. Le nombre d’utilisateurs dans des rôles d’administrateur pouvant avoir augmenté depuis l’adoption initiale, passez en revue l’accès afin d’identifier et de vérifier chaque utilisateur éligible pour activer des privilèges d’administrateur. 
 
 Effectuez les actions suivantes :
 
@@ -244,7 +244,7 @@ Les personnes malveillantes peuvent tenter de cibler des comptes privilégiés p
 
 #### <a name="review-national-institute-of-standards-and-technology-recommendations-for-handling-incidents"></a>Passer en revue les recommandations relatives à la gestion des incidents du National Institute of Standards and Technology 
 
-Le National Institute of Standards and Technology (NIST) fournit des instructions pour la gestion des incidents, et plus particulièrement pour l’analyse des données relatives aux incidents et détermination de la réponse adéquate à chaque incident. Pour plus d’informations, consultez le [(NIST) Computer Security Incident Handling Guide (SP 800-61, Revision 2)](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf) (Guide de la gestion des incidents de sécurité du NIST (SP 800-61, Révision 2).
+Le National Institute of Standards and Technology (NIST) fournit des instructions pour la gestion des incidents, et plus particulièrement pour l’analyse des données relatives aux incidents et détermination de la réponse adéquate à chaque incident. Pour plus d’informations, consultez le document [(NIST) Computer Security Incident Handling Guide (SP 800-61, Revision 2)](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf) (Guide de la gestion des incidents de sécurité informatique du NIST (SP 800-61, Révision 2)).
 
 #### <a name="implement-privileged-identity-management-pim-for-jit-to-additional-administrative-roles"></a>Implémenter Privileged Identity Management (PIM) pour JIT sur des rôles administratifs supplémentaires
 
@@ -305,7 +305,7 @@ MCAS vous permet de rechercher des fichiers et de définir des stratégies basé
 
 #### <a name="configure-conditional-access"></a>Configurer un accès conditionnel
 
-Configurez un accès conditionnel en fonction du groupe, de l’emplacement et du critère de diffusion des [applications SaaS](https://azure.microsoft.com/overview/what-is-saas/) et des applications connectées à Azure AD. 
+Configurez un accès conditionnel en fonction du groupe, de l’emplacement et du niveau de confidentialité des [applications SaaS](https://azure.microsoft.com/overview/what-is-saas/) et des applications connectées à Azure AD. 
 
 #### <a name="monitor-activity-in-connected-cloud-apps"></a>Surveiller l’activité dans les applications cloud connectées
 
@@ -318,7 +318,6 @@ Pour assurer également la protection de l’accès des utilisateurs dans des ap
 * Réduire les risques et prévention des menaces et application de stratégies automatisées
 
 L’agent Cloud App Security SIEM s’intègre à Cloud App Security avec votre serveur SIEM pour permettre la surveillance centralisée des alertes et des activités d’Office 365. Il s’exécute sur votre serveur et transmet les alertes et les activités de Cloud App Security au serveur SIEM. Pour plus d’informations, consultez [SIEM integration](https://docs.microsoft.com/cloud-app-security/siem) (Intégration de SIEM).
-
 
 ## <a name="stage-4-continue-building-defenses-to-a-more-proactive-security-posture"></a>Étape 4 : continuer à créer des défenses pour une sécurité plus proactive
 
@@ -357,7 +356,7 @@ Si vous utilisez Office 365.
 Pour améliorer votre plan, Microsoft vous recommande de vérifier régulièrement que votre plan fonctionne comme prévu :
 
 * Parcourir votre feuille de route pour voir ce qui n’a pas fonctionné
-* Sur la base de l’analyse post mortem, vérifier les meilleures pratiques existantes en définir de nouvelles
+* Sur la base de l’analyse post mortem, vérifier les meilleures pratiques actuelles ou en définir de nouvelles
 * Vérifier que votre plan de réponse aux incidents mis à jour et les meilleures pratiques sont distribuées dans votre organisation
 
 
@@ -438,16 +437,16 @@ Pour plus d’informations sur la façon dont Microsoft Office 365 gère les inc
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Centre de gestion de la confidentialité Microsoft - Sécurité produit](https://www.microsoft.com/trustcenter/security) : fonctionnalités de sécurité des produits et services cloud de Microsoft
+* [Centre de gestion de la confidentialité Microsoft - Sécurité produit](https://www.microsoft.com/en-us/trustcenter/security) : fonctionnalités de sécurité des produits et services cloud de Microsoft
 
-* [Centre de gestion de la confidentialité Microsoft - Conformité](https://www.microsoft.com/trustcenter/compliance/complianceofferings) : ensemble complet des offres de conformité de Microsoft pour les services cloud
+* [Centre de gestion de la confidentialité Microsoft - Conformité](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) : ensemble complet des offres de conformité de Microsoft pour les services cloud
 
-* [Conseils sur la réalisation d’une évaluation des risques](https://www.microsoft.com/trustcenter/guidance/risk-assessment): gérez les exigences de sécurité et de conformité pour les services cloud de Microsoft
+* [Conseils sur la réalisation d’une évaluation des risques](https://www.microsoft.com/en-us/trustcenter/guidance/risk-assessment): gérez les exigences de sécurité et de conformité pour les services cloud de Microsoft
 
 ### <a name="other-ms-online-services"></a>Autres services en ligne MS 
 
-* [Microsoft Intune Security](https://www.microsoft.com/trustcenter/security/intune-security) : Intune fournit des fonctionnalités de gestion des appareils mobiles, de gestion des applications mobiles et de gestion des ordinateurs à partir du cloud.
+* [Microsoft Intune Security](https://www.microsoft.com/en-us/trustcenter/security/intune-security) : Intune fournit des fonctionnalités de gestion des appareils mobiles, de gestion des applications mobiles et de gestion des ordinateurs à partir du cloud.
 
-* [Sécurité de Microsoft Dynamics 365](https://www.microsoft.com/trustcenter/security/dynamics365-security) : Dynamics 365 est la solution cloud de Microsoft qui centralise les fonctions de gestion de la relation client (CRM) et de planification des ressources d’entreprise (ERP).
+* [Sécurité de Microsoft Dynamics 365](https://www.microsoft.com/en-us/trustcenter/security/dynamics365-security) : Dynamics 365 est la solution cloud de Microsoft qui centralise les fonctions de gestion de la relation client (CRM) et de planification des ressources d’entreprise (ERP).
 
  

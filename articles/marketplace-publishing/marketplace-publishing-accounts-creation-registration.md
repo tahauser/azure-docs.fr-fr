@@ -1,11 +1,11 @@
 ---
-title: "Création et enregistrement d’un compte de publication | Microsoft Docs"
-description: "Instructions relatives à la création d’un compte de développeur Microsoft, qui vous permet, dès l’approbation du compte, de mettre en vente différents types d’offres sur Azure Marketplace."
+title: Création et enregistrement d’un compte de publication | Microsoft Docs
+description: Instructions relatives à la création d’un compte de développeur Microsoft, qui vous permet, dès l’approbation du compte, de mettre en vente différents types d’offres sur Azure Marketplace.
 services: Azure Marketplace
-documentationcenter: 
-author: HannibalSII
-manager: hascipio
-editor: 
+documentationcenter: ''
+author: msmbaldwin
+manager: mbaldwin
+editor: ''
 ms.assetid: 5a2fe68d-2967-463f-8af6-42bed07e3eaa
 ms.service: marketplace
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
-ms.author: hascipio
-ms.openlocfilehash: 642e4a2d11ef5a92f5ab46bc4872414966b04c0d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: da805bead3f6af4ebd0b4b94b30a51ff2abc62dd
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-microsoft-developer-account"></a>Créer un compte de développeur Microsoft
 Cet article décrit la procédure de création de compte et d’inscription que vous devez suivre pour devenir un développeur Microsoft agréé pour Azure Marketplace.
@@ -45,7 +45,7 @@ Lorsque vous créez un compte de société, suivez ces instructions si plusieurs
 * Ajoutez un numéro de téléphone d’entreprise qui ne nécessite pas d’extension et qui reste accessible par les membres de l’équipe.
 * En règle général, les développeurs doivent utiliser des appareils de confiance pour se connecter au compte de développeur de votre société. Les membres principaux de l’équipe doivent avoir accès à ces appareils de confiance. Cela réduit le besoin d’envoyer les codes de sécurité pour accéder au compte.
 * Si vous souhaitez autoriser l’accès au compte à partir d’un ordinateur non approuvé, limitez cet accès à un maximum de cinq développeurs. Dans l’idéal, ces développeurs doivent accéder au compte à partir d’ordinateurs qui partagent le même emplacement géographique et le même emplacement réseau.
-* Révisez régulièrement les informations de sécurité de votre société à l’adresse [https://account.live.com/proofs/Manage](https://account.live.com/proofs/Manage) pour vous assurer qu’elles sont à jour.
+* Consultez régulièrement les informations de sécurité de votre entreprise à l’adresse [https://account.live.com/proofs/Manage](https://account.live.com/proofs/Manage) pour vérifier qu’elles sont à jour.
 
 Votre compte de développeur doit être principalement utilisé à partir d’ordinateurs approuvés. Cela est essentiel, car il existe une limite au nombre de codes générés par semaine pour chaque compte. Ceci rend également l’expérience de connexion plus transparente.
 
@@ -53,7 +53,7 @@ Pour plus d’informations sur la sécurité et sur les instructions relatives a
 
 ### <a name="instructions"></a>Instructions
 1. Ouvrez une nouvelle session de navigation Chrome Incognito ou Internet Explorer InPrivate pour vous assurer que vous n'êtes pas connecté à un compte existant.
-2. Inscrivez l’adresse e-mail en suivant les instructions ci-dessus, par exemple windowsapp@fabrikam.com, en tant que compte Microsoft à l’aide du lien [https://signup.live.com/signup.aspx](https://signup.live.com/signup.aspx). Procédez comme suit.
+2. Inscrivez l’e-mail (en suivant les instructions ci-dessus, par exemple windowsapp@fabrikam.com), en tant que compte Microsoft à l’aide du lien [https://signup.live.com/signup.aspx](https://signup.live.com/signup.aspx). Procédez comme suit.
 
    1. Lors de l’inscription de votre compte comme un compte Microsoft, vous devez fournir un numéro de téléphone valide pour que le système vous envoie un code de vérification de compte sous forme de message texte ou d’appel automatique.
    2. Lors de l’inscription de votre compte comme un compte Microsoft, vous devez fournir un ID de messagerie valide pour recevoir un courrier automatique pour la vérification du compte.
@@ -88,10 +88,10 @@ Le Centre de développement Microsoft est utilisé pour enregistrer les informat
    >
    >
 
-    ![dessin][img-signin]
+    ![drawing][img-signin]
 3. Suivez les étapes de l’Assistant Aidez-nous à protéger votre compte. Celui-ci vérifie votre identité via un numéro de téléphone ou une adresse de messagerie.
 
-    ![dessin][img-verify]
+    ![drawing][img-verify]
 4. Dans la section « Inscription - Informations sur le compte », sélectionnez l’option **Pays/région du compte** dans le menu déroulant.
 
     ![drawing](media/marketplace-publishing-accounts-creation-registration/imgRegisterCo_04.png)
@@ -122,10 +122,10 @@ Le Centre de développement Microsoft est utilisé pour enregistrer les informat
    >
 8. Saisissez les coordonnées de **l’approbateur de l’entreprise**. L’approbateur de l’entreprise est la personne qui peut vérifier que vous êtes autorisé à créer un compte dans le centre de développement au nom de votre organisation. Quand vous avez terminé, cliquez sur **Suivant** pour passer à la **« section Paiement »**.
 
-    ![dessin](media/marketplace-publishing-accounts-creation-registration/imgRegisterCo_08.png)
+    ![drawing](media/marketplace-publishing-accounts-creation-registration/imgRegisterCo_08.png)
 9. Entrez vos informations de paiement pour le paiement de votre compte. Si vous disposez d’un code promotionnel qui couvre le coût de l’inscription, vous pouvez le saisir ici. Sinon, fournissez vos informations de carte de crédit (PayPal est pris en charge pour certains marchés). Quand vous avez terminé, cliquez sur **Suivant** pour passer à la **« section Vérification »**.
 
-    ![dessin](media/marketplace-publishing-accounts-creation-registration/imgRegisterCo_09.png)
+    ![drawing](media/marketplace-publishing-accounts-creation-registration/imgRegisterCo_09.png)
 10. Vérifiez vos informations de compte et confirmez que tout est correct. Ensuite, lisez et acceptez les conditions du [Contrat d’éditeur Microsoft Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=699560). Cochez la case pour indiquer vous avez lu et que vous acceptez ces conditions.
 11. Cliquez sur **Terminer** pour confirmer votre inscription. Nous enverrons un message de confirmation à votre adresse de messagerie.
 12. Si vous envisagez de publier uniquement des offres gratuites, cliquez sur **Accéder au portail de publication Azure Marketplace** , et passez à la section 3 de ce document, [Enregistrer votre compte dans le Portail de publication](#3-register-your-account-in-the-publishing-portal).
@@ -175,17 +175,17 @@ Si vous préférez mettre à jour les informations fiscales et bancaires ultéri
 
 Si vous rencontrez des problèmes pendant l’inscription au Centre de développement, ouvrez un ticket de support comme indiqué ci-dessous
 
-1. Accédez au lien du support technique [https://developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support)
+1. Allez au lien de la prise en charge [https://developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support)
 2. Sous la section **Nous contacter**, cliquez sur le bouton **Soumettre un incident** (comme illustré dans la capture d’écran ci-dessous)
 
-    ![dessin](media/marketplace-publishing-accounts-creation-registration/imgAddTax_02.png)
+    ![drawing](media/marketplace-publishing-accounts-creation-registration/imgAddTax_02.png)
 3. Choisissez « Aide avec le centre de développement » comme **Type de problème** et « Publication et gestion des applications » en tant que **Catégorie**. Cliquez ensuite sur le bouton « Démarrer messagerie ».
 
     ![drawing](media/marketplace-publishing-accounts-creation-registration/imgAddTax_03.png)
 4. Vous irez vers une page de connexion. Utilisez un compte Microsoft pour la connexion. Si vous n’avez pas de compte Microsoft, créez-en un en utilisant ce [lien](https://signup.live.com/signup?uaid=0089f09ccae94043a0f07c2aaf928831&lic=1).
 5. Remplissez les détails du problème et envoyez le ticket de support en cliquant sur le bouton **Envoyer** .
 
-    ![dessin](media/marketplace-publishing-accounts-creation-registration/imgAddTax_05.png)
+    ![drawing](media/marketplace-publishing-accounts-creation-registration/imgAddTax_05.png)
 
 ## <a name="3-register-your-account-in-the-publishing-portal"></a>3. Enregistrer votre compte dans le Portail de publication
 Le [Portail de publication](http://publish.windowsazure.com) permet de publier et gérer vos offres.
@@ -215,7 +215,7 @@ Si vous êtes ajouté en tant que coadministrateur dans le portail de publicatio
 4. Maintenant, connectez-vous au portail de publication avec l’ID de messagerie du coadministrateur.
 5. Accédez à Éditeurs->Sélectionnez votre compte->Administrateurs->Ajouter le compte (voir capture d’écran ci-dessous)
 
-   ![dessin](media/marketplace-publishing-accounts-creation-registration/imgAddAdmin_05.png)
+   ![drawing](media/marketplace-publishing-accounts-creation-registration/imgAddAdmin_05.png)
 
 ## <a name="5-steps-to-delete-a-co-admin-in-the-publishing-portal"></a>5. Étapes pour supprimer un coadministrateur dans le portail de publication
 **En supposant que vous êtes l’administrateur,** voici les étapes pour supprimer un coadministrateur.

@@ -1,8 +1,8 @@
 ---
-title: "Meilleures pratiques d’utilisation d’Azure Data Lake Store | Microsoft Docs"
-description: "Découvrez les meilleures pratiques pour l’ingestion des données, la sécurité des données et les performances liées à l’utilisation d’Azure Data Lake Store."
+title: Meilleures pratiques d’utilisation d’Azure Data Lake Store | Microsoft Docs
+description: Découvrez les meilleures pratiques pour l’ingestion des données, la sécurité des données et les performances liées à l’utilisation d’Azure Data Lake Store.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: sachinsbigdata
 manager: jhubbard
 editor: cgronlun
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/02/2018
 ms.author: sachins
-ms.openlocfilehash: d3a0dd70a03f97a9b6bfb243eda7cbd470b0c239
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c394142ba40fc580bdcec11430dcae2816fa9760
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="overview-of-azure-data-lake-store"></a>Présentation d'Azure Data Lake Store
+# <a name="best-practices-for-using-azure-data-lake-store"></a>Meilleures pratiques relatives à l’utilisation de Data Lake Store
 Dans cet article, vous allez découvrir les meilleures pratiques et considérations d’utilisation d’Azure Data Lake Store. Cet article fournit des informations concernant la sécurité, les performances, la résilience et la surveillance pour Azure Data Lake Store. Avant Data Lake Store, il était difficile de travailler avec de grandes quantités de données dans des services tels qu’Azure HDInsight. Il fallait partitionner les données sur plusieurs comptes de stockage d’objets blob afin de rendre possible, à cette échelle, le stockage pétaoctet et des performances optimales. Avec Data Lake Store, la plupart des limites inconditionnelles de taille et de performances ont été supprimées. Toutefois, il faut toujours tenir compte de certaines choses. Cet article vous en parle afin que vous profitiez des meilleures performances avec Data Lake Store. 
 
 ## <a name="security-considerations"></a>Considérations relatives à la sécurité
@@ -139,7 +139,7 @@ Si l’envoi de journaux Data Lake Store n’est pas activé, Azure HDInsight fo
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG 
 
-Une fois la propriété définie et les nœuds redémarrés, les diagnostics Data Lake Store sont écrits dans les journaux YARN sur les nœuds (/tmp/<user>/yarn.log), et les informations importantes comme les erreurs ou les limites (code d’erreur HTTP 429) peuvent être surveillées. Ces mêmes informations peuvent aussi être surveillées dans OMS ou n’importe quel emplacement où sont envoyés les journaux dans le panneau [Diagnostics](data-lake-store-diagnostic-logs.md) du compte Data Lake Store. Il est recommandé de disposer d’au moins un journal côté client activé ou d’utiliser l’option d’envoi de journaux avec Data Lake Store pour une visibilité opérationnelle et un débogage simplifié.
+Une fois la propriété définie et les nœuds redémarrés, les diagnostics Data Lake Store sont écrits dans les journaux YARN sur les nœuds (/tmp/<user>/yarn.log) et les informations importantes comme les erreurs ou les limites (code d’erreur HTTP 429) peuvent être analysées. Ces mêmes informations peuvent aussi être surveillées dans OMS ou n’importe quel emplacement où sont envoyés les journaux dans le panneau [Diagnostics](data-lake-store-diagnostic-logs.md) du compte Data Lake Store. Il est recommandé de disposer d’au moins un journal côté client activé ou d’utiliser l’option d’envoi de journaux avec Data Lake Store pour une visibilité opérationnelle et un débogage simplifié.
 
 ### <a name="run-synthetic-transactions"></a>Exécuter des transactions synthétiques 
 
@@ -155,7 +155,7 @@ Dans des charges de travail IoT peuvent se trouver un grand nombre de données a
 
     {Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/ 
 
-Par exemple, la télémétrie d’arrivée d’un moteur d’avion dans le Royaume-Uni ressemble à ça : 
+Par exemple, la télémétrie d’arrivée d’un moteur d’avion dans le Royaume-Uni ressemble à la structure suivante : 
 
     UK/Planes/BA1293/Engine1/2017/08/11/12/ 
 
@@ -163,7 +163,7 @@ Il est important de placer la date à la fin de la structure du dossier. Si vous
 
 ### <a name="batch-jobs-structure"></a>Structure de tâches de traitement par lots 
 
-Depuis un niveau supérieur, une approche communément usitée dans le traitement par lots est d’envoyer des données dans un dossier « in ». Ensuite, une fois que les données sont traitées, il faut placer les données obtenues dans un dossier « out » pour qu’elles soient utilisées par des processus en aval. On le remarque parfois avec des tâches qui nécessitent un traitement sur des fichiers individuels et qui ne nécessitent pas forcément de traitement parallèle massif sur des jeux de données volumineux. Tout comme la structure IoT recommandée plus haut, une bonne structure de répertoire dispose de dossiers de niveau parent pour des choses telles que la région et les thèmes (par exemple, organisation, produit/producteur). Ceci facilite la sécurisation des données dans votre organisation et une meilleure gestion des données dans vos charges de travail. En outre, tenez compte de la date et l’heure dans la structure pour permettre une meilleure organisation, de meilleures recherches filtrées, une sécurité plus efficace et une automatisation du traitement. Le niveau granularité de la structure de date est déterminé par l’intervalle de chargement ou de traitement des données, par exemple à l’heure, quotidien, ou mensuel. 
+Depuis un niveau supérieur, une approche communément usitée dans le traitement par lots est d’envoyer des données dans un dossier « in ». Ensuite, une fois que les données sont traitées, il faut placer les données obtenues dans un dossier « out » pour qu’elles soient utilisées par des processus en aval. Cette structure de répertoire est parfois visible avec des travaux qui nécessitent un traitement sur des fichiers individuels et qui ne nécessitent pas forcément de traitement parallèle massif sur des jeux de données volumineux. Tout comme la structure IoT recommandée plus haut, une bonne structure de répertoire dispose de dossiers de niveau parent pour des choses telles que la région et les thèmes (par exemple, organisation, produit/producteur). Cette structure facilite la sécurisation des données dans votre organisation et une meilleure gestion des données dans vos charges de travail. En outre, tenez compte de la date et l’heure dans la structure pour permettre une meilleure organisation, de meilleures recherches filtrées, une sécurité plus efficace et une automatisation du traitement. Le niveau granularité de la structure de date est déterminé par l’intervalle de chargement ou de traitement des données, par exemple à l’heure, quotidien, ou mensuel. 
 
 Parfois le traitement de fichiers échoue en raison de corruption des données ou de formats inattendus. Dans ces cas, la structure du répertoire peut profiter d’un dossier **/bad** où déplacer les fichiers pour une inspection plus en détail. La tâche de traitement par lots peut aussi gérer le rapport ou la notification de ces fichiers *bad* en vue d’une intervention manuelle. Considérez la structure de modèle suivante : 
 
@@ -171,14 +171,14 @@ Parfois le traitement de fichiers échoue en raison de corruption des données o
     {Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/ 
     {Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/ 
 
-Par exemple, une firme marketing qui reçoit des extraits de données de mises à jour client au quotidien de la part de leurs clients en Amérique du Nord peut ressembler à ce qui suit, avant et après traitement : 
+Par exemple, une firme marketing qui reçoit quotidiennement des extraits de données de mises à jour client de la part de leurs clients en Amérique du Nord. Avant et après avoir été traité, il peut ressembler à l’extrait de code suivant : 
 
     NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv 
     NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv 
  
 Dans le cas courant de traitement des données par lots dans des bases de données directement, telles que Hive ou des bases de données SQL traditionnelles, il n’y a pas besoin de dossiers **/in** ou **/out** car la sortie se trouve déjà dans un dossier différent pour le tableau Hive ou la base de données externe. Par exemple, des extraits quotidiens de la part de clients arrivent dans leurs dossiers respectifs, et l’orchestration par des outils comme Azure Data Factory, Apache Oozie ou Apache Airflow déclenche une tâche quotidienne Hive ou Spark pour traiter et écrire les données dans un tableau Hive.
 
-## <a name="next-steps"></a>étapes suivantes     
+## <a name="next-steps"></a>Étapes suivantes     
 
 * [Présentation d'Azure Data Lake Store](data-lake-store-overview.md) 
 * [Contrôle d’accès dans Azure Data Lake Store](data-lake-store-access-control.md) 

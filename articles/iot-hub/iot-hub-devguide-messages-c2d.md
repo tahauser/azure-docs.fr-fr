@@ -1,23 +1,23 @@
 ---
-title: "Présentation de la messagerie de cloud-à-appareil Azure IoT Hub | Microsoft Docs"
-description: "Guide du développeur : comment utiliser la messagerie de cloud-à-appareil avec IoT Hub. Inclut des informations sur le cycle de vie des messages et les options de configuration."
+title: Présentation de la messagerie de cloud-à-appareil Azure IoT Hub | Microsoft Docs
+description: 'Guide du développeur : comment utiliser la messagerie de cloud-à-appareil avec IoT Hub. Inclut des informations sur le cycle de vie des messages et les options de configuration.'
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/06/2017
+ms.date: 03/15/2018
 ms.author: dobett
-ms.openlocfilehash: 1b34e579f2ba40f4d77f7a3ba1841f59f795d292
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d265d35c7d5a394afa0e59f40ff1a5741e0ec35c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>Envoyer des messages cloud-à-appareil à partir d’IoT Hub
 
@@ -42,7 +42,7 @@ Quand le service IoT Hub envoie un message à un appareil, il définit l’état
 Un appareil peut également choisir de :
 
 * *Rejeter* le message, ce qui amène IoT Hub à lui attribuer l’état **Dead lettered** (Lettre morte). Les appareils qui se connectent via le protocole MQTT ne peuvent pas rejeter les messages cloud-à-appareil.
-* *Abandonner* le message, ce qui amène IoT Hub à replacer le message dans la file d’attente avec l’état **Enqueued**(En file attente). Les appareils qui se connectent par le biais du protocole MQTT ne peuvent pas abandonner les messages cloud-à-appareil.
+* *abandonner* le message, ce qui amène IoT Hub à replacer le message dans la file d’attente avec l’état **Enqueued**(En file attente). Les appareils qui se connectent par le biais du protocole MQTT ne peuvent pas abandonner les messages cloud-à-appareil.
 
 Il est possible qu’un thread ne parvienne pas à traiter un message sans en avertir IoT Hub. Dans ce cas, les messages passent automatiquement de l’état **Invisible** à l’état **Enqueued** (En file d’attente) après un *délai d’attente de visibilité (ou de verrouillage)*. La valeur par défaut de ce délai est d’une minute.
 
@@ -81,11 +81,11 @@ Lorsque vous envoyez un message cloud-à-appareil, le service peut demander la r
 
 Si la propriété **Ack** est définie sur **full** et que vous ne recevez pas de message de commentaire, cela signifie que le message de commentaire a expiré. Le service ne peut pas savoir ce qui est arrivé au message d’origine. Dans la pratique, un service doit s'assurer qu'il peut traiter les commentaires avant leur expiration. Le délai d’expiration maximal est de deux jours, ce qui vous laisse le temps de faire refonctionner le service en cas de défaillance.
 
-Comme l’explique la section [Points de terminaison][lnk-endpoints], IoT Hub fournit des commentaires sous la forme de messages par le biais d’un point de terminaison accessible au service (**/messages/servicebound/feedback**). La sémantique de réception des commentaires est identique à celle des messages cloud-à-appareil, et présente le même [cycle de vie des messages][lnk-lifecycle]. Chaque fois que c’est possible, des commentaires de messages sont mis en lot dans un seul message, au format suivant :
+Comme l’explique la section [Points de terminaison][lnk-endpoints], IoT Hub fournit des commentaires sous la forme de messages par le biais d’un point de terminaison accessible au service (**/messages/servicebound/feedback**). La sémantique pour recevoir des commentaires est identique aux messages de cloud-à-appareil. Chaque fois que c’est possible, des commentaires de messages sont mis en lot dans un seul message, au format suivant :
 
 | Propriété     | Description |
 | ------------ | ----------- |
-| EnqueuedTime | Horodatage indiquant la date et l’heure de création du message. |
+| EnqueuedTime | Horodatage indiquant quand le message de commentaires a été reçu par le concentrateur. |
 | UserId       | `{iot hub name}` |
 | ContentType  | `application/vnd.microsoft.iothub.feedback.json` |
 
@@ -93,7 +93,7 @@ Le corps est un tableau sérialisé JSON des enregistrements, chacun disposant d
 
 | Propriété           | Description |
 | ------------------ | ----------- |
-| EnqueuedTimeUtc    | Horodatage indiquant la date et l’heure du résultat du message. Par exemple, l’achèvement de l’appareil ou l’expiration du message. |
+| EnqueuedTimeUtc    | Horodatage indiquant la date et l’heure du résultat du message. Par exemple, le concentrateur a reçu le message de commentaires ou le message d’origine a expiré. |
 | OriginalMessageId  | **MessageId** du message cloud-à-appareil auquel se rapportent ces informations de commentaires. |
 | StatusCode         | Chaîne obligatoire. Utilisé dans les messages de commentaires générés par IoT Hub. <br/> « Succès » <br/> « Expiré » <br/> « DeliveryCountExceeded »  <br/> « Rejeté » <br/> « Vidé » |
 | Description        | Valeurs de chaîne pour **StatusCode**. |

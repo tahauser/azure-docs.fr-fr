@@ -1,11 +1,11 @@
 ---
 title: Utiliser le connecteur SharePoint Server dans vos applications logiques | Microsoft Docs
-description: "Commencer à utiliser le connecteur SharePoint Server dans vos applications logiques"
+description: Commencer à utiliser le connecteur SharePoint Server dans vos applications logiques
 services: logic-apps
-documentationcenter: 
-author: MandiOhlinger
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 0238a060-d592-4719-b7a2-26064c437a1a
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: da863e0249cb46e4e569812a851f3199d57b2107
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: d342b3c4f84c5dab212b9327d6a72759934d0ae5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-sharepoint-connector"></a>Prise en main du connecteur SharePoint
 Le connecteur SharePoint permet d’utiliser des listes dans SharePoint.
@@ -27,15 +27,15 @@ Le connecteur SharePoint permet d’utiliser des listes dans SharePoint.
 Commencez par créer une application logique. Pour cela, consultez [Créer une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-sharepoint"></a>Créer une connexion à SharePoint
-Pour utiliser le connecteur SharePoint, vous devez créer une **connexion** , puis fournir les détails de ces propriétés : 
+Pour utiliser le connecteur SharePoint, commencez par créer une **connexion**, puis indiquez les détails de ces propriétés : 
 
 | Propriété | Obligatoire | Description |
 | --- | --- | --- |
 | par jeton |OUI |Fournir les informations d’identification SharePoint |
 
-Pour vous connecter à **SharePoint**, entrez votre identité (nom d’utilisateur et mot de passe, informations d’identification de la carte à puce, etc.) dans SharePoint. Une fois que vous avez été authentifié, vous pouvez utiliser le connecteur SharePoint dans votre application logique. 
+Pour vous connecter à **SharePoint**, entrez votre identité (nom d’utilisateur et mot de passe, informations d’identification de la carte à puce, etc.). Une fois l’authentification terminée, vous pourrez utiliser le connecteur SharePoint dans votre application logique. 
 
-Dans le Concepteur de votre application logique, procédez comme suit pour vous connecter à SharePoint afin de créer la **connexion** à utiliser dans votre application logique :
+Dans le concepteur de votre application logique, suivez les étapes ci-dessous pour vous connecter, et créez la **connexion** à utiliser dans votre application logique :
 
 1. Entrez SharePoint dans la zone de recherche et attendez que la recherche renvoie toutes les entrées contenant SharePoint dans leur nom :    
    ![Configurer SharePoint][1]  
@@ -44,10 +44,10 @@ Dans le Concepteur de votre application logique, procédez comme suit pour vous 
    ![Configurer SharePoint][2]    
 4. Entrez vos informations d’identification SharePoint pour vous connecter et vous authentifier auprès de SharePoint    
    ![Configurer SharePoint][3]     
-5. Une fois l’authentification terminée, vous serez redirigé vers votre application logique pour la terminer en configurant la boîte de dialogue **Quand un fichier est créé** de SharePoint.          
+5. Une fois l’authentification terminée, vous accéderez automatiquement à votre application logique pour la terminer en configurant la boîte de dialogue **À la création d’un fichier** de SharePoint.          
    ![Configurer SharePoint][4]  
 6. Vous pouvez ensuite ajouter d’autres déclencheurs et actions dont vous avez besoin pour terminer votre application logique.   
-7. Enregistrez votre travail en sélectionnant **Enregistrer** sur la barre de menu supérieure.  
+7. Enregistrez votre travail en sélectionnant **Enregistrer** dans le menu (en haut).
 
 ## <a name="connector-specific-details"></a>Détails spécifiques du connecteur
 

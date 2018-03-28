@@ -1,25 +1,25 @@
 ---
-title: "Ajouter le connecteur de base de données Oracle à Azure Logic Apps | Microsoft Docs"
-description: "Utiliser le connecteur de base de données Oracle dans une application logique"
-services: 
-documentationcenter: 
-author: MandiOhlinger
+title: Ajouter le connecteur de base de données Oracle à Azure Logic Apps | Microsoft Docs
+description: Utiliser le connecteur de base de données Oracle dans une application logique
+services: ''
+documentationcenter: ''
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
-ms.assetid: 
+ms.assetid: ''
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/29/2017
-ms.author: mandia; ladocs
-ms.openlocfilehash: 4119e72abd568c9b53245a872691f06329b040de
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 57931b6c2f96debeb9ab7f1a3b6700f23e7d2a7e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Prise en main du connecteur de base de données Oracle
 
@@ -28,9 +28,10 @@ ms.lasthandoff: 01/19/2018
 * Créez votre flux de travail en ajoutant un nouveau client à une base de données clients ou en mettant à jour une commande dans une base de données de commandes.
 * Utilisez des actions pour obtenir une ligne de données, insérer une nouvelle ligne ou en supprimer. Par exemple, quand un enregistrement est créé dans Dynamics CRM Online (déclencheur), insérez une ligne dans une base de données Oracle (action). 
 
-Cette rubrique décrit comment utiliser le connecteur de base de données Oracle dans une application logique.
+Cet article décrit comment utiliser le connecteur de base de données Oracle dans une application logique.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 * Versions d’Oracle prises en charge : 
     * Oracle 9 et versions ultérieures
@@ -46,7 +47,7 @@ Cette rubrique décrit comment utiliser le connecteur de base de données Oracle
   [ODAC 12C version 4 (12.1.0.2.4) 64 bits pour Windows x64](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
 
     > [!TIP]
-    > Si le client Oracle n’est pas installé, une erreur se produit lorsque vous tentez de créer ou d’utiliser la connexion. Consultez les erreurs courantes dans cette rubrique.
+    > Si le client Oracle n’est pas installé, une erreur se produit lorsque vous tentez de créer ou d’utiliser la connexion. Consultez les erreurs courantes dans cet article.
 
 
 ## <a name="add-the-connector"></a>Ajouter le connecteur
@@ -104,7 +105,7 @@ Cette rubrique décrit comment utiliser le connecteur de base de données Oracle
 
 **Atténuation** : assurez-vous que votre passerelle s’exécute sur l’ordinateur local où vous l’avez installée, et qu’elle peut se connecter à Internet.  Nous vous recommandons ne pas installer la passerelle sur un ordinateur susceptible d’être mis hors tension ou en veille. Vous pouvez également redémarrer le service de passerelle de données locale (PBIEgwService).
 
-#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-please-visit-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Erreur**: Le fournisseur utilisé est déconseillé : System.Data.OracleClient requiert le logiciel client Oracle version 8.1.7 ou supérieure. Visitez [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) pour installer le fournisseur officiel.
+#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Erreur**: Le fournisseur utilisé est déconseillé : System.Data.OracleClient requiert le logiciel client Oracle version 8.1.7 ou supérieure. Consultez [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) pour installer le fournisseur officiel.
 
 **Cause** : le kit de développement du client Oracle n’est pas installé sur l’ordinateur qui exécute la passerelle de données locale.  
 
@@ -134,4 +135,4 @@ Vous pouvez améliorer Logic Apps et les connecteurs en votant et en soumettant 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Créez une application logique](apis-list.md) et explorez les connecteurs disponibles dans Logic Apps en consultant notre [liste d’API](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+[Créer une application logique](apis-list.md) et explorez les connecteurs disponibles dans Logic Apps sur la [liste d’API](../logic-apps/quickstart-create-first-logic-app-workflow.md).

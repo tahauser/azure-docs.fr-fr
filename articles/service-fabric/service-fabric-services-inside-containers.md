@@ -1,6 +1,6 @@
 ---
-title: "Comment conteneuriser les microservices Azure Service Fabric (préversion)"
-description: "Azure Service Fabric a ajouté de nouvelles fonctionnalités, qui vous permettent de conteneuriser vos microservices Service Fabric. Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire."
+title: Comment conteneuriser les microservices Azure Service Fabric (préversion)
+description: Azure Service Fabric a ajouté de nouvelles fonctionnalités, qui vous permettent de conteneuriser vos microservices Service Fabric. Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire.
 services: service-fabric
 documentationcenter: .net
 author: anmolah
@@ -14,21 +14,20 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/04/2017
 ms.author: anmola
-ms.openlocfilehash: 6f8ad0bad8d1ae861e6b72f7e1a32ab0675813c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e66e488d8e547e828c014b105a816a14726e5005
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-containerize-your-service-fabric-reliable-services-and-reliable-actors-preview"></a>Comment conteneuriser les microservices Service Fabric Reliable Actors et Reliable Services (préversion)
 
 Service Fabric prend en charge la conteneurisation des microservices Service Fabric (services basés sur Reliable Services et Reliable Actors). Pour en savoir plus, voir [Service Fabric et conteneurs](service-fabric-containers-overview.md).
 
-
- Cette fonctionnalité est disponible en préversion. Cet article décrit les différentes étapes permettant d’assurer l’exécution de votre service au sein d’un conteneur.  
+Cette fonctionnalité est disponible en préversion. Cet article décrit les différentes étapes permettant d’assurer l’exécution de votre service au sein d’un conteneur.  
 
 > [!NOTE]
-> Cette fonctionnalité est disponible en préversion et n’est pas prise en charge dans les environnements de production. Actuellement, cette fonctionnalité fonctionne uniquement pour Windows.
+> Cette fonctionnalité est disponible en préversion et n’est pas prise en charge dans les environnements de production. Actuellement, cette fonctionnalité fonctionne uniquement pour Windows. Pour exécuter des conteneurs, le cluster doit être en cours d’exécution sur Windows Server 2016 avec des conteneurs.
 
 ## <a name="steps-to-containerize-your-service-fabric-application"></a>Étapes de conteneurisation de votre application Service Fabric
 

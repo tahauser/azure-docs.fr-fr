@@ -1,12 +1,12 @@
 ---
-title: "Analyse des sentiments à l’aide de l’apprentissage profond dans Azure Machine Learning | Microsoft Docs"
-description: "Décrit comment effectuer une analyse des sentiments à l’aide de l’apprentissage profond dans Azure ML Workbench."
+title: Analyse des sentiments à l’aide de l’apprentissage profond dans Azure Machine Learning | Microsoft Docs
+description: Décrit comment effectuer une analyse des sentiments à l’aide de l’apprentissage profond dans Azure ML Workbench.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: miprasad
 manager: kristin.tolle
 editor: miprasad
-ms.assetid: 
+ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2018
 ms.author: miprasad
-ms.openlocfilehash: 3b0a5bfc911f3edf91367cbf4fde907cbf98e114
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ead8edcefa8705af82f4b223512a671c1245718a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="sentiment-analysis-using-deep-learning-with-azure-machine-learning"></a>Analyse des sentiments à l’aide de l’apprentissage profond dans Azure Machine Learning
 
 L’analyse des sentiments est une tâche bien connue dans le domaine du traitement du langage naturel. Elle a pour but de déterminer le sentiment d’un texte à partir d’un ensemble de données texte. L’objectif de cette solution est d’utiliser l’apprentissage profond pour prédire les sentiments en se basant sur des critiques de films.
 
-La solution se trouve dans https://github.com/Azure/MachineLearningSamples-SentimentAnalysis
+La solution se trouve à https://github.com/Azure/MachineLearningSamples-SentimentAnalysis
 
 ## <a name="link-to-the-gallery-github-repository"></a>Lien vers le dépôt GitHub de la galerie
 
@@ -37,9 +37,10 @@ Suivez ce lien vers le dépôt GitHub public :
 
 Avec l’explosion des données disponibles et la prolifération des appareils mobiles, les clients ont de multiples occasions d’exprimer leurs impressions et positions sur n’importe quel sujet et à toute heure. Cette opinion ou ce « sentiment » est souvent véhiculé par le biais des canaux sociaux sous différentes formes, comme les avis, les discussions, les partages, les mentions J’aime, les tweets, etc. Le sentiment peut être une donnée capitale pour les entreprises qui cherchent à améliorer leurs produits et services, prendre des décisions plus éclairées et mieux promouvoir leurs marques.
 
-Pour tirer parti de l’analyse des sentiments, les entreprises doivent être capables d’explorer de vastes référentiels de données sociales non structurées et d’en dégager des insights actionnables. Dans cet exemple, nous allons créer des modèles d’apprentissage profond pour effectuer l’analyse des sentiments de critiques de films à l’aide d’AML Workbench
+Pour tirer parti de l’analyse des sentiments, les entreprises doivent être capables d’explorer de vastes référentiels de données sociales non structurées et d’en dégager des insights actionnables. Dans cet exemple, nous développons des modèles d’apprentissage profond pour effectuer l’analyse des sentiments de critiques de films à l’aide d’AMLWorkbench
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 * Un [compte Azure](https://azure.microsoft.com/free/) (des comptes d’essai gratuit sont disponibles).
 
@@ -69,7 +70,7 @@ Pour mener à bien la solution, vous devez effectuer les exercices pratiques dan
 |--|-----------|------|
 | 1 | [`SentimentAnalysisDataPreparation.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisDataPreparation.md) | « data/sampleReviews.txt » |
 | 2 | [`SentimentAnalysisModelingKeras.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisModelingKeras.md) | « SentimentExtraction.py » |
-| 4 | [`SentimentAnalysisOperationalization.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisOperationalization.md) | « Operationalization » |
+| 3 | [`SentimentAnalysisOperationalization.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisOperationalization.md) | « Operationalization » |
 
 ## <a name="conclusion"></a>Conclusion
 

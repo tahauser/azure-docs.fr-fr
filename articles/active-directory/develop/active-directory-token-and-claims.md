@@ -1,11 +1,11 @@
 ---
-title: "En savoir plus sur les différents types de jeton et de revendication pris en charge par Azure AD | Microsoft Docs"
-description: "Un guide pour la compréhension et l'évaluation des revendications dans les jetons SAML 2.0 et les jetons web JSON (JWT) émis par Azure Active Directory (AAD)"
+title: En savoir plus sur les différents types de jeton et de revendication pris en charge par Azure AD | Microsoft Docs
+description: Un guide pour la compréhension et l'évaluation des revendications dans les jetons SAML 2.0 et les jetons web JSON (JWT) émis par Azure Active Directory (AAD)
 documentationcenter: na
-author: dstrockis
+author: hpsin
 services: active-directory
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 166aa18e-1746-4c5e-b382-68338af921e2
 ms.service: active-directory
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/07/2017
-ms.author: dastrock
+ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 3104b47d7ff8585142674b0ee545012f1e291ddd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ca8a34c0a29ffad21e6384feac055d7a292311a5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-ad-token-reference"></a>Référence de jeton Azure AD
 Azure Active Directory (Azure AD) émet plusieurs types de jetons de sécurité lors du traitement de chaque flux d’authentification. Ce document décrit le format, les caractéristiques en matière de sécurité et le contenu de chaque type de jeton.
@@ -50,10 +50,10 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 
 #### <a name="claims-in-idtokens"></a>Revendications dans les jetons id_token
 > [!div class="mx-codeBreakAll"]
-| Revendication JWT | Name | Description |
+| Revendication JWT | NOM | Description |
 | --- | --- | --- |
 | `appid` |ID de l'application |Identifie l’application qui utilise le jeton pour accéder à une ressource. L'application peut agir pour elle-même ou pour le compte d'un utilisateur. L'ID d'application représente généralement un objet d’application, mais elle peut également représenter un objet du principal du service dans Azure AD. <br><br> **Exemple de valeur JWT** : <br> `"appid":"15CB020F-3984-482A-864D-1D92265E8268"` |
-| `aud` |Public ciblé |Destinataire du jeton. L'application qui reçoit le jeton doit vérifier que la valeur de l'audience est correcte et rejeter les jetons destinés à une autre audience. <br><br> **Exemple de valeur SAML** : <br> `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>` <br><br> **Exemple de valeur JWT** : <br> `"aud":"https://contoso.com"` |
+| `aud` |Audience |Destinataire du jeton. L'application qui reçoit le jeton doit vérifier que la valeur de l'audience est correcte et rejeter les jetons destinés à une autre audience. <br><br> **Exemple de valeur SAML** : <br> `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>` <br><br> **Exemple de valeur JWT** : <br> `"aud":"https://contoso.com"` |
 | `appidacr` |Référence de classe du contexte d’authentification de l’application |Indique comment le client a été authentifié. Pour un client public, la valeur est 0. Si l'ID client et la clé secrète client sont utilisés, la valeur est 1. <br><br> **Exemple de valeur JWT** : <br> `"appidacr": "0"` |
 | `acr` |Référence de classe du contexte d'authentification |Indique comment le sujet a été authentifié, et non pas le client comme dans la revendication de référence de classe du contexte de l’authentification de l’application. La valeur « 0 » indique que l'authentification de l'utilisateur final ne répondait pas aux exigences de la norme ISO/IEC 29115. <br><br> **Exemple de valeur JWT** : <br> `"acr": "0"` |
 | Moment d’authentification |Enregistre la date et l’heure de l’authentification. <br><br> **Exemple de valeur SAML** : <br> `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` | |
@@ -64,7 +64,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 | `iat` |IssuedAt |Enregistre l’heure à laquelle le jeton a été émis. Il est souvent utilisé pour mesurer l’actualisation du jeton. <br><br> **Exemple de valeur SAML** : <br> `<Assertion ID="_d5ec7a9b-8d8f-4b44-8c94-9812612142be" IssueInstant="2014-01-06T20:20:23.085Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">` <br><br> **Exemple de valeur JWT** : <br> `"iat": 1390234181` |
 | `iss` |Émetteur |Identifie le service d’émission de jeton de sécurité (STS) qui construit et retourne le jeton. Dans les jetons retournés par Azure AD, l'émetteur est sts.windows.net. Le GUID dans la valeur de revendication de l'émetteur est l'ID client de Azure AD Directory. L'ID client est un identificateur non modifiable et fiable du répertoire. <br><br> **Exemple de valeur SAML** : <br> `<Issuer>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/</Issuer>` <br><br> **Exemple de valeur JWT** : <br>  `"iss":”https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/”` |
 | `family_name` |Nom |Fournit le nom de famille de lutilisateur tel que défini dans l’objet utilisateur Azure AD. <br><br> **Exemple de valeur SAML** : <br> `<Attribute Name=” http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname”>`<br>`<AttributeValue>Miller<AttributeValue>` <br><br> **Exemple de valeur JWT** : <br> `"family_name": "Miller"` |
-| `unique_name` |Nom |Fournit une valeur contrôlable de visu qui identifie le sujet du jeton. Il n’est pas certain que cette valeur soit unique au sein d'un client. Elle est conçue pour être utilisée uniquement à des fins d'affichage. <br><br> **Exemple de valeur SAML** : <br> `<Attribute Name=”http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name”>`<br>`<AttributeValue>frankm@contoso.com<AttributeValue>` <br><br> **Exemple de valeur JWT** : <br> `"unique_name": "frankm@contoso.com"` |
+| `unique_name` |NOM |Fournit une valeur contrôlable de visu qui identifie le sujet du jeton. Il n’est pas certain que cette valeur soit unique au sein d'un client. Elle est conçue pour être utilisée uniquement à des fins d'affichage. <br><br> **Exemple de valeur SAML** : <br> `<Attribute Name=”http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name”>`<br>`<AttributeValue>frankm@contoso.com<AttributeValue>` <br><br> **Exemple de valeur JWT** : <br> `"unique_name": "frankm@contoso.com"` |
 | `oid` |ID objet |Contient un identificateur unique d’un objet dans Azure AD. Cette valeur est immuable et ne peut pas être réattribuée ou réutilisée. Utilisez l'ID objet pour identifier un objet dans les requêtes à Azure AD. <br><br> **Exemple de valeur SAML** : <br> `<Attribute Name="http://schemas.microsoft.com/identity/claims/objectidentifier">`<br>`<AttributeValue>528b2ac2-aa9c-45e1-88d4-959b53bc7dd0<AttributeValue>` <br><br> **Exemple de valeur JWT** : <br> `"oid":"528b2ac2-aa9c-45e1-88d4-959b53bc7dd0"` |
 | `roles` |contrôleur |Représente tous les rôles d’application qui ont été accordés au sujet directement et indirectement via l’appartenance au groupe, et peut être utilisée pour appliquer un contrôle d’accès basé sur les rôles. Les rôles d’application sont définis pour chaque application, via la propriété `appRoles` du manifeste d’application. La propriété `value` de chaque rôle d’application est la valeur qui s’affiche dans la revendication des rôles. <br><br> **Exemple de valeur SAML** : <br> `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/role">`<br>`<AttributeValue>Admin</AttributeValue>` <br><br> **Exemple de valeur JWT** : <br> `“roles”: ["Admin", … ]` |
 | `scp` |Étendue |Indique les autorisations d’emprunt d’identité accordées à l’application cliente. L’autorisation par défaut est `user_impersonation`. Le propriétaire de la ressource sécurisée peut enregistrer des valeurs supplémentaires dans Azure AD. <br><br> **Exemple de valeur JWT** : <br> `"scp": "user_impersonation"` |
@@ -90,13 +90,13 @@ Les jetons d’actualisation sont des jetons de sécurité que votre application
 
 Les jetons d’actualisation prennent en charge plusieurs ressources.  Cela signifie qu’un jeton d’actualisation reçu au cours d’une demande de jeton pour une ressource peut être échangé contre des jetons d’accès à une ressource complètement différente. Pour ce faire, définissez le paramètre `resource` sur la ressource cible dans la requête.
 
-Les jetons d’actualisation sont entièrement opaques pour votre application. Les jetons d’actualisation sont de longue durée. Toutefois, quand vous écrivez votre application, faites en sorte qu’elle n’attende pas un jeton d’actualisation d’une durée particulière.  Les jetons d’actualisation peuvent être rendus non valides à tout moment, et ce pour diverses raisons.  Pour savoir si un jeton d’actualisation est valide, votre application doit tenter de l’échanger en faisant une demande de jeton auprès du point de terminaison de jeton d’Azure AD. C’est la seule façon de faire.
+Les jetons d’actualisation sont entièrement opaques pour votre application. Les jetons d’actualisation sont de longue durée. Toutefois, quand vous écrivez votre application, faites en sorte qu’elle n’attende pas un jeton d’actualisation d’une durée particulière.  Les jetons d’actualisation peuvent être rendus non valides à tout moment, et ce pour diverses raisons (voir [Révocation de jetons](#token-revocation)).  Pour savoir si un jeton d’actualisation est valide, votre application doit tenter de l’échanger en faisant une demande de jeton auprès du point de terminaison de jeton d’Azure AD. C’est la seule façon de faire.
 
 Quand vous échangez un jeton d’actualisation contre un nouveau jeton d’accès, vous recevez un nouveau jeton d’actualisation dans la réponse du jeton.  Vous devez enregistrer le jeton d’actualisation nouvellement émis, ce qui a pour effet de remplacer celui que vous avez utilisé dans la demande.  Vous avez ainsi la garantie que vos jetons d’actualisation resteront valides le plus longtemps possible.
 
 ## <a name="validating-tokens"></a>Validation des jetons
 
-Pour valider un jeton id_token ou access_token, votre application doit valider à la fois la signature du jeton et les revendications. Afin de valider les jetons d’accès, votre application doit également valider l’émetteur, l’audience et les jetons de signature. Ces éléments doivent être validés d’après les valeurs du document de découverte OpenID. Par exemple, la version indépendante de l’abonné du document se trouve à l’adresse [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration). Le middleware Azure AD intègre des fonctionnalités de validation des jetons d’accès, et vous pouvez parcourir nos [exemples](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) pour en trouver un dans la langue de votre choix. Pour plus d’informations sur la validation explicite d’un jeton JWT, consultez l’[exemple de validation manuelle JWT](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).  
+Pour valider un jeton id_token ou access_token, votre application doit valider à la fois la signature du jeton et les revendications. Afin de valider les jetons d’accès, votre application doit également valider l’émetteur, l’audience et les jetons de signature. Ces éléments doivent être validés d’après les valeurs du document de découverte OpenID. Par exemple, la version indépendante du client du document se trouve à l’adresse [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration). Le middleware Azure AD intègre des fonctionnalités de validation des jetons d’accès, et vous pouvez parcourir nos [exemples](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) pour en trouver un dans la langue de votre choix. Pour plus d’informations sur la validation explicite d’un jeton JWT, consultez l’[exemple de validation manuelle JWT](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).  
 
 Nous fournissons des bibliothèques et des exemples de code qui montrent comment gérer facilement la validation des jetons. Les informations ci-dessous sont fournies simplement pour ceux qui souhaitent comprendre le processus sous-jacent.  Il existe également de nombreuses bibliothèques open source tierces qui permettent de valider les jetons JWT. Quels que soient la plateforme et le langage que vous utilisez, vous avez la quasi-certitude de trouver au moins une option. Pour plus d’informations sur les exemples de code et les bibliothèques d’authentification Azure AD, reportez-vous à la section [Bibliothèques d’authentification Azure AD](active-directory-authentication-libraries.md).
 
@@ -146,6 +146,24 @@ Lorsque votre application reçoit un jeton (que ce soit un id_token, à la conne
 * et bien plus...
 
 Pour obtenir la liste complète des revendications que votre application doit valider pour les jetons id_token, reportez-vous à la [Spécification OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation). Les valeurs attendues pour ces revendications sont détaillées dans la [section Jeton id_token](#id-tokens) ci-dessus.
+
+## <a name="token-revocation"></a>Révocation de jetons
+
+Les jetons d’actualisation peuvent être rendus non valides ou révoqués à tout moment, et ce pour diverses raisons,  classées dans deux grandes catégories : les délais d’expiration et les révocations. 
+* Délais d’expiration des jetons
+  * MaxInactiveTime : si le jeton d’actualisation n’a pas été utilisé dans le délai défini par MaxInactiveTime, il ne sera plus valide. 
+  * MaxSessionAge : si MaxAgeSessionMultiFactor ou MaxAgeSessionSingleFactor ont été définis sur une valeur autre que la valeur par défaut (Until-revoked), une réauthentification sera nécessaire après écoulement du délai défini dans MaxAgeSession*.  
+  * Exemples :
+    * Le client a un MaxInactiveTime de cinq jours et l’utilisateur est parti en congé pour une semaine ; par conséquent, AAD n’a pas reçu de nouvelle demande de jeton de sa part depuis sept jours.  La prochaine fois que l’utilisateur demandera un nouveau jeton, il s’apercevra que son jeton d’actualisation a été révoqué, et il devra entrer à nouveau ses informations d’identification. 
+    * Une application sensible a un MaxAgeSessionSingleFactor d’un jour.  Si un utilisateur se connecte le lundi et le mardi (après 25 heures), il devra s’authentifier à nouveau.  
+* Révocation
+  * Changement de mot de passe volontaire : si un utilisateur modifie son mot de passe, il devra peut-être s’authentifier de nouveau sur certaines applications, selon la façon dont le jeton a été acquis.  Consultez les notes ci-dessous pour connaître les exceptions. 
+  * Modification de mot de passe involontaire : si un administrateur oblige un utilisateur à modifier ou à réinitialiser son mot de passe, les jetons de ce dernier sont invalidés s’ils ont été acquis à l’aide de son mot de passe.  Consultez les notes ci-dessous pour connaître les exceptions. 
+  * Violation de la sécurité : en cas de violation de la sécurité (par exemple, une violation du magasin local de mots de passe), l’administrateur a la possibilité de révoquer tous les jetons d’actualisation actuellement émis,  ce qui force tous les utilisateurs à se réauthentifier. 
+
+Remarque : 
+
+Si une méthode d’authentification sans mot de passe a été utilisée (Windows Hello, l’application Authenticator ou la biométrie, par exemple, une empreinte faciale ou digitale) pour acquérir le jeton, le fait de modifier le mot de passe de l’utilisateur ne l’obligera pas à se réauthentifier (mais forcera son application Authenticator à le faire).  En effet, l’entrée d’authentification (un visage, par exemple) n’ayant pas changé, elle est de nouveau utilisable pour la réauthentification.
 
 ## <a name="sample-tokens"></a>Exemples de jeton
 

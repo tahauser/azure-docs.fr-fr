@@ -1,24 +1,24 @@
 ---
-title: "Connexion d’Azure SQL Database à la Recherche Azure à l’aide d’indexeurs | Microsoft Docs"
-description: "Découvrez comment extraire des données d’Azure SQL Database à un index Azure à l'aide d'indexeurs."
+title: Connexion d’Azure SQL Database à la Recherche Azure à l’aide d’indexeurs | Microsoft Docs
+description: Découvrez comment extraire des données d’Azure SQL Database à un index Azure à l'aide d'indexeurs.
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: chaosrealm
 manager: pablocas
-editor: 
+editor: ''
 ms.assetid: e9bbf352-dfff-4872-9b17-b1351aae519f
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/13/2017
+ms.date: 08/12/2018
 ms.author: eugenesh
-ms.openlocfilehash: 2ec1e02ccc8d8916f6d9d50ce787f2562f33fd7d
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 5f85b81e894cba7354fb146d6e9a1aa987be7dc5
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Connexion d'Azure SQL Database à Azure Search à l'aide d'indexeurs
 
@@ -57,6 +57,9 @@ Selon plusieurs facteurs relatifs à vos données, l'utilisation de l'indexeur A
 | Les types de données sont compatibles | Mais certains types SQL ne sont pas pris en charge dans les index Recherche Azure. Pour obtenir une liste, consultez [Mappage des types de données](#TypeMapping). |
 | La synchronisation de données en temps réel n’est pas requise | Un indexeur peut réindexer votre table toutes les cinq minutes au plus. Si vos données changent fréquemment et si les modifications doivent être intégrées dans l’index en quelques secondes ou quelques minutes, nous vous recommandons d’utiliser l’[API REST](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) ou le [SDK .NET](search-import-data-dotnet.md) pour émettre directement les lignes mises à jour. |
 | Une indexation incrémentielle est possible | Si vous avez un jeu de données important et si vous comptez exécuter l’indexeur selon une planification, Recherche Azure doit être en mesure d’identifier efficacement les lignes nouvelles, modifiées ou supprimées. L’indexation non incrémentielle n’est autorisée que si vous effectuez une indexation à la demande (non planifiée) ou une indexation de moins de 100 000 lignes. Pour plus d’informations, consultez la section [Capture des lignes modifiées et supprimées](#CaptureChangedRows) ci-dessous. |
+
+> [!NOTE] 
+> Recherche Azure ne prend en charge que l’authentification SQL Server. Si vous avez besoin de prise en charge pour l’authentification du mot de passe Azure Active Directory, veuillez voter pour cette [suggestion UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/33595465-support-azure-active-directory-password-authentica).
 
 ## <a name="create-an-azure-sql-indexer"></a>Créer un indexeur Azure SQL
 
@@ -294,8 +297,8 @@ Lorsque vous utilisez la technique de suppression réversible, vous pouvez spéc
 | smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String | |
 | uniqueidentifer |Edm.String | |
 | Geography |Edm.GeographyPoint |Seules les instances Geography de type POINT avec SRID 4326 (valeur par défaut) sont prises en charge |
-| rowversion |Non applicable |Les colonnes de version de ligne ne peuvent pas être stockées dans l'index de recherche, mais peuvent être utilisées pour le suivi des modifications |
-| time, timespan, binary, varbinary, image, xml, geometry, types CLR |Non applicable |Non pris en charge |
+| rowversion |N/A |Les colonnes de version de ligne ne peuvent pas être stockées dans l'index de recherche, mais peuvent être utilisées pour le suivi des modifications |
+| time, timespan, binary, varbinary, image, xml, geometry, types CLR |N/A |Non pris en charge |
 
 ## <a name="configuration-settings"></a>Paramètres de configuration
 L’indexeur SQL expose plusieurs paramètres de configuration :

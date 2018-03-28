@@ -1,8 +1,8 @@
 ---
-title: "Jeux de données et services liés dans Azure Data Factory | Microsoft Docs"
-description: "Apprenez-en davantage sur les jeux de données et les services liés dans Azure Data Factory. Les services liés lient le calcul et les banques de données à une fabrique de données. Les jeux de données représentent des données d’entrée/sortie."
+title: Jeux de données et services liés dans Azure Data Factory | Microsoft Docs
+description: Apprenez-en davantage sur les jeux de données et les services liés dans Azure Data Factory. Les services liés lient le calcul et les banques de données à une fabrique de données. Les jeux de données représentent des données d’entrée/sortie.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
 manager: jhubbard
 editor: spelluru
@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: 
+ms.topic: ''
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: bfc95588378466fe1e83bcc4e899eca6b66b358a
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 98d58b97457cc64954094d7e8d8b4defca7e05ff
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Jeux de données et services liés dans Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -31,7 +31,7 @@ Cet article décrit les jeux de données, comment ils sont définis au format JS
 
 Si vous débutez avec Data Factory, consultez [Présentation d’Azure Data Factory](introduction.md) pour obtenir une vue d’ensemble. 
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 Une fabrique de données peut avoir un ou plusieurs pipelines. Un **pipeline** constitue un regroupement logique d’**activités** qui exécutent ensemble une tâche. Les activités d’un pipeline définissent les actions à effectuer sur les données. Par exemple, vous pouvez utiliser une activité de copie pour copier des données d’un serveur SQL Server local vers un stockage Blob Azure. Ensuite, vous pouvez utiliser une activité Hive qui exécute un script Hive sur un cluster Azure HDInsight pour traiter les données du stockage Blob afin de produire des données de sortie. Enfin, vous pouvez utiliser une deuxième activité de copie pour copier les données de sortie dans Azure SQL Data Warehouse sur lequel des solutions de génération de rapports décisionnelles sont développées. Pour plus d’informations sur les pipelines et les activités, voir [Pipelines et activités dans Azure Data Factory](concepts-pipelines-activities.md).
 
 À présent, un **jeu de données** est une vue de données nommée qui pointe ou fait référence simplement aux données que vous souhaitez utiliser dans vos **activités** en tant qu’entrées et sorties. Les jeux de données identifient les données dans différents magasins de données, par exemple des tables, des fichiers, des dossiers et des documents. Par exemple, un jeu de données d’objets blob Azure spécifie le conteneur et le dossier du Stockage Blob à partir duquel l’activité doit lire les données.
@@ -184,31 +184,37 @@ Dans l’exemple de la section précédente, le type du jeu de données est déf
 }
 ```
 ## <a name="dataset-structure"></a>Structure de jeu de données
-La section **structure** est facultative. Elle définit le schéma du jeu de données en contenant une collection de noms et de types de données de colonnes. Vous utilisez la section structure pour fournir des informations sur le type utilisé pour convertir les types et colonnes de mappage depuis la source vers la destination. Dans l’exemple suivant, le jeu de données comporte trois colonnes : timestamp, projectname et pageviews. Elles sont respectivement de type String, String et Decimal.
-
-```json
-[
-    { "name": "timestamp", "type": "String"},
-    { "name": "projectname", "type": "String"},
-    { "name": "pageviews", "type": "Decimal"}
-]
-```
+La section **structure** est facultative. Elle définit le schéma du jeu de données en contenant une collection de noms et de types de données de colonnes. Vous utilisez la section structure pour fournir des informations sur le type utilisé pour convertir les types et colonnes de mappage depuis la source vers la destination.
 
 Chaque colonne de la structure contient les propriétés suivantes :
 
 Propriété | Description | Obligatoire
 -------- | ----------- | --------
 Nom | Nom de la colonne. | OUI
-Type | Type de données de la colonne. | Non 
+Type | Type de données de la colonne. Data Factory prend en charge les types de données temporaires suivants, comme les valeurs autorisées : **Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset et Timespan** | Non 
 culture | Culture .NET à utiliser lorsque le type est un type .NET : `Datetime` ou `Datetimeoffset`. Par défaut, il s’agit de `en-us`. | Non 
-format | Chaîne de format à utiliser lorsque le type est un type .NET : `Datetime` ou `Datetimeoffset`. | Non 
+format | Chaîne de format à utiliser lorsque le type est un type .NET : `Datetime` ou `Datetimeoffset`. Reportez-vous à [Chaînes de format Date et Heure personnalisées](https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings) sur la mise en forme des date/heure. | Non 
 
-Les recommandations suivantes vous permettent de déterminer le moment auquel inclure les informations de structure et pour connaître les éléments à inclure dans la section **structure**.
+### <a name="example"></a>Exemples
+Dans l’exemple suivant, supposons que les données Blob sources sont au format CSV et contiennent trois colonnes : userid, nom et lastlogindate. Elles sont de type Int64, String et Datetime avec un format de date et d'heure personnalisé utilisant des noms abrégés en français pour le jour de la semaine.
 
-- **Pour les sources de données structurées**, spécifiez la section structure uniquement si vous souhaitez mapper les colonnes sources aux colonnes du récepteur et que leurs noms ne sont pas identiques. Ce type de source de données structurées stocke les informations de schéma et de type de données, ainsi que les données elles-mêmes. SQL Server, Oracle et Azure SQL Database sont des exemples de sources de données structurées.<br/><br/>Comme les informations de type sont déjà disponibles pour les sources de données structurées, vous ne devez pas les inclure lorsque vous incluez la section structure.
-- **Pour un schéma des sources de données de lecture (en particulier le stockage Blob)**, vous pouvez choisir de stocker des données sans les informations de type ou de schéma. Pour ces types de sources de données, incluez la structure lorsque vous souhaitez mapper les colonnes sources aux colonnes de récepteur. Incluez également la structure lorsque le jeu de données est une entrée d’une activité de copie et que les types de données du jeu de données source doivent être convertis en types natifs pour le récepteur.<br/><br/> Azure Data Factory prend en charge les valeurs suivantes pour fournir des informations de type dans la structure : `Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset, and Timespan`. 
+Définissez la structure du jeu de données blob comme suit, ainsi que des définitions de types pour les colonnes :
 
-Apprenez-en davantage sur la manière dont la fabrique de données mappe les données sources au récepteur de [Mappage de schémas et de types]( copy-activity-schema-and-type-mapping.md) et quand spécifier des informations de structure.
+```json
+"structure":
+[
+    { "name": "userid", "type": "Int64"},
+    { "name": "name", "type": "String"},
+    { "name": "lastlogindate", "type": "Datetime", "culture": "fr-fr", "format": "ddd-MM-YYYY"}
+]
+```
+
+### <a name="guidance"></a>Assistance
+
+Les recommandations suivantes vous permettent de comprendre quand inclure les informations de structure et qu’inclure dans la section **structure**. Apprenez-en davantage sur la manière dont la fabrique de données mappe les données sources au récepteur et quand spécifier les informations de structure à partir de [Mappage de schémas et de types](copy-activity-schema-and-type-mapping.md).
+
+- **Pour des sources de données de schéma fortes**, spécifiez la section structure uniquement si vous souhaitez mapper les colonnes sources aux colonnes du récepteur et que leurs noms ne sont pas identiques. Ce type de source de données structurées stocke les informations de schéma et de type de données, ainsi que les données elles-mêmes. SQL Server, Oracle et Azure SQL Database sont des exemples de sources de données structurées.<br/><br/>Comme les informations de type sont déjà disponibles pour les sources de données structurées, vous ne devez pas les inclure lorsque vous incluez la section structure.
+- **Pour aucune source ou des sources de données de schéma faibles, par ex. un fichier texte dans le stockage blob**, incluez la structure lorsque le jeu de données est une entrée d’activité de copie et que les types de données du jeu de données source doivent être convertis en types natifs pour le récepteur. Et incluez la structure lorsque vous souhaitez mapper les colonnes sources aux colonnes de récepteur.
 
 ## <a name="create-datasets"></a>Créez les jeux de données
 Vous pouvez créer des jeux de données en utilisant l’un des outils ou kits de développement logiciel suivants : [.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), modèle Azure Resource Manager et portail Azure

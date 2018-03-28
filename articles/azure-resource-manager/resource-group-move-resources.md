@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: c4bf3871b4636ce769dd8d84a637b88d4a00db97
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 4709ee707aa67c8de531b2b3e0b58dbed5c2667b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
 
@@ -123,7 +123,7 @@ Les services qui permettent le déplacement vers un nouveau groupe de ressources
 * Clusters HDInsight - voir [Limitations de HDInsight](#hdinsight-limitations)
 * IoT Hubs
 * Key Vault
-* Équilibreurs de charge
+* Équilibreurs de charge - consultez [Limitations de l’équilibreur de charge](#lb-limitations)
 * Logic Apps
 * Machine Learning
 * Media Services
@@ -132,6 +132,7 @@ Les services qui permettent le déplacement vers un nouveau groupe de ressources
 * Operational Insights
 * Operations Management
 * Power BI
+* IP publique - consultez [Limitations de l’IP publique](#pip-limitations)
 * Cache Redis
 * Scheduler
 * action
@@ -161,8 +162,10 @@ Les services qui ne permettent pas actuellement le déplacement d’une ressourc
 * ExpressRoute
 * Laboratoires DevTest : le déplacement vers un nouveau groupe de ressources dans le même abonnement est activé, mais le déplacement entre abonnements n’est pas activé.
 * Dynamics LCS
+* Équilibreurs de charge - consultez [Limitations de l’équilibreur de charge](#lb-limitations)
 * Applications gérées
 * Disques gérés : consultez [Limitations relatives aux machines virtuelles](#virtual-machines-limitations)
+* IP publique - consultez [Limitations de l’IP publique](#pip-limitations)
 * Coffre Recovery Services : par ailleurs, ne déplacez pas les ressources de calcul, de réseau et de stockage associées au coffre Recovery Services. Consultez [Limitations de Recovery Services](#recovery-services-limitations).
 * Sécurité
 * StorSimple Device Manager
@@ -320,6 +323,16 @@ Lorsque vous déplacez un cluster HDInsight vers un nouvel abonnement, déplacez
 
 Vous ne pouvez pas déplacer simultanément plusieurs ressources de recherche placés dans des régions différentes.
 Dans ce cas, vous devez les déplacer séparément.
+
+## <a name="lb-limitations"></a> Limitations de l’équilibreur de charge
+
+L’équilibreur de charge de la référence SKU de base peut être déplacé.
+L’équilibrage de charge de la référence SKU standard ne peut pas être déplacé.
+
+## <a name="pip-limitations"></a> Limitations de l’IP publique
+
+L’IP publique de la référence SKU de base peut être déplacée.
+L’IP publique de la référence SKU standard ne peut pas être déplacée.
 
 ## <a name="use-portal"></a>Utilisation du portail
 

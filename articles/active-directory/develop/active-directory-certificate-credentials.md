@@ -1,11 +1,11 @@
 ---
-title: "Informations d’identification de certificat dans Azure AD | Microsoft Docs"
-description: "Cet article traite de l’inscription et de l’utilisation des informations d’identification de certificat pour l’authentification d’application."
+title: Informations d’identification de certificat dans Azure AD | Microsoft Docs
+description: Cet article traite de l’inscription et de l’utilisation des informations d’identification de certificat pour l’authentification d’application.
 services: active-directory
 documentationcenter: .net
 author: navyasric
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 88f0c64a-25f7-4974-aca2-2acadc9acbd8
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: d05456912324c06a0895cd4cf049b60c9d126904
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 68de6295b84385f54eaadd6d24e8309a32fae9ce
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Informations d’identification de certificat pour l’authentification d’application
 
@@ -32,7 +32,7 @@ Pour calculer l’assertion, vous souhaiterez probablement utiliser l’une des 
 #### <a name="header"></a>En-tête
 
 | Paramètre |  Remarque |
-| --- | --- | --- |
+| --- | --- |
 | `alg` | Doit être **RS256** |
 | `typ` | Doit être **JWT** |
 | `x5t` | Doit être l’empreinte SHA-1 du certificat X.509 |
@@ -40,8 +40,8 @@ Pour calculer l’assertion, vous souhaiterez probablement utiliser l’une des 
 #### <a name="claims-payload"></a>Revendications (charge utile)
 
 | Paramètre |  Remarque |
-| --- | --- | --- |
-| `aud` | Public : doit être **https://login.microsoftonline.com/*tenant_Id*/oauth2/token** |
+| --- | --- |
+| `aud` | Public : doit être  **https://login.microsoftonline.com/ *tenant_Id*  /oauth2/jeton** |
 | `exp` | Date d’expiration : date d’expiration du jeton. L’heure est représentée en nombre de secondes à partir du 1er janvier 1970 (1970-01-01T0:0:0Z) UTC jusqu’à l’expiration du jeton.|
 | `iss` | Émetteur : doit être le paramètre client_id (ID de l’application du service client) |
 | `jti` | GUID : ID JWT |
@@ -49,9 +49,11 @@ Pour calculer l’assertion, vous souhaiterez probablement utiliser l’une des 
 | `sub` | Objet : comme pour `iss`, doit être le paramètre client_id (ID de l’application du service client) |
 
 #### <a name="signature"></a>Signature
+
 La signature est calculée en appliquant le certificat, conformément à la [spécification TFC7519 sur les jetons Web JSON](https://tools.ietf.org/html/rfc7519).
 
 ### <a name="example-of-a-decoded-jwt-assertion"></a>Exemple d’une assertion JWT décodée
+
 ```
 {
   "alg": "RS256",
@@ -73,6 +75,7 @@ La signature est calculée en appliquant le certificat, conformément à la [sp�
 ```
 
 ### <a name="example-of-an-encoded-jwt-assertion"></a>Exemple d’une assertion JWT encodée
+
 La chaîne suivante est un exemple d’assertion encodée. Si vous regardez attentivement, vous remarquerez les trois sections séparées par des points (.).
 La première section encode l’en-tête ; la deuxième, la charge utile ; et la dernière, la signature calculée avec les certificats à partir du contenu des deux premières sections.
 ```
@@ -81,14 +84,17 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 ```
 
 ### <a name="register-your-certificate-with-azure-ad"></a>Inscrire votre certificat dans Azure AD
+
 Pour associer les informations d’identification du certificat à l’application cliente dans Azure AD, vous devez modifier le manifeste d’application.
 Sur la base de votre certificat, vous devez calculer :
+
 - `$base64Thumbprint`, qui est l’encodage en base64 du hachage de certificat
 - `$base64Value`, qui est l’encodage en base64 des données brutes du certificat
 
-Vous devez également fournir un GUID pour identifier la clé dans le manifeste d’application (`$keyId`).
+Vous devez également fournir un GUID pour identifier la clé dans le manifeste de l’application (`$keyId`).
 
 Dans la page d’inscription d’application Azure de l’application cliente, ouvrez le manifeste de l’application et remplacez la propriété *keyCredentials* par vos nouvelles informations de certificat en utilisant le schéma suivant :
+
 ```
 "keyCredentials": [
     {

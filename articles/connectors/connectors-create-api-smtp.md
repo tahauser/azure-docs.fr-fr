@@ -1,11 +1,11 @@
 ---
 title: Connecteur SMTP dans Azure Logic Apps | Microsoft Docs
-description: "Créez des applications logiques avec Azure App Service. Connectez-vous à SMTP pour envoyer un e-mail."
+description: Créez des applications logiques avec Azure App Service. Connectez-vous à SMTP pour envoyer un e-mail.
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: MandiOhlinger
+author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: d4141c08-88d7-4e59-a757-c06d0dc74300
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/15/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 6544a8e81a1c84fbd09e60b3f06c5fd308a18dcf
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: estfan; ladocs
+ms.openlocfilehash: 9bf7c9b7c3e775ab03b071d13d792f4b2d8fb3e3
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="get-started-with-the-smtp-connector"></a>Prise en main du connecteur SMTP
 Connectez-vous à SMTP pour envoyer un e-mail.
@@ -37,13 +37,13 @@ Pour que votre application logique puisse accéder à un service, vous devez com
 ## <a name="use-an-smtp-trigger"></a>Utiliser un déclencheur SMTP
 Un déclencheur est un événement qui peut être utilisé pour lancer le flux de travail défini dans une application logique. [En savoir plus sur les déclencheurs](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-Dans cet exemple, étant donné que SMTP ne comporte aucun déclencheur, nous utiliserons le déclencheur **Salesforce - Quand un objet est créé**. Ce déclencheur s’active lorsqu’un objet est créé dans Salesforce. Dans notre exemple, nous allons le configurer pour que chaque fois qu’un prospect est créé dans Salesforce, une action *Envoyer un message électronique* s’exécute par le biais du connecteur SMTP avec une notification signalant la création du prospect.
+Dans cet exemple, SMTP ne dispose pas d’un déclencheur qui lui est propre. Par exemple, utilisez le déclencheur **Salesforce - quand un objet est créé**. Ce déclencheur s’active lorsqu’un objet est créé dans Salesforce. Dans notre exemple, il est configuré de sorte que chaque fois qu’un nouveau prospect est créé dans Salesforce, une action *envoyer un e-mail* s’exécute par le biais du connecteur SMTP avec une notification signalant la création du nouveau prospect.
 
 1. Saisissez *salesforce* dans la zone de recherche sur le concepteur d’applications logiques, puis sélectionnez le déclencheur **Salesforce - Création d’un objet** .  
    ![](../../includes/media/connectors-create-api-salesforce/trigger-1.png)  
 2. Le contrôle **Lors de la création d’un objet** s’affiche.
    ![](../../includes/media/connectors-create-api-salesforce/trigger-2.png)  
-3. Sélectionnez le **Type d’objet** puis sélectionnez *Prospect* à partir de la liste d’objets. Lors de cette étape, vous indiquez que vous créez un déclencheur qui informe votre application logique de la création d’un prospect dans Salesforce.  
+3. Sélectionnez le **Type d’objet** puis sélectionnez *Prospect* à partir de la liste d’objets. Lors de cette étape, vous créez un déclencheur qui informe votre application logique de la création d’un nouveau prospect dans Salesforce.  
    ![](../../includes/media/connectors-create-api-salesforce/trigger3.png)  
 4. Le déclencheur a été créé.  
    ![](../../includes/media/connectors-create-api-salesforce/trigger-4.png)  
@@ -51,7 +51,7 @@ Dans cet exemple, étant donné que SMTP ne comporte aucun déclencheur, nous ut
 ## <a name="use-an-smtp-action"></a>Utiliser une action SMTP
 Une action est une opération effectuée par le flux de travail défini dans une application logique. [En savoir plus sur les actions](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-Une fois le déclencheur ajouté, procédez comme suit pour ajouter une action SMTP qui se produira chaque fois qu’un prospect sera créé dans Salesforce.
+Une fois le déclencheur ajouté, procédez comme suit pour ajouter une action SMTP qui se produira chaque fois qu’un nouveau prospect sera créé dans Salesforce.
 
 1. Sélectionnez **+ Nouvelle étape** pour ajouter l’action à exécuter lorsqu’un prospect est créé.  
    ![](../../includes/media/connectors-create-api-salesforce/trigger4.png)  

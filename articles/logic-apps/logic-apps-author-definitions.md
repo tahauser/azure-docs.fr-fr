@@ -1,42 +1,63 @@
 ---
-title: "Créer à partir des définitions d’application logique avec JSON - Azure Logic Apps | Microsoft Docs"
-description: "Ajouter des paramètres, traiter des chaînes, créer des mappages de paramètres et obtenir des données avec des fonctions de date"
+title: Créer, modifier ou étendre JSON pour des définitions d’application logique - Azure Logic Apps | Microsoft Docs
+description: Créer et personnaliser des définitions d’application logique en JSON
 author: ecfan
-manager: anneta
-editor: 
+manager: SyntaxC4
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
-ms.workload: integration
+ms.workload: logic-apps
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.custom: H1Hack27Feb2017
-ms.date: 01/31/2018
-ms.author: LADocs; estfan
-ms.openlocfilehash: d05f7e34cbe670db6733c199e3420c810c304a84
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.date: 01/01/2018
+ms.author: estfan; LADocs
+ms.openlocfilehash: bde275eb75c97da2a99109484b46b599a5b2f871
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="build-on-your-logic-app-definition-with-json"></a>Créer à partir de votre définition d’application logique avec JSON
+# <a name="create-edit-or-customize-json-for-logic-app-definitions"></a>Créer, modifier ou personnaliser JSON pour des définitions d’application logique
 
-Pour effectuer des tâches plus avancées avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md), vous pouvez utiliser le mode Code pour modifier votre définition d’application logique, qui utilise le langage JSON simple et déclaratif. Si vous ne l’avez pas encore fait, commencez par passer en revue l’article décrivant la [procédure de création de votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md). Vous pouvez également lire la [référence complète du langage de définition de workflow](http://aka.ms/logicappsdocs).
+Lorsque vous créez des solutions d’intégration d’entreprise avec des flux de travail automatisés dans [Azure Logic Apps](../logic-apps/logic-apps-overview.md), les définitions d’application logique sous-jacentes utilisent le JavaScript Object Notation (JSON) avec le [schéma Langue de la définition du flux de travail (WDL)](../logic-apps/logic-apps-workflow-definition-language.md) pour leur description et validation. Ces formats simplifient la lecture et la compréhension des définitions d’application sans en savoir beaucoup sur le code. Lorsque vous désirez automatiser la création et le déploiement des applications logiques, vous pouvez inclure des définitions d’application logique en tant que [Ressources Azure](../azure-resource-manager/resource-group-overview.md) dans des [modèles Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment). Pour créer, gérer et déployer des applications logiques, vous pouvez utiliser [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp), [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) ou les [API REST Azure Logic Apps](https://docs.microsoft.com/rest/api/logic/).
+
+Pour utiliser des définitions d’application logique dans JSON, ouvrez l’éditeur en mode Code lorsque vous travaillez dans le portail Azure ou dans Visual Studio ou copiez la définition dans tout éditeur de votre choix. Si vous débutez avec les applications logiques, consultez [procédure de création de votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 > [!NOTE]
-> Certaines fonctionnalités Azure Logic Apps, comme les paramètres, sont disponibles uniquement lorsque vous travaillez en mode Code pour la définition de votre application logique. Les paramètres permettent de réutiliser des valeurs dans votre application logique. Par exemple, si vous souhaitez utiliser une même adresse e-mail dans plusieurs actions, définissez-la en tant que paramètre.
+> Certaines fonctionnalités Azure Logic Apps, telle que la définition des paramètres et de plusieurs déclencheurs dans les définitions d’application logique, sont uniquement disponibles dans JSON, et pas le Concepteur d’applications logiques. Par conséquent, pour ces tâches, vous devez travailler en mode Code ou sur un autre éditeur.
 
-## <a name="view-and-edit-your-logic-app-definitions-in-json"></a>Afficher et modifier la définition de votre application logique en JSON
+## <a name="edit-json---azure-portal"></a>Modifier JSON - portail Azure
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com "portail Azure").
+1. Connectez-vous au <a href="https://portal.azure.com" target="_blank">Portail Azure</a>.
 
-2. Dans le menu de gauche, choisissez **Plus de services**. Sous **Intégration d’entreprise**, choisissez **Applications logiques**. Sélectionnez votre application logique.
+2. Dans le menu de gauche, choisissez **Tous les services**. Dans la zone de recherche, rechercher « applications logiques », puis à partir des résultats, sélectionnez votre application logique.
 
 3. Dans le menu de l’application logique, sous **Outils de développement**, choisissez **Affichage du code de l’application logique**.
 
-   La fenêtre d’affichage du code contenant la définition de votre application logique s’ouvre.
+   L’éditeur Mode Code s’ouvre et affiche la définition de votre application logique au format JSON.
+
+## <a name="edit-json---visual-studio"></a>Modifier JSON - Visual Studio
+
+Avant de pouvoir travailler sur la définition de votre application logique dans Visual Studio, assurez-vous d’avoir [installé les outils requis](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites). Pour créer une application logique avec Visual Studio, consultez [Démarrage rapide : automatiser des tâches et des processus avec Azure Logic Apps - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+
+Dans Visual Studio, vous pouvez ouvrir des applications logiques précédemment créées et déployées directement depuis le portail Azure ou en tant que projets Azure Resource Manager à partir de Visual Studio.
+
+1. Ouvrez la solution Visual Studio ou le projet [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md), qui contient votre application logique.
+
+2. Recherchez et ouvrez la définition de votre application logique, qui par défaut s’affiche dans un [modèle Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment), nommé **LogicApp.json**. Vous pouvez utiliser et personnaliser ce modèle pour le déploiement vers différents environnements.
+
+3. Ouvrez le menu contextuel de la définition et du modèle de votre application logique. Sélectionnez **Ouvrir avec le Concepteur d’application logique**.
+
+   ![Ouvrir une application logique dans une solution Visual Studio](./media/logic-apps-author-definitions/open-logic-app-designer.png)
+
+4. En bas du concepteur, choisissez **Mode Code**. 
+
+   L’éditeur Mode Code s’ouvre et affiche la définition de votre application logique au format JSON.
+
+5. Pour revenir au mode concepteur, en bas de l’éditeur Mode Code, choisissez **Conception**.
 
 ## <a name="parameters"></a>parameters
 
@@ -349,9 +370,9 @@ Pour mettre en forme les dates, vous pouvez utiliser des formateurs de chaîne. 
 ```
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
-* [Conditional statements: Run steps based on a condition in logic apps](../logic-apps/logic-apps-control-flow-conditional-statement.md) (Instructions conditionnelles : Exécuter des étapes en fonction d’une condition dans des applications logiques)
+* [Instructions conditionnelles : Exécuter des étapes en fonction d’une condition dans des applications logiques](../logic-apps/logic-apps-control-flow-conditional-statement.md)
 * [Switch statements: Run different steps based on specific values in logic apps](../logic-apps/logic-apps-control-flow-switch-statement.md) (Instructions switch : Exécuter différentes étapes en fonction de valeurs spécifiques dans des applications logiques)
 * [Loops: Process arrays or repeat actions until a condition is met](../logic-apps/logic-apps-control-flow-loops.md) (Boucles : Traiter des tableaux ou répéter des actions jusqu’à ce qu’une condition soit remplie)
 * [Create or join parallel branches in your logic app](../logic-apps/logic-apps-control-flow-branches.md) (Créer ou joindre des branches parallèles dans votre application logique)

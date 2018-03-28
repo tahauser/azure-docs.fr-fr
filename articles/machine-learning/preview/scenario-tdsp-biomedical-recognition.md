@@ -1,12 +1,12 @@
 ---
-title: "Reconnaissance d’entités biomédicales - Team Data Science Process - Azure Machine Learning | Microsoft Docs"
-description: "Démarrage rapide d’un projet Team Data Science Process utilisant un apprentissage approfondi pour la reconnaissance d’entités biomédicales dans Azure Machine Learning Workbench."
+title: Reconnaissance d’entités biomédicales - Team Data Science Process - Azure Machine Learning | Microsoft Docs
+description: Démarrage rapide d’un projet Team Data Science Process utilisant un apprentissage approfondi pour la reconnaissance d’entités biomédicales dans Azure Machine Learning Workbench.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: 7de3a30e477fcec66ce703b6c3fec7d17d79d3ab
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4e8450cc20718185a3cea02bf8fbb6b97dd91ddb
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>Reconnaissance d’entités biomédicales à l’aide du modèle Team Data Science Process (TDSP)
 
-L’extraction d’entités est une sous-tâche de l’extraction d’informations (également appelée [reconnaissance d’entités nommées (NER)](https://en.wikipedia.org/wiki/Named-entity_recognition), segmentation d’entités et identification d’entités). L’objectif de ce scénario réel est d’expliquer comment utiliser Azure Machine Learning Workbench pour résoudre une tâche de traitement de langage naturel (NLP) complexe, telle que l’extraction d’entités à partir d’un texte non structuré. Pour ce faire, nous allons :
+L’extraction d’entités est une sous-tâche de l’extraction d’informations (également appelée [Reconnaissance d’entités nommées (NER)](https://en.wikipedia.org/wiki/Named-entity_recognition), segmentation d’entités et identification d’entités). L’objectif de ce scénario réel est d’expliquer comment utiliser Azure Machine Learning Workbench pour résoudre une tâche de traitement de langage naturel (NLP) complexe, telle que l’extraction d’entités à partir d’un texte non structuré. Pour ce faire, nous allons :
 
 1. Expliquer comment effectuer l’apprentissage d’un modèle d’incorporation de mots neuronaux sur un corpus de texte d’environ 18 millions d’extraits de PubMed à l’aide d’une [implémentation de Word2Vec sur Spark](https://spark.apache.org/docs/latest/mllib-feature-extraction.html#word2vec).
 2. Expliquer comment créer un modèle de réseau neuronal récurrent et profond Long Short-Term Memory (LSTM) pour l’extraction d’entités sur une machine virtuelle de science des données Azure GPU sur Azure.
@@ -32,19 +32,19 @@ L’extraction d’entités est une sous-tâche de l’extraction d’informatio
 
 4. Décrire les fonctionnalités suivantes dans Azure Machine Learning Workbench :
 
-    * Instanciation de [la structure et des modèles Team Data Science Process (TDSP)](how-to-use-tdsp-in-azure-ml.md)
+    * Instanciation de [Structure et modèles Team Data Science Process (TDSP)](how-to-use-tdsp-in-azure-ml.md)
     * Gestion automatisée des dépendances de votre projet, y compris le téléchargement et l’installation
     * Exécution de scripts Python dans différents environnements de calcul
     * Suivi de l’historique des exécutions de scripts Python
-    * Exécution de tâches dans un contexte de calcul Spark distant à l’aide de clusters HDInsight Spark 2.1
-    * Exécution de tâches sur des machines virtuelles GPU distantes sur Azure
-    * Opérationnalisation simple de modèles d’apprentissage approfondi en tant que services web sur Azure Container Service (ACS)
+    * Exécution de travaux dans des contextes de calcul Spark distant à l’aide de clusters HDInsight Spark 2.1
+    * Exécution de travaux sur des machines virtuelles GPU distantes sur Azure
+    * Opérationnalisation simple de modèles d’apprentissage approfondi en tant que services Web sur Azure Container Service (ACS)
 
 ## <a name="use-case-overview"></a>Vue d’ensemble d’un cas d’usage
 La reconnaissance d’entités dites biomédicales est une étape essentielle pour les tâches NLP biomédicales complexes telles que les suivantes : 
-* Extraction des mentions d’entités nommées comme des maladies, médicaments, produits chimiques et symptômes dans des dossiers médicaux ou de soins électroniques.
+* Extraction des mentions d’entités nommées comme maladies, médicaments, produits chimiques et symptômes dans des dossiers médicaux ou de soins électroniques.
 * Détection de médicaments
-* Compréhension des interactions entre les différents types d’entité, par exemple l’interaction médicament-médicament, la relation médicament-maladie et la relation de gène-protéine.
+* Compréhension des interactions entre différents types d’entités, par exemple l’interaction médicament-médicament, la relation médicament-maladie et la relation gène-protéine.
 
 Notre scénario d’utilisation porte principalement sur la façon dont un grand corpus de données non structurées, comme des extraits de Medline PubMed, peut être analysé pour l’apprentissage d’un modèle d’incorporation de mots. Les incorporations de sortie sont ensuite considérées comme des fonctionnalités générées automatiquement pour l’apprentissage d’un extracteur d’entités neuronales.
 
@@ -90,7 +90,8 @@ Le lien vers le dépôt GitHub public du scénario réel qui contient le code et
 [https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction)
 
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Prérequis
+ 
 
 * Un abonnement [Azure](https://azure.microsoft.com/free/)
 * Azure Machine Learning Workbench. Consultez le [guide d’installation](quickstart-installation.md). Actuellement, Azure Machine Learning Workbench peut uniquement être installé sur les systèmes d’exploitation suivants : 
@@ -106,7 +107,7 @@ Le lien vers le dépôt GitHub public du scénario réel qui contient le code et
 
 ### <a name="python-packages"></a>Packages Python
 
-Toutes les dépendances requises sont définies dans le fichier aml_config/conda_dependencies.yml sous le dossier de projet du scénario. Les dépendances définies dans ce fichier seront automatiquement configurées pour des exécutions en fonction du Docker, de la machine virtuelle et du cluster HDI cibles. Vous trouverez plus d’informations sur le format de fichier d’environnement Conda [ici](https://conda.io/docs/using/envs.html#create-environment-file-by-hand).
+Toutes les dépendances requises sont définies dans le fichier aml_config/conda_dependencies.yml sous le dossier de projet du scénario. Les dépendances définies dans ce fichier sont automatiquement configurées pour des exécutions en fonction des cibles Docker, machine virtuelle et cluster HDI. Vous trouverez plus d’informations sur le format de fichier d’environnement Conda [ici](https://conda.io/docs/using/envs.html#create-environment-file-by-hand).
 
 * [TensorFlow](https://www.tensorflow.org/install/)
 * [CNTK 2.0](https://docs.microsoft.com/cognitive-toolkit/using-cntk-with-keras)
@@ -136,10 +137,10 @@ Consultez [Acquisition de données et compréhension](https://github.com/Azure/M
 
 Le corpus de données brutes de MEDLINE inclut un total de 27 millions d’extraits dont environ 10 millions d’articles ont un champ d’extrait vide. Azure HDInsight Spark est utilisé pour traiter le Big Data qui ne peut pas être chargé dans la mémoire d’une seule machine en tant que [cadre de données Pandas](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html). Les données sont d’abord téléchargées dans le cluster Spark. Les étapes suivantes sont ensuite effectuées sur le [cadre de données Spark](https://spark.apache.org/docs/latest/sql-programming-guide.html) : 
 * Analyse des fichiers XML à l’aide de l’analyseur XML de Medline
-* Prétraitement du texte extrait, y compris la division des phrases, la segmentation du texte en unités lexicales et la normalisation des cas
+* prétraitement du texte extrait, y compris la division des phrases, la segmentation du texte en unités lexicales et la normalisation des cas.
 * Exclusion des articles où le champ d’extrait est vide ou contient un texte court 
 * Création du vocabulaire à partir des extraits d’apprentissage
-* Apprentissage du modèle d’incorporation de mots neuronaux Pour plus d’informations, accédez au [lien vers les codes GitHub](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/blob/master/code/01_data_acquisition_and_understanding/ReadMe.md) pour bien démarrer.
+* Apprentissage du modèle d’incorporation de mots neuronaux Pour plus d’informations, consultez [lien vers les codes GitHub](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/blob/master/code/01_data_acquisition_and_understanding/ReadMe.md) pour une bonne prise en main.
 
 
 Après l’analyse des fichiers XML, les données ont le format suivant : 
@@ -156,7 +157,7 @@ L’apprentissage du modèle d’extraction d’entités neuronales a été effe
 Consultez [Modélisation](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/code/02_modeling).
 
 La modélisation est l’étape où nous expliquerons comment vous pouvez utiliser les données téléchargées dans la section précédente pour effectuer l’apprentissage de votre propre modèle d’incorporation de mots et l’utiliser pour d’autres tâches en aval. Bien que nous utilisions les données PubMed, le pipeline pour générer les incorporations est générique et peut être réutilisé pour l’apprentissage d’incorporations de mots pour tout autre domaine. Pour que les incorporations soient une représentation exacte des données, il est essentiel d’effectuer l’apprentissage du word2vec sur une grande quantité de données.
-Une fois les incorporations de mots prêtes, nous pouvons effectuer l’apprentissage d’un modèle de réseau neuronal profond qui utilise les incorporations apprises pour initialiser la couche d’incorporation. Nous marquons la couche d’incorporation comme non apte à l’apprentissage, mais ce n’est pas obligatoire. L’apprentissage du modèle d’incorporation de mots n’étant pas supervisé, nous pouvons tirer parti des textes sans étiquette. En revanche, l’apprentissage du modèle de reconnaissance d’entités est une tâche d’apprentissage supervisée et sa précision dépend de la quantité et de la qualité des données annotées manuellement. 
+Une fois les incorporations de mots prêtes, nous pouvons effectuer l’apprentissage d’un modèle de réseau neuronal profond qui utilise les incorporations apprises pour initialiser la couche d’incorporation. Nous marquons la couche d’incorporation comme non apte à l’apprentissage, mais ce n’est pas obligatoire. L’apprentissage du modèle d’incorporation de mots n’étant pas supervisé, nous pouvons tirer parti des textes sans étiquette. En revanche, la formation du modèle de reconnaissance d’entités est un travail d’apprentissage supervisé et sa précision dépend de la quantité et de la qualité des données annotées manuellement. 
 
 
 #### <a name="21-feature-generation"></a>2.1. Génération de fonctionnalités
@@ -167,7 +168,7 @@ Word2Vec est l’algorithme d’apprentissage libre d’incorporation de mots qu
 
 ![Modèle Skip-Gram](./media/scenario-tdsp-biomedical-recognition/skip-gram.png)
 
-Le modèle utilise un échantillonnage de Hierarchical Softmax et Negative pour optimiser les performances. SoftMax hiérarchique (H-SoftMax) est une approximation qui s’inspire des arbres binaires. H-SoftMax remplace essentiellement la couche SoftMax plane par une couche hiérarchique où les mots apparaissent comme des nœuds terminaux. Cela permet de décomposer le calcul de la probabilité d’un mot dans une séquence de calculs de probabilité, ce qui évite d’avoir à calculer la normalisation coûteuse sur tous les mots. Étant donné qu’un arbre binaire a une profondeur de log2(|V|) (où V est le vocabulaire), nous avons uniquement besoin d’évaluer tout au plus les nœuds de log2(|V|) pour obtenir la probabilité finale d’un mot. La probabilité d’un mot w en fonction de son contexte c correspond alors simplement au produit des probabilités de prendre des déviations à droite et à gauche respectivement qui mènent à son nœud terminal. Nous pouvons créer un arbre de Huffman en fonction de la fréquence des mots dans le jeu de données pour s’assurer que les mots les plus fréquents aient des représentations plus courtes. Pour plus d’informations, consultez [ce lien](http://sebastianruder.com/word-embeddings-softmax/).
+Le modèle utilise un échantillonnage de Hierarchical Softmax et Negative pour optimiser les performances. SoftMax hiérarchique (H-SoftMax) est une approximation qui s’inspire des arbres binaires. H-SoftMax remplace essentiellement la couche SoftMax plane par une couche hiérarchique où les mots apparaissent comme des nœuds terminaux. Cela permet de décomposer le calcul de la probabilité d’un mot dans une séquence de calculs de probabilité, ce qui évite d’avoir à calculer la normalisation coûteuse sur tous les mots. Étant donné qu’un arbre binaire a une profondeur de log2(|V|) (où V est le vocabulaire), nous avons uniquement besoin d’évaluer tout au plus les nœuds de log2(|V|) pour obtenir la probabilité finale d’un mot. La probabilité d’un mot w en fonction de son contexte c correspond alors simplement au produit des probabilités de prendre des déviations à droite et à gauche respectivement qui mènent à son nœud terminal. Nous pouvons créer un arbre de Huffman en fonction de la fréquence des mots dans le jeu de données pour s’assurer que les mots les plus fréquents aient des représentations plus courtes. Pour plus d'informations, consultez [ce lien](http://sebastianruder.com/word-embeddings-softmax/).
 Image extraite de [cette page](https://ahmedhanibrahim.wordpress.com/2017/04/25/thesis-tutorials-i-understanding-word2vec-for-word-embedding-i/).
 
 ##### <a name="visualization"></a>Visualisation
@@ -198,7 +199,7 @@ Comme le montre la figure suivante, l’affichage de t-SNE présente une plus gr
 
 Consultez [Effectuer l’apprentissage de l’extracteur d’entités neuronales](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/code/02_modeling/02_model_creation/ReadMe.md).
 
-L’architecture de réseau neuronal en aval présente l’inconvénient de traiter chaque entrée et chaque sortie indépendamment des autres entrées et sorties. Cette architecture ne peut pas modéliser les tâches d’étiquetage séquence-à-séquence, telles que la traduction automatique et l’extraction d’entités. Les modèles de réseau neuronal récurrent surmontent ce problème, car ils peuvent passer des informations calculées jusqu’à maintenant au nœud suivant. Cette propriété n’est autre qu’avoir de la mémoire réseau, car elle est capable d’utiliser les informations précédemment calculées, comme le montre la figure suivante :
+L’architecture de réseau neuronal de transfert du flux présente l’inconvénient de traiter chaque entrée et chaque sortie indépendamment des autres entrées et sorties. Cette architecture ne peut pas modéliser les tâches d’étiquetage séquence-à-séquence, telles que la traduction automatique et l’extraction d’entités. Les modèles de réseau neuronal récurrent surmontent ce problème, car ils peuvent passer des informations calculées jusqu’à maintenant au nœud suivant. Cette propriété n’est autre qu’avoir de la mémoire réseau, car elle est capable d’utiliser les informations précédemment calculées, comme le montre la figure suivante :
 
 ![RNN](./media/scenario-tdsp-biomedical-recognition/rnn-expanded.png)
 
@@ -227,7 +228,7 @@ Comparons à présent la précision de deux types de fonctionnalité : (1) les i
 
 Nous procédons à l’évaluation des incorporations de mots sur d’autres jeux de données de manière similaire et observons que le modèle propre au domaine est toujours mieux.
 
-* Tâche 2 : Détection de protéines, lignes de cellules, types de cellules, ADN et ARN
+* Travail 2 : protéines, lignes de cellules, types de cellules, ADN et détection ARN
 
 ![Comparaison des modèles 2](./media/scenario-tdsp-biomedical-recognition/mc2.png)
 
@@ -266,7 +267,7 @@ Nous avons décrit en détail comment vous pouvez effectuer l’apprentissage d�
 
 * Tomas Mikolov, Kai Chen, Greg Corrado et Jeffrey Dean. 2013a. Efficient estimation of word representations in vector space. In Proceedings of ICLR.
 * Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg S Corrado et Jeff Dean. 2013b. Distributed representations of words and phrases and their compositionality. In Proceedings of NIPS, pages 3111–3119.
-* Billy Chiu, Gamal Crichton, Anna Korhonen et Sampo Pyysalo. 2016. [How to Train Good Word Embeddings for Biomedical NLP](http://aclweb.org/anthology/W/W16/W16-2922.pdf), In Proceedings of the 15th Workshop on Biomedical Natural Language Processing, pages 166–174.
+* Billy Chiu, Gamal Crichton, Anna Korhonen et Sampo Pyysalo. 2016. [Comment effectuer l’apprentissage des incorporations de bons mots pour le Traitement automatique du langage naturel (TALN) biomédical](http://aclweb.org/anthology/W/W16/W16-2922.pdf), en rapport avec le quinzième atelier sur le Traitement automatique du langage naturel biomédical, pages 166–174.
 * [Vector Representations of Words](https://www.tensorflow.org/tutorials/word2vec)
 * [Recurrent Neural Networks](https://www.tensorflow.org/tutorials/recurrent)
 * [Problems encountered with Spark ml Word2Vec](https://intothedepthsofdataengineering.wordpress.com/2017/06/26/problems-encountered-with-spark-ml-word2vec/)

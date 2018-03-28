@@ -1,8 +1,8 @@
 ---
-title: "Tableau de bord Power BI pour l’état des véhicules et les habitudes de conduite - Azure | Microsoft Docs"
-description: "Utilisez les fonctionnalités de Cortana Intelligence pour obtenir des informations en temps réel et prédictives sur l’état des véhicules et les habitudes de conduite."
+title: Tableau de bord Power BI pour l’état des véhicules et les habitudes de conduite - Azure | Microsoft Docs
+description: Utilisez les fonctionnalités de Cortana Intelligence pour obtenir des informations en temps réel et prédictives sur l’état des véhicules et les habitudes de conduite.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -12,22 +12,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 03/14/2018
 ms.author: bradsev
-ms.openlocfilehash: 626987ec0648f9e770499b4a48bc4ca2d175d2b4
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 6a46a05539a7211fbc2a3a9f6ec45a28f5c64039
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>Instructions de configuration du tableau de bord Power BI pour le modèle de la solution Vehicle Telemetry Analytics
 Ce menu contient des liens vers les chapitres de ce manuel : 
 
 [!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
-La solution Vehicle Telemetry Analytics présente comment les concessionnaires de véhicules, les fabricants automobiles et les sociétés d’assurance peuvent utiliser les fonctionnalités de Cortana Intelligence. Ils peuvent obtenir des informations prédictives et en temps réel sur l’intégrité des véhicules et les habitudes de conduite afin d’améliorer l’expérience utilisateur, la recherche et le développement, et les campagnes marketing. Ces instructions pas à pas montrent comment vous pouvez configurer le tableau de bord et les rapports Power BI après avoir déployé la solution dans votre abonnement. 
+La solution Analytics des données de télémétrie du véhicule présente comment les concessions, les fabricants d’automobiles et les compagnies d’assurance peuvent utiliser les fonctionnalités de Cortana Intelligence. Ils peuvent obtenir des analyses prédictives et en temps réel sur l’intégrité des véhicules et les habitudes de conduite afin d’améliorer l’expérience utilisateur, la recherche et le développement et les campagnes marketing. Ces instructions pas à pas montrent comment configurer le tableau de bord et les rapports Power BI après avoir déployé la solution dans votre abonnement. 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 * Déployez la solution [Vehicle Telemetry Analytics](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90). 
 * [Installez Power BI Desktop](http://www.microsoft.com/download/details.aspx?id=45331).
 * Obtenez un [abonnement Azure](https://azure.microsoft.com/pricing/free-trial/). Si vous n’avez pas d’abonnement Azure, commencez par un abonnement Azure gratuit.
@@ -42,7 +43,7 @@ Les services Cortana Intelligence suivants sont déployés dans votre abonnement
 * **Azure HDInsight** transforme les données à grande échelle.
 * **Azure Data Factory** gère l’orchestration, la planification, la gestion des ressources et la surveillance du pipeline de traitement par lots.
 
-**POWER BI** offre à cette solution un tableau de bord complet permettant de visualiser à la fois les données en temps réel et les analyses prédictives. 
+**Power BI** offre à cette solution un tableau de bord complet permettant de visualiser à la fois les données et les analyses prédictives. 
 
 La solution utilise deux sources de données différentes :
 
@@ -160,7 +161,7 @@ Vous pouvez configurer les trois rapports en temps réel ou vous arrêter après
 
     ![Tableau de bord avec des visualisations](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4k.png)
 
-Vous avez correctement configuré le rapport en temps réel « Véhicules opérationnels ». Vous pouvez créer le rapport en temps réel suivant, ou bien vous arrêter ici et configurer le tableau de bord. 
+Vous avez correctement configuré le rapport « Véhicules opérationnels ». Vous pouvez créer le rapport en temps réel suivant, ou bien vous arrêter ici et configurer le tableau de bord. 
 
 ### <a name="vehicles-requiring-maintenance-report"></a>Véhicules nécessitant un rapport de maintenance
 
@@ -198,7 +199,7 @@ Vous avez correctement configuré le rapport en temps réel « Véhicules opéra
 
 6. Sous l’onglet **Champs**, faites glisser **Model** vers la zone **Axe**. Faites glisser **vin** vers la zone **Valeur**. Triez ensuite la visualisation par **Nombre de vin**. Tapez **Véhicules nécessitant une maintenance par modèle** comme **Titre** du graphique. 
 
-7. Dans la section **Champs** ![Champs](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4field.png) de l’onglet **Visualisations**, faites glisser **vin** vers **Saturation de la couleur**.
+7. Dans la section **Champs** ![Champs-image](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4field.png) de l’onglet **Visualisations**, faites glisser **vin** vers **Saturation de la couleur**.
 
     ![Saturation de la couleur](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4q.png)  
 
@@ -268,7 +269,7 @@ Vous avez correctement configuré le rapport en temps réel « Véhicules néces
 
     ![Valeurs de ligne et de colonne](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4aa.png)
 
-12. Tapez **Vitesse moyenne, pression des pneus, huile moteur et température moteur** comme **Titre** du graphique.  
+12. Modifiez le **Titre** du graphique par **Vitesse moyenne, pression des pneus, huile moteur et température moteur**.  
 
     ![Titre de Graphique en courbes et histogramme groupé](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4bb.png)
 
@@ -298,13 +299,13 @@ Vous avez correctement configuré le rapport en temps réel « Véhicules néces
 
     ![Type d’agrégation](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4ff.png)
 
-22. Tapez **Moyenne d’huile moteur, de pression des pneus et de vitesse et probabilité de maintenance par modèle** comme **Titre** du graphique.
+22. Modifiez le **Titre** du graphique par **Huile moteur moyenne, pression des pneus, vitesse et probabilité de maintenance par modèle**.
 
     ![Titre de graphique en aires](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4gg.png)
 
 23. Sélectionnez la zone vide pour ajouter une nouvelle visualisation.
 
-24. Sous l’onglet **Visualisations**, sélectionnez la visualisation **Nuage de points**. Faites glisser **Model** vers les zones **Détails** et **Légende**. Faites glisser **fuel** vers la zone **Axe X**. Affectez **Moyenne** comme type d’agrégation. Faites glisser **engineTemperature** vers la zone **Axe Y**. Affectez **Moyenne** comme type d’agrégation. Faites glisser **vin** vers la zone **Taille**.
+24. Sous l’onglet **Visualisations**, sélectionnez la visualisation **Nuage de points**. Faites glisser **Model** vers les zones **Détails** et **Légende**. Faites glisser **fuel** vers la zone **Axe X**. Affectez **Moyenne** comme type d’agrégation. Faites glisser **TempératureMoteur** vers la zone **Axe Y**. Affectez **Moyenne** comme type d’agrégation. Faites glisser **vin** vers la zone **Taille**.
 
     ![Zones Détails, Légende, Axe et Taille](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4hh.png)
 
@@ -333,7 +334,7 @@ Vous avez correctement créé le tableau de bord en temps réel. À mesure que v
 
 ## <a name="set-up-the-power-bi-batch-processing-dashboard"></a>Configurer le tableau de bord de traitement par lots de Power BI
 > [!NOTE]
-> Une fois le déploiement effectué, comptez environ deux heures pour permettre au pipeline de traitement par lots de terminer son exécution et de traiter l’équivalent d’une année de données générées. Attendez que le traitement se termine avant de passer aux étapes suivantes. 
+> Une fois le déploiement effectué, comptez environ deux heures pour permettre au pipeline de traitement par lots de terminer son exécution et de traiter l’équivalent d’une année de données générées. Attendez que le traitement se termine avant de passer aux étapes suivantes :
 > 
 > 
 

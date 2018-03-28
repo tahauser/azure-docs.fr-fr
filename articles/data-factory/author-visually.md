@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/9/2018
 ms.author: shlo
-ms.openlocfilehash: 209afba99ac2b43c252d93c32930908ec1f957f9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 954693ee208dc7868a5a5ad0e774c5c352036627
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Création visuelle dans Azure Data Factory
 L’expérience utilisateur Azure Data Factory vous permet de créer et de déployer visuellement des ressources dans votre fabrique de données sans avoir à écrire du code. Vous pouvez glisser-déposer des activités sur le canevas d’un pipeline, effectuer des séries de tests, déboguer de manière itérative, mais aussi déployer et surveiller les exécutions de votre pipeline. Vous pouvez utiliser l’expérience utilisateur pour la création visuelle de deux manières :
@@ -41,7 +41,7 @@ Lorsque vous utilisez l’expérience utilisateur **Canevas de création** pour 
 La création avec VSTS Git Integration prend en charge le contrôle du code source et la collaboration pendant l’utilisation de vos pipelines de fabrique de données. Vous pouvez associer une fabrique de données à un référentiel de compte VSTS Git pour le contrôle du code source, la collaboration, la gestion des versions, etc. Un compte VSTS Git peut avoir plusieurs référentiels, mais un référentiel VSTS Git ne peut être associé qu’à une seule fabrique de données. Si vous n’avez pas un compte ou un référentiel VSTS, suivez [ces instructions](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student) pour créer vos ressources.
 
 > [!NOTE]
-> Un pipeline de fabrique de données ne peut pas accéder aux fichiers stockés dans un référentiel Git VSTS. Par conséquent, vous ne pouvez pas stocker les fichiers qui sont utilisés par les activités de pipeline de fabrique de données - par exemple, les fichiers de données et les fichiers de script - dans un référentiel Git VSTS.
+> Vous pouvez stocker les fichiers de scripts et de données dans un référentiel GIT VSTS. Toutefois, vous devez charger les fichiers manuellement dans le stockage Azure. Un pipeline Data Factory ne charge pas automatiquement les fichiers de scripts ou de données stockés dans un référentiel GIT VSTS vers le stockage Azure.
 
 ### <a name="configure-a-vsts-git-repository-with-azure-data-factory"></a>Configurer un référentiel Git VSTS avec Azure Data Factory
 Vous pouvez configurer un référentiel VSTS GIT avec une fabrique de données via deux méthodes.

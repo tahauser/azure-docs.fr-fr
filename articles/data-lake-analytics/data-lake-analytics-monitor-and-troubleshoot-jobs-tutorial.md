@@ -1,8 +1,8 @@
 ---
-title: "Dépanner les travaux Azure Data Lake Analytics à l’aide du portail Azure | Microsoft Docs"
-description: "Apprenez à utiliser le portail Azure afin de dépanner les travaux Data Lake Analytics. "
+title: Dépanner les travaux Azure Data Lake Analytics à l’aide du portail Azure | Microsoft Docs
+description: 'Apprenez à utiliser le portail Azure afin de dépanner les travaux Data Lake Analytics. '
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: saveenr
 editor: cgronlun
@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
-ms.author: edmaca
-ms.openlocfilehash: b9c7453cc0a94f70d0098ed83e5f127832065a62
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: saveenr
+ms.openlocfilehash: f6168997c449be5354bd223c516d4f929a1bf894
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="troubleshoot-azure-data-lake-analytics-jobs-using-azure-portal"></a>Dépanner les travaux Azure Data Lake Analytics à l’aide du portail Azure
-Apprenez à utiliser le portail Azure afin de dépanner les travaux Data Lake Analytics.
+# <a name="troubleshoot-azure-data-lake-analytics-jobs-using-azure-portal"></a>Résoudre les erreurs des travaux Azure Data Lake Analytics à l’aide du portail Azure
+Découvrez comment utiliser le portail Azure pour résoudre les erreurs des travaux Data Lake Analytics.
 
 Dans ce didacticiel, vous allez identifier un problème de fichier source manquant et utiliser le portail Azure pour résoudre le problème.
 
@@ -62,7 +62,7 @@ Le fichier source défini dans le script est **/Samples/Data/SearchLog.tsv1**, a
 3. Cliquez sur la vignette **Gestion de la tâche** pour rechercher les travaux. Les travaux sont classés dans les catégories **En cours**, **En file d’attente** et **Terminé**. Vous devez voir le travail qui a échoué dans la section **Terminé** . Il doit être le premier sur la liste. Lorsque vous avez un grand nombre de travaux, vous pouvez cliquer sur **Filtrer** pour vous aider à localiser les travaux.
 
     ![Travail de filtre d’Analytique Data Lake Azure](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-filter-jobs.png)
-4. Cliquez sur le travail ayant échoué dans la liste pour ouvrir les détails du travail dans un nouveau panneau :
+4. Cliquez sur le travail ayant échoué dans la liste pour ouvrir les détails du travail :
 
     ![Travail d’échec d’Analytique Data Lake Azure](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-failed-job.png)
 
@@ -73,7 +73,7 @@ Le fichier source défini dans le script est **/Samples/Data/SearchLog.tsv1**, a
 
     Elle vous indique que le dossier source est introuvable.
 6. Cliquez sur **Dupliquer le Script**.
-7. Mettez à jour le chemin d’accès **FROM** pour obtenir ce qui suit :
+7. Mettez à jour le chemin d’accès **FROM** sur :
 
     « Samples/Data/SearchLog.tsv »
 8. Cliquez sur **Envoyer le travail**.
@@ -82,4 +82,4 @@ Le fichier source défini dans le script est **/Samples/Data/SearchLog.tsv1**, a
 * [Présentation d’Analytique Data Lake Azure](data-lake-analytics-overview.md)
 * [Prise en main d’Analytique Data Lake à l’aide d’Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Prise en main d’Analytique Data Lake Azure et U-SQL à l’aide de Visual Studio.](data-lake-analytics-u-sql-get-started.md)
-* [Gestion d'Azure Data Lake Analytics à l'aide du portail Azure](data-lake-analytics-manage-use-portal.md)
+* [Gestion d’Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-manage-use-portal.md)

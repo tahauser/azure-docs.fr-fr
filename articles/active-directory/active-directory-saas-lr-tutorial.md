@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à lr | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et lr."
+title: 'Didacticiel : Intégration d’Azure Active Directory avec LoginRadius | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et LoginRadius.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,32 +12,33 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 03/13/2018
 ms.author: jeedes
-ms.openlocfilehash: f7728c37db286b130a79db1353ee40825e8a4336
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 22f937a2ae9a2c715ce0866c2db0ac17769f0399
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="tutorial-azure-active-directory-integration-with-lr"></a>Didacticiel : Intégration d’Azure Active Directory à lr
+# <a name="tutorial-azure-active-directory-integration-with-loginradius"></a>Didacticiel : Intégration d’Azure Active Directory avec LoginRadius
 
-Dans ce didacticiel, vous allez apprendre à intégrer lr à Azure Active Directory (Azure AD).
+Dans ce didacticiel, vous allez apprendre à intégrer LoginRadius avec Azure Active Directory (Azure AD).
 
-L’intégration de lr à Azure AD vous offre les avantages suivants :
+L’intégration de LoginRadius avec Azure AD offre les avantages suivants :
 
-- Dans Azure AD, vous pouvez contrôler qui a accès à lr
-- Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à lr (par authentification unique) avec leur compte Azure AD
+- Il est possible de contrôler dans Azure AD qui a accès à LoginRadius.
+- Vous pouvez autoriser les utilisateurs à se connecter automatiquement à LoginRadius (authentification unique) avec leur compte Azure AD.
 - Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour configurer l’intégration d’Azure AD à lr, vous avez besoin des éléments suivants :
+
+Pour configurer l’intégration d’Azure AD avec LoginRadius, vous aurez besoin des éléments suivants :
 
 - Un abonnement Azure AD
-- Un abonnement lr pour lequel l’authentification unique est activée
+- Un abonnement LoginRadius pour lequel l’authentification unique est activée
 
 > [!NOTE]
 > Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
@@ -50,13 +51,13 @@ Vous devez en outre suivre les recommandations ci-dessous :
 ## <a name="scenario-description"></a>Description du scénario
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
-1. Ajout de lr depuis la galerie
+1. Ajout de LoginRadius à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
 
-## <a name="adding-lr-from-the-gallery"></a>Ajout de lr depuis la galerie
-Pour configurer l’intégration de lr à Azure AD, vous devez ajouter lr, disponible dans la galerie, à votre liste d’applications SaaS gérées.
+## <a name="adding-loginradius-from-the-gallery"></a>Ajout de LoginRadius à partir de la galerie
+Pour configurer l’intégration de LoginRadius à Azure AD, vous devez ajouter LoginRadius à votre liste d’applications SaaS gérées à partir de la galerie.
 
-**Pour ajouter lr à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter LoginRadius à partir de la galerie, suivez ces étapes :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
 
@@ -70,58 +71,58 @@ Pour configurer l’intégration de lr à Azure AD, vous devez ajouter lr, dispo
 
     ![Bouton Nouvelle application][3]
 
-4. Dans la zone de recherche, tapez **lr**, sélectionnez **lr** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, tapez **LoginRadius**, sélectionnez **LoginRadius** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-    ![lr dans la liste des résultats](./media/active-directory-saas-lr-tutorial/tutorial_lr_addfromgallery.png)
+    ![LoginRadius dans la liste des résultats](./media/active-directory-saas-lr-tutorial/tutorial_LoginRadius_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec lr avec un utilisateur de test appelé « Britta Simon ».
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec LoginRadius pour un utilisateur de test nommé « Britta Simon ».
 
-Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur lr correspondant dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et un utilisateur lr associé doit être établie.
+Pour que l’authentification unique fonctionne, Azure AD a besoin de savoir quel est l’utilisateur LoginRadius équivalent à celui d’Azure AD. En d’autres termes, il faut établir une relation entre un utilisateur Azure AD et l’utilisateur LoginRadius associé.
 
-Pour configurer et tester l’authentification unique Azure AD avec lr, vous devez suivre les indications des sections suivantes :
+Pour configurer et tester l’authentification unique Azure AD avec LoginRadius, vous devez suivre les indications des sections suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Créer un utilisateur de test lr](#create-a-lr-test-user)** pour avoir un équivalent de Britta Simon dans lr lié à la représentation Azure AD de l’utilisateur.
+3. **[Créer un utilisateur de test LoginRadius](#create-a-loginradius-test-user)** pour avoir un équivalent de Britta Simon dans LoginRadius qui soit lié à la représentation Azure AD associée.
 4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
-Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure et configurez l’authentification unique dans votre application lr.
+Dans cette section, vous allez activer l’authentification unique Azure AD sur le Portail Azure et la configurer dans l’application LoginRadius.
 
-**Pour configurer l’authentification unique Azure AD avec lr, effectuez les étapes suivantes :**
+**Pour configurer l’authentification unique Azure AD avec LoginRadius, suivez ces étapes :**
 
-1. Dans le portail Azure, dans la page d’intégration de l’application **lr**, cliquez sur **Authentification unique**.
+1. Sur la page d’intégration de l’application **LoginRadius** du Portail Azure, cliquez sur **Authentification unique**.
 
     ![Lien Configurer l’authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Boîte de dialogue Authentification unique](./media/active-directory-saas-lr-tutorial/tutorial_lr_samlbase.png)
+    ![Boîte de dialogue Authentification unique](./media/active-directory-saas-lr-tutorial/tutorial_LoginRadius_samlbase.png)
 
-3. Dans la section **Domaine et URL lr**, effectuez les étapes suivantes :
+3. Dans la section **Domaine et URL LoginRadius**, suivez ces étapes :
 
-    ![Informations d’authentification unique dans Domaine et URL lr](./media/active-directory-saas-lr-tutorial/tutorial_lr_url.png)
+    ![Informations sur l’authentification unique dans Domaine et URL LoginRadius](./media/active-directory-saas-lr-tutorial/tutorial_LoginRadius_url.png)
 
     a.  Dans la zone de texte **URL d’authentification**, tapez l’URL `https://secure.loginradius.com/login`
 
-    b. Dans la zone de texte **Identificateur**, tapez une URL : `https://lr.hub.loginradius.com/`
+    b. Dans la zone de texte **Identificateur**, tapez une URL : `https://LoginRadius.hub.loginradius.com/`
      
     > [!NOTE] 
-    > Ouvrez la page URL de connexion. Cliquez sur l’onglet **Authentification unique**, entrez le **nom du plug-in** fourni par [l’équipe de support lr](mailto:support@loginradius.com), puis cliquez sur le bouton **Se connecter** ; vous êtes alors redirigé vers la page de connexion Azure AD. 
+    > Ouvrez la page URL de connexion. Cliquez sur l’onglet **Authentification unique**, entrez le **nom du plug-in** fourni par [l’équipe de support LoginRadius](mailto:support@loginradius.com), puis cliquez sur le bouton **Se connecter** pour accéder à la page de connexion Azure AD. 
 
 5. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Lien de téléchargement du certificat](./media/active-directory-saas-lr-tutorial/tutorial_lr_certificate.png) 
+    ![Lien de téléchargement du certificat](./media/active-directory-saas-lr-tutorial/tutorial_LoginRadius_certificate.png) 
 
 6. Cliquez sur le bouton **Enregistrer** .
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/active-directory-saas-lr-tutorial/tutorial_general_400.png)
     
-7. Pour configurer l’authentification unique du côté **lr**, vous devez envoyer le fichier **XML de métadonnées** téléchargé à [l’équipe de support technique de lr](mailto:support@loginradius.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+7. Pour configurer l’authentification unique côté **LoginRadius**, vous devez envoyer le **XML de métadonnées** téléchargé à [l’équipe du support technique LoginRadius](mailto:support@loginradius.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 > [!TIP]
 > Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -158,25 +159,25 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     d. Cliquez sur **Créer**.
  
-### <a name="create-a-lr-test-user"></a>Créer un utilisateur de test lr
+### <a name="create-a-loginradius-test-user"></a>Créer un utilisateur de test LoginRadius
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans lr. Collaborez avec [l’équipe du support technique de lr](mailto:support@loginradius.com) pour ajouter les utilisateurs à la plateforme lr. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
+Dans cette section, vous allez créer un utilisateur nommé Britta Simon dans LoginRadius. Collaborez avec [l’équipe du support technique LoginRadius](mailto:support@loginradius.com) pour ajouter des utilisateurs dans la plateforme LoginRadius. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
-Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à lr.
+Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à LoginRadius.
 
 ![Attribuer le rôle utilisateur][200] 
 
-**Pour affecter Britta Simon à lr, effectuez les étapes suivantes :**
+**Pour affecter Britta Simon à LoginRadius, suivez ces étapes :**
 
 1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
 
     ![Affecter des utilisateurs][201] 
 
-2. Dans la liste des applications, sélectionnez **lr**.
+2. Dans la liste des applications, sélectionnez **LoginRadius**.
 
-    ![Lien lr dans la liste des applications](./media/active-directory-saas-lr-tutorial/tutorial_lr_app.png)  
+    ![Lien LoginRadius dans la liste des applications](./media/active-directory-saas-lr-tutorial/tutorial_LoginRadius_app.png)  
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
@@ -196,7 +197,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous cliquez sur la vignette lr dans le volet d’accès, vous devez être connecté automatiquement à votre application lr.
+Si vous cliquez sur la vignette LoginRadius dans le volet d’accès, la connexion à l’application LoginRadius est établie automatiquement.
 Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires

@@ -1,6 +1,6 @@
 ---
 title: Guide de conception de table Azure Storage | Microsoft Docs
-description: "Concevoir des tables évolutives et performantes dans le stockage de tables Azure"
+description: Concevoir des tables évolutives et performantes dans le stockage de tables Azure
 services: cosmos-db
 documentationcenter: na
 author: mimig1
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: a5511b8b2e76c6c651a8e05bda1322293601c92c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: fadb81e16a6c641ca15efb4f910a51de4fe7c997
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guide de conception de table Azure Storage : conception de tables évolutives et performantes
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -232,7 +232,7 @@ Pour obtenir des exemples de code côté client pouvant gérer plusieurs types d
 * [Utilisation des types d’entités hétérogènes](#working-with-heterogeneous-entity-types)  
 
 ### <a name="choosing-an-appropriate-partitionkey"></a>Choix d’une PartitionKey appropriée
-Votre choix de **PartitionKey** doit équilibrer la nécessité d’utiliser des EGT (pour assurer la cohérence) et la nécessité de répartir les entités sur plusieurs partitions (pour garantir une solution évolutive).  
+Votre choix de **PartitionKey** peut équilibrer le besoin d’utiliser des transactions EGT (pour garantir la cohérence) avec l’exigence de distribution de vos entités sur plusieurs partitions (pour assurer une solution évolutive).  
 
 D'un côté, vous pouvez stocker toutes vos entités dans une seule partition, mais cela peut limiter l'extensibilité de votre solution et empêcher le service de Table d'équilibrer les demandes. D’un autre côté, vous pouvez stocker une seule entité par partition, ce qui améliorerait sensiblement l’extensibilité et permet au service de Table d’équilibrer la charge des demandes, mais vous empêcherait d’utiliser des transactions de groupe d’entités.  
 
@@ -261,7 +261,7 @@ De nombreuses applications ont des conditions d'utilisation pour l'utilisation d
 
 * [Modèle d’index secondaire intra-partition](#intra-partition-secondary-index-pattern) : stockez plusieurs copies de chaque entité en utilisant différentes valeurs de RowKey (dans la même partition) pour pouvoir mener des recherches rapides et efficaces et alterner des commandes de tri à l’aide de différentes valeurs de RowKey.  
 * [Modèle d’index secondaire entre les partitions](#inter-partition-secondary-index-pattern) : stockez plusieurs copies de chaque entité à l’aide de différentes valeurs de RowKey dans des partitions ou des tables distinctes pour mener des recherches rapides et efficaces et alterner des commandes de tri à l’aide de différentes valeurs de RowKey.
-* [Modèle de fin de journal](#log-tail-pattern) : récupérez les entités *n* récemment ajoutées à une partition en utilisant une valeur de **RowKey** qui effectue un tri dans l’ordre inverse de la date et de l’heure.  
+* [Modèle de fin de journal](#log-tail-pattern) : récupérez les *n* entités récemment ajoutées à une partition en utilisant une valeur de **RowKey** qui effectue un tri dans l’ordre inverse de la date et de l’heure.  
 
 ## <a name="design-for-data-modification"></a>Conception pour la modification de données
 Cette section se concentre sur les considérations de conception pour optimiser les insertions, les mises à jour et les suppressions. Dans certains cas, vous devez évaluer le compromis entre les conceptions optimisées pour l'interrogation et celles optimisées pour la modification des données, comme vous le feriez dans les conceptions de bases de données relationnelles (bien que les techniques permettant de gérer les compromis de conception sont différentes dans une base de données relationnelle). La section [Modèles de conception de table](#table-design-patterns) décrit plusieurs modèles de conception détaillés pour le service de Table et apporte des informations sur certains de ces compromis. En pratique, vous constaterez que les nombreuses conceptions optimisées pour l'interrogation des entités fonctionnent aussi bien pour la modification des entités.  
@@ -296,7 +296,7 @@ Dans de nombreux cas, une conception visant à obtenir une interrogation efficac
 Les modèles suivants de la section [Modèles de conception de table](#table-design-patterns) répondent aux compromis entre la conception en vue d’une interrogation efficace et la conception en vue d’une modification de données efficace :  
 
 * [Modèle de clé composée](#compound-key-pattern) : utilisez les valeurs de **RowKey** composée pour permettre à un client de rechercher des données associées en utilisant une seule requête de pointage.  
-* [Modèle de fin de journal](#log-tail-pattern) : récupérez les *n* entités récemment ajoutées à une partition en utilisant une valeur de **RowKey** qui effectue un tri dans l’ordre inverse de la date et de l’heure.  
+* [Modèle de fin de journal](#log-tail-pattern) : récupérez les *n* entités récemment ajoutées à une partition en utilisant une valeur de **RowKey** qui effectue un tri dans l’ordre inverse de la date et de l’heure.  
 
 ## <a name="encrypting-table-data"></a>Chiffrement de données de table
 La bibliothèque cliente de stockage .NET Azure Storage prend en charge le chiffrement des propriétés de l’entité de chaîne pour les opérations d’insertion et de remplacement. Les chaînes chiffrées sont stockées sur le service en tant que propriétés binaires, et elles sont converties en chaînes après le déchiffrement.    
@@ -718,10 +718,10 @@ Les modèles et les conseils suivants peuvent également être pertinents lors d
 * [Modèle de transactions cohérentes](#eventually-consistent-transactions-pattern)  
 
 ### <a name="log-tail-pattern"></a>Modèle de fin de journal
-Récupérez les entités *n* récemment ajoutées à une partition en utilisant une valeur de **RowKey** qui effectue un tri dans l’ordre inverse de la date et de l’heure.  
+Récupérez les *n* entités récemment ajoutées à une partition en utilisant une valeur de **RowKey** qui effectue un tri dans l’ordre inverse de la date et de l’heure.  
 
 #### <a name="context-and-problem"></a>Contexte et problème
-Une exigence courante est de pouvoir récupérer les entités plus récemment créées, par exemple les dix dernières dépenses revendications soumises par un employé. Les requêtes de table prennent en charge une opération de requête **$top** pour retourner les premières *n* entités en provenance d’un ensemble. Il n’existe aucune opération de requête équivalente pour retourner les n dernières entités d’un ensemble.  
+Une exigence courante est de pouvoir récupérer les entités plus récemment créées, par exemple les dix dernières dépenses revendications soumises par un employé. Les requêtes de table prennent en charge une opération de requête **$top** pour retourner les *n* premières entités en provenance d’un ensemble. Il n’existe aucune opération de requête équivalente pour retourner les n dernières entités d’un ensemble.  
 
 #### <a name="solution"></a>Solution
 Stockez les entités en utilisant une **RowKey** qui trie naturellement l’ordre inverse de date et d’heure par utilisation, pour que l’entrée la plus récente soit toujours la première dans la table.  

@@ -9,11 +9,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: nisoneji
-ms.openlocfilehash: b7292514e72476f38e9a0572b201be8468f0030a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4d54ecb3f92754fa6575ec17ec5572b6fb9abb88
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="install-a-linux-master-target-server"></a>Installer un serveur cible maître Linux
 Après avoir basculé une machine virtuelle sur Azure, vous pouvez la restaurer automatiquement sur le site local. L’opération de restauration vous oblige à reprotéger la machine virtuelle à partir d’Azure sur le site local. Pour ce faire, vous avez besoin d’un serveur cible maître, capable de recevoir le trafic. 
@@ -42,7 +42,7 @@ Publiez vos commentaires ou vos questions en bas de cet article ou sur le [Forum
 
 Créez le serveur cible maître selon les instructions de dimensionnement suivantes :
 - **RAM** : 6 Go ou plus
-- **Taille du disque de système d’exploitation** : 100 Go ou plus (pour installer CentOS6.6)
+- **Taille du disque de système d’exploitation** : 100 Go ou plus (pour installer le système d’exploitation)
 - **Taille du disque supplémentaire pour le lecteur de conservation** : 1 To
 - **Cœurs d’UC** : 4 cœurs ou plus
 
@@ -113,24 +113,31 @@ Conservez le fichier ISO Ubuntu 16.04.2 Minimal 64 bits dans le lecteur DVD et 
 
 1.  Sélectionnez **Yes** (Oui) pour écrire les modifications sur le disque, puis appuyez sur **Entrée**.
 
-1.  Dans la sélection de proxy de configuration, sélectionnez l’option par défaut, puis sélectionnez **Continuer**, et enfin **Entrée**.
+    ![Sélectionner l’option par défaut](./media/vmware-azure-install-linux-master-target/image16-ubuntu.png)
 
-     ![Sélectionner l’option par défaut](./media/vmware-azure-install-linux-master-target/image17.png)
+1.  Dans la sélection de proxy de configuration, sélectionnez l’option par défaut, puis sélectionnez **Continuer**, et enfin **Entrée**.
+     
+     ![Sélectionner comment gérer les mises à niveau](./media/vmware-azure-install-linux-master-target/image17-ubuntu.png)
 
 1.  Sélectionnez **Aucune mise à jour automatique** dans la sélection pour la gestion des mises à niveau sur votre système, puis sélectionnez **Entrée**.
 
-     ![Sélectionner comment gérer les mises à niveau](./media/vmware-azure-install-linux-master-target/image18.png)
+     ![Sélectionner comment gérer les mises à niveau](./media/vmware-azure-install-linux-master-target/image18-ubuntu.png)
 
     > [!WARNING]
     > Le serveur cible maître Azure Site Recovery nécessite une version spécifique de Ubuntu. Vous devez donc veiller à ce que les mises à niveau du noyau de la machine virtuelle soient désactivées. Si elles sont activées, toute mise à niveau entraîne un dysfonctionnement du serveur cible maître. Veillez à sélectionner l’option **No automatic updates** (Aucune mise à jour automatique).
 
 1.  Sélectionnez les options par défaut. Si vous souhaitez openSSH pour la connexion SSH, sélectionnez l’option **OpenSSH server** (Serveur OpenSSH), puis **Continue** (Continuer).
 
-    ![Sélectionner les logiciels](./media/vmware-azure-install-linux-master-target/image19.png)
+    ![Sélectionner les logiciels](./media/vmware-azure-install-linux-master-target/image19-ubuntu.png)
 
 1. Dans la sélection pour l’installation du chargeur de démarrage GRUB, sélectionnez **Oui**, puis **Entrée**.
+     
+    ![Programme d’installation de démarrage GRUB](./media/vmware-azure-install-linux-master-target/image20.png)
+
 
 1. Sélectionner l’appareil approprié pour l’installation du chargeur de démarrage (de préférence **/dev/sda**), puis appuyez sur **Entrée**.
+     
+    ![Sélectionnez l’appareil approprié](./media/vmware-azure-install-linux-master-target/image21.png)
 
 1. Sélectionnez **Continue** (Continuer), puis appuyez sur **Entrée** pour terminer l’installation.
 
@@ -155,7 +162,7 @@ Pour obtenir l’ID de chaque disque dur SCSI d’une machine virtuelle Linux, v
 
 4. Dans le volet gauche, sélectionnez **Advanced (Avancé)** > **General (Général)**, puis cliquez sur le bouton **Configuration Parameters** (Paramètres de configuration) dans la partie inférieure droite de l’écran.
 
-    ![Onglets Options](./media/vmware-azure-install-linux-master-target/image20.png)
+    ![Ouvrir le paramètre de configuration](./media/vmware-azure-install-linux-master-target/image24-ubuntu.png) 
 
     L’option **Paramètres de configuration** n’est pas disponible lorsque la machine est arrêtée. Pour activer cet onglet, arrêtez la machine virtuelle.
 
@@ -169,7 +176,7 @@ Pour obtenir l’ID de chaque disque dur SCSI d’une machine virtuelle Linux, v
 
     - Dans la colonne de nom, ajoutez **disk.EnableUUID**, puis définissez la valeur sur **TRUE**.
 
-    ![Vérification de la présence de disk.EnableUUID](./media/vmware-azure-install-linux-master-target/image21.png)
+    ![Vérification de la présence de disk.EnableUUID](./media/vmware-azure-install-linux-master-target/image25.png)
 
 #### <a name="disable-kernel-upgrades"></a>Désactiver les mises à niveau du noyau
 
@@ -245,7 +252,7 @@ Pour créer un disque de rétention, procédez comme suit :
     
     `mkfs.ext4 /dev/mapper/<Retention disk's multipath id>`
     
-    ![Création d’un système de fichiers sur le lecteur](./media/vmware-azure-install-linux-master-target/media/image23.png)
+    ![Création d’un système de fichiers sur le lecteur](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
 4. Après avoir créé le système de fichiers, montez le disque de rétention.
 
@@ -253,7 +260,6 @@ Pour créer un disque de rétention, procédez comme suit :
     mkdir /mnt/retention
     mount /dev/mapper/<Retention disk's multipath id> /mnt/retention
     ```
-    ![Montage du disque de rétention](./media/vmware-azure-install-linux-master-target/image24.png)
 
 5. Créez l’entrée **fstab** pour monter le lecteur de rétention à chaque démarrage du système.
     

@@ -1,11 +1,11 @@
 ---
-title: "Déploiement de votre offre sur Azure Marketplace | Microsoft Docs"
-description: "Lisez et suivez les instructions pour déployer votre offre (une image de machine virtuelle, un service de développement, des services de données, etc.) dans Azure Marketplace."
+title: Déploiement de votre offre sur Azure Marketplace | Microsoft Docs
+description: Lisez et suivez les instructions pour déployer votre offre (une image de machine virtuelle, un service de développement, des services de données, etc.) dans Azure Marketplace.
 services: marketplace-publishing
-documentationcenter: 
-author: HannibalSII
-manager: hascipio
-editor: 
+documentationcenter: ''
+author: msmbaldwin
+manager: mbaldwin
+editor: ''
 ms.assetid: 8f79b891-84e2-4f41-ba0d-66420e2c6b2e
 ms.service: marketplace
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/02/2016
-ms.author: hascipio
-ms.openlocfilehash: 12dc81642905cd9449a1032c7ab57298e6b69ba8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbaldwin
+ms.openlocfilehash: 8df7b0e49e17612743b02596e99f7d1fbe8c6803
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="deploy-your-offer-to-the-azure-marketplace"></a>Déploiement de votre offre sur Azure Marketplace
 Quand vous avez finalisé votre offre (avec des scénarios clients testés, du contenu marketing, etc.) et êtes prêt à la lancer, cliquez sur **Push to Production** (Lancer la production) sous l’onglet **Publish** (Publier).  
@@ -28,10 +28,10 @@ Quand vous avez finalisé votre offre (avec des scénarios clients testés, du c
     ![drawing][img-pubportal-walkthru-checked]
 2. Sélectionnez l'onglet **Publish** dans la liste située à gauche.
    
-    ![dessin][img-pubportal-menu-publish]
+    ![drawing][img-pubportal-menu-publish]
 3. Cliquez sur le bouton **Request approval to push to production** (Demander une approbation pour lancer la production). Une fois la demande effectuée, l’équipe d’approbation exécute une vérification finale. Votre offre sera ensuite disponible sur Azure Marketplace.
    
-    ![dessin][img-pubportal-publish-pushproduction]
+    ![drawing][img-pubportal-publish-pushproduction]
 
 > [!IMPORTANT]
 > Dans le cas d’ordinateurs virtuels, lorsque vous cliquez sur le bouton Demander une approbation pour lancer la production, les étapes suivantes sont effectuées en arrière-plan. Vous pourrez voir la progression de chaque étape sous l’onglet PUBLIER du portail de publication. Vous devez vérifier cette page à intervalles réguliers (jusqu’à ce que l’état affiche « Répertorié ») en cas d’apparition d’informations d’échec nécessitant une correction de votre part.
@@ -56,7 +56,7 @@ Quand vous avez finalisé votre offre (avec des scénarios clients testés, du c
 * Le titre de la référence et le résumé de l’offre ne peuvent pas être les mêmes.
 * Les titres de référence ne peuvent pas être les mêmes pour une offre avec plusieurs références.
 
-**Instructions relatives aux logos Azure Marketplace**
+**Instructions relatives au logo de la place de marché Azure**
 
 * Le design Azure a une palette de couleurs simple. Limitez le nombre de couleurs primaires et secondaires sur votre logo.
 * Les couleurs de thème du portail Azure sont le blanc et le noir. Par conséquent, évitez d’utiliser ces couleurs comme couleur d’arrière-plan pour vos logos. Utilisez des couleurs qui mettent vos logos en évidence dans le portail Azure. Nous vous recommandons d’utiliser des couleurs primaires simples. Si vous utilisez un arrière-plan transparent, assurez-vous que le logo/texte n’est pas blanc ou noir.

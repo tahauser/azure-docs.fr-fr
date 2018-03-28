@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 825bf3f6a3ea07cb229f00c81ad699d792ac53f9
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 976d7e7cb304a24f235e51952ce04826776e2789
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Didacticiel : configurer Workday pour l’approvisionnement automatique d’utilisateurs
 
@@ -35,7 +35,7 @@ Le [service d’approvisionnement utilisateur Azure Active Directory](active-dir
 
 * **Écriture différée des adresses e-mails à Workday** : le service d’approvisionnement de l’utilisateur Azure AD peut écrire des attributs utilisateur Azure AD en différé dans Workday, telles que l’adresse e-mail.
 
-### <a name="scenarios-covered"></a>Scénarios couverts
+### <a name="what-human-resources-scenarios-does-it-cover"></a>Quels sont les scénarios de ressources humaines couverts ?
 
 Les flux de travail d’approvisionnement de l’utilisateur Workday pris en charge par le service d’approvisionnement de l’utilisateur Azure AD autorisent l’automatisation des scénarios de gestion du cycle de vie des identités et des ressources humaines suivants :
 
@@ -46,6 +46,20 @@ Les flux de travail d’approvisionnement de l’utilisateur Workday pris en cha
 * **Résiliations de contrats d’employé** : lorsque le contrat d’un employé est résilié dans Workday, le compte d’utilisateur est automatiquement désactivé dans Active Directory, Azure Active Directory et, éventuellement, Office 365 et [d’autres applications SaaS prises en charge par Azure AD](active-directory-saas-app-provisioning.md).
 
 * **Employé ré-embauché** : lorsqu’un employé est ré-embauché dans Workday, son ancien compte peut être automatiquement réactivé ou réapprovisionné (selon votre préférence) dans Active Directory, Azure Active Directory et, éventuellement, Office 365 et [d’autres applications SaaS prises en charge par Azure AD](active-directory-saas-app-provisioning.md).
+
+### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>À qui cette solution d’attribution d’utilisateurs convient-elle le mieux ?
+
+Cette solution d’attribution d’utilisateurs Workday, actuellement en préversion publique, est idéale pour :
+
+* les organisations qui souhaitent une solution cloud prédéfinie pour l’attribution d’utilisateurs Workday ;
+
+* les organisations qui ont besoin d’une attribution d’utilisateurs directe de Workday à Active Directory, ou Azure Active Directory ;
+
+* les organisations qui imposent l’attribution d’utilisateurs à l’aide de données provenant du module HCM Workday (voir [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html)) ; 
+
+* les organisations qui ont besoin de joindre, de déplacer et de laisser les utilisateurs à synchroniser avec une ou plusieurs unités d’organisation, domaines et forêts Active Directory seulement sur la base d’informations de modifications détectées dans le module Workday HCM (voir [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html)) ;
+
+* les organisations qui utilisent Office 365 pour la messagerie électronique.
 
 
 ## <a name="planning-your-solution"></a>Planification de votre solution
@@ -63,10 +77,9 @@ Le scénario décrit dans ce didacticiel part du principe que vous disposez des 
 * Pour l’approvisionnement de l’utilisateur dans Active Directory, un serveur appartenant à un domaine exécutant le Service Windows 2012 ou supérieur est requis pour héberger[l’agent de synchronisation local](https://go.microsoft.com/fwlink/?linkid=847801)
 * [Azure AD Connect](connect/active-directory-aadconnect.md) pour la synchronisation entre Active Directory et Azure AD
 
-
 ### <a name="solution-architecture"></a>Architecture de solution
 
-Azure AD fournit un riche ensemble de connecteurs d’approvisionnement pour vous aider à résoudre la gestion de l’approvisionnement et du cycle de vie des identités de Workday à Active Directory, Azure AD, les applications SaaS et au-delà. Les fonctionnalités que vous allez utiliser et la manière de configurer la solution varient selon l’environnement et les exigences de votre organisation. Dans un premier temps, examinez le nombre d’éléments suivants présents et déployés dans votre organisation :
+Azure AD propose un vaste éventail de connecteurs d’attribution pour vous aider à résoudre la gestion de l’attribution et du cycle de vie d’identité de Workday à Active Directory, à Azure AD, aux applications SaaS et au-delà. Les fonctionnalités que vous allez utiliser et la manière de configurer la solution varient selon l’environnement et les exigences de votre organisation. Dans un premier temps, examinez le nombre d’éléments suivants présents et déployés dans votre organisation :
 
 * Combien de forêts Active Directory sont en cours d’utilisation ?
 * Combien de domaines Active Directory sont en cours d’utilisation ?
@@ -75,6 +88,7 @@ Azure AD fournit un riche ensemble de connecteurs d’approvisionnement pour vou
 * Existe-t-il des utilisateurs qui doivent être approvisionnés dans Active Directory et Azure Active Directory (par exemple, les utilisateurs « hybrides ») ?
 * Existe-t-il des utilisateurs qui doivent être approvisionnés dans Azure Active Directory, mais pas dans Active Directory (par exemple, les utilisateurs « cloud only ») ?
 * Les adresses e-mail des utilisateurs doivent-elles être différées dans Workday ?
+
 
 Une fois que vous disposez des réponses à ces questions, vous pouvez planifier le déploiement de l’approvisionnement de Workday en suivant les instructions ci-dessous.
 
@@ -145,7 +159,7 @@ Pour ce faire, vous devez créer un groupe de sécurité système d’intégrati
    
     ![Créer un groupe de sécurité](./media/active-directory-saas-workday-inbound-tutorial/IC750981.png "Créer un groupe de sécurité")
 2. Exécutez la tâche **Create Security Group**.  
-3. Sélectionnez Integration System Security Group—Unconstrained dans la liste déroulante **Type of Tenanted Security Group**.
+3. Sélectionnez **Integration System Security Group (Unconstrained)** dans la liste déroulante **Type of Tenanted Security Group**.
 4. Créez un groupe de sécurité auquel des membres sont ajoutés de manière explicite. 
    
     ![Créer un groupe de sécurité](./media/active-directory-saas-workday-inbound-tutorial/IC750982.png "Créer un groupe de sécurité")
@@ -165,21 +179,11 @@ Pour ce faire, vous devez créer un groupe de sécurité système d’intégrati
     ![Groupe de sécurité système](./media/active-directory-saas-workday-inbound-tutorial/IC750985.png "Groupe de sécurité système")  
 
 ### <a name="configure-security-group-options"></a>Configurer les options du groupe de sécurité
-Cette étape a pour objectif d’accorder des autorisations aux données de travail sécurisées par les stratégies de sécurité du domaine suivantes :
-
-
-| Opération | Stratégie de sécurité du domaine |
-| ---------- | ---------- | 
-| Get et Put |  External Account Provisioning |
-| Get et Put | Worker Data: Public Worker Reports |
-| Get et Put | Worker Data: All Positions |
-| Get et Put | Worker Data: Current Staffing Information |
-| Get et Put | Worker Data: Business Title on Worker Profile |
-| Afficher et modifier | Informations sur l’employé : Adresse e-mail professionnelle |
+Cette étape a pour objectif d’accorder au groupe de sécurité des autorisations de stratégies de sécurité du domaine pour les données de travail.
 
 **Pour configurer les options du groupe de sécurité :**
 
-1. Entrez les stratégies de sécurité de domaine dans la zone de recherche, puis cliquez sur le lien **Domain Security Policies for Functional Area**.  
+1. Entrez **Domain Security Policies** dans la zone de recherche, puis cliquez sur le lien **Domain Security Policies for Functional Area**.  
    
     ![Stratégies de sécurité de domaine](./media/active-directory-saas-workday-inbound-tutorial/IC750986.png "Stratégies de sécurité de domaine")  
 2. Recherchez system et sélectionnez la zone fonctionnelle **System** .  Cliquez sur **OK**.  
@@ -191,23 +195,17 @@ Cette étape a pour objectif d’accorder des autorisations aux données de trav
 4. Cliquez sur **Modifier les autorisations**, puis, sur la page de dialogue **Modifier les autorisations**, ajoutez le nouveau groupe de sécurité à la liste des groupes de sécurité avec des autorisations d’intégration **Get** et **Put**. 
    
     ![Modifier l’autorisation](./media/active-directory-saas-workday-inbound-tutorial/IC750989.png "Modifier l’autorisation")  
-5. Répétez l’étape 1 ci-dessus pour revenir à l’écran de sélection des zones fonctionnelles. Cette fois, recherchez staffing, sélectionnez la **zone fonctionnelle Staffing**, puis cliquez sur **OK**.
+    
+5. Répétez les étapes 1 à 4 ci-dessus pour chacune des stratégies de sécurité restantes de la liste suivante :
+
+| Opération | Stratégie de sécurité du domaine |
+| ---------- | ---------- | 
+| Get et Put | Worker Data: Public Worker Reports |
+| Get et Put | Worker Data: Work Contact Information |
+| Obtenir | Worker Data: All Positions |
+| Obtenir | Worker Data: Current Staffing Information |
+| Obtenir | Worker Data: Business Title on Worker Profile |
    
-    ![Stratégies de sécurité de domaine](./media/active-directory-saas-workday-inbound-tutorial/IC750990.png "Stratégies de sécurité de domaine")  
-6. Dans la liste des stratégies de sécurité de la zone fonctionnelle Staffing, développez **Worker Data: Staffing** et répétez l’étape 4 ci-dessus pour chacune des stratégies de sécurité restantes :
-
-   * Worker Data: Public Worker Reports
-   * Worker Data: All Positions
-   * Worker Data: Current Staffing Information
-   * Worker Data: Business Title on Worker Profile
-   
-7. Répétez l’étape 1 ci-dessus pour revenir à l’écran de sélection des zones fonctionnelles. Cette fois, recherchez les **coordonnées**, sélectionnez la zone fonctionnelle Dotation en personnel, puis cliquez sur **OK**.
-
-8.  Dans la liste des stratégies de sécurité de la zone fonctionnelle Dotation en personnel, développez **Informations sur l’employé : coordonnées** et répétez l’étape 4 ci-dessus pour chacune des stratégies de sécurité ci-dessous :
-
-    * Informations sur l’employé : Adresse e-mail professionnelle
-
-    ![Stratégies de sécurité de domaine](./media/active-directory-saas-workday-inbound-tutorial/IC750991.png "Stratégies de sécurité de domaine")  
     
 ### <a name="activate-security-policy-changes"></a>Activer les modifications de la stratégie de sécurité
 
@@ -226,6 +224,41 @@ Cette étape a pour objectif d’accorder des autorisations aux données de trav
 ## <a name="configuring-user-provisioning-from-workday-to-active-directory"></a>Configuration de l’approvisionnement de l’utilisateur de Workday à Active Directory
 Suivez ces instructions pour configurer l’approvisionnement du compte d’utilisateur depuis Workday pour chaque forêt Active Directory que vous devez approvisionner.
 
+### <a name="planning"></a>Planification
+
+Avant de configurer l’attribution d’utilisateurs à une forêt Active Directory, posez-vous les questions suivantes. Les réponses à ces questions détermineront la configuration requise des filtres d’étendue et des mappages d’attributs. 
+
+* **Quels sont les utilisateurs de Workday à attribuer à cette forêt Active Directory ?**
+
+   * *Exemple : les utilisateurs dont l’attribut « Company » de Workday comporte la valeur « Contoso » et dont l’attribut « Worker_Type » contient « Regular ».*
+
+* **Comment les utilisateurs sont-ils acheminés dans différentes unités d’organisation (UO) ?**
+
+   * *Exemple : les utilisateurs sont acheminés vers les UO qui correspondent au lieu de bureau défini dans les attributs « Municipality » et « Country_Region_Reference » de Workday.*
+
+* **Comment les attributs suivants devront-ils être remplis dans Active Directory ?**
+
+   * Nom commun (cn)
+      * *Exemple : utiliser la valeur User_ID de Workday définie par les ressources humaines*
+      
+   * ID employé (employeeId)
+      * *Exemple : utiliser la valeur Worker_ID de Workday*
+      
+   * Nom de compte SAM (sAMAccountName)
+      * *Exemple : utiliser la valeur User_ID de Workday, filtrée par une expression de configuration Azure AD qui supprime les caractères non autorisés*
+      
+   * Nom d’utilisateur principal (userPrincipalName)
+      * *Exemple : utiliser la valeur User_ID de Workday, avec une expression de configuration Azure AD qui ajoute un nom de domaine*
+
+* **Comment les utilisateurs doivent-ils être appariés entre Workday et Active Directory ?**
+
+  * *Exemple : les utilisateurs possédant une certaine valeur « Worker_ID » Workday sont mis en correspondance avec les utilisateurs Active Directory pour lesquels « employeeID » a la même valeur. Si la valeur Worker_ID est absente dans Active Directory, créer un nouvel utilisateur.*
+  
+* **La forêt Active Directory contient-elle déjà les identifiants utilisateur requis pour que la logique de correspondance fonctionne ?**
+
+  * *Exemple : s’il s’agit d’un nouveau déploiement Workday, il est vivement recommandé qu’Active Directory soit prérempli avec les bonnes valeurs Worker_ID de Workday (ou la valeur d’identifiant unique choisie) pour simplifier autant que possible la logique de correspondance.*
+    
+    
 ### <a name="part-1-adding-the-provisioning-connector-app-and-creating-the-connection-to-workday"></a>Partie 1 : ajout de l’application des connecteurs d’approvisionnement et création de la connexion à Workday
 
 **Pour configurer l’approvisionnement Workday dans Active Directory :**
@@ -321,39 +354,38 @@ Dans cette section, vous allez configurer le flux des données de l’utilisateu
 
 **Vous trouverez ci-dessous quelques exemples de mappages d’attributs entre Workday et Active Directory, avec certaines expressions communes**
 
--   L’expression qui est mappée à l’attribut parentDistinguishedName AD peut être utilisée pour approvisionner un utilisateur dans une unité d’organisation spécifique basée sur un ou plusieurs attributs source Workday. Cet exemple place les utilisateurs dans différentes unités d’organisation en fonction des données de ville dans Workday.
+-   L’expression mappée à l’attribut parentDistinguishedName permet d’attribuer les utilisateurs à différentes unités d’organisation en fonction d’un ou plusieurs attributs sources Workday. Cet exemple les place en fonction de la ville dans laquelle il se trouve.
 
--   L’expression qui est mappée à l’attribut userPrincipalName AD crée un UPN de firstName.LastName@contoso.com. Elle remplace également des caractères spéciaux non conformes.
+-   L’attribut userPrincipalName dans Active Directory est généré en concaténant l’identifiant utilisateur Workday avec un suffixe de domaine.
 
--   [Il existe une documentation sur l’écriture d’expressions ici](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+-   Vous pouvez consulter la [documentation sur l’écriture d’expressions](active-directory-saas-writing-expressions-for-attribute-mappings.md), qui comprend des exemples de suppression de caractères spéciaux.
 
   
 | ATTRIBUT WORKDAY | ATTRIBUT ACTIVE DIRECTORY |  CORRESPONDANCE D’ID ? | CRÉER / METTRE À JOUR |
 | ---------- | ---------- | ---------- | ---------- |
-|  **WorkerID**  |  EmployeeID | **Oui** | Écrit lors de la création uniquement | 
-|  **Municipalité**   |   l   |     | Créer + mettre à jour |
-|  **Société**         | société   |     |  Créer + mettre à jour |
-|  **CountryReferenceTwoLetter**      |   co |     |   Créer + mettre à jour |
-| **CountryReferenceTwoLetter**    |  c  |     |         Créer + mettre à jour |
-| **SupervisoryOrganization**  | department  |     |  Créer + mettre à jour |
-|  **PreferredNameData**  |  displayName |     |   Créer + mettre à jour |
-| **EmployeeID**    |  cn    |   |   Écrit lors de la création uniquement |
-| **Fax**      | facsimileTelephoneNumber     |     |    Créer + mettre à jour |
-| **FirstName**   | givenName       |     |    Créer + mettre à jour |
+| **WorkerID**  |  EmployeeID | **Oui** | Écrit lors de la création uniquement | 
+| **l'UserId**    |  cn    |   |   Écrit lors de la création uniquement |
+| **Join("@",[UserID], "contoso.com")**   | userPrincipalName     |     | Écrit lors de la création uniquement 
+| **Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         Écrit lors de la création uniquement |
 | **Commuter (\[Active\], « 0 », « True », « 1 »,)** |  accountDisabled      |     | Créer + mettre à jour |
-| **Mobile**  |    mobile       |     |       Créer + mettre à jour |
-| **EmailAddress**    | mail    |     |     Créer + mettre à jour |
+| **FirstName**   | givenName       |     |    Créer + mettre à jour |
+| **LastName**   |   sn   |     |  Créer + mettre à jour |
+| **PreferredNameData**  |  displayName |     |   Créer + mettre à jour |
+| **Société**         | société   |     |  Créer + mettre à jour |
+| **SupervisoryOrganization**  | department  |     |  Créer + mettre à jour |
 | **ManagerReference**   | manager  |     |  Créer + mettre à jour |
+| **BusinessTitle**   |  title     |     |  Créer + mettre à jour | 
+| **AddressLineData**    |  streetAddress  |     |   Créer + mettre à jour |
+| **Municipalité**   |   l   |     | Créer + mettre à jour |
+| **CountryReferenceTwoLetter**      |   co |     |   Créer + mettre à jour |
+| **CountryReferenceTwoLetter**    |  c  |     |         Créer + mettre à jour |
+| **CountryRegionReference** |  st     |     | Créer + mettre à jour |
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  Créer + mettre à jour |
 | **PostalCode**  |   postalCode  |     | Créer + mettre à jour |
-| **LocalReference** |  preferredLanguage  |     |  Créer + mettre à jour |
-| **Replace(Mid(Replace(\[EmployeeID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         Écrit lors de la création uniquement |
-| **LastName**   |   sn   |     |  Créer + mettre à jour |
-| **CountryRegionReference** |  st     |     | Créer + mettre à jour |
-| **AddressLineData**    |  streetAddress  |     |   Créer + mettre à jour |
 | **PrimaryWorkTelephone**  |  telephoneNumber   |     | Créer + mettre à jour |
-| **BusinessTitle**   |  title     |     |  Créer + mettre à jour |
-| **Join("@",Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Join(".", [FirstName], [LastName]), , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , ), "contoso.com")**   | userPrincipalName     |     | Écrit lors de la création uniquement                                                   
+| **Fax**      | facsimileTelephoneNumber     |     |    Créer + mettre à jour |
+| **Mobile**  |    mobile       |     |       Créer + mettre à jour |
+| **LocalReference** |  preferredLanguage  |     |  Créer + mettre à jour |                                               
 | **Switch(\[Municipality\], "OU=Standard Users,OU=Users,OU=Default,OU=Locations,DC=contoso,DC=com", "Dallas", "OU=Standard Users,OU=Users,OU=Dallas,OU=Locations,DC=contoso,DC=com", "Austin", "OU=Standard Users,OU=Users,OU=Austin,OU=Locations,DC=contoso,DC=com", "Seattle", "OU=Standard Users,OU=Users,OU=Seattle,OU=Locations,DC=contoso,DC=com", “London", "OU=Standard Users,OU=Users,OU=London,OU=Locations,DC=contoso,DC=com")**  | parentDistinguishedName     |     |  Créer + mettre à jour |
   
 ### <a name="part-3-configure-the-on-premises-synchronization-agent"></a>Partie 3 : configurer l’agent de synchronisation local
@@ -425,7 +457,7 @@ Après avoir installé l’agent, exécutez les commandes Powershell ci-dessous 
 Si votre locataire Azure Active Directory se trouve dans un des centres de données en Europe, suivez les étapes supplémentaires ci-dessous.
 
 1. Ouvrez **Services.msc** et arrêtez le service **Microsoft Azure AD Connect Provisioning Agent** (Agent d’approvisionnement Microsoft Azure AD Connect).
-2. Accédez au dossier d’installation de l’agent (exemple : C:\Program Files\Microsoft Azure AD Connect Provisioning Agent).Go to the agent installation folder (example: C:\Program Files\Microsoft Azure AD Connect Provisioning Agent)
+2. Accédez au dossier d’installation de l’agent (exemple : C:\Program Files\Microsoft Azure AD Connect Provisioning Agent).
 3. Ouvrez **SyncAgnt.exe.config** dans un éditeur de texte.
 4. Remplacez https://manage.hub.syncfabric.windowsazure.com/Management par **https://eu.manage.hub.syncfabric.windowsazure.com/Management**
 5. Remplacez https://provision.hub.syncfabric.windowsazure.com/Provisioning par **https://eu.provision.hub.syncfabric.windowsazure.com/Provisioning**
@@ -697,6 +729,7 @@ Il vous faut pour cela utiliser [Workday Studio](https://community.workday.com/s
             <wd:Include_Transaction_Log_Data>true</wd:Include_Transaction_Log_Data>
             <wd:Include_Photo>true</wd:Include_Photo>
             <wd:Include_User_Account>true</wd:Include_User_Account>
+            <wd:Include_Roles>true</wd:Include_Roles>
           </wd:Response_Group>
         </wd:Get_Workers_Request>
       </env:Body>

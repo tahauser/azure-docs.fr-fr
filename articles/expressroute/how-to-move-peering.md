@@ -1,25 +1,25 @@
 ---
-title: "Déplacer un appairage public sur Azure ExpressRoute vers l’appairage Microsoft | Microsoft Docs"
-description: "Cet article explique comment déplacer votre appairage public vers l’appairage Microsoft sur ExpressRoute."
+title: Déplacer un appairage public sur Azure ExpressRoute vers l’appairage Microsoft | Microsoft Docs
+description: Cet article explique comment déplacer votre appairage public vers l’appairage Microsoft sur ExpressRoute.
 services: expressroute
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/09/2017
+ms.date: 03/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4fd0f1cbba36957ae5ecc1b7436d1f1734a3ef79
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 02d7c3f587a4cbfb11fc3b6863f75ca30b4d6c51
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Déplacer un appairage public vers l’appairage Microsoft
 
@@ -52,7 +52,7 @@ Vérifiez que l’appairage Microsoft est activé et que les préfixes publics p
 
   * [Portail Azure](expressroute-howto-routing-portal-resource-manager.md#getmsft)
   * [Azure PowerShell](expressroute-howto-routing-arm.md#getmsft)
-  * [Interface de ligne de commande Azure](howto-routing-cli.md#getmsft)
+  * [interface de ligne de commande Azure](howto-routing-cli.md#getmsft)
 
 ## <a name="routefilter"></a>3. Configurer un filtre de routes et le joindre au circuit
 
@@ -73,6 +73,10 @@ Après avoir vérifié que l’appairage Microsoft est configuré et que les pr�
   * [Supprimer un appairage public Azure à l’aide du portail Azure](expressroute-howto-routing-portal-resource-manager.md#deletepublic)
   * [Supprimer un appairage public Azure à l’aide d’Azure PowerShell](expressroute-howto-routing-arm.md#deletepublic)
   * [Supprimer un appairage public Azure à l’aide de l’interface de ligne de commande](howto-routing-cli.md#deletepublic)
+  
+## <a name="view"></a>5. Afficher les homologations
+  
+Vous pouvez afficher une liste de tous les circuits et homologations ExpressRoute dans le portail Azure. Pour plus d’informations, consultez [Afficher les détails d’homologation Microsoft](expressroute-howto-routing-portal-resource-manager.md#getmsft).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
