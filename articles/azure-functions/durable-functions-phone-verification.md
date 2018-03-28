@@ -1,12 +1,12 @@
 ---
-title: "Interactions humaines et délais d’expiration dans l’extension Fonctions durables - Azure"
-description: "Découvrez comment gérer des interactions humaines et les délais d’expiration dans l’extension Fonctions durables d’Azure Functions."
+title: Interactions humaines et délais d’expiration dans l’extension Fonctions durables - Azure
+description: Découvrez comment gérer des interactions humaines et les délais d’expiration dans l’extension Fonctions durables d’Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 1763c63b37c5e6b326c3623dc058974f718ac990
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: e0b919ae5ef0639c8afdc5f9b006d899c8dbc4c1
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Interaction humaine dans l’extension Fonctions durables : exemple de vérification par téléphone
 
@@ -26,30 +26,23 @@ Cette exemple indique comment créer une orchestration [Fonctions durables](dura
 
 Cet exemple implémente un système de vérification de téléphone SMS. Ces types de flux sont souvent utilisés lors de la vérification du numéro de téléphone d’un client, ou pour l’authentification multifacteur (MFA). Cet exemple est efficace, car l’implémentation s’effectue à l’aide de quelques fonctions de petite taille. Aucune banque de données externe (base de données, par exemple) n’est requise.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 * Suivez les instructions indiquées dans la section [Installer des fonctions durables](durable-functions-install.md) pour configurer l’exemple.
 * Cet article suppose que vous avez déjà parcouru l’exemple de procédure pas à pas [Séquence Hello](durable-functions-sequence.md).
 
 ## <a name="scenario-overview"></a>Présentation du scénario
 
-Grâce à la procédure de vérification par téléphone, vous pouvez vous assurer que les utilisateurs de votre application ont été authentifiés et ne sont pas des expéditeurs de courrier indésirable. L’authentification multifacteur est un cas d’usage courant pour la protection des comptes d’utilisateur contre les pirates. Le défi lié à l’implémentation de votre propre vérification par téléphone est qu’elle nécessite une **interaction avec état** avec un être humain. Un utilisateur reçoit généralement un code (par exemple, un nombre à 4 chiffres) et doit répondre **dans un délai raisonnable**.
+Grâce à la procédure de vérification par téléphone, vous pouvez vous assurer que les utilisateurs de votre application ont été authentifiés et ne sont pas des expéditeurs de courrier indésirable. L’authentification multifacteur est un cas d’usage courant pour la protection des comptes d’utilisateur contre les pirates. Le défi lié à l’implémentation de votre propre vérification par téléphone est qu’elle nécessite une **interaction avec état** avec un être humain. Un utilisateur final reçoit généralement du code (par exemple, un nombre à 4 chiffres) et doit répondre **dans un délai raisonnable**.
 
-Les fonctions Azure Functions ordinaires sont sans état (comme plusieurs autres points de terminaison de cloud sur d’autres plateformes), donc ces types d’interactions impliqueront la gestion explicite de l’état en externe, dans une base de données ou une banque de données persistante. En outre, l’interaction doit être répartie en plusieurs fonctions, qui peuvent être coordonnées entre elles. Par exemple, il vous faut au moins une fonction permettant de choisir un code, de le rendre persistant à un stade quelconque et de l’envoyer au téléphone de l’utilisateur. En outre, vous avez besoin d’une autre fonction, au minimum, pour recevoir une réponse de l’utilisateur et la mapper à l’appel de fonction d’origine, afin de valider le code. Le délai d’expiration est également un facteur important lors de la gestion de la sécurité. Cela peut assez rapidement devenir complexe.
+Les fonctions Azure Functions ordinaires sont sans état (comme de nombreux autres points de terminaison cloud sur d’autres plateformes). Ces types d’interactions impliquent donc la gestion explicite de l’état en externe, dans une base de données ou un magasin persistant. En outre, l’interaction doit être répartie en plusieurs fonctions, qui peuvent être coordonnées entre elles. Par exemple, il vous faut au moins une fonction permettant de choisir un code, de le rendre persistant à un stade quelconque et de l’envoyer au téléphone de l’utilisateur. En outre, vous avez besoin d’une autre fonction, au minimum, pour recevoir une réponse de l’utilisateur et la mapper à l’appel de fonction d’origine, afin de valider le code. Le délai d’expiration est également un facteur important lors de la gestion de la sécurité. Cela peut rapidement devenir complexe.
 
-La complexité de ce scénario est considérablement réduite lorsque vous utilisez l’extension Fonctions durables. Comme vous pouvez le constater dans cet exemple, une fonction d’orchestrateur peut gérer l’interaction avec état très facilement, sans impliquer de banques de données externes. Étant donné que les fonctions d’orchestrateur sont *durables*, ces flux interactifs sont également hautement fiables.
+La complexité de ce scénario est considérablement réduite lorsque vous utilisez l’extension Fonctions durables. Comme vous pouvez le constater dans cet exemple, une fonction d’orchestrateur peut gérer facilement l’interaction avec état, sans impliquer de magasins de données externes. Étant donné que les fonctions d’orchestrateur sont *durables*, ces flux interactifs sont également hautement fiables.
 
 ## <a name="configuring-twilio-integration"></a>Configuration de l’intégration de Twilio
 
-Cet exemple implique l’utilisation du service [Twilio](https://www.twilio.com/) pour envoyer des SMS à un téléphone mobile. Azure Functions prend déjà ce service en charge, via la [liaison Twilio](https://docs.microsoft.com/azure/azure-functions/functions-bindings-twilio). L’exemple utilise cette fonctionnalité.
-
-Pour commencer, vous devez disposer d’un compte Twilio. Vous pouvez en créer un gratuitement, à l’adresse https://www.twilio.com/try-twilio. Une fois ce compte créé, ajoutez les trois **paramètres d’application** suivants à votre application de fonction.
-
-| Nom du paramètre d’application | Description de la valeur |
-| - | - |
-| **TwilioAccountSid**  | Il s’agit du SID de votre compte Twilio |
-| **TwilioAuthToken**   | Il s’agit du jeton d’authentification de votre compte Twilio |
-| **TwilioPhoneNumber** | Numéro de téléphone associé à votre compte Twilio. Il est utilisé pour envoyer des SMS. |
+[!INCLUDE [functions-twilio-integration](../../includes/functions-twilio-integration.md)]
 
 ## <a name="the-functions"></a>Les fonctions
 
@@ -77,7 +70,7 @@ Une fois démarrée, cette fonction d’orchestrateur effectue les opérations s
 3. Elle crée un minuteur durable se déclenchant 90 secondes à partir de l’heure actuelle.
 4. En parallèle avec le minuteur, elle attend un événement **SmsChallengeResponse** de la part de l’utilisateur.
 
-L’utilisateur reçoit un SMS incluant le code à quatre chiffres. Il doit renvoyer ce code à l’instance de la fonction d’orchestrateur dans les 90 secondes, afin de terminer le processus de vérification. Si le code est incorrect, il peut effectuer trois nouvelles tentatives de saisie (dans les 90 secondes imparties).
+L’utilisateur reçoit un SMS incluant le code à quatre chiffres. Il doit renvoyer ce code à l’instance de la fonction d’orchestrateur dans les 90 secondes, afin de terminer le processus de vérification. Si le code est incorrect, il peut effectuer trois nouvelles tentatives de saisie (dans les 90 secondes imparties).
 
 > [!NOTE]
 > Cela peut ne pas sembler évident, mais cette fonction d’orchestrateur est entièrement déterministe. En effet, la propriété `CurrentUtcDateTime` est utilisée pour calculer le délai d’expiration du minuteur, et cette propriété renvoie la même valeur à chaque réexécution à ce niveau du code d’orchestrateur. Il est important de vérifier que le même paramètre `winner` provient de chaque appel répété à `Task.WhenAny`.
@@ -99,7 +92,7 @@ Cette fonction **E4_SendSmsChallenge** n’est appelée qu’une fois, même si 
 
 ## <a name="run-the-sample"></a>Exécution de l'exemple
 
-En utilisant les fonctions déclenchées via HTTP incluses dans l’exemple, vous pouvez démarrer l’orchestration en envoyant la requête HTTP POST suivante.
+En utilisant les fonctions déclenchées via HTTP incluses dans l’exemple, vous pouvez démarrer l’orchestration en envoyant la requête HTTP POST suivante :
 
 ```
 POST http://{host}/orchestrators/E4_SmsPhoneVerification

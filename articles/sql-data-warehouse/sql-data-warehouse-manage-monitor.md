@@ -1,28 +1,27 @@
 ---
-title: "Surveiller votre charge de travail à l’aide de vues de gestion dynamique | Microsoft Docs"
-description: "Comment surveiller votre charge de travail à l'aide de vues de gestion dynamique"
+title: Surveiller votre charge de travail à l’aide de vues de gestion dynamique | Microsoft Docs
+description: Comment surveiller votre charge de travail à l'aide de vues de gestion dynamique
 services: sql-data-warehouse
 documentationcenter: NA
 author: sqlmojo
 manager: jhubbard
-editor: 
-ms.assetid: 69ecd479-0941-48df-b3d0-cf54c79e6549
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 12/14/2017
+ms.date: 03/15/2018
 ms.author: joeyong;barbkess;kevin
-ms.openlocfilehash: 1895e9c6174dfb05212991040cc265b8cb6e0651
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7e25a1f8d807fa317e8ce246fd49de034182af96
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Surveiller votre charge de travail à l'aide de vues de gestion dynamique
-Cet article décrit comment utiliser les vues de gestion dynamique (DMV) pour surveiller votre charge de travail et analyser l'exécution des requêtes dans Azure SQL Data Warehouse.
+Cet article décrit comment utiliser des vues de gestion dynamique (DMV) pour surveiller votre charge de travail. Cela inclut l’examen de l’exécution des requêtes dans Azure SQL Data Warehouse.
 
 ## <a name="permissions"></a>Autorisations
 Pour interroger les vues de gestion dynamique (DMV) de cet article, vous avez besoin de l’autorisation VIEW DATABASE STATE ou CONTROL. L’autorisation généralement accordée est VIEW DATABASE STATE car elle est beaucoup plus restrictive.
@@ -72,7 +71,7 @@ WHERE   [label] = 'My Query';
 
 Dans les résultats de requête précédents, **notez l’ID de la requête** que vous souhaitez examiner.
 
-Les requêtes ayant l’état **Interrompu** sont mises en file d’attente en raison des limites de concurrence. Ces requêtes apparaissent également dans la requête sys.dm_pdw_waits de type UserConcurrencyResourceType. Pour plus d’informations sur les limites de concurrence, consultez [Gestion de la concurrence et des charges de travail][Concurrency and workload management]. Les requêtes peuvent également attendre d’autres raisons, par exemple des verrouillages d’objets.  Si votre requête est en attente d’une ressource, consultez [Examen des requêtes en attente de ressources][Investigating queries waiting for resources] plus loin dans cet article.
+Les requêtes ayant l’état **Interrompu** sont mises en file d’attente en raison des limites de concurrence. Ces requêtes apparaissent également dans la requête sys.dm_pdw_waits de type UserConcurrencyResourceType. Pour plus d’informations sur les limites de simultanéité, consultez [Niveaux de performances](performance-tiers.md) ou [Classes de ressources pour la gestion des charges de travail](resource-classes-for-workload-management.md). Les requêtes peuvent également attendre d’autres raisons, par exemple des verrouillages d’objets.  Si votre requête est en attente d’une ressource, consultez [Examen des requêtes en attente de ressources][Investigating queries waiting for resources] plus loin dans cet article.
 
 Pour simplifier la recherche d’une requête dans la table sys.dm_pdw_exec_requests, utilisez [LABEL][LABEL] pour affecter un commentaire à votre requête qui peut être recherché dans la vue sys.dm_pdw_exec_requests.
 
@@ -135,7 +134,7 @@ WHERE request_id = 'QID####' AND step_index = 2;
 ```
 
 * Vérifiez la colonne *total_elapsed_time* pour voir si une distribution particulière prend un temps significativement plus important que les autres pour le déplacement des données.
-* Pour la distribution longue, consultez la colonne *rows_processed* pour voir si le nombre de lignes déplacées dans le cadre de cette distribution est nettement plus élevé que les autres. Dans ce cas, cela peut indiquer un décalage des données sous-jacentes.
+* Pour la distribution longue, consultez la colonne *rows_processed* pour voir si le nombre de lignes déplacées dans le cadre de cette distribution est nettement plus élevé que les autres. Dans ce cas, cette recherche peut indiquer un décalage des données sous-jacentes.
 
 Si la requête est en cours d’exécution, [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN] peut être utilisé pour récupérer le plan estimé de SQL Server auprès du cache de plans SQL Serveur pour l’étape SQL en cours d’exécution dans une distribution particulière.
 
@@ -174,9 +173,9 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 Si la requête attend activement des ressources provenant d'une autre requête, l'état affichera **AcquireResources**.  Si la requête possède toutes les ressources requises, l'état sera **Granted**.
 
 ## <a name="monitor-tempdb"></a>Surveiller tempdb
-Une utilisation élevée de tempdb peut être la cause racine du ralentissement des performances et des problèmes de mémoire insuffisante. Envisagez la mise à l’échelle de votre entrepôt de données si tempdb atteint ses limites lors de l’exécution de requêtes. La suite de cette rubrique décrit comment identifier l’utilisation de tempdb par requête sur chaque nœud. 
+Une utilisation élevée de tempdb peut être la cause racine du ralentissement des performances et des problèmes de mémoire insuffisante. Envisagez la mise à l’échelle de votre entrepôt de données si tempdb atteint ses limites lors de l’exécution de requêtes. Les informations suivantes décrivent comment identifier l’utilisation de tempdb par requête sur chaque nœud. 
 
-Créez la vue suivante pour associer l’ID de nœud approprié à sys.dm_pdw_sql_requests. Cela vous permettra de tirer parti des autres vues de gestion dynamique directes et de joindre ces tables à sys.dm_pdw_sql_requests.
+Créez la vue suivante pour associer l’ID de nœud approprié à sys.dm_pdw_sql_requests. L’ID de nœud vous permet d’utiliser d’autres vues de gestion dynamique directes et de joindre ces tables à sys.dm_pdw_sql_requests.
 
 ```sql
 -- sys.dm_pdw_sql_requests with the correct node id
@@ -200,7 +199,7 @@ CREATE VIEW sql_requests AS
 FROM sys.pdw_distributions AS d
 RIGHT JOIN sys.dm_pdw_sql_requests AS sr ON d.distribution_id = sr.distribution_id)
 ```
-Exécutez la requête suivante pour surveiller tempdb :
+Exécutez la requête suivante pour surveiller tempdb :
 
 ```sql
 -- Monitor tempdb
@@ -258,7 +257,7 @@ pc1.counter_name = 'Total Server Memory (KB)'
 AND pc2.counter_name = 'Target Server Memory (KB)'
 ```
 ## <a name="monitor-transaction-log-size"></a>Surveiller la taille du journal des transactions
-La requête suivante renvoie la taille du journal des transactions sur chaque distribution. Si un des fichiers journaux atteint 160 Go, vous devez envisager la mise à l’échelle de votre instance ou limiter la taille de votre transaction. 
+La requête suivante renvoie la taille du journal des transactions sur chaque distribution. Si l’un des fichiers journaux atteint 160 Go, vous devez envisager la mise à l’échelle de votre instance ou de limiter la taille de votre transaction. 
 ```sql
 -- Transaction log size
 SELECT
@@ -285,7 +284,7 @@ GROUP BY t.pdw_node_id, nod.[type]
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les vues de gestion dynamique, consultez [Vues système][System views].
-Pour plus d’informations sur les bonnes pratiques, consultez [Bonnes pratiques pour SQL Data Warehouse][SQL Data Warehouse best practices].
+
 
 <!--Image references-->
 
@@ -294,7 +293,6 @@ Pour plus d’informations sur les bonnes pratiques, consultez [Bonnes pratiques
 [SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
 [System views]: ./sql-data-warehouse-reference-tsql-system-views.md
 [Table distribution]: ./sql-data-warehouse-tables-distribute.md
-[Concurrency and workload management]: ./sql-data-warehouse-develop-concurrency.md
 [Investigating queries waiting for resources]: ./sql-data-warehouse-manage-monitor.md#waiting
 
 <!--MSDN references-->

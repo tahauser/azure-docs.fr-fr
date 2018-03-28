@@ -1,23 +1,21 @@
 ---
-title: "Déployer un modèle Azure Resource Manager dans un runbook Azure Automation | Microsoft Docs"
-description: "Comment déployer un modèle Azure Resource Manager stocké dans Stockage Azure à partir d’un runbook"
+title: Déployer un modèle Azure Resource Manager dans un runbook Azure Automation
+description: Comment déployer un modèle Azure Resource Manager stocké dans Stockage Azure à partir d’un runbook
 services: automation
-documentationcenter: dev-center-name
-author: georgewallace
-manager: carmonm
-keywords: powerShell, runbook, json, azure automation
 ms.service: automation
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: powershell
-ms.workload: TBD
-ms.date: 07/09/2017
+author: georgewallace
 ms.author: gwallace
-ms.openlocfilehash: 63c8f1b1190e19e1f1d2a7871bffee44ef5c7877
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.date: 03/16/2018
+ms.topic: article
+manager: carmonm
+ms.devlang: na
+ms.tgt_pltfrm: na
+keywords: powerShell, runbook, json, azure automation
+ms.openlocfilehash: 94288792daa7edbc3bcce1ccb944bcf318ee747f
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Déployer un modèle Azure Resource Manager dans un runbook PowerShell Azure Automation
 
@@ -28,6 +26,7 @@ Ainsi, vous pouvez automatiser le déploiement de ressources Azure. Vous pouvez 
 Dans cette rubrique, nous créons un runbook PowerShell qui utilise un modèle Resource Manager stocké dans [Stockage Azure](../storage/common/storage-introduction.md) pour déployer un nouveau compte de stockage Azure.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 

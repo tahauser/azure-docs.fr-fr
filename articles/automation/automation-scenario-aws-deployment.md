@@ -1,29 +1,24 @@
 ---
-title: "Automatisation du déploiement d’une machine virtuelle dans Amazon Web Services | Microsoft Docs"
-description: "Cet article explique comment utiliser Azure Automation pour automatiser la création d’une machine virtuelle Amazon Web Services"
+title: Automatisation du déploiement d’une machine virtuelle dans Amazon Web Services
+description: Cet article explique comment utiliser Azure Automation pour automatiser la création d’une machine virtuelle Amazon Web Services
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: 
-ms.assetid: 1d85c01a-d795-4523-8194-84fc15b53838
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/29/2017
-ms.author: tiandert; bwren
-ms.openlocfilehash: ba86789a9571c4b09a0224e6c41497f091968ef8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+manager: carmonm
+ms.openlocfilehash: 371510bf335bda2e2475e6ba3f5f74ee2117d9a5
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-automation-scenario---provision-an-aws-virtual-machine"></a>Scénario Azure Automation – Approvisionner une machine virtuelle AWS
 Dans cet article, vous allez découvrir comment provisionner une machine virtuelle de votre abonnement AWS (Amazon Web Services) à l’aide d’Azure Automation et comment lui attribuer un nom spécifique (opération appelée « balisage » dans AWS).
 
 ## <a name="prerequisites"></a>Prérequis
+
 Pour les besoins de cet article, vous devez disposer d’un compte Azure Automation et d’un abonnement AWS. Pour plus d’informations sur la création d’un compte Azure Automation et sur sa configuration avec les informations d’identification de votre abonnement AWS, consultez l’article [Authentification des Runbooks avec Amazon Web Services](automation-config-aws-account.md). Vous devez au préalable créer ou mettre à jour ce compte avec les informations d’identification de votre abonnement AWS, car vous ferez référence à ce compte dans les étapes suivantes.
 
 ## <a name="deploy-amazon-web-services-powershell-module"></a>Déployer le module PowerShell Amazon Web Services
@@ -38,7 +33,7 @@ Votre runbook de provisionnement de machine virtuelle utilise le module PowerShe
    > <br>
 
 1. Dans le portail Azure, ouvrez votre compte Automation référencé à l’étape 3.
-2. Cliquez sur la vignette **Ressources** et, dans le volet **Ressources**, sélectionnez la vignette **Modules**.
+2. Cliquez sur la mosaïque **Ressources** et, dans le volet **Ressources**, sélectionnez la mosaïque **Modules**.
 3. Dans la page **Modules**, le module **AWSPowerShell** apparaît dans la liste.
 
 ## <a name="create-aws-deploy-vm-runbook"></a>Créer un runbook de machine virtuelle de déploiement AWS

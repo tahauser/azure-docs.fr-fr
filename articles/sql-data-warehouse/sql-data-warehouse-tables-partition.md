@@ -5,7 +5,7 @@ services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jenniehubbard
-editor: 
+editor: ''
 ms.assetid: 6cef870c-114f-470c-af10-02300c58885d
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 12/06/2017
 ms.author: barbkess
-ms.openlocfilehash: a28cb1f8a2e48332b344566620dc49b29d9d3c99
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f94bc3770fbd7e707194032cb99c67b09f8a0618
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="partitioning-tables-in-sql-data-warehouse"></a>Partitionnement de tables dans SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -49,10 +49,10 @@ Le partitionnement peut également servir à améliorer les performances des req
 ## <a name="partition-sizing-guidance"></a>Guide de dimensionnement de partition
 Tandis que le partitionnement peut être utilisé pour améliorer les performances de certains scénarios, la création d’une table avec **trop** de partitions peut nuire aux performances dans certaines circonstances.  Ces inquiétudes sont particulièrement avérées pour les tables columnstore en cluster.  Pour que le partitionnement soit utile, il est important de savoir quand utiliser le partitionnement et le nombre de partitions à créer.  Il n’existe aucune règle absolue concernant le nombre de partitions ; cela dépend de vos données et du nombre de partitions que vous chargez simultanément.  En règle générale, un schéma de partition réussi n’a qu’entre dix et cent partitions, pas mille.
 
-Lorsque vous créez des partitions sur des tables **columnstore en cluster**, il est important de prendre en compte le nombre de lignes dans chaque partition.  Pour une compression et des performances des tables columnstore en cluster optimales, un minimum de 1 million de lignes par partition et par distribution est nécessaire.  Avant la création des partitions, SQL Data Warehouse divise déjà chaque table en 60 bases de données distribuées.  Tout partitionnement ajouté à une table est en plus des distributions créées en arrière-plan.  Dans cet exemple, si la table de faits de ventes contient 36 partitions mensuelles, et étant donné que SQL Data Warehouse comporte 60 distributions, la table de faits de ventes doit contenir 60 millions de lignes par mois, ou 2,1 milliards de lignes lorsque tous les mois sont remplis.  Si une table contient beaucoup moins de lignes que le nombre minimum recommandé par partition, envisagez d’utiliser moins de partitions pour augmenter le nombre de lignes par partition.  Consultez également l’article [Indexation][Index] qui comporte les requêtes pouvant être exécutées sur SQL Data Warehouse afin d’évaluer la qualité des index columnstore en cluster.
+Lorsque vous créez des partitions sur des tables **columnstore en cluster**, il est important de prendre en compte le nombre de lignes dans chaque partition.  Pour une compression et des performances des tables columnstore en cluster optimales, un minimum de 1 million de lignes par partition et par distribution est nécessaire.  Avant la création des partitions, SQL Data Warehouse divise déjà chaque table en 60 bases de données distribuées.  Tout partitionnement ajouté à une table est en plus des distributions créées en arrière-plan.  Dans cet exemple, si la table de faits de ventes contient 36 partitions mensuelles, et étant donné que SQL Data Warehouse comporte 60 distributions, la table de faits de ventes doit contenir 60 millions de lignes par mois, ou 2,1 milliards de lignes lorsque tous les mois sont remplis.  Si une table contient moins de lignes que le nombre minimum recommandé par partition, envisagez d’utiliser moins de partitions pour augmenter le nombre de lignes par partition.  Consultez également l’article [Indexation][Index] qui comporte les requêtes pouvant être exécutées sur SQL Data Warehouse afin d’évaluer la qualité des index columnstore en cluster.
 
 ## <a name="syntax-difference-from-sql-server"></a>Différence de syntaxe à partir de SQL Server
-SQL Data Warehouse présente une définition simplifiée de partitions qui diffère légèrement de celle de SQL Server.  Les fonctions et les schémas de partitionnement ne sont pas utilisés dans SQL Data Warehouse, car ils se trouvent dans SQL Server.  À la place, il vous suffit d’identifier la colonne partitionnée et les points de limite.  Bien que la syntaxe de partitionnement puisse être légèrement différente de SQL Server, les concepts de base sont les mêmes.  SQL Server et SQL Data Warehouse prennent en charge une colonne de partition par table, qui peut être une partition par plage.  Pour en savoir plus sur le partitionnement, consultez [Tables et index partitionnés][Partitioned Tables and Indexes].
+SQL Data Warehouse présente un mode de définition des partitions qui est plus simple que SQL Server.  Les fonctions et les schémas de partitionnement ne sont pas utilisés dans SQL Data Warehouse, car ils se trouvent dans SQL Server.  À la place, il vous suffit d’identifier la colonne partitionnée et les points de limite.  Bien que la syntaxe de partitionnement puisse être légèrement différente de SQL Server, les concepts de base sont les mêmes.  SQL Server et SQL Data Warehouse prennent en charge une colonne de partition par table, qui peut être une partition par plage.  Pour en savoir plus sur le partitionnement, consultez [Tables et index partitionnés][Partitioned Tables and Indexes].
 
 Exemple ci-dessous d’une instruction [CREATE TABLE][CREATE TABLE] partitionnée par SQL Data Warehouse, partitions de la table FactInternetSales sur la colonne OrderDateKey :
 
@@ -125,7 +125,7 @@ GROUP BY    s.[name]
 ## <a name="workload-management"></a>Gestion des charges de travail
 Dernier facteur à prendre en compte en ce qui concerne les partitions de tables : la [gestion des charges de travail][workload management].  La gestion des charges de travail dans SQL Data Warehouse consiste essentiellement en la gestion de mémoire et d’accès concurrentiel.  Dans SQL Data Warehouse, la quantité de mémoire maximale allouée à chaque distribution lors de l’exécution des requêtes est définie par les classes de ressources.  Dans l’idéal, vos partitions sont dimensionnées en tenant compte d’autres facteurs tels que les besoins en mémoire pour la création d’index columnstore en cluster.  Les index columnstore en cluster présentent des avantages non négligeables lorsque davantage de mémoire leur est allouée.  Vous devez donc vous assurer que la mémoire disponible pour une reconstruction d’index de partition est suffisante. Pour augmenter la quantité de mémoire disponible pour votre requête, vous devez passer du rôle par défaut, smallrc, à d’autres rôles, par exemple, largerc.
 
-Si vous voulez obtenir des informations sur l’allocation de la mémoire pour chaque distribution, interrogez les vues de gestion dynamique du gouverneur de ressources. En réalité, votre allocation de mémoire sera inférieure aux nombres suivants. Toutefois, cette figure peut vous aider à dimensionner vos partitions lors d’opérations de gestion des données.  Évitez de dimensionner vos partitions en affectant une taille supérieure à la mémoire octroyée que fournit la classe de ressources de très grande taille. Si la taille de vos partitions dépasse cette valeur, vous risquez de solliciter la mémoire de manière trop intensive, ce qui peut nuire à l’efficacité de la compression.
+Si vous voulez obtenir des informations sur l’allocation de la mémoire pour chaque distribution, interrogez les vues de gestion dynamique de Resource Governor. En réalité, votre allocation de mémoire est inférieure aux résultats de la requête suivante. Toutefois, cette requête peut vous aider à dimensionner vos partitions lors d’opérations de gestion des données.  Évitez de dimensionner vos partitions en affectant une taille supérieure à la mémoire octroyée que fournit la classe de ressources de très grande taille. Si la taille de vos partitions dépasse cette valeur, vous risquez de solliciter la mémoire de manière trop intensive, ce qui peut nuire à l’efficacité de la compression.
 
 ```sql
 SELECT  rp.[name]                                AS [pool_name]
@@ -146,12 +146,12 @@ AND     rp.[name]    = 'SloDWPool'
 ## <a name="partition-switching"></a>Basculement de partitions
 SQL Data Warehouse prend en charge le fractionnement, la fusion et le basculement de partition. Chacune de ces fonctions est exécutée à l’aide de l’instruction [ALTER TABLE][ALTER TABLE].
 
-Pour faire basculer une partition d’une table à une autre, vous devez vous assurer que les partitions s’alignent sur leurs limites respectives et que les définitions de tables correspondent. Comme aucune contrainte CHECK n’est disponible pour appliquer la plage de valeurs dans une table, la table source doit contenir les mêmes limites de partition que la table cible. Dans le cas contraire, le basculement de la partition échoue, car les métadonnées de celle-ci ne sont pas synchronisées.
+Pour faire basculer une partition d’une table à une autre, vous devez vous assurer que les partitions s’alignent sur leurs limites respectives et que les définitions de tables correspondent. Comme aucune contrainte de validation n’est disponible pour appliquer la plage de valeurs dans une table, la table source doit contenir les mêmes limites de partition que la table cible. Si les limites de partition sont différentes, le basculement de la partition échoue, car les métadonnées de celle-ci ne sont pas synchronisées.
 
 ### <a name="how-to-split-a-partition-that-contains-data"></a>Fractionnement d’une partition contenant des données
-Pour fractionner une partition qui contient déjà des données, la méthode la plus efficace consiste à utiliser une instruction `CTAS` . Si la table partitionnée est un CCI, la partition de table doit être vide pour pouvoir être fractionnée.
+Pour fractionner une partition qui contient déjà des données, la méthode la plus efficace consiste à utiliser une instruction `CTAS` . Si la table partitionnée est une table columnstore en cluster, la partition de table doit être vide pour pouvoir être fractionnée.
 
-Voici un exemple de table columnstore partitionnée qui inclut une ligne dans chaque partition :
+L’exemple suivant crée une table columnstore partitionnée. Il insère une ligne dans chaque partition :
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales]
@@ -185,11 +185,11 @@ CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSal
 ```
 
 > [!NOTE]
-> En créant l’objet de statistiques, nous favorisons la précision des métadonnées des tables. Si ces statistiques ne sont pas créées, SQL Data Warehouse utilise les valeurs par défaut. Pour en savoir plus sur les statistiques, consultez la rubrique [Statistiques][statistics].
+> En créant l’objet de statistiques, les métadonnées des tables sont plus précises. Si vous omettez ces statistiques, SQL Data Warehouse utilise les valeurs par défaut. Pour en savoir plus sur les statistiques, consultez la rubrique [Statistiques][statistics].
 > 
 > 
 
-Nous pouvons ensuite rechercher le nombre de lignes utilisant la vue de catalogue `sys.partitions` :
+La requête suivante recherche le nombre de lignes à l’aide de la vue catalogue `sys.partitions` :
 
 ```sql
 SELECT  QUOTENAME(s.[name])+'.'+QUOTENAME(t.[name]) as Table_name
@@ -206,7 +206,7 @@ WHERE t.[name] = 'FactInternetSales'
 ;
 ```
 
-Si nous essayons de fractionner cette table, l’erreur suivante s’affiche :
+La commande de fractionnement suivante génère un message d’erreur :
 
 ```sql
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
@@ -214,7 +214,7 @@ ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 
 Le message 35346, au niveau 15, état 1, ligne 44, indique que la clause SPLIT de l’instruction ALTER PARTITION a échoué, car la partition n’est pas vide.  Seules les partitions vides peuvent faire l’objet d’un fractionnement lorsque la table inclut un index columnstore. Vous pouvez envisager de désactiver l’index columnstore avant de lancer l’instruction ALTER PARTITION, puis de reconstruire l’index columnstore une fois l’opération ALTER PARTITION terminée.
 
-Cependant, nous pouvons utiliser la commande `CTAS` pour créer une table afin de stocker nos données.
+Cependant, vous pouvez utiliser la commande `CTAS` pour créer une table afin de stocker les données.
 
 ```sql
 CREATE TABLE dbo.FactInternetSales_20000101
@@ -232,7 +232,7 @@ WHERE   1=2
 ;
 ```
 
-Comme les limites de la partition sont alignées, le basculement est autorisé. La table source présente donc une partition vide, que nous pouvons fractionner.
+Comme les limites de la partition sont alignées, le basculement est autorisé. La table source présente donc une partition vide, que vous pouvez par la suite fractionner.
 
 ```sql
 ALTER TABLE FactInternetSales SWITCH PARTITION 2 TO  FactInternetSales_20000101 PARTITION 2;
@@ -240,7 +240,7 @@ ALTER TABLE FactInternetSales SWITCH PARTITION 2 TO  FactInternetSales_20000101 
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 ```
 
-Il ne nous reste plus qu’à aligner nos données en fonction des limites de la nouvelle partition, via la commande `CTAS` , et à faire basculer nos données une nouvelle fois vers la table principale.
+Il ne reste plus qu’à aligner les données en fonction des limites de la nouvelle partition, via la commande `CTAS`, et à faire basculer les données une nouvelle fois vers la table principale.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_20000101_20010101]
@@ -261,14 +261,14 @@ AND     [OrderDateKey] <  20010101
 ALTER TABLE dbo.FactInternetSales_20000101_20010101 SWITCH PARTITION 2 TO dbo.FactInternetSales PARTITION 2;
 ```
 
-Une fois le déplacement des données effectué, il est judicieux d’actualiser les statistiques sur la table cible, afin de vérifier qu’elles reflètent de manière précise la nouvelle distribution des données sur leurs partitions respectives.
+Une fois le déplacement des données effectué, il est judicieux d’actualiser les statistiques sur la table cible. La mise à jour des statistiques permet de vérifier qu’elles reflètent de manière précise la nouvelle distribution des données sur leurs partitions respectives.
 
 ```sql
 UPDATE STATISTICS [dbo].[FactInternetSales];
 ```
 
 ### <a name="table-partitioning-source-control"></a>Contrôle de code source dans le cadre du partitionnement d’une table
-Pour éviter que la définition de votre table ne **se corrompe** dans votre système de contrôle du code source, vous pouvez procéder comme suit :
+Pour éviter la **détérioration** de la définition de votre table dans le système de contrôle du code source, vous pouvez envisager l’approche suivante :
 
 1. Créez la table en tant que table partitionnée, mais sans ajouter de valeurs de partition.
 
@@ -362,7 +362,7 @@ Pour plus d’informations, consultez les articles [Vue d’ensemble des tables]
 [Partition]: ./sql-data-warehouse-tables-partition.md
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
-[workload management]: ./sql-data-warehouse-develop-concurrency.md
+[workload management]: ./resource-classes-for-workload-management.md
 [SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!-- MSDN Articles -->

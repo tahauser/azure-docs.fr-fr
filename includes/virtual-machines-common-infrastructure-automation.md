@@ -14,7 +14,7 @@ Pour créer et gérer des machines virtuelles de façon cohérente à grande éc
 
 
 ## <a name="ansible"></a>Ansible
-[Ansible](https://www.ansible.com/) est un moteur d’automatisation de la gestion de la configuration, de la création de machine virtuelle ou du déploiement d’application. Ansible utilise un modèle sans agent, généralement avec des clés SSH, pour authentifier et gérer les machines cibles. Les tâches de configuration sont définies dans les runbooks, avec un certain nombre de modules Ansible disponibles pour effectuer des tâches spécifiques. Pour plus d’informations, consultez [Comment fonctionne Ansible](https://www.ansible.com/how-ansible-works).
+[Ansible](https://www.ansible.com/) est un moteur d’automatisation de la gestion de la configuration, de la création de machine virtuelle ou du déploiement d’application. Ansible utilise un modèle sans agent, généralement avec des clés SSH, pour authentifier et gérer les machines cibles. Les tâches de configuration sont définies dans les playbooks, avec un certain nombre de modules Ansible permettant d’effectuer des tâches spécifiques. Pour plus d’informations, consultez [Comment fonctionne Ansible](https://www.ansible.com/how-ansible-works).
 
 Découvrez comment :
 
@@ -47,11 +47,11 @@ Cloud-init fonctionne aussi sur les différentes distributions. Par exemple, vou
 
  Nous travaillons activement avec nos partenaires de distribution Linux afin de mettre des images compatibles cloud-init à disposition sur la Place de marché Azure. Ces images permettent à vos déploiements et configurations cloud-init de fonctionner de manière fluide avec des machines virtuelles et des groupes de machines virtuelles identiques. Le tableau suivant présente la disponibilité actuelle des images compatibles avec cloud-init sur la plateforme Azure :
 
-| Éditeur | Offer | SKU | Version | Compatible avec cloud-init
+| Publisher | Offre | SKU | Version | Compatible avec cloud-init
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|Canonical |UbuntuServer |16.04-LTS |le plus récent |yes | 
-|Canonical |UbuntuServer |14.04.5-LTS |le plus récent |yes |
-|CoreOS |CoreOS |Stable |le plus récent |yes |
+|Canonical |UbuntuServer |16.04-LTS |le plus récent |Oui | 
+|Canonical |UbuntuServer |14.04.5-LTS |le plus récent |Oui |
+|CoreOS |CoreOS |Stable |le plus récent |Oui |
 |OpenLogic |CentOS |7-CI |le plus récent |preview |
 |Red Hat |RHEL |7-RAW-CI |le plus récent |preview |
 
@@ -103,7 +103,7 @@ Découvrez comment :
 
 
 ## <a name="azure-automation"></a>Azure Automation
-[Azure Automation](https://azure.microsoft.com/services/automation/) utilise des runbooks pour traiter un ensemble de tâches sur les machines virtuelles que vous ciblez. Azure Automation est utilisée pour gérer des machines virtuelles existantes plutôt que pour créer une infrastructure. Azure Automation peut s’exécuter entre les machines virtuelles Linux et Windows, ainsi que localement sur les machines physiques ou virtuelles avec un Runbook Worker hybride. Vous pouvez stocker des runbooks dans un référentiel de contrôle de code source, tel que GitHub. Ces runbooks peuvent ensuite être exécutés manuellement ou selon une planification définie.
+[Azure Automation](https://azure.microsoft.com/services/automation/) utilise des runbooks pour traiter un ensemble de tâches sur les machines virtuelles que vous ciblez. Azure Automation est utilisée pour gérer des machines virtuelles existantes plutôt que pour créer une infrastructure. Azure Automation peut s’exécuter sur des machines virtuelles Linux et Windows, ainsi que localement sur des machines physiques ou virtuelles avec un Runbook Worker hybride. Vous pouvez stocker des runbooks dans un référentiel de contrôle de code source, tel que GitHub. Ces runbooks peuvent ensuite être exécutés manuellement ou selon une planification définie.
 
 Azure Automation fournit également un service de Configuration d’état souhaité (DSC) qui vous permet de créer des définitions sur les configurations d’un ensemble donné de machines virtuelles. La configuration d’état souhaité vérifie ensuite que la configuration requise est en application et que la machine virtuelle reste cohérente. Azure Automation DSC s’exécute sur les machines Windows et Linux.
 

@@ -1,9 +1,9 @@
 ---
-title: "Vue d’ensemble des mesures dans Microsoft Azure | Microsoft Docs"
-description: "Vue d’ensemble des mesures et de leur utilisation dans Microsoft Azure"
+title: Vue d’ensemble des mesures dans Microsoft Azure | Microsoft Docs
+description: Vue d’ensemble des mesures et de leur utilisation dans Microsoft Azure
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 405ec51c-0946-4ec9-b535-60f65c4a5bd1
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: johnkem
-ms.openlocfilehash: 32ca0ce5148ae2641500c98cb04b0d7db1987960
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 4a78236f9c6945bb982466b59690b221f35a1804
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Vue d’ensemble des mesures dans Microsoft Azure
 Cet article décrit ce que sont les mesures dans Microsoft Azure ainsi que leurs avantages, et comment commencer à les utiliser.  
@@ -116,7 +116,7 @@ Alertes de métriques : vous pouvez ensuite recevoir une notification par e-mail
 
  ![Mesures et règles d’alerte dans Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview4.png)
 
-Alertes quasiment en temps réel (préversion) : ces alertes analysent plusieurs métriques et seuils pour une ressource et vous préviennent via un [groupe d’actions](/monitoring-action-groups.md). En savoir plus sur les [alertes de métriques quasiment en temps réel ici](https://aka.ms/azuremonitor/near-real-time-alerts).
+Alertes quasiment en temps réel (préversion) : ces alertes analysent plusieurs métriques et seuils pour une ressource et vous préviennent via un [groupe d’actions](/monitoring-action-groups.md). Découvrez-en plus sur les [alertes de métriques en temps quasi réel ici](https://aka.ms/azuremonitor/near-real-time-alerts).
 
 
 ### <a name="autoscale-your-azure-resources"></a>Mise à l’échelle automatique de vos ressources Azure

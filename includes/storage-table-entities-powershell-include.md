@@ -104,7 +104,7 @@ Pour récupérer des entités à l’aide d’un filtre personnalisé, utilisez 
 ```powershell
 Get-AzureStorageTableRowByCustomFilter `
     -table $storageTable `
-    -customFilter "(userid eq '1')"
+    -customFilter "(userid eq 1)"
 ```
 
 Cette requête récupère un seul enregistrement.
@@ -177,10 +177,10 @@ Get-AzureStorageTableRowAll -table $storageTable | ft
 
 #### <a name="delete-all-entities-in-the-table"></a>Supprimer toutes les entités d’une table 
 
-Pour supprimer toutes les entités d’une table, vous les récupérez, puis vous redirigez les résultats vers l’applet de commande remove. 
+Pour supprimer toutes les entités d’une table, récupérez-les, puis redirigez les résultats vers l’applet de commande remove. 
 
 ```powershell
-# Get all rows and pipe it into the remove cmdlet.
+# Get all rows and pipe the result into the remove cmdlet.
 Get-AzureStorageTableRowAll `
     -table $storageTable | Remove-AzureStorageTableRow -table $storageTable 
 

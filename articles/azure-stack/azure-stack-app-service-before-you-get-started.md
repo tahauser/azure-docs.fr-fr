@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: 3261a312cde9ebdf41f6dadb82c14d108715f8f7
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 5323fe505adfd9b3495dd85ce41d6f141125184b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Avant de commencer avec App Service sur Azure Stack
 
@@ -47,7 +47,7 @@ Avant de déployer Azure App Service sur Azure Stack, vous devez remplir les con
 
 ## <a name="high-availability"></a>Haute disponibilité
 
-En raison du lancement de la version 1802 d’Azure Stack, qui prend en charge les domaines d’erreur, les nouveaux déploiements d’Azure App Service sur Azure Stack seront distribués sur différents domaines d’erreur et assureront une tolérance de panne.  En ce qui concerne les déploiements d’Azure App Service sur Azure Stack qui ont été effectués avant la publication de la mise à jour 1802, consultez la documentation (azure-stack-app-service-fault-domain-update.md) pour savoir comment rééquilibrer le déploiement.
+En raison du lancement de la version 1802 d’Azure Stack, qui prend en charge les domaines d’erreur, les nouveaux déploiements d’Azure App Service sur Azure Stack seront distribués sur différents domaines d’erreur et assureront une tolérance de panne.  Pour les déploiements d’Azure App Service sur Azure Stack qui ont été effectués avant la publication de la mise à jour 1802, consultez la [documentation](azure-stack-app-service-fault-domain-update.md) pour savoir comment rééquilibrer le déploiement.
 
 Pour ajouter la haute disponibilité à Azure App Service sur Azure Stack, déployez le serveur de fichier et l’instance SQL Server nécessaires dans une configuration hautement disponible. 
 

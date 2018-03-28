@@ -1,24 +1,24 @@
 ---
 title: Bonnes pratiques pour StorSimple Virtual Array | Microsoft Docs
-description: "Décrit les bonnes pratiques de déploiement et de gestion de la baie virtuelle StorSimple Virtual Array."
+description: Décrit les bonnes pratiques de déploiement et de gestion de la baie virtuelle StorSimple Virtual Array.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 57ac6eeb-c47c-442d-a5f4-b360d81a76a6
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/08/2017
+ms.date: 03/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 264764c5e9c32574d97beb2cc3c1bb1cfb555568
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 46fd818d8ca15515c91bb6e65e99b0a3bc1f1fa4
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Bonnes pratiques liées à StorSimple Virtual Array
 ## <a name="overview"></a>Vue d'ensemble
@@ -38,7 +38,7 @@ Implémentez les bonnes pratiques suivantes lors de l’approvisionnement de la 
 
 |  | Hyper-V | VMware |
 | --- | --- | --- |
-| **Type de machine virtuelle** |**génération 2** à utiliser avec Windows Server 2012 ou version ultérieure et une image *.vhdx* . <br></br> **génération 1** à utiliser avec un serveur Windows Server 2008 ou version ultérieure et une image *.vhd* . |Utilisez la machine virtuelle version 8 - 11 lorsque vous utilisez une image *.vmdk* . |
+| **Type de machine virtuelle** |**génération 2** à utiliser avec Windows Server 2012 ou version ultérieure et une image *.vhdx* . <br></br> **génération 1** à utiliser avec un serveur Windows Server 2008 ou version ultérieure et une image *.vhd* . |Utilisez la machine virtuelle version 8 si vous utilisez une image *.vmdk*. |
 | **Type de mémoire** |Configurez-la en tant que **mémoire statique**. <br></br> N’utilisez pas l’option de **mémoire dynamique** . | |
 | **Type de disque de données** |Sélectionnez **Taille dynamique**.<br></br> **Taille fixe** prend beaucoup de temps. <br></br> N’utilisez pas l’option de **différenciation** . |Utilisez l’option **Allocation dynamique** . |
 | **Modification du disque de données** |L’expansion et la réduction ne sont pas autorisées. Une tentative dans ce sens entraîne la perte de toutes les données locales sur l’appareil. |L’expansion et la réduction ne sont pas autorisées. Une tentative dans ce sens entraîne la perte de toutes les données locales sur l’appareil. |
@@ -210,7 +210,7 @@ Il est impossible de modifier la fréquence et la rétention associées aux sauv
 * Planifiez vos sauvegardes pendant les heures creuses. L’heure de début de la sauvegarde ne doit pas coïncider avec un grand nombre d’E/S d’hôte.
 * Lancez une sauvegarde manuelle à la demande lorsque vous envisagez d’effectuer un basculement de l’appareil ou avant la fenêtre de maintenance, pour protéger les données figurant sur votre baie virtuelle.
 
-### <a name="restore"></a>Restauration
+### <a name="restore"></a>Restore
 Vous pouvez restaurer à partir d’un jeu de sauvegarde de deux manières : restaurez vers un autre volume ou partage, ou effectuez une récupération au niveau de l’élément (disponible uniquement sur une baie virtuelle configurée en tant que serveur de fichiers). La récupération au niveau de l’élément vous permet d'effectuer une récupération granulaire de fichiers et de dossiers à partir d'une sauvegarde cloud contenant tous les partages sur l'appareil StorSimple. Pour plus d’informations, consultez la page [Restaurer à partir d’une sauvegarde](storsimple-virtual-array-clone.md).
 
 Lorsque vous effectuez une restauration, gardez à l’esprit les instructions suivantes :

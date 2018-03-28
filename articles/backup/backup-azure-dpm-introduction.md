@@ -1,11 +1,11 @@
 ---
 title: Utiliser DPM pour sauvegarder des charges de travail sur le portail Azure | Microsoft Docs
-description: "Présentation de la sauvegarde de serveurs DPM à l'aide du service Azure Backup"
+description: Présentation de la sauvegarde de serveurs DPM à l'aide du service Azure Backup
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: adigan
 manager: nkolli
-editor: 
+editor: ''
 keywords: System Center Data Protection Manager, Data Protection Manager, sauvegarde DPM
 ms.assetid: c8c322cf-f5eb-422c-a34c-04a4801bfec7
 ms.service: backup
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
-ms.openlocfilehash: c22e6fc85e88d89007107c8c3bad142ac91e9d12
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0e547a5991c0ce00344eff6d6b77edb0e34bd62c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>Préparation de la sauvegarde des charges de travail dans Azure avec DPM
 > [!div class="op_single_selector"]
@@ -43,27 +43,30 @@ Cet article présente l'utilisation de Microsoft Azure Backup pour protéger vos
 [System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview) sauvegarde les données des fichiers et des applications. Vous trouverez plus d’informations sur les charges de travail prises en charge [ici](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix). Les données sauvegardées dans DPM peuvent être stockées sur bande, sur disque, ou sauvegardées dans Azure avec Microsoft Azure Backup. DPM interagit avec Azure Backup comme suit :
 
 * **DPM déployé comme un serveur physique ou une machine virtuelle en local** : si DPM est déployé comme un serveur physique ou comme une machine virtuelle Hyper-V en local, vous pouvez sauvegarder les données dans un coffre Recovery Services en plus d’une sauvegarde sur disque et sur bande.
-* **DPM déployé comme une machine virtuelle Azure** : depuis la mise à jour 3 de System Center 2012 R2, DPM peut être déployé comme une machine virtuelle Azure. Si DPM est déployé comme une machine virtuelle Azure, vous pouvez sauvegarder les données sur des disques Azure connectés à la machine virtuelle DPM Azure, ou décharger le stockage de données en les sauvegardant dans un coffre Recovery Services.
+* **DPM déployé comme une machine virtuelle Azure** : à compter de System Center 2012 R2 avec Update 3, vous pouvez déployer DPM comme une machine virtuelle Azure. Si DPM est déployé comme une machine virtuelle Azure, vous pouvez sauvegarder les données sur des disques Azure attachés à la machine virtuelle ou décharger le stockage de données en effectuant une sauvegarde dans un coffre Recovery Services.
 
-## <a name="why-backup-from-dpm-to-azure"></a>Pourquoi effectuer une sauvegarde de DPM vers Azure ?
-Les avantages commerciaux de l'utilisation d'Azure Backup pour la sauvegarde de serveurs DPM sont les suivants :
+## <a name="why-back-up-dpm-to-azure"></a>Pourquoi sauvegarder DPM sur Azure ?
+La sauvegarde de serveurs DPM dans Azure présente les avantages commerciaux suivants :
 
-* Pour le déploiement DPM en local, vous pouvez utiliser Azure au lieu d’un déploiement à long terme sur bande.
-* Pour les déploiements DPM dans Azure, Azure Backup vous permet de décharger le stockage du disque Azure et ainsi d’évoluer en stockant les données plus anciennes dans un coffre Recovery Services et les nouvelles données sur un disque.
+* Pour le déploiement local de DPM, utilisez Azure au lieu d’un déploiement à long terme sur bande.
+* Pour le déploiement de DPM sur une machine virtuelle dans Azure, déchargez le stockage du disque Azure. Le stockage des données plus anciennes dans votre coffre Recovery Services vous permet de monter en puissance votre activité en stockant les nouvelles données sur un disque.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 Préparer Azure Backup pour sauvegarder des données DPM comme suit :
 
 1. **Créer un coffre Recovery Services** : créez un coffre dans le portail Azure.
-2. **Télécharger les informations d’identification de coffre** : télécharger les informations d’identification qui vous permettent d’enregistrer le serveur DPM dans le coffre Recovery Services.
-3. **Installer l’agent Azure Backup** : dans Azure Backup, installez l’agent sur chaque serveur DPM.
-4. **Inscrire le serveur** : inscrivez le serveur DPM dans le coffre Recovery Services.
+2. **Télécharger les informations d’identification du coffre** : téléchargez les informations d’identification que vous utilisez pour inscrire le serveur DPM auprès du coffre Recovery Services.
+3. **Installer l’agent Azure Backup** : installez l’agent sur chaque serveur DPM.
+4. **Inscrire le serveur** : inscrivez le serveur DPM auprès du coffre Recovery Services.
+
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="key-definitions"></a>Définitions clés
 Voici quelques définitions clés concernant la sauvegarde vers Azure pour DPM :
 
-1. **Informations d’identification de coffre** : les informations d’identification de coffre sont nécessaires afin d’authentifier l’ordinateur pour envoyer des données de sauvegarde dans un coffre identifié dans le service Sauvegarde Azure. Elles peuvent être téléchargées à partir du coffre et sont valides pendant 48 heures.
-2. **Phrase secrète** : la phrase secrète est utilisée pour chiffrer les sauvegardes vers le cloud. Enregistrez le fichier dans un emplacement sécurisé, car il vous sera demandé pour les opérations de récupération.
+1. **Informations d’identification de coffre** : les informations d’identification de coffre sont nécessaires afin d’authentifier l’ordinateur pour envoyer des données de sauvegarde dans un coffre identifié dans le service Sauvegarde Azure. Elles peuvent être téléchargées à partir du coffre et sont valides pendant 48 heures.
+2. **Phrase secrète** : la phrase secrète est utilisée pour chiffrer les sauvegardes vers le cloud. Enregistrez le fichier dans un emplacement sécurisé, car il vous sera demandé pendant les opérations de récupération.
 3. **Code PIN de sécurité** : si vous avez activé les [Paramètres de sécurité](https://docs.microsoft.com/azure/backup/backup-azure-security-feature) du coffre, le code PIN de sécurité est nécessaire pour effectuer les opérations de sauvegarde critiques. Cette authentification multifacteur offre une couche de sécurité supplémentaire. 
 4. **Dossier de récupération** : il s’agit de l’emplacement où les sauvegardes à partir du cloud sont temporairement stockées lors des restaurations de cloud. Sa taille doit être à peu près égale à celle des éléments de sauvegarde que vous souhaitez récupérer en parallèle.
 
@@ -71,24 +74,24 @@ Voici quelques définitions clés concernant la sauvegarde vers Azure pour DPM :
 ### <a name="1-create-a-recovery-services-vault"></a>1. Créer un coffre Recovery Services
 Pour créer un coffre Recovery Services :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2. Dans le menu Hub, cliquez sur **Parcourir** et, dans la liste des ressources, tapez **Recovery Services**. Au fur et à mesure des caractères saisis, la liste est filtrée. Cliquez sur **Coffre Recovery Services**.
 
-    ![Créer un archivage de Recovery Services - Étape 1](./media/backup-azure-dpm-introduction/open-recovery-services-vault.png)
+    ![Créer un coffre Recovery Services - Étape 1](./media/backup-azure-dpm-introduction/open-recovery-services-vault.png)
 
     La liste des coffres Recovery Services est affichée.
 3. Dans le menu **Coffres Recovery Services**, cliquez sur **Ajouter**.
 
     ![Créer un coffre Recovery Services - Étape 2](./media/backup-azure-dpm-introduction/rs-vault-menu.png)
 
-    Le panneau du coffre Recovery Services s’affiche et vous invite à renseigner les champs **Nom**, **Abonnement**, **Groupe de ressources** et **Emplacement**.
+    Le menu du coffre Recovery Services s’affiche et vous invite à renseigner les champs **Nom**, **Abonnement**, **Groupe de ressources** et **Emplacement**.
 
     ![Créer un archivage de Recovery Services - Étape 5](./media/backup-azure-dpm-introduction/rs-vault-attributes.png)
 4. Sous **Nom**, entrez un nom convivial permettant d’identifier le coffre. Le nom doit être unique pour l’abonnement Azure. Tapez un nom contenant entre 2 et 50 caractères. Il doit commencer par une lettre, et ne peut contenir que des lettres, des chiffres et des traits d’union.
 5. Cliquez sur **Abonnement** pour afficher la liste des abonnements disponibles. Si vous n’êtes pas sûr de l’abonnement à utiliser, utilisez l’abonnement par défaut (ou suggéré). Vous ne disposez de plusieurs choix que si votre compte professionnel est associé à plusieurs abonnements Azure.
 6. Cliquez sur **Groupe de ressources** pour afficher la liste des groupes de ressources disponibles ou sur **Nouveau** pour en créer un. Pour plus d’informations sur les groupes de ressources, consultez [Vue d’ensemble d’Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 7. Cliquez sur **Emplacement** pour sélectionner la région géographique du coffre.
-8. Cliquez sur **Create**. La création de l’archivage de Recovery Services peut prendre un certain temps. Surveillez les notifications d'état dans l'angle supérieur droit du portail.
+8. Cliquez sur **Créer**. La création de l’archivage de Recovery Services peut prendre un certain temps. Surveillez les notifications d'état dans l'angle supérieur droit du portail.
    Une fois votre archivage créé, il s'ouvre dans le portail.
 
 ### <a name="set-storage-replication"></a>Définir la réplication du stockage
@@ -96,8 +99,8 @@ L’option de réplication du stockage vous permet de choisir entre stockage gé
 
 Pour modifier le paramètre de réplication du stockage :
 
-1. Sélectionnez votre archivage pour ouvrir le tableau de bord associé et le panneau Paramètres. Si le panneau **Paramètres** ne s’ouvre pas, cliquez sur **Tous les paramètres** dans le tableau de bord du coffre.
-2. Dans le panneau **Paramètres**, cliquez sur **Infrastructure de sauvegarde** > **Configuration de la sauvegarde** pour ouvrir le panneau **Configuration de la sauvegarde**. Dans le panneau **Configuration de la sauvegarde** , choisissez l’option de réplication du stockage à appliquer à votre coffre.
+1. Sélectionnez votre coffre pour ouvrir le tableau de bord correspondant et le menu Paramètres. Si le menu **Paramètres** ne s’ouvre pas, cliquez sur **Tous les paramètres** dans le tableau de bord du coffre.
+2. Dans le menu **Paramètres**, cliquez sur **Infrastructure de sauvegarde** > **Configuration de la sauvegarde** pour ouvrir le menu **Configuration de la sauvegarde**. Dans le menu **Configuration de la sauvegarde**, choisissez l’option de réplication de stockage pour votre coffre.
 
     ![Liste des archivages de sauvegarde](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
 
@@ -110,14 +113,14 @@ Les informations d’identification de coffre sont utilisées uniquement pendant
 
 Le fichier d’informations d’identification de coffre est téléchargé via un canal sécurisé depuis le portail Azure. Le service Azure Backup n’a pas connaissance de la clé privée du certificat et cette dernière n’est pas conservée dans le portail ou le service. Procédez comme suit pour télécharger les informations d’identification de coffre sur un ordinateur local.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2. Ouvrez le coffre Recovery Services auprès duquel vous voulez inscrire l’ordinateur DPM.
-3. Le panneau Paramètres s’ouvre par défaut. S’il est fermé, cliquez sur **Paramètres** dans le tableau de bord du coffre pour ouvrir le panneau Paramètres. Dans le panneau Paramètres, cliquez sur **Propriétés**.
+3. Le menu Paramètres s’ouvre par défaut. S’il est fermé, cliquez sur **Paramètres** dans le tableau de bord du coffre pour ouvrir le menu Paramètres. Dans le menu Paramètres, cliquez sur **Propriétés**.
 
-    ![Ouvrir le panneau de l’archivage](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
+    ![Ouvrir le menu du coffre](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 4. Dans la page Propriétés, cliquez sur **Télécharger** sous **Informations d’identification de la sauvegarde**. Le portail génère le fichier d’informations d’identification de coffre que vous pouvez télécharger.
 
-    ![Télécharger](./media/backup-azure-dpm-introduction/vault-credentials.png)
+    ![Download](./media/backup-azure-dpm-introduction/vault-credentials.png)
 
 Le portail générera une information d'identification de coffre en combinant le nom du coffre et la date actuelle. Cliquez sur **Enregistrer** pour télécharger les informations d’identification de coffre dans le dossier de téléchargements du compte local, ou sélectionnez Enregistrer sous dans le menu Enregistrer pour spécifier un emplacement pour les informations d’identification du coffre. La création du fichier peut prendre jusqu’à une minute.
 
@@ -130,12 +133,12 @@ Le portail générera une information d'identification de coffre en combinant le
 Après avoir créé l’archivage de sauvegarde Azure, un agent doit être installé sur chacune de vos machines Windows (Windows Server, client Windows, System Center Data Protection Manager ou Azure Backup Server) pour permettre la sauvegarde des données et des applications dans Azure.
 
 1. Ouvrez le coffre Recovery Services auprès duquel vous voulez inscrire l’ordinateur DPM.
-2. Le panneau Paramètres s’ouvre par défaut. S’il est fermé, cliquez sur **Paramètres** pour ouvrir le panneau Paramètres. Dans le panneau Paramètres, cliquez sur **Propriétés**.
+2. Le menu Paramètres s’ouvre par défaut. S’il est fermé, cliquez sur **Paramètres** pour ouvrir le menu Paramètres. Dans le menu Paramètres, cliquez sur **Propriétés**.
 
-    ![Ouvrir le panneau de l’archivage](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
+    ![Ouvrir le menu du coffre](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 3. Dans la page Paramètres, cliquez sur **Télécharger** sous **Agent Azure Backup**.
 
-    ![Télécharger](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
+    ![Download](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
 
    Une fois l’agent téléchargé, exécutez MARSAgentInstaller.exe pour lancer l’installation de l’agent Azure Backup. Choisissez le dossier d’installation et le dossier de travail requis pour l’agent. L’emplacement du cache spécifié doit avoir un espace libre équivalent à au moins 5 % du volume des données de sauvegarde.
 4. Si vous utilisez un serveur proxy pour vous connecter à Internet, dans l’écran **Configuration du proxy** , entrez les détails du serveur proxy. Si vous utilisez un proxy authentifié, entrez les informations de nom d’utilisateur et mot de passe dans cet écran.
@@ -179,7 +182,7 @@ Après avoir créé l’archivage de sauvegarde Azure, un agent doit être insta
 * Windows PowerShell et .Net Framework 4.5 doivent être installés sur le serveur DPM.
 * DPM permet de sauvegarder la plupart des charges de travail dans Azure Backup. Pour une liste complète des éléments pris en charge par Azure Backup, consultez la liste ci-dessous.
 * Des données stockées dans Azure Backup ne peuvent pas être récupérées avec l'option « Copie sur bande ».
-* Vous devez posséder un compte Azure avec la fonctionnalité Azure Backup activée. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. En savoir plus sur la [tarification d'Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
+* Vous devez posséder un compte Azure avec la fonctionnalité Azure Backup activée. Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. En savoir plus sur la [tarification d'Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
 * L'utilisation d'Azure Backup nécessite l'installation de l'agent Azure Backup sur les serveurs que vous souhaitez sauvegarder. Chaque serveur doit disposer d'au moins 5 % de la taille des données en cours de sauvegarde en tant que stockage local libre. Par exemple, la sauvegarde de 100 Go de données nécessite un minimum de 5 Go d'espace libre dans l'emplacement temporaire.
 * Les données seront stockées dans le coffre Azure. Il n'existe aucune limite à la quantité de données que vous pouvez sauvegarder dans un coffre Azure Backup, mais la taille d'une source de données (par exemple, une machine virtuelle ou une base de données) ne doit pas dépasser 54 400 Go.
 

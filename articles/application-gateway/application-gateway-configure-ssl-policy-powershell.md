@@ -1,6 +1,6 @@
 ---
-title: "Configurer la stratégie SSL sur Azure Application Gateway - PowerShell | Microsoft Docs"
-description: "Cette page fournit des instructions pour configurer la stratégie SSL sur Azure Application Gateway"
+title: Configurer la stratégie SSL sur Azure Application Gateway - PowerShell | Microsoft Docs
+description: Cette page fournit des instructions pour configurer la stratégie SSL sur Azure Application Gateway
 documentationcenter: na
 services: application-gateway
 author: davidmu1
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: davidmu
-ms.openlocfilehash: 407b62042d3f0d5c68234c4faeaa139c5e21b3a6
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: fa192ca1ee0dc5ee7190b6c63b64297c7406291d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Configurer les versions de stratégie SSL et les suites de chiffrement sur Application Gateway
 
@@ -75,7 +75,7 @@ AvailableProtocols:
 
 ## <a name="list-pre-defined-ssl-policies"></a>Répertorier les stratégies SSL prédéfinies
 
-Application Gateway est fourni avec 3 stratégies prédéfinies qui peuvent être utilisées. L’applet de commande `Get-AzureRmApplicationGatewaySslPredefinedPolicy` extrait ces stratégies. Chaque stratégie offre différentes versions de protocole SSL et suites de chiffrement activées. Ces stratégies prédéfinies peuvent être utilisées pour configurer rapidement une stratégie SSL sur votre passerelle d’application. Par défaut, **AppGwSslPolicy20170401** est sélectionnée si aucune stratégie SSL spécifique n’est définie.
+Application Gateway est fourni avec 3 stratégies prédéfinies qui peuvent être utilisées. L’applet de commande `Get-AzureRmApplicationGatewaySslPredefinedPolicy` extrait ces stratégies. Chaque stratégie offre différentes versions de protocole SSL et suites de chiffrement activées. Ces stratégies prédéfinies peuvent être utilisées pour configurer rapidement une stratégie SSL sur votre passerelle d’application. Par défaut, **AppGwSslPolicy20150501** est sélectionnée si aucune stratégie SSL spécifique n’est définie.
 
 Vous trouverez ci-dessous un exemple de l’exécution de `Get-AzureRmApplicationGatewaySslPredefinedPolicy`.
 

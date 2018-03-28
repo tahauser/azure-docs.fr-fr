@@ -1,24 +1,20 @@
 ---
-title: "Générer un projet dans Azure à l’aide de Jenkins et d’Azure Container Instances"
-description: "Découvrez comment utiliser le plug-in Azure Container Agent pour Jenkins afin de générer un projet dans Azure avec Azure Container Instances."
-services: multiple
-documentationcenter: 
+title: Générer un projet dans Azure à l’aide de Jenkins et d’Azure Container Instances
+description: Découvrez comment utiliser le plug-in Azure Container Agent pour Jenkins afin de générer un projet dans Azure avec Azure Container Instances.
 author: tomarcher
 manager: rloutlaw
-editor: 
 ms.service: multiple
+ms.workload: web
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: web
-ms.date: 02/28/2018
+ms.date: 03/16/2018
 ms.author: tarcher
-ms.custom: jenkins
-ms.openlocfilehash: 557b21340a0ba4e5381d7505b14a172aa3478b84
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.custom: Jenkins
+ms.openlocfilehash: a18136afc096f8315310fae134d3f683994b6d0a
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="build-a-project-in-azure-using-jenkins-and-azure-container-instances"></a>Générer un projet dans Azure à l’aide de Jenkins et d’Azure Container Instances
 
@@ -30,7 +26,8 @@ Vous allez apprendre à effectuer les actions suivantes :
 > * Installer et configurer le plug-in Azure Container Agents pour Jenkins
 > * Utiliser Azure Container Instances pour générer l’[exemple d’application Spring PetClinic](https://github.com/spring-projects/spring-petclinic)
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
+
 
 - **Abonnement Azure** : pour en savoir plus sur les options d’achat d’Azure, consultez [Comment acheter Azure](https://azure.microsoft.com/pricing/purchase-options/) ou [Évaluation d’un mois gratuite](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -72,6 +69,11 @@ Cette section vous guide dans le processus de création de l’URL Jenkins.
 1. Sélectionnez **Enregistrer**.
 
 ## <a name="update-jenkins-to-allow-java-network-launch-protocol-jnlp"></a>Mettre à jour Jenkins pour autoriser le protocole JNLP (Java Network Launch Protocol)
+
+> [!NOTE]
+> Ce didacticiel montre comment configurer un agent JNLP. À partir de la version 0.4.x, le [plug-in Jenkins Azure Container Agents](https://plugins.jenkins.io/azure-container-agents) prend également en charge SSH.
+>
+>
 
 L’agent Jenkins se connecte au serveur Jenkins avec le protocole JNLP (Java Network Launch Protocol). Cette section explique comment spécifier un port pour les agents JNLP à utiliser lors de la communication avec le serveur Jenkins.
 
@@ -327,6 +329,6 @@ Si vous n’avez plus besoin d’utiliser les ressources d’un groupe de ressou
 az group delete -n <resourceGroup>
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]
 > [Visitez le Hub Jenkins sur Azure pour découvrir les derniers articles et exemples](https://docs.microsoft.com/azure/jenkins/)

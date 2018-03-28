@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: ee8334cbe9256b7a5ecd5e96afa2f15d6389afa8
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 06b3b246d5c350f0982faa9b1d5f5692cd0c428e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-use-perfinsights"></a>Utilisation de PerfInsights 
 
@@ -238,11 +238,11 @@ Pour exécuter l’outil PerfInsights, suivez ces étapes :
     >
     >Si le commutateur de durée **/d** n’est pas spécifié, PerfInsights vous invitera à reproduire le problème lors de l’exécution de vmslow, d’azurefiles et des scénarios personnalisés. 
 
-Lorsque les suivis ou les opérations sont terminés, un nouveau fichier apparaît dans D:\\log\_collection (ou le lecteur temporaire). Le nom du fichier est **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip.** Vous pouvez envoyer ce fichier à l’agent de Support pour analyse ou ouvrir le rapport dans le fichier zip pour examiner les résultats et recommandations.
+Quand les traces ou les opérations sont terminées, un nouveau fichier apparaît dans le même dossier que PerfInsights. Le nom du fichier est **CollectedData\_aaaa-MM-jj\_hh-mm-ss-fff.zip.** Vous pouvez envoyer ce fichier à l’agent de Support pour analyse ou ouvrir le rapport dans le fichier zip pour examiner les résultats et recommandations.
 
 ## <a name="review-the-diagnostics-report"></a>Examinez le rapport de diagnostics
 
-Le fichier **CollectedData\_aaaa-MM-jj\_hh\_mm\_ss.zip** peut inclure un rapport HTML qui détaille les conclusions de PerfInsights. Pour passer en revue le rapport, développez le fichier **CollectedData\_aaaa-MM-jj\_hh\_mm\_ss.zip**, puis ouvrez le fichier **PerfInsights report.htm**.
+Le fichier **CollectedData\_aaaa-MM-jj\_hh-mm-ss-fff.zip** peut inclure un rapport HTML qui détaille les conclusions de PerfInsights. Pour passer en revue le rapport, développez le fichier **CollectedData\_aaaa-MM-jj\_hh-mm-ss-fff.zip**, puis ouvrez le fichier **PerfInsights Report.html**.
 
 Sélectionnez l’onglet **Conclusions**.
 
@@ -307,4 +307,4 @@ La capture d’écran suivante affiche un message semblable à ce que vous pouve
 
 Suivez les instructions dans le message pour accéder à l’espace de travail de transfert de fichier. Pour plus de sécurité, vous devez modifier votre mot de passe à la première utilisation.
 
-Après vous être connecté, une boîte de dialogue s’affiche pour vous inviter à charger le fichier **CollectedData\_aaaa-MM-jj\_hh\_mm\_ss.zip** collecté par PerfInsights.
+Après vous être connecté, une boîte de dialogue s’affiche pour vous inviter à charger le fichier **CollectedData\_aaaa-MM-jj\_hh-mm-ss-fff.zip** collecté par PerfInsights.

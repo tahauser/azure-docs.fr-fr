@@ -1,24 +1,18 @@
 ---
-title: "Notes de publication sur l’agent Azure File Sync (préversion) | Microsoft Docs"
-description: "Notes de publication sur l’agent Azure File Sync (préversion)"
+title: Notes de publication sur l’agent Azure File Sync (préversion) | Microsoft Docs
+description: Notes de publication sur l’agent Azure File Sync (préversion).
 services: storage
-documentationcenter: 
 author: wmgries
-manager: klaasl
-editor: tamram
-ms.assetid: 
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 10/08/2017
+ms.topic: article
+ms.date: 03/12/2018
 ms.author: wgries
-ms.openlocfilehash: fabfb02a199744c63c3a2191589fd450cfdd0304
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b42287580078b4391ddbc5b8ff2835131c64236d
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent-preview"></a>Notes de publication sur l’agent Azure File Sync (préversion)
 Azure File Sync vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Il transforme vos installations Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement (notamment SMB, NFS et FTPS). Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -28,14 +22,25 @@ Cet article fournit les notes de publication concernant les versions prises en c
 ## <a name="supported-versions"></a>Versions prises en charge
 Les versions suivantes de l’agent Azure File Sync sont prises en charge :
 
-| Version | Date de lancement | Date de fin de prise en charge |
-|---------|--------------|------------------|
-| 2.1.0.0 | 28 février 2018 | Version actuelle |
-| 2.0.11.0 | 8 février 2018 | Version actuelle |
-| 1.1.0.0 | 26 septembre 2017 | 30 juillet 2018 |
+| Jalon | Numéro de version de l’agent | Date de lancement | Statut |
+|----|----------------------|--------------|------------------|
+| Correctif cumulatif de mars | 2.2.0.0 | 12 mars 2018 | Prise en charge (version recommandée) |
+| Correctif cumulatif de février | 2.1.0.0 | 28 février 2018 | Prise en charge |
+| Actualisation 1 | 2.0.11.0 | 8 février 2018 | Prise en charge |
+| Correctif cumulatif de janvier | 1.4.0.0 | 8 janvier 2018 | Prise en charge jusqu’au 8 mai 2018<sup>1</sup> |
+| Correctif cumulatif de novembre | 1.3.0.0 | 30 novembre 2017 | Prise en charge jusqu’au 8 mai 2018<sup>1</sup> |
+| Correctif cumulatif d’octobre | 1.2.0.0 | 31 octobre 2017 | Prise en charge jusqu’au 8 mai 2018<sup>1</sup> |
+| Version préliminaire initiale | 1.1.0.0 | 26 septembre 2017 | Prise en charge jusqu’au 8 mai 2018<sup>1</sup> |
+
+\[1\] : Les versions de l’agent Azure File Sync lors de la préversion ne sont volontairement pas conformes à la stratégie de mise à jour. La stratégie de mise à jour est appliquée avec la première version de l’agent après la mise à la disposition générale d’Azure File Sync déclarée.
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Stratégie de mise à jour de l’agent Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-2200"></a>Version 2.2.0.0 de l’agent
+Les notes de publication suivantes concernent la version 2.2.0.0 de l’agent Azure File Sync publiée le 12 mars 2018.  Ces notes s’ajoutent aux notes de publication répertoriées pour les versions 2.1.0.0 et 2.0.11.0
+
+L’installation de la version 2.1.0.0 pour certains clients échoue en raison de FileSyncSvc qui ne s’arrête pas. Cette mise à jour résout ce problème.
 
 ## <a name="agent-version-2100"></a>Agent version 2.1.0.0
 Les notes de publication suivantes concernent la version 2.1.0.0 de l’agent Azure File Sync mise en production le 28 février 2018. Ces notes s’ajoutent aux notes de publication répertoriées pour la version 2.0.11.0.
@@ -84,7 +89,7 @@ Les éléments suivants ne se synchronisent pas, mais le reste du système conti
     > Azure File Sync chiffre toujours les données en transit. Les données sont toujours chiffrées au repos dans Azure.
  
 ### <a name="server-endpoints"></a>Points de terminaison de serveur
-- Un point de terminaison de serveur ne peut être créé que sur un volume NTFS. ReFS, FAT, FAT32 et autres systèmes de fichiers ne sont actuellement pas pris en charge par Azure File Sync.
+- Un point de terminaison de serveur ne peut être créé que sur un volume NTFS. ReFS, FAT, FAT32 et d’autres systèmes de fichiers ne sont actuellement pas pris en charge par Azure File Sync.
 - Un point de terminaison ne peut pas se trouver sur le volume système. Par exemple, C:\MonDossier n’est pas un chemin d’accès acceptable, sauf si C:\MonDossier est un point de montage.
 - Le clustering de basculement est pris en charge uniquement avec les disques en cluster, pas avec les volumes partagés de cluster (CSV).
 - Un point de terminaison de serveur ne peut pas être imbriqué. Il peut coexister sur le même volume en parallèle avec un autre point de terminaison.

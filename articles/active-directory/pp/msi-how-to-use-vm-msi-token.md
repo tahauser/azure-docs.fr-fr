@@ -1,11 +1,11 @@
 ---
-title: "Guide pratique pour utiliser une identité MSI affectée par l’utilisateur pour acquérir un jeton d’accès sur une machine virtuelle"
-description: "Instructions pas à pas et exemples montrant comment utiliser une identité MSI affectée par l’utilisateur à partir d’une machine virtuelle Azure pour acquérir un jeton d’accès OAuth."
+title: Guide pratique pour utiliser une identité MSI affectée par l’utilisateur pour acquérir un jeton d’accès sur une machine virtuelle
+description: Instructions pas à pas et exemples montrant comment utiliser une identité MSI affectée par l’utilisateur à partir d’une machine virtuelle Azure pour acquérir un jeton d’accès OAuth.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,21 +14,20 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a9513a59ec4540c6d63236519873c6e1e177b65a
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 68454d3f3880df82ca895d1c5f140ebdb6030e77
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="acquire-an-access-token-for-a-vm-user-assigned-managed-service-identity-msi"></a>Acquérir un jeton d’accès pour une identité MSI affectée par l’utilisateur sur une machine virtuelle
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 Cet article fournit divers exemples de code et de script pour l’acquisition de jeton, ainsi que des conseils sur les rubriques importantes telles que la gestion des erreurs HTTP et des expirations de jeton.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
-
 Si vous envisagez d’utiliser les exemples de Azure PowerShell dans cet article, veillez à installer la dernière version de [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM).
 
 > [!IMPORTANT]
@@ -48,21 +47,28 @@ Une application cliente peut demander un [jeton d’accès d’application uniqu
 
 ## <a name="get-a-token-using-http"></a>Obtenir un jeton par HTTP 
 
-L’interface fondamentale pour l’acquisition d’un jeton d’accès est basée sur REST, le rendant accessible à toute application cliente en cours d’exécution sur la machine virtuelle et pouvant effectuer des appels REST par HTTP. Cela est similaire au modèle de programmation Azure AD, sauf si le client utilise un point de terminaison localhost sur la machine virtuelle (à la place d’un point de terminaison Azure AD).
+L’interface fondamentale pour l’acquisition d’un jeton d’accès est basée sur REST, le rendant accessible à toute application cliente en cours d’exécution sur la machine virtuelle et pouvant effectuer des appels REST par HTTP. Cela est similaire au modèle de programmation Azure AD, sauf si le client utilise un point de terminaison sur la machine virtuelle (à la place d’un point de terminaison Azure AD).
 
-Exemple de demande :
+Exemple de requête à l’aide du point de terminaison de service de métadonnées d’instance (IMDS) :
 
 ```
-GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id=712eac09-e943-418c-9be6-9fd5c91078bl HTTP/1.1
-Metadata: true
+GET http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id=712eac09-e943-418c-9be6-9fd5c91078bl HTTP/1.1 Metadata: true
+```
+
+Exemple de requête à l’aide du point de terminaison MSI d’extension de machine virtuelle (désapprobation à venir) :
+
+```
+GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id=712eac09-e943-418c-9be6-9fd5c91078bl HTTP/1.1 Metadata: true
 ```
 
 | Élément | Description |
 | ------- | ----------- |
 | `GET` | Le verbe HTTP, indiquant votre souhait de récupérer des données du point de terminaison. Dans ce cas, un jeton d’accès OAuth. | 
-| `http://localhost:50342/oauth2/token` | Le point de terminaison MSI, où 50342 est le numéro de port par défaut (configurable). |
+| `http://169.254.169.254/metadata/identity/oauth2/token` | Le point de terminaison MSI pour le service de métadonnées d’instance. |
+| `http://localhost:50342/oauth2/token` | Le point de terminaison MSI pour l’extension de machine virtuelle, où 50342 est le numéro de port par défaut (configurable). |
+| `api-version`  | Un paramètre de chaîne de requête qui indique la version d’API pour le point de terminaison IMDS.  |
 | `resource` | Un paramètre de chaîne de requête, indiquant l’URI ID d’application de la ressource cible. Il apparaît également dans la revendication `aud` (audience) du jeton émis. Cet exemple demande un jeton pour accéder à Azure Resource Manager, qui possède un URI ID d’application, https://management.azure.com/. |
-| `client_id` | Un paramètre de chaîne de requête, indiquant l’ID client (également appelé ID d’application) du principal de service qui représente l’identité MSI affectée par l’utilisateur. Cette valeur est retournée dans la propriété `clientId` lors de la création d’une identité MSI affectée par l’utilisateur. Cet exemple demande un jeton pour l’ID client « 712eac09-e943-418c-9be6-9fd5c91078bl ». |
+| `client_id` |  Un paramètre de chaîne de requête *facultatif* indiquant l’ID client (également appelé ID d’application) du principal de service qui représente une identité MSI affectée par l’utilisateur. Si vous utilisez le fichier MSI d’affecté par le système, ce paramètre n’est pas obligatoire. Cette valeur est retournée dans la propriété `clientId` lors de la création d’une identité MSI affectée par l’utilisateur. Cet exemple demande un jeton pour l’ID client « 712eac09-e943-418c-9be6-9fd5c91078bl ». |
 | `Metadata` | Un champ d’en-tête de requête HTTP, requis par MSI afin de limiter une attaque de falsification de requête côté serveur (SSRF). Cette valeur doit être définie sur « true », en minuscules.
 
 Exemple de réponse :
@@ -94,6 +100,16 @@ Content-Type: application/json
 ## <a name="get-a-token-using-curl"></a>Obtenir un jeton par CURL
 
 Veillez à remplacer la valeur <MSI CLIENT ID> du paramètre `client_id` par l’ID client (également appelé ID d’application) du principal de service de votre identité MSI affectée par l’utilisateur. Cette valeur est retournée dans la propriété `clientId` lors de la création d’une identité MSI affectée par l’utilisateur.
+  
+Exemple de requête à l’aide du point de terminaison de service de métadonnées d’instance (IMDS) :
+
+   ```bash
+   response=$(curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<MSI CLIENT ID>")
+   access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
+   echo The MSI access token is $access_token
+   ```
+   
+Exemple de requête à l’aide du point de terminaison MSI d’extension de machine virtuelle (désapprobation à venir) :
 
    ```bash
    response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/&client_id=<MSI CLIENT ID>" -H Metadata:true -s)
@@ -104,7 +120,7 @@ Veillez à remplacer la valeur <MSI CLIENT ID> du paramètre `client_id` par l�
    Exemples de réponses :
 
    ```bash
-   user@vmLinux:~$ response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/&client_id=9d484c98-b99d-420e-939c-z585174b63bl" -H Metadata:true -s)
+   user@vmLinux:~$ response=$(curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=9d484c98-b99d-420e-939c-z585174b63bl")
    user@vmLinux:~$ access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
    user@vmLinux:~$ echo The MSI access token is $access_token
    The MSI access token is eyJ0eXAiOiJKV1QiLCJhbGciO...
@@ -112,7 +128,7 @@ Veillez à remplacer la valeur <MSI CLIENT ID> du paramètre `client_id` par l�
 
 ## <a name="handling-token-expiration"></a>Gestion de l’expiration du jeton
 
-Le sous-système MSI local met en cache des jetons. Par conséquent, vous pouvez l’appeler autant de fois que vous le souhaitez et un appel réseau vers Azure AD survient uniquement si :
+Le sous-système MSI met en cache des jetons. Par conséquent, vous pouvez l’appeler autant de fois que vous le souhaitez et un appel réseau vers Azure AD survient uniquement si :
 - une absence dans le cache se produit du fait d’une absence de jeton dans le cache
 - le jeton a expiré
 
@@ -142,7 +158,7 @@ Cette section documente les réponses possibles aux erreurs. Un état « 200 OK 
 | ----------- | ----- | ----------------- | -------- |
 | 400 Demande incorrecte | invalid_resource | AADSTS50001 : L’application nommée *\<URI\>* est introuvable dans le locataire nommé *\<ID DE LOCATAIRE\>*. Cela peut se produire si l’application n’a pas été installée par l’administrateur du locataire ni acceptée par un utilisateur dans le locataire. Vous avez peut-être envoyé votre requête d’authentification au locataire incorrect.\ | (Linux uniquement) |
 | 400 Demande incorrecte | bad_request_102 | En-tête de métadonnées requis non spécifié | Le champ d’en-tête de métadonnées `Metadata` est absent de votre requête, ou bien il n’est pas correctement formaté. La valeur spécifiée doit être `true`, en minuscules. Pour obtenir un exemple, consultez « Exemple de demande » dans la section [Obtenir un jeton par HTTP](#get-a-token-using-http).|
-| 401 Non autorisé | unknown_source | *\<URI\>* de source inconnue | Vérifiez que votre URI de requête HTTP GET est correctement mise en forme. La partie `scheme:host/resource-path` doit être spécifiée comme `http://localhost:50342/oauth2/token`. Pour obtenir un exemple, consultez « Exemple de demande » dans la section [Obtenir un jeton par HTTP](#get-a-token-using-http).|
+| 401 Non autorisé | unknown_source | *\<URI\>* de source inconnue | Vérifiez que votre URI de requête HTTP GET est correctement mise en forme. La partie `scheme:host/resource-path` doit être spécifiée comme `http://169.254.169.254/metadata/identity/oath2/token` ou `http://localhost:50342/oauth2/token`. Pour obtenir un exemple, consultez « Exemple de demande » dans la section [Obtenir un jeton par HTTP](#get-a-token-using-http).|
 |           | invalid_request | Il manque un paramètre nécessaire à la requête, elle comprend une valeur de paramètre non valide, plus d’un paramètre à la fois, ou bien elle est incorrecte. |  |
 |           | unauthorized_client | Le client n’est pas autorisé à demander un jeton d’accès avec cette méthode. | Engendré par une demande n’ayant pas utilisé le bouclage local pour appeler l’extension, ou sur une machine virtuelle dont la MSI n’est pas correctement configurée. Consultez [Configurer une identité du service administré (MSI) d’une machine virtuelle à l’aide du portail Azure](msi-qs-configure-portal-windows-vm.md) si vous avez besoin d’aide pour la configuration d’une machine virtuelle. |
 |           | access_denied | Le propriétaire de la ressource ou le serveur d’autorisation a refusé la requête. |  |

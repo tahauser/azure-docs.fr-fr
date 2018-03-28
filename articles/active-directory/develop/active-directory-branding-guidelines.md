@@ -1,11 +1,11 @@
 ---
 title: Directives de personnalisation des applications | Microsoft Docs
-description: "Guide complet sur les ressources destinées aux développeurs pour Azure Active Directory"
+description: Guide complet sur les ressources destinées aux développeurs pour Azure Active Directory
 services: active-directory
 documentationcenter: dev-center-name
 author: skwan
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 72f4e464-1352-4a49-a18f-c37f58e7d5c4
 ms.service: active-directory
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: skwan
 ms.custom: aaddev
-ms.openlocfilehash: 51adb13e15312130841c065f5678209508457559
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e5ce970913d767dbf6b13381cf18c1f7b05d252f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="branding-guidelines-for-applications"></a>Directives de personnalisation des applications
-Cette rubrique décrit les directives de personnalisation que vous devez suivre lors du développement d’applications avec Azure Active Directory (Azure AD). Ces directives vous permettent de diriger vos clients quand ils souhaitent utiliser leur compte professionnel ou scolaire géré dans Azure AD ou leur compte personnel pour s’inscrire et se connecter à votre application.
+Cet article décrit les directives de personnalisation que vous devez suivre lors du développement d’applications avec Azure Active Directory (Azure AD). Ces directives vous permettent de diriger vos clients quand ils souhaitent utiliser leur compte professionnel ou scolaire géré dans Azure AD ou leur compte personnel pour s’inscrire et se connecter à votre application.
 
 ## <a name="personal-accounts-vs-work-or-school-accounts-from-microsoft"></a>Comptes personnels et comptes professionnels/scolaires de Microsoft
 Microsoft gère deux types de compte d’utilisateur :
@@ -44,7 +44,7 @@ Dans une version antérieure de ces directives, nous recommandions d’utiliser 
 ## <a name="signing-up-and-signing-in-with-azure-ad"></a>Inscription et connexion avec Azure AD
 Votre application peut présenter des chemins distincts pour l’inscription et la connexion, et les sections suivantes fournissent des conseils visuels pour les deux scénarios.
 
-**Si votre application prend en charge l’inscription des utilisateurs finaux (par exemple, pour les modèles d’évaluation gratuits ou Premium)** : vous pouvez afficher un bouton de **connexion** qui permet aux utilisateurs d’accéder à votre application avec leur compte professionnel ou personnel. Azure AD affiche une invite de consentement la première fois que les utilisateurs accèdent à votre application.
+**Si votre application prend en charge l’inscription des utilisateurs finaux (par exemple, pour les modèles d’évaluation gratuits ou Premium)** : vous pouvez afficher un bouton de **connexion** qui permet aux utilisateurs d’accéder à votre application avec leur compte professionnel ou personnel. Azure AD affiche une invite de consentement la première fois que les utilisateurs accèdent à votre application.
 
 **Si votre application nécessite des autorisations auxquelles seuls les administrateurs peuvent consentir ou si votre application requiert une licence d’entreprise**: vous devez séparer l’acquisition administrateur de la connexion utilisateur. Le **bouton « obtenir cette application »** redirige les administrateurs vers la connexion, après quoi ils sont invités à donner leur consentement pour le compte des utilisateurs de leur organisation. Cela présente l’avantage supplémentaire de supprimer de votre application les invites de consentement pour les utilisateurs finaux.
 
@@ -55,9 +55,9 @@ Une fois que les administrateurs ont donné leur consentement à votre applicati
 
 ![Types d’application et scénarios](./media/active-directory-branding-guidelines/add-to-my-org.png)
 
-Toutefois, nous vous recommandons de fournir un texte explicatif plutôt que de vous contenter des boutons. Par exemple :
+Toutefois, nous vous recommandons de fournir un texte explicatif plutôt que de vous contenter des boutons. Par exemple : 
 
-> *Si vous utilisez déjà Office 365 ou un autre service métier de Microsoft, vous pouvez tout simplement octroyer l’accès de &lt;nom_de_votre_application&gt; aux données de votre organisation. Cela permet à vos utilisateurs d’accéder à <nom_de_votre_application> à l’aide de leur compte professionnel existant.*
+> *Si vous utilisez déjà Office 365 ou un autre service métier de Microsoft, vous pouvez octroyer l’accès de <your_app_name> aux données de votre organisation. Cela permet à vos utilisateurs d’accéder à <nom_de_votre_application> à l’aide de leur compte professionnel existant.*
 > 
 > 
 
@@ -65,7 +65,7 @@ Toutefois, nous vous recommandons de fournir un texte explicatif plutôt que de 
 Votre application doit afficher un bouton de connexion qui redirige les utilisateurs vers le point de terminaison de connexion correspondant au protocole que vous utilisez pour l’intégration à Azure AD. La section suivante fournit des détails sur l’aspect recommandé pour ce bouton.
 
 ### <a name="pictogram-and-sign-in-with-microsoft"></a>Pictogramme et « Se connecter avec Microsoft »
-C’est l’association du logo Microsoft et des termes « Se connecter avec Microsoft » qui permet de distinguer Azure AD des autres fournisseurs d’identité que votre application peut prendre en charge. Si vous ne disposez pas d’espace suffisant pour « Se connecter avec Microsoft », vous pouvez utiliser l’abréviation « Se connecter ».
+C’est l’association du logo Microsoft et des termes « Se connecter avec Microsoft » qui permet de distinguer Azure AD des autres fournisseurs d’identité que votre application peut prendre en charge. Si vous ne disposez pas d’espace suffisant pour « Se connecter avec Microsoft », vous pouvez utiliser l’abréviation « Se connecter ».
 
 ![Types d’application et scénarios](./media/active-directory-branding-guidelines/sign-in-with-microsoft-light.png)
 
@@ -76,6 +76,8 @@ Vous pouvez également utiliser un modèle de couleurs sombres pour les boutons.
 ![Types d’application et scénarios](./media/active-directory-branding-guidelines/sign-in-with-microsoft-dark.png)
 
 ![Types d’application et scénarios](./media/active-directory-branding-guidelines/sign-in-dark.png)
+
+Pour télécharger ces images afin de les utiliser dans votre application, cliquez avec le bouton droit de la souris sur celle que vous souhaitez utiliser et enregistrez-la sur votre ordinateur. 
 
 ## <a name="branding-dos-and-donts"></a>Choses à faire et à éviter en matière de personnalisation
 **UTILISEZ** « compte professionnel ou scolaire » dans la combinaison avec le bouton « Se connecter avec Microsoft » pour fournir une explication supplémentaire afin d’aider les utilisateurs finaux à déterminer s’ils peuvent l’utiliser. **N’UTILISEZ PAS** de termes tels que « compte d’entreprise » ou « compte commercial ».

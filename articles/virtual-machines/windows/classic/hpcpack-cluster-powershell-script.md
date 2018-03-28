@@ -1,11 +1,11 @@
 ---
-title: "Script PowerShell pour déployer des clusters Windows HPC | Microsoft Docs"
-description: "Exécuter un script PowerShell pour déployer un cluster Windows HPC Pack 2012 R2 sur les machines virtuelles Azure"
+title: Script PowerShell pour déployer des clusters Windows HPC | Microsoft Docs
+description: Exécuter un script PowerShell pour déployer un cluster Windows HPC Pack 2012 R2 sur les machines virtuelles Azure
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management,hpc-pack
 ms.assetid: 286b2be8-2533-40df-b02a-26156b1f1133
 ms.service: virtual-machines-windows
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-ms.openlocfilehash: 85b125ab19671b61d2541af6378c95feb88bf952
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 82aa2942a6a4fe6a3ac1c3ec2c0710e39f4282b1
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-windows-high-performance-computing-hpc-cluster-with-the-hpc-pack-iaas-deployment-script"></a>Créer un cluster de calcul haute performance (HPC) Windows avec le script de déploiement du HPC Pack IaaS
-Exécutez le script PowerShell de déploiement du HPC Pack IaaS pour déployer un cluster HPC Pack 2012 R2 complet pour les charges de travail Windows sur les machines virtuelles Azure. Le cluster se compose d’un nœud principal joint à Active Directory, exécutant Windows Server et Microsoft HPC Pack, et de ressources de calcul Windows supplémentaires que vous spécifiez. Si vous souhaitez déployer un cluster HPC Pack dans Azure pour les charges de travail Linux, consultez [Créer un cluster HPC Linux avec le script de déploiement du HPC Pack IaaS](../../linux/classic/hpcpack-cluster-powershell-script.md). Vous pouvez également utiliser un modèle Azure Resource Manager pour déployer un cluster HPC Pack. Pour obtenir des exemples, consultez [Création d’un cluster HPC](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/) et [Création d’un cluster HPC avec une image de nœud de calcul personnalisée](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/).
+Exécutez le script PowerShell de déploiement du HPC Pack IaaS pour déployer un cluster HPC Pack 2012 R2 complet pour les charges de travail Windows sur les machines virtuelles Azure. Le cluster se compose d’un nœud principal joint à Active Directory, exécutant Windows Server et Microsoft HPC Pack, et de ressources de calcul Windows supplémentaires que vous spécifiez. Si vous souhaitez déployer un cluster HPC Pack dans Azure pour les charges de travail Linux, consultez [Créer un cluster HPC Linux avec le script de déploiement du HPC Pack IaaS](../../linux/classic/hpcpack-cluster-powershell-script.md). 
 
 > [!IMPORTANT] 
-> Le script PowerShell décrit dans cet article crée un cluster Microsoft HPC Pack 2012 R2 dans Azure à l’aide du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
-> En outre, le script décrit dans cet article ne prend pas en charge HPC Pack 2016.
+> Le script PowerShell décrit dans cet article crée un cluster Microsoft HPC Pack 2012 R2 dans Azure à l’aide du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
+> En outre, le script décrit dans cet article ne prend pas en charge HPC Pack 2016. Pour plus d’informations sur les modèles Resource Manager pour HPC Pack 2012 R2 et HPC Pack 2016, consultez les [options de déploiement de cluster HPC Pack dans Azure](../hpcpack-cluster-options.md).
 
 [!INCLUDE [virtual-machines-common-classic-hpcpack-cluster-powershell-script](../../../../includes/virtual-machines-common-classic-hpcpack-cluster-powershell-script.md)]
 

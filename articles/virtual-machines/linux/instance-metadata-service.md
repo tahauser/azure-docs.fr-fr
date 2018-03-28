@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: a291aaf8456fd800edcf5a2df5d68c386d9f87c1
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5c65157d1fdb0effd272437cc92c305ca4d1a510
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Service de métadonnées d’instance Azure
 
@@ -36,7 +36,7 @@ Le service est disponible dans toutes les régions Azure mises à la disposition
 
 Régions                                        | Disponibilité ?                                 | Versions prises en charge
 -----------------------------------------------|-----------------------------------------------|-----------------
-[Toutes les régions Azure globales généralement disponibles](https://azure.microsoft.com/regions/)     | Mise à la disposition générale   | 2017-04-02, 2017-08-01, 2017-12-01 (cette version n’est pas disponible dans les régions du Royaume-Uni)
+[Toutes les régions Azure globales généralement disponibles](https://azure.microsoft.com/regions/)     | Mise à la disposition générale   | 2017-04-02, 2017-08-01, 2017-12-01
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Mise à la disposition générale | 2017-04-02,2017-08-01
 [Azure Chine](https://www.azure.cn/)                                                           | Mise à la disposition générale | 2017-04-02,2017-08-01
 [Azure Allemagne](https://azure.microsoft.com/overview/clouds/germany/)                    | Mise à la disposition générale | 2017-04-02,2017-08-01
@@ -405,7 +405,7 @@ Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 5. Pourquoi l’erreur `500 Internal Server Error` ?
    * Renouvelez votre demande en fonction du système d’interruption exponentiel. Si le problème persiste, contactez le support Azure.
 6. Où partager des commentaires/questions supplémentaires ?
-   * Envoyez vos commentaires au site http://feedback.azure.com.
+   * Envoyez vos commentaires sur http://feedback.azure.com.
 7. Cela fonctionne-t-il pour l’instance de groupe de machines virtuelles identiques ?
    * Oui, le service de métadonnées est disponible pour les instances de groupe identique. 
 8. Comment obtenir un support technique pour le service ?

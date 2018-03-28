@@ -2,29 +2,26 @@
 title: Présentation d’Azure SQL Database Managed Instance | Microsoft Docs
 description: Cette rubrique décrit Azure SQL Database Managed Instance et explique son fonctionnement ainsi que ses différences par rapport à une base de données unique dans Azure SQL Database.
 services: sql-database
-documentationcenter: na
 author: bonova
 ms.reviewer: carlrab
-manager: cguyer
-editor: ''
-ms.assetid: ''
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Active
-ms.date: 03/07/2018
+ms.date: 03/16/2018
 ms.author: bonova
-ms.openlocfilehash: dc3c93a1a13f3e10f9159d26411d6337c0269722
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: bc9c16462f28d129efa8c47183c6325e69bb64f3
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Présentation de l’option Managed Instance (préversion)
 
 Azure SQL Database Managed Instance (préversion) est une nouvelle fonctionnalité d’Azure SQL Database, presque 100 % compatible avec SQL Server localement, qui fournit une implémentation de [réseau virtuel (VNet)](../virtual-network/virtual-networks-overview.md) native qui traite les problèmes de sécurité courants, ainsi qu’un [modèle d’entreprise](https://azure.microsoft.com/pricing/details/sql-database/) favorable aux clients SQL Server locaux. Managed Instance permet aux clients SQL Server existants d’effectuer une migration « lift-and-shift » de leurs applications locales vers le cloud en apportant des modifications minimales aux applications et bases de données. En même temps, Managed Instance conserve toutes les fonctionnalités PaaS (correctifs automatiques et mises à jour de versions, sauvegarde, haute disponibilité), ce qui réduit considérablement le temps de gestion et le coût total de possession.
+
+> [!IMPORTANT]
+> Pour obtenir une liste de régions dans lesquelles Managed Instance est actuellement disponible, consultez [Migrate your databases to a fully managed service with Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/).
  
 Le diagramme suivant présente les principales fonctionnalités de Managed Instance :
 
@@ -42,7 +39,7 @@ Le tableau suivant indique les principales différences entre SQL IaaS, Azure SQ
 | | Scénario d’usage | 
 | --- | --- | 
 |Instance gérée |Aux clients cherchant à effectuer une migration d’un grand nombre d’applications locales ou IaaS, automatiquement générées ou fournies par un éditeur de logiciels indépendant, avec un effort de migration aussi faible que possible, proposez Managed Instance. À l’aide du [service de migration des données](/sql/dma/dma-overview) entièrement automatisé dans Azure, les clients peuvent effectuer une migration « lift-and-shift » de leur SQL Server local vers l’option Managed Instance qui offre une compatibilité avec SQL Server local et une isolation totale des instances des clients avec une prise en charge de réseau virtuel native.  Avec Software Assurance, vous pouvez échanger leurs licences existantes avec des tarifs réduits sur SQL Database Managed Instance en utilisant [Azure Hybrid Use Benefit pour SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  SQL Database Managed Instance est la meilleure destination de migration dans le cloud pour les instances SQL Server qui nécessitent une sécurité élevée et une surface de programmabilité riche. |
-|Base de données SQL Azure |Aux clients qui développent de nouvelles applications multilocataires SaaS ou qui transforment intentionnellement leurs applications locales existantes en applications multilocataires SaaS, proposez des pools élastiques. Les avantages de ce modèle sont : <br><ul><li>Conversion du modèle d’entreprise de la vente de licences à la vente d’abonnements à des services (pour les éditeurs de logiciels indépendants)</li></ul><ul><li>Isolation simple et renforcée des locataires</li></ul><ul><li>Modèle de programmation simplifié et centré sur la base de données</li></ul><ul><li>Possibilité d’augmenter la taille des instances sans limite maximale</li></ul>Aux clients qui développent de nouvelles applications autres que des applications multilocataires SaaS, dont la charge de travail est stable et prévisible, proposez des bases de données uniques. Les avantages de ce modèle sont :<ul><li>Modèle de programmation simplifié et centré sur la base de données</li></ul>  <ul><li>Performances prévisibles pour chaque base de données</li></ul>|
+|Base de données SQL Azure |**Pools élastiques** : aux clients qui développent de nouvelles applications multilocataires SaaS ou qui transforment intentionnellement leurs applications locales existantes en applications multilocataires SaaS, proposez des pools élastiques. Les avantages de ce modèle sont : <br><ul><li>Conversion du modèle d’entreprise de la vente de licences à la vente d’abonnements à des services (pour les éditeurs de logiciels indépendants)</li></ul><ul><li>Isolation simple et renforcée des locataires</li></ul><ul><li>Modèle de programmation simplifié et centré sur la base de données</li></ul><ul><li>Possibilité d’augmenter la taille des instances sans limite maximale</li></ul>**Bases de données uniques** : aux clients qui développent de nouvelles applications autres que des applications multilocataires SaaS, dont la charge de travail est stable et prévisible, proposez des bases de données uniques. Les avantages de ce modèle sont :<ul><li>Modèle de programmation simplifié et centré sur la base de données</li></ul>  <ul><li>Performances prévisibles pour chaque base de données</li></ul>|
 |SQL IaaS |Aux clients qui ont besoin de personnaliser le système d’exploitation ou le serveur de base de données, ainsi qu’aux clients qui ont des exigences spécifiques liées à l’exécution d’applications tierces à côté de SQL Server (sur la même machine virtuelle), proposez des machines virtuelles/IaaS SQL en tant que solution optimale.|
 |||
 

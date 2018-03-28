@@ -1,11 +1,11 @@
 ---
-title: "Télécharger des scripts de configuration de périphérique VPN pour les connexions VPN S2S : Azure Resource Manager | Microsoft Docs"
-description: "Cet article vous guide dans le téléchargement de scripts de configuration de périphérique VPN pour les connexions VPN S2S avec des passerelles VPN Azure à l’aide d’Azure Resource Manager."
+title: 'Télécharger des scripts de configuration de périphérique VPN pour les connexions VPN S2S : Azure Resource Manager | Microsoft Docs'
+description: Cet article vous guide dans le téléchargement de scripts de configuration de périphérique VPN pour les connexions VPN S2S avec des passerelles VPN Azure à l’aide d’Azure Resource Manager.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 238cd9b3-f1ce-4341-b18e-7390935604fa
 ms.service: vpn-gateway
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2018
 ms.author: yushwang
-ms.openlocfilehash: ebff881cdaa7dd3e14fa1687588408cd9a911553
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 2ec428bc5d2cdfb376db3c27b9899014c7ffa2af
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>Télécharger des scripts de configuration de périphérique VPN pour les connexions VPN S2S
 
@@ -103,4 +103,4 @@ Une fois que vous avez téléchargé et validé le script de configuration, l’
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois la connexion achevée, vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. Consultez [Création d’une machine virtuelle](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour connaître les différentes étapes.
+Poursuivez la configuration de votre [connexion de site à site](vpn-gateway-howto-site-to-site-resource-manager-portal.md).

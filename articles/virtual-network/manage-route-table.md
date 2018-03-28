@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 7630fd82cf62f1fcb0df80cec5b5e0030da81a85
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a7e45d6bccfd8113157eba63d311b6609bf35aaa
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Créer, modifier ou supprimer une table de routage
 
@@ -40,7 +40,7 @@ Le nombre de tables de routage que vous pouvez créer par abonnement et par empl
 
 1. Dans l’angle supérieur gauche du portail, sélectionnez **+ Créer une ressource**.
 2. Sélectionnez **Mise en réseau**, puis **Table de routage**.
-3. Attribuez un **nom** à la table de routage, sélectionnez votre **abonnement**, créez un **groupe de ressources** ou sélectionnez un groupe de ressources existant, sélectionnez un **emplacement** et cliquez sur **Créer**. L’option **Désactiver la propagation des itinéraires BGP** empêche les itinéraires locaux de se propager sur un réseau virtuel Azure via le protocole BGP. Si votre réseau virtuel n’est pas connecté à une passerelle réseau Azure (VPN ou ExpressRoute), laissez cette option *désactivée*. 
+3. Attribuez un **nom** à la table de routage, sélectionnez votre **abonnement**, créez un **groupe de ressources** ou sélectionnez un groupe de ressources existant, sélectionnez un **emplacement** et cliquez sur **Créer**. L’option **Désactiver la propagation des itinéraires BGP** empêche que les itinéraires locaux ne soient propagés, via BGP, vers les interfaces réseau d’un sous-réseau auquel est associée la table de routage. Si votre réseau virtuel n’est pas connecté à une passerelle réseau Azure (VPN ou ExpressRoute), laissez cette option *désactivée*.
 
 **Commandes**
 

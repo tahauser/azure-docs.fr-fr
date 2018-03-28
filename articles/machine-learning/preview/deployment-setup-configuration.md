@@ -1,20 +1,20 @@
 ---
-title: "Installation et configuration de la gestion des modèles Azure Machine Learning | Microsoft Docs"
-description: "Ce document décrit les procédures et les concepts relatifs à l’installation et à la configuration de la gestion des modèles dans Azure Machine Learning."
+title: Installation et configuration de la gestion des modèles Azure Machine Learning | Microsoft Docs
+description: Ce document décrit les procédures et les concepts relatifs à l’installation et à la configuration de la gestion des modèles dans Azure Machine Learning.
 services: machine-learning
-author: raymondlaghaeian
-ms.author: raymondl
+author: aashishb
+ms.author: aashishb
 manager: hjerez
-ms.reviewer: jmartens,jasonwhowell, mldocs
+ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/6/2017
-ms.openlocfilehash: 4e2ac548ee08f1a20cf2c1744242ee13535e55cc
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: d231fd525d310d2496c9ace40808b7deab0dd48f
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="model-management-setup"></a>Installation de la gestion des modèles
 
@@ -70,7 +70,7 @@ Partez d’un déploiement local, vérifiez que votre modèle et votre code fonc
 Dans un premier temps, vous devez configurer votre environnement de déploiement. La configuration de l’environnement est une tâche qui ne doit être effectuée qu’une seule fois. Une fois la configuration terminée, vous pouvez réutiliser l’environnement pour les déploiements ultérieurs. Pour plus d’informations, consultez la section suivante.
 
 Pendant la configuration de l’environnement :
-- Vous êtes invité à vous connecter à Azure. Pour vous connecter, ouvrez la page https://aka.ms/devicelogin dans un navigateur web et entrez le code fourni pour vous authentifier.
+- Vous êtes invité à vous connecter à Azure. Pour vous connecter, utilisez un navigateur web pour ouvrir la page https://aka.ms/devicelogin et entrez le code fourni pour vous authentifier.
 - Pendant le processus d’authentification, vous êtes invité à spécifier le compte avec lequel vous authentifier. Important : Sélectionnez un compte qui dispose d’un abonnement Azure valide et d’autorisations suffisantes pour créer des ressources dans le compte. Une fois la connexion établie, vos informations d’abonnement sont présentées et vous êtes invité à préciser si vous souhaitez continuer avec le compte sélectionné.
 
 ### <a name="environment-setup"></a>Configuration de l’environnement
