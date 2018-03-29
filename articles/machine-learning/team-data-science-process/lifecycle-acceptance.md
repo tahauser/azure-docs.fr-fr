@@ -1,24 +1,24 @@
 ---
-title: "Phase d’acceptation du client du cycle de vie du processus TDSP (Team Data Science Process) - Azure | Microsoft Docs"
-description: "Objectifs, tâches et livrables associés à la phase d’acceptation du client de vos projets de science des données"
+title: Phase d’acceptation du client du cycle de vie du processus TDSP (Team Data Science Process) - Azure | Microsoft Docs
+description: Objectifs, tâches et livrables associés à la phase d’acceptation du client de vos projets de science des données
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev;
-ms.openlocfilehash: e150b3e7c7e98443264dd5b8aaeda1bfe6047b2c
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: bradsev
+ms.openlocfilehash: 0030698bafc3d92a1c6daf944ba496421080912c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="customer-acceptance"></a>Acceptation du client
 

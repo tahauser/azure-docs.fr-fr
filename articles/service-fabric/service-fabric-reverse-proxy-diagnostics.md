@@ -1,11 +1,11 @@
 ---
-title: "Diagnostics du proxy inverse Azure Service Fabric | Microsoft Docs"
-description: "Découvrez comment surveiller et diagnostiquer le traitement de requêtes au niveau du proxy inverse."
+title: Diagnostics du proxy inverse Azure Service Fabric | Microsoft Docs
+description: Découvrez comment surveiller et diagnostiquer le traitement de requêtes au niveau du proxy inverse.
 services: service-fabric
 documentationcenter: .net
 author: kavyako
 manager: vipulm
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/08/2017
 ms.author: kavyako
-ms.openlocfilehash: 1c62d2390709577bfde6225b783642fb55396a6b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e645d86e4527cab1e650575c4d9a10dbd4b9de4e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>Surveiller et diagnostiquer le traitement de requêtes au niveau du proxy inverse
 
 Depuis la mise en production 5.7 de Service Fabric, il est possible de collecter des événements liés au proxy inverse. Les événements sont disponibles dans deux canaux, l’un récupérant uniquement les événements d’erreur liés à l’échec du traitement de requêtes au niveau du proxy inverse, l’autre contenant les événements détaillés avec des entrées pour les requêtes qui ont réussi et celles qui ont échoué.
 
-Reportez-vous à [Collecter les événements de proxy inverse](service-fabric-diagnostics-event-aggregation-wad.md#collect-reverse-proxy-events) pour activer la collecte d’événements à partir de ces canaux dans les clusters locaux et les clusters Azure Service Fabric.
+Reportez-vous à [Collecter les événements de proxy inverse](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations) pour activer la collecte d’événements à partir de ces canaux dans les clusters locaux et les clusters Azure Service Fabric.
 
 ## <a name="troubleshoot-using-diagnostics-logs"></a>Résoudre les problèmes à l’aide de journaux de diagnostic
 Voici quelques exemples sur la façon d’interpréter les journaux d’échecs courants que vous pouvez rencontrer :

@@ -1,12 +1,12 @@
 ---
-title: "Présentation de la surveillance et des diagnostics Azure Service Fabric | Microsoft Docs"
-description: "Découvrez la surveillance et les diagnostics pour les clusters, applications et services Azure Service Fabric."
+title: Présentation de la surveillance et des diagnostics Azure Service Fabric | Microsoft Docs
+description: Découvrez la surveillance et les diagnostics pour les clusters, applications et services Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2018
 ms.author: dekapur
-ms.openlocfilehash: 1da2fab92c6fd51c5fc18589da5f8bbec2929503
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: f784576547f0d85a825ad9dd107c6c84cd261092
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Surveillance et diagnostics pour Azure Service Fabric
 
@@ -86,7 +86,7 @@ La plateforme Service Fabric inclut un modèle d’intégrité qui fournit des r
 
 ![Tableau de bord d’intégrité SFX](media/service-fabric-diagnostics-overview/sfx-healthstatus.png)
 
-Outre l’affichage des derniers rapports d’intégrité dans SFX, chaque rapport est également disponible sous la forme d’un événement. Vous pouvez collecter les événements d’intégrité par le biais du canal opérationnel (consultez [Agrégation d’événements avec Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md#collect-health-and-load-events)) et les stocker dans OMS Log Analytics pour générer des alertes et lancer des requêtes par la suite. Ceci facilite la détection des problèmes qui peuvent impacter la disponibilité de votre application. Nous vous recommandons donc de définir des alertes pour les scénarios d’échec appropriés (alertes personnalisées par le biais d’OMS).
+Outre l’affichage des derniers rapports d’intégrité dans SFX, chaque rapport est également disponible sous la forme d’un événement. Vous pouvez collecter les événements d’intégrité par le biais du canal opérationnel (consultez [Agrégation d’événements avec Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations)) et les stocker dans OMS Log Analytics pour générer des alertes et lancer des requêtes par la suite. Ceci facilite la détection des problèmes qui peuvent impacter la disponibilité de votre application. Nous vous recommandons donc de définir des alertes pour les scénarios d’échec appropriés (alertes personnalisées par le biais d’OMS).
 
 ## <a name="monitoring-workflow"></a>Flux de travail du monitoring 
 

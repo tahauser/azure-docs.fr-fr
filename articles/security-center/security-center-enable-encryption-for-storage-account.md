@@ -1,12 +1,12 @@
 ---
 title: Activation du chiffrement pour le compte de stockage dans Azure Security Center | Microsoft Docs
-description: "Ce document vous montre comment implémenter la recommandation d’Azure Security Center **Activation du chiffrement pour le compte de stockage Azure**."
+description: Ce document vous montre comment implémenter la recommandation d’Azure Security Center **Activation du chiffrement pour le compte de stockage Azure**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/20/2016
 ms.author: terrylan
-ms.openlocfilehash: b7b2e8a12cbab68da9c8fcc348e8e3c543607007
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 82bb201c0b518d0b45e06a1eb25d54f60cb3e028
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="enable-encryption-for-azure-storage-account-in-azure-security-center"></a>Activation du chiffrement pour le compte de stockage Azure dans Azure Security Center | Microsoft Docs
 Azure Security Center peut vous recommander d’activer le chiffrement du service Azure Storage pour les données au repos.
@@ -27,7 +27,7 @@ SSE (Storage Service Encryption) chiffre les données lorsqu’elles sont écrit
 
 
 > [!Note]
-> Après l’activation du chiffrement, seules les nouvelles données sont chiffrées. Tous les objets blob existants dans votre compte de stockage restent non chiffrés. Pour chiffrer les objets blob existants, consultez le [Forum aux questions sur le chiffrement du service de stockage](../storage/common/storage-service-encryption.md#frequently-asked-questions-about-storage-service-encryption-for-data-at-rest).
+> Après l’activation du chiffrement, seules les nouvelles données sont chiffrées. Tous les objets blob existants dans votre compte de stockage restent non chiffrés. Pour chiffrer les objets blob existants, consultez le [Forum aux questions sur le chiffrement du service de stockage](../storage/common/storage-service-encryption.md#faq-for-storage-service-encryption).
 >
 >
 

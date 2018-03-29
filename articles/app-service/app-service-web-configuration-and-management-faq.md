@@ -1,11 +1,11 @@
 ---
-title: "FAQ sur la configuration d’Azure Web Apps | Microsoft Docs"
-description: "Découvrez les réponses aux questions fréquemment posées sur les problèmes de configuration et de gestion de la fonctionnalité Web Apps d’Azure App Service."
+title: FAQ sur la configuration d’Azure Web Apps | Microsoft Docs
+description: Découvrez les réponses aux questions fréquemment posées sur les problèmes de configuration et de gestion de la fonctionnalité Web Apps d’Azure App Service.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 92cbc36ac2a566cf5dfbb2f7b3347973bab5ee8c
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: efbed264babe0b192590380639cdc1c8861b4f38
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>FAQ sur la configuration et la gestion de Web Apps dans Azure
 
@@ -251,7 +251,7 @@ Pour plus d’informations sur les tâches web planifiées, voir [Créer une tâ
 
 ## <a name="how-do-i-perform-penetration-testing-for-my-app-service-app"></a>Comment effectuer un test de pénétration pour mon application App Service ?
 
-Pour effectuer un test de pénétration, [soumettez une demande](https://security-forms.azure.com/penetration-testing/terms).
+Pour effectuer un test de pénétration, [soumettez une demande](https://portal.msrc.microsoft.com/en-us/engage/pentest).
 
 ## <a name="how-do-i-configure-a-custom-domain-name-for-an-app-service-web-app-that-uses-traffic-manager"></a>Comment configurer un nom de domaine personnalisé pour une application web App Service utilisant Traffic Manager?
 

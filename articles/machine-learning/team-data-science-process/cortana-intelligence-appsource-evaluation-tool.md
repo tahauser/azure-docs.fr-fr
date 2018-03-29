@@ -1,8 +1,8 @@
 ---
-title: "Outil d’évaluation de la solution Cortana Intelligence | Microsoft Docs"
-description: "Vous êtes partenaire Microsoft. À ce titre, nous vous fournissons ici toutes les étapes à suivre pour publier votre solution Cortana Intelligence sur AppSource."
+title: Outil d’évaluation de la solution Cortana Intelligence | Microsoft Docs
+description: Vous êtes partenaire Microsoft. À ce titre, nous vous fournissons ici toutes les étapes à suivre pour publier votre solution Cortana Intelligence sur AppSource.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: AnupamMicrosoft
 manager: jhubbard
 editor: cgronlun
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
-ms.author: anupams;v-bruham;garye
-ms.openlocfilehash: c9ea8164d5866662a7ed81672ee1ba776603b193
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: anupams
+ms.openlocfilehash: f678cb9819a2c03f97bcca5a2092160212779328
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="cortana-intelligence-solution-evaluation-tool"></a>Outil d’évaluation de la solution Cortana Intelligence
 ## <a name="overview"></a>Vue d'ensemble
@@ -54,7 +54,7 @@ Ces informations nous permettent de mieux comprendre comment votre solution util
 Dans ce cas, l’ingestion désigne toutes les sources de données utilisées pour intégrer des données extérieures à la solution ou utilisées par n’importe quel service extérieur à la solution pour lui transmettre des données.
 
 ### <a name="consumption"></a>Consommation
-Dans ce cas, la consommation fait référence à tous les jeux de données utilisés pour transmettre des données aux utilisateurs finaux, de façon directe ou indirecte. Par exemple :
+Dans ce cas, la consommation fait référence à tous les jeux de données utilisés pour transmettre des données aux utilisateurs finaux, de façon directe ou indirecte. Par exemple : 
 - Jeux de données utilisés dans une requête directe à partir de PowerBI
 - Jeux de données interrogés dans une application web
 

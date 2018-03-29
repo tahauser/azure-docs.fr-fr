@@ -1,11 +1,11 @@
 ---
 title: Mappages de champs dans les indexeurs de la Recherche Azure
-description: "Configurer les mappages de champs de l'indexeur Azure Search pour tenir compte des différences dans les noms de champs et les représentations des données"
+description: Configurer les mappages de champs de l'indexeur Azure Search pour tenir compte des différences dans les noms de champs et les représentations des données
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: chaosrealm
 manager: pablocas
-editor: 
+editor: ''
 ms.assetid: 0325a4de-0190-4dd5-a64d-4e56601d973b
 ms.service: search
 ms.devlang: rest-api
@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 08/30/2017
 ms.author: eugenesh
-ms.openlocfilehash: 3f2ead208ea1525489a40d1fb637da47cd8a9b24
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e4d6960e540641405b879064a8064d45521dc04f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="field-mappings-in-azure-search-indexers"></a>Mappages de champs dans les indexeurs de la Recherche Azure
 Lorsque vous utilisez des indexeurs Azure Search, vous pouvez parfois vous retrouver dans des situations où vos données d'entrée ne correspondent pas tout à fait au schéma de votre index cible. Dans ce cas, vous pouvez utiliser les **mappages de champs** pour transformer vos données au format souhaité.
@@ -60,7 +60,7 @@ Un indexeur peut avoir plusieurs mappages de champs. Par exemple, voici comment 
 
 "fieldMappings" : [
     { "sourceFieldName" : "text", "targetFieldName" : "textStandardEnglishAnalyzer" },
-    { "sourceFieldName" : "text", "targetFieldName" : "textSoundexAnalyzer" },
+    { "sourceFieldName" : "text", "targetFieldName" : "textSoundexAnalyzer" }
 ]
 ```
 
@@ -87,7 +87,7 @@ Exécute l’encodage Base64 *sécurisé pour les URL* de la chaîne d'entrée. 
 ### <a name="sample-use-case---document-key-lookup"></a>Exemple de cas d’utilisation : recherche de clé de document
 Seuls les caractères sécurisés pour les URL peuvent apparaître dans une clé de document Recherche Azure (car les clients doivent pouvoir traiter le document à l’aide de l’[API de recherche](https://docs.microsoft.com/rest/api/searchservice/lookup-document), par exemple). Si vos données contiennent des caractères non sécurisés pour les URL et que vous souhaitez les utiliser pour remplir un champ de clé de votre index de recherche, utilisez cette fonction. Une fois la clé encodée, vous pouvez utiliser le décodage base64 pour récupérer la valeur d’origine. Pour plus d’informations, consultez la section [Encodage et décodage base64](#base64details).
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 ```JSON
 
 "fieldMappings" : [
@@ -101,7 +101,7 @@ Seuls les caractères sécurisés pour les URL peuvent apparaître dans une clé
 ### <a name="sample-use-case---retrieve-original-key"></a>Exemple de cas d’utilisation : récupérer la clé d’origine
 Vous disposez d’un indexeur d’objets blob qui indexe les objets blob avec les métadonnées des chemins d’objets blob en tant que clé de document. Après avoir récupéré la clé de document encodée, vous pouvez décoder le chemin et télécharger l’objet blob.
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 ```JSON
 
 "fieldMappings" : [
@@ -122,7 +122,7 @@ Effectue le décodage en Base64 de la chaîne d'entrée. L'entrée est considér
 ### <a name="sample-use-case"></a>Exemple de cas d’utilisation
 Les valeurs des métadonnées personnalisées des objets blob doivent être encodées en ASCII. Vous pouvez utiliser l’encodage Base64 pour représenter des chaînes UTF-8 arbitraires dans les métadonnées personnalisées des objets blob. Toutefois, pour rendre la recherche explicite, vous pouvez utiliser cette fonction pour transformer les données encodées en chaînes « normales » lors du remplissage de votre index de recherche.
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 ```JSON
 
 "fieldMappings" : [
@@ -163,11 +163,11 @@ Par exemple, si l’entrée est `Jane Doe`, que le `delimiter` est `" "` (espace
 ### <a name="sample-use-case"></a>Exemple de cas d’utilisation
 Votre source de données contient un champ `PersonName` et vous souhaitez l’indexer en tant que deux champs `FirstName` et `LastName` distincts. Vous pouvez utiliser cette fonction pour fractionner l'entrée en utilisant l'espace comme séparateur.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 * `delimiter`: une chaîne à utiliser comme séparateur lors du fractionnement de la chaîne d'entrée.
 * `position`: une position entière à base zéro du jeton à choisir une fois la chaîne d'entrée fractionnée.    
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 ```JSON
 
 "fieldMappings" : [
@@ -193,7 +193,7 @@ Par exemple, si la chaîne d’entrée est `["red", "white", "blue"]`, le champ 
 ### <a name="sample-use-case"></a>Exemple de cas d’utilisation
 Une base de données SQL Azure n'a pas de type de données intégré qui se mappe naturellement aux champs `Collection(Edm.String)` dans Azure Search. Pour remplir les champs de la collection de chaînes, mettez vos données sources sous forme de tableau de chaînes JSON et utilisez cette fonction.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 ```JSON
 
 "fieldMappings" : [

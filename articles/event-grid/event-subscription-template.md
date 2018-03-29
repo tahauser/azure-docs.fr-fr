@@ -1,6 +1,6 @@
 ---
-title: "Abonnement Azure Event Grid avec modèle"
-description: "Créez un abonnement Event Grid avec un modèle Resource Manager."
+title: Abonnement Azure Event Grid avec modèle
+description: Créez un abonnement Event Grid avec un modèle Resource Manager.
 services: event-grid
 author: tfitzmac
 manager: timlt
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 01/30/2018
 ms.author: tomfitz
 ms.openlocfilehash: ee0b2c228ae4ea53c0ee9794529aa190334ceed9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-resource-manager-template-for-event-grid-subscription"></a>Utiliser un module Resource Manager pour l’abonnement Event Grid
 
@@ -91,7 +91,7 @@ L’exemple suivant montre comment s’abonner à des événements de stockage d
 }
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Pour une présentation d’Event Grid, consultez [À propos d’Event Grid](overview.md).
 * Pour découvrir Resource Manager, consultez [Vue d’ensemble d’Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
