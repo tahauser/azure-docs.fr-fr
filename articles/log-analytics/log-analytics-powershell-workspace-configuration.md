@@ -1,11 +1,11 @@
 ---
-title: "Utiliser PowerShell pour créer et configurer un espace de travail Log Analytics | Microsoft Docs"
-description: "Log Analytics utilise des données des serveurs dans votre infrastructure locale ou dans le cloud. Vous pouvez collecter des données de la machine à partir du stockage Azure lorsqu’elles sont générées par les diagnostics Azure."
+title: Utiliser PowerShell pour créer et configurer un espace de travail Log Analytics | Microsoft Docs
+description: Log Analytics utilise des données des serveurs dans votre infrastructure locale ou dans le cloud. Vous pouvez collecter des données de la machine à partir du stockage Azure lorsqu’elles sont générées par les diagnostics Azure.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: richrundmsft
 manager: jochan
-editor: 
+editor: ''
 ms.assetid: 3b9b7ade-3374-4596-afb1-51b695f481c2
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 11/21/2016
 ms.author: richrund
-ms.openlocfilehash: 6807ab67e3593da82c147669b29bfdae3b6c967c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a3f91323a017533d2d012f1e81760396c17a643
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-log-analytics-using-powershell"></a>Gérer Log Analytics à l’aide de PowerShell
 Vous pouvez utiliser les [applets de commande PowerShell Log Analytics](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) pour exécuter diverses fonctions dans Log Analytics à partir d’une ligne de commande ou via un script.  Voici quelques exemples des tâches que vous pouvez effectuer avec PowerShell :
@@ -42,7 +42,8 @@ Cet article fournit deux exemples de code qui illustrent quelques-unes des fonct
 > 
 > 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 Ces exemples fonctionnent avec la version 2.3.0 ou ultérieure du module AzureRm.OperationalInsights.
 
 
@@ -145,7 +146,7 @@ foreach ($solution in $Solutions) {
     Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -IntelligencePackName $solution -Enabled $true
 }
 
-#List enabled solutions
+# List enabled solutions
 (Get-AzureRmOperationalInsightsIntelligencePacks -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName).Where({($_.enabled -eq $true)})
 
 # Import Saved Searches
@@ -191,24 +192,24 @@ Pour une analyse sans agent des ressources Azure, celles-ci doivent avoir les di
 
 | Type de ressource | Journaux | Mesures |
 | --- | --- | --- |
-| Passerelles d’application    | Oui | Oui |
-| Comptes Automation     | Oui | |
-| Comptes Batch          | Oui | Oui |
-| Data Lake analytics     | Oui | | 
-| Data Lake Store         | Oui | |
-| Pool élastique SQL        |     | Oui |
-| Espace de noms Event Hub     |     | Oui |
-| IoT Hubs                |     | Oui |
-| Key Vault               | Oui | |
-| Équilibreurs de charge          | Oui | |
-| Logic Apps              | Oui | Oui |
-| Groupes de sécurité réseau | Oui | |
-| Cache Redis             |     | Oui |
-| Services de recherche         | Oui | Oui |
-| Espace de noms Service Bus   |     | Oui |
-| SQL (v12)               |     | Oui |
-| Sites web               |     | Oui |
-| Batteries de serveurs web        |     | Oui |
+| Passerelles d’application    | OUI | OUI |
+| Comptes Automation     | OUI | |
+| Comptes Batch          | OUI | OUI |
+| Data Lake analytics     | OUI | | 
+| Data Lake Store         | OUI | |
+| Pool élastique SQL        |     | OUI |
+| Espace de noms Event Hub     |     | OUI |
+| IoT Hubs                |     | OUI |
+| Key Vault               | OUI | |
+| Équilibreurs de charge          | OUI | |
+| Logic Apps              | OUI | OUI |
+| Network Security Group | OUI | |
+| Cache Redis             |     | OUI |
+| Services de recherche         | OUI | OUI |
+| Espace de noms Service Bus   |     | OUI |
+| SQL (v12)               |     | OUI |
+| Sites web               |     | OUI |
+| Batteries de serveurs web        |     | OUI |
 
 Pour plus d’informations sur les métriques disponibles, voir [Mesures prises en charge avec Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
 

@@ -1,20 +1,20 @@
 ---
-title: "Migrer des données locales vers le Stockage Azure à l’aide d’AzCopy | Microsoft Docs"
-description: "Utilisez AzCopy pour migrer ou copier des données vers ou depuis un blob, une table ou un fichier. Migrez facilement des données de votre stockage local vers le Stockage Azure."
+title: Migrer des données locales vers le Stockage Azure à l’aide d’AzCopy | Microsoft Docs
+description: Utilisez AzCopy pour migrer ou copier des données vers ou depuis un blob, une table ou un fichier. Migrez facilement des données de votre stockage local vers le Stockage Azure.
 services: storage
-author: ruthogunnnaike
+author: roygara
 manager: jeconnoc
 ms.service: storage
 ms.tgt_pltfrm: na
 ms.devlang: azcopy
 ms.topic: tutorial
 ms.date: 12/14/2017
-ms.author: v-ruogun
-ms.openlocfilehash: 3dbfb935ac0b134e127a5dccb7bc76716c688e8a
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.author: rogarana
+ms.openlocfilehash: 1e7292cf4d647b38a6fe8ceb270ba161e548a537
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/28/2018
 ---
 #  <a name="migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Migrer des données locales vers un stockage cloud à l’aide d’AzCopy
 
@@ -25,7 +25,7 @@ Vous pouvez télécharger deux versions d’AzCopy :
 * [AzCopy sur Linux](storage-use-azcopy.md) est basé sur .NET Core Framework. Il cible les plateformes Linux en fournissant des options de ligne de commande de style POSIX. 
 * [AzCopy sur Windows](../storage-use-azcopy.md) est basé sur .NET Framework. Il fournit des options de ligne de commande de style Windows. 
  
-Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Créez un compte de stockage. 
@@ -34,6 +34,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Créez une tâche planifiée ou un travail Cron pour identifier les nouveaux fichiers à charger.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Pour suivre ce didacticiel, téléchargez la dernière version d’AzCopy sur [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux#download-and-install-azcopy) ou [Windows](http://aka.ms/downloadazcopy). 
 
@@ -44,7 +45,7 @@ Pour suivre ce didacticiel, téléchargez la dernière version d’AzCopy sur [L
 >
 >
 
-## <a name="create-a-container"></a>Créer un conteneur
+## <a name="create-a-container"></a>Créez un conteneur.
 
 Les objets blob sont toujours chargés dans un conteneur. Vous pouvez utiliser des conteneurs pour organiser les groupes d’objets blob comme vous organisez vos fichiers dans des dossiers sur votre ordinateur. 
 
@@ -53,7 +54,7 @@ Pour créer un conteneur, effectuez les étapes suivantes :
 1. Sélectionnez le bouton **Comptes de stockage** dans la page principale, puis sélectionnez le compte de stockage que vous avez créé.
 2. Sélectionnez **Objets blob** sous **Services**, puis sélectionnez **Conteneur**. 
 
-   ![Créer un conteneur](media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
+   ![Créez un conteneur.](media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
  
 Les noms de conteneur doivent commencer par une lettre ou un chiffre. Ils peuvent contenir uniquement des lettres, des chiffres et des traits d’union (-). Pour prendre connaissance des autres règles de nommage des objets blob et des conteneurs, consultez [Nommage et référencement des conteneurs, objets blob et métadonnées](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
@@ -146,7 +147,7 @@ Pour en savoir plus sur les façons de déplacer des données locales vers le St
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur le stockage Azure et AzCopy, consultez les ressources suivantes :
 
-* [Introduction à Stockage Azure](../storage-introduction.md)
+* [Introduction à Azure Storage](../storage-introduction.md)
 * [Transférer des données avec AzCopy sur Windows](storage-use-azcopy.md) 
 * [Transférer des données avec AzCopy sur Linux](storage-use-azcopy-linux.md) 
 * [Créez un compte de stockage](../storage-create-storage-account.md)

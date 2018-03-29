@@ -1,25 +1,25 @@
 ---
-title: "Déployer une application Azure Service Fabric sur un cluster à partir de Visual Studio| Microsoft Docs"
-description: "Découvrez comment déployer une application sur un cluster à partir de Visual Studio"
+title: Déployer une application Azure Service Fabric sur un cluster à partir de Visual Studio| Microsoft Docs
+description: Découvrez comment déployer une application sur un cluster à partir de Visual Studio
 services: service-fabric
 documentationcenter: .net
 -author: mikkelhegn
 -manager: msfussell
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/21/2018
-ms.author: mikkelhegn
+ms.date: 02/23/2018
+ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 21c991a4e3f9ae19a4ad4a96427fdc1c91c55a1c
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 1d8f8d903046f1d471f7abbe08a957b81522e391
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tutorial-deploy-an-application-to-a-service-fabric-cluster-in-azure"></a>Didacticiel : déployer une application sur un cluster Service Fabric dans Azure
 Deuxième d’une série, ce didacticiel vous montre comment déployer une application Azure Service Fabric sur un nouveau cluster dans Azure directement depuis Visual Studio.
@@ -39,6 +39,7 @@ Dans cette série de didacticiels, nous allons aborder les points suivants :
 
 
 ## <a name="prerequisites"></a>Prérequis
+
 Avant de commencer ce didacticiel :
 - Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Installez Visual Studio 2017](https://www.visualstudio.com/) et les charges de travail **Développement Azure** et **Développement web et ASP.NET**.
@@ -65,7 +66,6 @@ Ce didacticiel suit les étapes de création d’un cluster à partir de Visual 
 > De nombreux services utilisent le proxy inverse pour communiquer entre eux. Le proxy inverse est activé par défaut pour les clusters créés depuis Visual Studio et les clusters tiers.  Si vous utilisez un cluster existant, vous devez [activer le proxy inverse dans le cluster](service-fabric-reverseproxy.md#setup-and-configuration).
 
 ### <a name="deploy-the-app-to-the-service-fabric-cluster"></a>Déployer l’application sur le cluster Service Fabric
-
 1. Cliquez avec le bouton droit sur le projet de l’application dans l’Explorateur de solutions et choisissez **Publier**.
 
 2. Connectez-vous avec votre compte Azure afin d’avoir accès à votre ou vos abonnements. Cette étape est facultative si vous utilisez un cluster tiers.

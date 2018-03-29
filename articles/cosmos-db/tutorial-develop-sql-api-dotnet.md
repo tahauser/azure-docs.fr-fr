@@ -1,30 +1,28 @@
 ---
-title: "Azure Cosmos DB : Développer avec l’API SQL dans .NET | Microsoft Docs"
-description: "Découvrez comment développer avec l’API SQL d’Azure Cosmos DB en utilisant .NET"
+title: 'Azure Cosmos DB : Développer avec l’API SQL dans .NET | Microsoft Docs'
+description: Découvrez comment développer avec l’API SQL d’Azure Cosmos DB en utilisant .NET
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: rafats
 manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload: ''
 ms.date: 05/10/2017
 ms.author: rafats
 ms.custom: mvc
-ms.openlocfilehash: e37a0993567b6cec7ed6a91e6dad1f2e2c097198
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 7fca9f184097ed50ace665cde0c5ef8fb180feda
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmosdb-develop-with-the-sql-api-in-net"></a>Azure Cosmos DB : développer avec l’API SQL dans .NET
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur, et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB. 
 
@@ -43,6 +41,7 @@ Ce didacticiel décrit les tâches suivantes à l’aide de [l’API .NET SQL](s
 > * Supprimer une base de données
 
 ## <a name="prerequisites"></a>Prérequis
+
 Vérifiez que vous disposez des éléments suivants :
 
 * Un compte Azure actif. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [compte gratuit](https://azure.microsoft.com/free/). 

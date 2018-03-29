@@ -1,6 +1,6 @@
 ---
-title: "Rendre les données d’application hautement disponibles dans Azure | Microsoft Docs"
-description: "Utiliser le stockage géoredondant avec accès en lecture pour rendre vos données d’application hautement disponibles"
+title: Rendre les données d’application hautement disponibles dans Azure | Microsoft Docs
+description: Utiliser le stockage géoredondant avec accès en lecture pour rendre vos données d’application hautement disponibles
 services: storage
 author: tamram
 manager: jeconnoc
@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 5b1c443cae8481d98c32a3f4d9e3899621d1dd89
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: ce72c1a68c1dbe5cede33dd42adc1b002a81326e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Rendre vos données d’application hautement disponibles avec Stockage Azure
 
@@ -30,6 +30,7 @@ Dans ce premier volet, vous apprenez à :
 
 ## <a name="prerequisites"></a>Prérequis
 
+
 Pour suivre ce didacticiel :
  
 # <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
@@ -43,7 +44,7 @@ Pour suivre ce didacticiel :
 # <a name="python-tabpython"></a>[Python] (#tab/python) 
 
 * Installez [Python](https://www.python.org/downloads/)
-* Téléchargez et installez le [SDK Stockage Azure pour Python](storage-python-how-to-use-blob-storage.md#download-and-install-azure-storage-sdk-for-python).
+* Téléchargez et installez le [SDK Stockage Azure pour Python](https://github.com/Azure/azure-storage-python).
 * (Facultatif) Téléchargez et installez [Fiddler](https://www.telerik.com/download/fiddler).
 
 ---

@@ -12,19 +12,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: e1f4cfb74d83cb23631e5a16a6e6f2dba98027ef
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7b8fe61731a9412c61152bc58e55deebb611d011
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>Installer le Kit de développement Azure Stack (ASDK)
 Après la [préparation de l’ordinateur hôte ASDK](asdk-prepare-host.md), le kit ASDK peut être déployé dans l’image CloudBuilder.vhdx en suivant les étapes de cet article.
 
-## <a name="install-the-asdk"></a>Installer le kit ASDK
+## <a name="install-the-asdk"></a>Installer l’ASDK
 Les étapes de cet article vous montrent comment déployer le kit ASDK à l’aide d’une interface graphique utilisateur (GUI) que vous pouvez obtenir en téléchargeant et en exécutant le script PowerShell **asdk-installer.ps1**.
 
 > [!NOTE]
@@ -55,8 +55,10 @@ Les étapes de cet article vous montrent comment déployer le kit ASDK à l’ai
     - **DHCP** (par défaut) : la machine virtuelle obtient la configuration réseau IP auprès du serveur DHCP.
     - **Statique** : utilisez cette option seulement si DHCP ne peut pas affecter une adresse IP valide pour l’accès Internet d’Azure Stack. **Une adresse IP statique doit être spécifiée avec la longueur du masque de sous-réseau au format CIDR (par exemple, 10.0.0.5/24)**.
     - Tapez une **adresse IP de serveur de temps** valide. Ce champ obligatoire définit le serveur de temps qui doit être utilisé par le Kit de développement. Ce paramètre doit être fourni sous la forme d’une adresse IP de serveur temps valide. Les noms de serveur ne sont pas pris en charge.
+
       > [!TIP]
       > Pour rechercher l’adresse IP d’un serveur de temps, visitez [pool.ntp.org](http:\\pool.ntp.org) ou effectuez un test ping time.windows.com. 
+
     - **Si vous le souhaitez**, vous pouvez aussi définir les valeurs suivantes :
         - **ID de VLAN** : définit l’ID du réseau local virtuel. Utilisez cette option seulement si l’hôte et AzS-BGPNAT01 doivent configurer l’ID du réseau local virtuel pour accéder au réseau physique (et à Internet). 
         - **Redirecteur DNS** : un serveur DNS est créé dans le cadre du déploiement d’Azure Stack. Pour permettre aux ordinateurs de la solution de résoudre les noms en dehors du marquage, spécifiez le serveur DNS de votre infrastructure existante. Le serveur DNS couvert par le marquage transfère les demandes de résolution de noms inconnus à ce serveur.
@@ -88,10 +90,10 @@ Félicitations, vous avez installé le kit ASDK !
 
 Si le déploiement échoue pour la même raison, vous pouvez effectuer un [redéploiement](asdk-redeploy.md) depuis le début ou utiliser les commandes PowerShell suivantes, dans la même fenêtre PowerShell avec des privilèges élevés, pour redémarrer le déploiement à partir de la dernière étape réussie :
 
-    ```powershell
-    cd C:\CloudDeployment\Setup
-    .\InstallAzureStackPOC.ps1 -Rerun
-    ```
+  ```powershell
+  cd C:\CloudDeployment\Setup
+  .\InstallAzureStackPOC.ps1 -Rerun
+  ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Configuration post-déploiement](asdk-post-deploy.md)

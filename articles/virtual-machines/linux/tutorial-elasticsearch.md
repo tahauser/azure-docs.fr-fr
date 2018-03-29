@@ -1,6 +1,6 @@
 ---
-title: "Déployer Elasticsearch sur une machine virtuelle de développement dans Azure"
-description: "Didacticiel : installer Elastic Stack sur une machine virtuelle Linux de développement dans Azure"
+title: Déployer Elasticsearch sur une machine virtuelle de développement dans Azure
+description: 'Didacticiel : installer Elastic Stack sur une machine virtuelle Linux de développement dans Azure'
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rloutlaw
@@ -13,11 +13,11 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 10/11/2017
 ms.author: routlaw
-ms.openlocfilehash: 7941e557dfbb71df7c2d55608c4a14c026535db8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: eeb1b8b9105e055339cb31fa4b9d4b411cb06c54
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="install-the-elastic-stack-on-an-azure-vm"></a>Installer Elastic Stack sur une machine virtuelle Azure
 
@@ -128,7 +128,7 @@ sudo systemctl start elasticsearch.service
 Cette commande ne générant aucune sortie, vérifiez qu’Elasticsearch est bien en cours d’exécution sur la machine virtuelle en utilisant la commande `curl` suivante :
 
 ```bash
-curl -XGET 'localhost:9200/'
+sudo curl -XGET 'localhost:9200/'
 ```
 
 Si Elasticsearch est en cours d’exécution, vous voyez une sortie telle que celle-ci :

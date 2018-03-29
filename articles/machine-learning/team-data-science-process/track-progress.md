@@ -1,23 +1,23 @@
 ---
-title: "Réalisation de projets de science des données - Azure Machine Learning | Microsoft Docs"
-description: "Comment un scientifique des données peut suivre la progression d’un projet de science des données."
-documentationcenter: 
+title: Réalisation de projets de science des données - Azure Machine Learning | Microsoft Docs
+description: Comment un scientifique des données peut suivre la progression d’un projet de science des données.
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: bradsev;
-ms.openlocfilehash: c8e1882570a8cfcb4a75f0904a2138d007e0bc5b
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.author: bradsev
+ms.openlocfilehash: fe0c1b4917439221643bf481fdd21828f857e1c4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="track-progress-of-data-science-projects"></a>Suivre la progression des projets de science des données
 
@@ -45,7 +45,7 @@ Les autres panneaux affichent le diagramme de flux cumulé, le burndown et le bu
 - **En haut à droite** : burndown chart indiquant le travail restant à effectuer par rapport au temps restant.
 - **En bas à droite**: burnup chart indiquant le travail qui a été effectué par rapport à la quantité de travail totale.
 
-![tableau de bord](./media/track-progress/dashboard.png)
+![dashboard](./media/track-progress/dashboard.png)
 
 Pour obtenir une description de la génération de ces graphiques, consultez les guides de démarrage rapide et les didacticiels présentés dans [Tableaux de bord](https://docs.microsoft.com/vsts/report/dashboards/).
  

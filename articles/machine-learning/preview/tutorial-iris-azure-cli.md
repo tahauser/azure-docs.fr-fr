@@ -1,9 +1,9 @@
 ---
-title: "Article du didacticiel sur les fonctionnalités Azure Machine Learning (préversion) - Interface de ligne de commande | Microsoft Docs"
-description: "Ce didacticiel décrit toutes les étapes nécessaires pour réaliser une classification Iris de bout en bout à partir de l’interface de ligne de commande."
+title: Article du didacticiel sur les fonctionnalités Azure Machine Learning (préversion) - Interface de ligne de commande | Microsoft Docs
+description: Ce didacticiel décrit toutes les étapes nécessaires pour réaliser une classification Iris de bout en bout à partir de l’interface de ligne de commande.
 services: machine-learning
 author: ahgyger
-ms.author: ahgyger, ritbhat
+ms.author: ahgyger
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 10/15/2017
-ms.openlocfilehash: ad81cd02ba0c46cbe58de7071d2164aaefea6514
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 2d7965c0028e8f2e82db2e3ddd4eed6e20f4f443
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>Didacticiel : Classification Iris à l’aide de l’interface de ligne de commande
 Les services Azure Machine Learning (préversion) forment une solution d’analytique avancée et de science des données intégrée de bout en bout qui permet aux scientifiques des données professionnels de préparer des données, développer des expériences et déployer des modèles à l’échelle du cloud.
@@ -29,6 +29,7 @@ Dans ce didacticiel, vous allez apprendre à utiliser les outils de l’interfac
 > * Déployer un service web pour évaluer de nouvelles données
 
 ## <a name="prerequisites"></a>Prérequis
+
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 - Un accès à un abonnement Azure et des autorisations adéquates pour créer des ressources dans cet abonnement. 
   

@@ -1,20 +1,20 @@
 ---
-title: "Simuler un échec d’accès au stockage redondant avec accès en lecture dans Azure | Microsoft Docs"
-description: "Simuler une erreur d’accès au stockage géoredondant avec accès en lecture"
+title: Simuler un échec d’accès au stockage redondant avec accès en lecture dans Azure | Microsoft Docs
+description: Simuler une erreur d’accès au stockage géoredondant avec accès en lecture
 services: storage
-author: ruthogunnnaike
+author: tamram
 manager: jeconnoc
 ms.service: storage
 ms.tgt_pltfrm: na
-ms.devlang: 
+ms.devlang: ''
 ms.topic: tutorial
 ms.date: 12/23/2017
-ms.author: v-ruogun
-ms.openlocfilehash: ea57ba54fefb1942dcbdbde6e68b20d6290d9fd6
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.author: tamram
+ms.openlocfilehash: 57296d828156184aa36532cd649fbec0c81b5e27
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Simuler un échec d’accès au stockage redondant avec accès en lecture
 
@@ -33,6 +33,7 @@ Dans ce deuxième volet, vous apprenez à :
 
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Pour simuler une défaillance à l’aide de Fiddler : 
 

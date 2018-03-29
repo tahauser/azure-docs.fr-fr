@@ -1,10 +1,10 @@
 ---
-title: "Guide pratique pour paramétrer les fichiers de configuration dans Azure Service Fabric | Microsoft Docs"
-description: "Vous montre comment paramétrer les fichiers de configuration dans Service Fabric"
+title: Guide pratique pour paramétrer les fichiers de configuration dans Azure Service Fabric | Microsoft Docs
+description: Vous montre comment paramétrer les fichiers de configuration dans Service Fabric
 documentationcenter: .net
 author: mikkelhegn
 manager: msfussell
-editor: 
+editor: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: article
@@ -12,11 +12,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: mikhegn
-ms.openlocfilehash: 1e7d59ecb231440711b8ed3dc0b27a2b105890c4
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 14fbdf27b8735bb3f2dc91ce0891711e9aaf2af3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Guide pratique pour paramétrer les fichiers de configuration dans Service Fabric
 
@@ -71,8 +71,6 @@ Dans cet exemple, vous remplacez une valeur de configuration à l’aide de para
 > Si vous ajoutez un élément ConfigOverride, Service Fabric choisit toujours les paramètres d’application ou la valeur par défaut spécifiée dans le manifeste d’application.
 >
 >
-
-Lors de la publication de votre application depuis Visual Studio à l’aide du profil de publication Cloud.xml, votre service est configuré pour utiliser le port 80. Si vous déployez l’application sans spécifier le paramètre MyWebAPI_PortNumber, le service utilise le port 8080.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur certains des principaux concepts abordés dans cet article, consultez les articles [Gérer des applications pour plusieurs environnements](service-fabric-manage-multiple-environment-app-configuration.md).

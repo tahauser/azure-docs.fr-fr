@@ -1,6 +1,6 @@
 ---
-title: "Intégrer avec des services gérés par Azure à l’aide d’Open Service Broker pour Azure (OSBA)"
-description: "Intégrer avec des services gérés par Azure à l’aide d’Open Service Broker pour Azure (OSBA)"
+title: Intégrer avec des services gérés par Azure à l’aide d’Open Service Broker pour Azure (OSBA)
+description: Intégrer avec des services gérés par Azure à l’aide d’Open Service Broker pour Azure (OSBA)
 services: container-service
 author: sozercan
 manager: timlt
@@ -8,17 +8,18 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: 594cb0afbdb0a44e9f092b9afc5af13b21e763a4
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: b1b51b6c36143747a81d1c1fc035ee6d54d34076
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Intégrer avec des services gérés par Azure à l’aide d’Open Service Broker pour Azure (OSBA)
 
 Avec le [Catalogue de services Kubernetes][kubernetes-service-catalog], Open Service Broker pour Azure (OSBA) permet aux développeurs d’utiliser des services gérés par Azure dans Kubernetes. Ce guide se concentre sur le déploiement du Catalogue de services Kubernetes, d’Open Service Broker pour Azure (OSBA) et d’applications qui utilisent des services gérés par Azure à l’aide de Kubernetes.
 
 ## <a name="prerequisites"></a>Prérequis
+
 * Abonnement Azure
 
 * Azure CLI 2.0 : vous pouvez [l’installer localement][azure-cli-install] ou l’utiliser dans [Azure Cloud Shell][azure-cloud-shell].
@@ -76,17 +77,45 @@ Commencez par ajouter le référentiel Helm Open Service Broker pour Azure :
 helm repo add azure https://kubernetescharts.blob.core.windows.net/azure
 ```
 
-Utilisez ensuite le script suivant pour créer un [Principal de service][create-service-principal] et renseignez plusieurs variables. Ces variables sont utilisées lors de l’exécution du graphique Helm pour installer Service Broker.
+Créez un [principal de service][create-service-principal] avec la commande Azure CLI suivante :
 
 ```azurecli-interactive
-SERVICE_PRINCIPAL=$(az ad sp create-for-rbac)
-AZURE_CLIENT_ID=$(echo $SERVICE_PRINCIPAL | cut -d '"' -f 4)
-AZURE_CLIENT_SECRET=$(echo $SERVICE_PRINCIPAL | cut -d '"' -f 16)
-AZURE_TENANT_ID=$(echo $SERVICE_PRINCIPAL | cut -d '"' -f 20)
-AZURE_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
+az ad sp create-for-rbac
 ```
 
-Maintenant que vous avez renseigné ces variables d’environnement, exécutez la commande suivante pour installer Service Broker.
+Le résultat doit ressembler à ce qui suit. Prenez note des valeurs `appId`, `password` et `tenant`, que vous utiliserez à l’étape suivante.
+
+```JSON
+{
+  "appId": "7248f250-0000-0000-0000-dbdeb8400d85",
+  "displayName": "azure-cli-2017-10-15-02-20-15",
+  "name": "http://azure-cli-2017-10-15-02-20-15",
+  "password": "77851d2c-0000-0000-0000-cb3ebc97975a",
+  "tenant": "72f988bf-0000-0000-0000-2d7cd011db47"
+}
+```
+
+Définissez les variables d’environnement suivantes avec les valeurs ci-dessus :
+
+```azurecli-interactive
+AZURE_CLIENT_ID=<appId>
+AZURE_CLIENT_SECRET=<password>
+AZURE_TENANT_ID=<tenant>
+```
+
+À présent, obtenez votre ID d’abonnement Azure :
+
+```azurecli-interactive
+az account show --query id --output tsv
+```
+
+De nouveau, définissez la variable d’environnement suivante avec la valeur ci-dessus :
+
+```azurecli-interactive
+AZURE_SUBSCRIPTION_ID=[your Azure subscription ID from above]
+```
+
+À présent que vous avez renseigné ces variables d’environnement, exécutez la commande suivante pour installer Open Service Broker pour Azure à l’aide du graphique Helm :
 
 ```azurecli-interactive
 helm install azure/open-service-broker-azure --name osba --namespace osba \

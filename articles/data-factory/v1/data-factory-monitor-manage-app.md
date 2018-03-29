@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 5aae5057cccdf8dfbe2a42a39da5b9e70b9166f9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f5ca5544a217d66d334ff468d2308af1836c7de8
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Surveiller et gérer les pipelines Azure Data Factory à l’aide de l’application de surveillance et gestion
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/23/2018
 > [!NOTE]
 > Cet article s’applique à la version 1 de Data factory, qui est généralement disponible (GA). Si vous utilisez la version 2 du service Data Factory, qui est en préversion, consultez [monitor and manage Data Factory pipelines in version 2](../monitor-visually.md) (Surveiller et gérer des pipelines Data Factory dans la version 2).
 
-Cet article explique comment utiliser l’application de surveillance et gestion pour surveiller, gérer et déboguer vos pipelines Azure Data Factory. Vous obtiendrez également des informations sur la façon de créer des alertes pour être averti en cas d’échec. Vous pouvez commencer à utiliser l’application en regardant la vidéo suivante :
+Cet article explique comment utiliser l’application de surveillance et gestion pour surveiller, gérer et déboguer vos pipelines Azure Data Factory. Vous pouvez commencer à utiliser l’application en regardant la vidéo suivante :
 
 > [!NOTE]
 > L’interface utilisateur présentée dans la vidéo ne correspondra peut-être pas exactement à ce que vous voyez dans le portail. Elle est un peu plus ancienne, mais les concepts restent les mêmes. 
@@ -296,42 +296,3 @@ Vous pouvez également sélectionner plusieurs fenêtres d’activité dans la l
 Vous pouvez sélectionner 2 pipelines ou plus en maintenant la touche Ctrl enfoncée. Pour les mettre en pause/les relancer, utilisez les boutons de la barre de commandes (mis en évidence dans le rectangle rouge de l’image suivante).
 
 ![Mettre en pause/relancer depuis la barre de commandes](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
-
-## <a name="create-alerts"></a>Créez des alertes
-La page **Alertes** vous permet de créer une alerte et d’afficher, de modifier ou de supprimer des alertes existantes. Vous pouvez également désactiver ou activer une alerte. Cliquez sur l’onglet **Alertes** pour afficher la page du même nom.
-
-![Onglet Alertes](./media/data-factory-monitor-manage-app/AlertsTab.png)
-
-### <a name="to-create-an-alert"></a>Pour créer une alerte
-1. Pour ajouter une alerte, cliquez sur **Ajouter une alerte** . La page **Détails** s’affiche.
-
-    ![Créer des alertes - page Détails](./media/data-factory-monitor-manage-app/CreateAlertDetailsPage.png)
-2. Spécifiez le **nom** et la **description** de l’alerte, puis cliquez sur **Suivant**. La page **Filtres** doit s’afficher.
-
-    ![Créer des alertes - page Filtres](./media/data-factory-monitor-manage-app/CreateAlertFiltersPage.png)
-3. Sélectionnez **l’événement**, l’**état** et l**’état secondaire** (facultatif) dont vous souhaitez que le service Data Factory vous informe, puis cliquez sur **Suivant**. La page **Destinataires** doit s’afficher.
-
-    ![Créer des alertes - page Destinataires](./media/data-factory-monitor-manage-app/CreateAlertRecipientsPage.png)
-4. Sélectionnez l’option **Administrateurs d’abonnement par courrier électronique** et/ou entrez une **adresse de messagerie électronique d’administrateur supplémentaire**, puis cliquez sur **Terminer**. L’alerte doit apparaître dans la liste.
-
-    ![Liste des alertes](./media/data-factory-monitor-manage-app/AlertsList.png)
-
-Dans la liste des alertes, utilisez les boutons associés à l’alerte pour modifier, supprimer, désactiver ou activer une alerte.
-
-### <a name="eventstatussubstatus"></a>Événement/statut/état secondaire
-Le tableau suivant dresse la liste des événements et des statuts (et états secondaires) disponibles.
-
-| Nom de l'événement | Statut | État secondaire |
-| --- | --- | --- |
-| Exécution de l’activité démarrée |Démarré |Démarrage en cours |
-| Exécution de l’activité terminée |Succeeded |Succeeded |
-| Exécution de l’activité terminée |Échec |Échec de l’allocation des ressources<br/><br/>Échec de l’exécution<br/><br/>Timed Out<br/><br/>Failed Validation<br/><br/>Abandonné |
-| Création d’un cluster HDI à la demande démarrée |Démarré |-|
-| Cluster HDI à la demande créé correctement |Succeeded |-|
-| Cluster HDI à la demande supprimé |Succeeded |-|
-
-### <a name="to-edit-delete-or-disable-an-alert"></a>Pour modifier, supprimer ou désactiver une alerte
-
-Utilisez les boutons suivants (en rouge) pour modifier, supprimer ou désactiver une alerte.
-
-![Boutons d’alertes](./media/data-factory-monitor-manage-app/AlertButtons.png)
