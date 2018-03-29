@@ -19,12 +19,16 @@
       href: tutorial-simulate-device-windows.md
     - name: 'Développer un module C#'
       href: tutorial-csharp-module.md
+    - name: Développer un module Python
+      href: tutorial-python-module.md
     - name: Déployer Azure Stream Analytics
       href: tutorial-deploy-stream-analytics.md
     - name: Déployer Azure Machine Learning
       href: tutorial-deploy-machine-learning.md
     - name: Déployer Azure Functions
       href: tutorial-deploy-function.md
+    - name: Travailler avec plusieurs modules dans VS Code
+      href: tutorial-multiple-modules-in-vscode.md
 - name: Procédures
   items:
     - name: Créer des passerelles

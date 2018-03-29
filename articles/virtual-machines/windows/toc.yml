@@ -351,6 +351,8 @@
           href: extensions-diagnostics-template.md
         - name: "Agent Network\_Watcher"
           href: extensions-nwa.md
+        - name: Limiter l’installation de l’extension
+          href: extensions-rmpolicy-howto-ps.md
     - name: Migrer des machines virtuelles
       items:
         - name: Migrer des machines virtuelles AWS et locales
@@ -396,6 +398,8 @@
           href: reset-network-interface.md
         - name: Diagnostics de démarrage
           href: boot-diagnostics.md
+        - name: Console série
+          href: serial-console.md
         - name: Création d’une machine virtuelle
           href: troubleshoot-deployment-new-vm.md
         - name: Problèmes de déploiement
