@@ -26,14 +26,20 @@
       items:
         - name: Options de compte de stockage
           href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Planification d’un déploiement Azure Files
-          href: storage-files-planning.md
-        - name: Déploiement de fichiers Azure
-          href: storage-files-deployment-guide.md
-        - name: Planification d’un déploiement de synchronisation de fichiers Azure
-          href: storage-sync-files-planning.md
-        - name: Déploiement de la synchronisation de fichiers Azure
-          href: storage-sync-files-deployment-guide.md
+        - name: Déployer Azure Files
+          items:
+            - name: Planification d’un déploiement Azure Files
+              href: storage-files-planning.md
+            - name: Comment déployer Azure Files
+              href: storage-files-deployment-guide.md
+        - name: Déployer Azure File Sync
+          items:
+            - name: Planification d’un déploiement de synchronisation de fichiers Azure
+              href: storage-sync-files-planning.md
+            - name: Déploiement de la synchronisation de fichiers Azure
+              href: storage-sync-files-deployment-guide.md
+            - name: Paramètres de proxy et de pare-feu d’Azure File Sync
+              href: storage-sync-files-firewall-and-proxy.md
         - name: À propos des instantanés de partage de fichiers
           href: storage-snapshots-files.md
         - name: Utilisation des instantanés de partage de fichiers

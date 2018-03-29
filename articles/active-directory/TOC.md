@@ -77,8 +77,8 @@
 ## [Gérer les groupes et les membres](active-directory-manage-groups.md)
 ### Gérer les groupes
 #### [Portail Azure](active-directory-groups-create-azure-portal.md)
-#### [Modèle de Azure PowerShell Azure Resource Manager ](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
-#### [Modèle de déploiement de Azure PowerShell classic ](active-directory-accessmanagement-groups-settings-cmdlets.md)
+#### [Azure AD PowerShell pour Graph (v2)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [Azure AD PowerShell MSOnline (v1)](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### [Sélectionner les membres du groupe](active-directory-groups-members-azure-portal.md)
 ### [Gérer les propriétaires de groupe](active-directory-accessmanagement-managing-group-owners.md)
 ### [Ajouter une appartenance à un groupe](active-directory-groups-membership-azure-portal.md)
@@ -310,7 +310,7 @@
 #### [Conditions](active-directory-conditional-access-conditions.md)
 #### [Condition d’emplacement](active-directory-conditional-access-locations.md)
 #### [Contrôles](active-directory-conditional-access-controls.md)
-#### [Démarrer](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Prise en main](active-directory-conditional-access-azure-portal-get-started.md)
 #### [meilleures pratiques](active-directory-conditional-access-best-practices.md)
 #### [Comprendre les stratégies d’appareil pour les services Office 365](active-directory-conditional-access-device-policies.md)
 #### [Migrer les stratégies classiques](active-directory-conditional-access-migration.md)
@@ -332,7 +332,7 @@
 ### Authentification par certificat
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
-#### [Démarrer](active-directory-certificate-based-authentication-get-started.md)
+#### [Prise en main](active-directory-certificate-based-authentication-get-started.md)
 
 ### [Azure AD Identity Protection](active-directory-identityprotection.md)
 #### [Activer](active-directory-identityprotection-enable.md)

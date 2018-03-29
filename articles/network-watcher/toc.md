@@ -73,8 +73,8 @@
 ### [Visualiser les modèles de trafic réseau à l’aide d’outils open source](network-watcher-using-open-source-tools.md)
 ## Analyser les journaux de flux NSG
 ### [Lire des journaux de flux NSG](network-watcher-read-nsg-flow-logs.md)
-### Traffic Analytics
-#### [Utiliser Traffic Analytics](traffic-analytics.md)
+### Analyse du trafic
+#### [Utiliser l’analyse du trafic](traffic-analytics.md)
 #### [Forum Aux Questions](traffic-analytics-faq.md)
 ### [Utiliser Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 ### [Utiliser la pile élastique](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)

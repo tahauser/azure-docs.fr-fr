@@ -21,6 +21,10 @@
   items:
     - name: Utiliser R Server
       items:
+        - name: Gérer un cluster R Server
+          href: r-server-hdinsight-manage.md
+        - name: Faire fonctionner un cluster R Server
+          href: r-server-operationalize.md
         - name: Options de stockage
           href: r-server-storage.md
         - name: Contexte de calcul

@@ -445,3 +445,5 @@
       href: faq.md
     - name: Cohérence des données - Exemple du baseball
       href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=206913'
+    - name: Résoudre les problèmes liés à Azure Cosmos DB
+      href: troubleshoot-azure-cosmosdb.md

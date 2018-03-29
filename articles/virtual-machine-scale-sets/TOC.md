@@ -1,15 +1,38 @@
-# [Documentation sur les groupes de machines virtuelles identiques](index.md)
+# [Documentation sur les groupes de machines virtuelles identiques](index.yml)
 
 # Vue d'ensemble
-## [Que sont les groupes de machines virtuelles identiques ?](virtual-machine-scale-sets-overview.md)
+## [Que sont les groupes de machines virtuelles identiques ?](overview.md)
 
-# Prise en main
-## [Créer dans le portail Azure](virtual-machine-scale-sets-create-portal.md)
-## [Créer avec Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md)
-## [Créer avec Azure PowerShell](virtual-machine-scale-sets-create-powershell.md)
+# Démarrages rapides
+## [Créer dans le portail Azure](quick-create-portal.md)
+## [Créer avec Azure CLI 2.0](quick-create-cli.md)
+## [Créer avec Azure PowerShell](quick-create-powershell.md)
 ## Créer avec un modèle
-### [Groupe identique Linux](virtual-machine-scale-sets-create-template-linux.md)
-### [Groupe identique Windows](virtual-machine-scale-sets-create-template-windows.md)
+### [Groupe identique Linux](quick-create-template-linux.md)
+### [Groupe identique Windows](quick-create-template-windows.md)
+
+# Didacticiels
+## 1 - Créer / gérer un groupe identique
+### [Azure CLI 2.0](tutorial-create-and-manage-cli.md)
+### [Azure PowerShell](tutorial-create-and-manage-powershell.md)
+## 2 - Utiliser des disques de données
+### [Azure CLI 2.0](tutorial-use-disks-cli.md)
+### [Azure PowerShell](tutorial-use-disks-powershell.md)
+## 3 - Utiliser une image de machine virtuelle personnalisée
+### [Azure CLI 2.0](tutorial-use-custom-image-cli.md)
+### [Azure PowerShell](tutorial-use-custom-image-powershell.md)
+## 4 - Déployer des applications sur un groupe identique
+### [Azure CLI 2.0](tutorial-install-apps-cli.md)
+### [Azure PowerShell](tutorial-install-apps-powershell.md)
+### [Modèle](tutorial-install-apps-template.md)
+## 5 - Mettre à l’échelle un groupe identique
+### [Azure CLI 2.0](tutorial-autoscale-cli.md)
+### [Azure PowerShell](tutorial-autoscale-powershell.md)
+### [Modèle](tutorial-autoscale-template.md)
+
+# Exemples
+## [Azure CLI 2.0](cli-samples.md)
+## [PowerShell](powershell-samples.md)
 
 # Procédure
 ## Planifier et concevoir
@@ -24,12 +47,9 @@
 
 ## Déployer
 ### [Créer avec Visual Studio](virtual-machine-scale-sets-vs-create.md)
-### [Groupe de machines virtuelles identiques avec des disques gérés](virtual-machine-scale-sets-managed-disks.md)
 ### [Utiliser des zones de disponibilité](virtual-machine-scale-sets-use-availability-zones.md)
 ### [Mettre à l’échelle un groupe identique](virtual-machine-scale-sets-autoscale-overview.md)
 #### [Utiliser le portail Azure](virtual-machine-scale-sets-autoscale-portal.md)
-#### [Utiliser Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
-#### [Utilisation d’Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
 #### [Mise à l’échelle automatique avancée](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Applications dans les groupes de machines virtuelles identiques](virtual-machine-scale-sets-deploy-app.md)
 ### [Utiliser des disques de données avec des groupes identiques](virtual-machine-scale-sets-attached-disks.md)

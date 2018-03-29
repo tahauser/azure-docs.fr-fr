@@ -9,7 +9,6 @@
 
 # Prise en main
 ## [Utilisation du portail](data-lake-store-get-started-portal.md)
-## [Utilisation de Data Lake Store dans l’explorateur de stockage](data-lake-store-in-storage-explorer.md)
 ## [Utiliser PowerShell](data-lake-store-get-started-powershell.md)
 ## [Utilisation de l’interface de ligne de commande Azure 2.0](data-lake-store-get-started-cli-2.0.md)
 
@@ -17,7 +16,7 @@
 # Procédures
 ## Charger et déplacer des données
 ### [Utilisation d’Azure Data Factory](../data-factory/load-azure-data-lake-store.md)
-### [Utilisation de Data Lake Store dans l’explorateur de stockage](data-lake-store-in-storage-explorer.md)
+### [Utilisation de l’Explorateur Stockage](data-lake-store-in-storage-explorer.md)
 ### [Utilisation d’AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 ### [Utilisation de DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Utilisation de Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
