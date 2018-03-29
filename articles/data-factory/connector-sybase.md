@@ -1,11 +1,11 @@
 ---
-title: "Copier des données à partir de Sybase à l’aide d’Azure Data Factory | Microsoft Docs"
-description: "Découvrez comment copier des données de Sybase vers des magasins de données récepteurs pris en charge à l’aide d’une activité de copie dans un pipeline Azure Data Factory."
+title: Copier des données à partir de Sybase à l’aide d’Azure Data Factory | Microsoft Docs
+description: Découvrez comment copier des données de Sybase vers des magasins de données récepteurs pris en charge à l’aide d’une activité de copie dans un pipeline Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: f0fe8f65ff2d6a3029e44b51c004404e336e0129
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0267296348821ee94dfa90b0b58c517ff7d79697
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Copier des données à partir de Sybase à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -38,7 +38,8 @@ Plus précisément, ce connecteur Sybase prend en charge :
 - SAP Sybase SQL Anywhere (ASA) **version 16 et versions ultérieures** ; IQ et ASE ne sont pas pris en charge.
 - Copie des données avec l’authentification **De base** ou **Windows**.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour utiliser ce connecteur Sybase, vous devez :
 

@@ -1,11 +1,10 @@
 ---
-title: "Création de pipelines de données prédictifs avec Azure Data Factory | Microsoft Docs"
-description: "Décrit comment créer des pipelines prédictifs à l’aide d’Azure Data Factory et d’Azure Machine Learning."
+title: Création de pipelines de données prédictifs avec Azure Data Factory | Microsoft Docs
+description: Décrit comment créer des pipelines prédictifs à l’aide d’Azure Data Factory et d’Azure Machine Learning.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 4fad8445-4e96-4ce0-aa23-9b88e5ec1965
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 05ae7cdc78e909c9aaa2b690d03eff8da09b6242
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: e38da0234f2a71abc40dfa0b86a03cc91adda834
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Création de pipelines prédictifs à l'aide d'Azure Data Factory et Azure Machine Learning
 
@@ -135,7 +134,7 @@ Dans ce scénario, le service web Azure Machine Learning effectue des prédictio
 >
 >
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 Cet exemple utilise Azure Storage pour stocker les données d'entrée et de sortie.
 
 Nous vous recommandons de suivre le didacticiel [Créer votre premier pipeline avec Data Factory][adf-build-1st-pipeline] avant de consulter cet exemple. Utilisez Data Factory Editor pour créer des artefacts Data Factory (services liés, jeux de données, pipeline) dans cet exemple.   
@@ -354,7 +353,7 @@ Quand vous utilisez le module lecteur dans une expérience Azure Machine Learnin
 
 ![Propriétés des objets blob Azure](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 #### <a name="pipeline-with-azuremlbatchexecution-activity-with-web-service-parameters"></a>Pipeline avec l’activité AzureMLBatchExecution avec les paramètres de service web
 
 ```JSON

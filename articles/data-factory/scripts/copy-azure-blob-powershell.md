@@ -1,10 +1,10 @@
 ---
-title: "Script PowerShell : copier des données dans le cloud à l’aide d’Azure Data Factory | Microsoft Docs"
-description: "Ce script PowerShell copie des données d’un emplacement dans un Stockage Blob Azure vers un autre dans le même Stockage Blob Azure."
+title: 'Script PowerShell : copier des données dans le cloud à l’aide d’Azure Data Factory | Microsoft Docs'
+description: Ce script PowerShell copie des données d’un emplacement dans un Stockage Blob Azure vers un autre dans le même Stockage Blob Azure.
 services: data-factory
 author: linda33wj
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: jingwang
-ms.openlocfilehash: cb452735b2f8f855a43d12c0fd50973baa3150fd
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 0b7552bb981a5b5a4850778709c08323b0e9124f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-in-the-cloud"></a>Utiliser PowerShell pour créer un pipeline de fabrique de données afin de copier des données dans le cloud
 
@@ -25,6 +25,7 @@ Cet exemple de script PowerShell crée dans Azure Data Factory un pipeline qui c
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="prerequisites"></a>Prérequis
+
 * **Compte Stockage Azure**. Vous utilisez le stockage Blob à la fois comme magasins de données **source** et **récepteur**. Si vous ne possédez pas de compte de stockage Azure, consultez [Créer un compte de stockage](../../storage/common/storage-create-storage-account.md#create-a-storage-account) pour en créer un. 
 * Créez un **conteneur d’objets blob** dans le stockage Blob, créez un **dossier** d’entrée dans le conteneur et chargez des fichiers sur le dossier. Vous pouvez utiliser des outils tels que l’[Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) pour vous connecter au stockage Blob Azure, créer un conteneur d’objets blob, charger le fichier d’entrée et vérifier le fichier de sortie.
 

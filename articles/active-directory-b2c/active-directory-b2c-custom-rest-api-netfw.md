@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C : Intégration des échanges de revendications de l’API REST dans votre parcours utilisateur Azure AD B2C comme validation d’une entrée de l’utilisateur"
-description: "Intégrer les échanges de revendications de l’API REST dans votre parcours utilisateur Azure Active Directory B2C comme validation d’une entrée de l’utilisateur."
+title: 'Azure Active Directory B2C : Intégration des échanges de revendications de l’API REST dans votre parcours utilisateur Azure AD B2C comme validation d’une entrée de l’utilisateur'
+description: Intégrer les échanges de revendications de l’API REST dans votre parcours utilisateur Azure Active Directory B2C comme validation d’une entrée de l’utilisateur.
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 09/30/2017
-ms.author: yoelh
-ms.openlocfilehash: fd9c95ae78590aa772fde10c8c80914c905767a8
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: davidmu
+ms.openlocfilehash: 9429f690940e1282d94b4d67ad1c618a24655cb5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Intégrer les échanges de revendications de l’API REST dans votre parcours utilisateur Azure Active Directory B2C comme validation d’une entrée de l’utilisateur
 Avec l’infrastructure d’expérience d’identité, sur laquelle repose Azure Active Directory B2C (Azure AD B2C), vous pouvez intégrer une API RESTful à un parcours utilisateur. Dans cette procédure pas à pas, vous allez étudier la façon dont Azure AD B2C interagit avec les services RESTful de .NET Framework (API web).
@@ -54,6 +51,7 @@ Vue d’ensemble :
 * Ajouter le numéro de fidélité à un jeton web JSON (JWT)
 
 ## <a name="prerequisites"></a>Prérequis
+
 Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md).
 
 ## <a name="step-1-create-an-aspnet-web-api"></a>Étape 1 : Créer une API web ASP.NET

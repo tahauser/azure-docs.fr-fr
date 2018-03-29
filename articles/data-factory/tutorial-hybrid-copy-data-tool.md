@@ -1,21 +1,21 @@
 ---
-title: "Copier des données locales à l’aide de l’outil Copier les données d’Azure | Microsoft Docs"
-description: "Créez une fabrique de données Azure, puis utilisez l’outil Copier les données pour copier des données depuis une base de données SQL Server locale vers un stockage d’objets Blob Azure."
+title: Copier des données locales à l’aide de l’outil Copier les données d’Azure | Microsoft Docs
+description: Créez une fabrique de données Azure, puis utilisez l’outil Copier les données pour copier des données depuis une base de données SQL Server locale vers un stockage d’objets Blob Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: hero-article
 ms.date: 01/04/2018
 ms.author: jingwang
-ms.openlocfilehash: 77090d9a61945c9edc42cde7d647c75e91f54dd6
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 85b721df1e666903c4966ca240c433ded01c06b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copier des données depuis une base de données SQL Server locale vers un stockage Blob Azure à l’aide de l’outil Copier les données
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,7 +27,7 @@ Dans ce didacticiel, vous utilisez le portail Azure pour créer une fabrique de 
 > [!NOTE]
 > - Si vous débutez avec Azure Data Factory, consultez [Présentation d’Azure Data Factory](introduction.md).
 >
-> - Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 de Data Factory, qui est généralement disponible, consultez la [Mise en route de Data Factory, version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> - Cet article s’applique à la version 2 de Data Factory, actuellement en préversion. Si vous utilisez la version 1 de Data Factory, qui est généralement disponible, consultez [Mise en route de Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Dans ce didacticiel, vous effectuerez les étapes suivantes :
 
@@ -37,6 +37,7 @@ Dans ce didacticiel, vous effectuerez les étapes suivantes :
 > * Surveiller les exécutions de pipeline et d’activité.
 
 ## <a name="prerequisites"></a>Prérequis
+
 ### <a name="azure-subscription"></a>Abonnement Azure
 Si vous n’avez pas d’abonnement Azure, [créez un compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -135,14 +136,14 @@ Dans cette section, vous allez créer un conteneur d’objets blob nommé **adft
 
       - Sélectionnez **Créer**, puis entrez le nom d’un groupe de ressources. 
          
-      Pour plus d'informations sur les groupes de ressources, consultez l’article qui traite de l’[utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-overview.md).
+      Pour plus d’informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-overview.md).
 5. Sous **Version**, sélectionnez **V2 (préversion)**.
 6. Sous **Emplacement**, sélectionnez l’emplacement de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données (tels que le Stockage Azure et SQL Database) et les services de calcul (comme Azure HDInsight) utilisés par Data Factory peuvent se trouver dans d’autres emplacements/régions.
 7. Sélectionnez **Épingler au tableau de bord**. 
 8. Sélectionnez **Créer**.
 9. Sur le tableau de bord, vous voyez la vignette suivante avec l’état **Déploiement de Data Factory** :
 
-    ![Vignette Déploiement de Data Factory](media/tutorial-hybrid-copy-data-tool/deploying-data-factory.png)
+    ![Vignette Déploiement d’une fabrique de données](media/tutorial-hybrid-copy-data-tool/deploying-data-factory.png)
 10. Une fois la création terminée, la page **Data Factory** s’affiche comme sur l’image.
    
     ![Page d'accueil Data Factory](./media/tutorial-hybrid-copy-data-tool/data-factory-home-page.png)

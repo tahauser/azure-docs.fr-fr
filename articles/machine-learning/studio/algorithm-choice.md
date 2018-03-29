@@ -1,12 +1,13 @@
 ---
-title: "Comment choisir les algorithmes d’apprentissage automatique | Microsoft Docs"
-description: "Comment choisir les algorithmes Azure Machine Learning pour l'apprentissage supervisé et non supervisé dans les expériences de clustering, classification ou régression."
+title: Comment choisir les algorithmes d’apprentissage automatique | Microsoft Docs
+description: Comment choisir les algorithmes Azure Machine Learning pour l'apprentissage supervisé et non supervisé dans les expériences de clustering, classification ou régression.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: pakalra
+ms.author: pakalra
+manager: cgronlun
 editor: cgronlun
-tags: 
+tags: ''
 ms.assetid: a3b23d7f-f083-49c4-b6b1-3911cd69f1b4
 ms.service: machine-learning
 ms.devlang: na
@@ -14,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/18/2017
-ms.author: garye
-ms.openlocfilehash: 1b30e4dbf20cac653c323720de779aa5f8edba68
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: e1c7030a5f0c6e13653b302fcb48e7d4efa232c7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>Comment choisir les algorithmes dans Microsoft Azure Machine Learning
 La réponse à la question « Quel algorithme d’apprentissage automatique dois-je utiliser ? » est toujours « Cela dépend. ». Cela dépend de la taille, de la qualité et de la nature des données. Cela dépend de ce que vous voulez faire avec la réponse. Cela dépend de la conversion des calculs de l'algorithme en instructions pour l'ordinateur que vous utilisez. Et cela dépend du temps que vous avez. Même les scientifiques de données les plus expérimentés ne peuvent pas savoir quel algorithme fonctionnera le mieux avant d’en essayer.
@@ -176,7 +176,7 @@ Ces performances élevées ont toutefois un prix. L’apprentissage des réseaux
 Et pour les perfectionnistes qui souhaitent [spécifier leur propre structure de réseau](http://go.microsoft.com/fwlink/?LinkId=402867), les possibilités sont infinies.
 
 ![Limites apprises par les réseaux neuronaux][6]
-***Les limites apprises par les réseaux neuronaux peuvent être complexes et irrégulières***
+*** Les limites apprises par les réseaux neuronaux peuvent être complexes et irrégulières***
 
 Le [perceptron moyenné à deux classes](https://msdn.microsoft.com/library/azure/dn906036.aspx) est le réseau neuronal idéal pour répondre à l’explosion des durées d'apprentissage. Il utilise une structure de réseau qui fournit des limites de la classe linéaire. Il est presque primitif au vu des normes actuelles, mais il a un long historique d'utilisation fiable et est suffisamment petit pour apprendre rapidement.
 
@@ -187,7 +187,7 @@ Les machines à vecteurs de support (SVM) recherchent la limite qui sépare les
 
 ***Une frontière de classe de machine à vecteurs de support standard optimise la marge séparant deux classes***
 
-Un autre produit de Microsoft Research, la [SVM localement approfondi à deux classes](https://msdn.microsoft.com/library/azure/dn913070.aspx) est une variante non linéaire de SVM qui conserve la plupart de l'efficacité de la mémoire et de la vitesse de la version linéaire. Elle est idéale pour les cas où l'approche linéaire ne donne pas de réponses suffisamment précises. Les développeurs ont conservé sa rapidité en décomposant le problème en une série de petits problèmes SVM linéaires. Lisez la [description complète](http://research.microsoft.com/um/people/manik/pubs/Jose13.pdf) pour plus d'informations sur la méthode utilisée.
+Un autre produit de Microsoft Research, la [SVM localement approfondi à deux classes](https://msdn.microsoft.com/library/azure/dn913070.aspx) est une variante non linéaire de SVM qui conserve la plupart de l'efficacité de la mémoire et de la vitesse de la version linéaire. Elle est idéale pour les cas où l'approche linéaire ne donne pas de réponses suffisamment précises. Les développeurs ont conservé sa rapidité en décomposant le problème en une série de petits problèmes SVM linéaires. Lisez la [description complète](http://proceedings.mlr.press/v28/jose13.html) pour plus d'informations sur la méthode utilisée.
 
 À l'aide d'une extension intelligente de SVM non linéaires, la [SVM à une classe](https://msdn.microsoft.com/library/azure/dn913103.aspx) dessine une limite qui encadre étroitement l'ensemble de données. Elle est utile pour la détection des anomalies. Les nouveaux points de données qui se situent bien à l'extérieur de cette limite sont assez inhabituels pour être remarqués.
 

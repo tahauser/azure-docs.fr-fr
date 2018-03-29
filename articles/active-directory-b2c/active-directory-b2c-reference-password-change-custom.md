@@ -1,30 +1,29 @@
 ---
 title: 'Azure Active Directory B2C : changement de mot de passe libre-service | Microsoft Docs'
-description: "Rubrique montrant comment configurer un changement de mot de passe libre-service pour vos consommateurs dans Azure Active Directory B2C"
+description: Rubrique montrant comment configurer un changement de mot de passe libre-service pour vos consommateurs dans Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: vigunase
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-ms.assetid: 712a7128-5788-4914-8a52-24e200aa4de1
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2016
-ms.author: vigunase
-ms.openlocfilehash: 76e7ed328716d09dc57e25f15c411f07fda77bb9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 4c54abe8c3375b49b786c7849c7e963e5849fa3a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-configure-password-change-in-custom-policies"></a>Azure Active Directory B2C : Configurer la modification du mot de passe dans des stratégies personnalisées  
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 Avec la fonctionnalité de modification de mot de passe, les consommateurs connectés (utilisant des comptes locaux) peuvent modifier leurs mots de passe, sans avoir à prouver leur authenticité avec une vérification par e-mail, comme décrit dans le [flux de réinitialisation de mot de passe libre-service.](active-directory-b2c-reference-sspr.md) Si la session expire avant que le consommateur n’effectue le flux du changement de mot de passe, l’utilisateur est invité à se reconnecter. 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Un locataire Azure AD B2C configuré pour effectuer une inscription/connexion à un compte local, comme décrit dans [Bien démarrer](active-directory-b2c-get-started-custom.md).
 
@@ -156,7 +155,7 @@ Ajoutez les ID d’application au fichier d’extensions (`TrustFrameworkExtensi
 
 1. Dans le fichier d’extensions (TrustFrameworkExtensions.xml), recherchez les éléments `<TechnicalProfile Id="login-NonInteractive">` et `<TechnicalProfile Id="login-NonInteractive-PasswordChange">`.
 
-2. Remplacez toutes les instances de `IdentityExperienceFrameworkAppId` par l’ID de l’application d’infrastructure d’expérience d’identité comme décrit dans [Prise en main](active-directory-b2c-get-started-custom.md). Voici un exemple :
+2. Remplacez toutes les instances de `IdentityExperienceFrameworkAppId` par l’ID de l’application d’infrastructure d’expérience d’identité comme décrit dans [Prise en main](active-directory-b2c-get-started-custom.md). Voici un exemple : 
 
    ```
    <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>

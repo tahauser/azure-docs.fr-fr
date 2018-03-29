@@ -1,11 +1,10 @@
 ---
-title: "Déplacer des données depuis PostgreSQL à l’aide d’Azure Data Factory | Microsoft Docs"
-description: "Découvrez comment déplacer des données depuis une base de données PostgreSQL à l’aide d’Azure Data Factory."
+title: Déplacer des données depuis PostgreSQL à l’aide d’Azure Data Factory | Microsoft Docs
+description: Découvrez comment déplacer des données depuis une base de données PostgreSQL à l’aide d’Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 888d9ebc-2500-4071-b6d1-0f6bd1b5997c
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4cec177456b007fd7c6721380c00a622b43af677
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 4ee466c85b68ebc72dbd55849db84a473d584ffb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Déplacer des données depuis PostgreSQL à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +33,8 @@ Cet article explique comment utiliser l’activité de copie dans Azure Data F
 
 Vous pouvez copier et coller les données d’un magasin de données PostgreSQL local dans tout magasin de données récepteur pris en charge. Consultez les [magasins de données pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats) pour obtenir la liste des magasins de données pris en charge en tant que récepteurs par l’activité de copie. Actuellement, les fabriques de données prennent en charge le déplacement des données d’une base de données PostgreSQL vers d’autres magasins de données, mais non l’inverse. 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
+
 
 Le service Data Factory prend en charge la connexion à des sources PostgreSQL locales à l'aide de la passerelle de gestion des données. Consultez l’article [Déplacement de données entre des emplacements locaux et le cloud](data-factory-move-data-between-onprem-and-cloud.md) pour en savoir plus sur la passerelle de gestion des données et obtenir des instructions détaillées sur la configuration de la passerelle.
 

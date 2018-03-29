@@ -1,11 +1,10 @@
 ---
-title: "Déplacer des données vers et à partir de Stockage Blob Azure | Microsoft Docs"
-description: "Découvrez comment copier des données d’objets blob dans Azure Data Factory. Les exemples suivants indiquent comment copier des données vers et depuis Azure Blob Storage et Base de données SQL Azure."
+title: Déplacer des données vers et à partir de Stockage Blob Azure | Microsoft Docs
+description: Découvrez comment copier des données d’objets blob dans Azure Data Factory. Les exemples suivants indiquent comment copier des données vers et depuis Azure Blob Storage et Base de données SQL Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: bec8160f-5e07-47e4-8ee1-ebb14cfb805d
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d94fef9d51c5f696df37b26867c1c8ebe12a15b9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: fe7b419a2f4bbc3ae4aa69dad1e3b3e0957cc848
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Échanger des données avec le Stockage Blob Azure à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -174,6 +173,7 @@ Cette section décrit le comportement résultant de l’opération de copie pour
 Examinons comment copier rapidement des données vers/depuis un stockage Blob Azure. Dans cette procédure pas à pas, les banques de données source et de destination sont du type stockage Blob Azure. Le pipeline de cette procédure pas à pas copie des données entre les dossiers d’un même conteneur d’objets blob. Cette procédure pas à pas est volontairement simple pour vous montrer les paramètres ou les propriétés lorsque vous utilisez le Stockage Blob en tant que source ou récepteur. 
 
 ### <a name="prerequisites"></a>Prérequis
+
 1. Créez un **compte de stockage Azure** à usage général si vous n’en avez pas encore un. Vous utilisez le stockage d’objets blob comme banque de données **source** et de **destination** dans cette procédure pas à pas. Si vous n’avez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../../storage/common/storage-create-storage-account.md#create-a-storage-account) pour découvrir comment en créer un.
 2. Créez un conteneur d’objets blob nommé **adfblobconnector** dans le compte de stockage. 
 4. Créez un dossier nommé **input** dans le conteneur **adfblobconnector**.

@@ -1,23 +1,23 @@
 ---
-title: "Appeler un package SSIS à l’aide d’Azure Data Factory - Activité de procédure stockée | Microsoft Docs"
-description: "Cet article décrit comment appeler un package SQL Server Integration Services (SSIS) à partir d’un pipeline Azure Data Factory à l’aide de l’activité de procédure stockée."
+title: Appeler un package SSIS à l’aide d’Azure Data Factory - Activité de procédure stockée | Microsoft Docs
+description: Cet article décrit comment appeler un package SQL Server Integration Services (SSIS) à partir d’un pipeline Azure Data Factory à l’aide de l’activité de procédure stockée.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: 99e3365a846f35262489fdccd753b4ce2e50fa49
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 476dc5fb8a5d9fb7fbcee898517455c52a3a9d73
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Appeler un package SSIS à l’aide de l’activité de procédure stockée dans Azure Data Factory
 Cet article décrit comment appeler un package SSIS à partir d’un pipeline Azure Data Factory à l’aide d’une activité de procédure stockée. 
@@ -26,6 +26,7 @@ Cet article décrit comment appeler un package SSIS à partir d’un pipeline Az
 > Cet article s’applique à la version 1 de Data factory, qui est généralement disponible. Si vous utilisez la version 2 du service Data Factory, qui est en préversion publique, consultez [Appeler un package SSIS à l’aide de l’activité de procédure stockée dans la version 2](../how-to-invoke-ssis-package-stored-procedure-activity.md).
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 ### <a name="azure-sql-database"></a>Base de données SQL Azure 
 La procédure pas à pas dans cet article utilise une base de données Azure SQL qui héberge le catalogue SSIS. Vous pouvez également utiliser Azure SQL Managed Instance (préversion privée).

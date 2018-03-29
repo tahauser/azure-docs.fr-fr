@@ -1,19 +1,20 @@
 ---
-title: "Didacticiel d’utilisation d’Azure Active Directory B2C pour protéger une API Web ASP.NET"
-description: "Didacticiel sur l’utilisation d’Active Directory B2C pour protéger une API Web ASP.NET et l’appeler à partir d’une application web ASP.NET."
+title: Didacticiel d’utilisation d’Azure Active Directory B2C pour protéger une API Web ASP.NET
+description: Didacticiel sur l’utilisation d’Active Directory B2C pour protéger une API Web ASP.NET et l’appeler à partir d’une application web ASP.NET.
 services: active-directory-b2c
-author: PatAltimore
-ms.author: patricka
-ms.reviewer: saraford
+author: davidmu1
+manager: mtillman
+editor: ''
+ms.author: davidmu
 ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: 0e9f324cec0d242c013a461d8580abd4faa97c8d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f4e1c18f151a9c815258f01ea198d3d173d0b44e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-use-azure-active-directory-b2c-to-protect-an-aspnet-web-api"></a>Didacticiel : Utiliser Azure Active Directory B2C pour protéger une API Web ASP.NET
 
@@ -29,7 +30,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 * Suivre [Use Azure Active Directory B2C for User Authentication in an ASP.NET Web App tutorial](active-directory-b2c-tutorials-web-app.md) (Didacticiel d’utilisation d’Azure Active Directory B2C pour l’authentification utilisateur dans une application web ASP.NET).
 * Installer [Visual Studio 2017](https://www.visualstudio.com/downloads/) avec la charge de travail **Développement ASP.NET et web**.

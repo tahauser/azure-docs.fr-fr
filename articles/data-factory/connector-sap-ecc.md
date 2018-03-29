@@ -1,11 +1,11 @@
 ---
-title: "Copier des données de SAP ECC à l’aide d’Azure Data Factory | Microsoft Docs"
-description: "Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de SAP ECC vers des magasins de données récepteurs pris en charge."
+title: Copier des données de SAP ECC à l’aide d’Azure Data Factory | Microsoft Docs
+description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de SAP ECC vers des magasins de données récepteurs pris en charge.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: jingwang
-ms.openlocfilehash: efca2c129a1c7b8aca6b879d6d1311c6be157be1
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: abd3ef00148795f4b3e79e2ed64dd35f56946455
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-sap-ecc-using-azure-data-factory"></a>Copier des données de SAP ECC à l’aide d’Azure Data Factory
 
@@ -37,6 +37,7 @@ Plus précisément, ce connecteur SAP ECC prend en charge ce qui suit :
 - Copie de données en utilisant une authentification de base.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 En règle générale, SAP ECC expose des entités par le biais de services OData via la passerelle SAP. Pour utiliser ce connecteur SAP ECC, vous devez :
 

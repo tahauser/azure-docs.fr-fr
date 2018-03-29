@@ -2,22 +2,19 @@
 title: 'Forum aux questions : Azure Active Directory B2C'
 description: Forum aux questions (FAQ) sur Azure Active Directory B2C
 services: active-directory-b2c
-author: PatAltimore
+author: davidmu1
 manager: mtillman
-editor: saeeda
-ms.custom: seo
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
-ms.author: saeeda
-ms.openlocfilehash: 38f33f2a5d0bba4686cfeef121f2087326e1897d
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.author: davidmu
+ms.openlocfilehash: 338520f273a88866834e43e17da1f8b131ca38f7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C : Forum aux questions (FAQ) 
 Cette page répond aux questions fréquemment posées sur Azure Active Directory (Azure AD) B2C. N'hésitez pas à la consulter pour vous tenir au courant des mises à jour.

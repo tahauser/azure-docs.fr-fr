@@ -1,11 +1,11 @@
 ---
-title: "Exécution et déclencheurs du pipeline dans Azure Data Factory | Microsoft Docs"
-description: "Cet article fournit des informations sur l’exécution d’un pipeline dans Azure Data Factory, soit à la demande, soit en créant un déclencheur."
+title: Exécution et déclencheurs du pipeline dans Azure Data Factory | Microsoft Docs
+description: Cet article fournit des informations sur l’exécution d’un pipeline dans Azure Data Factory, soit à la demande, soit en créant un déclencheur.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/03/2018
 ms.author: shlo
-ms.openlocfilehash: e754986cb3653eb4b2a17edff4d57974331cdcbb
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 08fcc2eec1914d9f7535ea66d33045240452e2a6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Exécution et déclencheurs du pipeline dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -278,7 +278,7 @@ Le tableau suivant présente une vue d’ensemble globale des principaux éléme
 
 ### <a name="schema-defaults-limits-and-examples"></a>Valeurs par défaut, limites et exemples du schéma
 
-| Propriété JSON | type | Obligatoire | Valeur par défaut | Valeurs valides | exemples |
+| Propriété JSON | type | Obligatoire | Valeur par défaut | Valeurs valides | Exemples |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **startTime** | chaîne | OUI | Aucun | Dates-Heures ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **recurrence** | objet | OUI | Aucun | Un objet de périodicité | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
@@ -324,7 +324,7 @@ Cette section fournit des exemples de planifications de périodicité. Elle se c
 
 Les exemples supposent que la valeur **interval** est 1 et que la valeur **frequency** est correcte selon la définition de planification. Par exemple, vous ne pouvez pas avoir une valeur **frequency** définie sur « jour » et une modification **monthDays** dans l’objet **schedule**. Ces types de restrictions sont décrits dans le tableau dans la section précédente.
 
-| exemples | Description |
+| Exemples | Description |
 |:--- |:--- |
 | `{"hours":[5]}` | Exécution à 5h00 tous les jours. |
 | `{"minutes":[15], "hours":[5]}` | Exécution à 5h15 tous les jours. |

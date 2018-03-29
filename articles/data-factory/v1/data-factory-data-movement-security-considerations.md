@@ -1,11 +1,10 @@
 ---
-title: "Considérations de sécurité relatives au déplacement des données dans Azure Data Factory | Microsoft Docs"
-description: "Découvrez comment sécuriser les déplacements de données dans Azure Data Factory."
+title: Considérations de sécurité relatives au déplacement des données dans Azure Data Factory | Microsoft Docs
+description: Découvrez comment sécuriser les déplacements de données dans Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: f483109170ed1dda7506f7ef5f02fb8b42ea331e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: c2b6c494a9c4d0dac37315520b8d7b962f3490b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - Considérations de sécurité relatives au déplacement des données
 
@@ -48,7 +47,7 @@ Cet article présente les principes de sécurité à prendre en compte dans les 
 - **Scénario hybride** : dans ce scénario, votre source ou votre destination se trouve derrière un pare-feu ou au sein d’un réseau d’entreprise local, ou la banque de données se trouve dans un réseau privé/virtuel réseau (le plus souvent la source) et n’est pas accessible publiquement. Les serveurs de base de données hébergés sur des machines virtuelles sont également inclus dans ce scénario.
 
 ## <a name="cloud-scenarios"></a>Scénarios cloud
-###<a name="securing-data-store-credentials"></a>Sécurisation des informations d’identification des banques de données
+### <a name="securing-data-store-credentials"></a>Sécurisation des informations d’identification des banques de données
 Azure Data Factory protège les informations d’identification de vos banques de données en les **chiffrant** à l’aide de **certificats gérés par Microsoft**. Ces certificats sont remplacés tous les **deux ans** (avec renouvellement des certificats et migration des informations d’identification). Ces informations d’identification chiffrées sont stockées de manière sécurisée dans un **stockage Azure géré par les services de gestion d’Azure Data Factory**. Pour plus d’informations sur la sécurité du stockage Azure, consultez l’article [Vue d’ensemble des fonctionnalités de sécurité du stockage Azure](../../security/security-storage-overview.md).
 
 ### <a name="data-encryption-in-transit"></a>Chiffrement des données en transit

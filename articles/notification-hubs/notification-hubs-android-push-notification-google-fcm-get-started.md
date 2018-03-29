@@ -1,12 +1,12 @@
 ---
-title: "Prise en main d’Azure Notification Hubs pour les applications Android et Firebase Cloud Messaging | Microsoft Docs"
-description: "Dans ce didacticiel, vous découvrirez comment utiliser Azure Notification Hubs Firebase Cloud Messaging pour envoyer des notifications Push à des appareils Android."
+title: Prise en main d’Azure Notification Hubs pour les applications Android et Firebase Cloud Messaging | Microsoft Docs
+description: Dans ce didacticiel, vous découvrirez comment utiliser Azure Notification Hubs Firebase Cloud Messaging pour envoyer des notifications Push à des appareils Android.
 services: notification-hubs
 documentationcenter: android
 keywords: notifications push,notification push,notification push android,fcm,firebase cloud messaging
 author: jwhitedev
 manager: kpiteira
-editor: 
+editor: ''
 ms.assetid: 02298560-da61-4bbb-b07c-e79bd520e420
 ms.service: notification-hubs
 ms.workload: mobile
@@ -15,16 +15,16 @@ ms.devlang: java
 ms.topic: hero-article
 ms.date: 12/22/2017
 ms.author: jawh
-ms.openlocfilehash: 2cac554be145c3bb9ec2c71ef893bba947104a2d
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 0f4c766bd68227a85e2438bc68b2d61c69ce706c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-azure-notification-hubs-for-android-apps-and-firebase-cloud-messaging"></a>Prise en main d’Azure Notification Hubs pour les applications Android et Firebase Cloud Messaging
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 > [!IMPORTANT]
 > Cet article explique les notifications Push avec Google Firebase Cloud Messaging (FCM). Si vous utilisez encore Google Cloud Messaging (GCM), consultez [Sending push notifications to Android with Azure Notification Hubs and GCM](notification-hubs-android-push-notification-google-gcm-get-started.md)(Envoi de notifications Push vers Android avec Azure Notification Hubs et GCM).
 > 
@@ -37,6 +37,7 @@ Ce didacticiel montre comment utiliser Azure Notification Hubs et Cloud Messagin
 Le code complet de ce didacticiel peut être téléchargé depuis GitHub [ici](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Android/GetStartedFirebase).
 
 ## <a name="prerequisites"></a>Prérequis
+
 > [!IMPORTANT]
 > Pour suivre ce didacticiel, vous avez besoin d'un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started).
 > 
@@ -285,9 +286,8 @@ Votre hub de notification est à présent configuré pour fonctionner avec Fireb
         import android.util.Log;
         import android.widget.TextView;
         import android.widget.Toast;
-    ```
 
-3. Ajoutez les membres privés suivants dans la partie supérieure de la classe. Vous les utilisez pour [vérifier la disponibilité des Google Play Services comme recommandé par Google](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk).
+3. Add the following private members at the top of the class. You use these to [check the availability of Google Play Services as recommended by Google](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk).
    
     ```java
         public static MainActivity mainActivity;

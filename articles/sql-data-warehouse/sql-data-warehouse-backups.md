@@ -1,11 +1,11 @@
 ---
-title: "Sauvegardes Azure SQL Data Warehouse - instantanés, géoredondant | Microsoft Docs"
-description: "Découvrez les sauvegardes de base de données intégrées de SQL Data Warehouse, qui vous permettent de restaurer un entrepôt de données SQL Azure à un point de restauration ou dans une autre région géographique."
+title: Sauvegardes Azure SQL Data Warehouse - instantanés, géoredondant | Microsoft Docs
+description: Découvrez les sauvegardes de base de données intégrées de SQL Data Warehouse, qui vous permettent de restaurer un entrepôt de données SQL Azure à un point de restauration ou dans une autre région géographique.
 services: sql-data-warehouse
-documentationcenter: 
+documentationcenter: ''
 author: barbkess
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: b5aff094-05b2-4578-acf3-ec456656febd
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: backup-restore
 ms.date: 10/23/2017
 ms.author: jrj;barbkess
 ms.openlocfilehash: 159a1d34caba829750da33dbc4ad403fb21cd147
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="backup-and-restore-in-sql-data-warehouse"></a>Sauvegarde et restauration dans SQL Data Warehouse
 Cet article explique les spécificités des sauvegardes dans SQL Data Warehouse. Utilisez des sauvegardes d’entrepôts de données pour restaurer une capture instantanée de base de données dans la région principale, ou restaurer une géosauvegarde pour votre région associée géographiquement. 
@@ -72,7 +72,7 @@ Lorsque vous supprimez un entrepôt de données, SQL Data Warehouse crée une ca
 > Si vous supprimez une instance SQL Server logique, toutes les bases de données qui appartiennent à l’instance sont également supprimées, sans pouvoir être récupérées. Vous ne pouvez pas restaurer un serveur supprimé.
 > 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour restaurer un entrepôt de données SQL, consultez [Restaurer un entrepôt de données SQL](sql-data-warehouse-restore-database-overview.md).
 
 Pour une vue d’ensemble de la continuité des activités, consultez [Vue d’ensemble de la continuité des activités](../sql-database/sql-database-business-continuity.md)

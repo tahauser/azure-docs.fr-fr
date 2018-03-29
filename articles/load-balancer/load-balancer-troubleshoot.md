@@ -1,12 +1,12 @@
 ---
-title: "Résoudre les problèmes liés à Azure Load Balancer | Microsoft Docs"
-description: "Résoudre les problèmes connus liés à Azure Load Balancer"
+title: Résoudre les problèmes liés à Azure Load Balancer | Microsoft Docs
+description: Résoudre les problèmes connus liés à Azure Load Balancer
 services: load-balancer
 documentationcenter: na
 author: RamanDhillon
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: bc059221656a695bb43af0dca06df941ca77c73d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 560e2ed7cafd1018f4b64ac6d0e45134560082b6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Résoudre les problèmes liés à Azure Load Balancer
 
@@ -54,7 +54,7 @@ Si la machine virtuelle est saine, mais ne répond pas à la sonde, il se peut q
 3. Si l’état du port indiqué n’est pas **ÉCOUTE**, configurez le port approprié. 
 4. Vous pouvez également sélectionner un autre port, qui indique **ÉCOUTE**, et mettre à jour en conséquence la configuration de l’équilibreur de charge.              
 
-###<a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>Cause 3 : un pare-feu ou un groupe de sécurité réseau bloque le port sur les machines virtuelles du pool principal de l’équilibreur de charge  
+### <a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>Cause 3 : un pare-feu ou un groupe de sécurité réseau bloque le port sur les machines virtuelles du pool principal de l’équilibreur de charge  
 Si le pare-feu sur la machine virtuelle bloque le port de la sonde, ou un ou plusieurs groupes de sécurité réseau configurés sur le sous-réseau ou sur la machine virtuelle, ou n’autorise pas la sonde à atteindre le port, la machine virtuelle est incapable de répondre à la sonde d’intégrité.          
 
 **Validation et résolution**

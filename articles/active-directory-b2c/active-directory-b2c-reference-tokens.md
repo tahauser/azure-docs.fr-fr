@@ -1,24 +1,21 @@
 ---
-title: "Informations de référence sur les jetons - Azure AD B2C | Microsoft Docs"
-description: "Types de jetons émis dans Azure Active Directory B2C"
+title: Informations de référence sur les jetons - Azure AD B2C | Microsoft Docs
+description: Types de jetons émis dans Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 6df79878-65cb-4dfc-98bb-2b328055bc2e
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
-ms.author: parakhj
-ms.openlocfilehash: ce82fcc82cf411d1596fea56ff368d96eceeff38
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: e5cc6a0974f9481491518779209ec5256870921f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: références sur les jetons
 
@@ -71,7 +68,7 @@ Lorsque vous utilisez Azure AD B2C, vous disposez d’un contrôle affiné du 
 
 Les revendications dans les jetons d’ID ne sont pas retournées dans un ordre particulier. En outre, de nouvelles revendications peuvent être introduites dans les jetons d’ID à tout moment. Votre application ne doit pas s’arrêter lors de l’ajout de nouvelles revendications. Voici les revendications qui doivent exister dans les jetons d’ID et d’accès émis par Azure AD B2C. Les éventuelles revendications supplémentaires sont déterminées par des stratégies. Pour vous entraîner, essayez d’inspecter les revendications de l’exemple de jeton d’ID en le collant dans [jwt.ms](https://jwt.ms). Vous trouverez des informations supplémentaires dans les [spécifications OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html).
 
-| Nom | Revendication | Exemple de valeur | Description |
+| NOM | Revendication | Exemple de valeur | Description |
 | --- | --- | --- | --- |
 | Audience |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |Une revendication d’audience identifie le destinataire du jeton. Dans Azure AD B2C, l’audience est l’ID attribué à votre application dans le portail d’inscription de l’application. Votre application doit valider cette valeur et rejeter le jeton s’il ne correspond pas. |
 | Émetteur |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |La revendication identifie le service d’émission de jeton de sécurité (STS) qui construit et retourne le jeton. Elle identifie également le répertoire Azure AD dans lequel l’utilisateur a été authentifié. Votre application doit valider la revendication de l’émetteur de manière à s’assurer que le jeton provient bien du point de terminaison Azure Active Directory v2.0. |
@@ -149,7 +146,7 @@ Pour obtenir une liste complète des validations que votre application doit effe
 ## <a name="token-lifetimes"></a>Durées de vie des jetons
 Les durées de vie du jeton suivantes sont fournies afin d’approfondir vos connaissances. Elles peuvent vous être utiles lorsque vous développez et déboguez des applications. Quand vous écrivez vos applications, faites en sorte qu’elles n’attendent pas des durées de vie constantes, car celles-ci sont amenées à changer à un moment donné. Découvrez plus d’informations sur la [personnalisation des durées de vie des jetons](active-directory-b2c-token-session-sso.md) dans Azure AD B2C.
 
-| Jeton | Durée de vie | Description |
+| par jeton | Durée de vie | Description |
 | --- | --- | --- |
 | Jetons d’ID |1 heure |Les jetons d’ID sont généralement valides 1 heure. Votre application web peut utiliser cette durée de vie pour conserver ses propres sessions avec les utilisateurs (recommandé). Vous pouvez également choisir une durée de vie de session différente. Si votre application a besoin d’obtenir un nouveau jeton d’ID, elle doit simplement faire une nouvelle demande de connexion auprès d’Azure AD. Si l’utilisateur a une session de navigateur valide avec Azure AD, il est possible qu’il ne doive pas entrer à nouveau ses informations d’identification. |
 | Jetons d’actualisation |Jusqu’à 14 jours |Un jeton d’actualisation est valide pendant 14 jours au maximum. Cependant, un jeton d’actualisation peut devenir non valide à tout moment pour différentes raisons. Votre application doit continuer à essayer d’utiliser un jeton d’actualisation jusqu’à ce que la demande échoue, ou jusqu’à ce que votre application remplace le jeton d’actualisation par un autre. Un jeton d’actualisation peut devenir non valide si 90 jours se sont écoulés depuis que l’utilisateur a entré ses informations d’identification pour la dernière fois. |

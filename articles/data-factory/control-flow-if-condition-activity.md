@@ -1,11 +1,11 @@
 ---
-title: "Activité IfCondition dans Azure Data Factory | Microsoft Docs"
-description: "L’activité IfCondition vous permet de contrôler le flux de traitement en fonction d’une condition."
+title: Activité IfCondition dans Azure Data Factory | Microsoft Docs
+description: L’activité IfCondition vous permet de contrôler le flux de traitement en fonction d’une condition.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 016cd8ac8dc4b65117bf8c07e8d8d4c74c8d9623
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 537032ade9e6569def84499ca6d2d937f77312e3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Activité IfCondition dans Azure Data Factory | Microsoft Docs
 L’activité IfCondition fournit les mêmes fonctionnalités qu’une instruction «if » dans les langages de programmation. La condition évalue un ensemble d’activités si l’expression retourne `true` et un autre ensemble d’activités si elle retourne `false`. 
@@ -76,7 +76,7 @@ expression | Expression qui doit retourner true ou false | OUI
 ifTrueActivities | Ensemble d’activités qui sont exécutées quand l’expression retourne `true`. | OUI
 ifFalseActivities | Ensemble d’activités qui sont exécutées quand l’expression retourne `false`. | OUI
 
-## <a name="example"></a>Exemple
+## <a name="example"></a>Exemples
 Le pipeline dans cet exemple copie les données depuis un dossier d’entrée vers un dossier de sortie. Le dossier de sortie est déterminé par la valeur du paramètre de pipeline routeSelection. Si la valeur de routeSelection est true, les données sont copiées vers outputPath1. Par contre, si la valeur de routeSelection est false, les données sont copiées vers outputPath2. 
 
 > [!NOTE]

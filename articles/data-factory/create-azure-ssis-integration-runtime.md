@@ -1,11 +1,10 @@
 ---
-title: "Créer un runtime d’intégration Azure-SSIS dans Azure Data Factory | Microsoft Docs"
-description: "Découvrez comment créer un runtime d’intégration Azure-SSIS afin de pouvoir exécuter un package SSIS dans le cloud Azure."
+title: Créer un runtime d’intégration Azure-SSIS dans Azure Data Factory | Microsoft Docs
+description: Découvrez comment créer un runtime d’intégration Azure-SSIS afin de pouvoir exécuter un package SSIS dans le cloud Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: 879489dffbf713b5fadb72a58638e462938aaf26
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: dc4c690633d14163eddfa70e8417a645f95a0861
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Créer un runtime d’intégration Azure-SSIS dans Azure Data Factory
 Cet article explique pas à pas comment configurer un runtime d’intégration Azure-SSIS dans Azure Data Factory. Vous pouvez ensuite utiliser SQL Server Data Tools (SSDT) ou SQL Server Management Studio (SSMS) pour déployer des packages SQL Server Integration Services (SSIS) sur ce runtime dans Azure.
@@ -34,7 +33,7 @@ Le [Didacticiel : déployer des packages SQL Server Integration Services (SSIS) 
 ## <a name="overview"></a>Vue d'ensemble
 Cet article présente différentes façons de provisionner un runtime d’intégration Azure-SSIS :
 
-- [Portail Azure](#azure-portal)
+- [Portail Azure](#azure-portal)
 - [Azure PowerShell](#azure-powershell)
 - [Modèle Azure Resource Manager](#azure-resource-manager-template)
 
@@ -43,6 +42,7 @@ Quand vous créez un runtime d’intégration Azure-SSIS, Data Factory se connec
 Si vous approvisionnez une instance d’un runtime d’intégration Azure-SSIS, les composants Azure Feature Pack pour SSIS et Access Redistributable sont également installés. Ces composants fournissent la connectivité aux fichiers Excel et Access et à diverses sources de données Azure, en plus des sources de données prises en charge par les composants intégrés. Vous ne pouvez pas installer de composants tiers pour SSIS à l’heure actuelle (notamment des composants tiers de Microsoft, tels que les composants Oracle et Teradata par Attunity et les composants BI SAP).
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 - **Abonnement Azure**. Si vous ne disposez d’aucun abonnement, vous pouvez créer un compte d’[essai gratuit](http://azure.microsoft.com/pricing/free-trial/).
 - Un **serveur de base de données SQL Azure** ou une **instance gérée SQL Server (préversion privée) (préversion privée étendue)**. Si vous n’avez pas encore de serveur de base de données, créez-en un dans le portail Azure avant de commencer. Ce serveur héberge la base de données du catalogue SSIS (SSISDB). Nous vous recommandons de créer le serveur de base de données dans la même région Azure que le runtime d’intégration. Cette configuration permet au runtime d’intégration d’écrire des journaux d’exécution dans SSISDB sans dépasser les régions Azure. Notez le niveau tarifaire de votre serveur SQL Azure. Pour obtenir la liste des niveaux tarifaires pris en charge pour Azure SQL Database, consultez [Limites de ressources pour SQL Database](../sql-database/sql-database-resource-limits.md).

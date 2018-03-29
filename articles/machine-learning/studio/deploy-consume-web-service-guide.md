@@ -3,9 +3,10 @@ title: 'Services web Azure Machine Learning : déploiement et consommation | Mic
 description: Ressources pour le déploiement et la consommation de services web.
 services: machine-learning
 documentationcenter: ''
-author: aashishb
+author: YasinMSFT
+ms.author: yahajiza
 manager: hjerez
-editor: ''
+editor: cgronlun
 ms.assetid: 47635376-d1f4-4ea4-a6af-bd1f99f69a69
 ms.service: machine-learning
 ms.workload: data-services
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: aashishb
-ms.openlocfilehash: 7eecfe4a80499fbba0533f0d410dd920db61e62c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 2d64b007b68db4df652bde4308760400f4de6dbc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-machine-learning-web-services-deployment-and-consumption"></a>Services web Azure Machine Learning : déploiement et consommation
 Vous pouvez utiliser Azure Machine Learning pour déployer des flux de travail et des modèles de Machine Learning en tant que services web. Ces services web peuvent ensuite servir à appeler les modèles Machine Learning à partir d’applications via Internet pour effectuer des prévisions en temps réel ou par lots. Les services web, RESTful, peuvent être appelés avec divers langages et plateformes de programmation, notamment Java, .NET et des applications comme Excel.

@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C : stratégies intégrées | Microsoft Docs"
-description: "Une rubrique sur l'infrastructure de stratégie extensible d'Azure Active Directory B2C et la création de différents types de stratégies"
+title: 'Azure Active Directory B2C : stratégies intégrées | Microsoft Docs'
+description: Une rubrique sur l'infrastructure de stratégie extensible d'Azure Active Directory B2C et la création de différents types de stratégies
 services: active-directory-b2c
-documentationcenter: 
-author: sama
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: PatAltimore
-ms.assetid: 0d453e72-7f70-4aa2-953d-938d2814d5a9
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
-ms.author: sama
-ms.openlocfilehash: f0aa3d19e15837b75888293f0cd19683b7621a6a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 35b31c46b350474caa1472829d705b4d068d9642
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-built-in-policies"></a>Azure Active Directory B2C: stratégies intégrées
 
@@ -63,8 +60,6 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ```
 
-Pour plus d’informations sur l’infrastructure de stratégie, consultez [ce billet de blog concernant Azure AD B2C sur le blog consacré à la mobilité et à la sécurité d’entreprise](http://blogs.technet.com/b/ad/archive/2015/11/02/a-look-inside-azuread-b2c-with-kim-cameron.aspx).
-
 ## <a name="create-a-sign-up-or-sign-in-policy"></a>Création d’une stratégie d’inscription ou de connexion
 
 Cette stratégie gère les expériences d’inscription et de connexion des utilisateurs avec une configuration unique. Les utilisateurs sont dirigés vers le chemin d’accès correct (inscription ou connexion) en fonction du contexte. Cet article décrit également le contenu des jetons que l’application recevra en cas d’inscription ou de connexion réussie.  Un exemple de code pour la stratégie d’inscription ou de connexion est [disponible ici](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  Il est recommandé d’utiliser cette stratégie plutôt qu’une stratégie d’inscription et de connexion.  
@@ -87,7 +82,7 @@ Cette stratégie gère les expériences d’inscription et de connexion des util
 
 [!INCLUDE [active-directory-b2c-create-password-reset-policy](../../includes/active-directory-b2c-create-password-reset-policy.md)]
 
-## <a name="frequently-asked-questions"></a>Forum Aux Questions
+## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
 ### <a name="how-do-i-link-a-sign-up-or-sign-in-policy-with-a-password-reset-policy"></a>Comment lier une stratégie d’inscription ou de connexion à une stratégie de réinitialisation de mot de passe ?
 Lorsque vous créez une stratégie d’inscription ou de connexion (avec des comptes locaux), vous voyez un lien **Mot de passe oublié ?** sur la première page. Cliquer sur ce lien ne déclenche pas automatiquement une stratégie de réinitialisation de mot de passe. 

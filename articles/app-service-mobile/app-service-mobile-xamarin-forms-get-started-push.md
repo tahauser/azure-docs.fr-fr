@@ -1,11 +1,11 @@
 ---
-title: "Ajout de notifications Push à votre application Xamarin.Forms | Microsoft Docs"
-description: "Découvrez comment utiliser les services Azure pour envoyer des notifications Push multiplateforme à vos applications Xamarin.Forms."
+title: Ajout de notifications Push à votre application Xamarin.Forms | Microsoft Docs
+description: Découvrez comment utiliser les services Azure pour envoyer des notifications Push multiplateforme à vos applications Xamarin.Forms.
 services: app-service\mobile
 documentationcenter: xamarin
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: d9b1ba9a-b3f2-4d12-affc-2ee34311538b
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
-ms.openlocfilehash: 3ed607d80e6d40a9a466c5277eca636203c13ec2
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 0bea00d411205541684e807182abd3236c09bd9d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>Ajout de notifications Push à votre application Xamarin.Forms
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -28,7 +28,8 @@ Dans ce didacticiel, vous ajoutez des notifications Push à tous les projets qui
 
 Si vous n’utilisez pas le projet de serveur du démarrage rapide téléchargé, vous devrez ajouter le package d’extension de notification Push. Consultez [Fonctionnement avec le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) pour plus d’informations.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
+
 Pour iOS, vous avez besoin d’une [appartenance au programme pour développeurs Apple](https://developer.apple.com/programs/ios/) et d’un appareil iOS physique. Les [notifications Push ne sont pas prises en charge par le simulateur iOS](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html).
 
 ## <a name="configure-hub"></a>Configurer un hub de notification
@@ -213,7 +214,7 @@ Les deux premières étapes sont requises uniquement lorsque vous testez sur un 
 ## <a name="configure-and-run-the-ios-project-optional"></a>Configurer et exécuter le projet iOS (facultatif)
 Cette section est dédiée à l’exécution du projet Xamarin iOS pour les appareils iOS. Vous pouvez ignorer cette section si vous n’utilisez pas d’appareils iOS.
 
-[!INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
+[!INCLUDE [Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
 #### <a name="configure-the-notification-hub-for-apns"></a>Configurer le Notification Hub pour APNS
 [!INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-apns-configure-push.md)]
@@ -348,7 +349,7 @@ Cette section s’applique à l’exécution des projets Xamarin.Forms WinApp et
 3. Dans l’application, tapez un nom pour un nouvel élément todoitem, puis cliquez sur l’icône de signe plus (**+**) pour l’ajouter.
 4. Vérifiez qu’une notification est reçue lorsque l’élément est ajouté.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Apprenez-en plus sur les notifications Push :
 
 * [Envoi de notifications Push à partir d’Azure Mobile Apps](https://developer.xamarin.com/guides/xamarin-forms/cloud-services/push-notifications/azure/)

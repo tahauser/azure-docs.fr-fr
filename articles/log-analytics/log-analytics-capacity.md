@@ -1,11 +1,11 @@
 ---
-title: "Solution Capacité et performances d’Azure Log Analytics | Microsoft Docs"
-description: "Utilisez la solution Capacité et performances dans Log Analytics pour vous aider à comprendre la capacité de vos serveurs Hyper-V."
+title: Solution Capacité et performances d’Azure Log Analytics | Microsoft Docs
+description: Utilisez la solution Capacité et performances dans Log Analytics pour vous aider à comprendre la capacité de vos serveurs Hyper-V.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 51617a6f-ffdd-4ed2-8b74-1257149ce3d4
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 26e87da60dc02dce8122c82a2208477a8b1813a7
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 99c29afec7d06a458ed6d34071f1b6acbba1f03b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Planifier la capacité des machines virtuelles Hyper-V avec la solution Capacité et performances (version préliminaire)
 
@@ -50,7 +50,8 @@ Le tableau suivant décrit les sources connectées qui sont prises en charge par
 | [Groupe d’administration SCOM](log-analytics-om-agents.md) | OUI |La solution collecte les données de capacité et de performances des agents dans un groupe d’administration SCOM connecté. Une connexion directe entre l’agent SCOM et Log Analytics n’est pas obligatoire.|
 | [Compte Azure Storage](log-analytics-azure-storage.md) | Non  | Le stockage Azure n’inclut pas de données de performances ni de capacité.|
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
+
 
 - Des agents Windows ou Operations Manager doivent être installés sur Windows Server 2012 ou des hôtes Hyper-V supérieurs, mais pas sur des machines virtuelles.
 
@@ -120,20 +121,8 @@ En résumé, la solution collecte les données de capacité et de performances �
 
 Le tableau ci-dessous contient des exemples de recherche dans les journaux pour les données de capacité et de performances collectées et calculées par cette solution.
 
+
 | Requête | Description |
-|---|---|
-| Toutes les configurations mémoire d’hôte | <code>Type=Perf ObjectName="Capacity and Performance" CounterName="Host Assigned Memory MB" &#124; measure avg(CounterValue) as MB by InstanceName</code> |
-| Toutes les configurations mémoire de machine virtuelle | <code>Type=Perf ObjectName="Capacity and Performance" CounterName="VM Assigned Memory MB" &#124; measure avg(CounterValue) as MB by InstanceName</code> |
-| Répartition de toutes les E/S par seconde des disques entre toutes les machines virtuelles | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="VHD Reads/s" OR CounterName="VHD Writes/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-| Répartition du débit total des disques entre toutes les machines virtuelles | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="VHD Read MB/s" OR CounterName="VHD Write MB/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-| Répartition de toutes les E/S par seconde entre tous les volumes partagés de cluster | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="CSV Reads/s" OR CounterName="CSV Writes/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-| Répartition du débit total entre tous les volumes partagés de cluster | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="CSV Read MB/s" OR CounterName="CSV Write MB/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-| Répartition de la latence totale entre tous les volumes partagés de cluster | <code> Type=Perf ObjectName="Capacity and Performance" (CounterName="CSV Read Latency" OR CounterName="CSV Write Latency") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-
->[!NOTE]
-> Si votre espace de travail a été mis à niveau vers le [nouveau langage de requête Log Analytics](log-analytics-log-search-upgrade.md), les requêtes ci-dessus seront remplacées par les suivantes.
-
-> | Requête | Description |
 |:--- |:--- |
 | Toutes les configurations mémoire d’hôte | Perf &#124; où ObjectName == « Capacité et performances » et CounterName == « Mo de mémoire attribuée Mo à l’hôte » &#124; résumer Mo = avg(CounterValue) par InstanceName |
 | Toutes les configurations mémoire de machine virtuelle | Perf &#124; où ObjectName == « Capacité et performance » et CounterName == « Mo de mémoire attribuée à la machine virtuelle » &#124; résumer Mo = avg(CounterValue) par InstanceName |
@@ -145,4 +134,4 @@ Le tableau ci-dessous contient des exemples de recherche dans les journaux pour 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Utilisez les [Recherches dans les journaux de Log Analytics](log-analytics-log-searches.md) pour afficher les données détaillées de capacité et de performances.
+* Utilisez les [Recherches dans les journaux de Log Analytics](log-analytics-log-search.md) pour afficher les données détaillées de capacité et de performances.

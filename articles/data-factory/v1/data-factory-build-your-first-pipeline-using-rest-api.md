@@ -1,11 +1,10 @@
 ---
-title: "Créer votre première fabrique de données (REST) | Microsoft Docs"
-description: "Dans ce didacticiel, vous allez créer un exemple de pipeline Azure Data Factory à l’aide de l’API REST Data Factory."
+title: Créer votre première fabrique de données (REST) | Microsoft Docs
+description: Dans ce didacticiel, vous allez créer un exemple de pipeline Azure Data Factory à l’aide de l’API REST Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 7e0a2465-2d85-4143-a4bb-42e03c273097
 ms.service: data-factory
 ms.workload: data-services
@@ -15,16 +14,16 @@ ms.topic: hero-article
 ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: deee54fe55aeab6b97c0b31064b6893e334f6796
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 4c9b4408e6ac92a2f86a10f63ddd254486b82b3e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Didacticiel : Créer votre première fabrique de données Azure en utilisant l’API REST Data Factory
 > [!div class="op_single_selector"]
 > * [Vue d’ensemble et étapes préalables requises](data-factory-build-your-first-pipeline.md)
-> * [Portail Azure](data-factory-build-your-first-pipeline-using-editor.md)
+> * [Portail Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modèle Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -47,6 +46,7 @@ Le pipeline dans ce didacticiel a une activité : **Activité HDInsight Hive**.
 
 
 ## <a name="prerequisites"></a>Prérequis
+
 * Lisez l’article [Vue d’ensemble du didacticiel](data-factory-build-your-first-pipeline.md) et effectuez les **étapes préalables requises** .
 * Installez [Curl](https://curl.haxx.se/dlwiz/) sur votre ordinateur. L’outil CURL et les commandes REST vous permettent de créer une fabrique de données.
 * Suivez les instructions de [cet article](../../azure-resource-manager/resource-group-create-service-principal-portal.md) pour effectuer les opérations suivantes :

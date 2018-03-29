@@ -1,23 +1,23 @@
 ---
-title: "Activité de copie dans Azure Data Factory | Microsoft Docs"
-description: "Découvrez l’activité de copie dans Azure Data Factory que vous pouvez utiliser pour copier des données d’une banque de données source prise en charge vers une banque de données réceptrice prise en charge."
+title: Activité de copie dans Azure Data Factory | Microsoft Docs
+description: Découvrez l’activité de copie dans Azure Data Factory que vous pouvez utiliser pour copier des données d’une banque de données source prise en charge vers une banque de données réceptrice prise en charge.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 03/16/2018
 ms.author: jingwang
-ms.openlocfilehash: faad821d406ac155516696c1207c8c9deef8fdab
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 3b92aed83e01d223b33f269f0202355836f806c1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Activité de copie dans Azure Data Factory
 

@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C : applications à page unique créée avec un flux implicite | Microsoft Docs"
-description: "Découvrez comment créer des applications à page unique directement en utilisant un flux implicite OAuth 2.0 avec Azure Active Directory B2C."
+title: 'Azure Active Directory B2C : applications à page unique créée avec un flux implicite | Microsoft Docs'
+description: Découvrez comment créer des applications à page unique directement en utilisant un flux implicite OAuth 2.0 avec Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: a45cc74c-a37e-453f-b08b-af75855e0792
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
-ms.author: parakhj
-ms.openlocfilehash: 2ce4aaac117920c1da0b8a29797169d536825c1a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: ac0351ce220da5194d3a447e51185409b7368f21
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure AD B2C : Connexion à une application à page unique en utilisant un flux implicite OAuth 2.0
 
@@ -92,14 +89,14 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 | Paramètre | Requis ? | Description |
 | --- | --- | --- |
-| client_id |Requis |ID d’application affecté à votre application dans le [portail Azure](https://portal.azure.com). |
-| response_type |Requis |Doit inclure `id_token` pour la connexion à OpenID Connect. Il peut également inclure le type de réponse `token`. Si vous utilisez `token`, votre application peut recevoir immédiatement un jeton d’accès du point de terminaison d’autorisation sans avoir à effectuer une deuxième demande au point de terminaison d’autorisation.  Si vous utilisez le type de réponse `token`, le paramètre `scope` doit contenir une étendue indiquant la ressource pour laquelle le jeton doit être émis. |
+| client_id |Obligatoire |ID d’application affecté à votre application dans le [portail Azure](https://portal.azure.com). |
+| response_type |Obligatoire |Doit inclure `id_token` pour la connexion à OpenID Connect. Il peut également inclure le type de réponse `token`. Si vous utilisez `token`, votre application peut recevoir immédiatement un jeton d’accès du point de terminaison d’autorisation sans avoir à effectuer une deuxième demande au point de terminaison d’autorisation.  Si vous utilisez le type de réponse `token`, le paramètre `scope` doit contenir une étendue indiquant la ressource pour laquelle le jeton doit être émis. |
 | redirect_uri |Recommandé |L’URI de redirection de votre application, vers lequel votre application peut envoyer et recevoir des réponses d’authentification. Il doit correspondre exactement à un des URI de redirection que vous avez inscrits dans le portail, sauf qu’il doit être codé dans l’URL. |
 | response_mode |Recommandé |Spécifie la méthode à utiliser pour renvoyer le jeton résultant à votre application.  Pour les flux implicites, utilisez `fragment`. |
-| scope |Requis |Une liste d’étendues séparées par des espaces. Une valeur d’étendue unique indique à Azure AD les deux autorisations qui sont demandées. L’étendue `openid` indique une autorisation de connecter l’utilisateur et d’obtenir des données relatives à l’utilisateur sous la forme de jetons d’ID. (Nous parlons de cela plus en détail ultérieurement dans cet article.) L’étendue `offline_access` est facultative pour les applications Web. Elle indique que votre application a besoin d’un jeton d’actualisation pour un accès durable aux ressources. |
+| scope |Obligatoire |Une liste d’étendues séparées par des espaces. Une valeur d’étendue unique indique à Azure AD les deux autorisations qui sont demandées. L’étendue `openid` indique une autorisation de connecter l’utilisateur et d’obtenir des données relatives à l’utilisateur sous la forme de jetons d’ID. (Nous parlons de cela plus en détail ultérieurement dans cet article.) L’étendue `offline_access` est facultative pour les applications Web. Elle indique que votre application a besoin d’un jeton d’actualisation pour un accès durable aux ressources. |
 | state |Recommandé |Valeur incluse dans la demande qui est également retournée dans la réponse de jeton. Il peut s’agir d’une chaîne de n’importe quel contenu que vous voulez utiliser. Généralement, une valeur unique générée de manière aléatoire est utilisée, de façon à empêcher les attaques par falsification de requête intersites. L’état est également utilisé pour coder les informations sur l’état de l’utilisateur dans l’application avant la demande d’authentification, comme la page sur laquelle il était positionné. |
-| nonce |Requis |Une valeur incluse dans la demande (générée par l’application) qui est incluse dans le jeton d’ID résultant en tant que revendication. L’application peut ensuite vérifier cette valeur afin de contrer les attaques par relecture de jetons. En général, la valeur est une chaîne unique aléatoire qui peut être utilisée pour identifier l’origine de la demande. |
-| p |Requis |Stratégie à exécuter. Il s’agit du nom d’une stratégie qui est créée dans votre locataire Azure AD B2C. La valeur du nom de la stratégie doit commencer par **b2c\_1\_**. Pour plus d’informations, consultez [Stratégies prédéfinies d’Azure AD B2C](active-directory-b2c-reference-policies.md). |
+| nonce |Obligatoire |Une valeur incluse dans la demande (générée par l’application) qui est incluse dans le jeton d’ID résultant en tant que revendication. L’application peut ensuite vérifier cette valeur afin de contrer les attaques par relecture de jetons. En général, la valeur est une chaîne unique aléatoire qui peut être utilisée pour identifier l’origine de la demande. |
+| p |Obligatoire |Stratégie à exécuter. Il s’agit du nom d’une stratégie qui est créée dans votre locataire Azure AD B2C. La valeur du nom de la stratégie doit commencer par **b2c\_1\_**. Pour plus d’informations, consultez [Stratégies prédéfinies d’Azure AD B2C](active-directory-b2c-reference-policies.md). |
 | prompt |Facultatif |Type d’interaction utilisateur demandée. Actuellement, la seule valeur possible est `login`. Ceci force l’utilisateur à entrer ses informations d’identification pour cette demande. L’authentification unique ne prendra pas effet. |
 
 À ce stade, il est demandé à l’utilisateur d’effectuer le flux de travail de la stratégie. Il est possible que l’utilisateur doive entrer son nom d’utilisateur et son mot de passe, se connecter avec une identité sociale, s’inscrire à l’annuaire, etc. Les actions de l’utilisateur dépendent de la façon dont la stratégie est définie.
@@ -162,7 +159,7 @@ Pour déterminer la stratégie utilisée pour signer un jeton d’ID (et l’emp
 Après avoir acquis le document de métadonnées auprès du point de terminaison de métadonnées OpenID Connect, vous pouvez utiliser les clés publiques RSA 256 (qui se trouvent sur ce point de terminaison) pour valider la signature du jeton d’ID. Il peut y avoir plusieurs clés répertoriées sur ce point de terminaison, chacune étant identifiée par un `kid`. L’en-tête de `id_token` contient également une revendication de `kid`. Il indique laquelle de ces clés a été utilisée pour signer le jeton d’ID. Pour plus d’informations, notamment sur la [validation des jetons](active-directory-b2c-reference-tokens.md#token-validation), consultez les [informations de référence sur les jetons d’Azure AD B2C](active-directory-b2c-reference-tokens.md).
 <!--TODO: Improve the information on this-->
 
-Après la validation de la signature du jeton d’ID, plusieurs revendications nécessitent une vérification. Par exemple :
+Après la validation de la signature du jeton d’ID, plusieurs revendications nécessitent une vérification. Par exemple : 
 
 * Validez la revendication `nonce` afin d’empêcher les attaques par relecture de jetons. Sa valeur doit correspondre à ce que vous avez spécifié dans la requête de connexion.
 * Validez la revendication `aud` pour vérifier que le jeton d’ID a été émis pour votre application. Sa valeur doit correspondre à l’ID d’application de votre application.
@@ -203,16 +200,16 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 | Paramètre | Requis ? | Description |
 | --- | --- | --- |
-| client_id |Requis |ID d’application affecté à votre application dans le [portail Azure](https://portal.azure.com). |
-| response_type |Requis |Doit inclure `id_token` pour la connexion à OpenID Connect.  Il peut également inclure le type de réponse `token`. Si vous utilisez `token` ici, votre application peut recevoir immédiatement un jeton d’accès du point de terminaison d’autorisation, sans avoir à effectuer une deuxième demande au point de terminaison d’autorisation. Si vous utilisez le type de réponse `token`, le paramètre `scope` doit contenir une étendue indiquant la ressource pour laquelle le jeton doit être émis. |
+| client_id |Obligatoire |ID d’application affecté à votre application dans le [portail Azure](https://portal.azure.com). |
+| response_type |Obligatoire |Doit inclure `id_token` pour la connexion à OpenID Connect.  Il peut également inclure le type de réponse `token`. Si vous utilisez `token` ici, votre application peut recevoir immédiatement un jeton d’accès du point de terminaison d’autorisation, sans avoir à effectuer une deuxième demande au point de terminaison d’autorisation. Si vous utilisez le type de réponse `token`, le paramètre `scope` doit contenir une étendue indiquant la ressource pour laquelle le jeton doit être émis. |
 | redirect_uri |Recommandé |L’URI de redirection de votre application, vers lequel votre application peut envoyer et recevoir des réponses d’authentification. Il doit correspondre exactement à un des URI de redirection inscrits dans le portail, sauf qu’il doit être codé dans une URL. |
-| scope |Requis |Une liste d’étendues séparées par des espaces.  Pour obtenir des jetons, incluez toutes les étendues dont vous avez besoin pour la ressource concernée. |
+| scope |Obligatoire |Une liste d’étendues séparées par des espaces.  Pour obtenir des jetons, incluez toutes les étendues dont vous avez besoin pour la ressource concernée. |
 | response_mode |Recommandé |Spécifie la méthode utilisée pour envoyer le jeton résultant à votre application.  Peut être `query`, `form_post` ou `fragment`. |
 | state |Recommandé |Une valeur incluse dans la requête qui est également renvoyée dans la réponse de jeton.  Il peut s’agir d’une chaîne de n’importe quel contenu que vous voulez utiliser.  Généralement, une valeur unique générée de manière aléatoire est utilisée, de façon à empêcher les attaques par falsification de requête intersites.  L’état est également utilisé pour coder les informations sur l’état de l’utilisateur dans l’application avant la demande d’authentification. Par exemple, la page ou la vue où était l’utilisateur. |
-| nonce |Requis |Valeur incluse dans la demande, générée par l’application, qui est incluse dans le jeton d’ID résultant en tant que revendication.  L’application peut ensuite vérifier cette valeur afin de contrer les attaques par relecture de jetons. La valeur est généralement une chaîne unique aléatoire qui identifie l’origine de la demande. |
-| prompt |Requis |Pour actualiser et obtenir des jetons dans un IFrame masqué, utilisez `prompt=none` pour que l’IFrame ne se bloque pas sur la page de connexion et ne retourne pas immédiatement. |
-| login_hint |Requis |Pour actualiser et obtenir des jetons dans un IFrame masqué, vous devez inclure dans cet indicateur le nom d’utilisateur de l’utilisateur afin de faire la distinction entre différentes sessions que l’utilisateur pourrait avoir à un moment donné. Vous pouvez extraire le nom d’utilisateur à partir d’une connexion précédente en utilisant la revendication `preferred_username`. |
-| domain_hint |Requis |Peut être `consumers` ou `organizations`.  Pour actualiser et obtenir des jetons dans un IFrame masqué, vous devez inclure la valeur `domain_hint` dans la demande.  Extrayez la revendication `tid` du jeton d’ID d’une connexion précédente pour déterminer la valeur à utiliser.  Si la valeur de la revendication `tid` est `9188040d-6c67-4c5b-b112-36a304b66dad`, utilisez `domain_hint=consumers`.  Sinon, utilisez `domain_hint=organizations`. |
+| nonce |Obligatoire |Valeur incluse dans la demande, générée par l’application, qui est incluse dans le jeton d’ID résultant en tant que revendication.  L’application peut ensuite vérifier cette valeur afin de contrer les attaques par relecture de jetons. La valeur est généralement une chaîne unique aléatoire qui identifie l’origine de la demande. |
+| prompt |Obligatoire |Pour actualiser et obtenir des jetons dans un IFrame masqué, utilisez `prompt=none` pour que l’IFrame ne se bloque pas sur la page de connexion et ne retourne pas immédiatement. |
+| login_hint |Obligatoire |Pour actualiser et obtenir des jetons dans un IFrame masqué, vous devez inclure dans cet indicateur le nom d’utilisateur de l’utilisateur afin de faire la distinction entre différentes sessions que l’utilisateur pourrait avoir à un moment donné. Vous pouvez extraire le nom d’utilisateur à partir d’une connexion précédente en utilisant la revendication `preferred_username`. |
+| domain_hint |Obligatoire |Peut être `consumers` ou `organizations`.  Pour actualiser et obtenir des jetons dans un IFrame masqué, vous devez inclure la valeur `domain_hint` dans la demande.  Extrayez la revendication `tid` du jeton d’ID d’une connexion précédente pour déterminer la valeur à utiliser.  Si la valeur de la revendication `tid` est `9188040d-6c67-4c5b-b112-36a304b66dad`, utilisez `domain_hint=consumers`.  Sinon, utilisez `domain_hint=organizations`. |
 
 Avec le paramètre `prompt=none`, cette demande réussit ou échoue immédiatement, et retourne à votre application.  Une réponse correcte est envoyée à votre application à l’URI de redirection indiqué, en utilisant la méthode spécifiée dans le paramètre `response_mode`.
 
@@ -258,7 +255,7 @@ Les jetons d’ID et les jetons d’accès expirent après une courte période d
 ## <a name="send-a-sign-out-request"></a>Envoi d’une demande de déconnexion
 Lorsque vous souhaitez déconnecter l’utilisateur de l’application, redirigez l’utilisateur vers Azure AD pour effectuer cette déconnexion. Si vous ne le faites pas, l’utilisateur doit pouvoir se réauthentifier auprès de votre application sans entrer à nouveau ses informations d’identification. En effet, il dispose d’une session d’authentification unique valide avec Azure AD.
 
-Vous pouvez simplement rediriger l’utilisateur vers le `end_session_endpoint` qui est répertorié dans le même document de métadonnées OpenID Connect décrit dans [Validation du jeton d’ID](#validate-the-id-token). Par exemple :
+Vous pouvez simplement rediriger l’utilisateur vers le `end_session_endpoint` qui est répertorié dans le même document de métadonnées OpenID Connect décrit dans [Validation du jeton d’ID](#validate-the-id-token). Par exemple : 
 
 ```
 GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/logout?
@@ -268,7 +265,7 @@ p=b2c_1_sign_in
 
 | Paramètre | Requis ? | Description |
 | --- | --- | --- |
-| p |Requis |La stratégie à utiliser pour déconnecter l’utilisateur de votre application. |
+| p |Obligatoire |La stratégie à utiliser pour déconnecter l’utilisateur de votre application. |
 | post_logout_redirect_uri |Recommandé |URL vers laquelle l’utilisateur doit être redirigé après la déconnexion. Si elle n’est pas incluse, Azure AD B2C affiche un message générique à l’utilisateur. |
 
 > [!NOTE]

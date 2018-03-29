@@ -1,12 +1,12 @@
 ---
-title: "Vue d’ensemble du protocole IPv6 pour Azure Load Balancer | Microsoft Docs"
-description: "Présentation de la prise en charge du protocole IPv6 par Azure Load Balancer et les machines virtuelles à charge équilibrée."
+title: Vue d’ensemble du protocole IPv6 pour Azure Load Balancer | Microsoft Docs
+description: Présentation de la prise en charge du protocole IPv6 par Azure Load Balancer et les machines virtuelles à charge équilibrée.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-editor: 
-keywords: "IPv6, équilibreur de charge azure, double pile, adresse ip publique, ipv6 natif, mobile, iot"
+manager: jeconnoc
+editor: ''
+keywords: IPv6, équilibreur de charge azure, double pile, adresse ip publique, ipv6 natif, mobile, iot
 ms.assetid: 6a1d583f-a305-40fd-a94b-fa42e1943bbb
 ms.service: load-balancer
 ms.devlang: na
@@ -15,16 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 1902475c81c4f83f8ba69a05f9564bc65a5de833
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9622ad4922aa98efe093e7f809a490a8797eb1fd
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Vue d’ensemble du protocole IPv6 pour Azure Load Balancer
 
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+>[!NOTE] 
+>Azure Load Balancer prend en charge deux types différents : Basic et Standard. Cet article décrit Basic Load Balancer. Pour plus d’informations sur Standard Load Balancer, consultez la [présentation de Standard Load Balancer](load-balancer-standard-overview.md).
 
 Des équilibrages de charge accessibles sur Internet peuvent être déployés avec une adresse IPv6. En plus d’une connectivité IPv4, les fonctionnalités suivantes sont activées :
 
@@ -62,7 +63,7 @@ Détails
 * Les machines virtuelles exécutant le système d’exploitation Linux doivent être configurées pour recevoir une adresse IP IPv6 via DHCP. Un grand nombre des images Linux disponibles dans la galerie Azure sont déjà configurées pour prendre en charge IPv6 sans modification. Pour plus d’informations, consultez [Configuration de DHCPv6 pour les machines virtuelles Linux](load-balancer-ipv6-for-linux.md)
 * Si vous choisissez d’utiliser une sonde d’intégrité avec votre équilibrage de charge, créez une sonde IPv4 et utilisez-la avec les points de terminaison IPv4 et IPv6. Si le service de votre machine virtuelle devient indisponible, les points de terminaison IPv4 et IPv6 sont mis hors service.
 
-Limitations
+Limites
 
 * Vous ne pouvez pas ajouter de règles d’équilibrage de charge IPv6 dans le portail Azure. Les règles peuvent uniquement être créées via le modèle, l’interface CLI et PowerShell.
 * Vous ne pouvez pas mettre à niveau des machines virtuelles existantes de sorte qu’elles utilisent des adresses IPv6. Vous devez déployer de nouvelles machines virtuelles.

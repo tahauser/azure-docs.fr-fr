@@ -1,8 +1,8 @@
 ---
 title: Configurer Azure Multi-Factor Authentication | Microsoft Docs
-description: "Cet article décrit comment configurer les paramètres d’Azure Multi-Factor Authentication pour les rapports, les alertes de fraude, les contournements à usage unique, les messages vocaux personnalisés, la mise en cache, les adresses IP approuvées et les mots de passe d’application."
+description: Cet article décrit comment configurer les paramètres d’Azure Multi-Factor Authentication pour les rapports, les alertes de fraude, les contournements à usage unique, les messages vocaux personnalisés, la mise en cache, les adresses IP approuvées et les mots de passe d’application.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.assetid: 75af734e-4b12-40de-aba4-b68d91064ae8
@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 01/03/2018
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 4421b995e69e115fbb6c7379af79aaef537aed0d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: e2b6651f0d341567f1d02d0ca16b8f445e3d26f4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurer les paramètres d’Azure Multi-Factor Authentication
 
-Cet article vous aide à gérer Azure Multi-Factor Authentication, maintenant que vous êtes opérationnel. Il aborde divers sujets qui vous permettent de tirer le meilleur parti d’Azure Multi-Factor Authentication. Toutes les fonctionnalités ne sont pas disponibles dans chaque [version d’Azure Multi-Factor Authentication](/multi-factor-authentication-get-started.md#what-features-do-i-need).
+Cet article vous aide à gérer Azure Multi-Factor Authentication, maintenant que vous êtes opérationnel. Il aborde divers sujets qui vous permettent de tirer le meilleur parti d’Azure Multi-Factor Authentication. Toutes les fonctionnalités ne sont pas disponibles dans chaque [version d’Azure Multi-Factor Authentication](multi-factor-authentication-get-started.md#what-features-do-i-need).
 
 | Fonctionnalité | Description | 
 |:--- |:--- |

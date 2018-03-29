@@ -8,13 +8,11 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: e8fe3b0023d2cdb9061b5a2c15c3b2c7095c128e
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 587a6badd57aad839b4b03ca9da1b62d97b38f82
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Runbooks enfants dans Azure Automation
 Dans Azure Automation, il est recommandé d’écrire des Runbooks réutilisables et modulaires avec une fonction discrète qui peut être utilisée par d’autres Runbooks. Un Runbook parent appelle souvent un ou plusieurs Runbooks enfants pour exécuter la fonctionnalité requise. Il existe deux méthodes pour appeler un Runbook enfant. Vous devez comprendre leurs spécificités afin de déterminer celle répondant le mieux aux exigences de chacun de vos scénarios.

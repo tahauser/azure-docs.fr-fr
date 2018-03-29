@@ -9,13 +9,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: 5b5f6571400815cd97d2cde8c0e287d6910de2b3
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 61632bfc8848fb5a5bcbcda7c1e60e763448ce23
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="my-first-powershell-runbook"></a>Mon premier Runbook PowerShell
 
@@ -80,7 +78,7 @@ Le runbook que vous avez créé est toujours en mode brouillon. Il faut le publi
 8. Fermez la page Sortie.
 9. Cliquez sur **Tous les journaux** pour ouvrir le volet Flux de la tâche du Runbook. Vous devez uniquement voir le message *Hello World* dans le flux de sortie, mais d’autres flux peuvent s’afficher pour un travail de runbook, notamment Mode détaillé et Erreur si le runbook consigne ces informations.<br><br> ![Tous les journaux](media/automation-first-runbook-textual-powershell/job-pane-status-blade-alllogstile.png)<br>   
 10. Fermez les page du flux et de la tâche pour revenir à la page MyFirstRunbook-PowerShell.
-11. Sous **Détails**, cliquez sur **Tâches** pour ouvrir le volet Tâches pour ce runbook. Il répertorie toutes les tâches créées par ce Runbook. Vous devez voir un seul travail, car vous n’avez exécuté le travail qu’une seule fois.<br><br> ![Liste des postes](media/automation-first-runbook-textual-powershell/runbook-control-job-tile.png)  
+11. Sous **Détails**,c liquez sur **Tâches** pour ouvrir le volet Tâches pour ce runbook. Il répertorie toutes les tâches créées par ce Runbook. Vous devez voir un seul travail, car vous n’avez exécuté le travail qu’une seule fois.<br><br> ![Liste des postes](media/automation-first-runbook-textual-powershell/runbook-control-job-tile.png)  
 12. Vous pouvez cliquer sur ce travail pour ouvrir le même volet du travail que vous avez consulté au démarrage du runbook. Cela vous permet de revenir en arrière et d’afficher les détails de toute tâche créée pour un Runbook donné.
 
 ## <a name="step-5---add-authentication-to-manage-azure-resources"></a>Étape 5 : Ajout d’une authentification pour gérer les ressources Azure

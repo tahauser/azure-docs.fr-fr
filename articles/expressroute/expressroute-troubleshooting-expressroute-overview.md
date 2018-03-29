@@ -1,12 +1,12 @@
 ---
-title: "Vérification de la connectivité : Guide de dépannage Azure ExpressRoute | Microsoft Docs"
-description: "Cette page fournit des instructions sur le dépannage et la validation de la connectivité de bout en bout d’un circuit ExpressRoute."
+title: 'Vérification de la connectivité : Guide de dépannage Azure ExpressRoute | Microsoft Docs'
+description: Cette page fournit des instructions sur le dépannage et la validation de la connectivité de bout en bout d’un circuit ExpressRoute.
 documentationcenter: na
 services: expressroute
 author: rambk
 manager: tracsman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: cherylmc
-ms.openlocfilehash: 74b6589a7e06570d978dfe40c5f5bf140e092cc6
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5d01f2e402e4b793274761703ec3ca1ea3ff8164
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="verifying-expressroute-connectivity"></a>Vérification de la connectivité ExpressRoute
 ExpressRoute, qui étend un réseau local dans le cloud Microsoft par le biais d’une connexion privée qui est facilitée par un fournisseur de connectivité, implique les trois zones de réseau distinctes suivantes :
@@ -68,7 +68,7 @@ Les étapes suivantes permettent de valider un circuit ExpressRoute (avec le poi
 
 Des validations et des vérifications complémentaires seront ajoutées prochainement, vérifiez tous les mois !
 
-##<a name="validate-circuit-provisioning-and-state"></a>Validation de l'approvisionnement et l’état du circuit
+## <a name="validate-circuit-provisioning-and-state"></a>Validation de l'approvisionnement et l’état du circuit
 Quel que soit le modèle de connectivité, un circuit ExpressRoute doit être créé et une clé de service générée pour l’approvisionnement du circuit. L’approvisionnement d’un circuit ExpressRoute établit une connexion de couche 2 redondante entre les PE-MSEE (4) et les MSEE (5). Pour plus d’informations sur la manière de créer, de modifier, d'approvisionner et de vérifier un circuit ExpressRoute, consultez l’article [Création et modification d’un circuit ExpressRoute][CreateCircuit].
 
 >[!TIP]
@@ -76,7 +76,7 @@ Quel que soit le modèle de connectivité, un circuit ExpressRoute doit être cr
 >
 >
 
-###<a name="verification-via-the-azure-portal"></a>Vérification par le biais du portail Azure
+### <a name="verification-via-the-azure-portal"></a>Vérification par le biais du portail Azure
 Dans le portail Azure, l’état d’un circuit ExpressRoute peut être vérifié en sélectionnant ![2][2] dans la barre de menu de gauche, puis en sélectionnant le circuit ExpressRoute. Sélectionner un circuit ExpressRoute répertorié sous « Toutes les ressources » ouvre le panneau de circuit ExpressRoute. Dans la section ![3][3] du panneau, les informations essentielles d'ExpressRoute sont indiquées comme illustré dans la capture d’écran suivante :
 
 ![4][4]    
@@ -90,7 +90,7 @@ Pour qu'un circuit ExpressRoute soit opérationnel, *l'état du Circuit* doit ê
 >
 >
 
-###<a name="verification-via-powershell"></a>Vérification par le biais de PowerShell
+### <a name="verification-via-powershell"></a>Vérification par le biais de PowerShell
 Pour répertorier tous les circuits ExpressRoute dans un groupe de ressources, utilisez la commande suivante :
 
     Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
@@ -139,7 +139,7 @@ Pour vérifier si un circuit ExpressRoute est opérationnel, portez une attentio
 >
 >
 
-###<a name="verification-via-powershell-classic"></a>Vérification par le biais de PowerShell (classique)
+### <a name="verification-via-powershell-classic"></a>Vérification par le biais de PowerShell (classique)
 Pour répertorier tous les circuits ExpressRoute dans un abonnement, utilisez la commande suivante :
 
     Get-AzureDedicatedCircuit
@@ -167,10 +167,10 @@ Pour vérifier si un circuit ExpressRoute est opérationnel, portez une attentio
 >
 >
 
-##<a name="validate-peering-configuration"></a>Validation de la configuration de l’homologation
+## <a name="validate-peering-configuration"></a>Validation de la configuration de l’homologation
 Une fois que le fournisseur de services a terminé l'approvisionnement du circuit ExpressRoute, une configuration de routage peut être créée à travers le circuit ExpressRoute entre des MSEE-PR (4) et des MSEE (5). Chaque circuit ExpressRoute peut avoir un, deux ou trois contextes de routage activés : l'homologation privée Azure (trafic vers des réseaux virtuels privés dans Azure), l'homologation publique Azure (le trafic vers des adresses IP publiques dans Azure) et l'homologation Microsoft (Office 365 et Dynamics 365). Pour plus d’informations sur la création et la modification de la configuration de routage, consultez l’article [Créer et modifier le routage le routage pour un circuit ExpressRoute][CreatePeering].
 
-###<a name="verification-via-the-azure-portal"></a>Vérification par le biais du portail Azure
+### <a name="verification-via-the-azure-portal"></a>Vérification par le biais du portail Azure
 
 >[!NOTE]
 >Si la couche 3 est fournie par le fournisseur de services et que les homologations sont vides dans le portail, actualisez la configuration du circuit à l’aide du bouton Actualiser du portail. Cette opération appliquera la configuration de routage appropriée à votre circuit. 
@@ -188,7 +188,7 @@ Dans l’exemple précédent, nous avons noté que le contexte de routage Homolo
 >
 >
 
-###<a name="verification-via-powershell"></a>Vérification par le biais de PowerShell
+### <a name="verification-via-powershell"></a>Vérification par le biais de PowerShell
 Pour obtenir les détails sur la configuration de l'homologation privée Azure, utilisez les commandes suivantes :
 
     $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
@@ -364,7 +364,7 @@ L’exemple suivant montre la réponse de la commande pour une homologation inex
 
     Route Table Info:
 
-##<a name="check-the-traffic-statistics"></a>Vérification des statistiques de trafic
+## <a name="check-the-traffic-statistics"></a>Vérification des statistiques de trafic
 Pour obtenir les statistiques combinées du trafic de chemin d’accès primaire et secondaire (octets en entrée et en sortie) d’un contexte d’homologation, utilisez la commande suivante :
 
     Get-AzureDedicatedCircuitStats -ServiceKey 97f85950-01dd-4d30-a73c-bf683b3a6e5c -AccessType Private

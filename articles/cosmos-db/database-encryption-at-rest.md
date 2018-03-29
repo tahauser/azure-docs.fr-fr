@@ -1,11 +1,11 @@
 ---
-title: "Chiffrement de base de données au repos : Azure Cosmos DB | Microsoft Docs"
-description: "Découvrez comment Azure Cosmos DB assure le chiffrement par défaut de toutes les données."
+title: 'Chiffrement de base de données au repos : Azure Cosmos DB | Microsoft Docs'
+description: Découvrez comment Azure Cosmos DB assure le chiffrement par défaut de toutes les données.
 services: cosmos-db
 author: voellm
 manager: jhubbard
 editor: mimig
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 99725c52-d7ca-4bfa-888b-19b1569754d3
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: voellm
-ms.openlocfilehash: 193dbede0655376714c6f8f12c826ba3f9bc8933
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: df793fb0511d1289b927caad200eb8252f2b64e6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>Chiffrement de base de données Azure Cosmos DB au repos
 
@@ -53,7 +53,6 @@ R : Microsoft a un ensemble de règles internes pour la rotation des clés de ch
 
 ### <a name="q-can-i-use-my-own-encryption-keys"></a>Q : Puis-je utiliser mes propres clés de chiffrement ?
 R : Cosmos DB est un service PaaS et nous avons beaucoup travaillé pour le rendre facile à utiliser. Nous avons constaté que cette question est souvent posée en rapport avec la conformité à des normes comme PCI-DSS. Dans le cadre du développement de cette fonctionnalité, nous avons collaboré avec des auditeurs de conformité pour garantir que les clients utilisant Cosmos DB répondent à leurs exigences sans devoir gérer les clés eux-mêmes.
-C’est pourquoi nous n’offrons actuellement pas aux utilisateurs la possibilité de s’occuper eux-mêmes de la gestion des clés.
 
 ### <a name="q-what-regions-have-encryption-turned-on"></a>Q : Dans quelles régions le chiffrement est-il activé ?
 R : Le chiffrement est activé dans toutes les régions Azure Cosmos DB pour l’ensemble des données utilisateur.

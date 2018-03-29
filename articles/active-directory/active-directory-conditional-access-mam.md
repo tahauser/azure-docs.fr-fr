@@ -1,12 +1,12 @@
 ---
-title: "Accès conditionnel basé sur les applications Azure Active Directory | Microsoft Docs"
-description: "Découvrez le fonctionnement de l’accès conditionnel basé sur les applications Azure Active Directory."
+title: Accès conditionnel basé sur les applications Azure Active Directory | Microsoft Docs
+description: Découvrez le fonctionnement de l’accès conditionnel basé sur les applications Azure Active Directory.
 services: active-directory
-keywords: "accès conditionnel aux applications, accès conditionnel à Azure AD, accès sécurisé aux ressources d’entreprise, stratégies d’accès conditionnel"
-documentationcenter: 
+keywords: accès conditionnel aux applications, accès conditionnel à Azure AD, accès sécurisé aux ressources d’entreprise, stratégies d’accès conditionnel
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 01/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 7814b53a69506f81bc6a75387c62766e36d528d8
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: b35aed3583307c34eadbed3dd13d1ffd51494927
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-app-based-conditional-access"></a>Accès conditionnel basé sur les applications Azure Active Directory  
 
@@ -50,7 +50,7 @@ Vous pouvez combiner des stratégies d’accès conditionnel basé sur les appli
  
 
 
-##<a name="before-you-begin"></a>Avant de commencer
+## <a name="before-you-begin"></a>Avant de commencer
 
 Cette rubrique part du principe que vous connaissez :
 
@@ -64,7 +64,8 @@ Cette rubrique part du principe que vous connaissez :
 - La [migration des stratégies d’accès conditionnel](active-directory-conditional-access-best-practices.md#policy-migration).
  
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour créer une stratégie d’accès conditionnel basé sur les applications, vous devez avoir un abonnement à Enterprise Mobility + Security ou à Azure Active Directory Premium, et les utilisateurs doivent disposer d’une licence pour EMS ou Azure AD. 
 

@@ -1,11 +1,11 @@
 ---
-title: "Copier de façon incrémentielle une table en utilisant Azure Data Factory | Microsoft Docs"
-description: "Dans ce didacticiel, vous allez créer un pipeline de fabrique de données Azure qui copie de façon incrémentielle les données d’une base de données SQL Azure dans un stockage Blob Azure."
+title: Copier de façon incrémentielle une table en utilisant Azure Data Factory | Microsoft Docs
+description: Dans ce didacticiel, vous allez créer un pipeline de fabrique de données Azure qui copie de façon incrémentielle les données d’une base de données SQL Azure dans un stockage Blob Azure.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 545228196a0d510571b2982a836b23acc976ffbf
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: a543bb1ceb14bb8f618e1cf644cc269a99719c28
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Charger de façon incrémentielle les données d’une base de données SQL Azure dans un stockage Blob Azure
 Dans ce didacticiel, vous allez créer une fabrique de données Azure avec un pipeline qui charge les données delta d’une table d’une base de données SQL Azure vers un stockage Blob Azure. 
@@ -33,12 +33,12 @@ Dans ce didacticiel, vous allez effectuer les étapes suivantes :
 > * Préparer le magasin de données pour y stocker la valeur de limite.
 > * Créer une fabrique de données.
 > * créez des services liés. 
-> * Créer des jeux de données source, récepteur et de filigrane.
+> * Créer des jeux de données source, récepteur et filigrane.
 > * Créer un pipeline.
 > * Exécuter le pipeline.
 > * Surveiller l’exécution du pipeline. 
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 Voici le diagramme général de la solution : 
 
 ![Chargement incrémentiel de données](media\tutorial-Incrementally-copy-powershell\incrementally-load.png)
@@ -63,6 +63,7 @@ Voici les étapes importantes à suivre pour créer cette solution :
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
+
 * **Base de données SQL Azure**. Vous utilisez la base de données comme magasin de données source. Si vous ne disposez pas d’une base de données SQL, consultez [Créer une base de données Azure SQL Database](../sql-database/sql-database-get-started-portal.md) pour connaître la procédure à suivre pour en créer une.
 * **Stockage Azure**. Vous utilisez le stockage d’objets blob comme magasin de données récepteur. Si vous ne possédez pas de compte de stockage, consultez l’article [Créer un compte de stockage](../storage/common/storage-create-storage-account.md#create-a-storage-account) pour découvrir comment en créer un. Créez un conteneur sous le nom adftutorial. 
 * **Azure PowerShell**. Suivez les instructions de la page [Installation et configuration d’Azure PowerShell](/powershell/azure/install-azurerm-ps).
@@ -123,7 +124,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
     ```sql
     Select * from watermarktable
     ```
-    Sortie : 
+    Output: 
 
     ```
     TableName  | WatermarkValue
@@ -733,7 +734,7 @@ Dans ce didacticiel, vous avez effectué les étapes suivantes :
 > * Préparer le magasin de données pour y stocker la valeur de limite. 
 > * Créer une fabrique de données.
 > * créez des services liés. 
-> * Créer des jeux de données source, récepteur et de filigrane.
+> * Créer des jeux de données source, récepteur et filigrane.
 > * Créer un pipeline.
 > * Exécuter le pipeline.
 > * Surveiller l’exécution du pipeline. 

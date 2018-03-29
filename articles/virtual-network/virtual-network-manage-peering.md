@@ -1,13 +1,13 @@
 ---
-title: "Créer, modifier ou supprimer une homologation de réseau virtuel Azure | Microsoft Docs"
-description: "Découvrez comment créer, modifier ou supprimer une homologation de réseau virtuel."
+title: Créer, modifier ou supprimer une homologation de réseau virtuel Azure | Microsoft Docs
+description: Découvrez comment créer, modifier ou supprimer une homologation de réseau virtuel.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 8fa7496c3489a0a3e5ee6d829bbeef0f0ccdf315
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: f42a23a8d4e6a90f104c97d4a1cbdef5343e585e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Créer, modifier ou supprimer une homologation de réseau virtuel
 
@@ -140,7 +140,7 @@ Si vous souhaitez que les réseaux virtuels communiquent occasionnellement, au l
     - VirtualNetwork2 et VirtualNetwork3
 
   Il n’existe aucune homologation entre VirtualNetwork1 et VirtualNetwork3 via VirtualNetwork2. Si vous souhaitez créer une homologation de réseaux virtuels entre VirtualNetwork1 et VirtualNetwork3, vous devez créer une homologation entre VirtualNetwork1 et VirtualNetwork3.
-- Vous ne pouvez pas résoudre des noms dans des réseaux virtuels homologués en utilisant une résolution de noms Azure par défaut. Pour résoudre des noms dans d’autres réseaux virtuels, vous devez utiliser un serveur DNS personnalisé. Pour savoir comment configurer votre propre serveur DNS, lisez l’article [Résolution de noms à l’aide de votre propre serveur DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
+- Vous ne pouvez pas résoudre des noms dans des réseaux virtuels homologués en utilisant une résolution de noms Azure par défaut. Pour résoudre des noms dans d’autres réseaux virtuels, vous devez utiliser un serveur DNS personnalisé. Pour savoir comment configurer votre propre serveur DNS, lisez l’article [Résolution de noms à l’aide de votre propre serveur DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 - Les ressources des deux réseaux virtuels dans l’homologation peuvent communiquer entre elles avec les mêmes bande passante et latence que si elles étaient dans le même réseau virtuel. Toutefois, chaque taille de machine virtuelle a sa propre bande passante réseau maximale. Pour en savoir plus sur la bande passante réseau maximale pour différentes tailles de machine virtuelle, lisez les articles [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) sur les tailles de machine virtuelle.
 - Vous pouvez homologuer des réseaux virtuels déployés via le Gestionnaire de ressources, qu’ils figurent dans un même abonnement ou dans des abonnements différents.
 - Vous pouvez homologuer des réseaux virtuels déployés via des modèles de déploiement différents, et figurant ou non dans un même abonnement. 

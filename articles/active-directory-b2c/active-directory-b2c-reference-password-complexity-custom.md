@@ -1,24 +1,21 @@
 ---
-title: "Complexité du mot de passe dans les stratégies personnalisées - Azure AD B2C | Microsoft Docs"
-description: "Guide pratique pour configurer les exigences de complexité des mots de passe dans une stratégie personnalisée"
+title: Complexité du mot de passe dans les stratégies personnalisées - Azure AD B2C | Microsoft Docs
+description: Guide pratique pour configurer les exigences de complexité des mots de passe dans une stratégie personnalisée
 services: active-directory-b2c
-documentationcenter: 
-author: saeedakhter-msft
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 53ef86c4-1586-45dc-9952-dbbd62f68afc
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
-ms.author: saeeda
-ms.openlocfilehash: eb187a120399089f1c3c145a06fbe993f50fb92b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 4dabcdef32d337c5063d2b0503f32b06d5d0fdeb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-password-complexity-in-custom-policies"></a>Configurer la complexité du mot de passe dans les stratégies personnalisées
 
@@ -33,7 +30,8 @@ Cet article offre une description avancée du fonctionnement de la complexité d
 
 Azure Active Directory B2C (Azure AD B2C) prend en charge la modification des exigences de complexité des mots de passe fournis par un utilisateur final à la création d’un compte.  Par défaut, Azure AD B2C utilise des mots de passe **forts**.  Azure AD B2C prend également en charge les options de configuration permettant de contrôler la complexité des mots de passe utilisables par les clients.  Cet article explique comment configurer la complexité du mot de passe dans les stratégies personnalisées.  Il est également possible de [configurer la complexité du mot de passe dans les stratégies intégrées](active-directory-b2c-reference-password-complexity.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Un locataire Azure AD B2C configuré pour effectuer une inscription/connexion à un compte local, comme décrit dans [Bien démarrer](active-directory-b2c-get-started-custom.md).
 

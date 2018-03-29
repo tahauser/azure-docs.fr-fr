@@ -1,24 +1,24 @@
 ---
-title: "Afficher les données analytiques d’Azure Web Apps | Microsoft Docs"
-description: "Vous pouvez utiliser la solution Azure Web Apps Analytics pour obtenir un aperçu de vos applications Azure Web en collectant différentes mesures pour toutes les ressources de votre application Azure Web."
+title: Afficher les données analytiques d’Azure Web Apps | Microsoft Docs
+description: Vous pouvez utiliser la solution Azure Web Apps Analytics pour obtenir un aperçu de vos applications Azure Web en collectant différentes mesures pour toutes les ressources de votre application Azure Web.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 20ff337f-b1a3-4696-9b5a-d39727a94220
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 03/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 7c22950c391707cdfe14ca242ea82a317be0e46e
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: b70b626ca618fbfb7cbe25a4fcbc9aae797ce157
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Afficher des données analytiques pour des métriques sur toutes les ressources de votre application Azure Web
 
@@ -44,7 +44,8 @@ Contrairement à la plupart des autres solutions Log Analytics, les données ne 
 | [Groupe d’administration SCOM](log-analytics-om-agents.md) | Non  | La solution ne collecte aucune information à partir d’agents dans un groupe d’administration SCOM connecté. |
 | [Compte Azure Storage](log-analytics-azure-storage.md) | Non  | La solution ne collecte aucune information à partir de stockage Azure. |
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
+
 
 - Pour accéder aux informations de mesure de ressources Azure Web App, vous devez posséder un abonnement Azure.
 
@@ -90,19 +91,18 @@ Lorsque vous ajoutez la solution Azure Web Apps Analytics à votre espace de tra
 
 Cliquez sur la mosaïque **Azure Web Apps Analytics** afin d’ouvrir le tableau de bord **Azure Web Apps Analytics**. Le tableau de bord comprend les panneaux figurant dans le tableau suivant. Chaque panneau répertorie jusqu'à dix éléments répondant à ses critères en ce qui concerne l’étendue et l’intervalle de temps spécifiés. Vous pouvez exécuter une recherche dans les journaux qui renvoie tous les enregistrements. Pour cela, cliquez sur **Afficher tout** en bas du panneau ou cliquez sur l’en-tête de panneau.
 
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | Colonne | Description |
 | --- | --- |
 | Azure Webapps |   |
-| Tendances de requêtes Web Apps | Affiche un graphique en courbes de l’évolution des requêtes Web Apps pour la plage de dates que vous avez sélectionnée et présente la liste des dix requêtes les plus fréquentes. Cliquez sur le graphique en courbes pour exécuter une recherche dans les journaux de <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* (MetricName=Requests OR MetricName=Http*) &#124; measure avg(Average) by MetricName interval 1HOUR</code> <br>Cliquez sur un élément de requête web pour exécuter une recherche de journal pour la tendance des métriques de requête web. |
-| Temps de réponse de Web Apps | Affiche un graphique en courbes du temps de réponse de Web Apps pour la plage de dates que vous avez sélectionnée. Affiche également une liste des dix premiers temps de réponse de Web Apps. Cliquez sur le graphique pour exécuter une recherche dans les journaux de <code>Type:AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* MetricName="AverageResponseTime" &#124; measure avg(Average) by Resource interval 1HOUR</code>.<br> Cliquez sur une application web pour exécuter une recherche de journal retournant les temps de réponse de cette application. |
-| Trafic de Web Apps | Affiche un graphique en courbes pour le trafic Web Apps, en Mo, et répertorie le trafic des principales applications web. Cliquez sur le graphique pour exécuter une recherche dans les journaux de <code>Type:AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"*  MetricName=BytesSent OR BytesReceived &#124; measure sum(Average) by Resource interval 1HOUR</code>.<br> Toutes les applications web sont présentées avec le trafic pour la dernière minute. Cliquez sur une application web pour exécuter une recherche de journal indiquant les octets reçus et envoyés pour l’application web. |
+| Tendances de requêtes Web Apps | Affiche un graphique en courbes de l’évolution des requêtes Web Apps pour la plage de dates que vous avez sélectionnée et présente la liste des dix requêtes les plus fréquentes. Cliquez sur le graphique en courbes pour exécuter une recherche dans les journaux de <code>AzureMetrics &#124; where ResourceId == "/MICROSOFT.WEB/SITES/" and (MetricName == "Requests" or MetricName startswith_cs "Http") &#124; summarize AggregatedValue = avg(Average) by MetricName, bin(TimeGenerated, 1h)</code> <br>Cliquez sur un élément de requête web pour exécuter une recherche de journal pour la tendance des métriques de requête web. |
+| Temps de réponse de Web Apps | Affiche un graphique en courbes du temps de réponse de Web Apps pour la plage de dates que vous avez sélectionnée. Affiche également une liste des dix premiers temps de réponse de Web Apps. Cliquez sur le graphique pour exécuter une recherche dans les journaux de <code>AzureMetrics &#124; where ResourceId == "/MICROSOFT.WEB/SITES/" and MetricName == "AverageResponseTime" &#124; summarize AggregatedValue = avg(Average) by Resource, bin(TimeGenerated, 1h)</code>.<br> Cliquez sur une application web pour exécuter une recherche de journal retournant les temps de réponse de cette application. |
+| Trafic de Web Apps | Affiche un graphique en courbes pour le trafic Web Apps, en Mo, et répertorie le trafic des principales applications web. Cliquez sur le graphique pour exécuter une recherche dans les journaux de <code>AzureMetrics &#124; where ResourceId == "/MICROSOFT.WEB/SITES/" and (MetricName == "BytesSent" or MetricName == "BytesReceived") &#124; summarize AggregatedValue = sum(Average) by Resource, bin(TimeGenerated, 1h)</code>.<br> Toutes les applications web sont présentées avec le trafic pour la dernière minute. Cliquez sur une application web pour exécuter une recherche de journal indiquant les octets reçus et envoyés pour l’application web. |
 | Plans Azure App Service |   |
-| Plans App Service avec utilisation du processeur &gt; 80 % | Affiche le nombre total de plans App Service avec une utilisation du processeur supérieure à 80 % et répertorie le top 10 des plans App Service par utilisation du processeur. Cliquez sur la zone Total pour exécuter une recherche dans les journaux de <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SERVERFARMS/"* MetricName=CpuPercentage &#124; measure Avg(Average) by Resource</code><br> Cela affiche une liste de vos plans App Service et leur utilisation moyenne du processeur. Cliquez sur un plan App Service pour exécuter une recherche dans les journaux indiquant son utilisation moyenne du processeur. |
-| Plans App Service avec utilisation de mémoire &gt; 80 % | Affiche le nombre total de plans App Service avec une utilisation de la mémoire supérieure à 80 % et répertorie le top 10 des plans App Service par utilisation de la mémoire. Cliquez sur la zone Total pour exécuter une recherche dans les journaux de <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SERVERFARMS/"* MetricName=MemoryPercentage &#124; measure Avg(Average) by Resource</code><br> Cela affiche une liste de vos plans App Service et leur utilisation moyenne de la mémoire. Cliquez sur un plan App Service pour exécuter une recherche dans les journaux indiquant son utilisation moyenne de la mémoire. |
+| Plans App Service avec utilisation du processeur &gt; 80 % | Affiche le nombre total de plans App Service avec une utilisation du processeur supérieure à 80 % et répertorie le top 10 des plans App Service par utilisation du processeur. Cliquez sur la zone Total pour exécuter une recherche dans les journaux de <code>AzureMetrics &#124; where ResourceId == "/MICROSOFT.WEB/SERVERFARMS/" and MetricName == "CpuPercentage" &#124; summarize AggregatedValue = avg(Average) by Resource</code><br> Cela affiche une liste de vos plans App Service et leur utilisation moyenne du processeur. Cliquez sur un plan App Service pour exécuter une recherche dans les journaux indiquant son utilisation moyenne du processeur. |
+| Plans App Service avec utilisation de mémoire &gt; 80 % | Affiche le nombre total de plans App Service avec une utilisation de la mémoire supérieure à 80 % et répertorie le top 10 des plans App Service par utilisation de la mémoire. Cliquez sur la zone Total pour exécuter une recherche dans les journaux de <code>AzureMetrics &#124; where ResourceId == "/MICROSOFT.WEB/SERVERFARMS/" and MetricName == "MemoryPercentage" &#124; summarize AggregatedValue = avg(Average) by Resource</code><br> Cela affiche une liste de vos plans App Service et leur utilisation moyenne de la mémoire. Cliquez sur un plan App Service pour exécuter une recherche dans les journaux indiquant son utilisation moyenne de la mémoire. |
 | Journaux d’activité Azure Web Apps |   |
-| Audit des activité Azure Web Apps | Affiche le nombre total d’applications web avec [journaux d’activité](log-analytics-activity.md) et répertorie les 10 principales opérations de journal d’activité. Cliquez sur la zone Total pour exécuter une recherche dans les journaux de <code>Type=AzureActivity ResourceProvider= "Azure Web Sites" &#124; measure count() by OperationName</code><br> Cela affiche la liste des opérations de journal d’activité. Cliquez sur une opération de journal d’activité pour exécuter une recherche dans les journaux qui répertorie les enregistrements pour l’opération. |
+| Audit des activité Azure Web Apps | Affiche le nombre total d’applications web avec [journaux d’activité](log-analytics-activity.md) et répertorie les 10 principales opérations de journal d’activité. Cliquez sur la zone Total pour exécuter une recherche dans les journaux de <code>AzureActivity #124; where ResourceProvider == "Azure Web Sites" #124; summarize AggregatedValue = count() by OperationName</code><br> Cela affiche la liste des opérations de journal d’activité. Cliquez sur une opération de journal d’activité pour exécuter une recherche dans les journaux qui répertorie les enregistrements pour l’opération. |
 
 
 

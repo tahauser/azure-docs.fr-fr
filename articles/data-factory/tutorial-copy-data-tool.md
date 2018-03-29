@@ -1,21 +1,21 @@
 ---
-title: "Copier des données à l’aide de l’outil Copier des données d’Azure | Microsoft Docs"
-description: "Créez une fabrique de données Azure, puis utilisez l’outil Copier les données pour copier des données depuis Stockage Blob Azure vers une base de données SQL."
+title: Copier des données à l’aide de l’outil Copier des données d’Azure | Microsoft Docs
+description: Créez une fabrique de données Azure, puis utilisez l’outil Copier les données pour copier des données depuis Stockage Blob Azure vers une base de données SQL.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: hero-article
 ms.date: 01/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 5b636128d0df5a404df7aa6b2cfdce016e36681f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d2f1d089c6a08a1dc90f82fd9d1c3cb2b6f6dc0a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copier des données à partir du Stockage Blob Azure vers une base de données SQL en utilisant l’outil Copier les données
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -38,6 +38,7 @@ Dans ce didacticiel, vous effectuerez les étapes suivantes :
 > * Surveiller les exécutions de pipeline et d’activité.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 * **Abonnement Azure** : si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * **Compte de stockage Azure** : utilisez le stockage d’objets blob en tant que magasin de données _sources_. Si vous ne possédez pas de compte de stockage Azure, consultez les instructions dans [Créer un compte de stockage](../storage/common/storage-create-storage-account.md#create-a-storage-account).
@@ -87,7 +88,7 @@ Préparez votre stockage d'objets blob et votre base de données SQL pour ce did
 1. Dans le menu sur la gauche, sélectionnez **+ Nouveau** > **Données + Analytique** > **Data Factory** : 
    
    ![Création de la nouvelle fabrique de données](./media/tutorial-copy-data-tool/new-azure-data-factory-menu.png)
-2. Sur la page **Nouvelle fabrique de données**, entrez **ADFTutorialDataFactory** sous **Nom**. 
+2. Sur la page **Nouvelle fabrique de données**, entrez **ADFTutorialDataFactory** dans le champ **Nom**. 
       
      ![Nouvelle fabrique de données](./media/tutorial-copy-data-tool/new-azure-data-factory.png)
  
@@ -103,7 +104,7 @@ Préparez votre stockage d'objets blob et votre base de données SQL pour ce did
 
     b. Sélectionnez **Créer**, puis entrez le nom d’un groupe de ressources. 
          
-    Pour plus d'informations sur les groupes de ressources, consultez [Utiliser des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-overview.md).
+    Pour plus d’informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-overview.md).
 
 5. Sous **Version**, sélectionnez **V2 (préversion)** pour la version.
 6. Sous **Emplacement**, sélectionnez l’emplacement de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données (tels que le Stockage Azure et SQL Database) et les services de calcul (comme Azure HDInsight) utilisés par votre fabrique de données peuvent se trouver dans d’autres emplacements et régions.
@@ -130,7 +131,7 @@ Préparez votre stockage d'objets blob et votre base de données SQL pour ce did
     ![Page Magasin de données sources](./media/tutorial-copy-data-tool/source-data-store-page.png)
 4. Sur la page **Spécifier le compte de stockage Blob Azure**, procédez comme suit :
 
-    a. Sous **Nom de la connexion**, entrez **AzureStorageLinkedService**.
+    a. Dans le champ **Nom de la connexion**, entrez **AzureStorageLinkedService**.
 
     b. Sélectionnez votre nom de compte de stockage dans la liste déroulante **Nom du compte de stockage**.
 
@@ -194,7 +195,7 @@ Préparez votre stockage d'objets blob et votre base de données SQL pour ce did
 14. Notez que l’onglet **Surveiller** sur la gauche est sélectionné automatiquement. La colonne **Actions** comprend les liens permettant d’afficher les détails de l’exécution d’activité et de réexécuter le pipeline. Sélectionnez **Actualiser** pour actualiser la liste. 
 
     ![Surveiller des exécutions de pipelines](./media/tutorial-copy-data-tool/monitor-pipeline-runs.png)
-15. Pour afficher les exécutions d’activités associées à l’exécution du pipeline, sélectionnez le lien **Afficher les exécutions d’activités** dans la colonne **Actions**. Il n’y a qu’une seule activité (activité de copie) dans le pipeline, vous ne voyez donc qu’une seule entrée. Pour plus de détails sur l’opération de copie, sélectionnez le lien **Détails** (icône en forme de lunettes) dans la colonne **Actions**. Pour revenir à l’affichage des **exécutions du pipeline**, sélectionnez le lien **Pipelines** en haut. Sélectionnez **Actualiser** pour actualiser la liste. 
+15. Pour afficher les exécutions d’activités associées à l’exécution du pipeline, sélectionnez le lien **Afficher les exécutions d’activités** dans la colonne **Actions**. Il n’y a qu’une seule activité (activité de copie) dans le pipeline, vous ne voyez donc qu’une seule entrée. Pour plus de détails sur l’opération de copie, sélectionnez le lien **Détails** (icône en forme de lunettes) dans la colonne **Actions**. Pour revenir à l’affichage des **exécutions du pipeline**, sélectionnez le lien **Pipelines** en haut. Sélectionnez **Actualiser** pour actualiser l’affichage. 
 
     ![Surveiller des exécutions d’activités](./media/tutorial-copy-data-tool/monitor-activity-runs.png)
 16. Sélectionnez l’onglet **Modifier** sur la gauche pour basculer en mode éditeur. Vous pouvez mettre à jour les services, jeux de données et pipelines liés créés par l’outil à l’aide de l’éditeur. Sélectionnez **Code** pour afficher le code JSON de l’entité actuellement ouverte dans l’éditeur. Pour plus de détails sur la modification de ces entités dans l’interface utilisateur de Data Factory, consultez [la version du portail Azure de ce didacticiel](tutorial-copy-data-portal.md).

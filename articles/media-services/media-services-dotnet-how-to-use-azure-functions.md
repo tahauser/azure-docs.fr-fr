@@ -1,11 +1,11 @@
 ---
-title: "Développement de fonctions Azure Functions avec Media Services"
-description: "Cette rubrique montre comment développer des fonctions Azure Functions avec Media Services à l’aide du portail Azure."
+title: Développement de fonctions Azure Functions avec Media Services
+description: Cette rubrique montre comment développer des fonctions Azure Functions avec Media Services à l’aide du portail Azure.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 51bdcb01-1846-4e1f-bd90-70020ab471b0
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 999f2cef7d70c4f1b45076300312664defdeb3f5
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 02d513bffac50a3a287ab09b1cf9b4eb4525c34a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Développement de fonctions Azure Functions avec Media Services
 
@@ -26,7 +26,8 @@ Cet article vous montre comment vous familiariser avec la création de fonctions
 
 Si vous souhaitez explorer et déployer des fonctions Azure existantes qui utilisent Azure Media Services, consultez [Fonctions Azure Media Services](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Ce référentiel contient des exemples qui utilisent Media Services pour afficher les flux de travail liés à l’ingestion de contenu directement à partir du Stockage Blob, à l’encodage et à l’écriture de contenu dans le Stockage Blob. Il inclut également des exemples décrivant la manière de contrôler les notifications de travail via les WebHooks et les files d’attente Azure. Vous pouvez également développer vos fonctions en fonction des exemples dans le référentiel [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Pour déployer les fonctions, appuyez sur le bouton **Déployer dans Azure**.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
+
 
 - Pour créer votre première fonction, vous devez avoir un compte Azure actif. Si tel n’est pas le cas, des [comptes gratuits sont disponibles](https://azure.microsoft.com/free/).
 - Si vous souhaitez créer des fonctions Azure Functions qui effectuent des actions sur votre compte Azure Media Services (AMS) ou qui écoutent des événements envoyés par Media Services, vous devez créer un compte AMS, comme décrit [ici](media-services-portal-create-account.md).
@@ -327,7 +328,7 @@ public static async Task<IAsset> CreateAssetFromBlobAsync(CloudBlockBlob blob, s
 }
 ```
 
-##<a name="test-your-function"></a>Tester votre fonction
+## <a name="test-your-function"></a>Tester votre fonction
 
 Pour tester votre fonction, vous devez charger un fichier MP4 dans le conteneur **input** du compte de stockage que vous avez spécifié dans la chaîne de connexion.  
 
@@ -339,7 +340,7 @@ Pour tester votre fonction, vous devez charger un fichier MP4 dans le conteneur 
 >[!NOTE]
 > Quand vous utilisez un déclencheur d’objet blob dans un plan Consommation, il peut y avoir jusqu’à 10 minutes de délai dans le traitement des nouveaux objets blob après qu’une application de fonction est devenue inactive. Une fois l’application de fonction en cours d’exécution, les objets blob sont traités immédiatement. Pour plus d’informations, consultez [Déclencheurs et liaisons de stockage blob](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob#blob-storage-triggers-and-bindings).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 À ce stade, vous êtes prêt à commencer le développement d’une application Media Services. 
  

@@ -1,4 +1,20 @@
-| **Modèle/méthode de déploiement** | **portail Azure** | **PowerShell** |
+---
+title: Fichier Include
+description: Fichier Include
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 23f204760b340c6fe739bd993c43dfde1be946d6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 03/23/2018
+---
+| **Modèle/méthode de déploiement** | **Portail Azure** | **PowerShell** |
 | --- | --- | --- | --- |
-| Gestionnaire de ressources |[Article](../articles/vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) |Pris en charge |
+| Gestionnaire de ressources |[Article](../articles/vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) |Prise en charge |
 | Classique | Non pris en charge | [Article](../articles/vpn-gateway/vpn-gateway-multi-site.md) |

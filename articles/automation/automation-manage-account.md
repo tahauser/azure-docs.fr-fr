@@ -1,24 +1,18 @@
 ---
-title: "Gestion d’un compte Azure Automation | Microsoft Docs"
-description: "Cet article décrit comment gérer la configuration de votre compte Automation, telle que le renouvellement du certificat, la suppression et une configuration incorrecte."
+title: Gestion d’un compte Azure Automation
+description: Cet article décrit comment gérer la configuration de votre compte Automation, telle que le renouvellement du certificat, la suppression et une configuration incorrecte.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: 
-ms.assetid: 
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/19/2018
 ms.topic: article
-ms.date: 04/13/2017
-ms.author: magoedte
-ms.openlocfilehash: 56216f16ba3730d1488e45c0e7a81e87dbad6410
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+manager: carmonm
+ms.openlocfilehash: b9ccc46192950af212975304329497785b0babbd
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-azure-automation-account"></a>Gestion d’un compte Azure Automation
 Avant que votre compte Azure Automation n’expire, vous devez renouveler le certificat. Si vous pensez que le compte d’identification a été compromis, vous pouvez le supprimer et le recréer. Cette section décrit comment effectuer ces opérations.

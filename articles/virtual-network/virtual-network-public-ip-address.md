@@ -1,11 +1,11 @@
 ---
-title: "Créer, modifier ou supprimer une adresse IP publique Azure | Microsoft Docs"
-description: "Découvrez comment créer, modifier ou supprimer une adresse IP publique."
+title: Créer, modifier ou supprimer une adresse IP publique Azure | Microsoft Docs
+description: Découvrez comment créer, modifier ou supprimer une adresse IP publique.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: bb71abaf-b2d9-4147-b607-38067a10caf6
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 8efc0bff4764a7265a5f1bcdd995979af0b22234
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c36a3451dabbb0d08e5e475e0eec14f861bd41ce
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Créer, modifier ou supprimer une adresse IP publique
 
@@ -46,7 +46,7 @@ Le coût des adresses IP publiques est modique. Pour voir les prix, consultez la
 
     |Paramètre|Requis ?|Détails|
     |---|---|---|
-    |SKU|OUI|Toutes les adresses IP publiques créées avant l’introduction des références SKU sont des adresses IP publiques **De base**.  Une fois l’adresse IP publique créée, vous ne pouvez pas modifier la référence SKU. Les machines virtuelles autonomes, les machines virtuelles comprises dans un groupe à haute disponibilité et les groupes de machines virtuelles identiques peuvent utiliser les références SKU De Base ou Standard.  Toutefois, les machines virtuelles d’un même groupe à haute disponibilité ou groupe identique ne peuvent pas utiliser des références SKU différentes. Référence SKU **De base** : si vous créez une adresse IP publique dans une région qui prend en charge les zones de disponibilité, le paramètre **Zone de disponibilité** est défini sur *Aucun* par défaut. Vous pouvez sélectionner une zone de disponibilité afin de garantir une zone spécifique pour votre adresse IP publique. Référence SKU **Standard** : l’adresse IP publique de la référence SKU Standard peut être associée à une machine virtuelle ou à un frontend d’équilibreur de charge. Si vous créez une adresse IP publique dans une région qui prend en charge les zones de disponibilité, le paramètre **Zone de disponibilité** est défini sur *Redondant dans une zone* par défaut. Pour plus d’informations sur les zones de disponibilité, consultez **Zone de disponibilité**. La référence SKU Standard est nécessaire si vous associez l’adresse à un équilibreur de charge Standard. Pour plus d’informations sur les équilibreurs de charge Standard, consultez [Référence SKU d’Azure Load Balancer Standard](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). La référence SKU Standard est disponible en préversion. Si vous souhaitez créer une adresse IP publique de référence SKU Standard, vous devez d’abord suivre les étapes de la section [S’inscrire à la préversion de la référence SKU Standard](#register-for-the-standard-sku-preview) et créer l’adresse IP publique à un emplacement (région) pris en charge. Pour obtenir la liste des emplacements pris en charge, consultez [Disponibilité des régions](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region-availability), ainsi que la page [Mises à jour du Réseau virtuel Microsoft Azure](https://azure.microsoft.com/updates/?product=virtual-network) pour voir si d’autres régions sont prises en charge. Quand vous assignez une adresse IP publique de référence SKU Standard à l’interface réseau d’une machine virtuelle, vous devez explicitement autoriser le trafic prévu avec un [groupe de sécurité réseau](security-overview.md#network-security-groups). La communication avec la ressource est possible uniquement si vous créez et associez un groupe de sécurité réseau et que vous autorisez explicitement le trafic prévu.|
+    |SKU|OUI|Toutes les adresses IP publiques créées avant l’introduction des références SKU sont des adresses IP publiques **De base**.  Une fois l’adresse IP publique créée, vous ne pouvez pas modifier la référence SKU. Les machines virtuelles autonomes, les machines virtuelles comprises dans un groupe à haute disponibilité et les groupes de machines virtuelles identiques peuvent utiliser les références SKU De Base ou Standard.  Toutefois, les machines virtuelles d’un même groupe à haute disponibilité ou groupe identique ne peuvent pas utiliser des références SKU différentes. Référence SKU **De base** : si vous créez une adresse IP publique dans une région qui prend en charge les zones de disponibilité, le paramètre **Zone de disponibilité** est défini sur *Aucun* par défaut. Vous pouvez sélectionner une zone de disponibilité afin de garantir une zone spécifique pour votre adresse IP publique. Référence SKU **Standard** : l’adresse IP publique de la référence SKU Standard peut être associée à une machine virtuelle ou à un frontend d’équilibreur de charge. Si vous créez une adresse IP publique dans une région qui prend en charge les zones de disponibilité, le paramètre **Zone de disponibilité** est défini sur *Redondant dans une zone* par défaut. Pour plus d’informations sur les zones de disponibilité, consultez **Zone de disponibilité**. La référence SKU Standard est nécessaire si vous associez l’adresse à un équilibreur de charge Standard. Pour plus d’informations sur les équilibreurs de charge Standard, consultez [Référence SKU d’Azure Load Balancer Standard](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Quand vous assignez une adresse IP publique de référence SKU Standard à l’interface réseau d’une machine virtuelle, vous devez explicitement autoriser le trafic prévu avec un [groupe de sécurité réseau](security-overview.md#network-security-groups). La communication avec la ressource est possible uniquement si vous créez et associez un groupe de sécurité réseau et que vous autorisez explicitement le trafic prévu.|
     |NOM|OUI|Le nom doit être unique au sein du groupe de ressources que vous avez sélectionné.|
     |Version de l’adresse IP|OUI| Sélectionnez IPv4 ou IPv6. Alors que les adresses IPv4 publiques peuvent être assignées à plusieurs ressources Azure, les adresses IP publiques IPv6 ne peuvent être assignées qu’à un équilibreur de charge accessible sur Internet. L’équilibreur de charge permet d’équilibrer le trafic IPv6 vers les machines virtuelles Azure. En savoir plus sur [l’équilibrage de charge du trafic IPv6 vers les machines virtuelles](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Si vous avez sélectionné la **référence SKU Standard**, vous ne pouvez pas sélectionner *IPv6*. Lorsque vous utilisez la **référence SKU Standard**, vous pouvez uniquement créer une adresse IPv4.|
     |Affectation d’adresses IP|OUI|**Dynamique :** les adresses dynamiques sont affectées uniquement une fois que l’adresse IP publique est associée à une interface réseau attachée à une machine virtuelle et que la machine virtuelle est démarrée pour la première fois. Les adresses dynamiques peuvent changer si la machine virtuelle à laquelle l’interface réseau est attachée est arrêtée (libérée). L’adresse reste la même si la machine virtuelle est redémarrée ou arrêtée (mais pas libérée). **Statique :** des adresses statiques sont affectées lors de la création de l’adresse IP publique. Les adresses statiques ne changent pas, même si la machine virtuelle est arrêtée (libérée). L’adresse est libérée uniquement lorsque l’interface réseau est supprimée. Vous pouvez modifier la méthode d’affectation après la création de l’interface réseau. Si vous sélectionnez *IPv6* comme **Version IP**, la seule méthode d’attribution disponible est *Dynamique*. Si vous sélectionnez *Standard* comme **Référence SKU**, la méthode d’attribution est *Statique*.|
@@ -89,25 +89,7 @@ Bien que le portail permette de créer deux ressources d’adresse IP publique (
 |Interface de ligne de commande|[az network public-ip-list](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_list) pour répertorier les adresses IP publiques, [az network public-ip-show](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_show) pour afficher les paramètres, [az network public-ip update](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_update) pour mettre à jour, [az network public-ip delete](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_delete) pour supprimer|
 |PowerShell|[Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json) pour récupérer un objet d’adresse IP publique et afficher ses paramètres, [Set-AzureRmPublicIpAddress](/powershell/resourcemanager/azurerm.network/set-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json) pour mettre à jour les paramètres, [Remove-AzureRmPublicIpAddress](/powershell/module/azurerm.network/remove-azurermpublicipaddress) pour supprimer|
 
-## <a name="register-for-the-standard-sku-preview"></a>S’inscrire à la préversion de la référence SKU Standard
-
-> [!NOTE]
-> Les niveaux de disponibilité et de fiabilité des fonctionnalités de la préversion peuvent différer de ceux de la version publique. Il est possible que les fonctionnalités de la préversion ne soient pas prises en charge, qu’elles soient limitées ou qu’elles ne soient pas disponibles dans tous les emplacements Azure. 
-
-Si vous souhaitez créer une adresse IP publique de référence SKU Standard, vous devez d’abord vous inscrire pour la préversion. Pour vous inscrire à la préversion, effectuez les étapes suivantes :
-
-1. Pour vous inscrire à la préversion depuis PowerShell, saisissez la commande suivante :
-   
-    ```powershell
-    Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
-    ```
-2. Vérifiez que vous êtes inscrit à la préversion en saisissant la commande suivante :
-
-    ```powershell
-    Get-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
-    ```
-
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Affectez des adresses IP publiques lors de la création de ressources Azure suivantes :
 
 - Machines virtuelles [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

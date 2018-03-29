@@ -1,11 +1,11 @@
 ---
-title: "Activité de recherche dans Azure Data Factory | Microsoft Docs"
-description: "Découvrez comment utiliser l’activité de recherche pour rechercher une valeur à partir d’une source externe. Cette sortie peut être référencée par des activités complémentaires."
+title: Activité de recherche dans Azure Data Factory | Microsoft Docs
+description: Découvrez comment utiliser l’activité de recherche pour rechercher une valeur à partir d’une source externe. Cette sortie peut être référencée par des activités complémentaires.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 2f551e97b833460c7c4ccd276b0df1dae562c03b
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: f55e85bb424f4f5973fd6d633b6adf9fbca4d0ef
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Activité de recherche dans Azure Data Factory
 Vous pouvez utiliser l’activité de recherche pour lire ou rechercher un enregistrement, un nom de table ou une valeur à partir de n’importe quelle source externe. Cette sortie peut être référencée par des activités complémentaires. 
@@ -100,7 +100,7 @@ Le résultat de la recherche est retourné dans la section `output` du résultat
     } 
     ```
 
-## <a name="example"></a>Exemple
+## <a name="example"></a>Exemples
 Dans cet exemple, l’activité de copie copie les données d’une table SQL de votre instance Azure SQL Database vers le stockage Blob Azure. Le nom de la table SQL est stocké dans un fichier JSON dans le stockage Blob. L’activité de recherche recherche le nom de la table lors de l’exécution. Cette approche vous permet de modifier JSON de manière dynamique sans avoir à redéployer les pipelines ou les jeux de données. 
 
 Cet exemple illustre une recherche pour la première ligne uniquement. Pour effectuer une recherche portant sur toutes les lignes et chaîner les résultats avec l’activité ForEach, consultez les exemples dans [Copier plusieurs tables en bloc à l’aide d’Azure Data Factory](tutorial-bulk-copy.md).

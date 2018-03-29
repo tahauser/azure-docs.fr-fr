@@ -8,13 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: bb6aec41813930cbf74ab989cc4ce6b526b9c6b6
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c56758012fc09287d0abb887db9148bd093a678a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="credential-assets-in-azure-automation"></a>Ressources d’informations d’identification dans Azure Automation
 Une ressource d’informations d’identification Automation conserve un objet [PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) qui contient les informations d’identification de sécurité comme un nom d’utilisateur et un mot de passe. Les Runbooks et les configurations DSC peuvent utiliser les applets de commande qui acceptent un objet PSCredential pour l’authentification, ou ils peuvent extraire le nom d’utilisateur et le mot de passe de l’objet PSCredential pour les fournir à l’application ou au service nécessitant l’authentification. Les propriétés d’informations d’identification sont stockées de manière sécurisée dans Azure Automation et sont accessibles dans le Runbook ou la configuration DSC avec l’activité [Get-AutomationPSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) .
@@ -70,7 +68,7 @@ La fonction dans le tableau suivant est utilisée pour accéder aux informations
 3. Cliquez sur **Ajouter des informations d’identification** en haut du panneau.
 4. Remplissez le formulaire, puis cliquez sur **Créer** pour enregistrer les nouvelles informations d’identification.
 
-### <a name="to-create-a-new-credential-asset-with-windows-powershell"></a>Pour créer une ressource d’informations d’identification avec Windows PowerShell
+### <a name="to-create-a-new-credential-asset-with-windows-powershell"></a>Pour créer une ressource d’informations d’identification PowerShell avec Windows PowerShell
 Les exemples de commandes suivants montrent comment créer des informations d’identification Automation. Un objet PSCredential est d’abord créé avec le nom et le mot de passe, puis il est utilisé pour créer la ressource d’informations d’identification. Vous pouvez également utiliser l’applet de commande **Get-Credential** pour être invité à saisir un nom et un mot de passe.
 
     $user = "MyDomain\MyUser"

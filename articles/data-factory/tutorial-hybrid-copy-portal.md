@@ -1,11 +1,11 @@
 ---
-title: "Copier des données depuis SQL Server vers le stockage Blob à l’aide d’Azure Data Factory | Microsoft Docs"
-description: "Découvrez comment copier les données d’un magasin de données local dans le cloud en utilisant un runtime d’intégration auto-hébergé dans Azure Data Factory."
+title: Copier des données depuis SQL Server vers le stockage Blob à l’aide d’Azure Data Factory | Microsoft Docs
+description: Découvrez comment copier les données d’un magasin de données local dans le cloud en utilisant un runtime d’intégration auto-hébergé dans Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: ced708febe848d4555429b78c0227a35b7f0c79f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e21c08d418022430400ff14baedc1759d2d16069
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Copier des données depuis une base de données SQL Server locale vers un stockage Blob Azure
 Dans ce didacticiel, vous allez utiliser l’interface utilisateur d’Azure Data Factory pour créer un pipeline Data Factory qui copie les données d’une base de données SQL Server locale vers un stockage Blob Azure. Vous allez créer et utiliser un runtime d’intégration auto-hébergé, qui déplace les données entre les banques de données locales et cloud.
@@ -39,6 +39,7 @@ Dans ce didacticiel, vous effectuerez les étapes suivantes :
 > * Surveiller l’exécution du pipeline.
 
 ## <a name="prerequisites"></a>Prérequis
+
 ### <a name="azure-subscription"></a>Abonnement Azure
 Si vous n’avez pas d’abonnement Azure, [créez un compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -120,12 +121,12 @@ Dans cette section, vous allez créer un conteneur d’objets blob nommé **adft
 
 
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
-À cette étape, vous allez créer une fabrique de données et démarrer l’interface utilisateur de Data Factory pour créer un pipeline dans la fabrique de données. 
+À cette étape, vous allez créer une fabrique de données et démarrer l’interface utilisateur de Data Factory afin de créer un pipeline dans la fabrique de données. 
 
 1. Ouvrez le navigateur web **Microsoft Edge** ou **Google Chrome**. L’interface utilisateur de Data Factory n’est actuellement prise en charge que par les navigateurs web Microsoft Edge et Google Chrome.
 2. Dans le menu sur la gauche, sélectionnez **Nouveau** > **Données + Analytique** > **Data Factory**.
    
-   ![Création de la nouvelle fabrique de données](./media/tutorial-hybrid-copy-portal/new-azure-data-factory-menu.png)
+   ![Création d’une fabrique de données](./media/tutorial-hybrid-copy-portal/new-azure-data-factory-menu.png)
 3. Sur la page **Nouvelle fabrique de données**, entrez **ADFTutorialDataFactory** dans le champ **Nom**. 
       
      ![Page Nouvelle fabrique de données](./media/tutorial-hybrid-copy-portal/new-azure-data-factory.png)
@@ -140,14 +141,14 @@ Dans cette section, vous allez créer un conteneur d’objets blob nommé **adft
 
       - Sélectionnez **Créer**, puis entrez le nom d’un groupe de ressources.
          
-    Pour plus d'informations sur les groupes de ressources, consultez l’article qui traite de l’[utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-overview.md).
+    Pour plus d’informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-overview.md).
 6. Sous **Version**, sélectionnez **V2 (préversion)**.
 7. Sous **Emplacement**, sélectionnez l’emplacement de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données (tels que le Stockage Azure et SQL Database) et les services de calcul (comme Azure HDInsight) utilisés par Data Factory peuvent se trouver dans d’autres régions.
 8. Sélectionnez **Épingler au tableau de bord**. 
 9. Sélectionnez **Créer**.
 10. Sur le tableau de bord, vous voyez la vignette suivante avec l’état **Déploiement de Data Factory** :
 
-    ![Vignette Déploiement de Data Factory](media/tutorial-hybrid-copy-portal/deploying-data-factory.png)
+    ![Vignette Déploiement d’une fabrique de données](media/tutorial-hybrid-copy-portal/deploying-data-factory.png)
 11. Une fois la création terminée, la page **Data Factory** s’affiche comme sur l’image :
    
     ![Page d'accueil Data Factory](./media/tutorial-hybrid-copy-portal/data-factory-home-page.png)
@@ -156,7 +157,7 @@ Dans cette section, vous allez créer un conteneur d’objets blob nommé **adft
 
 ## <a name="create-a-pipeline"></a>Créer un pipeline
 
-1. Sur la page **Prise en main**, cliquez sur **Créer un pipeline**. Un pipeline est automatiquement créé pour vous. Le pipeline apparaît dans l’arborescence et son éditeur s’ouvre. 
+1. Dans la page **Prise en main**, cliquez sur **Créer un pipeline**. Un pipeline est automatiquement créé pour vous. Le pipeline apparaît dans l’arborescence et son éditeur s’ouvre. 
 
    ![Page Prise en main](./media/tutorial-hybrid-copy-portal/get-started-page.png)
 2. Sous l’onglet **Général** au bas de la fenêtre **Propriétés**, entrez **SQLServerToBlobPipeline** dans le champ **Nom**.
@@ -195,7 +196,7 @@ Dans cette section, vous allez créer un conteneur d’objets blob nommé **adft
 13. Dans la fenêtre **Integration Runtime Setup** (Installation du runtime d’intégration) du navigateur web, sélectionnez **Terminer**. 
 
     ![Installation du runtime d’intégration](./media/tutorial-hybrid-copy-portal/click-finish-integration-runtime-setup.png)
-14. Dans la fenêtre **New Linked Service** (Nouveau service lié), procédez comme suit :
+14. Dans la fenêtre **Nouveau service lié**, procédez comme suit :
 
     a. Dans le champ **Nom**, entrez **SqlServerLinkedService**.
 
@@ -236,7 +237,7 @@ Dans cette section, vous allez créer un conteneur d’objets blob nommé **adft
 20. Accédez à l’onglet **Connexion** au bas de la fenêtre **Propriétés**. À côté de **Service lié**, sélectionnez **+ Nouveau**. 
 
     ![Bouton de nouveau service lié](./media/tutorial-hybrid-copy-portal/new-storage-linked-service-button.png)
-21. Dans la fenêtre **New Linked Service** (Nouveau service lié), procédez comme suit :
+21. Dans la fenêtre **Nouveau service lié**, procédez comme suit :
 
     a. Dans le champ **Nom**, entrez **AzureStorageLinkedService**.
 

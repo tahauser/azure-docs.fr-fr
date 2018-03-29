@@ -1,11 +1,11 @@
 ---
 title: Administration des services pour Azure Search dans le portail Azure
-description: "Gérez Azure Search, un service de recherche cloud hébergé sur Microsoft Azure à l’aide du portail Azure."
+description: Gérez Azure Search, un service de recherche cloud hébergé sur Microsoft Azure à l’aide du portail Azure.
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: HeidiSteen
 manager: jhubbard
-editor: 
+editor: ''
 tags: azure-portal
 ms.assetid: c87d1fdd-b3b8-4702-a753-6d7e29dbe0a2
 ms.service: search
@@ -15,17 +15,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 916a08aacca428530bc4f728d5de422e04bed8bc
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d19683291e001c3c3f2a7bfc5c203b5121a8a418
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Administration des services pour Azure Search dans le portail Azure
 > [!div class="op_single_selector"]
 > * [Portail](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
-> * [Kit SDK .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
+> * [Kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
 Azure Search est un service de recherche entièrement géré, basé sur le cloud, utilisé pour la création d’une expérience de recherche riche dans des applications personnalisées. Cet article aborde les tâches d’ *administration des services* que vous pouvez effectuer dans le [portail Azure](https://portal.azure.com) pour un service de recherche que vous avez déjà approvisionné. *Service administration* est légère de par sa conception et se limite à ce qui suit :
@@ -44,26 +44,12 @@ Notez que la *mise à niveau* n’est pas répertoriée comme une tâche adminis
 ## <a name="administrator-rights"></a>Droits d’administrateur
 L’approvisionnement ou le retrait du service lui-même peut être effectué par un administrateur d’abonnement Azure ou un coadministrateur.
 
-Au sein d’un service, quiconque ayant accès à l’URL du service et disposant d’une clé API d’administration bénéficie d’un accès en lecture-écriture au service. L’accès en lecture-écriture permet d’ajouter, de supprimer ou de modifier des objets serveur, notamment des clés API, des index, des indexeurs, des sources de données, des planifications et des attributions de rôles, tels qu’implémentés via les [rôles définis par RBAC](#rbac).
+Au sein d’un service, quiconque ayant accès à l’URL du service et disposant d’une clé API d’administration bénéficie d’un accès en lecture-écriture au service. L’accès en lecture-écriture permet d’ajouter, de supprimer ou de modifier des objets serveur, notamment des clés API, des index, des indexeurs, des sources de données, des planifications et des attributions de rôles, tels qu’implémentés via les [rôles définis par RBAC](search-security-rbac.md).
 
-Toutes les interactions utilisateur avec Azure Search sont soumises à un de ces modes : accès en lecture-écriture au service (droits d’administrateur) ou un accès en lecture seule au service (droits de requête). Pour plus d’informations, consultez la page [Gestion des clés API](#manage-keys).
+Toutes les interactions utilisateur avec Azure Search sont soumises à un de ces modes : accès en lecture-écriture au service (droits d’administrateur) ou un accès en lecture seule au service (droits de requête). Pour plus d’informations, consultez la page [Gestion des clés API](search-security-api-keys.md).
 
 <a id="sys-info"></a>
 
-## <a name="set-rbac-roles-for-administrative-access"></a>Définir des rôles RBAC pour l’accès des administrateurs
-Azure offre un [modèle d’autorisation par rôle global](../active-directory/role-based-access-control-configure.md) pour tous les services gérés via le portail ou les API Resource Manager. Les rôles Propriétaire, Collaborateur et Lecteur définissent le niveau d’administration des services pour les utilisateurs, les groupes et les principaux de sécurité Active Directory que vous assignez à chaque rôle. 
-
-Pour Azure Search, les autorisations RBAC déterminent les tâches administratives suivantes :
-
-| Rôle | Task |
-| --- | --- |
-| Propriétaire |Création ou suppression du service ou de tout objet sur le service, y compris les clés API, les index, les indexeurs, les sources de données d’indexeur et les planifications de l’indexeur.<p>Afficher l’état du service, notamment des compteurs et la taille du stockage.<p>Ajout ou suppression d'appartenance à un rôle (seul un Propriétaire peut gérer l'appartenance à un rôle).<p>Les administrateurs d’abonnement et de service appartiennent automatiquement au rôle Propriétaire. |
-| Collaborateur |Même niveau d’accès que le Propriétaire, à l’exception de la gestion des rôles RBAC. Par exemple, un Collaborateur peut visualiser et régénérer `api-key`, mais il ne peut pas modifier les appartenances aux rôles. |
-| Lecteur |Affichage de l'état du service et des clés Requête. Les membres de ce rôle ne peuvent pas modifier la configuration du service, ni afficher des clés Admin. |
-
-Les rôles n’accordent pas de droits d’accès au point de terminaison de service. Les opérations du service Search telles que la gestion ou le remplissage d'index, tout comme les requêtes de données de recherche, sont contrôlées via des clés api, et non par des rôles. Pour en savoir plus, consultez la section « Autorisation pour les opérations de gestion et les opérations de données » de la page [Contrôle d’accès en fonction du rôle](../active-directory/role-based-access-control-what-is.md).
-
-<a id="secure-keys"></a>
 ## <a name="logging-and-system-information"></a>Journalisation et informations système
 Azure Search n’expose pas les fichiers journaux d’un service via le portail ou les interfaces de programmation. Au niveau de base et supérieur, Microsoft surveille tous les services Azure Search pour vérifier la disponibilité de 99,9 % par contrat de niveau de service (SLA). Si le service est lent ou si le débit des demandes tombe en dessous des seuils de contrat SLA, les équipes de support passent en revue les fichiers journaux à leur disposition et résolvent le problème.
 
@@ -73,38 +59,6 @@ En termes d’informations générales relatives à votre service, vous pouvez o
 * À l’aide de [PowerShell](search-manage-powershell.md) ou de [l’API REST de gestion](https://docs.microsoft.com/rest/api/searchmanagement/) pour [obtenir les propriétés du service](https://docs.microsoft.com/rest/api/searchmanagement/services), ou de l’état sur l’utilisation des ressources d’index.
 * Via la [recherche du trafic d’analyse](search-traffic-analytics.md), comme indiqué précédemment.
 
-<a id="manage-keys"></a>
-
-## <a name="manage-api-keys"></a>Gérer les clés API
-Toutes les demandes adressées à votre service de recherche ont besoin d’une clé API générée spécialement pour votre service. Cette clé API constitue le seul mécanisme d’authentification de l’accès au point de terminaison de votre service de recherche. 
-
-Une clé API est une chaîne composée de nombres et de lettres générée de manière aléatoire. Les [autorisations RBAC](#rbac) vous permettent de supprimer ou de lire les clés, mais pas de remplacer une clé par un mot de passe défini par l’utilisateur. 
-
-Deux types de clés sont utilisés pour accéder à votre service de recherche :
-
-* Admin (valable pour toute opération de lecture/écriture par rapport au service)
-* Requête (valable pour les opérations en lecture seule, telles que les requêtes par rapport à un index)
-
-Une clé API Admin est créée lorsque le service est approvisionné. Bien qu’il existe deux clés d’administration, désignées comme *principale* et *secondaire*, celles-ci sont en fait interchangeables. Chaque service dispose de deux clés Admin que vous pouvez interchanger sans perdre l’accès à votre service. Vous pouvez régénérer l'une des clés Admin, mais vous ne pouvez pas augmenter leur nombre total. Il y a, au maximum, deux clés Admin par service de recherche.
-
-Les clés Requête sont conçues pour les applications clientes qui appellent directement le service Search. Vous pouvez créer, au maximum, 50 clés de ce type. Dans le code d’application, vous spécifiez l’URL de recherche et une clé API de requête pour autoriser l’accès en lecture seule au service. Le code de votre application spécifie également l’index utilisé par votre application. Ensemble, le point de terminaison, une clé API pour un accès en lecture seule et un index cible définissent le niveau de portée et d’accès de la connexion à partir de votre application cliente.
-
-Pour obtenir ou régénérer des clés API, ouvrez le tableau de bord des services. Cliquez sur **CLÉS** pour afficher la page de gestion des clés. Les commandes de régénération ou de création de clés figurent en haut de la page. Par défaut, seules les clés Admin sont créées. Les clés API de requête doivent être créées manuellement.
-
- ![][9]
-
-<a id="rbac"></a>
-
-## <a name="secure-api-keys"></a>Sécuriser les clés API
-La sécurité des clés est assurée en limitant l’accès via le portail ou des interfaces Resource Manager (PowerShell ou interface de ligne de commande). Comme indiqué, les administrateurs des abonnements peuvent afficher et régénérer toutes les clés API. Par précaution, passez en revue les affectations de rôle pour comprendre qui a accès aux clés Admin.
-
-1. Dans le tableau de bord du service, cliquez sur l’icône d’accès pour ouvrir le panneau des utilisateurs.
-   ![][7]
-2. Dans Utilisateurs, vérifiez les affectations de rôles existantes. Normalement, les administrateurs d’abonnement ont déjà un accès complet au service via le rôle Propriétaire.
-3. Pour aller plus loin, cliquez sur les **administrateurs d’abonnement** , puis développez la liste d’affectation de rôle pour savoir qui possède des droits d’administration conjoints sur votre service de recherche.
-
-Une autre façon d’afficher les autorisations d’accès consiste à cliquer sur **Rôles** sur le panneau Utilisateurs. Cela affiche les rôles disponibles et le nombre d’utilisateurs ou de groupes affectés à chaque rôle.
-
 <a id="sub-5"></a>
 
 ## <a name="monitor-resource-usage"></a>surveiller l’utilisation des ressources ;
@@ -112,7 +66,7 @@ Sur le tableau de bord, l’analyse des ressources se limite aux informations af
 
 L’API REST Search Service vous permet d’obtenir le nombre de documents et d’index par programmation : 
 
-* [Obtention de statistiques d'index](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
+* [Obtention de statistiques d’index](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
 * [Nombre de documents](https://docs.microsoft.com/rest/api/searchservice/count-documents)
 
 ## <a name="disaster-recovery-and-service-outages"></a>Récupération d’urgence et pannes de service
@@ -184,9 +138,6 @@ Nous vous recommandons aussi de consulter l’[article relatif aux performances 
 Par ailleurs, nous vous conseillons de regarder la vidéo indiquée dans la section précédente. Elle décrit plus en détail les techniques mentionnées dans cette section.
 
 <!--Image references-->
-[7]: ./media/search-manage/rbac-icon.png
-[8]: ./media/search-manage/Azure-Search-Manage-1-URL.png
-[9]: ./media/search-manage/Azure-Search-Manage-2-Keys.png
 [10]: ./media/search-manage/Azure-Search-Manage-3-ScaleUp.png
 
 

@@ -1,11 +1,10 @@
 ---
-title: "Charger des téraoctets de données dans SQL Data Warehouse | Microsoft Docs"
-description: "Montre comment 1 To de données peut être chargé dans Azure SQL Data Warehouse en moins de 15 minutes avec Azure Data Factory"
+title: Charger des téraoctets de données dans SQL Data Warehouse | Microsoft Docs
+description: Montre comment 1 To de données peut être chargé dans Azure SQL Data Warehouse en moins de 15 minutes avec Azure Data Factory
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: a6c133c0-ced2-463c-86f0-a07b00c9e37f
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1b931de564417ab98207321d7798613b187e411f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3266e4b571878eb55c55e235ecb10995cbd58439
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Charger 1 To dans Azure SQL Data Warehouse en moins de 15 minutes avec Azure Data Factory
 > [!NOTE]
@@ -47,6 +46,7 @@ Cet article fournit des instructions détaillées pour déplacer les données da
 >
 
 ## <a name="prerequisites"></a>Prérequis
+
 * Stockage Blob Azure : cette expérience utilise le Stockage Blob Azure (GRS) pour stocker un jeu de données de test TPC-H.  Si vous ne possédez pas de compte de stockage Azure, découvrez [comment créer un compte de stockage](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
 * Données [TPC-H](http://www.tpc.org/tpch/) : nous allons utiliser TPC-H comme jeu de données de test.  Pour ce faire, vous devez utiliser `dbgen` dans le kit d’outils TPC-H, qui vous permet de générer le jeu de données.  Vous pouvez télécharger le code source pour `dbgen` depuis [TPC Tools](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp) et le compiler vous-même, ou vous pouvez télécharger le fichier binaire compilé à partir de [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TPCHTools).  Exécutez dbgen.exe avec les commandes suivantes pour générer le fichier plat de 1 To pour la table `lineitem` répartie entre 10 fichiers :
 

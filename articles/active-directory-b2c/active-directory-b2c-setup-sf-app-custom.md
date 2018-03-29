@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C : ajout d’un fournisseur SAML Salesforce à l’aide de stratégies personnalisées | Microsoft Docs"
-description: "Découvrez comment créer et gérer des stratégies personnalisées Azure Active Directory B2C."
+title: 'Azure Active Directory B2C : ajout d’un fournisseur SAML Salesforce à l’aide de stratégies personnalisées | Microsoft Docs'
+description: Découvrez comment créer et gérer des stratégies personnalisées Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: d7f4143f-cd7c-4939-91a8-231a4104dc2c
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 06/11/2017
-ms.author: parakhj
-ms.openlocfilehash: 16f7c5708b479f18de17a612a733a2be6e97ad01
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 1ccf5c58eab9df9016224a91ddda952a05457e2a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-salesforce-accounts-via-saml"></a>Azure Active Directory B2C : connexion à l’aide de comptes Salesforce via SAML
 
@@ -26,13 +23,14 @@ ms.lasthandoff: 12/11/2017
 
 Cet article explique comment utiliser des [stratégies personnalisées](active-directory-b2c-overview-custom.md) afin de configurer la connexion pour les utilisateurs d’une organisation Salesforce spécifique.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
+
 
 ### <a name="azure-ad-b2c-setup"></a>Configuration d’Azure AD B2C
 
 Vérifiez que vous avez suivi toutes les étapes montrant comment [bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md) dans Azure Active Directory B2C (Azure AD B2C).
 
-Vous avez notamment vu les points suivants :
+Il s’agit des actions suivantes :
 
 * Créer un locataire Azure AD B2C
 * Créer une application Azure AD B2C
@@ -117,7 +115,7 @@ Chargez le certificat de signature sur votre locataire Azure AD B2C :
     2. Entrez un **Nom** (par exemple, SAMLSigningCert). Le préfixe *B2C_1A_* est ajouté automatiquement au nom de votre clé.
     3. Pour sélectionner votre certificat, choisissez **contrôle du fichier de téléchargement**. 
     4. Entrez le mot de passe du certificat que vous avez défini dans le script PowerShell.
-3. Cliquez sur **Create**.
+3. Cliquez sur **Créer**.
 4. Vérifiez que vous avez créé une clé (par exemple, B2C_1A_SAMLSigningCert). Prenez note du nom complet (y compris *B2C_1A_*). Vous ferez référence à cette clé plus loin dans la stratégie.
 
 ## <a name="create-the-salesforce-saml-claims-provider-in-your-base-policy"></a>Créer le fournisseur de revendications SAML Salesforce dans votre stratégie de base

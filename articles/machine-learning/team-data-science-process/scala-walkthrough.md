@@ -1,8 +1,8 @@
 ---
-title: "Science des données à l’aide de Scala et de Spark sur Azure | Microsoft Docs"
-description: "Comment utiliser Scala pour les tâches d’apprentissage automatique supervisées avec des packages MLlib et Spark ML sur un cluster Azure HDInsight Spark."
+title: Science des données à l’aide de Scala et de Spark sur Azure | Microsoft Docs
+description: Comment utiliser Scala pour les tâches d’apprentissage automatique supervisées avec des packages MLlib et Spark ML sur un cluster Azure HDInsight Spark.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev;deguhath
-ms.openlocfilehash: 940911144993f30723ad395722742c81a4b0a71c
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: bradsev
+ms.openlocfilehash: dbd68508d83936964d213d94d5a30c15548cbdfc
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Science des données à l’aide de Scala et Spark sur Azure
 Ce article vous montre comment utiliser Scala pour les tâches d’apprentissage automatique supervisées avec la bibliothèque d’apprentissage automatique évolutif (MLlib) Spark et des packages SparkML sur un cluster Azure HDInsight Spark. Elle vous guide à travers les tâches qui constituent le [processus de science des données](http://aka.ms/datascienceprocess): ingestion et exploration des données, visualisation, conception de fonctionnalités et consommation de modèles. Les modèles de cet article incluent la régression logistique et linéaire, les forêts aléatoires et les arbres GBT (Gradient Boosted Tree), en plus de deux tâches d’apprentissage automatique supervisées courantes :
@@ -41,7 +41,8 @@ Les étapes d’installation et le code présentés dans cet article s’appliqu
 > 
 > 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
+
 * Vous devez avoir un abonnement Azure. Si vous n’en avez pas, [obtenez une version d’évaluation gratuite Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Vous avez besoin d’un cluster Azure HDInsight 3.4 Spark 1.6 pour effectuer les procédures suivantes. Pour créer un cluster, consultez les instructions de la rubrique dans [Prise en main : Créer Apache Spark sur Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Spécifiez le type et la version du cluster à partir du menu **Sélectionner le type de cluster** .
 

@@ -1,24 +1,18 @@
 ---
-title: Supprimer des runbooks Workers hybrides Azure Automation | Microsoft Docs
-description: "Cet article fournit des informations sur la gestion de Runbooks Worker hybrides Azure Automation qui vous permettent d’exécuter des Runbooks sur les machines de votre centre de données local ou de votre environnement cloud."
+title: Supprimer des runbooks Workers hybrides Azure Automation
+description: Cet article fournit des informations sur la gestion de Runbooks Worker hybrides Azure Automation qui vous permettent d’exécuter des Runbooks sur les machines de votre centre de données local ou de votre environnement cloud.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: carmonm
-editor: tysonn
-ms.assetid: 
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/19/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/07/2017
-ms.author: magoedte
-ms.openlocfilehash: 602b868073da6bd1f64099c0f344c9b492abaff0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+manager: carmonm
+ms.openlocfilehash: 0b8f951bbd9712e3d20c3286ef3571e287499c68
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="remove-azure-automation-hybrid-runbook-workers"></a>Supprimer des runbooks Workers hybrides Azure Automation
 

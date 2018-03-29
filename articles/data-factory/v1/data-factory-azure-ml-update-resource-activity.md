@@ -1,11 +1,10 @@
 ---
-title: "Mise à jour des modèles Machine Learning à l’aide d’Azure Data Factory | Microsoft Docs"
-description: "Décrit comment créer des pipelines prédictifs à l’aide d’Azure Data Factory et d’Azure Machine Learning."
+title: Mise à jour des modèles Machine Learning à l’aide d’Azure Data Factory | Microsoft Docs
+description: Décrit comment créer des pipelines prédictifs à l’aide d’Azure Data Factory et d’Azure Machine Learning.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 502bf8771bf7854755ccd72c7002110f1e25bd40
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 3702f4b7a58e9ca65a8ee309699a7e31b207159b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>Mettre à jour les modèles Azure Machine Learning à l’aide de l’activité des ressources de mise à jour
 
@@ -40,7 +39,7 @@ ms.lasthandoff: 01/23/2018
 
 Cet article vient s’ajouter à l’article principal sur l’intégration Azure Data Factory - Azure Machine Learning : [Création de pipelines prédictifs à l'aide d'Azure Data Factory et Azure Machine Learning](data-factory-azure-ml-batch-execution-activity.md). Si vous ne l’avez pas encore fait, consultez l’article principal avant de lire cet article. 
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 Au fil du temps, les modèles prédictifs dans les expériences de notation Azure ML doivent être reformés à l’aide de nouveaux jeux de données d’entrée. Une fois que vous avez fini la reformation, vous souhaitez mettre à jour le service web de notation avec le modèle ML reformé. Les étapes classiques pour activer la reformation et la mise à jour des modèles Azure ML via les services web sont les suivantes :
 
 1. Créez une expérience dans [Azure ML Studio](https://studio.azureml.net).

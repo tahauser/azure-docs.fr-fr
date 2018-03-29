@@ -1,3 +1,19 @@
+---
+title: Fichier Include
+description: Fichier Include
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 8a5d05342a1db5f27d115364798885a278d09fc0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 03/23/2018
+---
 1. Dans le portail, sur le côté gauche, cliquez sur **+Créer une ressource**, puis entrez « passerelle de réseau virtuel » dans la recherche. Recherchez **passerelle de réseau virtuel** dans la zone de recherche et cliquez sur l’entrée. Sur la page de la **Passerelle de réseau virtuel**, cliquez sur **Créer** en bas de la page pour ouvrir la page **Créer une passerelle de réseau virtuel**.
 2. Sur la page **Créer une passerelle de réseau virtuel**, renseignez les valeurs pour votre passerelle de réseau virtuel.
 

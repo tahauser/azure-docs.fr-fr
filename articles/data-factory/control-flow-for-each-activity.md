@@ -1,11 +1,11 @@
 ---
-title: "Activité ForEach dans Azure Data Factory | Microsoft Docs"
-description: "L’activité ForEach définit un flux de contrôle répétitif dans votre pipeline. Elle permet d’effectuer une itération sur une collection et d’exécuter des activités spécifiées."
+title: Activité ForEach dans Azure Data Factory | Microsoft Docs
+description: L’activité ForEach définit un flux de contrôle répétitif dans votre pipeline. Elle permet d’effectuer une itération sur une collection et d’exécuter des activités spécifiées.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: b9a151ac04bc539e337b0007a264e196dc0ae6a3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 2eaa4f6bb49867e0f0f061116551794d6f1dd0ca
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Activité ForEach dans Azure Data Factory
 L’activité ForEach définit un flux de contrôle répétitif dans votre pipeline. Elle permet d’effectuer une itération sur une collection, et exécute des activités spécifiées dans une boucle. L’implémentation en boucle de cette activité est similaire à la structure d’exécution en boucle de Foreach dans les langages de programmation.
@@ -237,7 +237,7 @@ Il est possible d’itérer sur plusieurs activités (par exemple : des activit
 }
 
 ```
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 **Scénario :**  itérer sur un pipeline interne au sein d’une activité ForEach avec l’activité d’exécution du pipeline. Le pipeline interne copie avec des définitions de schéma paramétrées.
 
 #### <a name="master-pipeline-definition"></a>Définition du pipeline principal

@@ -1,11 +1,10 @@
 ---
-title: "Créer votre première fabrique de données Azure (Visual Studio) | Microsoft Docs"
-description: "Dans ce didacticiel, vous allez créer un exemple de pipeline Azure Data Factory avec Visual Studio."
+title: Créer votre première fabrique de données Azure (Visual Studio) | Microsoft Docs
+description: Dans ce didacticiel, vous allez créer un exemple de pipeline Azure Data Factory avec Visual Studio.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 7398c0c9-7a03-4628-94b3-f2aaef4a72c5
 ms.service: data-factory
 ms.workload: data-services
@@ -15,16 +14,16 @@ ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 07cf3e354f0d4fee99a2faa2567fb69803f1db2d
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: b8497e8f7b268c52878648d08f94dde6bb81ff94
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Didacticiel : Créer une fabrique de données à l’aide de Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
 > * [Vue d’ensemble et étapes préalables requises](data-factory-build-your-first-pipeline.md)
-> * [Portail Azure](data-factory-build-your-first-pipeline-using-editor.md)
+> * [Portail Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modèle Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -60,6 +59,7 @@ Voici les étapes à effectuer dans le cadre de cette procédure pas à pas :
 5. Après la publication, utilisez les panneaux du portail Azure et l’application de surveillance et gestion pour surveiller le pipeline. 
   
 ### <a name="prerequisites"></a>Prérequis
+
 1. Lisez l’article [Vue d’ensemble du didacticiel](data-factory-build-your-first-pipeline.md) et effectuez les étapes **préalables** . Vous pouvez également sélectionner l’option **Vue d’ensemble et étapes préalables requises** de la liste déroulante figurant en haut de la page pour basculer vers l’article correspondant. Une fois les étapes préalables suivies, revenez à cet article en sélectionnant l’option **Visual Studio** dans la liste déroulante.
 2. Pour créer des instances Data Factory, vous devez avoir un rôle de [collaborateur de fabrique de données](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) au niveau de l’abonnement/du groupe de ressources.  
 3. Les composants suivants doivent être installés sur votre ordinateur :

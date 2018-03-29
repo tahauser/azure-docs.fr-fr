@@ -1,23 +1,20 @@
 ---
-title: "Ajouter la connexion à une application web Node.js - Azure Active Directory B2C"
-description: "Comment créer une application web Node.js qui connecte les utilisateurs à Azure Active Directory B2C."
+title: Ajouter la connexion à une application web Node.js - Azure Active Directory B2C
+description: Comment créer une application web Node.js qui connecte les utilisateurs à Azure Active Directory B2C.
 services: active-directory-b2c
-author: PatAltimore
+author: davidmu1
 manager: mtillman
-editor: dstrockis
-ms.custom: seo
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: javascript
 ms.topic: article
 ms.date: 03/10/2017
-ms.author: xerners
-ms.openlocfilehash: 25a2bef2f3cc6f210c574f920164b8d69b0d90db
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.author: davidmu
+ms.openlocfilehash: b10b2338bfbcd449075e612ae00cc23802dce3a9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-b2c-add-sign-in-to-a-nodejs-web-app"></a>Azure AD B2C : ajouter une connexion à une application web Node.js
 
@@ -400,7 +397,7 @@ Exécutez `node app.js` et accédez à `http://localhost:3000`
 
 Inscrivez-vous ou connectez-vous à l’application avec une adresse de messagerie ou via Facebook. Déconnectez-vous, puis reconnectez-vous comme si vous étiez un autre utilisateur.
 
-##<a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour référence, l’exemple terminé (sans vos valeurs de configuration) [est fourni en tant que fichier .zip](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS/archive/complete.zip). Vous pouvez également le cloner à partir de GitHub :
 

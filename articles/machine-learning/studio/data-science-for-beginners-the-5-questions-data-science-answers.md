@@ -1,11 +1,12 @@
 ---
-title: "Les 5 questions de la science des données - Science des données pour les débutants - Azure Machine Learning | Microsoft Docs"
-description: "La série Science des données pour les débutants enseigne des concepts de base en 5 courtes vidéos, et commence par Les 5 questions de la science des données. À partir d’Azure Machine Learning."
-keywords: "utiliser la science des données,débutants en science des données,science des données pour les débutants,notions de base de la science des données,questions de science des données,vidéo de sciences de données,présentation de la science des données"
+title: Les 5 questions de la science des données - Science des données pour les débutants - Azure Machine Learning | Microsoft Docs
+description: La série Science des données pour les débutants enseigne des concepts de base en 5 courtes vidéos, et commence par Les 5 questions de la science des données. À partir d’Azure Machine Learning.
+keywords: utiliser la science des données,débutants en science des données,science des données pour les débutants,notions de base de la science des données,questions de science des données,vidéo de sciences de données,présentation de la science des données
 services: machine-learning
 documentationcenter: na
-author: cjgronlund
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cjgronlund
 ms.assetid: a01f93ee-01eb-4afe-abbd-cfa035c119b0
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.author: cgronlun
-ms.openlocfilehash: 0482a680999e58b8be45334c9ae620b6b37ac273
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: 494c8293a1dbfccbfe2df1e2f48f770edb6452dc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Science des données pour les débutants, vidéo 1 : Les 5 questions auxquelles la science des données répond
 Découvrez la science des données dans la série de cinq courtes vidéos de présentation *Science des données pour les débutants* d’un célèbre spécialiste des données. Ces vidéos sont simples mais utiles, que vous souhaitiez travailler sur la science des données ou collaborer avec d’autres scientifiques.

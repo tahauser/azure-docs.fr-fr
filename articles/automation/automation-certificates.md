@@ -8,13 +8,11 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: d4e205365b884b683928e42d538c085c4df2d6ed
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: d314b7e56b769cf4a6488b769edadf5f5795fefe
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Ressources de certificats dans Azure Automation
 
@@ -99,7 +97,7 @@ Add-AzureCertificate -ServiceName $serviceName -CertToDeploy $cert
 
 ### <a name="graphical-runbook-sample"></a>Exemple de Runbook graphique
 
-Pour ajouter une commande **Get-AutomationCertificate** à un Runbook graphique, vous devez cliquer avec le bouton droit sur le certificat dans le volet Bibliothèque de l’éditeur graphique et sélectionner l’option **Ajouter à la zone de dessin**.
+Pour ajouter une commande **Get-AutomationCerticificate** à un Runbook graphique, vous devez cliquer avec le bouton droit sur le certificat dans le volet Bibliothèque de l’éditeur graphique et sélectionner l’option **Ajouter à la zone de dessin**.
 
 ![Ajouter un certificat à la zone de dessin](media/automation-certificates/automation-certificate-add-to-canvas.png)
 

@@ -1,11 +1,11 @@
 ---
-title: "Configuration de l’ordinateur pour le développement Media Services avec .NET"
-description: "Familiarisez-vous avec les conditions préalables pour Media Services à l’aide du Kit de développement logiciel (SDK) Media Services pour .NET. Apprenez également à créer une application Visual Studio."
+title: Configuration de l’ordinateur pour le développement Media Services avec .NET
+description: Familiarisez-vous avec les conditions préalables pour Media Services à l’aide du Kit de développement logiciel (SDK) Media Services pour .NET. Apprenez également à créer une application Visual Studio.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: ec2804c7-c656-4fbf-b3e4-3f0f78599a7f
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 532306427ba13aca70c50d47a33bb7edeac71720
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: b5daa2198d76534e5756684e0482d59c047d634f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="media-services-development-with-net"></a>Développement Media Services avec .NET
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
@@ -28,6 +28,7 @@ Cet article explique comment commencer à développer des applications Media Ser
 La bibliothèque du **Kit de développement logiciel (SDK) Azure Media Services pour .NET** permet de programmer pour Media Services à l'aide de .NET. Pour que le développement avec .NET soit encore plus simple, la bibliothèque des **extensions du Kit de développement logiciel (SDK) Azure Media Services pour .NET** est fournie. Cette bibliothèque contient un ensemble de méthodes d’extension et de fonctions d’assistance qui simplifient votre code .NET. Les deux bibliothèques sont disponibles par le biais de **NuGet** et de **GitHub**.
 
 ## <a name="prerequisites"></a>Prérequis
+
 * Un compte Media Services dans un abonnement Azure nouveau ou existant. Consultez l’article [Création d’un compte Media Services](media-services-portal-create-account.md).
 * Systèmes d’exploitation : Windows 10, Windows 7, Windows 2008 R2 ou Windows 8.
 * .NET Framework 4.5 ou ultérieur.
@@ -91,7 +92,7 @@ Vous pouvez également obtenir les dernières informations relatives au Kit de d
 
     À ce stade, vous êtes prêt à commencer le développement d’une application Media Services.    
 
-## <a name="example"></a>Exemple
+## <a name="example"></a>Exemples
 
 Ce court exemple permet de se connecter à l’API AMS et de répertorier tous les processeurs multimédias disponibles.
 
@@ -130,7 +131,7 @@ Ce court exemple permet de se connecter à l’API AMS et de répertorier tous l
             }
  ```
 
-##<a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Vous pouvez désormais vous connecter à l’API AMS](media-services-use-aad-auth-to-access-ams-api.md) et commencer à [développer](media-services-dotnet-get-started.md).
 

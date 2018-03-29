@@ -1,3 +1,19 @@
+---
+title: Fichier Include
+description: Fichier Include
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 738ebdcc612d944db3794525085d220b33533245
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 03/23/2018
+---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>La stratégie personnalisée IPsec/IKE est-elle prise en charge sur toutes les références de passerelle VPN Azure ?
 La stratégie personnalisée IPsec/IKE est prise en charge sur les passerelles VPN Azure **VpnGw1, VpnGw2, VpnGw3, Standard** et **HighPerformance**. La **référence SKU** de base **n’est pas** prise en charge.
 
@@ -18,7 +34,7 @@ Le tableau suivant répertorie les algorithmes de chiffrement et les puissances 
 | Chiffrement IPsec | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, Aucun      |
 | Intégrité IPsec  | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                            |
 | Groupe PFS        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, Aucun                              |
-| Durée de vie de l’AS en mode rapide   | Secondes (entier ; **min 300**  /par défaut 27 000 secondes)<br>Kilo-octets (entier ; **min 1 024**  /par défaut 102 400 000 Ko)           |
+| Durée de vie de l’AS en mode rapide   | Secondes (entier ; **min 300** /par défaut 27 000 secondes)<br>Kilo-octets (entier ; **min 1 024**  /par défaut 102 400 000 Ko)           |
 | Sélecteur de trafic | UsePolicyBasedTrafficSelectors ($True/$False; default $False)                 |
 |                  |                                                                               |
 

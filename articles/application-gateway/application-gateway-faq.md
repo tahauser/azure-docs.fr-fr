@@ -1,6 +1,6 @@
 ---
 title: Forum aux questions pour Azure Application Gateway | Microsoft Docs
-description: "Cette page fournit des réponses aux questions les plus souvent posées sur Azure Application Gateway"
+description: Cette page fournit des réponses aux questions les plus souvent posées sur Azure Application Gateway
 documentationcenter: na
 services: application-gateway
 author: davidmu1
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: davidmu
-ms.openlocfilehash: f92af44df9863bbf48abb4afcf9b1505c843fadc
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 5b400b373577fc38fe108a74eb8bad936a82be0c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Forum aux questions pour Azure Application Gateway
 
@@ -135,10 +135,6 @@ Les sondes personnalisées ne prennent pas en charge les caractères générique
 **Q. Comment les règles sont-elles traitées ?**
 
 Les règles sont traitées dans l’ordre où elles sont configurées. Il est recommandé de configurer les règles multisites avant les règles élémentaires pour réduire les risques que le trafic soit acheminé vers le serveur backend inapproprié si une règle élémentaire mettait en correspondance le trafic basé sur le port avant l’évaluation de la règle multisite.
-
-**Q. Comment les règles sont-elles traitées ?**
-
-Les règles sont traitées dans leur ordre de création. Nous vous recommandons de configurer les règles multi-sites avant les règles de base. En configurant les écouteurs multi-sites en premier, cette configuration réduit les risques que le trafic soit acheminé vers le serveur principal inapproprié. Ce problème d’acheminement peut se produire car la règle de base correspond au trafic basé sur le port avant que la règle multi-site ne soit évaluée.
 
 **Q. À quoi correspond le champ Hôte pour les sondes personnalisées ?**
 

@@ -1,31 +1,28 @@
 ---
-title: "Mettre des machines virtuelles à la disposition de vos utilisateurs Azure Stack | Microsoft Docs"
-description: "Didacticiel pour rendre des machines virtuelles disponibles sur Azure Stack"
+title: Mettre des machines virtuelles à la disposition de vos utilisateurs Azure Stack | Microsoft Docs
+description: Didacticiel pour rendre des machines virtuelles disponibles sur Azure Stack
 services: azure-stack
-documentationcenter: 
-author: brenduns
+documentationcenter: ''
+author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/23/2017
-ms.author: brenduns
-ms.reviewer: 
+ms.date: 03/22/2018
+ms.author: jeffgilb
+ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: d169a18df8916cfb8dd30b00248099a3d374aacc
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: af97f32736959f8ebf8f3c4fbca400d6b0c41f3e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="make-virtual-machines-available-to-your-azure-stack-users"></a>Mettre des machines virtuelles à la disposition de vos utilisateurs Azure Stack
-
-*S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
-
 En tant qu’un administrateur de cloud Azure Stack, vous pouvez créer des offres auxquelles vos utilisateurs (parfois appelée « locataires ») peuvent s’abonner. Avec leur abonnement, les utilisateurs peuvent utiliser les services Azure Stack.
 
 Cet article vous explique comment créer une offre, puis la tester. Pour le test, vous allez vous connecter au portail en tant qu’utilisateur, vous abonner à l’offre, puis créer une machine virtuelle à l’aide de l’abonnement.
@@ -116,7 +113,7 @@ Maintenant que vous avez créé une offre, vous pouvez le tester. Connectez-vous
    Vous pouvez maintenant vous connecter au portail en tant qu’utilisateur pour vous abonner à une offre.
 
    a. Connectez-vous au portail utilisateur en tant qu’utilisateur et cliquez sur **Obtenir un abonnement**.
-   - Pour un système intégré, l’URL varie en fonction de la région et du nom de domaine externe de votre opérateur, et son format est le suivant : https://portal.&lt;*région*&gt;.&lt;*FQDN*&gt;.
+   - Pour un système intégré, l’URL varie en fonction de la région et du nom de domaine externe de votre opérateur, et son format est https://portal.&lt;*région*&gt;.&lt;*FQDN*&gt;.
    - Si vous utilisez le Kit de développement Azure Stack, l’adresse du portail est https://portal.local.azurestack.external.
 
    ![Prendre un abonnement](media/azure-stack-subscribe-plan-provision-vm/image01.png)

@@ -1,25 +1,25 @@
 ---
-title: "Guide Bien démarrer avec les opérateurs informatiques Azure | Microsoft Docs"
-description: "Guide Bien démarrer avec les opérateurs informatiques Azure"
-services: 
-documentationcenter: 
+title: Guide Bien démarrer avec les opérateurs informatiques Azure | Microsoft Docs
+description: Guide Bien démarrer avec les opérateurs informatiques Azure
+services: ''
+documentationcenter: ''
 author: neilpeterson
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
-ms.devlang: 
-ms.topic: 
-ms.tgt_pltfrm: 
+ms.devlang: ''
+ms.topic: ''
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.openlocfilehash: 8d7cbe27e5acfe741aeb5ed85756bf3c7ce2160b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0be60fff3d49ff39691f19cb1013e023f9f984e6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Présentation du cloud computing et de Microsoft Azure
 
@@ -485,7 +485,7 @@ Vous pouvez connecter le réseau local à un réseau virtuel Azure par le biais 
 
 Le réseau virtuel Azure étant connecté à votre réseau local, les réseaux virtuels entre locaux ne doivent utiliser qu’une partie de l’espace d’adressage utilisé par votre organisation. De la même façon que les différents locaux de l’entreprise se voient affecter un sous-réseau IP spécifique, Azure devient un emplacement supplémentaire lorsque vous étendez votre réseau.
 
-###<a name="deploying-a-virtual-network"></a>Déploiement d’un réseau virtuel
+### <a name="deploying-a-virtual-network"></a>Déploiement d’un réseau virtuel
 
 Il existe plusieurs options pour déployer un réseau virtuel.
 

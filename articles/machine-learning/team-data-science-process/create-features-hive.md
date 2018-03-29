@@ -1,8 +1,8 @@
 ---
-title: "Création de fonctionnalités pour les données dans un cluster Hadoop à l’aide de requêtes Hive | Microsoft Docs"
-description: "Exemples de requêtes Hive qui génèrent des fonctionnalités dans les données stockées dans un cluster Azure HDInsight Hadoop."
+title: Création de fonctionnalités pour les données dans un cluster Hadoop à l’aide de requêtes Hive | Microsoft Docs
+description: Exemples de requêtes Hive qui génèrent des fonctionnalités dans les données stockées dans un cluster Azure HDInsight Hadoop.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: hangzh;bradsev
-ms.openlocfilehash: d72e10332263fac0b0ca0f937d394d2832d88781
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.author: bradsev
+ms.openlocfilehash: f49eeee2dd26d54674b4619e6c986952718caa47
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Création de fonctionnalités pour les données dans un cluster Hadoop à l’aide de requêtes Hive
 Ce document montre comment créer des fonctionnalités pour des données stockées dans un cluster Hadoop Azure HDInsight à l’aide de requêtes Hive. Ces requêtes Hive utilisent les FDU (fonctions définies par l’utilisateur) Hive, dont les scripts sont intégrés.
@@ -32,6 +32,7 @@ Des exemples de requêtes propres aux scénarios mettant en œuvre le jeu de don
 Ce **menu** pointe vers des rubriques qui expliquent comment créer des fonctionnalités pour les données dans différents environnements. Cette tâche est une étape du [processus TDSP (Team Data Science Process)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 ## <a name="prerequisites"></a>Prérequis
+
 Cet article suppose que vous avez :
 
 * Créé un compte Azure Storage. Pour des instructions, voir [Créer un compte Stockage Azure](../../storage/common/storage-create-storage-account.md#create-a-storage-account).

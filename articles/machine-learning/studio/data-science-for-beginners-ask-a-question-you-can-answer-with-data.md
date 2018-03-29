@@ -1,11 +1,12 @@
 ---
-title: "Poser une question à laquelle les données peuvent répondre - Problèmes de science des données - Azure Machine Learning | Microsoft Docs"
-description: "Découvrez comment formuler une question de science des données précise dans la vidéo 3 Science des données pour les débutants. Inclut une comparaison des questions de classification et de régression."
-keywords: "problèmes de science des données,questions de science des données, formuler des questions,questions de régression,questions de classification,question précise"
+title: Poser une question à laquelle les données peuvent répondre - Problèmes de science des données - Azure Machine Learning | Microsoft Docs
+description: Découvrez comment formuler une question de science des données précise dans la vidéo 3 Science des données pour les débutants. Inclut une comparaison des questions de classification et de régression.
+keywords: problèmes de science des données,questions de science des données, formuler des questions,questions de régression,questions de classification,question précise
 services: machine-learning
 documentationcenter: na
-author: cjgronlund
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cjgronlund
 ms.assetid: 5b9501e3-9964-417a-8ffc-8913103da77b
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.author: cgronlun
-ms.openlocfilehash: 2f3d8d5c2e7cf1ebc88dc1ff1d7d03bf85383884
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: 225414082c447016cdfdfd1a9e5dbe5e5fbcfaec
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Poser une question à laquelle les données permettent de répondre
 ## <a name="video-3-data-science-for-beginners-series"></a>Vidéo 3 : série Science des données pour les débutants

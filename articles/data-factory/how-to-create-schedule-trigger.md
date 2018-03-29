@@ -1,11 +1,11 @@
 ---
-title: "Créer des déclencheurs de planification dans Azure Data Factory | Microsoft Docs"
-description: "Découvrez comment créer un déclencheur dans Azure Data Factory qui exécute un pipeline selon une planification."
+title: Créer des déclencheurs de planification dans Azure Data Factory | Microsoft Docs
+description: Découvrez comment créer un déclencheur dans Azure Data Factory qui exécute un pipeline selon une planification.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: 51e2dddbe66ca372d89fc8efeb24bdab9fe6a442
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 6466d6cb535bbe0042d7c4c3e828e576e23d5d07
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Créer un déclencheur qui exécute un pipeline selon une planification
 Cet article fournit des informations sur le déclencheur de planification et les étapes pour créer, démarrer et surveiller un déclencheur de planification. Pour les autres types de déclencheurs, consultez [Exécution du pipeline et déclencheurs](concepts-pipeline-execution-triggers.md).
@@ -325,7 +325,7 @@ Le tableau suivant présente une vue d’ensemble globale des principaux éléme
 
 ### <a name="schema-defaults-limits-and-examples"></a>Valeurs par défaut, limites et exemples du schéma
 
-| Propriété JSON | type | Obligatoire | Valeur par défaut | Valeurs valides | exemples |
+| Propriété JSON | type | Obligatoire | Valeur par défaut | Valeurs valides | Exemples |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **startTime** | Chaîne | OUI | Aucun | Dates-Heures ISO-8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **recurrence** | Object | OUI | Aucun | Objet de périodicité | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
@@ -373,7 +373,7 @@ Vous trouverez dans cette section plusieurs exemples de planifications de pério
 
 Les exemples supposent que la valeur **interval** est 1 et que la valeur **frequency** est correcte selon la définition de planification. Par exemple, vous ne pouvez pas avoir une valeur **frequency** définie sur « jour » et une modification « monthDays » dans l’objet **schedule**. Ces restrictions sont mentionnées dans le tableau de la section précédente.
 
-| exemples | Description |
+| Exemples | Description |
 |:--- |:--- |
 | `{"hours":[5]}` | Exécution à 5h00 tous les jours. |
 | `{"minutes":[15], "hours":[5]}` | Exécution à 5h15 tous les jours. |

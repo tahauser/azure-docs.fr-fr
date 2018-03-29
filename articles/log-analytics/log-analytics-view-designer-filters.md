@@ -1,11 +1,11 @@
 ---
 title: Filtres dans les vues de Azure Log Analytics | Microsoft Docs
-description: "Un filtre dans une vue de Log Analytics permet aux utilisateurs de filtrer les données au moyen d’une valeur d’une propriété particulière, sans modifier la vue proprement dite.  Cet article décrit comment utiliser un filtre et en ajouter un à une vue personnalisée."
+description: Un filtre dans une vue de Log Analytics permet aux utilisateurs de filtrer les données au moyen d’une valeur d’une propriété particulière, sans modifier la vue proprement dite.  Cet article décrit comment utiliser un filtre et en ajouter un à une vue personnalisée.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
 ms.service: log-analytics
 ms.workload: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/31/2017
 ms.author: bwren
 ms.openlocfilehash: 5c2201292eb085dcc043e4257580c7971dbaffbd
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="filters-in-log-analytics-views"></a>Filtres dans les vues de Log Analytics
 Un **filtre** dans une [vue de Log Analytics](log-analytics-view-designer.md) permet aux utilisateurs de filtrer les données au moyen d’une valeur d’une propriété particulière, sans modifier la vue proprement dite.  Par exemple, vous pouvez autoriser les utilisateurs de votre vue à filtrer l’affichage des données uniquement à partir d’un ordinateur ou d’un ensemble d’ordinateurs particulier.  Vous pouvez créer plusieurs filtres sur une seule et unique vue pour permettre aux utilisateurs d’effectuer un filtrage avec plusieurs propriétés.  Cet article décrit comment utiliser un filtre et en ajouter un à une vue personnalisée.
@@ -53,8 +53,8 @@ Le tableau suivant présente quelques exemples de filtres communs.
 | Nom du champ | Requêtes pour des valeurs | Tag |
 |:--|:--|:--|
 | Ordinateur   | Heartbeat &#124; distinct Computer &#124; sort by Computer asc | Ordinateurs |
-| EventLevelName | Event &#124; distinct EventLevelName | Severity |
-| SeverityLevel | Syslog &#124; distinct SeverityLevel | Severity |
+| EventLevelName | Event &#124; distinct EventLevelName | Niveau de gravité |
+| SeverityLevel | Syslog &#124; distinct SeverityLevel | Niveau de gravité |
 | SvcChangeType | ConfigurationChange &#124; distinct svcChangeType | ChangeType |
 
 

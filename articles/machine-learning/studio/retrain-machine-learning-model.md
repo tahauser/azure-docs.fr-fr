@@ -3,10 +3,10 @@ title: Reformer un modèle Machine Learning | Microsoft Docs
 description: Apprenez à reformer un modèle et à mettre à jour le service web pour utiliser le modèle reformé dans Azure Machine Learning.
 services: machine-learning
 documentationcenter: ''
-author: serinakaye
-ms.author: serinak
-manager: mwinkle
-editor: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
+editor: cgronlun
 ms.assetid: d1cb6088-4f7c-4c32-94f2-f7523dad9059
 ms.service: machine-learning
 ms.workload: data-services
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: 65c5e86e47528aab36972507b7ee8324040b9beb
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f02bf54cc8941d18c866183c9b7d12bbe7222d2b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="retrain-a-machine-learning-model"></a>Reformer un modèle Machine Learning
 Dans le cadre du processus de mise en œuvre opérationnelle des modèles d’apprentissage automatique d’Azure Machine Learning, votre modèle est entraîné et enregistré. Vous l’utilisez ensuite pour créer un service web prédictif. Le service web peut ensuite être utilisé dans des sites web, des tableaux de bord et des applications mobiles. 

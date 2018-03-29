@@ -1,11 +1,11 @@
 ---
-title: "Copier des données de SAP Business Warehouse à l’aide d’Azure Data Factory | Microsoft Docs"
-description: "Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de SAP Business Warehouse vers des banques de données réceptrices prises en charge."
+title: Copier des données de SAP Business Warehouse à l’aide d’Azure Data Factory | Microsoft Docs
+description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de SAP Business Warehouse vers des banques de données réceptrices prises en charge.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: c05d94c8dce51d922be3782380d4a883717bf032
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 900f6a2a8e75cc43a3cfaa0c9e7b8d91f57ea20d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Copier des données de SAP Business Warehouse à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,7 +39,8 @@ Plus précisément, ce connecteur SAP Business Warehouse prend en charge ce qui 
 - Copie de données **d’InfoCubes et de QueryCubes** (y compris des requêtes BEx) à l’aide de requêtes MDX.
 - Copie de données en utilisant une authentification de base.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour utiliser ce connecteur SAP Business Warehouse, vous devez :
 

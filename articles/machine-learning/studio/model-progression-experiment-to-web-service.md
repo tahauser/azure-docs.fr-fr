@@ -1,10 +1,11 @@
 ---
-title: "Comment un modèle Azure Machine Learning devient un service web | Microsoft Docs"
-description: "Vue d’ensemble de la façon dont votre modèle Azure Machine Learning peut passer du stade de l’expérience de développement à celui d’un service web opérationnel."
+title: Comment un modèle Azure Machine Learning devient un service web | Microsoft Docs
+description: Vue d’ensemble de la façon dont votre modèle Azure Machine Learning peut passer du stade de l’expérience de développement à celui d’un service web opérationnel.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: 25e0c025-f8b0-44ab-beaf-d0f2d485eb91
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: garye
-ms.openlocfilehash: 383f0a466f92a230e49c3d1e96d306a0b7d67da2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f36c8cf68c707e4472fd1779044a64e7f9f4c004
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-a-machine-learning-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Comment faire évoluer un modèle d’apprentissage automatique d’une simple expérience en service web opérationnel
 Azure Machine Learning Studio fournit un canevas interactif qui permet de développer, d’exécuter, de tester et d’itérer une ***expérience*** représentant un modèle d’analyse prédictive. Il existe un large éventail de modules capables d’effectuer les opérations suivantes :

@@ -3,8 +3,8 @@ title: Journalisation pour les services web Machine Learning | Microsoft Docs
 description: Découvrez comment activer la journalisation pour les services Web de Machine Learning. La journalisation fournit des informations supplémentaires pour vous aider à résoudre les problèmes des API.
 services: machine-learning
 documentationcenter: ''
-author: aashishb
-ms.author: aashishb
+author: YasinMSFT
+ms.author: yahajiza
 manager: hjerez
 editor: cgronlun
 ms.assetid: c54d41e1-0300-46ef-bbfc-d6f7dca85086
@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
-ms.openlocfilehash: 1e04ef638c46ef0f3b40fd56d27ba3673565bdc7
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 345c1b1bd72d3df19f8b087d4cbffd4e25e092ab
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="enable-logging-for-machine-learning-web-services"></a>Activation de la journalisation pour les services Web de Machine Learning
 Ce document fournit des informations sur la fonctionnalité de journalisation des services web Machine Learning. La journalisation fournit des informations supplémentaires, au-delà d’un numéro et d’un message d’erreur, qui peuvent vous aider à résoudre des problèmes liés à vos appels aux API Machine Learning.  

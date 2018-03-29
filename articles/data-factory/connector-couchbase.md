@@ -1,11 +1,11 @@
 ---
-title: "Copier des données de Couchbase avec Azure Data Factory (version bêta) | Microsoft Docs"
-description: "Découvrez comment utiliser l’activité de copie pour copier des données de Couchbase vers des magasins de données récepteurs pris en charge dans le cadre d’un pipeline Azure Data Factory."
+title: Copier des données de Couchbase avec Azure Data Factory (version bêta) | Microsoft Docs
+description: Découvrez comment utiliser l’activité de copie pour copier des données de Couchbase vers des magasins de données récepteurs pris en charge dans le cadre d’un pipeline Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 98f41d1eb77d1823a297492345ffb7a513fbdc3d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7e80408176d6907ded3a3247776e51a5086846e8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-couchbase-using-azure-data-factory-beta"></a>Copier des données de Couchbase avec Azure Data Factory (version bêta)
 

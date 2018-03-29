@@ -1,11 +1,11 @@
 ---
-title: "Gestion de bases de données dans Azure SQL Data Warehouse | Microsoft Docs"
-description: "Vue d’ensemble de la gestion des bases de données SQL Data Warehouse. Inclut des outils de gestion, des unités DWU et une montée en puissance des performances, une résolution des problèmes de performances des requêtes, la mise en œuvre de stratégies de sécurité adaptées et la restauration d’une base de données en cas d’altération des données ou de panne au niveau régional."
+title: Gestion de bases de données dans Azure SQL Data Warehouse | Microsoft Docs
+description: Vue d’ensemble de la gestion des bases de données SQL Data Warehouse. Inclut des outils de gestion, des unités DWU et une montée en puissance des performances, une résolution des problèmes de performances des requêtes, la mise en œuvre de stratégies de sécurité adaptées et la restauration d’une base de données en cas d’altération des données ou de panne au niveau régional.
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 8576fdb3-71fe-4b3b-a4e0-5e8a7f148acf
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: manage
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
 ms.openlocfilehash: acf521bdc15dfab4c7e43081159bc1385768838e
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-databases-in-azure-sql-data-warehouse"></a>Gestion de bases de données dans Azure SQL Data Warehouse
 SQL Data Warehouse automatise de nombreux aspects de la gestion de vos bases de données. Par exemple, pour mettre les performances à l’échelle, vous n’avez qu’à ajuster le niveau de ressources de calcul en fonction de vos besoins et ne payer que pour ces ressources. SQL Data Warehouse effectue ensuite tout le travail de montée en charge et de réduction.
@@ -87,7 +87,7 @@ Pour en savoir plus sur la gestion de la sécurité, consultez la [vue d’ensem
 ## <a name="back-up-and-restore"></a>Sauvegarder et restaurer des données
 Le stockage de sauvegardes fiables de vos données est un élément essentiel de toute base de données de production. SQL Data Warehouse permet de sécuriser vos données en sauvegardant automatiquement vos bases de données actives à intervalles réguliers. Ces sauvegardes vous permettent d’effectuer une récupération à partir des scénarios où vous avez endommagé vos données ou accidentellement supprimé vos données ou votre base de données.  Pour en savoir plus sur la planification de la sauvegarde de données, la stratégie de rétention et la restauration d’une base de données, consultez [Restore from snapshot (Restaurer à partir d’un instantané)][Restore from snapshot].
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 La mise en œuvre de principes de conception de base de données adaptés facilite la gestion de vos bases de données dans SQL Data Warehouse. Pour en savoir plus, consultez la [Vue d’ensemble du développement][Development overview].
 
 <!--Image references-->

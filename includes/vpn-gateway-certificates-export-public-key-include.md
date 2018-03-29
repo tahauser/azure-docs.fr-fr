@@ -1,3 +1,19 @@
+---
+title: Fichier Include
+description: Fichier Include
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 7e19837c1d16ddeea185f340305a0c9c52ce23ff
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 03/23/2018
+---
 Après avoir créé un certificat racine autosigné, exportez le fichier .cer de clé publique du certificat racine (et non celui de la clé privée). Vous chargerez ce fichier plus tard sur Azure. Les étapes suivantes vous aideront à exporter le fichier .cer pour votre certificat racine auto-signé :
 
 1. Pour obtenir un fichier .cer du certificat, ouvrez **Gérer les certificats utilisateur**. Localisez le certificat racine auto-signé, généralement dans « Certificates - Curent User\Personal\Certificates » et cliquez avec le bouton droit. Cliquez sur **Toutes les tâches**, puis cliquez sur **Exporter**. Cette opération ouvre **l’Assistant Exportation de certificat**.
@@ -17,7 +33,7 @@ Après avoir créé un certificat racine autosigné, exportez le fichier .cer de
   ![Parcourir](./media/vpn-gateway-certificates-export-public-key-include/browse.png)
 6. Cliquez sur **Terminer** pour exporter le certificat.
 
-  ![Terminer](./media/vpn-gateway-certificates-export-public-key-include/finish.png)
+  ![Finish](./media/vpn-gateway-certificates-export-public-key-include/finish.png)
 7. Votre certificat est correctement exporté.
 
   ![Succès](./media/vpn-gateway-certificates-export-public-key-include/success.png)

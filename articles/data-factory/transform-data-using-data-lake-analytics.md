@@ -1,11 +1,11 @@
 ---
-title: "Transformer des données à l’aide d’un script U-SQL - Azure | Microsoft Docs"
-description: "Découvrez comment traiter ou transformer les données en exécutant des scripts U-SQL sur le service de calcul Azure Data Lake Analytics."
+title: Transformer des données à l’aide d’un script U-SQL - Azure | Microsoft Docs
+description: Découvrez comment traiter ou transformer les données en exécutant des scripts U-SQL sur le service de calcul Azure Data Lake Analytics.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: abnarain
-ms.openlocfilehash: a2cf2ac8ac099a92e1534c72d80be6c9647bec59
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7e55249ed187ad9fa74a39634bbb254c9b0b8b8e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformer des données en exécutant des scripts U-SQL sur Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -165,7 +165,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-Dans l’exemple de script ci-dessus, l’entrée et la sortie du script sont définies dans les paramètres  **@in**  et  **@out** . Les valeurs des paramètres **@in** et **@out** dans le script U-SQL sont passées dynamiquement par Data Factory en utilisant la section « parameters ». 
+Dans l’exemple de script ci-dessus, l’entrée et la sortie du script sont définies dans les paramètres **@in** et **@out**. Les valeurs des paramètres **@in** et **@out** dans le script U-SQL sont passées dynamiquement par Data Factory en utilisant la section « parameters ». 
 
 Vous pouvez aussi spécifier d’autres propriétés comme degreeOfParallelism et priority dans votre définition de pipeline pour les travaux qui s’exécutent au niveau du service Azure Data Lake Analytics.
 

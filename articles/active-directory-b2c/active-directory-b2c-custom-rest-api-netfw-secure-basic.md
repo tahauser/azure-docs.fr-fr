@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C : Sécuriser vos services RESTful à l’aide de l’authentification HTTP de base"
-description: "Sécuriser vos échanges de revendications d’API REST dans votre instance Azure AD B2C à l’aide de l’authentification HTTP de base"
+title: 'Azure Active Directory B2C : Sécuriser vos services RESTful à l’aide de l’authentification HTTP de base'
+description: Sécuriser vos échanges de revendications d’API REST dans votre instance Azure AD B2C à l’aide de l’authentification HTTP de base
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 09/25/2017
-ms.author: yoelh
-ms.openlocfilehash: 0d4594f5e7c0a13d50993dd42d4780c1ba703140
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: davidmu
+ms.openlocfilehash: 90bbcc865f13a1d048ea12fdccd3ca848cf362ba
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Sécuriser vos services RESTful à l’aide de l’authentification de base HTTP
 Dans un [article connexe sur Azure AD B2C](active-directory-b2c-custom-rest-api-netfw.md), vous créez un service RESTful (API web) qui s’intègre sans authentification aux parcours utilisateur Azure Active Directory B2C (Azure AD B2C). 
@@ -28,6 +25,7 @@ Dans cet article, vous ajoutez l’authentification HTTP de base à votre servic
 Pour plus d’informations, consultez [Authentification de base dans l’API web ASP.NET](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication).
 
 ## <a name="prerequisites"></a>Prérequis
+
 Effectuez les étapes de l’article [Procédure pas à pas : intégration des échanges de revendications de l’API REST dans votre parcours utilisateur Azure Active Directory B2C comme validation d’une entrée de l’utilisateur](active-directory-b2c-custom-rest-api-netfw.md).
 
 ## <a name="step-1-add-authentication-support"></a>Étape 1 : Ajouter la prise en charge de l’authentification

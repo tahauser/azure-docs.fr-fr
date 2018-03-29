@@ -1,11 +1,11 @@
 ---
-title: "Gestion de l’authentification unique pour les applications d’entreprise dans Azure Active Directory | Microsoft Docs"
-description: "Gérer les paramètres d’authentification unique pour les applications d’entreprise au sein de votre organisation à partir de la galerie d’applications Azure Active Directory"
+title: Gestion de l’authentification unique pour les applications d’entreprise dans Azure Active Directory | Microsoft Docs
+description: Gérer les paramètres d’authentification unique pour les applications d’entreprise au sein de votre organisation à partir de la galerie d’applications Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: bcc954d3-ddbe-4ec2-96cc-3df996cbc899
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 09/19/2017
 ms.author: markvi
 ms.reviewer: asmalser
-ms.openlocfilehash: bb9c2e1fdf392e234e6c72e0728ab04d2fd88a81
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 45141551c502c89311ab7e43b53af50450d8babd
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>Gestion de l’authentification unique pour les applications d’entreprise
 
@@ -88,7 +88,7 @@ Si l’application le prend en charge, la sélection du mode d’authentificatio
 
 ![Authentification liée][5]
 
-##<a name="feedback"></a>Commentaires
+## <a name="feedback"></a>Commentaires
 
 Nous espérons que vous appréciez votre expérience d’Azure AD améliorée. Continuez à nous faire part de vos commentaires. Publiez vos commentaires et vos idées d’amélioration dans la section du **portail Admin** de notre [forum de commentaires](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Nous sommes très heureux de créer chaque jour des nouveautés et de pouvoir bénéficier de vos commentaires pour concevoir et définir de nouvelles créations.
 

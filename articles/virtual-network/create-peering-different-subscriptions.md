@@ -1,13 +1,13 @@
 ---
-title: "Créer une homologation de réseaux virtuels Azure - Resource Manager - Abonnements différents | Microsoft Docs"
-description: "Découvrez comment créer une homologation de réseaux virtuels entre des réseaux virtuels créés via Resource Manager dans des abonnements Azure différents."
+title: Créer une homologation de réseaux virtuels Azure - Resource Manager - Abonnements différents | Microsoft Docs
+description: Découvrez comment créer une homologation de réseaux virtuels entre des réseaux virtuels créés via Resource Manager dans des abonnements Azure différents.
 services: virtual-network
-documentationcenter: 
+documentationcenter: ''
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 51ca159945098c2467124db07f68caf06794b9e3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: e4ca1f62be8185dd7e0e45f6736bc0273b466309
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Créer une homologation de réseaux virtuels - Resource Manager - Abonnements différents 
 
@@ -91,7 +91,7 @@ Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous u
 24. Répétez les étapes 17 à 21 pour MyVnetB. À l’étape 21, nommez l’homologation *myVnetBToMyVnetA*, sélectionnez *myVnetA* pour **Réseau virtuel** et entrez l’ID noté à l’étape 10 dans la zone **ID de ressource**.
 25. Quelques secondes après que vous avez cliqué sur **OK** pour créer l’homologation pour myVnetB, l’homologation **myVnetBToMyVnetA** que vous venez de créer est répertoriée avec **Connecté** dans la colonne **ÉTAT D’APPAIRAGE**.
 26. Déconnectez-vous du portail en tant que UserB, puis connectez-vous en tant que UserA.
-27. Répétez les étapes 17-19. L’**ÉTAT D’APPAIRAGE** pour l’homologation **myVnetAToVNetB** est maintenant également défini sur **Connecté**. L’homologation est établie avec succès une fois que vous voyez **Connecté** dans la colonne **ÉTAT D’APPAIRAGE** pour les deux réseaux virtuels de l’homologation. Les ressources Azure que vous créez dans un réseau virtuel sont désormais en mesure de communiquer entre elles via leurs adresses IP. Si vous utilisez la résolution de noms Azure par défaut pour les réseaux virtuels, les ressources dans les réseaux virtuels ne sont pas en mesure de résoudre les noms dans les réseaux virtuels. Si vous souhaitez résoudre les noms dans les réseaux virtuels d’une homologation, vous devez créer votre propre serveur DNS. Apprenez à configurer la [résolution de noms à l’aide de votre propre serveur DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
+27. Répétez les étapes 17-19. L’**ÉTAT D’APPAIRAGE** pour l’homologation **myVnetAToVNetB** est maintenant également défini sur **Connecté**. L’homologation est établie avec succès une fois que vous voyez **Connecté** dans la colonne **ÉTAT D’APPAIRAGE** pour les deux réseaux virtuels de l’homologation. Les ressources Azure que vous créez dans un réseau virtuel sont désormais en mesure de communiquer entre elles via leurs adresses IP. Si vous utilisez la résolution de noms Azure par défaut pour les réseaux virtuels, les ressources dans les réseaux virtuels ne sont pas en mesure de résoudre les noms dans les réseaux virtuels. Si vous souhaitez résoudre les noms dans les réseaux virtuels d’une homologation, vous devez créer votre propre serveur DNS. Apprenez à configurer la [résolution de noms à l’aide de votre propre serveur DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 28. **Facultatif** : bien que la création de machines virtuelles ne soit pas abordée dans ce didacticiel, vous pouvez créer une machine virtuelle dans chaque réseau virtuel et vous connecter d’une machine virtuelle à l’autre pour valider la connectivité.
 29. **Facultatif :** pour supprimer les ressources créées dans ce didacticiel, procédez de la manière décrite dans la section [Supprimer des ressources](#delete-portal) de cet article.
 
@@ -171,7 +171,7 @@ Au lieu d’installer l’interface CLI et ses dépendances, vous pouvez utilise
 11. **Facultatif** : bien que la création de machines virtuelles ne soit pas abordée dans ce didacticiel, vous pouvez créer une machine virtuelle dans chaque réseau virtuel et vous connecter d’une machine virtuelle à l’autre pour valider la connectivité.
 12. **Facultatif :** pour supprimer les ressources créées dans ce didacticiel, procédez de la manière décrite dans la section [Supprimer des ressources](#delete-cli) de cet article.
 
-Les ressources Azure que vous créez dans un réseau virtuel sont désormais en mesure de communiquer entre elles via leurs adresses IP. Si vous utilisez la résolution de noms Azure par défaut pour les réseaux virtuels, les ressources dans les réseaux virtuels ne sont pas en mesure de résoudre les noms dans les réseaux virtuels. Si vous souhaitez résoudre les noms dans les réseaux virtuels d’une homologation, vous devez créer votre propre serveur DNS. Apprenez à configurer la [résolution de noms à l’aide de votre propre serveur DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
+Les ressources Azure que vous créez dans un réseau virtuel sont désormais en mesure de communiquer entre elles via leurs adresses IP. Si vous utilisez la résolution de noms Azure par défaut pour les réseaux virtuels, les ressources dans les réseaux virtuels ne sont pas en mesure de résoudre les noms dans les réseaux virtuels. Si vous souhaitez résoudre les noms dans les réseaux virtuels d’une homologation, vous devez créer votre propre serveur DNS. Apprenez à configurer la [résolution de noms à l’aide de votre propre serveur DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
  
 ## <a name="powershell"></a>Créer une homologation - PowerShell
 
@@ -234,7 +234,7 @@ Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous u
     > [!NOTE]
     > L’homologation n’est pas établie tant que l’état d’homologation n’est pas **Connecté** pour les deux réseaux virtuels.
 
-    Les ressources Azure que vous créez dans un réseau virtuel sont désormais en mesure de communiquer entre elles via leurs adresses IP. Si vous utilisez la résolution de noms Azure par défaut pour les réseaux virtuels, les ressources dans les réseaux virtuels ne sont pas en mesure de résoudre les noms dans les réseaux virtuels. Si vous souhaitez résoudre les noms dans les réseaux virtuels d’une homologation, vous devez créer votre propre serveur DNS. Apprenez à configurer la [résolution de noms à l’aide de votre propre serveur DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
+    Les ressources Azure que vous créez dans un réseau virtuel sont désormais en mesure de communiquer entre elles via leurs adresses IP. Si vous utilisez la résolution de noms Azure par défaut pour les réseaux virtuels, les ressources dans les réseaux virtuels ne sont pas en mesure de résoudre les noms dans les réseaux virtuels. Si vous souhaitez résoudre les noms dans les réseaux virtuels d’une homologation, vous devez créer votre propre serveur DNS. Apprenez à configurer la [résolution de noms à l’aide de votre propre serveur DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
 13. **Facultatif** : bien que la création de machines virtuelles ne soit pas abordée dans ce didacticiel, vous pouvez créer une machine virtuelle dans chaque réseau virtuel et vous connecter d’une machine virtuelle à l’autre pour valider la connectivité.
 14. **Facultatif :** pour supprimer les ressources créées dans ce didacticiel, procédez de la manière décrite dans la section [Supprimer des ressources](#delete-powershell) de cet article.

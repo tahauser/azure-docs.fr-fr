@@ -1,6 +1,6 @@
 ---
-title: "Surveiller les opérations, les événements et les compteurs pour l’équilibrage de charge | Microsoft Docs"
-description: "Découvrez comment activer la journalisation des événements d'alerte et de l'état des sondes d'intégrité pour l'équilibreur de charge Azure"
+title: Surveiller les opérations, les événements et les compteurs pour l’équilibrage de charge | Microsoft Docs
+description: Découvrez comment activer la journalisation des événements d'alerte et de l'état des sondes d'intégrité pour l'équilibreur de charge Azure
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,15 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 4388a1e933a0ebf211b5a7621c74b0622be41a4c
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: dabf4bcae957559978e731636bb13554f1a68b73
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="log-analytics-for-azure-load-balancer"></a>Analyse des journaux de l'équilibreur de charge Azure
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+>[!NOTE] 
+>Azure Load Balancer prend en charge deux types différents : Basic et Standard. Cet article décrit Basic Load Balancer. Pour plus d’informations sur Standard Load Balancer, consultez la [présentation de Standard Load Balancer](load-balancer-standard-overview.md).
 
 Vous pouvez utiliser différents types de journaux dans Azure pour gérer les équilibreurs de charge et résoudre les problèmes associés. Certains de ces journaux sont accessibles via le portail. Tous les journaux peuvent être extraits à partir d’un stockage Blob Azure et affichés dans différents outils, comme Excel et PowerBI. Pour en savoir plus sur les différents types de journaux, consultez la liste ci-dessous.
 

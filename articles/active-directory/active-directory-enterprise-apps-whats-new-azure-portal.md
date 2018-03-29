@@ -1,11 +1,11 @@
 ---
-title: "Nouveautés en matière de gestion des applications d’entreprise dans Azure Active Directory | Microsoft Docs"
-description: "Découvrez les nouveautés en matière de gestion des applications d’entreprise dans Azure Active Directory."
+title: Nouveautés en matière de gestion des applications d’entreprise dans Azure Active Directory | Microsoft Docs
+description: Découvrez les nouveautés en matière de gestion des applications d’entreprise dans Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 34ac4028-a5aa-40d9-a93b-0db4e0abd793
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: asteen
 ms.reviewer: asteen
-ms.openlocfilehash: 949eae51c469205489153c271a7c20fcc843ad46
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 8d1b24708380aeed6055912fcf3538f0e5319e2d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="whats-new-in-enterprise-application-management-in-azure-active-directory"></a>Nouveautés relatives à la gestion des applications d’entreprise dans Azure Active Directory 
 
@@ -147,7 +147,7 @@ Une fois que vous avez ajouté un grand nombre de nouvelles applications, vous p
 1. Pour commencer, vous pouvez sélectionner l’option **Libre-service** à partir du menu de navigation à gauche de l’application et définissez l’option **Allow users to request access to this application?** (Autoriser les utilisateurs à demander l’accès à cette application ?) sur **Yes** (Oui). 
 2. Cela vous permet de spécifier les personnes autorisées à approuver l’accès à cette application, et à quel groupe les utilisateurs du libre-service sont ajoutés. En outre, si l’application est configurée pour l’authentification unique par mot de passe, une autre option vous permet également d’autoriser si vous le souhaitez ces approbateurs à gérer les mots de passe affectés à l’application.
 
-##<a name="feedback"></a>Commentaires
+## <a name="feedback"></a>Commentaires
 
 Nous espérons que vous appréciez votre expérience d’Azure AD améliorée. Continuez à nous faire part de vos commentaires. Publiez vos commentaires et vos idées d’amélioration dans la section du **portail Admin** de notre [forum de commentaires](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Nous sommes très heureux de créer chaque jour des nouveautés et de pouvoir bénéficier de vos commentaires pour concevoir et définir de nouvelles créations.
 

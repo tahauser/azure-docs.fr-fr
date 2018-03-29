@@ -1,11 +1,11 @@
 ---
 title: Extension de machine virtuelle Agent Azure Network Watcher pour Linux | Microsoft Docs
-description: "Déployez l’Agent Network Watcher sur une machine virtuelle Linux avec une extension de machine virtuelle."
+description: Déployez l’Agent Network Watcher sur une machine virtuelle Linux avec une extension de machine virtuelle.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dennisg
 manager: amku
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 5c81e94c-e127-4dd2-ae83-a236c4512345
 ms.service: virtual-machines-linux
@@ -15,21 +15,22 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: fd160fc8cfc2e79ffa9492bb0ef4556bec5820d0
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: a51566148eec88f707b524346afc59606196e4da
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Extension de machine virtuelle Agent Network Watcher pour Linux
 
 ## <a name="overview"></a>Vue d'ensemble
 
-[Azure Network Watcher](https://review.docs.microsoft.com/azure/network-watcher/) est un service d’analyse, de diagnostic et d’analytique des performances réseau permettant de surveiller les réseaux Azure. L’extension de machine virtuelle Agent Network Watcher est requise pour certaines fonctionnalités de Network Watcher sur les machines virtuelles Azure, notamment la capture du trafic réseau à la demande et d’autres fonctionnalités avancées.
+[Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/) est un service d’analyse, de diagnostic et d’analytique des performances réseau permettant de surveiller les réseaux Azure. L’extension de machine virtuelle Agent Network Watcher est requise pour certaines fonctionnalités de Network Watcher sur les machines virtuelles Azure, notamment la capture du trafic réseau à la demande et d’autres fonctionnalités avancées.
 
 Ce document présente les plateformes et options de déploiement prises en charge pour l’extension de machine virtuelle Agent Network Watcher pour Linux.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 ### <a name="operating-system"></a>Système d’exploitation
 
@@ -75,11 +76,11 @@ Le JSON suivant illustre le schéma de l’extension Agent Network Watcher. L’
 
 ### <a name="property-values"></a>Valeurs de propriétés
 
-| Nom | Valeur/Exemple |
+| NOM | Valeur/Exemple |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.Azure.NetworkWatcher |
-| type | NetworkWatcherAgentLinux |
+| Type | NetworkWatcherAgentLinux |
 | typeHandlerVersion | 1.4 |
 
 ## <a name="template-deployment"></a>Déploiement de modèle
@@ -96,7 +97,7 @@ azure vm extension set myResourceGroup1 myVM1 NetworkWatcherAgentLinux Microsoft
 
 ## <a name="troubleshooting-and-support"></a>Résolution des problèmes et support
 
-### <a name="troubleshooting"></a>Résolution des problèmes
+### <a name="troubleshooting"></a>Résolution de problèmes
 
 Vous pouvez récupérer les données sur l’état des déploiements d’extension à partir du portail Azure et à l’aide de l’interface de ligne de commande Azure. Pour afficher l’état du déploiement des extensions pour une machine virtuelle donnée, exécutez la commande suivante à l’aide de l’interface de ligne de commande Azure.
 

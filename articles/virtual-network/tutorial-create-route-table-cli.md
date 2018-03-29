@@ -16,24 +16,24 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 67bfc8ee677a14735174e9501fa5e10a69bd1ec7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 871b562fa12b93d1b65e23ca58615d35ef6bb34b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Acheminer le trafic réseau avec une table de routage à l’aide de l’interface de ligne de commande Azure
 
-Par défaut, Azure achemine automatiquement le trafic entre tous les sous-réseaux au sein d’un réseau virtuel. Vous pouvez créer vos propres itinéraires pour remplacer le routage par défaut d’Azure. La possibilité de créer des itinéraires personnalisés est utile si, par exemple, vous souhaitez acheminer le trafic entre plusieurs sous-réseaux via une appliance virtuelle réseau. Dans cet article, vous apprendrez comment :
+Par défaut, Azure achemine automatiquement le trafic entre tous les sous-réseaux au sein d’un réseau virtuel. Vous pouvez créer vos propres itinéraires pour remplacer le routage par défaut d’Azure. La possibilité de créer des itinéraires personnalisés est utile si, par exemple, vous souhaitez router le trafic entre des sous-réseaux via une appliance virtuelle réseau (NVA). Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
 > * Créer une table de routage
 > * Créer un itinéraire
 > * Créer un réseau virtuel comprenant plusieurs sous-réseaux
 > * Associer une table de routage à un sous-réseau
-> * Créer une appliance virtuelle réseau qui achemine le trafic
+> * Créer une appliance NVA qui route le trafic
 > * Déployer des machines virtuelles sur différents sous-réseaux
-> * Acheminer le trafic d’un sous-réseau à un autre via une appliance virtuelle réseau
+> * Router le trafic d’un sous-réseau vers un autre via une NVA
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -116,7 +116,7 @@ az network vnet subnet update \
   --route-table myRouteTablePublic
 ```
 
-## <a name="create-an-nva"></a>Créer une appliance virtuelle réseau
+## <a name="create-an-nva"></a>Créer une NVA
 
 Une appliance virtuelle réseau est une machine virtuelle qui exécute une fonction réseau, telle que le routage, la fonction de pare-feu ou l’optimisation WAN.
 
@@ -144,7 +144,7 @@ az network nic update \
   --ip-forwarding true
 ```
 
-Sur la machine virtuelle, le système d’exploitation (ou une application exécutée sur cette machine virtuelle) doit également pouvoir transférer le trafic réseau. Activez le transfert IP sur le système d’exploitation de la machine virtuelle avec [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) :
+Sur la machine virtuelle, le système d’exploitation ou une application exécutée dans la machine virtuelle, doit également pouvoir transférer le trafic réseau. Activez le transfert IP sur le système d’exploitation de la machine virtuelle avec [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) :
 
 ```azurecli-interactive
 az vm extension set \
@@ -234,7 +234,7 @@ traceroute to myVmPublic (10.0.0.4), 30 hops max, 60 byte packets
 1  10.0.0.4 (10.0.0.4)  1.404 ms  1.403 ms  1.398 ms
 ```
 
-Vous pouvez voir que le trafic est acheminé directement de la machine virtuelle *myVmPrivate* vers la machine virtuelle *myVmPublic*. Les itinéraires par défaut d’Azure acheminent directement le trafic entre les sous-réseaux. 
+Vous pouvez voir que le trafic est routé directement de la machine virtuelle *myVmPrivate* vers la machine virtuelle *myVmPublic*. Les itinéraires par défaut d’Azure acheminent directement le trafic entre les sous-réseaux. 
 
 Utilisez la commande suivante pour établir une connexion SSH avec la machine virtuelle *myVmPublic* à partir de la machine virtuelle *myVmPrivate* :
 
@@ -261,7 +261,7 @@ traceroute to myVmPrivate (10.0.1.4), 30 hops max, 60 byte packets
 1  10.0.2.4 (10.0.2.4)  0.781 ms  0.780 ms  0.775 ms
 2  10.0.1.4 (10.0.0.4)  1.404 ms  1.403 ms  1.398 ms
 ```
-Vous voyez que le premier tronçon est 10.0.2.4, ce qui correspond à l’adresse IP privée de l’appliance virtuelle réseau. Le second tronçon est 10.0.1.4, ce qui correspond à l’adresse IP privée de la machine virtuelle *myVmPrivate*. L’itinéraire ajouté à la table de routage *myRouteTablePublic* et associé au sous-réseau *Public* a contraint Azure à acheminer le trafic via l’appliance virtuelle réseau et non directement au sous-réseau *Private*.
+Vous voyez que le premier tronçon est 10.0.2.4, ce qui correspond à l’adresse IP privée de l’appliance virtuelle réseau (NVA). Le second tronçon est 10.0.1.4, ce qui correspond à l’adresse IP privée de la machine virtuelle *myVmPrivate*. L’itinéraire ajouté à la table de routage *myRouteTablePublic* et associé au sous-réseau *Public* a contraint Azure à acheminer le trafic via l’appliance virtuelle réseau et non directement au sous-réseau *Private*.
 
 Fermez les sessions SSH sur les machines virtuelles *myVmPublic* et *myVmPrivate*.
 
@@ -275,9 +275,9 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez créé une table de routage que vous avez associée à un sous-réseau. Vous avez créé une appliance virtuelle réseau qui a acheminé le trafic d’un sous-réseau public vers un sous-réseau privé. Vous pouvez déployer différentes appliances virtuelles réseau préconfigurées ayant des fonctions de réseau, telles que la fonction de pare-feu ou l’optimisation WAN, à partir de la [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Avant de déployer des tables de routage dans un environnement de production, il est recommandé de bien se familiariser avec le [routage dans Azure](virtual-networks-udr-overview.md), la [gestion des tables de routage](manage-route-table.md) et les [limites d’Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Dans cet article, vous avez créé une table de routage que vous avez associée à un sous-réseau. Vous avez créé une appliance virtuelle réseau (NVA) simple qui a routé le trafic d’un sous-réseau public vers un sous-réseau privé. Déployez différentes NVA préconfigurées exécutant des fonctions de réseau, telles que la fonction de pare-feu ou l’optimisation WAN, à partir de la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Avant de déployer des tables de routage dans un environnement de production, il est recommandé de bien se familiariser avec le [routage dans Azure](virtual-networks-udr-overview.md), la [gestion des tables de routage](manage-route-table.md) et les [limites d’Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 Alors que vous pouvez déployer de nombreuses ressources Azure dans un réseau virtuel, les ressources pour certains services Azure PaaS ne peuvent pas être déployées dans un réseau virtuel. Cependant, vous pouvez toujours restreindre l’accès aux ressources de certains services Azure PaaS au trafic provenant uniquement d’un sous-réseau de réseau virtuel. Passez au tutoriel suivant pour apprendre à restreindre l’accès réseau aux ressources Azure PaaS.
 
 > [!div class="nextstepaction"]
-> [Restreindre l’accès réseau aux ressources PaaS](virtual-network-service-endpoints-configure.md#azure-cli)
+> [Restreindre l’accès réseau aux ressources PaaS](tutorial-restrict-network-access-to-resources-cli.md)
