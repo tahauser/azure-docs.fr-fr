@@ -1,6 +1,6 @@
 ---
-title: "Introduction aux Collections fiables dans les services avec état d’Azure Service Fabric | Microsoft Docs"
-description: "Les services avec état de Service Fabric fournissent des collections fiables qui vous permettent d’écrire des applications cloud hautement disponibles, évolutives et à faible latence."
+title: Introduction aux Collections fiables dans les services avec état d’Azure Service Fabric | Microsoft Docs
+description: Les services avec état de Service Fabric fournissent des collections fiables qui vous permettent d’écrire des applications cloud hautement disponibles, évolutives et à faible latence.
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/6/2017
 ms.author: mcoskun
-ms.openlocfilehash: 0e89df79d2ff619343f914ce3a5ffe87b7bf25de
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: c6425f7642d9dbecafc6779184a2a5b0cc1a2cab
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Introduction aux Collections fiables dans les services avec état d’Azure Service Fabric
 Les Collections fiables vous permettent d’écrire des applications cloud hautement disponibles, évolutives et à faible latence comme si vous écriviez des applications informatiques uniques. Les classes dans l’espace de noms **Microsoft.ServiceFabric.Data.Collections** fournissent un ensemble de collections qui rendent automatiquement votre état hautement disponible. Les développeurs doivent programmer uniquement les API de Collection fiable et laisser les Collections fiables gérer l’état répliqué et local.
@@ -57,7 +57,6 @@ Actuellement, **Microsoft.ServiceFabric.Data.Collections** contient trois collec
 * [Instructions et recommandations relatives aux collections fiables](service-fabric-reliable-services-reliable-collections-guidelines.md)
 * [Utilisation des collections fiables](service-fabric-work-with-reliable-collections.md)
 * [Transactions et verrous](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
-* [Gestionnaire d’état fiable et éléments internes de collections](service-fabric-reliable-services-reliable-collections-internals.md)
 * Gestion des données
   * [Sauvegarde et restauration](service-fabric-reliable-services-backup-restore.md)
   * [Notifications](service-fabric-reliable-services-notifications.md)

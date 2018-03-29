@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 12/10/2017
 ms.author: mcoskun
-ms.openlocfilehash: 27ea71bcc378100e613a8edd1c57a93f3c9ed925
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b0eb6a5aab5e71c0a8ac8263e177c493a07dafc0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Instructions et recommandations pour les collections fiables dans Azure Service Fabric
 Cette section fournit des instructions pour l’utilisation du gestionnaire d’état fiable et des collections fiables. L’objectif consiste à aider les utilisateurs à éviter les pièges courants.
@@ -52,7 +52,6 @@ Voici quelques points à retenir :
 ### <a name="next-steps"></a>Étapes suivantes
 * [Utilisation des collections fiables](service-fabric-work-with-reliable-collections.md)
 * [Transactions et verrous](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
-* [Gestionnaire d’état fiable et éléments internes de collections](service-fabric-reliable-services-reliable-collections-internals.md)
 * Gestion des données
   * [Sauvegarde et restauration](service-fabric-reliable-services-backup-restore.md)
   * [Notifications](service-fabric-reliable-services-notifications.md)

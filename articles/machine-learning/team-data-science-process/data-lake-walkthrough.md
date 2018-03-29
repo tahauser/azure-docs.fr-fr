@@ -1,8 +1,8 @@
 ---
-title: "Science des données scalable avec Azure Data Lake : procédure complète | Microsoft Docs"
-description: "Comment utiliser Azure Data Lake pour effectuer des tâches d’exploration de donnés et de classification binaire sur un jeu de données."
+title: 'Science des données scalable avec Azure Data Lake : procédure complète | Microsoft Docs'
+description: Comment utiliser Azure Data Lake pour effectuer des tâches d’exploration de donnés et de classification binaire sur un jeu de données.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev; weig
-ms.openlocfilehash: b18b454d1fcdfb2b6e8ea77508f779aeabdc87a0
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: bradsev
+ms.openlocfilehash: 6d0f889e1cc76eced172d66755a0a9275e6b7bdf
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Science des données scalable avec Azure Data Lake : procédure complète
 Cette procédure de bout en bout montre comment utiliser Azure Data Lake pour effectuer des tâches d’exploration de données et de classification binaire sur un échantillon de jeu de données NYC taxi trip and fare afin de prédire si le pourboire est compris dans le prix du billet. Elle vous guide tout au long du [processus de science des données pour les équipes](http://aka.ms/datascienceprocess)de bout en bout, depuis l’acquisition de données à l’apprentissage du modèle et au déploiement d’un service web qui publie le modèle.
@@ -42,7 +42,8 @@ Azure Machine Learning Studio est utilisé pour générer et déployer les modè
 ### <a name="scripts"></a>Scripts
 Seules les principales étapes sont décrites dans cette procédure pas à pas. Vous pouvez télécharger la version complète du **script U-SQL** et du **bloc-notes Jupyter** à partir de [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 Avant de commencer ces rubriques, vous devez disposer des éléments suivants :
 
 * Un abonnement Azure. Si vous n’en avez pas, consultez [Obtenir une version d’évaluation gratuite Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -86,7 +87,7 @@ Créez un compte ADLA à partir du [portail Azure](http://portal.azure.com). Pou
 ### <a name="create-an-azure-blob-storage-account"></a>Créer un compte de stockage d’objets blob Azure
 Créez votre compte de stockage d’objets blob Azure à partir du [portail Azure](http://portal.azure.com). Pour en savoir plus, consultez la section Créer un compte de stockage de l’article [À propos des comptes de stockage Azure](../../storage/common/storage-create-storage-account.md).
 
- ![5](./media/data-lake-walkthrough/5-Create-Azure-Blob.PNG)
+ ![5.](./media/data-lake-walkthrough/5-Create-Azure-Blob.PNG)
 
 ### <a name="set-up-an-azure-machine-learning-studio-account"></a>Configurer un compte Azure Machine Learning Studio
 Inscrivez-vous/Connectez-vous à Azure Machine Learning Studio sur la page [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) . Cliquez sur le bouton **Commencer dès maintenant** , puis choisissez un « espace de travail gratuit » ou un « espace de travail standard ». Vous pouvez maintenant créer des expériences dans Azure ML Studio.  
@@ -94,7 +95,7 @@ Inscrivez-vous/Connectez-vous à Azure Machine Learning Studio sur la page [Azur
 ### <a name="install-azure-data-lake-tools-recommended"></a>Installer les outils Azure Data Lake [Recommandé]
 Installez les outils Azure Data Lake pour votre version de Visual Studio sur la page [Outils Azure Data Lake pour Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504).
 
- ![6](./media/data-lake-walkthrough/6-install-ADL-tools-VS.PNG)
+ ![6.](./media/data-lake-walkthrough/6-install-ADL-tools-VS.PNG)
 
 Une fois l’installation terminée, ouvrez Visual Studio. L’onglet Data Lake doit apparaître dans le menu supérieur. Vos ressources Azure doivent apparaître dans le volet gauche, lorsque vous vous connectez à votre compte Azure.
 
@@ -146,7 +147,7 @@ Pour exécuter U-SQL, ouvrez Visual Studio, cliquez sur **Fichier--> Nouveau--> 
 > 
 > 
 
-![9](./media/data-lake-walkthrough/9-portal-submit-job.PNG)
+![9.](./media/data-lake-walkthrough/9-portal-submit-job.PNG)
 
 ### <a name="ingest"></a>Ingestion de données : données lues à partir d’un objet blob public
 L’emplacement des données dans l’objet blob Azure, auquel il est fait référence sous la forme **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**, peut être extrait à l’aide de **Extractors.Csv()**. Remplacez vos propres noms de conteneur et de compte de stockage dans les scripts suivants pour container_name@blob_storage_account_name dans l’adresse wasb. Étant donné que les noms de fichiers sont au même format, nous pouvons utiliser **trip\_data_{\*\}.csv** pour lire les 12 fichiers de course. 

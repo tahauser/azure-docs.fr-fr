@@ -1,7 +1,7 @@
 ---
-title: "Didacticiel ASP.NET MVC pour Azure Cosmos DB : développement d’applications Web | Microsoft Docs"
-description: "Didacticiel ASP.NET MVC pour créer une application web MVC à l’aide d’Azure Cosmos DB. Vous allez stocker JSON et accéder aux données à partir d’une application todo hébergée sur des sites web Azure - Didacticiel étape par étape ASP NET MVC."
-keywords: "didacticiel asp.net mvc, développement d’application web, application web mvc, didacticiel mvc asp net étape par étape"
+title: 'Didacticiel ASP.NET MVC pour Azure Cosmos DB : développement d’applications Web | Microsoft Docs'
+description: Didacticiel ASP.NET MVC pour créer une application web MVC à l’aide d’Azure Cosmos DB. Vous allez stocker JSON et accéder aux données à partir d’une application todo hébergée sur des sites web Azure - Didacticiel étape par étape ASP NET MVC.
+keywords: didacticiel asp.net mvc, développement d’application web, application web mvc, didacticiel mvc asp net étape par étape
 services: cosmos-db
 documentationcenter: .net
 author: mimig1
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 08/03/2017
 ms.author: mimig
 ms.custom: devcenter
-ms.openlocfilehash: a403af0f31823f89cdc79d6769dff61aeaefc4ad
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: e4f9360bfde5f3212f0bbf184c52f59b2dd43d0b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="_Toc395809351"></a>Didacticiel ASP.NET MVC : développement d’applications web avec Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -30,8 +30,6 @@ ms.lasthandoff: 12/18/2017
 > * [Python](sql-api-python-application.md)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Pour mettre en évidence la façon dont vous pouvez exploiter efficacement Azure Cosmos DB pour stocker et interroger les documents JSON, cet article fournit une procédure de bout en bout vous montrant comment créer une application todo à l’aide d’Azure Cosmos DB. Les tâches sont stockées en tant que documents JSON dans Azure Cosmos DB.
 

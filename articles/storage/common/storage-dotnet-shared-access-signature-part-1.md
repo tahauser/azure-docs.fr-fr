@@ -1,10 +1,10 @@
 ---
-title: "Utilisation des signatures d’accès partagé (SAP) dans le stockage Azure | Microsoft Docs"
-description: "Apprenez à utiliser des signatures d’accès partagé (SAP) pour déléguer l’accès aux ressources de stockage Azure, notamment les objets blob, les files d’attente, les tables et les fichiers."
+title: Utilisation des signatures d’accès partagé (SAP) dans le stockage Azure | Microsoft Docs
+description: Apprenez à utiliser des signatures d’accès partagé (SAP) pour déléguer l’accès aux ressources de stockage Azure, notamment les objets blob, les files d’attente, les tables et les fichiers.
 services: storage
-documentationcenter: 
-author: tamram
-manager: timlt
+documentationcenter: ''
+author: craigshoemaker
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 46fd99d7-36b3-4283-81e3-f214b29f1152
 ms.service: storage
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/18/2017
-ms.author: tamram
-ms.openlocfilehash: 32e92e6ffc376d27297810596691f0371770e86d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cshoe
+ms.openlocfilehash: d3f8b3261f9e2e86dbcaa41b92111545abeffe54
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="using-shared-access-signatures-sas"></a>Utilisation des signatures d’accès partagé (SAP)
 
@@ -113,7 +113,7 @@ Voici un exemple d’URI de SAP de service qui fournit des autorisations d’acc
 https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
 ```
 
-| Nom | Partie de la SAP | Description |
+| NOM | Partie de la SAP | Description |
 | --- | --- | --- |
 | URI de l’objet blob |`https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt` |Adresse de l'objet blob. Notez que l'utilisation de HTTPS est fortement recommandée. |
 | Version des services de stockage |`sv=2015-04-05` |Pour la version 2012-02-12 des services de stockage et les versions ultérieures, ce paramètre indique la version à utiliser. |
@@ -133,7 +133,7 @@ Voici un exemple de SAP de compte qui utilise les mêmes paramètres communs sur
 https://myaccount.blob.core.windows.net/?restype=service&comp=properties&sv=2015-04-05&ss=bf&srt=s&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=F%6GRVAZ5Cdj2Pw4tgU7IlSTkWgn7bUkkAg8P6HESXwmf%4B
 ```
 
-| Nom | Partie de la SAP | Description |
+| NOM | Partie de la SAP | Description |
 | --- | --- | --- |
 | URI de ressource |`https://myaccount.blob.core.windows.net/?restype=service&comp=properties` |Point de terminaison du service BLOB, avec les paramètres d’obtention des propriétés du service (appel avec la méthode GET) ou de définition des propriétés du service (appel avec la méthode SET). |
 | Services |`ss=bf` |La SAP s’applique au service BLOB et au service de fichiers. |

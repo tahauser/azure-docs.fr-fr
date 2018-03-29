@@ -1,23 +1,23 @@
 ---
-title: "Développement collaboratif avec Git - Azure Machine Learning | Microsoft Docs"
-description: "Comment développer le code de projets de science des données en collaboration avec Git selon une planification agile."
-documentationcenter: 
+title: Développement collaboratif avec Git - Azure Machine Learning | Microsoft Docs
+description: Comment développer le code de projets de science des données en collaboration avec Git selon une planification agile.
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: bradsev;
-ms.openlocfilehash: e6808c0d9d4ca14101eeebe8b3e286d64e2328f9
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.author: bradsev
+ms.openlocfilehash: f3eabf0b754f777f25811d30c158b647b1d3954e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="collaborative-coding-with-git"></a>Développement collaboratif avec Git
 
@@ -66,7 +66,7 @@ Maintenant, supposons que vous apportiez des modifications à la branche *data\_
     git commit -m"added a R scripts"
     git push origin data_ingestion
 
-![5](./media/collaborative-coding-with-git/5-sprint-push-to-branch.png)
+![5.](./media/collaborative-coding-with-git/5-sprint-push-to-branch.png)
 
 ## 3. <a name='CreateapullrequestonVSTS-3'></a>Créer une demande de tirage (pull request) dans VSTS 
 
@@ -74,7 +74,7 @@ Lorsque vous êtes prêt, après quelques validations et envois (push), à fusio
 
 Dans la page principale de votre projet d’équipe, cliquez sur **CODE**. Sélectionnez la branche à fusionner et le nom du dépôt Git avec lequel vous souhaitez fusionner la branche. Ensuite, cliquez sur **Demandes de tirage (Pull requests)**, puis cliquez sur **Nouvelle demande de tirage (Pull request)** pour créer une revue de demande de tirage avant que le travail de la branche ne soit fusionné avec sa branche de base.
 
-![6](./media/collaborative-coding-with-git/6-spring-create-pull-request.png)
+![6.](./media/collaborative-coding-with-git/6-spring-create-pull-request.png)
 
 Ajoutez une description pour la demande de tirage, ajoutez des réviseurs, puis envoyez la demande.
 
@@ -86,13 +86,13 @@ Lorsque des demandes de tirage sont créées, vos réviseurs reçoivent une noti
 
 ![8](./media/collaborative-coding-with-git/8-add_comments.png)
 
-![9](./media/collaborative-coding-with-git/9-spring-approve-pullrequest.png)
+![9.](./media/collaborative-coding-with-git/9-spring-approve-pullrequest.png)
 
-Une fois la revue terminée, pour fusionner la branche de travail avec la branche de base, cliquez sur le bouton **Complete** (Terminer). Vous pouvez choisir de supprimer la branche de travail une fois celle-ci fusionnée. 
+Une fois la revue terminée, pour fusionner la branche de travail avec la branche de base, cliquez sur le bouton **Terminer**. Vous pouvez choisir de supprimer la branche de travail une fois celle-ci fusionnée. 
 
 ![10](./media/collaborative-coding-with-git/10-spring-complete-pullrequest.png)
 
-En haut à gauche, vérifiez que la demande est marquée comme **COMPLETED** (Terminé). 
+Dans le coin supérieur gauche, vérifiez que la demande est marquée comme **Terminée**. 
 
 ![11](./media/collaborative-coding-with-git/11-spring-merge-pullrequest.png)
 

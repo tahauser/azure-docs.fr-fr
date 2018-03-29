@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: memccror
-ms.openlocfilehash: 9e4970ecc538caab537281931b89bfd57d994cfa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f25e4d1e3906a610e7c60e348f872a78d7db8fd3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="low-priority-vms-on-scale-sets-preview"></a>Machines virtuelles basse priorité dans des groupes identiques (préversion)
 
@@ -48,7 +48,7 @@ Pour déployer des machines virtuelles basse priorité dans des groupes identiqu
 
 ## <a name="use-the-azure-cli-20"></a>Utiliser Azure CLI 2.0
 
-Le processus de création d’un groupe identique avec des machines virtuelles basse priorité est identique à celui décrit dans [l’article de démarrage rapide](virtual-machine-scale-sets-create-cli.md). Ajoutez simplement le paramètre '--Priority' à l’appel CLI et définissez-le sur *Low*, comme indiqué dans l’exemple ci-dessous :
+Le processus de création d’un groupe identique avec des machines virtuelles basse priorité est identique à celui décrit dans [l’article de démarrage rapide](quick-create-cli.md). Ajoutez simplement le paramètre '--Priority' à l’appel CLI et définissez-le sur *Low*, comme indiqué dans l’exemple ci-dessous :
 
 ```azurecli
 az vmss create \
@@ -61,9 +61,9 @@ az vmss create \
     --priority Low
 ```
 
-## <a name="use-azure-powershell"></a>Utiliser Azure PowerShell
+## <a name="use-azure-powershell"></a>Utilisation d'Azure PowerShell
 
-Le processus de création d’un groupe identique avec des machines virtuelles basse priorité est identique à celui décrit dans [l’article de démarrage rapide](virtual-machine-scale-sets-create-powershell.md).
+Le processus de création d’un groupe identique avec des machines virtuelles basse priorité est identique à celui décrit dans [l’article de démarrage rapide](quick-create-powershell.md).
 Ajoutez simplement le paramètre '-Priority' à [New-AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) et définissez-le sur *Low*, comme indiqué dans l’exemple ci-dessous :
 
 ```powershell
@@ -77,7 +77,7 @@ $vmssConfig = New-AzureRmVmssConfig `
 
 ## <a name="use-azure-resource-manager-templates"></a>Utiliser les modèles Azure Resource Manager
 
-Le processus de création d’un groupe identique avec des machines virtuelles basse priorité est identique à celui décrit dans l’article de démarrage rapide pour [Linux](virtual-machine-scale-sets-create-template-linux.md) ou [Windows](virtual-machine-scale-sets-create-template-windows.md). Ajoutez la propriété 'priority' au type de ressource *Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile* dans votre modèle et définissez la propriété sur *Low*. Vérifiez que vous utilisez l’API *2017-10-30-preview* ou version ultérieure. 
+Le processus de création d’un groupe identique avec des machines virtuelles basse priorité est identique à celui décrit dans l’article de démarrage rapide pour [Linux](quick-create-template-linux.md) ou [Windows](quick-create-template-windows.md). Ajoutez la propriété 'priority' au type de ressource *Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile* dans votre modèle et définissez la propriété sur *Low*. Vérifiez que vous utilisez l’API *2017-10-30-preview* ou version ultérieure. 
 
 Pour configurer la stratégie d’éviction avec suppression, ajoutez le paramètre 'evictionPolicy' défini sur *delete*.
 

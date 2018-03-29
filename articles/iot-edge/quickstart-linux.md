@@ -1,19 +1,19 @@
 ---
-title: "Démarrage rapide Azure IoT Edge + Linux | Microsoft Docs"
-description: "Essayez Azure IoT Edge en exécutant l’analyse sur un appareil Edge simulé"
+title: Démarrage rapide Azure IoT Edge + Linux | Microsoft Docs
+description: Essayez Azure IoT Edge en exécutant l’analyse sur un appareil Edge simulé
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 827fe91c14a44cbaf8a9bb5921e5c9962d984414
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 750f09c91a086b22df5e7557e4b6fc6a763499e2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-or-mac-device---preview"></a>Démarrage rapide : Déployer votre premier module IoT Edge sur un appareil Linux ou Mac - préversion
 
@@ -21,7 +21,8 @@ Azure IoT Edge s’empare du pouvoir du cloud et l’offre à vos appareils Inte
 
 Si vous n’avez pas d'abonnement Azure actif, créez un [compte gratuit][lnk-account] avant de commencer.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
+
 
 Ce démarrage rapide utilise votre ordinateur ou machine virtuelle comme un appareil Internet des objets. Pour faire de votre machine un appareil IoT Edge, les services suivants sont requis :
 
@@ -76,7 +77,7 @@ sudo pip install -U azure-iot-edge-runtime-ctl
 
 Configurez le runtime avec votre chaîne de connexion d'appareil IoT Edge de la section précédente :
 ```bash
-sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+sudo iotedgectl setup --connection-string "{device connection string}" --nopass
 ```
 
 Démarrez le runtime :
@@ -131,7 +132,7 @@ Lorsque vous n’avez plus besoin de l’IoT Hub que vous avez créé, vous pouv
 az iot hub delete --name {your iot hub name} --resource-group {your resource group name}
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Vous avez appris à déployer un module IoT Edge sur un appareil IoT Edge. Essayez à présent de déployer différents types de services Azure sous forme de modules afin d'analyser les données à la périphérie. 
 

@@ -1,13 +1,13 @@
 ---
-title: "Créer un groupe identique Azure qui utilise les zones de disponibilité (préversion) | Microsoft Docs"
-description: "Découvrir comment créer des groupes identiques de machines virtuelles Azure qui utilisent les zones de disponibilité pour augmenter la redondance contre les pannes"
+title: Créer un groupe identique Azure qui utilise les zones de disponibilité (préversion) | Microsoft Docs
+description: Découvrir comment créer des groupes identiques de machines virtuelles Azure qui utilisent les zones de disponibilité pour augmenter la redondance contre les pannes
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 2de214f604469025a8a4accde44359fea0ded7e9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8b497af8bc7e3060e184dd6a029b23ccb2d2bbfb
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones-preview"></a>Créer un groupe identique de machines virtuelles qui utilise les zones de disponibilité (préversion)
 Pour protéger vos groupes de machines virtuelles identiques contre les défaillances au niveau du centre de données, vous pouvez créer un groupe identique à travers les zones de disponibilité. Les régions Azure qui prennent en charge les zones de disponibilité comportent au minimum trois zones distinctes, chacune avec leurs propres source d’alimentation, réseau et système de refroidissement. Pour plus d'informations, consultez [Vue d’ensemble des zones de disponibilité](../availability-zones/az-overview.md).
@@ -34,14 +34,14 @@ Quand vous créez un groupe identique dans une zone unique, vous contrôlez la z
 
 Pour utiliser les zones de disponibilité, votre groupe identique doit être créé dans une [région Azure prise en charge](../availability-zones/az-overview.md#regions-that-support-availability-zones). Vous devez également [vous inscrire à la préversion de Zones de disponibilité](http://aka.ms/azenroll). Vous pouvez créer un groupe identique qui utilise des zones de disponibilité avec l’une des méthodes suivantes :
 
-- [Portail Azure](#use-the-azure-portal)
+- [Portail Azure](#use-the-azure-portal)
 - [Azure CLI 2.0](#use-the-azure-cli-20)
 - [Azure PowerShell](#use-azure-powershell)
 - [Modèles Microsoft Azure Resource Manager](#use-azure-resource-manager-templates)
 
 
 ## <a name="use-the-azure-portal"></a>Utilisation du portail Azure
-Le processus de création d’un groupe identique qui utilise une zone de disponibilité est identique à celui décrit dans [l’article de prise en main](virtual-machine-scale-sets-create-portal.md). Veillez à bien [vous inscrire à la préversion de Zones de disponibilité](http://aka.ms/azenroll). Lorsque vous sélectionnez une région Azure prise en charge, vous pouvez créer un groupe identique dans une des zones disponibles, comme indiqué dans l’exemple suivant :
+Le processus de création d’un groupe identique qui utilise une zone de disponibilité est identique à celui décrit dans [l’article de prise en main](quick-create-portal.md). Veillez à bien [vous inscrire à la préversion de Zones de disponibilité](http://aka.ms/azenroll). Lorsque vous sélectionnez une région Azure prise en charge, vous pouvez créer un groupe identique dans une des zones disponibles, comme indiqué dans l’exemple suivant :
 
 ![Créer un groupe identique dans une zone de disponibilité unique](media/virtual-machine-scale-sets-use-availability-zones/create-portal-single-az.png)
 
@@ -49,7 +49,7 @@ Le groupe identique et les ressources prises en charge, notamment l’équilibre
 
 
 ## <a name="use-the-azure-cli-20"></a>Utiliser Azure CLI 2.0
-Le processus de création d’un groupe identique qui utilise une zone de disponibilité est identique à celui décrit dans [l’article de prise en main](virtual-machine-scale-sets-create-cli.md). Pour utiliser Zones de disponibilité, vous devez créer votre groupe identique dans une région Azure prise en charge et vous être [inscrit à la préversion de Zones de disponibilité](http://aka.ms/azenroll).
+Le processus de création d’un groupe identique qui utilise une zone de disponibilité est identique à celui décrit dans [l’article de prise en main](quick-create-cli.md). Pour utiliser Zones de disponibilité, vous devez créer votre groupe identique dans une région Azure prise en charge et vous être [inscrit à la préversion de Zones de disponibilité](http://aka.ms/azenroll).
 
 Ajoutez le paramètre `--zones` à la commande [az vmss create](/cli/azure/vmss#az_vmss_create), puis spécifiez la zone à utiliser (par exemple, zone *1*, *2* ou *3*). L’exemple suivant crée un groupe identique dans une zone unique, nommé *myScaleSet* dans la zone *1* :
 
@@ -114,7 +114,7 @@ Quelques minutes sont nécessaires pour créer et configurer l’ensemble des re
 
 
 ## <a name="use-azure-powershell"></a>Utilisation d'Azure PowerShell
-Le processus de création d’un groupe identique qui utilise une zone de disponibilité est identique à celui décrit dans [l’article de prise en main](virtual-machine-scale-sets-create-powershell.md). Pour utiliser Zones de disponibilité, vous devez créer votre groupe identique dans une région Azure prise en charge et vous être [inscrit à la préversion de Zones de disponibilité](http://aka.ms/azenroll). Ajoutez le paramètre `-Zone` à la commande [New-AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig), puis spécifiez la zone à utiliser (par exemple, zone *1*, *2* ou *3*). 
+Le processus de création d’un groupe identique qui utilise une zone de disponibilité est identique à celui décrit dans [l’article de prise en main](quick-create-powershell.md). Pour utiliser Zones de disponibilité, vous devez créer votre groupe identique dans une région Azure prise en charge et vous être [inscrit à la préversion de Zones de disponibilité](http://aka.ms/azenroll). Ajoutez le paramètre `-Zone` à la commande [New-AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig), puis spécifiez la zone à utiliser (par exemple, zone *1*, *2* ou *3*). 
 
 L’exemple suivant crée une configuration de groupe identique dans une zone unique, nommée *vmssConfig* dans la région *Est des États-Unis 2*, zone *1* :
 
@@ -178,7 +178,7 @@ Pour obtenir un exemple complet de groupe identique redondant dans une zone et d
 
 
 ## <a name="use-azure-resource-manager-templates"></a>Utiliser les modèles Azure Resource Manager
-Le processus de création d’un groupe identique qui utilise une zone de disponibilité est identique à celui décrit dans l’article de prise en main pour [Linux](virtual-machine-scale-sets-create-template-linux.md) ou [Windows](virtual-machine-scale-sets-create-template-windows.md). Pour utiliser Zones de disponibilité, vous devez créer votre groupe identique dans une région Azure prise en charge et vous être [inscrit à la préversion de Zones de disponibilité](http://aka.ms/azenroll). Ajoutez la propriété `zones` au type de ressource *Microsoft.Compute/virtualMachineScaleSets* dans votre modèle, puis spécifiez la zone à utiliser (par exemple, zone *1*, *2* ou *3*).
+Le processus de création d’un groupe identique qui utilise une zone de disponibilité est identique à celui décrit dans l’article de prise en main pour [Linux](quick-create-template-linux.md) ou [Windows](quick-create-template-windows.md). Pour utiliser Zones de disponibilité, vous devez créer votre groupe identique dans une région Azure prise en charge et vous être [inscrit à la préversion de Zones de disponibilité](http://aka.ms/azenroll). Ajoutez la propriété `zones` au type de ressource *Microsoft.Compute/virtualMachineScaleSets* dans votre modèle, puis spécifiez la zone à utiliser (par exemple, zone *1*, *2* ou *3*).
 
 L’exemple suivant crée un groupe identique Linux dans une zone unique, nommé *myScaleSet* dans la région *Est des États-Unis 2*, zone *1* :
 

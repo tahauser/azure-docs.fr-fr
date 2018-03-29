@@ -1,11 +1,11 @@
 ---
-title: "Résolution des problèmes de Microsoft Azure Stack | Microsoft Docs"
-description: "Résolution des problèmes d’Azure Stack."
+title: Résolution des problèmes de Microsoft Azure Stack | Microsoft Docs
+description: Résolution des problèmes d’Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.assetid: a20bea32-3705-45e8-9168-f198cfac51af
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/21/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.openlocfilehash: 799a7f7ed7e2373e4cf819a34d5deb362c9e6a3f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b63fdd630647cc970a2d935619b4d3f16b8c0375
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Résolution des problèmes de Microsoft Azure Stack
 
@@ -44,7 +44,7 @@ Ce comportement est probablement tout simplement le résultat du comportement pa
 Vous devez ajouter un élément de la galerie et une image Windows Server avant de pouvoir déployer des machines virtuelles dans Azure Stack.
 
 ### <a name="after-restarting-my-azure-stack-host-some-vms-may-not-automatically-start"></a>Après le redémarrage de l’hôte Azure Stack, certaines machines virtuelles ne démarrent pas automatiquement
-Vous remarquerez peut-être que les services Azure Stack ne sont pas immédiatement disponibles après le redémarrage de votre hôte.  C’est parce que la vérification de la cohérence des RP et des [machines virtuelles d’infrastructure](azure-stack-architecture.md#virtual-machine-roles) Azure Stack demande un peu de temps ; toutefois, ils finiront par démarrer automatiquement.
+Vous remarquerez peut-être que les services Azure Stack ne sont pas immédiatement disponibles après le redémarrage de votre hôte.  C’est parce que la vérification de la cohérence des RP et des [machines virtuelles d’infrastructure](..\azure-stack\asdk\asdk-architecture.md#virtual-machine-roles) Azure Stack demande un peu de temps ; toutefois, ils finiront par démarrer automatiquement.
 
 Vous remarquerez peut-être aussi que les machines virtuelles clientes ne démarrent pas automatiquement après le redémarrage de l’hôte du Kit de développement Azure Stack. Ce problème est connu ; quelques étapes manuelles suffisent pour les mettre en ligne :
 

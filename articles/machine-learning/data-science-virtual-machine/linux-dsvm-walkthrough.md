@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
-ms.author: bradsev;paulsh
-ms.openlocfilehash: 9b8a9b9bba242fd7c86dc285a77317a5821948df
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.author: bradsev
+ms.openlocfilehash: aff0dd17baa72b3f58ed5effbedb3a4c630f22c6
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Science des données avec une image Data Science Virtual Machine Linux sur Azure
 Cette procédure pas à pas vous montre comment effectuer plusieurs tâches courantes de science des données avec la machine virtuelle de science des données Linux. La machine virtuelle de science des données Linux est une image de machine virtuelle disponible sur Azure qui est préinstallée avec plusieurs outils couramment utilisés dans le cadre de l’analyse de données et du Machine Learning. Les composants logiciels clés sont détaillés dans la rubrique [Approvisionnement d’une machine virtuelle de science des données Linux](linux-dsvm-intro.md) . L’image de la machine virtuelle facilite la prise en main de la science des données en quelques minutes, sans avoir à installer et à configurer individuellement chacun des outils individuellement. Le cas échéant, vous pouvez facilement faire monter en puissance la machine virtuelle, et l’arrêter lorsqu’elle est inutilisée. Cette ressource est donc flexible et économique.

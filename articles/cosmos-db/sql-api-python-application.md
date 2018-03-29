@@ -1,7 +1,7 @@
 ---
-title: "Didacticiel de l’application web Python Flask avec Azure Cosmos DB | Microsoft Docs"
-description: "Passez en revue un didacticiel de base de données qui explique comment utiliser Azure Cosmos DB pour stocker des données et y accéder à partir d’une application web Python Flask hébergée sur Azure. Trouvez des solutions de développement d’applications."
-keywords: "Développement d’applications, Python Flask, application web Python, développement web Python"
+title: Didacticiel de l’application web Python Flask avec Azure Cosmos DB | Microsoft Docs
+description: Passez en revue un didacticiel de base de données qui explique comment utiliser Azure Cosmos DB pour stocker des données et y accéder à partir d’une application web Python Flask hébergée sur Azure. Trouvez des solutions de développement d’applications.
+keywords: Développement d’applications, Python Flask, application web Python, développement web Python
 services: cosmos-db
 documentationcenter: python
 author: mimig1
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2150b91b5c8dd0326893497fe963fbe1d7cc59bd
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 333d34e2c7b07b1ec09d1375d4d05075ed7dde0d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Créer une application web Python Flask à l’aide d’Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -30,8 +30,6 @@ ms.lasthandoff: 02/28/2018
 > * [Python](sql-api-python-application.md)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Ce didacticiel vous montre comment utiliser le service Azure Cosmos DB pour stocker des données et y accéder à partir d’une application web Python Flask hébergée sur Azure App Service. Ce didacticiel suppose que vous avez déjà utilisé les outils Python et Sites Web Azure.
 

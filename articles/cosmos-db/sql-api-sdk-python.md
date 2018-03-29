@@ -1,6 +1,6 @@
 ---
 title: 'Azure Cosmos DB : API, Kit SDK et ressources Python SQL | Microsoft Docs'
-description: "Découvrez l’API et le Kit SDK Python SQL, y compris les dates de publication, les dates de suppression et les modifications apportées entre chaque version du Kit SDK Python Azure Cosmos DB."
+description: Découvrez l’API et le Kit SDK Python SQL, y compris les dates de publication, les dates de suppression et les modifications apportées entre chaque version du Kit SDK Python Azure Cosmos DB.
 services: cosmos-db
 documentationcenter: python
 author: rnagpal
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 1/4/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e1eeb93ad066d3c5e8f33a945c24c4bd9db3a05
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 0be360b5fdc6b562dc7aa6af2b8395b0f910c2d0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Kit SDK Python Azure Cosmos DB pour API SQL : notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -36,8 +36,6 @@ ms.lasthandoff: 03/02/2018
 > 
 > 
 
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
-
 <table>
 
 <tr><td>**Téléchargement du Kit de développement logiciel (SDK)**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr>
@@ -48,7 +46,7 @@ ms.lasthandoff: 03/02/2018
 
 <tr><td>**Contribution au Kit de développement logiciel (SDK)**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-python)</td></tr>
 
-<tr><td>**Bien démarrer**</td><td>[Bien démarrer avec le Kit de développement logiciel (SDK) Python](sql-api-python-application.md)</td></tr>
+<tr><td>**Prise en main**</td><td>[Bien démarrer avec le Kit de développement logiciel (SDK) Python](sql-api-python-application.md)</td></tr>
 
 <tr><td>**Plateforme actuellement prise en charge**</td><td>[Python 2.7](https://www.python.org/downloads/) et [Python 3.5](https://www.python.org/downloads/)</td></tr>
 </table></br>
@@ -58,7 +56,7 @@ ms.lasthandoff: 03/02/2018
 * Documentation mise à jour pour référencer Azure Cosmos DB au lieu d’Azure DocumentDB.
 
 ### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
-* Cette version du SDK nécessite la dernière version de l’émulateur Azure Cosmos DB, que vous pouvez télécharger à l’adresse https://aka.ms/cosmosdb-emulator.
+* Cette version du kit de développement logiciel (SDK) nécessite la dernière version de l’émulateur Azure Cosmos DB, que vous pouvez télécharger à l’adresse https://aka.ms/cosmosdb-emulator.
 
 ### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
 * Résolution de bogue pour le dictionnaire d’agrégation.

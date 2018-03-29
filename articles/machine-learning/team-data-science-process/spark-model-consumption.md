@@ -1,8 +1,8 @@
 ---
-title: "Faire fonctionner les modèles Machine Learning créés avec Spark | Microsoft Docs"
-description: "Comment charger et noter les modèles d’apprentissage stockés dans Azure Blob Storage (WASB) avec Python."
+title: Faire fonctionner les modèles Machine Learning créés avec Spark | Microsoft Docs
+description: Comment charger et noter les modèles d’apprentissage stockés dans Azure Blob Storage (WASB) avec Python.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: jhubbard
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
-ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: 9ff633b4543fbc537ffdb721756706e8de5e8e88
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.author: bradsev
+ms.openlocfilehash: 3a586d40a9d195fe5ec3fa456d450cb3d86f2e9d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Faire fonctionner les modèles Machine Learning créés avec Spark
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -35,7 +35,8 @@ Le notebook Jupyter [pySpark-machine-learning-data-science-spark-model-consumpti
 Pour modifier le notebook Jupyter pour Spark 1.6 afin de l’utiliser avec un cluster HDInsight Spark 2.0, remplacez le fichier de code Python par [ce fichier](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py). Ce code montre comment utiliser les modèles créés dans Spark 2.0.
 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 1. Vous avez besoin d’un compte Azure et d’un cluster HDInsight Spark 1.6 (ou Spark 2.0) pour effectuer cette procédure pas à pas. Pour obtenir des instructions sur la façon de satisfaire à ces exigences, voir [Vue d’ensemble de la science des données à l’aide de Spark sur Azure HDInsight](spark-overview.md). Cette rubrique contient également une description des données NYC 2013 Taxi utilisées ici, et des instructions sur l’exécution de code à partir d’un bloc-notes Jupyter sur le cluster Spark. 
 2. Vous devez également créer les modèles Machine Learning à noter ici en appliquant la procédure de la rubrique [Exploration et modélisation des données avec Spark](spark-data-exploration-modeling.md) pour le cluster Spark 1.6 ou les notebooks Spark 2.0. 

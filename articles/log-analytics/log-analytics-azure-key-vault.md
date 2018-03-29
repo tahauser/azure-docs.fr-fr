@@ -1,11 +1,11 @@
 ---
 title: Solution Azure Key Vault dans Log Analytics | Microsoft Docs
-description: "La solution Azure Key Vault dans Log Analytics permet de consulter les journaux d’Azure Key Vault."
+description: La solution Azure Key Vault dans Log Analytics permet de consulter les journaux d’Azure Key Vault.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: richrundmsft
 manager: jochan
-editor: 
+editor: ''
 ms.assetid: 5e25e6d6-dd20-4528-9820-6e2958a40dae
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: richrund
-ms.openlocfilehash: 651586e0846ffb22a23e64b73c2cc614980d9b92
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9c4b16ec11d1990de687014c5385314f0e0c602a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Solution Azure Key Vault Analytics dans Log Analytics
 
@@ -72,9 +72,9 @@ Il n’est pas nécessaire d’écrire les journaux dans le stockage Blob Azure,
 
 Le tableau suivant présente les méthodes de collecte des données et d’autres détails sur le mode de collecte de données pour Azure Key Vault.
 
-| Plateforme | Agent direct | Agent Systems Center Operations Manager | Microsoft Azure | Operations Manager requis ? | Données de l’agent Operations Manager envoyées via un groupe d’administration | Fréquence de collecte |
+| Plateforme | Agent direct | Agent Systems Center Operations Manager | Azure | Operations Manager requis ? | Données de l’agent Operations Manager envoyées via un groupe d’administration | Fréquence de collecte |
 | --- | --- | --- | --- | --- | --- | --- |
-| Microsoft Azure |  |  |&#8226; |  |  | à l'arrivée |
+| Azure |  |  |&#8226; |  |  | à l'arrivée |
 
 ## <a name="use-azure-key-vault"></a>Utiliser Azure Key Vault
 Une fois la [solution installée](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview), affichez les données Key Vault en cliquant sur la vignette **Azure Key Vault** située dans la page **Vue d’ensemble** de Log Analytics.
@@ -103,7 +103,7 @@ La solution Azure Key Vault analyse les enregistrements de type **KeyVaults** qu
 
 | Propriété | Description |
 |:--- |:--- |
-| Type |*AzureDiagnostics* |
+| type |*AzureDiagnostics* |
 | SourceSystem |*Microsoft Azure* |
 | callerIpAddress |Adresse IP du client qui a effectué la demande. |
 | Catégorie | *AuditEvent* |
@@ -137,7 +137,7 @@ Pour utiliser la solution mise à jour :
 2. Activez la solution Azure Key Vault en procédant de la manière décrite dans [Ajouter des solutions Log Analytics à partir de la galerie de solutions](log-analytics-add-solutions.md).
 3. Mettez à jour les requêtes, les tableaux de bord et les alertes enregistrés pour qu’ils utilisent le nouveau type de données.
   + Le type passe de KeyVaults à AzureDiagnostics. Vous pouvez utiliser ResourceType pour filtrer les journaux Key Vault.
-  - Au lieu de `Type=KeyVaults`, utilisez `Type=AzureDiagnostics ResourceType=VAULTS`.
+  - Au lieu de `KeyVaults`, utilisez `AzureDiagnostics | where ResourceType'=="VAULTS"`.
   + Champs : (les noms de champs respectent la casse)
   - Pour tous les champs dont le suffixe est \_s, \_d ou \_g, remplacez le premier caractère du nom par une lettre minuscule.
   - Pour tous les champs dont le suffixe est \_o, les données sont réparties sur plusieurs champs, selon les noms de champs imbriqués. Par exemple, l’UPN de l’appelant est stocké dans un champ `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`.
@@ -147,7 +147,7 @@ Pour utiliser la solution mise à jour :
 
 Les données collectées avant la modification ne seront pas visibles dans la nouvelle solution. Vous pouvez continuer à interroger ces données à l’aide de l’ancien type et des anciens noms de champs.
 
-## <a name="troubleshooting"></a>résolution des problèmes
+## <a name="troubleshooting"></a>Résolution de problèmes
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -1,10 +1,10 @@
 ---
-title: "Activation des métriques de stockage dans le portail Azure | Microsoft Docs"
-description: "Activation des métriques de stockage pour les services d’objet Blob, de File d’attente, de Table et de Fichier"
+title: Activation des métriques de stockage dans le portail Azure | Microsoft Docs
+description: Activation des métriques de stockage pour les services d’objet Blob, de File d’attente, de Table et de Fichier
 services: storage
-documentationcenter: 
-author: tamram
-manager: timlt
+documentationcenter: ''
+author: roygara
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 0407adfc-2a41-4126-922d-b76e90b74563
 ms.service: storage
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/14/2017
-ms.author: tamram
-ms.openlocfilehash: 8abb4f968c1fa84e03c8cc807826d3684713847a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: rogarana
+ms.openlocfilehash: 0caa4eff80877ad4bf8d501a276e82922b1a84c7
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="enabling-azure-storage-metrics-and-viewing-metrics-data"></a>Activation des métriques Azure Storage et affichage des données associées
 [!INCLUDE [storage-selector-portal-enable-and-view-metrics](../../../includes/storage-selector-portal-enable-and-view-metrics.md)]
@@ -130,17 +130,17 @@ Pour accéder par programmation aux tables Analytics, notez qu’elles n’appar
 * $MetricsMinutePrimaryTransactionsTable
 * $MetricsMinutePrimaryTransactionsQueue
 
-### <a name="capacity"></a>Capacité
+### <a name="capacity"></a>Capacity
 * $MetricsCapacityBlob
 
 Vous trouverez des informations complètes sur les schémas de ces tables dans [Schéma de table de métriques Storage Analytics](https://msdn.microsoft.com/library/azure/hh343264.aspx). Les exemples de lignes ci-dessous montrent uniquement un sous-ensemble des colonnes disponibles, mais ils illustrent les différentes façons dont Storage Metrics enregistre ces métriques :
 
-| PartitionKey | RowKey | Timestamp | TotalRequests | TotalBillableRequests | TotalIngress | TotalEgress | Availability | AverageE2ELatency | AverageServerLatency | PercentSuccess |
+| PartitionKey | RowKey | Timestamp | TotalRequests | TotalBillableRequests | TotalIngress | TotalEgress | Disponibilité | AverageE2ELatency | AverageServerLatency | PercentSuccess |
 | --- |:---:| ---:| --- | --- | --- | --- | --- | --- | --- | --- |
 | 20140522T1100 |user;All |2014-05-22T11:01:16.7650250Z |7 |7 |4003 |46801 |100 |104.4286 |6.857143 |100 |
-| 20140522T1100 |user;QueryEntities |2014-05-22T11:01:16.7640250Z |5 |5 |2694 |45951 |100 |143.8 |7.8 |100 |
+| 20140522T1100 |user;QueryEntities |2014-05-22T11:01:16.7640250Z |5. |5. |2694 |45951 |100 |143.8 |7.8 |100 |
 | 20140522T1100 |user;QueryEntity |2014-05-22T11:01:16.7650250Z |1 |1 |538 |633 |100 |3 |3 |100 |
-| 20140522T1100 |user;UpdateEntity |2014-05-22T11:01:16.7650250Z |1 |1 |771 |217 |100 |9 |6 |100 |
+| 20140522T1100 |user;UpdateEntity |2014-05-22T11:01:16.7650250Z |1 |1 |771 |217 |100 |9. |6. |100 |
 
 Dans cet exemple de données de métriques par minute, la clé de partition (PartitionKey) utilise une résolution d’une minute. La clé de ligne identifie le type d’informations stockées dans la ligne. La clé de ligne est composée de deux éléments d’informations, le type d’accès et le type de demande :
 

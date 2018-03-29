@@ -1,8 +1,8 @@
 ---
-title: "Étendre HDInsight avec un réseau virtuel - Azure | Microsoft Docs"
-description: "Apprenez à utiliser Azure Virtual Network pour connecter HDInsight à d'autres ressources de cloud ou à des ressources de votre centre de données"
+title: Étendre HDInsight avec un réseau virtuel - Azure | Microsoft Docs
+description: Apprenez à utiliser Azure Virtual Network pour connecter HDInsight à d'autres ressources de cloud ou à des ressources de votre centre de données
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: larryfr
-ms.openlocfilehash: ea686ea5dd6166d6e4e4055cb4a2cdd70af81ab4
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b02a4625e3973ca7679d1d2018bd37ff1d2ae2ba
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Étendre HDInsight à l’aide d’un réseau virtuel Azure
 
@@ -173,11 +173,11 @@ Pour permettre la résolution de noms entre le réseau virtuel et les ressources
 
     Pour un exemple de chaque configuration, voir la section [Exemple : DNS personnalisé](#example-dns).
 
-Pour plus d’informations, voir le document [Résolution de noms pour les machines virtuelles et les instances de rôle](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
+Pour plus d’informations, voir le document [Résolution de noms pour les machines virtuelles et les instances de rôle](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ## <a name="directly-connect-to-hadoop-services"></a>Se connecter directement aux services Hadoop
 
-L’essentiel de la documentation relative à HDInsight part du principe que vous avez accès au cluster via Internet. Par exemple, vous pouvez vous connecter au cluster à l’adresse https://CLUSTERNAME.azurehdinsight.net. Cette adresse utilise la passerelle publique qui n’est pas disponible si vous avez utilisé des groupes de sécurité réseau ou des itinéraires définis par l’utilisateur pour restreindre l’accès à partir d’Internet.
+L’essentiel de la documentation relative à HDInsight part du principe que vous avez accès au cluster via Internet. Par exemple, vous devez pouvoir vous connecter au cluster à l’adresse https://CLUSTERNAME.azurehdinsight.net. Cette adresse utilise la passerelle publique qui n’est pas disponible si vous avez utilisé des groupes de sécurité réseau ou des itinéraires définis par l’utilisateur pour restreindre l’accès à partir d’Internet.
 
 Pour vous connecter à Ambari et à d’autres pages web via le réseau virtuel, procédez comme suit :
 

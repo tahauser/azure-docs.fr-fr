@@ -1,12 +1,12 @@
 ---
-title: "Gestion des clusters HDInsight joints à un domaine - Azure | Microsoft Docs"
-description: "Découvrez comment gérer les clusters HDInsight joints à un domaine"
+title: Gestion des clusters HDInsight joints à un domaine - Azure | Microsoft Docs
+description: Découvrez comment gérer les clusters HDInsight joints à un domaine
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bprakash
 manager: jhubbard
 editor: cgronlun
-tags: 
+tags: ''
 ms.assetid: 6ebc4d2f-2f6a-4e1e-ab6d-af4db6b4c87c
 ms.service: hdinsight
 ms.custom: hdinsightactive
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/11/2018
 ms.author: bhanupr
-ms.openlocfilehash: 68166be98acc64326a4053b45f0039ae54d930e4
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 44202541557a7513e0068f52289a637f6e48f43f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-domain-joined-hdinsight-clusters"></a>Gérer des clusters HDInsight joints à un domaine
 Découvrez les utilisateurs et les rôles dans HDInsight joint à un domaine et apprenez à gérer des clusters HDInsight joints à un domaine.
@@ -51,7 +51,7 @@ L’utilisation d’API standard est utile en matière de sécurité. Vous bén�
 Installez Beeline sur votre ordinateur et connectez-vous via l’Internet public, puis utilisez les paramètres suivants : 
 
 ```
-- Connection string: -u 'jdbc:hive2://&lt;clustername&gt;.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2'
+- Connection string: -u 'jdbc:hive2://<clustername>.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2'
 - Cluster login name: -n admin
 - Cluster login password -p 'password'
 ```

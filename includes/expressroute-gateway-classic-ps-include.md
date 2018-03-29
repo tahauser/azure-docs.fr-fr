@@ -1,3 +1,19 @@
+---
+title: Fichier Include
+description: Fichier Include
+services: expressroute
+author: cherylmc
+ms.service: expressroute
+ms.topic: include
+ms.date: 03/22/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 0bf55d2353d3524e65602c7e67b7adbf80432043
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 03/23/2018
+---
 Vous devez créer un réseau virtuel et un sous-réseau de passerelle avant d’effectuer les tâches suivantes.
 
 > [!NOTE]

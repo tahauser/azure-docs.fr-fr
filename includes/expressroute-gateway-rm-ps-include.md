@@ -1,3 +1,19 @@
+---
+title: Fichier Include
+description: Fichier Include
+services: expressroute
+author: cherylmc
+ms.service: expressroute
+ms.topic: include
+ms.date: 03/22/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: d9eaab359d76afce61cfcc72e3fa125b08856e32
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 03/28/2018
+---
 Les étapes de cette tâche utilisent un réseau virtuel basé sur les valeurs figurant dans la liste de référence de configuration suivante. Les noms et paramètres supplémentaires sont également présentés dans cette liste. Nous n’utilisons pas cette liste directement dans la procédure, mais nous ajoutons des variables en fonction des valeurs dans cette liste. Vous pouvez copier la liste et l’utiliser en tant que référence, en remplaçant les valeurs par les vôtres.
 
 **Liste de référence de configuration**
@@ -47,7 +63,7 @@ Les étapes de cette tâche utilisent un réseau virtuel basé sur les valeurs f
 5. Définissez la configuration.
 
   ```powershell
-  Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+  $vnet = Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
   ```
 6. Stockez le sous-réseau de passerelle en tant que variable.
 

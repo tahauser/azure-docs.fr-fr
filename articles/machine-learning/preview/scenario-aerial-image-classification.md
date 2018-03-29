@@ -1,6 +1,6 @@
 ---
-title: "Classification d’images aériennes | Microsoft Docs"
-description: "Fournit des instructions pour la classification d’images aériennes dans un scénario réel"
+title: Classification d’images aériennes | Microsoft Docs
+description: Fournit des instructions pour la classification d’images aériennes dans un scénario réel
 author: mawah
 ms.author: mawah
 manager: mwinkle
@@ -10,11 +10,11 @@ ms.service: machine-learning
 services: machine-learning
 ms.workload: data-services
 ms.date: 12/13/2017
-ms.openlocfilehash: 76c706496b3bcdbc1604661be85dc31000873ad3
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 42ebb7dc3abf8fdb6049f1114dc8604a7b810a7e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="aerial-image-classification"></a>Classification d’images aériennes
 
@@ -54,6 +54,7 @@ Ces instructions pas à pas vous guident d’abord dans les étapes de création
 Les instructions suivantes vous guident pendant le processus de configuration de l’environnement d’exécution pour cet exemple.
 
 ### <a name="prerequisites"></a>Prérequis
+
 - Un [compte Azure](https://azure.microsoft.com/free/) (des comptes d’essai gratuit sont disponibles)
     - Vous allez créer un cluster HDInsight Spark contenant 40 nœuds de travail (sur un total de 168 cœurs). Vérifiez que votre compte a assez de cœurs disponibles en consultant l’onglet « Utilisation + quotas » de votre abonnement dans le portail Azure.
        - Si vous n’avez pas assez de cœurs disponibles, modifiez le modèle de cluster HDInsight pour réduire le nombre de workers provisionnés. Pour obtenir les instructions correspondantes, consultez la section « Créer le cluster HDInsight Spark ».
@@ -222,7 +223,7 @@ Votre cluster Batch AI accède à vos données de formation sur un serveur de fi
 1. Exécutez la commande suivante pour créer un serveur de fichiers réseau :
 
     ```
-    az batchai file-server create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --vm-size Standard_DS2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
+    az batchai file-server create -n landuseclassifier -u demoUser -p "Dem0Pa$$w0rd" --vm-size Standard_DS2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
     ```
 
 1. Vérifiez l’état d’approvisionnement de votre serveur de fichiers réseau à l’aide de la commande suivante :
@@ -253,7 +254,7 @@ Si vous le souhaitez, vous pouvez vérifier que le transfert de données s’est
 1. Exécutez les commandes suivantes pour créer le cluster :
 
     ```
-    az batchai cluster create -n landuseclassifier2 -u demoUser -p Dem0Pa$$w0rd --afs-name baitshare --nfs landuseclassifier --image UbuntuDSVM --vm-size STANDARD_NC6 --max 2 --min 2 --storage-account-name %STORAGE_ACCOUNT_NAME% 
+    az batchai cluster create -n landuseclassifier2 -u demoUser -p "Dem0Pa$$w0rd" --afs-name baitshare --nfs landuseclassifier --image UbuntuDSVM --vm-size STANDARD_NC6 --max 2 --min 2 --storage-account-name %STORAGE_ACCOUNT_NAME% 
     ```
 
 1. Utilisez la commande suivante pour vérifier l’état d’approvisionnement de votre cluster :

@@ -1,19 +1,19 @@
 ---
-title: "Démarrage rapide Azure IoT Edge + Windows | Microsoft Docs"
-description: "Essayez Azure IoT Edge en exécutant l’analyse sur un appareil Edge simulé"
+title: Démarrage rapide Azure IoT Edge + Windows | Microsoft Docs
+description: Essayez Azure IoT Edge en exécutant l’analyse sur un appareil Edge simulé
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 16d9431ec0a0425c8433557fe384864bb599bf1f
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: f9ad01d3194ee0f8be4c3b4321c83c4bb15ea55c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Démarrage rapide : Déployer votre premier module IoT Edge à partir du portail Azure sur un appareil Windows - préversion
 
@@ -22,6 +22,7 @@ Dans cette démarrage rapide, utilisez l'interface de cloud Azure IoT Edge pour 
 Si vous n’avez pas d'abonnement Azure actif, créez un [compte gratuit][lnk-account] avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Ces didacticiels partent du principe que vous utilisez un ordinateur ou une machine virtuelle exécutant Windows pour simuler un appareil Internet des Objets (IoT). Si vous exécutez Windows sur une machine virtuelle, activez la [virtualisation imbriquée][lnk-nested] et allouez au moins 2 Go de mémoire. 
 
@@ -79,7 +80,7 @@ Le runtime IoT Edge est déployé sur tous les appareils IoT Edge. Il comprend d
 Configurez le runtime avec votre chaîne de connexion d’appareil IoT Edge de la section précédente.
 
 ```cmd
-iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+iotedgectl setup --connection-string "{device connection string}" --nopass
 ```
 
 Démarrez le runtime.
@@ -135,7 +136,7 @@ Lorsque vous n’avez plus besoin de l’IoT Hub que vous avez créé, vous pouv
 az iot hub delete --name {your iot hub name} --resource-group {your resource group name}
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Vous avez appris à déployer un module IoT Edge sur un appareil IoT Edge. Essayez à présent de déployer différents types de services Azure sous forme de modules afin d'analyser les données à la périphérie. 
 

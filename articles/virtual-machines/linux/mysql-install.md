@@ -1,11 +1,11 @@
 ---
 title: Configurer MySQL sur une machine virtuelle Linux dans Azure | Microsoft Docs
-description: "Découvrez comment installer la pile MySQL sur une machine virtuelle Linux (famille de systèmes d’exploitation Ubuntu ou RedHat) dans Azure."
+description: Découvrez comment installer la pile MySQL sur une machine virtuelle Linux (famille de systèmes d’exploitation Ubuntu ou RedHat) dans Azure.
 services: virtual-machines-linux
-documentationcenter: 
-author: SuperScottz
-manager: timlt
-editor: 
+documentationcenter: ''
+author: iainfoulds
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 153bae7c-897b-46b3-bd86-192a6efb94fa
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2016
-ms.author: mingzhan
-ms.openlocfilehash: 0ee70bda954cf0a193d43b5b47702e7b2c37844d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: iainfou
+ms.openlocfilehash: d91f8cf8455a60d3e0afb2f209ba07933bcdee1c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-install-mysql-on-azure"></a>Installation de MySQL sur Azure
 Dans cet article, vous allez apprendre à installer et à configurer MySQL sur une machine virtuelle Azure qui exécute Linux.
@@ -175,6 +175,6 @@ Nous utiliserons ici une machine virtuelle Linux avec OpenSUSE.
 
            #[root@mysqlnode ~]# insserv mysql
 
-### <a name="next-step"></a>Étape suivante
+### <a name="next-step"></a>étape suivante
 Vous trouverez plus d’informations sur l’utilisation de MySQL [ici](https://www.mysql.com/).
 

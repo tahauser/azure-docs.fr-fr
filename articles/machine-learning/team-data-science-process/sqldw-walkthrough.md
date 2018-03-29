@@ -1,8 +1,8 @@
 ---
 title: 'Processus TDSP (Team Data Science Process) en action : utilisation de SQL Data Warehouse | Microsoft Docs'
-description: "Processus d’analyse avancé et technologie en action"
+description: Processus d’analyse avancé et technologie en action
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
-ms.author: bradsev;weig
-ms.openlocfilehash: 9c858427b01f7b94aae87136a46e1d9ae5e09a1c
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.author: bradsev
+ms.openlocfilehash: 6566db5f186b92179df3125deaf5ad17c6f9e974
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Processus TDSP (Team Data Science Process) en action : utilisation de SQL Data Warehouse
 Dans ce didacticiel, nous vous guidons dans la création et le déploiement d’un modèle d’apprentissage automatique utilisant SQL Data Warehouse (SQL DW) pour un jeu de données disponible publiquement, le jeu de données [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/). Le modèle de classification binaire établi prédit si un pourboire a été donné pour une course. Des modèles de classification multiclasse et de régression sont également présentés, qui prévoient la distribution des montants de pourboire réglés.
@@ -350,7 +350,7 @@ Connectez-vous à votre Azure SQL DW en utilisant Visual Studio avec le nom et
 
 Voici les types de tâche d’exploration des données et de génération de fonctionnalités qui sont effectués dans cette section :
 
-* Explorer les distributions de données de quelques champs portant sur différentes périodes.
+* explorer les distributions de données de quelques champs portant sur différentes périodes ;
 * examiner la qualité des données des champs de longitude et de latitude ;
 * Générer des étiquettes de classification binaire et multiclasse reposant sur la valeur **tip\_amount**.
 * Générer des fonctionnalités et calculer/comparer les distances des trajets.

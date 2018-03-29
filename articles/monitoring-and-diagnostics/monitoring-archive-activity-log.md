@@ -1,9 +1,9 @@
 ---
-title: "Archiver le journal d’activité Azure | Microsoft Docs"
-description: "Découvrez comment archiver votre journal d’activité Azure pour une conservation à long terme dans un compte de stockage."
+title: Archiver le journal d’activité Azure | Microsoft Docs
+description: Découvrez comment archiver votre journal d’activité Azure pour une conservation à long terme dans un compte de stockage.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: d37d3fda-8ef1-477c-a360-a855b418de84
@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2016
 ms.author: johnkem
-ms.openlocfilehash: 0b041cc6a986c6f7a11d213f03294c9716c20d04
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1ee634b3acf0fa8815b69aef21e6213aee636ce1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="archive-the-azure-activity-log"></a>Archiver le journal d’activité Azure
 Dans cet article, nous vous expliquons comment vous pouvez utiliser le portail Azure, les applets de commande PowerShell ou l’interface de ligne de commande multiplateforme pour archiver votre [**journal d’activité Azure dans un compte de stockage**](monitoring-overview-activity-logs.md). Cette option est utile si vous souhaitez conserver votre journal d’activité pendant une période supérieure à 90 jours (en disposant d’un contrôle total sur la stratégie de rétention) à des fins d’audit, d’analyse statique ou de sauvegarde. Si vous devez conserver vos événements pendant 90 jours ou moins, il est inutile de configurer l’archivage sur un compte de stockage, puisque les événements du journal d’activité sont conservés dans la plateforme Azure pendant 90 jours sans que l’archivage ne soit activé.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
+
 Avant de commencer, vous devez [créer un compte de stockage](../storage/common/storage-create-storage-account.md#create-a-storage-account) sur lequel vous pouvez archiver votre journal d’activité. Nous vous recommandons vivement de ne pas utiliser un compte de stockage existant sur lequel sont stockées d’autres données de non-analyse, afin de pouvoir mieux contrôler l’accès aux données d’analyse. En revanche, si vous archivez également des journaux de diagnostic et des métriques sur un compte de stockage, il peut être judicieux d’utiliser ce compte pour votre journal d’activité afin de regrouper toutes vos données d’analyse au même emplacement. Le compte de stockage que vous utilisez doit être un compte de stockage à usage général, et non un compte de stockage Blob. Il n’est pas nécessaire que le compte de stockage se trouve dans le même abonnement que l’abonnement générant des journaux, à condition que l’utilisateur qui configure le paramètre ait un accès RBAC approprié aux deux abonnements.
 
 ## <a name="log-profile"></a>Profil de journal
@@ -164,7 +165,7 @@ Dans le fichier PT1H.json, chaque événement est stocké dans le tableau « enr
 > 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Télécharger des objets blob pour analyse](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)
+* [Télécharger des objets blob pour analyse](../storage/blobs/storage-quickstart-blobs-dotnet.md)
 * [Transférer le journal d’activité vers Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
 * [En savoir plus sur le journal d’activité](monitoring-overview-activity-logs.md)
 

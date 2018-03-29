@@ -1,8 +1,8 @@
 ---
-title: "Créer des fonctionnalités pour les données de stockage d’objets blob Azure à l’aide de Pandas | Microsoft Docs"
-description: "Comment créer des fonctionnalités pour les données stockées dans un conteneur d’objets blob Azure avec le package Python Pandas."
+title: Créer des fonctionnalités pour les données de stockage d’objets blob Azure à l’aide de Pandas | Microsoft Docs
+description: Comment créer des fonctionnalités pour les données stockées dans un conteneur d’objets blob Azure avec le package Python Pandas.
 services: machine-learning,storage
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: bradsev;garye
-ms.openlocfilehash: 7a2e64927f4afca87642fb4829166c5ec60dbc09
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.author: bradsev
+ms.openlocfilehash: a5a4b92f04fcb4683f792263f3477ecea4d7239e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-features-for-azure-blob-storage-data-using-panda"></a>Créer des fonctionnalités pour les données de stockage d’objets blob Azure à l’aide de Pandas
 Ce document montre comment créer des fonctionnalités pour les données stockées dans un conteneur d’objets blob Azure à l’aide du package Python [Pandas](http://pandas.pydata.org/) . Après avoir décrit le chargement des données dans une trame de données Pandas, il montre comment générer des fonctionnalités catégorielles à l’aide de scripts Python avec des valeurs d’indicateur et des caractéristiques de compartimentage.
@@ -27,7 +27,8 @@ Ce document montre comment créer des fonctionnalités pour les données stocké
 
 Ce **menu** pointe vers des rubriques qui expliquent comment créer des fonctionnalités pour les données dans différents environnements. Cette tâche est une étape du [processus TDSP (Team Data Science Process)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 Cet article part du principe que vous avez créé un compte de stockage d’objets blob Azure et que vous y avez stocké vos données. Si vous avez besoin d’instructions pour configurer un compte, voir [Créer un compte Stockage Azure](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
 
 ## <a name="load-the-data-into-a-pandas-data-frame"></a>Chargement des données dans une trame de données Pandas

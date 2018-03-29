@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7c7981bc0388fee763396e68d6de3375a01178a7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5b367112c68574cc81d00e3d4b40b405d2d35131
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Kit SDK .NET Core Azure Cosmos DB pour API SQL : notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -35,8 +35,6 @@ ms.lasthandoff: 03/16/2018
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 <table>
 
@@ -56,9 +54,6 @@ ms.lasthandoff: 03/16/2018
 ## <a name="release-notes"></a>Notes de publication
 
 Le kit de développement logiciel (SDK) .NET Core Azure Cosmos DB assure la parité des fonctions avec la dernière version du [kit de développement logiciel (SDK) .NET Azure Cosmos DB](sql-api-sdk-dotnet.md).
-
-> [!NOTE] 
-> Le kit de développement logiciel (SDK) .NET Core Azure Cosmos DB n’est pas encore compatible avec les applications de plateforme Windows universelle (UWP). Si un Kit de développement logiciel (SDK) .NET Core qui prend en charge les applications UWP vous intéresse, envoyez un e-mail à l’adresse [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
 
 ### <a name="a-name191191"></a><a name="1.9.1"/>1.9.1
 

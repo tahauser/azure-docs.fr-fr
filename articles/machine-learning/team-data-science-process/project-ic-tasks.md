@@ -1,27 +1,27 @@
 ---
-title: "Tâches TDSP (Team Data Science Process) pour un contributeur individuel - Azure | Microsoft Docs"
-description: "Vue d’ensemble des tâches d’un contributeur individuel sur un projet de science des données en équipe."
-documentationcenter: 
+title: Tâches TDSP (Team Data Science Process) pour un contributeur individuel - Azure | Microsoft Docs
+description: Vue d’ensemble des tâches d’un contributeur individuel sur un projet de science des données en équipe.
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev;
-ms.openlocfilehash: 526260c3f61a203fe2770a0c6d0d23d95916a2b7
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: bradsev
+ms.openlocfilehash: af60b188fe8db278297e1ece400bf4398e36094a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="individual-contributor-tasks"></a>Tâches du contributeur individuel
 
-Cette rubrique dresse la liste des tâches dont un contributeur individuel doit s’acquitter pour son équipe de science des données. L’objectif est d’établir un environnement de collaboration en équipe standard conforme au processus [TDSP](overview.md) (Team Data Science Process). Pour obtenir une description des rôles des membres de l’équipe de science des données et des tâches qui leur incombent dans le cadre de ce processus, consultez [Rôles et tâches du processus TDSP](roles-tasks.md).
+Cette rubrique dresse la liste des tâches dont un contributeur individuel doit s’acquitter pour son équipe de science des données. L’objectif est d’établir un environnement d’équipe collaborative standard conforme à [TDSP](overview.md) (Team Data Science Process). Pour obtenir une description des rôles des membres de l’équipe de science des données et des tâches qui leur incombent dans le cadre de ce processus, consultez [Rôles et tâches du processus TDSP](roles-tasks.md).
 
 Les tâches des contributeurs individuels de projets (scientifiques de données) liées à la configuration de l’environnement TDSP du projet sont décrites comme suit : 
 
@@ -32,12 +32,12 @@ Les tâches des contributeurs individuels de projets (scientifiques de données)
 
 Pour obtenir des instructions sur la façon d’exécuter un projet de science des données sous TDSP, consultez [Exécution de projets de science des données](project-execution.md). 
 
->[AZURE.NOTE] À travers les instructions suivantes, nous décrivons les étapes nécessaires à la configuration d’un environnement d’équipe TDSP à l’aide de Visual Studio Team Services (VSTS). Nous indiquons comment accomplir ces tâches avec VSTS, car c’est de cette façon que nous implémentons le processus TDSP chez Microsoft. Si une autre plateforme d’hébergement de code est utilisée pour votre groupe, les tâches que doit effectuer le responsable d’équipe ne changent généralement pas. En revanche, c’est la façon dont vont s’effectuer ces tâches qui va être différente.
+>[AZURE.NOTE] À travers les instructions suivantes, nous décrivons les étapes nécessaires à la configuration d’un environnement d’équipe TDSP à l’aide de Visual Studio Team Services (VSTS). Nous indiquons comment accomplir ces tâches avec VSTS, car c’est de cette façon que nous implémentons le processus TDSP chez Microsoft. Si une autre plateforme d’hébergement de code est utilisée pour votre groupe, les tâches que doit effectuer le responsable d’équipe ne changent généralement pas. En revanche, c’est la façon dont vont s’effectuer ces tâches qui sera différente.
 
 
 ## <a name="repositories-and-directories"></a>Dépôts et répertoires
 
-Dans ce didacticiel, les noms des dépôts et des répertoires sont abrégés. Ces noms facilitent le suivi des opérations entre les dépôts et les répertoires. Cette notation (**R** pour les dépôts Git et **D** pour les répertoires locaux sur votre instance DSVM) est employée dans les sections suivantes :
+Dans ce didacticiel, les noms des dépôts et des répertoires sont abrégés. Cela facilite le suivi des opérations entre les dépôts et les répertoires. Cette notation (**R** pour les dépôts Git et **D** pour les répertoires locaux sur votre instance DSVM) est employée dans les sections suivantes :
 
 - **R2** : le dépôt GroupUtilities sur Git que votre responsable de groupe a configuré sur votre serveur de groupe VSTS.
 - **R4** : le dépôt TeamUtilities sur Git que votre responsable d’équipe a configuré.
@@ -96,7 +96,7 @@ Vérifiez la présence des trois dossiers sous votre répertoire de projet.
 
 Vérifiez la présence des trois dossiers sous votre répertoire de projet.
 
-![5](./media/project-ic-tasks/project-ic-5-three-repo-cloned-to-ic-linux.png)
+![5.](./media/project-ic-tasks/project-ic-5-three-repo-cloned-to-ic-linux.png)
 
 ## <a name="step-4-5-mount-azure-file-storage-to-your-dsvm-optional"></a>Étapes 4-5 : Monter un stockage de fichiers Azure sur votre instance DSVM (facultatif)
 
@@ -104,7 +104,7 @@ Pour monter un stockage de fichiers Azure sur votre image DSVM, consultez les in
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Les liens ci-dessous donnent accès à des descriptions plus détaillées des rôles et des tâches définis par le processus TDSP (Team Data Science Process) :
+Les liens ci-dessous donnent accès à des descriptions plus détaillées des rôles et des tâches définis par le processus TDSP (Team Data Science Process) :
 
 - [Tâches du responsable de groupe pour une équipe de science des données](group-manager-tasks.md)
 - [Tâches du responsable d’une équipe de science des données](team-lead-tasks.md)

@@ -1,12 +1,12 @@
 ---
-title: "Test des performances et de la mise à l’échelle Azure Cosmos DB | Microsoft Docs"
-description: "Découvrez comment effectuer un test des performances et de la mise à l’échelle avec Azure Cosmos DB"
+title: Test des performances et de la mise à l’échelle Azure Cosmos DB | Microsoft Docs
+description: Découvrez comment effectuer un test des performances et de la mise à l’échelle avec Azure Cosmos DB
 keywords: Tester les performances
 services: cosmos-db
 author: arramac
 manager: jhubbard
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: f4c96ebd-f53c-427d-a500-3f28fe7b11d0
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,15 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2017
 ms.author: arramac
-ms.openlocfilehash: f72a75f2750d4838566815bece5c2221359ece29
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 36665c0c26dad4e3b667b341b63c5859ece7605b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Test des performances et de la mise à l’échelle avec Azure Cosmos DB
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Le test des performances et de la mise à l’échelle est une étape essentielle du développement d’applications. Pour de nombreuses applications, la couche Base de données a un impact significatif sur les performances globales et la scalabilité. Il s’agit donc d’une composante essentielle des tests de performances. [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) a été spécialement conçu pour offrir une mise à l’échelle élastique et des performances prévisibles. Ces capacités en font une solution de choix pour les applications qui ont besoin d’une couche Base de données hautement performante. 
 

@@ -1,13 +1,13 @@
 ---
-title: "Azure Stream Analytics : Comprendre et ajuster les unités de streaming | Microsoft Docs"
+title: 'Azure Stream Analytics : Comprendre et ajuster les unités de streaming | Microsoft Docs'
 description: Comprenez quels facteurs affectent les performances dans Azure Stream Analytics.
-keywords: "unité de streaming, performance des requêtes"
+keywords: unité de streaming, performance des requêtes
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: JSeb225
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: e8812f10662ee7b571e8e353074c2537d1a3181b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 5c60b1808959c73759a78141566c5c49f0350e2f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Comprendre et ajuster les unités de streaming
 
@@ -88,18 +88,18 @@ La taille de l’état d’une jointure temporelle est proportionnelle au nombre
 
 Le nombre d’événements sans correspondance de la jointure affecte la consommation de mémoire pour la requête. La requête suivante vise à identifier l’exposition publicitaire qui génère des clics :
 
-    SELECT id
+    SELECT clicks.id
     FROM clicks 
-    INNER JOIN, impressions ON impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10.
+    INNER JOIN impressions ON impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10.
 
 Dans cet exemple, il est possible qu’un grand nombre de publicités s’affichent et que quelques personnes cliquent dessus ; cette configuration est requise pour conserver l’ensemble des événements dans la fenêtre de temps. La consommation de mémoire est proportionnelle à la taille de la fenêtre et au taux d’événements. 
 
 Pour corriger ce problème, envoyez des événements à Event Hub avec un partitionnement par clés de jointure (id dans ce cas) et augmentez la taille des instances de la requête en autorisant le système à traiter chaque partition d’entrée séparément à l’aide de **PARTITION BY** comme indiqué :
 
-    SELECT id
+    SELECT clicks.id
     FROM clicks PARTITION BY PartitionId
     INNER JOIN impressions PARTITION BY PartitionId 
-    ON impression.PartitionId = clocks.PartitionId AND impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10 
+    ON impression.PartitionId = clicks.PartitionId AND impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10 
 </code>
 
 Une fois que la requête est partitionnée, elle est répartie sur plusieurs nœuds. Par conséquent, le nombre d’événements arrivant dans chaque nœud est réduit, ce qui réduit d’autant la taille de l’état dans la fenêtre de jointure. 
