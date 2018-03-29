@@ -1,13 +1,13 @@
 ---
-title: "Déployer un équilibrage de charge accessible sur Internet avec IPv6 - Modèle Azure | Microsoft Docs"
-description: "Comment déployer la prise en charge du protocole IPv6 pour l’équilibrage de charge et les machines virtuelles à charge équilibrée."
+title: Déployer un équilibrage de charge accessible sur Internet avec IPv6 - Modèle Azure | Microsoft Docs
+description: Comment déployer la prise en charge du protocole IPv6 pour l’équilibrage de charge et les machines virtuelles à charge équilibrée.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: "IPv6, équilibreur de charge azure, double pile, adresse ip publique, ipv6 natif, mobile, iot"
+keywords: IPv6, équilibreur de charge azure, double pile, adresse ip publique, ipv6 natif, mobile, iot
 ms.assetid: 2998e943-13fc-4ea9-a68c-875e53a08db3
 ms.service: load-balancer
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 90439d792eac618671a9de9938302d8930c986d8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 431b43979ac364d943c58c40b4199b7f30f9acf6
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Déployer une solution d’équilibrage de charge sur Internet avec IPv6, à l’aide d’un modèle
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/21/2017
 > * [Interface de ligne de commande Azure](load-balancer-ipv6-internet-cli.md)
 > * [Modèle](load-balancer-ipv6-internet-template.md)
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 
 Un équilibrage de charge Azure est de type Couche 4 (TCP, UDP). L’équilibrage de charge offre une disponibilité élevée en distribuant le trafic entrant parmi les instances de service saines dans les services cloud ou les machines virtuelles dans un jeu d’équilibrage de la charge. Azure Load Balancer peut également présenter ces services sur plusieurs ports, plusieurs adresses IP ou les deux.
 
@@ -110,7 +110,7 @@ Un modèle Azure Resource Manager contient plusieurs variables et paramètres qu
 
 L’exemple de modèle utilisé dans cet article comprend les variables et les paramètres suivants :
 
-| Paramètre / Variable | Remarques |
+| Paramètre / Variable | Notes |
 | --- | --- |
 | adminUsername |Spécifiez le nom du compte administrateur utilisé pour la connexion aux machines virtuelles. |
 | adminPassword |Spécifiez le mot de passe du compte administrateur utilisé pour la connexion aux machines virtuelles. |
