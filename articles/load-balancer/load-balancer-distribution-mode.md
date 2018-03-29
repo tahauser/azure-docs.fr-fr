@@ -1,6 +1,6 @@
 ---
-title: "Configuration d’un mode de distribution Azure Load Balancer | Microsoft Docs"
-description: "Comment configurer le mode de distribution pour Azure Load Balancer pour prendre en charge l’affinité d’IP source."
+title: Configuration d’un mode de distribution Azure Load Balancer | Microsoft Docs
+description: Comment configurer le mode de distribution pour Azure Load Balancer pour prendre en charge l’affinité d’IP source.
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -13,15 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: d04a469c04553b7d6a14df7054ad5ef795baa500
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: ae793bad9cef86158418eb87e0c38ee0370a6bd2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Configuration du mode de distribution pour Azure Load Balancer
-
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 ## <a name="hash-based-distribution-mode"></a>Mode de distribution basé sur le hachage
 
@@ -121,7 +119,7 @@ L’exemple suivant montre comment reconfigurer le mode de distribution d’équ
 
 Utilisez le modèle de déploiement Azure Classic pour modifier une configuration de déploiement existante. Ajoutez l’en-tête `x-ms-version` et définissez la valeur sur la version 2014-09-01 ou une version ultérieure.
 
-#### <a name="request"></a>Demande
+#### <a name="request"></a>Requête
 
     POST https://management.core.windows.net/<subscription-id>/services/hostedservices/<cloudservice-name>/deployments/<deployment-name>?comp=UpdateLbSet   x-ms-version: 2014-09-01
     Content-Type: application/xml
@@ -146,7 +144,7 @@ Utilisez le modèle de déploiement Azure Classic pour modifier une configuratio
 
 Comme décrit précédemment, définissez l’élément `LoadBalancerDistribution` sur sourceIP pour une affinité à 2 tuples, sur sourceIPProtocol pour une affinité à 3 tuples ou sur none pour ne définir aucune affinité (affinité à 5 tuples).
 
-#### <a name="response"></a>Réponse
+#### <a name="response"></a>response
 
     HTTP/1.1 202 Accepted
     Cache-Control: no-cache

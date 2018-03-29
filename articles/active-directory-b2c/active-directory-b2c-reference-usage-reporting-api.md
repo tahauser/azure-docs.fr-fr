@@ -1,22 +1,21 @@
 ---
-title: "Azure Active Directory B2C : Définitions et exemples de l’API de rapports d’utilisation | Microsoft Docs"
-description: "Guide et exemples d’obtention de rapports sur les utilisateurs, les authentifications et les authentifications multifacteurs des locataires Azure AD B2C"
+title: 'Azure Active Directory B2C : Définitions et exemples de l’API de rapports d’utilisation | Microsoft Docs'
+description: Guide et exemples d’obtention de rapports sur les utilisateurs, les authentifications et les authentifications multifacteurs des locataires Azure AD B2C
 services: active-directory-b2c
 documentationcenter: dev-center-name
-author: rojasja
+author: davidmu1
 manager: mtillman
+editor: ''
 ms.service: active-directory-b2c
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/04/2017
-ms.author: joroja
-ms.openlocfilehash: 6014301a026d60775634138cbdfe56bfa625508f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 3470f45683ea508dfe338c313a5307eb6c1164d8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="accessing-usage-reports-in-azure-ad-b2c-via-the-reporting-api"></a>Accès aux rapports d’utilisation dans Azure AD B2C via l’API de création de rapports
 
@@ -30,6 +29,7 @@ Cet article se concentre sur les rapports liés à l’activité de facturation,
 
 
 ## <a name="prerequisites"></a>Prérequis
+
 Avant de commencer, vous devez effectuer les étapes décrites dans [Prérequis pour accéder aux API de création de rapports d’Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/). Créez une application, obtenez une clé secrète pour celle-ci et accordez-lui des autorisations d’accès aux rapports de votre client Azure AD B2C. Des exemples *Script Bash* et *Script Python* sont également fournis ici. 
 
 ## <a name="powershell-script"></a>Script PowerShell
@@ -112,7 +112,7 @@ if ($oauth.access_token -ne $null) {
 * **b2cMfaRequestCountSummary** : récapitulatif du nombre quotidien d’authentifications multifacteurs, par jour et par type (SMS ou vocales).
 
 
-## <a name="limitations"></a>Limitations
+## <a name="limitations"></a>Limites
 Les données du décompte d’utilisateurs sont actualisées toutes les 24 à 48 heures. Les authentifications sont mises à jour plusieurs fois par jour. Quand vous utilisez le filtre `ApplicationId`, une réponse de rapport vide peut être due à une des conditions suivantes :
   * L’ID d’application n’existe pas dans le locataire. Assurez-vous qu’il est correct.
   * L’ID d’application existe, mais aucune donnée n’a été trouvée dans la période du rapport. Passez en revue vos paramètres de date/heure.

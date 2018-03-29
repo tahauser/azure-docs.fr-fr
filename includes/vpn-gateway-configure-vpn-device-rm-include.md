@@ -1,3 +1,19 @@
+---
+title: Fichier Include
+description: Fichier Include
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: b5aea9d7fe54402693be095350f7c095334fd4b5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 03/23/2018
+---
 **Pour télécharger des script de configuration de périphérique VPN :**
 
 En fonction du périphérique VPN dont vous disposez, vous pourrez peut-être télécharger un script de configuration de périphérique VPN. Pour plus d’informations, consultez la page [Télécharger des script de configuration de périphérique VPN](../articles/vpn-gateway/vpn-gateway-download-vpndevicescript.md).

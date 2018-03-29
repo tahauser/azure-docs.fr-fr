@@ -1,11 +1,11 @@
 ---
-title: "Configurer l’identité du service administré sur un groupe de machines virtuelles identiques à l’aide du portail Azure"
-description: "Instructions détaillées sur la configuration de l’identité du service administré (MSI) sur une machine virtuelle Azure, à l’aide du portail Azure."
+title: Configurer l’identité du service administré sur un groupe de machines virtuelles identiques à l’aide du portail Azure
+description: Instructions détaillées sur la configuration de l’identité du service administré (MSI) sur une machine virtuelle Azure, à l’aide du portail Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 4d308d9cdc0405ee0041c877f5678647343631ab
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d9b493203a78aebdfadef15cf53d9cc023bb66f8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-an-azure-virtual-machine-scale-set-managed-service-identity-msi-using-the-azure-portal"></a>Configurer l’identité du service administré (MSI) d’un groupe de machines virtuelles identiques à l’aide du portail Azure
 
@@ -36,7 +36,7 @@ Dans cet article, vous allez apprendre à activer et supprimer l’identité du 
 
 Au moment de rédiger cet article, l’activation de l’identité du service administré lors de la création d’un groupe de machines virtuelles identiques dans le portail Azure n’est pas prise en charge. À la place, veuillez vous référer au démarrage rapide suivant sur la création d’un groupe de machines virtuelles identiques Azure pour en créer un d’abord :
 
-- [Créer un groupe de machines virtuelles identiques dans le portail Azure](../../virtual-machine-scale-sets/virtual-machine-scale-sets-create-portal.md)  
+- [Créer un groupe de machines virtuelles identiques dans le portail Azure](../../virtual-machine-scale-sets/quick-create-portal.md)  
 
 Passez ensuite à la section suivante pour plus d’informations sur l’activation de l’identité du service administré sur le groupe de machines virtuelles identiques.
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
-ms.openlocfilehash: 06706450d8af6f571f002789815290f75da9623d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: d531bb40421716bf9fb3c253a3e76207b2806912
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="using-openfaas-on-aks"></a>Utilisation d’OpenFaaS avec AKS
 
@@ -68,7 +68,7 @@ helm install --namespace openfaas -n openfaas \
   --set rbac=false chart/openfaas/ 
 ```
 
-Sortie :
+Output:
 
 ```
 NAME:   openfaas
@@ -231,7 +231,7 @@ Vous pouvez également tester la fonction dans l’interface utilisateur d’Ope
 
 ![texte de remplacement](media/container-service-serverless/OpenFaaSUI.png)
 
-# <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Le déploiement par défaut d’OpenFaas doit être verrouillé pour les fonctions et pour la passerelle OpenFaaS. Ce [billet de blog d’Alex Ellis](https://blog.alexellis.io/lock-down-openfaas/) comprend plus de détails sur les options de configuration sécurisée. 
 

@@ -8,14 +8,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
 ms.custom: mvc
-ms.openlocfilehash: 65bf0d98da8111e986d5dbdfd58f1692d40ee286
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b3ff1991d76b3ab5b4b3c44f4fbe28fbb986d4bd
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Intégrer les solutions Update Management, Change Tracking et Inventory
 
@@ -53,7 +51,7 @@ Les deux configurations d’étendue créées par défaut sont **MicrosoftDefaul
 
 Quand un ordinateur est ajouté aux solutions Update Management, Change Tracking et Inventaire, il est ajouté à l’une des deux recherches enregistrées dans votre espace de travail. Ces recherches enregistrées sont des requêtes qui contiennent les ordinateurs ciblés pour ces solutions.
 
-Accédez à votre compte Automation et sélectionnez **Recherches enregistrées** sous **Général**. Les deux recherches enregistrées utilisées par ces solutions sont présentées dans le tableau suivant :
+Accédez à votre compte Automation et sélectionnez **Recherches enregistrées** sous **Ggénéral**. Les deux recherches enregistrées utilisées par ces solutions sont présentées dans le tableau suivant :
 
 |NOM     |Catégorie  |Alias  |
 |---------|---------|---------|
@@ -66,13 +64,13 @@ Sélectionnez l’une des deux recherches enregistrées pour afficher la requêt
 
 ## <a name="onboard-an-azure-machine"></a>Intégrer une machine Azure
 
-À partir de votre compte Automation, sélectionnez **Inventory** ou **Change Tracking** sous **GESTION DE LA CONFIGURATION**, ou **Update Management** sous **UPDATE MANAGEMENT**.
+À partir de votre compte Automation, Sélectionnez **Inventory** ou **Change Tracking** sous **GESTION DE LA CONFIGURATION**, ou **Update Management** sous **UPDATE MANAGEMENT**.
 
 Cliquez sur **+ Ajouter une machine virtuelle Azure**, puis sélectionnez une machine virtuelle dans la liste. Dans la page **Update Management**, cliquez sur **Activer**. Cette opération ajoute la machine virtuelle actuelle à la recherche enregistrée de groupe d’ordinateurs pour la solution.
 
 ## <a name="onboard-a-non-azure-machine"></a>Intégrer une machine non-Azure
 
-À partir de votre compte Automation, sélectionnez **Inventory** ou **Change Tracking** sous **GESTION DE LA CONFIGURATION**, ou **Update Management** sous **UPDATE MANAGEMENT**.
+À partir de votre compte Automation, Sélectionnez **Inventory** ou **Change Tracking** sous **GESTION DE LA CONFIGURATION**, ou **Update Management** sous **UPDATE MANAGEMENT**.
 
 Cliquez sur **Ajouter une machine virtuelle non-Azure**. Une nouvelle fenêtre de navigateur s’ouvre et donne des instructions pour installer et configurer Microsoft Monitoring Agent sur la machine afin que celle-ci puisse commencer à créer des rapports dans la solution. Si vous intégrez une machine actuellement gérée par System Center Operations Manager, l’installation d’un nouvel agent n’est pas nécessaire, car les informations de l’espace de travail sont entrées dans l’agent existant.
 

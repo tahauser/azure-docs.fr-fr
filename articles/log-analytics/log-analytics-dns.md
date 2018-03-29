@@ -1,24 +1,24 @@
 ---
 title: Solution DNS Analytics dans Azure Log Analytics | Microsoft Docs
-description: "Configurez et utilisez la solution DNS Analytics dans Log Analytics pour rassembler des informations sur une infrastructure DNS concernant la sécurité, les performances et les opérations."
+description: Configurez et utilisez la solution DNS Analytics dans Log Analytics pour rassembler des informations sur une infrastructure DNS concernant la sécurité, les performances et les opérations.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: f44a40c4-820a-406e-8c40-70bd8dc67ae7
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 8ead058108f39eca8682eccc296760d4b756d336
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 6a59cf8b9444fe7cb197501c51d10dae81acb027
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Rassembler des informations sur votre infrastructure DNS avec la solution DNS Analytics (préversion)
 
@@ -145,7 +145,6 @@ Ces informations vous aident à identifier les éléments suivants :
 
 **Exemples de requêtes DDI Analytics**. Contient la liste des requêtes de recherche les plus courantes qui extraient directement les données d’analyse brutes.
 
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Exemples de requêtes](./media/log-analytics-dns/queries.png)
 
@@ -166,7 +165,7 @@ Vous pouvez utiliser ces requêtes comme point de départ pour créer vos propre
 
 Sur la page Recherche dans les journaux, vous pouvez créer une requête. Vous pouvez filtrer les résultats de la recherche à l’aide des contrôles de facette. Vous pouvez également créer des requêtes avancées pour la transformation, le filtrage et les rapports relatifs aux résultats. Commencez par utiliser les requêtes suivantes :
 
-1. Dans la **zone de requête de recherche**, tapez `Type=DnsEvents` pour afficher tous les événements DNS générés par les serveurs DNS gérés par la solution. Les résultats indiquent les données de journal pour tous les événements liés aux requêtes de recherche, aux inscriptions dynamiques et aux modifications de la configuration.
+1. Dans la **zone de requête de recherche**, tapez `DnsEvents` pour afficher tous les événements DNS générés par les serveurs DNS gérés par la solution. Les résultats indiquent les données de journal pour tous les événements liés aux requêtes de recherche, aux inscriptions dynamiques et aux modifications de la configuration.
 
     ![Recherche dans les journaux des événements DNS](./media/log-analytics-dns/log-search-dnsevents.png)  
 
@@ -176,7 +175,7 @@ Sur la page Recherche dans les journaux, vous pouvez créer une requête. Vous p
 
     c. Pour afficher les données du journal correspondant aux modifications de configuration, sélectionnez **ConfigurationChange** comme filtre **Sous-type** à partir du contrôle de facette sur la gauche. Un tableau qui répertorie tous les événements de modification de configuration pour la période sélectionnée s’affiche.
 
-2. Dans la **zone de requête de recherche**, tapez `Type=DnsInventory` pour afficher toutes les données associées aux inventaires DNS pour les serveurs DNS gérés par la solution. Les résultats indiquent les données de journal pour les serveurs DNS, les zones DNS et les enregistrements de ressources.
+2. Dans la **zone de requête de recherche**, tapez `DnsInventory` pour afficher toutes les données associées aux inventaires DNS pour les serveurs DNS gérés par la solution. Les résultats indiquent les données de journal pour les serveurs DNS, les zones DNS et les enregistrements de ressources.
 
     ![Recherche dans les journaux des inventaires DNS](./media/log-analytics-dns/log-search-dnsinventory.png)
 

@@ -1,24 +1,24 @@
 ---
-title: "Groupes d’ordinateurs dans les recherches de journal Azure Log Analytics | Microsoft Docs"
-description: "Les groupes d’ordinateurs dans Log Analytics vous permettent d’étendre des recherches de journal à un ensemble spécifique d’ordinateurs.  Cet article décrit les différentes méthodes permettant de créer des groupes d’ordinateurs et la manière de les utiliser dans une recherche de journal."
+title: Groupes d’ordinateurs dans les recherches de journal Azure Log Analytics | Microsoft Docs
+description: Les groupes d’ordinateurs dans Log Analytics vous permettent d’étendre des recherches de journal à un ensemble spécifique d’ordinateurs.  Cet article décrit les différentes méthodes permettant de créer des groupes d’ordinateurs et la manière de les utiliser dans une recherche de journal.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
-editor: 
+editor: ''
 ms.assetid: a28b9e8a-6761-4ead-aa61-c8451ca90125
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 03/19/2018
 ms.author: bwren
-ms.openlocfilehash: 4d6a80082711f09e9c189d53fb4fda00a7d73c29
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: a6f0aa58762966f8da76387f3da7a7895801fcb9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Groupes d’ordinateurs dans les recherches de journal Log Analytics
 
@@ -66,12 +66,6 @@ Utilisez la procédure suivante pour créer un groupe d’ordinateurs à partir 
 5. Entrez des valeurs pour chaque propriété du groupe d’ordinateurs. 
 
 
->[!NOTE]
-> Si votre espace de travail utilise encore le [langage de requête Log Analytics hérité](log-analytics-log-search-upgrade.md), suivez la même procédure de création d’un groupe d’ordinateurs en veillant à utiliser la syntaxe du langage de requête hérité.
-
-
-### <a name="log-search-api"></a>API Recherche de journal
-Les groupes d’ordinateurs créés avec l’API Recherche de journal sont les mêmes que les recherches créées avec une Recherche de journal.  Pour plus d’informations sur la création d’un groupe d’ordinateurs à l’aide de l’API Recherche de journal, voir [Groupes d’ordinateur dans l’API REST de recherche de journal Log Analytics](log-analytics-log-search-api.md#computer-groups).
 
 ### <a name="active-directory"></a>Active Directory
 Lorsque vous configurez Log Analytics pour importer les appartenances aux groupes Active Directory, Log Analytics analyse l’appartenance au groupe des ordinateurs joints à un domaine avec l’Agent OMS.  Un groupe d’ordinateurs est créé dans Log Analytics pour chaque groupe de sécurité dans Active Directory, et chaque ordinateur est ajouté aux groupes d’ordinateurs correspondant aux groupes de sécurité auxquels il appartient.  Cet appartenance est mise à jour toutes les 4 heures.  
@@ -129,18 +123,6 @@ La requête suivante retourne les enregistrements UpdateSummary pour les seuls o
   UpdateSummary | where Computer in (ADComputers)
   ```
 
-
-
-  
-
->[!NOTE]
-> Si votre espace de travail utilise encore le [langage de requête Log Analytics hérité](log-analytics-log-search-upgrade.md), utilisez la syntaxe suivante pour faire référence à un groupe d’ordinateurs dans une recherche dans les journaux.  La spécification de la **Catégorie** est facultative. Elle n’est obligatoire que si vous avez des groupes d’ordinateurs du même nom dans des catégories différentes. 
->
->    `$ComputerGroups[Category: Name]`
->
->Les groupes d’ordinateurs sont généralement utilisés avec la clause **IN**dans la recherche de journal, comme dans l’exemple suivant :
->
->    `Type=UpdateSummary Computer IN $ComputerGroups[My Computer Group]`
 
 
 

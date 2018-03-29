@@ -4,8 +4,8 @@ description: Découvrez comment copier des données de Salesforce vers des banqu
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 3d48f1f3df7b626ec33b07b6275581821453f626
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: e6440bfd3297ee68cd4ff79c8654b5f97cba077e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copier des données depuis et vers Salesforce à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,6 +39,7 @@ Ce connecteur Salesforce prend en charge :
 - La copie de données depuis et vers le domaine de production, le bac à sable et le domaine personnalisé de Salesforce.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 L’autorisation de l’API doit être activée dans Salesforce. Pour plus d’informations, consultez l’article [How do I enable API access in Salesforce by permission set?](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/) (Comment activer l’accès à l’API dans Salesforce par jeu d’autorisations ?)
 
@@ -287,7 +288,7 @@ Vous pouvez récupérer des données à partir de rapports Salesforce en spécif
 Pour interroger les enregistrements supprimés de manière réversible dans la Corbeille Salesforce, vous pouvez spécifier **« IsDeleted = 1 »** dans votre requête. Par exemple : 
 
 * Pour interroger uniquement les enregistrements supprimés, spécifiez « select \* from MyTable__c **where IsDeleted= 1**. »
-* Pour interroger tous les enregistrements, notamment ceux existants et supprimés, spécifiez « select \* from MyTable__c **where IsDeleted = 0 or IsDeleted = 1**. »
+* Pour interroger tous les enregistrements, notamment ceux existants et supprimés, spécifiez « select from MyTable__c **where IsDeleted = 0 or IsDeleted = 1**. »
 
 ### <a name="retrieve-data-by-using-a-where-clause-on-the-datetime-column"></a>Récupérer des données à l’aide d’une clause where sur la colonne DateTime
 
@@ -322,5 +323,5 @@ Lorsque vous copiez des données de Salesforce, les mappages suivants sont utili
 | Texte (chiffré) |Chaîne |
 | URL |Chaîne |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).

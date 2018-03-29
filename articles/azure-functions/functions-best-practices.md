@@ -1,13 +1,13 @@
 ---
 title: Bonnes pratiques pour Azure Functions | Microsoft Docs
-description: "Découvrez les bonnes pratiques et les modèles pour Azure Functions."
+description: Découvrez les bonnes pratiques et les modèles pour Azure Functions.
 services: functions
 documentationcenter: na
 author: wesmc7777
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure functions, modèles, bonne pratique, fonctions, traitement des événements, webhooks, calcul dynamique, architecture sans serveur"
+editor: ''
+tags: ''
+keywords: azure functions, modèles, bonne pratique, fonctions, traitement des événements, webhooks, calcul dynamique, architecture sans serveur
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.service: functions
 ms.devlang: multiple
@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d8088a8a83bcaefce17ac2756360a46119c8eb27
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 19ca9d70f769a19556d131d1d131f1bc9d107ef0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimisation des performances et de la fiabilité d’Azure Functions
 
@@ -99,7 +99,7 @@ La programmation asynchrone est une pratique recommandée. Toutefois, évitez to
 
 ### <a name="receive-messages-in-batch-whenever-possible"></a>Recevoir des messages par lots chaque fois que possible
 
-Certains déclencheurs, tels que Event Hub, permettent la réception d’un lot de messages sur un simple appel.  Le traitement par lot des messages offre de bien meilleures performances.  Vous pouvez configurer la taille maximale de lot dans le fichier `functions.json`, comme indiqué dans la [documentation de référence de host.json](functions-host-json.md)
+Certains déclencheurs, tels que Event Hub, permettent la réception d’un lot de messages sur un simple appel.  Le traitement par lot des messages offre de bien meilleures performances.  Vous pouvez configurer la taille maximale de lot dans le fichier `host.json`, comme indiqué dans la [documentation de référence de host.json](functions-host-json.md)
 
 Pour les fonctions C#, vous pouvez modifier le type en tableau d’objets fortement typé.  Par exemple, au lieu de `EventData sensorEvent` la signature de méthode peut être `EventData[] sensorEvent`.  Pour d’autres langages, vous devez définir explicitement la propriété de cardinalité dans votre fichier `function.json` sur `many` afin d’activer le traitement par lot, [comme indiqué ici](https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10).
 

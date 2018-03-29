@@ -1,11 +1,11 @@
 ---
-title: "Copier de façon incrémentielle plusieurs tables en utilisant Azure Data Factory | Microsoft Docs"
-description: "Dans ce didacticiel, vous allez créer un pipeline Azure Data Factory qui copie de façon incrémentielle des données delta de plusieurs tables d’une base de données SQL Server locale dans une base de données Azure SQL."
+title: Copier de façon incrémentielle plusieurs tables en utilisant Azure Data Factory | Microsoft Docs
+description: Dans ce didacticiel, vous allez créer un pipeline Azure Data Factory qui copie de façon incrémentielle des données delta de plusieurs tables d’une base de données SQL Server locale dans une base de données Azure SQL.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 11dedc8866fcc0239fd4a34b7ed73af34c6d5a4e
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 399e132f0a28ffc6b60e3d757afff5aae60f7674
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Charger de façon incrémentielle des données provenant de plusieurs tables de SQL Server vers une base de données SQL Azure
 Dans ce didacticiel, vous allez créer une fabrique de données Azure Data Factory avec un pipeline qui charge les données delta de plusieurs tables d’une base de données SQL Server locale vers une base de données SQL Azure.    
@@ -30,7 +30,7 @@ Dans ce didacticiel, vous allez effectuer les étapes suivantes :
 > * Créez un runtime d’intégration auto-hébergé.
 > * Installer le runtime d’intégration. 
 > * créez des services liés. 
-> * Créer des jeux de données source, récepteur et de filigrane.
+> * Créer des jeux de données source, récepteur et filigrane.
 > * Créez, exécutez et surveillez un pipeline.
 > * Passez en revue les résultats.
 > * Ajouter ou mettre à jour des données dans les tables source.
@@ -69,6 +69,7 @@ Voici les étapes importantes à suivre pour créer cette solution :
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
+
 * **SQL Server**. Dans le cadre de ce didacticiel, vous allez utiliser une base de données SQL Server locale comme magasin de données source. 
 * **Base de données SQL Azure**. Vous allez utiliser une base de données SQL comme magasin de données récepteur. Si vous ne disposez pas d’une base de données SQL, consultez [Créer une base de données Azure SQL Database](../sql-database/sql-database-get-started-portal.md) pour connaître la procédure à suivre pour en créer une. 
 
@@ -722,7 +723,7 @@ Dans ce didacticiel, vous avez effectué les étapes suivantes :
 > * Créer un runtime d’intégration auto-hébergé (IR).
 > * Installer le runtime d’intégration.
 > * créez des services liés. 
-> * Créer des jeux de données source, récepteur et de filigrane.
+> * Créer des jeux de données source, récepteur et filigrane.
 > * Créez, exécutez et surveillez un pipeline.
 > * Passez en revue les résultats.
 > * Ajouter ou mettre à jour des données dans les tables source.

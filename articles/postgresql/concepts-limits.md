@@ -1,6 +1,6 @@
 ---
-title: "Limitations des bases de données Azure pour PostgreSQL"
-description: "Cet article décrit les limitations dans Azure Database pour PostgreSQL, telles que le nombre de connexions et les options du moteur de stockage."
+title: Limitations des bases de données Azure pour PostgreSQL
+description: Cet article décrit les limitations dans Azure Database pour PostgreSQL, telles que le nombre de connexions et les options du moteur de stockage.
 services: postgresql
 author: kamathsun
 ms.author: sukamat
@@ -8,15 +8,15 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: ba05308039e9743dd207333476e61a45c0ca166a
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: 7e06cdba7c9c9f7e5c1d621e7421a18c342c0fdb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Limitations des bases de données Azure pour PostgreSQL
-Le service de base de données Azure pour PostgreSQL est en préversion publique. Les sections suivantes décrivent les limites fonctionnelles et les limites de capacités du service de base de données.
+Les sections suivantes décrivent les limites fonctionnelles et les limites de capacités du service de base de données.
 
 ## <a name="pricing-tier-maximums"></a>Valeurs maximales des niveaux tarifaires
 Azure Database pour PostgreSQL a plusieurs niveaux tarifaires que vous pouvez choisir pour créer un serveur. Pour plus d’informations, consultez [Niveaux tarifaires dans Azure Database pour PostgreSQL](concepts-pricing-tiers.md).  
@@ -43,7 +43,6 @@ Chaque niveau tarifaire comporte un nombre maximal de connexions et d’unités 
 |Mémoire optimisée| Gen 5| 4| 250|
 |Mémoire optimisée| Gen 5| 8| 480|
 |Mémoire optimisée| Gen 5| 16| 950|
-|Mémoire optimisée| Gen 5| 32| 1900|
 
 Lorsque la limite du nombre de connexions est dépassée, vous pouvez recevoir l’erreur suivante :
 > FATAL:  sorry, too many clients already

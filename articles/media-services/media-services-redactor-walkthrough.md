@@ -1,11 +1,11 @@
 ---
-title: "Procédure d’édition des visages avec Azure Media Analytics | Microsoft Docs"
-description: "Cette rubrique explique étape par étape comment exécuter un workflow de rédaction complet à l’aide d’Azure Media Services Explorer (AMSE) et d’Azure Media Redactor Visualizer (outil open source)."
+title: Procédure d’édition des visages avec Azure Media Analytics | Microsoft Docs
+description: Cette rubrique explique étape par étape comment exécuter un workflow de rédaction complet à l’aide d’Azure Media Services Explorer (AMSE) et d’Azure Media Redactor Visualizer (outil open source).
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Lichard
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: d6fa21b8-d80a-41b7-80c1-ff1761bc68f2
 ms.service: media-services
 ms.workload: media
@@ -14,15 +14,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/03/2017
 ms.author: rli; juliako;
-ms.openlocfilehash: 0bd385ba78028a722c52cdf1508f3348ff90f05f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b33da21a32373196d86ec8c93f180b3d40b1c6e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Procédure d’édition des visages avec Azure Media Analytics
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 **Azure Media Redactor** est un processeur multimédia [Azure Media Analytics](media-services-analytics-overview.md) qui offre la rédaction de face évolutive dans le cloud. La rédaction de face vous permet de modifier votre vidéo afin de flouter les visages des individus sélectionnés. Vous souhaitez peut-être utiliser le service de rédaction de face dans des scénarios de média et de sécurité publics. Quelques minutes de séquences vidéo contenant plusieurs visages peuvent nécessiter des heures de traitement manuel, mais avec ce service, le processus de rédaction de face ne nécessitera que quelques étapes simples. Pour plus d’informations, consultez [ce blog](https://azure.microsoft.com/blog/azure-media-redactor/).
 
@@ -59,7 +59,7 @@ La sortie inclut un fichier json d’annotations avec les données d’emplaceme
 
 ![Rédaction de face](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough004.png)
 
-###<a name="second-pass--redact-mode"></a>Second passage – Mode de rédaction
+### <a name="second-pass--redact-mode"></a>Second passage – Mode de rédaction
 
 1. Chargez votre ressource vidéo d’origine sur la sortie dès le premier passage et définissez-la comme ressource principale. 
 
@@ -78,7 +78,7 @@ La sortie inclut un fichier json d’annotations avec les données d’emplaceme
 
     ![Rédaction de face](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough008.png)
 
-##<a name="azure-media-redactor-visualizer-open-source-tool"></a>Outil open source Azure Media Redactor Visualizer
+## <a name="azure-media-redactor-visualizer-open-source-tool"></a>Outil open source Azure Media Redactor Visualizer
 
 Un [outil de visualisation](https://github.com/Microsoft/azure-media-redactor-visualizer) open source est conçu pour aider les développeurs commençant à utiliser le format d’annotations avec l’analyse et à l’aide de la sortie.
 

@@ -1,11 +1,11 @@
 ---
 title: Solution Azure SQL Analytics dans Log Analytics | Microsoft Docs
-description: "La solution Azure SQL Analytics vous permet de gérer vos instances Azure SQL Database."
+description: La solution Azure SQL Analytics vous permet de gérer vos instances Azure SQL Database.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: b2712749-1ded-40c4-b211-abc51cc65171
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte
-ms.openlocfilehash: 5fb7fd0be8b131ee098689b06c34c4e7c333801e
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: d6bc7824687f5418f1270e22b216f8637578aa6d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Surveiller Azure SQL Database à l’aide d’Azure SQL Analytics (version préliminaire) dans Log Analytics
 
@@ -88,10 +88,6 @@ PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 
 ## <a name="using-the-solution"></a>Utilisation de la solution
 
->[!NOTE]
-> Veuillez mettre à niveau Log Analytics pour obtenir la version la plus récente d’Azure SQL Analytics.
->
-
 Lorsque vous ajoutez la solution à votre espace de travail, la vignette Azure SQL Analytics est également ajoutée ; elle apparaît dans la Vue d’ensemble. La vignette indique le nombre d’instances Azure SQL Database et de pools élastiques Azure SQL auxquels la solution est associée.
 
 ![Vignette Azure SQL Analytics](./media/log-analytics-azure-sql/azure-sql-sol-tile.png)
@@ -142,8 +138,6 @@ En vous aidant de la durée de la requête et des attentes de requête, vous pou
 ### <a name="analyze-data-and-create-alerts"></a>Analyser les données et créer des alertes
 
 Vous pouvez facilement créer des alertes avec les données provenant de ressources Azure SQL Database. Voici quelques requêtes utiles de [Recherche dans les journaux](log-analytics-log-searches.md) que vous pouvez utiliser pour créer des alertes :
-
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 
 *DTU élevé sur Azure SQL Database*

@@ -1,11 +1,11 @@
 ---
-title: "Créer une machine virtuelle Linux à l’aide de PowerShell dans Azure Stack | Microsoft Docs"
-description: "Créez une machine virtuelle Linux avec PowerShell dans Azure Stack."
+title: Créer une machine virtuelle Linux à l’aide de PowerShell dans Azure Stack | Microsoft Docs
+description: Créez une machine virtuelle Linux avec PowerShell dans Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 03EE5929-4F05-47D7-B246-EA93D6FC47CD
 ms.service: azure-stack
 ms.workload: na
@@ -15,19 +15,20 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 97847c0c2fcc4ab7d5fe8e4e5badd5809b7e2363
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 5446f00b698fbe1fe1bae9c52bf3e73fe0d1c506
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-linux-virtual-machine-by-using-powershell-in-azure-stack"></a>Créer une machine virtuelle Linux à l’aide de PowerShell dans Azure Stack 
 
-*S’applique à : systèmes intégrés Azure Stack*
+*S’applique à : systèmes intégrés Azure Stack*
 
 Azure PowerShell est utilisé pour créer et gérer une ressource dans Azure Stack à partir d’une ligne de commande ou dans des scripts.  Ce guide explique de manière détaillée comment utiliser PowerShell pour créer une machine virtuelle exécutant le serveur Ubuntu dans Azure Stack.
 
-## <a name="prerequisites"></a>Composants requis 
+## <a name="prerequisites"></a>Prérequis
+ 
 
 * Vérifiez que votre opérateur Azure Stack a ajouté l’image « Ubuntu Server 16.04 LTS » à la Place de Marché Azure Stack.  
 
@@ -189,7 +190,7 @@ Add-AzureRmVMSshPublicKey -VM $VirtualMachine `
  -KeyData $sshPublicKey `
  -Path "/home/azureuser/.ssh/authorized_keys"
 
-#Create the virtual machine.
+# Create the virtual machine.
 New-AzureRmVM `
   -ResourceGroupName $ResourceGroupName `
  -Location $location `

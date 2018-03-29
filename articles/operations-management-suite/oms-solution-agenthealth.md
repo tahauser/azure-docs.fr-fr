@@ -1,29 +1,30 @@
 ---
-title: "Solution Agent Health pour OMS | Microsoft Docs"
-description: "Cet article a pour but de vous apprendre à utiliser cette solution afin de surveiller l’intégrité de vos agents au service de OMS ou de System Center Operations Manager."
+title: Solution Agent Health pour OMS | Microsoft Docs
+description: Cet article a pour but de vous apprendre à utiliser cette solution afin de surveiller l’intégrité de vos agents au service de OMS ou de System Center Operations Manager.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: 939bf5ae6ee306008567ce62ddf8a6d1f05da60a
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: d7eb1550a21e66d4ae4cc4932b30a90956c60d1e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 #  <a name="agent-health-solution-in-oms"></a>Solution Agent Health pour OMS
 La solution Agent Health pour OMS vous permet de savoir quels agents, au service de cet espace de travail ou d’un groupe d’administration System Center Operations Manager connecté à OMS, ne répondent pas et renvoient des données opérationnelles.  Vous pouvez aussi suivre le nombre d’agents déployés et leur localisation géographique, et réaliser diverses requêtes pour être au fait de la distribution d’agents déployés au sein d’Azure, d’environnements de cloud ou localement.    
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
+
 Avant de déployer cette solution, veuillez confirmer que vous avez bien pris en charge des [agents Windows](../log-analytics/log-analytics-windows-agent.md) au service de l’espace de travail OMS ou d’un [groupe d’administration Operations Manager](../log-analytics/log-analytics-om-agents.md) inclut dans l’espace de travail OMS.    
 
 ## <a name="solution-components"></a>Composants de la solution
@@ -98,25 +99,6 @@ Tout agent au service d’un serveur d’administration Operations Manager émet
 Le tableau suivant fournit des exemples de recherches de journaux pour les enregistrements collectés par cette solution.
 
 | Requête | Description |
-| --- | --- |
-| Type=Heartbeat &#124; distinct Computer |Nombre total d’agents |
-| Type=Heartbeat &#124; measure max(TimeGenerated) as LastCall by Computer &#124; where LastCall < NOW-24HOURS |Nombre d’agents inactifs au cours des dernières 24 heures |
-| Type=Heartbeat &#124; measure max(TimeGenerated) as LastCall by Computer &#124; where LastCall < NOW-15MINUTES |Nombre d’agents inactifs au cours des 15 dernières heures |
-| Type=Heartbeat TimeGenerated>NOW-24HOURS Computer IN {Type=Heartbeat TimeGenerated>NOW-24HOURS &#124; distinct Computer} &#124; measure max(TimeGenerated) as LastCall by Computer |Ordinateurs en ligne (au cours des dernières 24 heures) |
-| Type=Heartbeat TimeGenerated>NOW-24HOURS Computer NOT IN {Type=Heartbeat TimeGenerated>NOW-30MINUTES &#124; distinct Computer} &#124; measure max(TimeGenerated) as LastCall by Computer |Total des agents hors ligne au cours des 30 dernières minutes (au cours des dernières 24 heures) |
-| Type=Heartbeat &#124; measure countdistinct(Computer) by OSType |Obtenir une tendance du nombre d’agents sur une période selon le système d’exploitation|
-| Type=Heartbeat&#124;measure countdistinct(Computer) by OSType |Distribution selon le système d’exploitation |
-| Type=Heartbeat&#124;measure countdistinct(Computer) by Version |Distribution selon la version de l’agent |
-| Type=Heartbeat&#124;measure count() by Category |Distribution selon la catégorie de l’agent |
-| Type=Heartbeat&#124;measure countdistinct(Computer) by ManagementGroupName | Distribution selon le groupe d’administration |
-| Type=Heartbeat&#124;measure countdistinct(Computer) by RemoteIPCountry |Géolocalisation des agents |
-| Type=Heartbeat IsGatewayInstalled=true&#124;Distinct Computer |Nombre de passerelles OMS installées |
-
-
->[!NOTE]
-> Si votre espace de travail a été mis à niveau vers le [nouveau langage de requête Log Analytics](../log-analytics/log-analytics-log-search-upgrade.md), les requêtes ci-dessus seront remplacées par les suivantes.
->
->| Requête | Description |
 |:---|:---|
 | Heartbeat &#124; distinct Computer |Nombre total d’agents |
 | Heartbeat &#124; summarize LastCall = max(TimeGenerated) by Computer &#124; where LastCall < ago(24h) |Nombre d’agents inactifs au cours des dernières 24 heures |
@@ -130,6 +112,9 @@ Le tableau suivant fournit des exemples de recherches de journaux pour les enreg
 | Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by ManagementGroupName | Distribution selon le groupe d’administration |
 | Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by RemoteIPCountry |Géolocalisation des agents |
 | Heartbeat &#124; where iff(isnotnull(toint(IsGatewayInstalled)), IsGatewayInstalled == true, IsGatewayInstalled == "true") == true &#124; distinct Computer |Nombre de passerelles OMS installées |
+
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

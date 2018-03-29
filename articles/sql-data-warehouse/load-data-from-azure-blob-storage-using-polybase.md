@@ -1,31 +1,31 @@
 ---
-title: "Didacticiel : chargement de données PolyBase - Azure Storage Blob vers Azure SQL Data Warehouse | Microsoft Docs"
-description: "Ce didacticiel utilise le portail Azure et SQL Server Management Studio pour charger les données de New York Taxicab d’un Stockage Blob Azure dans Azure SQL Data Warehouse."
+title: 'Didacticiel : chargement de données PolyBase - Azure Storage Blob vers Azure SQL Data Warehouse | Microsoft Docs'
+description: Ce didacticiel utilise le portail Azure et SQL Server Management Studio pour charger les données de New York Taxicab d’un Stockage Blob Azure dans Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: 
+documentationcenter: ''
 author: ckarst
 manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: sql-data-warehouse
 ms.custom: mvc,develop data warehouses
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 11/17/2017
+ms.date: 03/16/2018
 ms.author: cakarst
 ms.reviewer: barbkess
-ms.openlocfilehash: 4bb9b4a01d3efb90486e34d2b0eb5cfeef66e50c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 77e1666a5c8cc51495f2058ff76b2b99a3212db0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>Didacticiel : utiliser PolyBase pour charger des données du Stockage Blob Azure dans Azure SQL Data Warehouse
 
-PolyBase est la technologie de chargement standard qui permet de charger des données dans SQL Data Warehouse. Dans ce didacticiel, vous utilisez PolyBase pour charger les données de New York Taxicab du Stockage Blob Azure dans Azure SQL Data Warehouse. Ce didacticiel utilise le [portail Azure](https://portal.azure.com) et [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) pour : 
+PolyBase est la technologie de chargement standard qui permet de charger des données dans SQL Data Warehouse. Dans ce didacticiel, vous utilisez PolyBase pour charger les données de New York Taxicab du Stockage Blob Azure dans Azure SQL Data Warehouse. Ce didacticiel utilise le [portail Azure](https://portal.azure.com) et [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) pour : 
 
 > [!div class="checklist"]
 > * Créer un entrepôt de données dans le portail Azure
@@ -41,7 +41,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Avant de commencer ce didacticiel, téléchargez et installez la dernière version de [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS).
+Avant de commencer ce didacticiel, téléchargez et installez la dernière version de [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
 
 ## <a name="log-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
@@ -91,7 +91,7 @@ Suivez ces étapes pour créer un entrepôt de données SQL vide.
     ![configurer les performances](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
 8. Cliquez sur **Appliquer**.
-9. Dans la page SQL Data Warehouse, sélectionnez un **classement** pour la base de données vide. Pour ce didacticiel, utilisez la valeur par défaut. Pour en savoir plus sur les classements, voir [Classements](/sql/t-sql/statements/collations.md)
+9. Dans la page SQL Data Warehouse, sélectionnez un **classement** pour la base de données vide. Pour ce didacticiel, utilisez la valeur par défaut. Pour en savoir plus sur les classements, voir [Classements](/sql/t-sql/statements/collations)
 
 11. Maintenant que vous avez rempli le formulaire SQL Database, cliquez sur **Créer** pour approvisionner la base de données. L’approvisionnement prend quelques minutes. 
 
@@ -146,7 +146,7 @@ Obtenez le nom complet de votre serveur SQL dans le portail Azure. Vous utilisez
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Se connecter au serveur comme administrateur du serveur
 
-Cette section utilise [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) pour établir une connexion à votre serveur Azure SQL.
+Cette section utilise [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) pour établir une connexion à votre serveur Azure SQL.
 
 1. Ouvrez SQL Server Management Studio.
 
@@ -221,7 +221,7 @@ La première étape du chargement des données consiste à se connecter sous Loa
 
 ## <a name="create-external-tables-for-the-sample-data"></a>Créer des tables externes pour les exemples de données
 
-Vous êtes prêt à commencer le processus de chargement des données dans votre nouvel entrepôt de données. Ce didacticiel décrit comment utiliser [PolyBase](/sql/relational-databases/polybase/polybase-guide.md) pour charger les données de New York Taxicab à partir d’un objet blob de Stockage Azure. Pour vous y référer ultérieurement, pour savoir comment charger vos données vers le stockage d’objets blob Azure ou pour les charger directement à partir de votre source dans SQL Data Warehouse, consultez la [présentation du chargement](sql-data-warehouse-overview-load.md).
+Vous êtes prêt à commencer le processus de chargement des données dans votre nouvel entrepôt de données. Ce didacticiel décrit comment utiliser [PolyBase](/sql/relational-databases/polybase/polybase-guide) pour charger les données de New York Taxicab à partir d’un objet blob de Stockage Azure. Pour vous y référer ultérieurement, pour savoir comment charger vos données vers le stockage d’objets blob Azure ou pour les charger directement à partir de votre source dans SQL Data Warehouse, consultez la [présentation du chargement](sql-data-warehouse-overview-load.md).
 
 Exécutez les scripts SQL suivants en spécifiant les informations des données que vous voulez charger. Ces informations sont notamment l’emplacement des données, le format du contenu des données et la définition de table pour les données. 
 
@@ -237,7 +237,7 @@ Exécutez les scripts SQL suivants en spécifiant les informations des données 
     CREATE MASTER KEY;
     ```
 
-4. Exécutez l’instruction [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql.md) suivante pour définir l’emplacement de l’objet blob Azure. Il s’agit de l’emplacement des données externes de taxi cab.  Pour exécuter une commande que vous avez ajoutée à la fenêtre de requête, mettez en surbrillance les commandes que vous voulez exécuter, puis cliquez sur **Exécuter**.
+4. Exécutez l’instruction [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) suivante pour définir l’emplacement de l’objet blob Azure. Il s’agit de l’emplacement des données externes de taxi cab.  Pour exécuter une commande que vous avez ajoutée à la fenêtre de requête, mettez en surbrillance les commandes que vous voulez exécuter, puis cliquez sur **Exécuter**.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE NYTPublic
@@ -248,7 +248,7 @@ Exécutez les scripts SQL suivants en spécifiant les informations des données 
     );
     ```
 
-5. Exécutez l’instruction T-SQL [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql.md) suivante pour spécifier les caractéristiques de mise en forme et les options pour le fichier de données externe. Cette instruction spécifie que les données externes sont stockées sous forme de texte et que les valeurs sont séparées par une barre verticale (« | »). Le fichier externe est compressé avec Gzip. 
+5. Exécutez l’instruction T-SQL [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql) suivante pour spécifier les caractéristiques de mise en forme et les options pour le fichier de données externe. Cette instruction spécifie que les données externes sont stockées sous forme de texte et que les valeurs sont séparées par une barre verticale (« | »). Le fichier externe est compressé avec Gzip. 
 
     ```sql
     CREATE EXTERNAL FILE FORMAT uncompressedcsv
@@ -273,7 +273,7 @@ Exécutez les scripts SQL suivants en spécifiant les informations des données 
     );
     ```
 
-6.  Exécutez l’instruction [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql.md) suivante pour créer un schéma pour le format de votre fichier externe. Le schéma fournit un moyen d’organiser les tables externes que vous allez créer.
+6.  Exécutez l’instruction [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql) suivante pour créer un schéma pour le format de votre fichier externe. Le schéma fournit un moyen d’organiser les tables externes que vous allez créer.
 
     ```sql
     CREATE SCHEMA ext;
@@ -456,7 +456,7 @@ Cette section utilise les tables externes que vous venez de définir pour charge
 > Ce didacticiel charge directement les données dans la table finale. Dans un environnement de production, vous utilisez généralement l’instruction CREATE TABLE AS SELECT pour procéder au chargement dans une table de mise en lots. Lorsque les données se trouvent dans la table de mise en lots, vous pouvez effectuer toutes les transformations nécessaires. Pour ajouter les données de la table de mise en lots à une table de production, vous pouvez utiliser l’instruction INSERT...SELECT. Pour plus d’informations, voir [Insertion de données dans une table de production](guidance-for-loading-data.md#inserting-data-into-a-production-table).
 > 
 
-Le script utilise l’instruction T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md) pour charger les données d’Azure Storage Blob dans de nouvelles tables de votre entrepôt de données. CTAS crée une table en fonction des résultats d’une instruction select. La nouvelle table propose les mêmes colonnes et les mêmes types de données que les résultats de l’instruction select. Quand l’instruction select effectue une sélection dans une table externe, SQL Data Warehouse importe les données dans une table relationnelle de l’entrepôt de données. 
+Le script utilise l’instruction T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) pour charger les données d’Azure Storage Blob dans de nouvelles tables de votre entrepôt de données. CTAS crée une table en fonction des résultats d’une instruction select. La nouvelle table propose les mêmes colonnes et les mêmes types de données que les résultats de l’instruction select. Quand l’instruction select effectue une sélection dans une table externe, SQL Data Warehouse importe les données dans une table relationnelle de l’entrepôt de données. 
 
 1. Exécutez le script suivant pour charger les données dans de nouvelles tables de votre entrepôt de données.
 

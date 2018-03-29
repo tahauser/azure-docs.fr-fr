@@ -1,11 +1,11 @@
 ---
-title: "Copier des données de Cassandra à l’aide d’Azure Data Factory | Microsoft Docs"
-description: "Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de Cassandra vers des banques de données réceptrices prises en charge."
+title: Copier des données de Cassandra à l’aide d’Azure Data Factory | Microsoft Docs
+description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de Cassandra vers des banques de données réceptrices prises en charge.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: bc57e54b051ff8831ba38e91ed682b8f5d868d46
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 72d2eb9e6cf235a90c5b1cf1c125fb6719c65317
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Copier des données de Cassandra à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,6 +40,7 @@ Plus précisément, ce connecteur Cassandra prend en charge :
 - Copie de données en utilisant une authentification **De base** ou **Anonyme**.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Pour copier des données depuis/vers une base de données Cassandra qui n’est pas accessible publiquement, vous devez configurer un runtime d’intégration auto-hébergé. Pour plus d’informations, voir l’article [Runtime d’intégration auto-hébergé](create-self-hosted-integration-runtime.md). Le runtime d’intégration fournit un pilote Cassandra intégré. Ainsi, vous n’avez pas besoin d’installer manuellement un pilote lors de la copie des données vers/depuis Cassandra.
 
@@ -204,7 +205,7 @@ Azure Data Factory utilise un pilote ODBC intégré pour assurer la connexion à
 
 Les tables virtuelles font référence aux données présentées dans la table réelle, de manière à permettre au pilote d’accéder aux données dénormalisées. Consultez la section Exemple pour plus d’informations. Vous pouvez accéder au contenu des collections Cassandra en interrogeant et en joignant les tables virtuelles.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 
 Par exemple, « ExampleTable » ci-après est une table de base de données Cassandra qui contient une colonne de clé primaire entière nommée « pk_int », une colonne de texte nommée value, une colonne de liste, une colonne de mappage et une colonne de jeu (nommée « StringSet »).
 

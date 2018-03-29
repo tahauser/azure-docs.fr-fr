@@ -1,12 +1,12 @@
 ---
-title: "Installer le serveur de sauvegarde Azure v2 | Microsoft Docs"
-description: "Le serveur de sauvegarde Azure v2 offre des capacités de sauvegarde améliorées pour protéger les machines virtuelles, les fichiers et dossiers, les charges de travail, et plus encore. Découvrez comment installer le serveur de sauvegarde Azure v2 ou effectuer la mise à niveau vers ce dernier."
+title: Installer le serveur de sauvegarde Azure v2 | Microsoft Docs
+description: Le serveur de sauvegarde Azure v2 offre des capacités de sauvegarde améliorées pour protéger les machines virtuelles, les fichiers et dossiers, les charges de travail, et plus encore. Découvrez comment installer le serveur de sauvegarde Azure v2 ou effectuer la mise à niveau vers ce dernier.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: masaran;markgal
-ms.openlocfilehash: 1bbb16afef7940933b4c3ae23873f212770137e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd7b76d9e06bc82ffd75f12131c2c247da05cc91
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-azure-backup-server-v2"></a>Installer le serveur de sauvegarde Azure v2
 
@@ -36,7 +36,7 @@ Vous pouvez installer le serveur de sauvegarde v2 sur Windows Server 2012 R2 ou 
 ## <a name="upgrade-backup-server-to-v2"></a>Mettre à niveau le serveur de sauvegarde vers la version 2
 Pour mettre à niveau le serveur de sauvegarde v1 vers le serveur de sauvegarde v2, assurez-vous que votre installation présente les mises à jour requises :
 
-- [Mettez à jour les agents de protection](backup-mabs-upgrade-to-v2.md#update-the-dpm-protection-agent) sur les serveurs protégés.
+- [Mettez à jour les agents de protection](backup-mabs-upgrade-to-v2.md#update-the-data-protection-manager-protection-agent) sur les serveurs protégés.
 - Mettez à niveau Windows Server 2012 R2 vers Windows Server 2016.
 - Mettez à niveau l’outil d’administration à distance du serveur de sauvegarde Azure sur tous les serveurs de production.
 - Assurez-vous que les sauvegardes sont définies pour continuer sans redémarrer votre serveur de production.

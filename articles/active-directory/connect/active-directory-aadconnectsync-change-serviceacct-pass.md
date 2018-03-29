@@ -1,12 +1,12 @@
 ---
 title: 'Azure AD Connect Sync : Modification du compte de service Azure AD Connect Sync | Microsoft Docs'
-description: "Cette rubrique décrit la clé de chiffrement et comment l’annuler une fois le mot de passe modifié."
+description: Cette rubrique décrit la clé de chiffrement et comment l’annuler une fois le mot de passe modifié.
 services: active-directory
 keywords: Compte de service de synchronisation Azure AD, mot de passe
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: c22dd91f236454c774c00371bff668da245d45c6
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: faa6d667b514563516c23e0484437ac9572e52b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Modification du mot de passe du compte de service de synchronisation Azure AD
 Si vous modifiez le mot de passe du service Azure AD Connect Sync, le service de synchronisation ne sera pas en mesure de démarrer correctement jusqu'à ce que vous abandonniez la clé de chiffrement et réinitialisiez le mot de passe du service Azure AD Connect Sync. 
@@ -30,7 +30,7 @@ La clé de chiffrement utilisée est sécurisée à l’aide de [l’API de prot
 
 Si vous devez modifier le mot de passe du compte de service, vous pouvez utiliser les procédures présentées dans [Abandon de la clé de chiffrement d’Azure AD Connect Sync](#abandoning-the-azure-ad-connect-sync-encryption-key) pour y parvenir.  Ces procédures doivent également être utilisées si vous souhaitez abandonner la clé de chiffrement pour une raison quelconque.
 
-##<a name="issues-that-arise-from-changing-the-password"></a>Problèmes survenant lors de la modification du mot de passe
+## <a name="issues-that-arise-from-changing-the-password"></a>Problèmes survenant lors de la modification du mot de passe
 Vous devez faire deux choses lorsque vous modifiez le mot de passe du compte de service.
 
 Tout d’abord, vous devez modifier le mot de passe sous le Gestionnaire de contrôle des services Windows.  Vous verrez les erreurs suivantes jusqu’à résolution du problème :

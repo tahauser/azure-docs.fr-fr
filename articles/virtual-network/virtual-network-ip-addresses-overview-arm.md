@@ -1,11 +1,11 @@
 ---
-title: "Types d’adresses IP dans Azure | Microsoft Docs"
-description: "Apprenez-en plus sur les adresses IP publiques et privées dans Azure."
+title: Types d’adresses IP dans Azure | Microsoft Docs
+description: Apprenez-en plus sur les adresses IP publiques et privées dans Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 610b911c-f358-4cfe-ad82-8b61b87c3b7e
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/16/2017
 ms.author: jdial
-ms.openlocfilehash: e3baedba814cf6ac19df72c49e1c95ea2cd5cf73
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: a5cda1b5ecb686c9b03da27bdbca42ddc1a74f54
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Types d’adresses IP et méthodes d’allocation dans Azure
 
@@ -62,19 +62,16 @@ Toutes les adresses IP publiques créées avant l’introduction de références
 - Peuvent être assignées à une zone spécifique.
 - Ne sont pas redondantes dans une zone. Pour en savoir plus sur les zones de disponibilité, consultez [Vue d’ensemble de zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-#### <a name="standard"></a>Standard
+#### <a name="standard"></a>standard
 
 Les adresses IP publiques de référence SKU standard :
 
 - Sont assignées à l’aide de la méthode d’allocation statique uniquement.
 - Peuvent être assignées à des interfaces réseau ou à des équilibreurs de charge standard accessibles sur Internet. Pour plus d’informations sur les références SKU de l’équilibreur de charge Azure, consultez [Référence SKU standard de l’équilibreur de charge Azure](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Sont redondantes dans une zone par défaut. Peuvent être créées pour une zone et garanties dans une zone de disponibilité spécifique.  Pour en savoir plus sur les zones de disponibilité, consultez [Vue d’ensemble de zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Sont redondantes dans une zone par défaut. Peuvent être créées pour une zone et garanties dans une zone de disponibilité spécifique. Pour en savoir plus sur les zones de disponibilité, consultez [Vue d’ensemble de zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
 > [!NOTE]
-> Quand vous assignez une adresse IP publique de référence SKU standard à l’interface réseau d’une machine virtuelle, vous devez explicitement autoriser le trafic prévu avec un [groupe de sécurité réseau](security-overview.md#network-security-groups).  La communication avec la ressource est possible uniquement si vous créez et associez un groupe de sécurité réseau et que vous autorisez explicitement le trafic prévu.
-
-La référence SKU standard est disponible en version préliminaire. Si vous souhaitez créer une adresse IP publique de référence SKU standard, vous devez d’abord vous inscrire pour la version préliminaire et créer l’adresse dans un emplacement pris en charge. Pour vous inscrire pour la version préliminaire, consultez [S’inscrire pour la version préliminaire de la référence SKU standard](virtual-network-public-ip-address.md#register-for-the-standard-sku-preview). Pour obtenir la liste des emplacements (régions) pris en charge, consultez [Disponibilité des régions](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region-availability), ainsi que la page [Mises à jour du Réseau virtuel Microsoft Azure](https://azure.microsoft.com/updates/?product=virtual-network) pour voir si d’autres régions sont prises en charge.
-
+> Quand vous assignez une adresse IP publique de référence SKU Standard à l’interface réseau d’une machine virtuelle, vous devez explicitement autoriser le trafic prévu avec un [groupe de sécurité réseau](security-overview.md#network-security-groups). La communication avec la ressource est possible uniquement si vous créez et associez un groupe de sécurité réseau et que vous autorisez explicitement le trafic prévu.
 
 ### <a name="allocation-method"></a>Méthode d’allocation
 
@@ -123,12 +120,12 @@ Vous pouvez associer une adresse IP publique à une [Application Gateway](../app
 ### <a name="at-a-glance"></a>Aperçu
 Le tableau ci-dessous présente la propriété spécifique par le biais de laquelle une adresse IP publique peut être associée à une ressource de niveau supérieur, ainsi que les méthodes d’allocation possibles (dynamique ou statique) utilisables.
 
-| Ressources de niveau supérieur | Association d’adresse IP | dynamique | statique |
+| Ressources de niveau supérieur | Association d’adresse IP | Dynamique | statique |
 | --- | --- | --- | --- |
-| Machine virtuelle |interface réseau |Oui |Oui |
-| Équilibreur de charge accessible sur Internet |Configuration frontale |Oui |Oui |
-| Passerelle VPN |Configuration IP de la passerelle |Oui |Non |
-| Application Gateway |Configuration frontale |Oui |Non |
+| Machine virtuelle |interface réseau |OUI |OUI |
+| Équilibreur de charge accessible sur Internet |Configuration frontale |OUI |OUI |
+| passerelle VPN |Configuration IP de la passerelle |OUI |Non  |
+| passerelle d’application |Configuration frontale |OUI |Non  |
 
 ## <a name="private-ip-addresses"></a>Adresses IP privées
 Les adresses IP privées permettent aux ressources Azure de communiquer avec d’autres ressources dans un [réseau virtuel](virtual-networks-overview.md) ou dans un réseau local par le biais d’une passerelle VPN ou d’un circuit ExpressRoute, sans utiliser d’adresse IP accessible via Internet.
@@ -173,14 +170,14 @@ Le tableau ci-dessous présente la propriété spécifique par le biais de laque
 
 | Ressources de niveau supérieur | Association d’adresse IP | dynamique | statique |
 | --- | --- | --- | --- |
-| Machine virtuelle |interface réseau |Oui |Oui |
-| Équilibrage de charge |Configuration frontale |Oui |Oui |
-| Application Gateway |Configuration frontale |Oui |Oui |
+| Machine virtuelle |interface réseau |OUI |OUI |
+| Équilibrage de charge |Configuration frontale |OUI |OUI |
+| passerelle d’application |Configuration frontale |OUI |OUI |
 
-## <a name="limits"></a>Limites
+## <a name="limits"></a>limites
 Les limites imposées pour l’adressage IP sont indiquées dans l’ensemble des [limites pour la mise en réseau](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) dans Azure. Ces limites sont exprimées par région et par abonnement. Vous pouvez [contacter le support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour augmenter les limites par défaut jusqu’aux limites maximum en fonction des besoins de votre entreprise.
 
-## <a name="pricing"></a>Tarification
+## <a name="pricing"></a>Tarifs
 Les adresses IP publiques peuvent avoir un coût nominal. Pour en savoir plus sur la tarification des adresses IP dans Azure, lisez la page [Tarification des adresses IP](https://azure.microsoft.com/pricing/details/ip-addresses).
 
 ## <a name="next-steps"></a>Étapes suivantes

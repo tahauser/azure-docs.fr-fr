@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C : sécuriser votre service RESTful à l’aide de certificats clients"
-description: "Sécuriser vos échanges de revendications d’API REST dans votre instance Azure AD B2C à l’aide de certificats clients"
+title: 'Azure Active Directory B2C : sécuriser votre service RESTful à l’aide de certificats clients'
+description: Sécuriser vos échanges de revendications d’API REST dans votre instance Azure AD B2C à l’aide de certificats clients
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 09/25/2017
-ms.author: yoelh
-ms.openlocfilehash: 582aadd35821779e307ac285804e3b7fe5c24abd
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: davidmu
+ms.openlocfilehash: f1b9ef9a78715c08c5361e4bab6a31384c5c98d3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>Sécuriser votre service RESTful à l’aide de certificats clients
 Dans un article connexe, vous [créez un service RESTful](active-directory-b2c-custom-rest-api-netfw.md) qui interagit avec Azure Active Directory B2C (Azure AD B2C).
@@ -34,6 +31,7 @@ Cet article explique comment :
 * Configurer votre stratégie personnalisée pour utiliser le certificat client
 
 ## <a name="prerequisites"></a>Prérequis
+
 * Suivre les étapes dans l’article [Intégrer les échanges de revendications de l’API REST](active-directory-b2c-custom-rest-api-netfw.md).
 * Obtenir un certificat valide (fichier .pfx avec une clé privée).
 

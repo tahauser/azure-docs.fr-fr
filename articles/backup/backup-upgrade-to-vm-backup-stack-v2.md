@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 03/08/2018
-ms.author: trinadhk
-ms.openlocfilehash: b7e9f45c61d2af1940be50a368b87cd35c85b1dd
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: trinadhk, sogup
+ms.openlocfilehash: 6d214072bccb8b2b42828ee003dcf349985b4f43
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="upgrade-to-vm-backup-stack-v2"></a>Mise à niveau vers la pile de sauvegarde de machine virtuelle V2
 La mise à niveau de la pile de sauvegarde de machine virtuelle V2 fournit les améliorations de fonctionnalités suivantes :
@@ -49,7 +49,6 @@ Par défaut, les instantanés sont conservés pendant sept jours. Cela permet un
 * Il s’agit d’une mise à niveau unidirectionnelle de la pile de sauvegarde de machine virtuelle. Par conséquent, toutes les futures sauvegardes passeront dans ce flux. Étant donné qu’**il est activé au niveau d’un abonnement, toutes les machines virtuelles passeront par ce flux**. Tous les ajouts de nouvelles fonctionnalités reposeront sur la même pile. La possibilité de contrôler cette option au niveau de la stratégie sera disponible dans de futures versions. 
 * Pour les machines virtuelles disposant de disques Premium, pendant la première sauvegarde, vérifiez qu’un espace de stockage équivalant à la taille de la machine virtuelle est disponible dans le compte de stockage jusqu’à la fin de la première sauvegarde. 
 * Étant donné que les instantanés sont stockés localement pour optimiser la création des points de récupération et également accélérer la restauration, vous verrez des coûts de stockage correspondant aux instantanés pendant la période de sept jours.
-Pour les disques managés, il n’y a *aucune majoration du prix* car les collections de points de restauration (restorePointCollections) sont gratuites. 
 * Si vous effectuez une restauration à partir du point de récupération d’instantané pour une machine virtuelle Premium, vous verrez un emplacement de stockage temporaire utilisé pendant la création de la machine virtuelle dans le cadre de la restauration. 
 
 ## <a name="how-to-upgrade"></a>Comment mettre à niveau ?

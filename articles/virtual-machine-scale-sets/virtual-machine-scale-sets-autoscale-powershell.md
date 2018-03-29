@@ -1,11 +1,11 @@
 ---
-title: "Mettre à l’échelle automatiquement des groupes de machines virtuelles identiques à l’aide d’Azure PowerShell | Microsoft Docs"
-description: "Comment créer des règles de mise à l’échelle automatique pour des groupes de machines virtuelles identiques avec Azure PowerShell"
+title: Mettre à l’échelle automatiquement des groupes de machines virtuelles identiques à l’aide d’Azure PowerShell | Microsoft Docs
+description: Comment créer des règles de mise à l’échelle automatique pour des groupes de machines virtuelles identiques avec Azure PowerShell
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 88886cad-a2f0-46bc-8b58-32ac2189fc93
 ms.service: virtual-machine-scale-sets
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
 ms.openlocfilehash: 8928e56f353858234db314714d411a9c2990eb4e
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Mettre à l’échelle automatiquement un groupe de machines virtuelles identiques avec Azure PowerShell
 Lorsque vous créez un groupe identique, vous définissez le nombre d’instances de machine virtuelle que vous souhaitez exécuter. À mesure que la demande de votre application change, vous pouvez augmenter ou diminuer automatiquement le nombre d’instances de machine virtuelle. La capacité de mise à l’échelle automatique vous permet de suivre la demande du client ou de répondre aux changements de performances de votre application tout au long de son cycle de vie.
@@ -28,6 +28,7 @@ Cet article explique comment créer avec Azure PowerShell des règles de mise à
 
 
 ## <a name="prerequisites"></a>Prérequis
+
 Pour créer des règles de mise à l’échelle, vous avez besoin d’un groupe de machines virtuelles identiques. Vous pouvez créer un groupe identique avec le [portail Azure](virtual-machine-scale-sets-create-portal.md), [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) ou [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md).
 
 Pour faciliter la création des règles de mise à l’échelle, définissez des variables pour votre groupe identique. L’exemple suivant définit des variables pour le groupe identique nommé *myScaleSet* dans le groupe de ressources nommé *myResourceGroup* et dans la région *East US*. Votre abonnement ID est obtenu avec l’applet de commande [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription). Si plusieurs abonnements sont associés à votre compte, seul le premier est retourné. Ajustez les noms et l’ID d’abonnement comme suit :
@@ -139,7 +140,7 @@ Les exemples précédents ont automatiquement mis à l’échelle un groupe iden
 Pour créer des règles de mise à l’échelle automatique basées sur une planification plutôt que sur des métriques de l’hôte, utilisez le portail Azure. Il n’est pas possible actuellement de créer des règles basées sur une planification avec Azure PowerShell.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez appris à utiliser des règles de mise à l’échelle automatique pour mettre à l’échelle horizontalement, et augmenter ou diminuer le *nombre* d’instances de machine virtuelle dans votre groupe identique. Vous pouvez également mettre à l’échelle verticalement pour augmenter ou diminuer la *taille* d’instance de machine virtuelle. Pour plus d’informations, voir [Mise à l’échelle verticale avec des groupes de machines virtuelles identiques](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
 Pour plus d’informations sur la gestion de vos instances de machine virtuelle, voir [Gérer les groupes de machines virtuelles identiques avec Azure PowerShell](virtual-machine-scale-sets-windows-manage.md).

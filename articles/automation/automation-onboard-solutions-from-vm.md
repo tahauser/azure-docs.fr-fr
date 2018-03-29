@@ -1,20 +1,19 @@
 ---
-title: "Découvrez comment intégrer les solutions Update Management, Change Tracking et Inventory à partir d’une machine virtuelle Azure."
-description: "Découvrez comment intégrer une machine virtuelle Azure avec Update Management, Change Tracking et Inventory qui font partie d’Azure Automation."
+title: Découvrez comment intégrer les solutions Update Management, Change Tracking et Inventory à partir d’une machine virtuelle Azure.
+description: Découvrez comment intégrer une machine virtuelle Azure avec Update Management, Change Tracking et Inventory qui font partie d’Azure Automation.
 services: automation
-keywords: 
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/28/2018
+ms.date: 03/19/2018
 ms.topic: article
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: a850189406b394e7935763206f9e3a191b415170
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 8713447386e116b3f1ecb2754d46cc8d88d00b39
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Intégrer les solutions Update Management, Change Tracking et Inventory à partir d’une machine virtuelle Azure
 
@@ -22,7 +21,7 @@ Azure Automation fournit des solutions pour gérer les mises à jour de sécurit
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous à Azure à l’adresse https://portal.azure.com
+Connectez-vous à Azure à l’adresse https://portal.azure.com.
 
 ## <a name="enable-the-solutions"></a>Activer les solutions
 

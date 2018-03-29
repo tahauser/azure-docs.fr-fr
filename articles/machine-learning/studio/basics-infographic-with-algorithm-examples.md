@@ -1,11 +1,12 @@
 ---
-title: "Infographie : Principes de base de l’apprentissage automatique - exemples d’algorithmes | Microsoft Docs"
-description: "Vue d’ensemble des principes fondamentaux de l’apprentissage automatique avec des exemples d’algorithmes. L’infographie téléchargeable couvre la plupart des questions relatives à l’apprentissage automatique."
-keywords: "principes de base de l’apprentissage automatique, exemples d’algorithmes, apprentissage automatique pour les débutants, questions sur l’apprentissage automatique, algorithmes populaires, infographie sur les algorithmes"
+title: 'Infographie : Principes de base de l’apprentissage automatique - exemples d’algorithmes | Microsoft Docs'
+description: Vue d’ensemble des principes fondamentaux de l’apprentissage automatique avec des exemples d’algorithmes. L’infographie téléchargeable couvre la plupart des questions relatives à l’apprentissage automatique.
+keywords: principes de base de l’apprentissage automatique, exemples d’algorithmes, apprentissage automatique pour les débutants, questions sur l’apprentissage automatique, algorithmes populaires, infographie sur les algorithmes
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: cf4e2308-9285-4adc-9f00-408e3ee7931b
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.author: garye
-ms.openlocfilehash: 8c392740eb0c06b7a3c47e07e5beb667b17117ae
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 4f07defd3df3a7933a69463729240d856f6282d4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infographie téléchargeable : Principes de base de l’apprentissage automatique avec exemples d’algorithmes
 Téléchargez cette vue d’ensemble infographique présentant de manière simple les concepts de base de l’apprentissage automatique pour en savoir plus sur les algorithmes populaires utilisés pour répondre aux questions les plus courantes concernant l’apprentissage automatique. Des exemples d’algorithmes aident les débutants à mieux comprendre quels algorithmes utiliser et à quoi ils servent.

@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: a39e4ec68af70b7d189ac450f880a12b5397e4c4
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1cbd29b480c80c93f750b97d47ccb3c09c984942
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-a-php-web-app-in-app-service-on-linux"></a>Créer une application web PHP dans App Service sur Linux
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/16/2018
 
 [App Service sur Linux](app-service-linux-intro.md) fournit un service d’hébergement web hautement scalable appliquant des mises à jour correctives automatiques à l’aide du système d’exploitation Linux. Ce guide de démarrage rapide vous indique comment déployer une application PHP sur Azure App Service sur Linux. Vous allez créer l’application web avec une image intégrée via [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) dans Cloud Shell et utiliser Git pour déployer le code PHP sur l’application web.
 
-![Exemple d’application s’exécutant dans Azure]](media/quickstart-php/hello-world-in-browser.png)
+![Exemple d’application s’exécutant dans Azure](media/quickstart-php/hello-world-in-browser.png)
 
 Vous pouvez suivre les étapes de ce article en utilisant un ordinateur Mac, Windows ou Linux.
 

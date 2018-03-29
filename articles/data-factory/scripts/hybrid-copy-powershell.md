@@ -1,10 +1,10 @@
 ---
-title: "Script PowerShell : copier des données en local dans Azure à l’aide de Data Factory | Microsoft Docs"
-description: "Ce script PowerShell copie des données depuis une base de données SQL Server locale vers un stockage Blob Azure."
+title: 'Script PowerShell : copier des données en local dans Azure à l’aide de Data Factory | Microsoft Docs'
+description: Ce script PowerShell copie des données depuis une base de données SQL Server locale vers un stockage Blob Azure.
 services: data-factory
 author: linda33wj
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: jingwang
-ms.openlocfilehash: bf84603c587b7bee5d0f69355ff9c1375ed7e60c
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 5c0252e42dd3dd53a0a95684553b193b983e95ee
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-from-on-premises-to-azure"></a>Utiliser PowerShell pour créer un pipeline de fabrique de données afin de copier des données en local dans Azure
 
@@ -25,6 +25,7 @@ Cet exemple de script PowerShell crée dans Azure Data Factory un pipeline qui c
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 - **SQL Server**. Dans cet exemple, vous allez utiliser une base de données SQL Server locale comme magasin de données **source**.
 - **Compte Stockage Azure**. Dans cet exemple, le stockage Blob Azure est utilisé comme magasin de données de **destination/réception**. Si vous n’avez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../../storage/common/storage-create-storage-account.md#create-a-storage-account) pour découvrir comment en créer un.

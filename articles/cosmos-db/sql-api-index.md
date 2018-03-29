@@ -1,10 +1,10 @@
 ---
-title: "Azure Cosmos DB : articles sur l’API SQL | Microsoft Docs"
-description: "Liste de tous les articles ayant trait à la création de bases de données de documents avec l’API SQL dans Azure Cosmos DB."
+title: 'Azure Cosmos DB : articles sur l’API SQL | Microsoft Docs'
+description: Liste de tous les articles ayant trait à la création de bases de données de documents avec l’API SQL dans Azure Cosmos DB.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 82bec99a-ac2b-474e-b41f-d2fb296c8feb
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,15 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: mimig
-ms.openlocfilehash: 8faa8a08d4a5bc323951a594049002fc61eb56b8
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 0ad80ce15769cfe823925cf36bbd47f2ddadec21
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-sql-api-documentation"></a>Azure Cosmos DB : Documentation relative à l’API SQL
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Cet article fournit des liens vers tous les contenus Azure Cosmos DB propres à l’API SQL.
 
@@ -34,7 +32,7 @@ Vous trouverez ici des rubriques et des ressources dont la lecture se révèle i
 - [Présentation de l’API SQL](sql-api-introduction.md)
 - [Modèle de ressource de base de données](sql-api-resources.md)
 - Site Web : [Query playground](https://www.documentdb.com/sql/demo) (interface de requête)
-- Aide-mémoire : [Grammaire SQL](sql-api-sql-query-cheat-sheet.md)
+- Aide-mémoire : [Grammaire SQL](query-cheat-sheet.md)
 
 ## <a name="quickstarts"></a>Démarrages rapides
 
@@ -102,7 +100,7 @@ Azure Cosmos DB fournit un nombre de kits SDK qui permettent de développer des 
 - [Node.JS](sql-api-sdk-node.md)
 - [Python](sql-api-sdk-python.md)
 
-## <a name="reference"></a>Référence
+## <a name="reference"></a>Informations de référence
 
 - [REST](/rest/api/documentdb/)
 - [API REST Resource Provider](/rest/api/documentdbresourceprovider/)

@@ -8,13 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: b50f9973ef7ea5f884930d4f1ee67f886cc36ad0
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 873d234a9ba0ae50b4b11cf65b9630bb79e883e6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="migrating-from-orchestrator-to-azure-automation-beta"></a>Migration d'Orchestrator vers Azure Automation (bêta)
 Dans [System Center Orchestrator](http://technet.microsoft.com/library/hh237242.aspx) , les Runbooks sont basés sur les activités de packs d'intégration spécifiquement écrits pour Orchestrator, tandis que dans Azure Automation, ils sont basés sur Windows PowerShell.  [Runbooks graphiques](automation-runbook-types.md#graphical-runbooks) dans Azure Automation ont une apparence semblable aux Runbooks Orchestrator, avec leurs activités représentant les applets de commande PowerShell, les Runbooks enfants et les ressources.
@@ -42,7 +40,7 @@ Le convertisseur de packs d'intégration convertit les packs d'intégration cré
 
 Lorsque vous exécutez le convertisseur de packs d'intégration, un Assistant vous permettant de sélectionner un fichier de pack d'intégration (.oip) s'affiche.  Cet Assistant répertorie ensuite les activités incluses dans ce pack d'intégration et vous permet de sélectionner celles qui seront migrées.  Une fois l'Assistant terminé, il crée un module qui inclut une applet de commande correspondant pour chacune des activités du pack d'intégration d'origine.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 Toutes les propriétés d'une activité du pack d'intégration sont converties en paramètres de l'applet de commande correspondante dans le module d'intégration.  Les applets de commande Windows PowerShell possèdent un ensemble de [paramètres communs](http://technet.microsoft.com/library/hh847884.aspx) qui peuvent être utilisés avec toutes les applets de commande.  Par exemple, le paramètre -Verbose entraîne l'affichage, par une applet de commande, des informations détaillées relatives à son fonctionnement.  Aucune applet de commande ne peut avoir un paramètre portant le même nom qu'un paramètre commun.  Si une activité a une propriété portant le même nom qu'un paramètre commun, l'Assistant vous invite à fournir un autre nom pour le paramètre.
 
 ### <a name="monitor-activities"></a>Activités d'analyse

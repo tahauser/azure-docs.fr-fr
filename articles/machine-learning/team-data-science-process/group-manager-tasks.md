@@ -1,23 +1,23 @@
 ---
-title: "Tâches du responsable de groupe Team Data Science Process - Azure | Microsoft Docs"
-description: "Liste des tâches d’un responsable de groupe chargé d’un projet d’équipe de science des données."
-documentationcenter: 
+title: Tâches du responsable de groupe Team Data Science Process - Azure | Microsoft Docs
+description: Liste des tâches d’un responsable de groupe chargé d’un projet d’équipe de science des données.
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev;
-ms.openlocfilehash: 58cea8b0288469a76dd8c4eb967caa8e87cd3dd7
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: bradsev
+ms.openlocfilehash: 3c39ae865ec26567f70706b042dab2aa8e4939d3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="group-manager-tasks"></a>Tâches du responsable de groupe
 
@@ -28,7 +28,7 @@ Le **responsable de groupe** est le responsable de l’ensemble de l’unité de
 ![0](./media/group-manager-tasks/tdsp-group-manager.png)
 
 
->[AZURE.NOTE] Dans les instructions qui suivent, nous décrivons les étapes nécessaires pour configurer un environnement de groupe TDSP à l’aide de VSTS. Nous indiquons comment accomplir ces tâches avec VSTS, car c’est de cette façon que nous implémentons TDSP chez Microsoft. Si une autre plateforme d’hébergement de code est utilisée pour votre groupe, les tâches que doit effectuer le responsable de groupe ne changent généralement pas. En revanche, c’est la façon dont vont s’effectuer ces tâches qui va être différente.
+>[AZURE.NOTE] Dans les instructions qui suivent, nous décrivons les étapes nécessaires pour configurer un environnement de groupe TDSP à l’aide de VSTS. Nous indiquons comment accomplir ces tâches avec VSTS, car c’est de cette façon que nous implémentons le processus TDSP chez Microsoft. Si une autre plateforme d’hébergement de code est utilisée pour votre groupe, les tâches que doit effectuer le responsable de groupe ne changent généralement pas. En revanche, c’est la façon dont vont s’effectuer ces tâches qui va être différente.
 
 1. Configurer le **serveur Visual Studio Team Services (VSTS)** pour le groupe.
 2. Créer un **projet d’équipe de groupe** sur le serveur de Visual Studio Team Services (pour les utilisateurs de VSTS).
@@ -96,7 +96,7 @@ Renseignez les informations relatives au serveur VSTS que vous souhaitez créer 
 
 >[AZURE.NOTE] Si la fenêtre indépendante suivante apparaît une fois que vous avez cliqué sur **Créer un compte**, vous devez cliquer sur **Changer les détails** pour afficher tous les champs détaillés.
 
-![5](./media/group-manager-tasks/create-account-2.png)
+![5.](./media/group-manager-tasks/create-account-2.png)
 
 
 Cliquez sur **Continuer**. 
@@ -105,7 +105,7 @@ Cliquez sur **Continuer**.
 
 La page **GroupCommon** (*https://\<nom_serveur\>.visualstudio.com/GroupCommon*) s’ouvre une fois votre serveur VSTS créé.
                             
-![6](./media/group-manager-tasks/server-created-2.PNG)
+![6.](./media/group-manager-tasks/server-created-2.PNG)
 
 ## <a name="3-create-the-grouputilities-r2-repository"></a>3. Créer le dépôt GroupUtilities (R2)
 
@@ -121,7 +121,7 @@ Pour créer le dépôt **GroupUtilities** (R2) sous le serveur VSTS :
                 
 Maintenant vous devez voir deux dépôts Git (**GroupProjectTemplate** et **GroupUtilities**) dans la colonne de gauche de la page **Gestion de version** : 
 
-![9](./media/group-manager-tasks/two-repo-under-groupCommon.PNG)
+![9.](./media/group-manager-tasks/two-repo-under-groupCommon.PNG)
 
 
 ## <a name="4-create-the-groupprojecttemplate-r1-repository"></a>4. Créer le dépôt GroupProjectTemplate (R1)
@@ -313,7 +313,7 @@ Enfin, accédez au répertoire **GitRepos\GroupCommon\GroupUtilities** et exécu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Les liens ci-dessous donnent accès à des descriptions plus détaillées des rôles et des tâches définis par le processus TDSP (Team Data Science Process) :
+Les liens ci-dessous donnent accès à des descriptions plus détaillées des rôles et des tâches définis par le processus TDSP (Team Data Science Process) :
 
 - [Tâches du responsable de groupe pour une équipe de science des données](group-manager-tasks.md)
 - [Tâches du responsable d’une équipe de science des données](team-lead-tasks.md)

@@ -1,23 +1,20 @@
 ---
-title: "Évaluer une application web activée pour Azure AD B2C"
-description: "Démarrage rapide pour essayer un exemple d’application web ASP.NET qui utilise Azure Active Directory B2C pour fournir une connexion utilisateur."
+title: Évaluer une application web activée pour Azure AD B2C
+description: Démarrage rapide pour essayer un exemple d’application web ASP.NET qui utilise Azure Active Directory B2C pour fournir une connexion utilisateur.
 services: active-directory-b2c
-author: PatAltimore
+author: davidmu1
 manager: mtillman
-ms.reviewer: saraford
+editor: ''
 ms.service: active-directory-b2c
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 2/13/2018
-ms.author: patricka
-ms.openlocfilehash: 87c180445038b1205e2f6aab1ce721765ecb35c9
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.author: davidmu
+ms.openlocfilehash: 7d6744fe7ef82a6a4f54291cedd15d5b3d4ee242
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-test-drive-an-azure-ad-b2c-enabled-web-app"></a>Démarrage rapide : Évaluer une application web activée pour Azure AD B2C
 
@@ -28,6 +25,7 @@ Dans ce démarrage rapide, vous utilisez un exemple d’application ASP.NET acti
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/) avec la charge de travail **Développement ASP.NET et web**. 
 * Un compte de réseau social Facebook, Google, Microsoft ou Twitter.

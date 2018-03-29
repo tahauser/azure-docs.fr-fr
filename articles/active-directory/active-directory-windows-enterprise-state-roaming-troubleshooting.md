@@ -1,12 +1,12 @@
 ---
-title: "Résolution des problèmes de paramètres Enterprise State Roaming dans Azure Active Directory | Microsoft Docs"
-description: "Répond à certaines questions que les administrateurs informatiques peuvent se poser sur les paramètres et la synchronisation des données d’application."
+title: Résolution des problèmes de paramètres Enterprise State Roaming dans Azure Active Directory | Microsoft Docs
+description: Répond à certaines questions que les administrateurs informatiques peuvent se poser sur les paramètres et la synchronisation des données d’application.
 services: active-directory
-keywords: "paramètres enterprise state roaming, cloud windows, forum aux questions sur enterprise state roaming"
-documentationcenter: 
+keywords: paramètres enterprise state roaming, cloud windows, forum aux questions sur enterprise state roaming
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: f45d0515-99f7-42ad-94d8-307bc0d07be5
 ms.service: active-directory
 ms.workload: identity
@@ -17,11 +17,11 @@ ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
-ms.openlocfilehash: 8ee3b523baf562b06bd5f7d652a431e1d4553d5c
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: d9936da3ee1b0cfb4ee6e834a838798a35140620
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Résolution des problèmes de paramètres Enterprise State Roaming dans Azure Active Directory
 
@@ -78,7 +78,7 @@ Il peut arriver qu’Enterprise State Roaming ne parvienne pas à synchroniser l
 
 **Problème potentiel** : la synchronisation peut échouer si l’administrateur configure la stratégie d’accès conditionnel Multi-Factor Authentication des services Active Directory Federation Services et le jeton d’accès de l’appareil expire. Veillez à vous connecter et à vous déconnecter en utilisant le code confidentiel Microsoft Passport for Work ou à effectuer une authentification multifacteur lorsque vous accédez à d’autres services Azure comme Office 365.
 
-###<a name="event-viewer"></a>Observateur d’événements
+### <a name="event-viewer"></a>Observateur d’événements
 Pour une résolution des problèmes avancée, l’Observateur d’événements peut être utilisé pour rechercher des erreurs spécifiques. Celles-ci sont décrites dans le tableau ci-dessous. Vous trouverez les événements sous Observateur d’événements > Journaux des applications et des services > **Microsoft** > **Windows** > **SettingSync** et pour les problèmes liées à l’identité avec la synchronisation **Microsoft** > **Windows** > **Azure AD**.
 
 

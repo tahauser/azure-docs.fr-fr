@@ -1,23 +1,21 @@
 ---
 title: 'Azure Active Directory B2C : Maintenir la connexion (KMSI) | Microsoft Docs'
-description: "Une rubrique qui montre comment configurer la fonctionnalité « Maintenir la connexion »"
+description: Une rubrique qui montre comment configurer la fonctionnalité « Maintenir la connexion »
 services: active-directory-b2c
-documentationcenter: 
-author: vigunase
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-ms.assetid: 926e9711-71c0-49e8-b658-146ffb7386c0
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2016
-ms.author: vigunase
-ms.openlocfilehash: a3d78945f862d1ae12cec05da0cf0ea7df511f43
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 073ba8eef7f2f42d1c308fb20d3bfdbfc8d321b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-enable-keep-me-signed-in-kmsi"></a>Azure Active Directory B2C : activer la fonctionnalité « Maintenir la connexion (KMSI) »  
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -29,7 +27,8 @@ Nous déconseillons aux utilisateurs d’activer cette option sur les ordinateur
 ![img](images/kmsi.PNG)
 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Un locataire Azure AD B2C configuré pour se connecter/s’inscrire à un compte local, comme décrit dans [Azure Active Directory B2C : bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md).
 
@@ -96,7 +95,7 @@ Ajoutez les ID d’application au fichier d’extensions (`TrustFrameworkExtensi
 
 1. Dans le fichier d’extensions (TrustFrameworkExtensions.xml), recherchez les éléments `<TechnicalProfile Id="login-NonInteractive">` et `<TechnicalProfile Id="login-NonInteractive-PasswordChange">`.
 
-2. Remplacez toutes les instances de `IdentityExperienceFrameworkAppId` par l’ID de l’application d’infrastructure d’expérience d’identité comme décrit dans [Prise en main](active-directory-b2c-get-started-custom.md). Voici un exemple :
+2. Remplacez toutes les instances de `IdentityExperienceFrameworkAppId` par l’ID de l’application d’infrastructure d’expérience d’identité comme décrit dans [Prise en main](active-directory-b2c-get-started-custom.md). Voici un exemple : 
 
    ```
    <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>

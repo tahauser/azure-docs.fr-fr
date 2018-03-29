@@ -1,11 +1,11 @@
-﻿---
-title: "Qu’est-ce que l’Azure Security Center ? | Microsoft Docs"
-description: "Découvrez le Centre de sécurité Azure, ses fonctionnalités principales et son fonctionnement."
+---
+title: Qu’est-ce que l’Azure Security Center ? | Microsoft Docs
+description: Découvrez le Centre de sécurité Azure, ses fonctionnalités principales et son fonctionnement.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 45b9756b-6449-49ec-950b-5ed1e7c56daa
 ms.service: security-center
 ms.devlang: na

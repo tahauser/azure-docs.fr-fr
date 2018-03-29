@@ -1,8 +1,8 @@
 ---
-title: "Version préliminaire des services de domaine Azure Active Directory : associer une machine virtuelle Ubuntu à un domaine géré | Microsoft Docs"
+title: 'Version préliminaire des services de domaine Azure Active Directory : associer une machine virtuelle Ubuntu à un domaine géré | Microsoft Docs'
 description: Joindre une machine virtuelle Linux Ubuntu aux services de domaine Azure AD
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: maheshu
-ms.openlocfilehash: a8a3610707ca7d00694779c4b3631e1483d6bbdd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d968548f9ac369f02f10a10d8f1ecc99c48bca60
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Joindre une machine virtuelle Ubuntu dans Azure à un domaine géré
 Cet article indique comment joindre une machine virtuelle Linux Ubuntu à un domaine géré par les services de domaine Azure AD.
@@ -36,7 +36,7 @@ Pour exécuter les tâches indiquées dans cet article, vous avez besoin des él
 ## <a name="provision-an-ubuntu-linux-virtual-machine"></a>Approvisionner une machine virtuelle Linux Ubuntu
 Approvisionnez une machine virtuelle Linux Ubuntu dans Azure, en utilisant l’une des méthodes suivantes :
 * [Portail Azure](../virtual-machines/linux/quick-create-portal.md)
-* [Interface de ligne de commande Azure](../virtual-machines/linux/quick-create-cli.md)
+* [interface de ligne de commande Azure](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
 > [!IMPORTANT]
@@ -217,7 +217,7 @@ Vous pouvez accorder des privilèges d’administration aux membres du groupe «
 
 
 ## <a name="troubleshooting-domain-join"></a>Résolution des problèmes de jonction de domaine
-Reportez-vous à l’article relatif à la [résolution des problèmes de jonction de domaine](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshooting-domain-join) .
+Reportez-vous à l’article relatif à la [résolution des problèmes de jonction de domaine](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshoot-joining-a-domain) .
 
 
 ## <a name="related-content"></a>Contenu connexe

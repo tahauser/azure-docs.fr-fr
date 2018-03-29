@@ -1,23 +1,23 @@
 ---
-title: "Tâches du coordinateur de projet Team Data Science Process - Azure | Microsoft Docs"
-description: "Vue d’ensemble des tâches d’un coordinateur de projet dans une équipe de science des données."
-documentationcenter: 
+title: Tâches du coordinateur de projet Team Data Science Process - Azure | Microsoft Docs
+description: Vue d’ensemble des tâches d’un coordinateur de projet dans une équipe de science des données.
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev;
-ms.openlocfilehash: fe7cf1e6167de7d0dfaa5ed75c0b7f5ec23b18cf
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: bradsev
+ms.openlocfilehash: 5c769fda09e70cfb0a43e0305ffab4923fbe3307
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="project-lead-tasks"></a>Tâches du coordinateur de projet
 
@@ -29,7 +29,7 @@ Un **coordinateur de projet** gère les activités quotidiennes des différents 
 
 Cette rubrique couvre actuellement les tâches 1, 2 et 6 de ce flux de travail pour coordinateurs de projet.
 
->[AZURE.NOTE] Dans les instructions suivantes, nous décrivons brièvement les étapes à suivre pour configurer un environnement d’équipe TDSP pour un projet utilisant Visual Studio Team Services (VSTS). Nous indiquons comment effectuer ces tâches avec VSTS, car c’est ainsi que nous implémentons TDSP chez Microsoft. Si une autre plateforme d’hébergement de code est utilisée pour votre groupe, les tâches que doit effectuer le responsable d’équipe ne changent généralement pas. En revanche, c’est la façon dont vont s’effectuer ces tâches qui va être différente.
+>[AZURE.NOTE] Dans les instructions suivantes, nous décrivons brièvement les étapes à suivre pour configurer un environnement d’équipe TDSP pour un projet utilisant Visual Studio Team Services (VSTS). Nous indiquons comment effectuer ces tâches avec VSTS, car c’est ainsi que nous implémentons TDSP chez Microsoft. Si une autre plateforme d’hébergement de code est utilisée pour votre groupe, les tâches que doit effectuer le responsable d’équipe ne changent généralement pas. En revanche, c’est la façon dont vont s’effectuer ces tâches qui sera différente.
 
 
 ## <a name="repositories-and-directories"></a>Dépôts et répertoires
@@ -42,7 +42,8 @@ Dans ce didacticiel, les noms des dépôts et des répertoires sont abrégés. C
 - **D5** : le répertoire local cloné à partir de R5.
 
 
-## <a name="0-prerequisites"></a>0. Composants requis
+## <a name="0-prerequisites"></a>0. Prérequis
+
 
 Pour satisfaire les prérequis, il convient de mener à bien les tâches affectées à votre responsable de groupe décrites dans [Tâches du responsable de groupe pour une équipe de science des données](group-manager-tasks.md), de même que celles affectées à votre responsable d’équipe décrites dans [Coordinateur d’équipe pour une équipe de science des données](team-lead-tasks.md). 
 
@@ -74,11 +75,11 @@ Pour résumer, avant de commencer les tâches du responsable d’équipe, voici 
 
 - Cliquez sur la flèche vers le bas dans l’angle supérieur gauche, puis sélectionnez **+ Nouveau référentiel**. 
     
-    ![5](./media/project-lead-tasks/project-leads-5-create-project-repo-4.png)
+    ![5.](./media/project-lead-tasks/project-leads-5-create-project-repo-4.png)
 
 - Dans la fenêtre **Créer un référentiel**, attribuez un nom au dépôt Git de votre projet. Veillez à sélectionner **Git** comme type de référentiel. Dans cet exemple, nous utilisons le nom *DSProject1*. 
 
-    ![6](./media/project-lead-tasks/project-leads-6-create-project-repo-5.png)
+    ![6.](./media/project-lead-tasks/project-leads-6-create-project-repo-5.png)
 
 - Pour créer votre dépôt Git de projet ***DSProject1***, cliquez sur **Créer**.
 
@@ -115,7 +116,7 @@ Si vous utilisez VSTS comme plateforme d’hébergement de code, l’*URL HTTPS 
 
 Pour cet exemple, cela donne :
 
-***https://mysamplegroup.VisualStudio.com/MyTeam/_git/MyTeamProjectTemplate***. 
+***https://mysamplegroup.visualstudio.com/MyTeam/_git/MyTeamProjectTemplate***. 
 
 ![7](./media/project-lead-tasks/project-leads-7-clone-team-project-template.png)
             
@@ -141,9 +142,9 @@ Spécifiez le répertoire **GitRepos**, puis exécutez la commande suivante pour
             
     git clone <the HTTPS URL of the Project repository>
 
-![9](./media/project-lead-tasks/project-leads-9-clone-project-repository.png)
+![9.](./media/project-lead-tasks/project-leads-9-clone-project-repository.png)
 
-Si vous utilisez VSTS comme plateforme d’hébergement de code, l’_URL HTTPS du dépôt de projet_ se présente généralement sous la forme ***https://\<Nom du serveur VSTS\>.visualstudio.com/\<Nom de votre projet d’équipe>/_git/<Nom de votre dépôt de projet\>***. Dans cet exemple, cela donne ***https://mysamplegroup.visualstudio.com/MyTeam/_git/DSProject1***.
+Si vous utilisez VSTS comme plateforme d’hébergement de code, l’_URL HTTPS du dépôt de projet_ se présente généralement sous la forme ***https://\<Nom du serveur VSTS\>.visualstudio.com/\<Nom de votre projet d’équipe>/_git/<Nom de votre dépôt de projet\>***. Pour cet exemple, cela donne ***https://mysamplegroup.visualstudio.com/MyTeam/_git/DSProject1***.
 
 **Linux**
 
@@ -214,7 +215,7 @@ Si vous voulez créer un stockage de fichiers Azure pour partager des données, 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Les liens ci-dessous donnent accès à des descriptions plus détaillées des rôles et des tâches définis par le processus TDSP (Team Data Science Process) :
+Les liens ci-dessous donnent accès à des descriptions plus détaillées des rôles et des tâches définis par le processus TDSP (Team Data Science Process) :
 
 - [Tâches du responsable de groupe pour une équipe de science des données](group-manager-tasks.md)
 - [Tâches du responsable d’une équipe de science des données](team-lead-tasks.md)

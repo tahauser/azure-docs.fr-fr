@@ -1,11 +1,12 @@
 ---
-title: "Exécution des scripts d’apprentissage automatique Python | Microsoft Docs"
-description: "Décrit les principes de conception sous-jacents de la prise en charge des scripts Python dans Azure Machine Learning, les scénarios d’utilisation, les fonctionnalités et les restrictions de base."
-keywords: "apprentissage automatique Python, pandas, pandas de python, scripts python, exécuter des scripts python"
+title: Exécution des scripts d’apprentissage automatique Python | Microsoft Docs
+description: Décrit les principes de conception sous-jacents de la prise en charge des scripts Python dans Azure Machine Learning, les scénarios d’utilisation, les fonctionnalités et les restrictions de base.
+keywords: apprentissage automatique Python, pandas, pandas de python, scripts python, exécuter des scripts python
 services: machine-learning
-documentationcenter: 
-author: bradsev
-manager: cgronlun
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: ee9eb764-0d3e-4104-a797-19fc29345d39
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: bradsev;garye
-ms.openlocfilehash: c25f31ca72417672298657c4585184ad72db6c99
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 0efa2a7604b41b791ed3717b7f2b667b7181085d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio"></a>Exécution des scripts d’apprentissage automatique Python dans Azure Machine Learning Studio
 
@@ -195,7 +195,7 @@ Figure 10. Fonction permettant de classer les fonctionnalités par notations.
 
 Figure 11. Expérience permettant de classer des fonctionnalités dans l'ensemble de données du diabète chez les indiens Pima.
 
-## <a name="limitations"></a>Limitations
+## <a name="limitations"></a>Limites
 Le module [Exécuter le script Python][execute-python-script] présente actuellement les limites suivantes :
 
 1. *Exécution dans un bac à sable (sandbox).* Le runtime Python est actuellement exécuté dans un bac à sable (sandbox) et, par conséquent, n'autorise pas l'accès au réseau ou au système de fichiers local de façon permanente. Tous les fichiers enregistrés localement sont isolés et supprimés une fois que le module se termine. Le code Python ne peut pas accéder à la plupart des répertoires sur la machine qui les exécute, excepté le répertoire actuel et ses sous-répertoires.

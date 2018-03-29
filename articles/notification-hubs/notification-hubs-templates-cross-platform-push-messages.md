@@ -1,11 +1,11 @@
 ---
-title: "Modèles"
-description: "Cette rubrique décrit les modèles pour les hubs de notification Azure."
+title: Modèles
+description: Cette rubrique décrit les modèles pour les hubs de notification Azure.
 services: notification-hubs
 documentationcenter: .net
 author: ysxu
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a41897bb-5b4b-48b2-bfd5-2e3c65edc37e
 ms.service: notification-hubs
 ms.workload: mobile
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
 ms.openlocfilehash: 1ca24a4bf08ecdbe1c1e47a931613144309a04a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="templates"></a>Modèles
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 Les modèles permettent à une application cliente de spécifier le format exact des notifications que celle-ci souhaite recevoir. Une application peut utiliser des modèles pour en tirer plusieurs avantages, notamment les suivants :
 
 * Un serveur principal non spécifique à une plateforme
@@ -139,7 +139,7 @@ Par exemple, le modèle suivant n’est pas un modèle XML valide :
     </tile>
 
 
-Comme expliqué ci-dessus, lors de l’utilisation de la concaténation, les expressions doivent être placées entre accolades. Par exemple :
+Comme expliqué ci-dessus, lors de l’utilisation de la concaténation, les expressions doivent être placées entre accolades. Par exemple : 
 
     <tile>
       <visual>

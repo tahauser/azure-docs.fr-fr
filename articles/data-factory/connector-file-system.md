@@ -1,11 +1,11 @@
 ---
-title: "Copier des données depuis/vers un système de fichiers à l’aide d’Azure Data Factory | Microsoft Docs"
-description: "Découvrez comment copier des données d’un système de fichiers vers des banques de données réceptrices prises en charge (ou) depuis des banques de données sources prises en charge vers un système de fichiers à l’aide d’Azure Data Factory."
+title: Copier des données depuis/vers un système de fichiers à l’aide d’Azure Data Factory | Microsoft Docs
+description: Découvrez comment copier des données d’un système de fichiers vers des banques de données réceptrices prises en charge (ou) depuis des banques de données sources prises en charge vers un système de fichiers à l’aide d’Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: ff8fb061a5a5108e574860fa26d0d983ef5ffe99
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e765c5b0240eb1b0311210dc466d1bc0a43ae58f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Copier des données depuis/vers un système de fichiers à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,6 +40,7 @@ Plus précisément, ce connecteur de système de fichiers prend en charge ce qui
 - Copie de fichiers en l'état ou analyse/génération de fichiers avec les [formats de fichier et codecs de compression pris en charge](supported-file-formats-and-compression-codecs.md).
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Pour copier des données depuis/vers un système de fichiers qui n’est pas accessible publiquement, vous devez configurer un runtime d’intégration auto-hébergé. Pour plus d’informations, consultez l’article [Runtime d’intégration autohébergé](create-self-hosted-integration-runtime.md).
 
@@ -65,7 +66,7 @@ Les propriétés prises en charge pour le service lié de système de fichiers s
 
 | Scénario | « host » dans la définition du service lié | « folderPath » dans la définition du jeu de données |
 |:--- |:--- |:--- |
-| Dossier local sur l’ordinateur runtime d'intégration : <br/><br/>Exemples : D:\\\* ou D:\dossier\sous-dossier\\* |D:\\\\ |.\\\\ ou dossier\\\\sous-dossier |
+| Dossier local sur l’ordinateur runtime d'intégration : <br/><br/>Exemples : D:\\\* ou D:\dossier\sous-dossier\\\* |D:\\\\ |.\\\\ ou dossier\\\\sous-dossier |
 | Dossier partagé distant :  <br/><br/>Exemples : \\\\myserver\\share\\\* ou \\\\myserver\\share\\dossier\\sous-dossier\\* |\\\\\\\\myserver\\\\share |.\\\\ ou dossier\\\\sous-dossier |
 
 **Exemple :**

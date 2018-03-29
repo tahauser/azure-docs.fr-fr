@@ -1,6 +1,6 @@
 ---
-title: "Créer un cluster Service Fabric dans le portail Azure | Microsoft Docs"
-description: "Cet article décrit comment configurer un cluster Service Fabric sécurisé dans Azure à l’aide du portail Azure et d’Azure Key Vault."
+title: Créer un cluster Service Fabric dans le portail Azure | Microsoft Docs
+description: Cet article décrit comment configurer un cluster Service Fabric sécurisé dans Azure à l’aide du portail Azure et d’Azure Key Vault.
 services: service-fabric
 documentationcenter: .net
 author: chackdan
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/09/2018
 ms.author: chackdan
-ms.openlocfilehash: 4a42e36307f440a29740d947314f91dffac51a42
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 864952554b04d8d6bc14aad92d168298e554710e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Création d’un cluster Service Fabric dans Azure à partir du portail Azure
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-> * [Portail Azure](service-fabric-cluster-creation-via-portal.md)
+> * [Portail Azure](service-fabric-cluster-creation-via-portal.md)
 > 
 > 
 
@@ -131,7 +131,7 @@ Configurez vos nœuds de cluster. Les types de nœuds définissent les tailles d
 
 Pour faciliter la configuration d’un cluster de test sécurisé pour vous, nous vous avons fourni l’option **De base**. Si vous disposez déjà un certificat et que vous l’avez téléchargé dans votre coffre de clés (et activé le coffre de clés pour le déploiement), utilisez l’option **Personnalisé**
 
-#####<a name="basic-option"></a>Option de base
+##### <a name="basic-option"></a>Option de base
 Suivez les écrans suivants pour ajouter ou réutiliser un coffre de clés existant et ajouter un certificat. L’ajout du certificat est un processus synchrone, et par conséquent, vous devez attendre que le certificat soit créé.
 
 
@@ -151,7 +151,7 @@ Vous êtes maintenant prêt à poursuivre le reste du processus de création de 
 
 ![CreateKeyVault4]
 
-#####<a name="custom-option"></a>Option Personnalisé
+##### <a name="custom-option"></a>Option Personnalisé
 Ignorez cette section si vous avez déjà effectué les étapes décrites dans l’option **De base**.
 
 ![SecurityCustomOption]
