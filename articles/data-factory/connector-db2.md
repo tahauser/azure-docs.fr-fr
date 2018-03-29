@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 0ef1ce8b4949c908595473f0183f585a6fd3da80
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7713e1b6a74fd099206804133d2dc8140fe83a8d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copier des données de DB2 à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -68,7 +68,6 @@ Les propriétés prises en charge pour le service lié DB2 sont les suivantes :
 | Type | La propriété type doit être définie sur **Db2** | OUI |
 | server |Nom du serveur DB2. |OUI |
 | database |Nom de la base de données DB2. |OUI |
-| schema |Nom du schéma dans la base de données. Le nom du schéma respecte la casse. |Non  |
 | authenticationType |Type d'authentification utilisé pour se connecter à la base de données DB2.<br/>Valeur autorisée : **De base**. |OUI |
 | username |Spécifiez le nom d’utilisateur pour la connexion à la base de données DB2. |OUI |
 | password |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |OUI |

@@ -1,24 +1,21 @@
 ---
 title: 'Azure Active Directory B2C : approches de migration utilisateur'
-description: "Abordez les principaux concepts et les concepts avancés de la migration utilisateur avec API Graph et éventuellement avec les stratégies personnalisées Azure AD B2C."
+description: Abordez les principaux concepts et les concepts avancés de la migration utilisateur avec API Graph et éventuellement avec les stratégies personnalisées Azure AD B2C.
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 10/04/2017
-ms.author: yoelh
-ms.openlocfilehash: 25023359e3f1eeb241f6f0e70bcb179aa32974af
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: be80ea534be6de4fad2b072cf531669f45eda527
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C : migration utilisateur
 Quand vous migrez votre fournisseur d’identité vers Azure Active Directory B2C (Azure AD B2C), il se peut que vous deviez également migrer les comptes d’utilisateur. Cet article explique comment migrer des comptes d’utilisateur existants de n’importe quel fournisseur d’identité vers Azure AD B2C. L’article n’a pas vocation à être normatif, mais plutôt à décrire deux des approches qui existent. Le développeur est responsable du choix de l’approche adaptée.
@@ -28,7 +25,7 @@ Avec Azure AD B2C, vous pouvez migrer des utilisateurs via l’[API Graph](https
 
 * **Prémigration** : ce flux s’applique quand avez librement accès aux informations d’identification d’un utilisateur (nom d’utilisateur et mot de passe) ou quand les informations d’identification sont chiffrées, mais que vous pouvez les déchiffrer. Le processus de prémigration implique la lecture des utilisateurs de l’ancien fournisseur d’identité et la création de comptes dans le répertoire Azure AD B2C.
 
-* **Prémigration et réinitialisation du mot de passe** : ce flux s’applique quand le mot de passe d’un utilisateur n’est pas accessible. Par exemple :
+* **Prémigration et réinitialisation du mot de passe** : ce flux s’applique quand le mot de passe d’un utilisateur n’est pas accessible. Par exemple : 
     * Le mot de passe est stocké au format HASH.
     * Le mot de passe est stocké dans un fournisseur d’identité auquel vous n’avez pas accès. Votre ancien fournisseur d’identité valide les informations d’identification utilisateur en appelant un service web.
 
@@ -51,7 +48,7 @@ Pour communiquer avec l’API Graph, vous devez d’abord disposer d’un compte
 
 Tout d’abord, inscrivez votre application de migration dans Azure AD. Ensuite, créez une clé d’application (secret de l’application) et configurez l’application avec des privilèges d’écriture.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 2. Choisissez votre locataire Azure AD **B2C** en sélectionnant votre compte en haut à droite de la fenêtre.
 
@@ -196,7 +193,7 @@ Pour valider la migration, utilisez l’une des deux méthodes suivantes :
 
 * Pour récupérer un utilisateur par adresse e-mail de connexion, utilisez cet exemple d’application :
 
-    a. Exécutez la commande suivante :
+    a. Exécutez la commande suivante :
 
     ```Console
         UserMigration.exe 3 {email address}
@@ -250,7 +247,7 @@ Pour obtenir le lien vers votre stratégie de réinitialisation de mot de passe,
 > Pour vérifier et modifier l’état de migration utilisateur, vous devez utiliser une stratégie personnalisée. Pour plus d’informations, consultez [Bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md).
 >
 
-Quand les utilisateurs tentent de se connecter sans commencer par réinitialiser le mot de passe, votre stratégie doit renvoyer un message d’erreur convivial. Par exemple : 
+Quand les utilisateurs tentent de se connecter sans commencer par réinitialiser le mot de passe, votre stratégie doit renvoyer un message d’erreur convivial. Par exemple :  
 >*Votre mot de passe a expiré. Pour le réinitialiser, sélectionnez le lien Réinitialiser le mot de passe.* 
 
 Cette étape facultative requiert l’utilisation de stratégies personnalisées Azure AD B2C, comme décrit dans l’article [Bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md).

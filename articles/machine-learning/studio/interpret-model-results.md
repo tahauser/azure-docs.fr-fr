@@ -1,10 +1,11 @@
 ---
-title: "Interprétation des résultats de modèle dans Machine Learning | Microsoft Docs"
-description: "Sélection du paramètre optimal défini pour un algorithme en utilisant et visualisant des sorties de modèle de notation."
+title: Interprétation des résultats de modèle dans Machine Learning | Microsoft Docs
+description: Sélection du paramètre optimal défini pour un algorithme en utilisant et visualisant des sorties de modèle de notation.
 services: machine-learning
-documentationcenter: 
-author: bradsev
-manager: cgronlun
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 6230e5ab-a5c0-4c21-a061-47675ba3342c
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: bradsev;garye
-ms.openlocfilehash: d6563d411e9f159399f9863a5b572365dc2b05cc
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: e8f6d3accc7ad8de1161f08cceb0e856cf764255
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="interpret-model-results-in-azure-machine-learning"></a>Interprétation des résultats de modèle dans Azure Machine Learning
 Cette rubrique vous explique comment visualiser et interpréter les résultats de prédiction dans Azure Machine Learning Studio. Après avoir formé un modèle et effectué des prédictions sur celui-ci (c’est-à-dire « noté le modèle »), vous avez besoin de comprendre et d’interpréter les résultats de prédiction.
@@ -28,7 +28,7 @@ Cette rubrique vous explique comment visualiser et interpréter les résultats d
 Il existe quatre principaux types de modèles d'apprentissage automatique dans Azure Machine Learning :
 
 * classification ;
-* clustering.
+* Clustering
 * régression ;
 * systèmes de recommandation.
 
@@ -177,7 +177,7 @@ Exécution du service web, le résultat renvoyé est semblable à celui indiqué
 
 Figure 14. Résultat du service web d’un problème de régression du prix d’une voiture
 
-## <a name="clustering"></a>clustering.
+## <a name="clustering"></a>Clustering
 **Exemple d'expérience**
 
 Utilisons le jeu de données Iris pour réaliser une expérience de clustering. Nous filtrons ici les étiquettes de classe dans le jeu de données de manière à ce qu’il ne contienne que des caractéristiques et puisse être utilisé uniquement pour le clustering. Dans ce cas d’utilisation Iris, définissez deux clusters lors du processus de formation, pour regrouper les fleurs en deux classes. L'expérience est indiquée dans la Figure 15.

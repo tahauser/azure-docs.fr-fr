@@ -1,6 +1,6 @@
 ---
-title: "Vue d’ensemble du service de base de données relationnelle d’Azure Database pour PostgreSQL"
-description: "Fournit une vue d’ensemble du service de base de données relationnelle d’Azure Database pour PostgreSQL."
+title: Vue d’ensemble du service de base de données relationnelle d’Azure Database pour PostgreSQL
+description: Fournit une vue d’ensemble du service de base de données relationnelle d’Azure Database pour PostgreSQL.
 services: postgresql
 author: kamathsun
 ms.author: sukamat
@@ -10,15 +10,15 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 02/28/2018
-ms.openlocfilehash: ef7f710fb39c3745ff5a20a73cd4dc5c1fa1fece
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 766373f4b9390e576285db73d9e9e9942eb6624f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>Qu’est-ce qu’Azure Database pour PostgreSQL ?
 
-Azure Database pour PostgreSQL est un service de base de données relationnelle dans le cloud de Microsoft conçu pour les développeurs basés sur la version de la communauté du moteur de base de données [PostgreSQL](https://www.postgresql.org/) open source. Ce service est en version préliminaire publique. Azure Database pour PostgreSQL offre :
+Azure Database pour PostgreSQL est un service de base de données relationnelle dans le cloud de Microsoft conçu pour les développeurs basés sur la version de la communauté du moteur de base de données [PostgreSQL](https://www.postgresql.org/) open source. Azure Database pour PostgreSQL offre :
 
 - Une haute disponibilité intégrée sans coût supplémentaire
 - Des performances prévisibles, grâce aux tarifs du paiement à l’utilisation
@@ -45,10 +45,10 @@ Le service Azure Database pour PostgreSQL offre trois niveaux de tarification : 
 Comment savoir quand augmenter ou diminuer la taille des instances ? Vous utilisez la surveillance Azure intégrée et les fonctionnalités d’alerte. Ces outils vous permettent d’évaluer rapidement l’impact des mises à l’échelle (montées ou descentes en charge) en fonction de vos besoins en stockage ou en performances actuels ou pour un projet. Pour plus d’informations, consultez [Alertes](howto-alert-on-metric.md).
 
 ## <a name="keep-your-app-and-business-running"></a>Votre application et votre activité ne s’arrêtent jamais
-Avec un temps de disponibilité de 99,99 % (non disponible dans la version préliminaire), l’excellent contrat de niveau de service (SLA) d’Azure, soutenu par un réseau mondial de centres de données gérés par Microsoft, permet d’exécuter votre application 24 heures sur 24, 7 jours sur 7. Avec chaque serveur Azure Database pour PostgreSQL, vous tirez parti de la sécurité intégrée, d’une tolérance en cas de panne et de la protection des données que vous seriez de toute manière contraint d’acheter ou de concevoir, de créer et de gérer. Avec Azure Database pour PostgreSQL, chaque niveau tarifaire offre un ensemble complet de fonctionnalités et d’options assurant la continuité des activités, que vous pouvez utiliser pour démarrer votre base de données et vous assurer qu’elle fonctionne de manière continue. Vous pouvez utiliser la [limite de restauration dans le temps](howto-restore-server-portal.md) pour renvoyer une base de données à un état antérieur, jusqu’à 35 jours. En outre, si le centre de données hébergeant vos bases de données connaît une panne, vous pouvez restaurer les bases de données à partir de copies géo-redondantes des sauvegardes récentes.
+Avec un temps de disponibilité de 99,99 %, l’excellent contrat de niveau de service (SLA) d’Azure, soutenu par un réseau mondial de centres de données gérés par Microsoft, permet d’exécuter votre application 24 heures sur 24, 7 jours sur 7. Avec chaque serveur Azure Database pour PostgreSQL, vous tirez parti de la sécurité intégrée, d’une tolérance en cas de panne et de la protection des données que vous seriez de toute manière contraint d’acheter ou de concevoir, de créer et de gérer. Avec Azure Database pour PostgreSQL, chaque niveau tarifaire offre un ensemble complet de fonctionnalités et d’options assurant la continuité des activités, que vous pouvez utiliser pour démarrer votre base de données et vous assurer qu’elle fonctionne de manière continue. Vous pouvez utiliser la [limite de restauration dans le temps](howto-restore-server-portal.md) pour renvoyer une base de données à un état antérieur, jusqu’à 35 jours. En outre, si le centre de données hébergeant vos bases de données connaît une panne, vous pouvez restaurer les bases de données à partir de copies géo-redondantes des sauvegardes récentes.
 
 ## <a name="secure-your-data"></a>Sécurisez vos données
-Les services de base de données Azure ont une tradition de sécurité des données qu’Azure Database pour PostgreSQL respecte avec des fonctionnalités qui limitent l’accès, protègent les données au repos et en mouvement, et vous aident à surveiller l’activité. Visitez le [Centre de confidentialité Azure](https://www.microsoft.com/TrustCenter/Security/default.aspx) pour plus d’informations sur la sécurité de la plateforme Azure.
+Les services de base de données Azure ont une tradition de sécurité des données qu’Azure Database pour PostgreSQL respecte avec des fonctionnalités qui limitent l’accès, protègent les données au repos et en mouvement, et vous aident à surveiller l’activité. Visitez le [Centre de confidentialité Azure](https://www.microsoft.com/en-us/trustcenter/security) pour plus d’informations sur la sécurité de la plateforme Azure.
 
 Le service Base de données Azure pour PostgreSQL utilise le chiffrement de stockage pour les données au repos. Les données incluant les sauvegardes sont chiffrées sur le disque (à l’exception des fichiers temporaires créés par le moteur lors de l’exécution des requêtes). Le service utilise le chiffrement AES 256 bits qui est inclus dans le chiffrement de stockage Azure, et les clés sont gérées par le système. Le chiffrement de stockage est toujours activé et ne peut pas être désactivé.
 

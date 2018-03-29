@@ -1,12 +1,12 @@
 ---
-title: "Créer un équilibreur de charge public avec IPv6 - Azure CLI | Microsoft Docs"
-description: "Découvrez comment créer un équilibreur de charge public avec IPv6 dans Azure Resource Manager à l’aide d’Azure CLI."
+title: Créer un équilibreur de charge public avec IPv6 - Azure CLI | Microsoft Docs
+description: Découvrez comment créer un équilibreur de charge public avec IPv6 dans Azure Resource Manager à l’aide d’Azure CLI.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: timlt
 tags: azure-resource-manager
-keywords: "IPv6, équilibreur de charge azure, double pile, adresse ip publique, ipv6 natif, mobile, iot"
+keywords: IPv6, équilibreur de charge azure, double pile, adresse ip publique, ipv6 natif, mobile, iot
 ms.assetid: a1957c9c-9c1d-423e-9d5c-d71449bc1f37
 ms.service: load-balancer
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 3abd47460999f7b059469a58a59a3e297e88effb
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 62f22ccadfabd2f3d6906beb3c241703d4e6383f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-in-azure-resource-manager-by-using-azure-cli"></a>Créer un équilibreur de charge public avec IPv6 dans Azure Resource Manager à l’aide d’Azure CLI
 
@@ -28,7 +28,6 @@ ms.lasthandoff: 12/08/2017
 > * [Interface de ligne de commande Azure](load-balancer-ipv6-internet-cli.md)
 > * [Modèle](load-balancer-ipv6-internet-template.md)
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Un équilibrage de charge Azure est de type Couche 4 (TCP, UDP). Les équilibreurs de charge offrent une disponibilité élevée en distribuant le trafic entrant parmi les instances de service saines dans les services cloud ou les machines virtuelles dans un jeu d’équilibreur de charge. Les équilibreurs de charge peuvent également présenter ces services sur plusieurs ports, plusieurs adresses IP ou les deux.
 

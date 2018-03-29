@@ -1,6 +1,6 @@
 ---
-title: "Démarrage rapide - Azure Docker Swarm cluster pour Linux"
-description: "Découvrez rapidement comment créer un cluster Docker Swarm pour des conteneurs Linux dans Azure Container Service, avec Azure CLI."
+title: Démarrage rapide - Azure Docker Swarm cluster pour Linux
+description: Découvrez rapidement comment créer un cluster Docker Swarm pour des conteneurs Linux dans Azure Container Service, avec Azure CLI.
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,15 +9,15 @@ ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 691c09c8dfb5335aabb431d06bd687963fe4c488
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 7bd781d2fd71c6075cb458b222a93953a22892b6
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-docker-swarm-cluster"></a>Déployer le cluster Docker Swarm
 
-Dans ce guide de démarrage rapide, un cluster Docker Swarm est déployé à l’aide d’Azure CLI. Une application à plusieurs conteneurs composée d’un serveur web frontal et d’une instance Redis est ensuite déployée, puis exécutée sur le cluster. Ceci fait, l’application est accessible via internet.
+Dans ce guide de démarrage rapide, un cluster Docker Swarm est déployé à l’aide d’Azure CLI. Une application de plusieurs conteneurs composée d’un serveur web frontal et d’une instance Redis est déployée, puis exécutée sur le cluster. Ceci fait, l’application est accessible via internet.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 

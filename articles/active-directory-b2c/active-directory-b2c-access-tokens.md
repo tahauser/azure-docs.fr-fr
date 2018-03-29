@@ -1,24 +1,21 @@
 ---
-title: "Demande de jetons d’accès - Azure AD B2C | Microsoft Docs"
-description: "Cet article vous montre comment configurer une application cliente et acquérir un jeton d’accès."
+title: Demande de jetons d’accès - Azure AD B2C | Microsoft Docs
+description: Cet article vous montre comment configurer une application cliente et acquérir un jeton d’accès.
 services: active-directory-b2c
 documentationcenter: android
-author: parakhj
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 1c75f17f-5ec5-493a-b906-f543b3b1ea66
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
-ms.author: parakhj
-ms.openlocfilehash: 9d2df39118741d4254f7b7fe4c419a00ceb4ba8e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: bd919543072a8d2bf5fb0ebba17e69ba2f467218
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C : Demande de jetons d’accès
 
@@ -85,7 +82,7 @@ Lorsque vous demandez un jeton d’accès, l’application cliente doit spécifi
 https://login.microsoftonline.com/<tenantName>.onmicrosoft.com/oauth2/v2.0/authorize?p=<yourPolicyId>&client_id=<appID_of_your_client_application>&nonce=anyRandomValue&redirect_uri=<redirect_uri_of_your_client_application>&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
 ```
 
-Pour acquérir plusieurs autorisations dans la même requête, vous pouvez ajouter plusieurs entrées séparées par des espaces dans le même paramètre d’**étendue**. Par exemple :
+Pour acquérir plusieurs autorisations dans la même requête, vous pouvez ajouter plusieurs entrées séparées par des espaces dans le même paramètre d’**étendue**. Par exemple : 
 
 URL décodée :
 
@@ -117,10 +114,10 @@ Si le paramètre `response_type` dans une requête `/authorize` inclut `token`, 
 
 Dans un jeton d’accès (**access\_token**) correctement configuré (à partir du point de terminaison `/authorize` ou `/token`), les revendications suivantes sont présentes :
 
-| Nom | Revendication | Description |
+| NOM | Revendication | Description |
 | --- | --- | --- |
 |Audience |`aud` |L’**ID d’application** de la ressource unique à laquelle le jeton accorde l’accès. |
-|Scope |`scp` |Les autorisations accordées à la ressource. Plusieurs autorisations octroyées doivent être séparées par une espace. |
+|Étendue |`scp` |Les autorisations accordées à la ressource. Plusieurs autorisations octroyées doivent être séparées par une espace. |
 |Tiers autorisé |`azp` |**ID** de l’application cliente qui a initié la demande. |
 
 Lorsque votre API reçoit le jeton d’accès (**access\_token**), elle doit [valider le jeton](active-directory-b2c-reference-tokens.md) pour prouver que le jeton est authentique et qu’il a les revendications adéquates.

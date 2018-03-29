@@ -1,8 +1,8 @@
 ---
-title: "Azure AD Connect : Connexion utilisateur | Microsoft Docs"
-description: "Connexion utilisateur Azure AD Connect pour une configuration personnalisée."
+title: 'Azure AD Connect : Connexion utilisateur | Microsoft Docs'
+description: Connexion utilisateur Azure AD Connect pour une configuration personnalisée.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: 4670ec3cacd8d69a4ed59aa2bbbeb2e5c893f173
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6a6e83ad73f561cd8aa4fc629fb9b48449af6d0a
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Options de connexion de l’utilisateur via Azure AD Connect
 Azure Active Directory (Azure AD) Connect permet à vos utilisateurs de se connecter aux ressources cloud et locales à l’aide des mêmes mots de passe. Cet article décrit les concepts clés pour chaque modèle d’identité afin de vous aider à choisir l’identité que vous souhaitez utiliser pour vous connecter à Azure AD.
 
 Si vous connaissez déjà le modèle d’identité Azure AD et que vous souhaitez en savoir plus sur une méthode spécifique, cliquez sur le lien adéquat :
 
-* [Synchronisation de hachage de mot de passe](#password-synchronization) avec [authentification unique transparente (SSO)](active-directory-aadconnect-sso.md)
+* [Synchronisation de hachage de mot de passe](#password-hash-synchronization) avec [authentification unique transparente (SSO)](active-directory-aadconnect-sso.md)
 * [Synchronisation directe](active-directory-aadconnect-pass-through-authentication.md) avec [authentification unique transparente (SSO)](active-directory-aadconnect-sso.md)
 * [Authentification unique fédérée (avec Active Directory Federation Services (AD FS))](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
 
@@ -54,7 +54,7 @@ De plus, vous pouvez activer [l’authentification unique transparente (SSO)](ac
 
 ![Synchronisation de hachage de mot de passe](./media/active-directory-aadconnect-user-signin/passwordhash.png)
 
-Pour plus d’informations, consultez l’article sur la [synchronisation de hachage de mot de passe](active-directory-aadconnectsync-implement-password-synchronization.md).
+Pour plus d’informations, consultez l’article sur la [synchronisation de hachage de mot de passe](active-directory-aadconnectsync-implement-password-hash-synchronization.md).
 
 ### <a name="pass-through-authentication"></a>Authentification directe
 Avec l’authentification directe, le mot de passe de l’utilisateur est validé par rapport au contrôleur Active Directory local. Le mot de passe n’a pas besoin d’être présent dans Azure AD sous quelque forme que ce soit. Ceci permet d’évaluer les stratégies locales au cours de l’authentification auprès des services cloud, comme pour les restrictions sur les heures d’ouverture de session.
@@ -113,7 +113,7 @@ L’expérience de connexion Azure AD dépend de la capacité d’Azure AD à fa
 Azure AD Connect répertorie les suffixes UPN qui sont définis pour les domaines et essaie de les mettre en correspondance avec un domaine personnalisé dans Azure AD. Il vous aide ensuite avec l’action appropriée à entreprendre.
 La page de connexion AD Azure répertorie les suffixes UPN définis pour Active Directory local et affiche l’état correspondant à chaque suffixe. L’état peut avoir une des valeurs suivantes :
 
-| State | Description | Action requise |
+| État | Description | Action requise |
 |:--- |:--- |:--- |
 | Verified |Azure AD Connect a trouvé un domaine vérifié correspondant dans Azure AD. Tous les utilisateurs de ce domaine peuvent se connecter en utilisant leurs informations d’identification locales. |Aucune action n'est nécessaire. |
 | Non vérifié |Azure AD Connect a trouvé un domaine personnalisé correspondant dans Azure AD mais il n’est pas vérifié. Si le domaine n’est pas vérifié, le suffixe UPN des utilisateurs de ce domaine sera remplacé par le suffixe .onmicrosoft.com par défaut après la synchronisation. | [Vérifiez le domaine personnalisé dans Azure AD.](../add-custom-domain.md#verify-the-custom-domain-name-in-azure-ad) |
@@ -141,7 +141,7 @@ Il est très important de comprendre la relation entre les états de domaine per
 Pour les informations suivantes, supposons que nous nous intéressons au suffixe UPN contoso.com utilisé dans l’annuaire local dans le nom UPN, par exemple user@contoso.com.
 
 ###### <a name="express-settingspassword-hash-synchronization"></a>Configuration rapide / Synchronisation de hachage de mot de passe
-| State | Effet sur l’expérience de connexion utilisateur Azure |
+| État | Effet sur l’expérience de connexion utilisateur Azure |
 |:---:|:--- |
 | Non ajouté |Dans ce cas, aucun domaine personnalisé pour contoso.com n’a été ajouté à l’annuaire Azure AD. Les utilisateurs possédant un UPN local avec le suffixe @contoso.com ne pourront pas utiliser leur UPN local pour se connecter à Azure. Ils devront utiliser un nouvel UPN fourni par Azure AD en ajoutant le suffixe de l’annuaire Azure AD par défaut. Par exemple, si vous synchronisez des utilisateurs sur l’annuaire Azure AD azurecontoso.onmicrosoft.com, l’utilisateur local user@contoso.com aura un nom UPN user@azurecontoso.onmicrosoft.com. |
 | Non vérifié |Dans ce cas, nous avons un domaine personnalisé contoso.com ajouté à l’annuaire Azure AD. Toutefois, la vérification n’est pas encore effectuée. Si vous poursuivez la synchronisation des utilisateurs sans vérifier le domaine, les utilisateurs se verront attribuer un nouvel UPN d’Azure AD, comme dans le scénario « Non ajouté ». |
@@ -152,7 +152,7 @@ Vous ne pouvez pas créer de fédération avec le domaine .onmicrosoft.com par d
 
 Si vous avez sélectionné l’option de connexion utilisateur **Fédération avec AD FS**, vous devez disposer d’un domaine personnalisé pour poursuivre la création d’une fédération dans Azure AD. Dans notre cas de figure, cela signifie que nous devons disposer d’un domaine personnalisé contoso.com ajouté dans l’annuaire Azure AD.
 
-| State | Effet sur l’expérience de connexion utilisateur Azure |
+| État | Effet sur l’expérience de connexion utilisateur Azure |
 |:---:|:--- |
 | Non ajouté |Dans ce cas, Azure AD Connect n’a pas trouvé de domaine personnalisé correspondant au suffixe UPN contoso.com dans l’annuaire Azure AD. Vous devez ajouter un domaine personnalisé contoso.com si vous avez besoin que les utilisateurs se connectent à l’aide d’AD FS avec leur UPN local (par exemple user@contoso.com). |
 | Non vérifié |Dans ce cas, Azure AD Connect vous fournira les informations appropriées sur les possibilités de vérification de votre domaine à un stade ultérieur. |

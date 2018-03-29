@@ -1,11 +1,11 @@
-﻿---
-title: "Introduction à Azure Cosmos DB | Microsoft Docs"
-description: "En savoir plus sur Azure Cosmos DB. Cette base de données multimodèle distribuée à l’échelle mondiale est conçue pour offrir une faible latence, une scalabilité élastique et une haute disponibilité."
+---
+title: Introduction à Azure Cosmos DB | Microsoft Docs
+description: En savoir plus sur Azure Cosmos DB. Cette base de données multimodèle distribuée à l’échelle mondiale est conçue pour offrir une faible latence, une scalabilité élastique et une haute disponibilité.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: a855183f-34d4-49cc-9609-1478e465c3b7
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,15 +15,13 @@ ms.topic: overview
 ms.date: 12/15/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: e8b1454583e52f2c7a38b375df259a8b66f7d24f
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: e78480ceb47e472029795848739b4416e0c4256e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bienvenue dans Azure Cosmos DB
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB est un service de base de données multimodèle mondialement distribué de Microsoft. En un clic, le service Azure Cosmos DB vous permet de faire évoluer en toute flexibilité et de façon indépendante le débit et le stockage sur n’importe quel nombre de régions géographiques Azure. Il offre des garanties en termes de débit, de latence, de disponibilité et de cohérence avec des [contrats SLA complets](https://aka.ms/acdbsla), ce qu’aucun autre service de base de données ne peut offrir. Vous pouvez [essayer Azure Cosmos DB gratuitement](https://azure.microsoft.com/try/cosmosdb/) sans abonnement Azure, libre de tous frais et engagements.
 
@@ -71,7 +69,7 @@ En tant que service de base de données multi-model distribué, Azure Cosmos DB 
 
 * **Aucune gestion de schéma ou d’index de base de données**
     * Itérez rapidement le schéma de votre application sous vous soucier du schéma de la base de données et/ou de la gestion de l’indexation.
-    * Le moteur de base de données Azure Cosmos DB est entièrement indépendant du schéma : il indexe automatiquement toutes les données qu’il reçoit sans schéma ni index et répond aux requêtes de façon ultrarapide. 
+    * Le moteur de base de données Azure Cosmos DB est entièrement indépendant du schéma : il indexe automatiquement toutes les données qu’il reçoit sans schéma ni index et répond aux requêtes de façon ultrarapide. 
 
 * **Faible coût total de possession**
     * Cinq à dix fois [plus économique](https://aka.ms/cosmos-db-tco-paper) qu’une solution non managée ou une solution NoSQL en local.
@@ -84,7 +82,7 @@ Azure Cosmos DB fournit les meilleures fonctionnalités des bases de données re
 | Fonctionnalités | Bases de données relationnelles   | Bases de données non relationnelles (NoSQL) |    Azure Cosmos DB |
 | --- | --- | --- | --- |
 | Diffusion mondiale | Non  | Non  | Oui, la distribution clé en main est disponible avec les API multihébergement dans plus de 30 régions.|
-| Mise à l’échelle horizontale | Non  | OUI | Oui, vous pouvez ajuster le stockage et le débit indépendamment. | 
+| Mise à l’échelle horizontale | Non  | OUI | Oui, vous pouvez mettre le stockage et le débit à l’échelle indépendamment. | 
 | Garanties de latence | Non  | OUI | Oui, la latence de 99 % des lectures est inférieure à 10 ms et celle des écritures est inférieure à 15 ms. | 
 | Haute disponibilité | Non  | OUI | Oui, Cosmos DB est toujours disponible, respecte les compromis PACELC, et permet des basculements manuels et automatiques.|
 | Modèle de données + API | Relationnel + SQL | Multi-modèle + API OSS | Multi-modèle + SQL + API OSS (autres fonctionnalités disponibles prochainement) |

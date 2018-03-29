@@ -1,13 +1,13 @@
 ---
-title: "Créer un groupe de machines virtuelles identiques à l’aide d’un modèle Azure | Microsoft Docs"
-description: "Apprendre à créer rapidement une machine virtuelle avec un modèle Azure Resource Manager"
+title: Créer un groupe de machines virtuelles identiques à l’aide d’un modèle Azure | Microsoft Docs
+description: Apprendre à créer rapidement une machine virtuelle avec un modèle Azure Resource Manager
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/16/2017
 ms.author: iainfou
-ms.openlocfilehash: 201b752c2a79362f2e049d2e0f0b953d77aaedfe
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: fc5c4166464ec43833bd49ac68fa52e8da8892e3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Créer un groupe de machines virtuelles identiques avec Azure CLI 2.0
-Un groupe de machines virtuelles identiques vous permet de déployer et de gérer un ensemble de machines virtuelles identiques prenant en charge la mise à l’échelle automatique. Vous pouvez mettre à l’échelle manuellement le nombre de machines virtuelles du groupe identique ou définir des règles pour mettre à l’échelle automatiquement en fonction de l’utilisation des ressources (processeur, demande de mémoire ou trafic réseau). Dans cet article de prise en main, vous créez un groupe de machines virtuelles identiques avec un modèle Azure Resource Manager. Vous pouvez également créer un groupe identique avec [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md), [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) ou le [portail Azure](virtual-machine-scale-sets-create-portal.md).
+Un groupe de machines virtuelles identiques vous permet de déployer et de gérer un ensemble de machines virtuelles identiques prenant en charge la mise à l’échelle automatique. Vous pouvez mettre à l’échelle manuellement le nombre de machines virtuelles du groupe identique ou définir des règles pour mettre à l’échelle automatiquement en fonction de l’utilisation des ressources (processeur, demande de mémoire ou trafic réseau). Dans cet article de prise en main, vous créez un groupe de machines virtuelles identiques avec un modèle Azure Resource Manager. Vous pouvez également créer un groupe identique avec [Azure CLI 2.0](quick-create-cli.md), [Azure PowerShell](quick-create-powershell.md) ou le [portail Azure](quick-create-portal.md).
 
 
 ## <a name="overview-of-templates"></a>Présentation des modèles

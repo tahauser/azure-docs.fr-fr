@@ -1,21 +1,21 @@
 ---
-title: "Vérifier les métriques de débit et de latence d’un compte de stockage dans le portail Azure | Microsoft Docs"
-description: "Découvrez comment vérifier les métriques de débit et de latence d’un compte de stockage dans le portail."
+title: Vérifier les métriques de débit et de latence d’un compte de stockage dans le portail Azure | Microsoft Docs
+description: Découvrez comment vérifier les métriques de débit et de latence d’un compte de stockage dans le portail.
 services: storage
-author: tamram
+author: roygara
 manager: jeconnoc
 ms.service: storage
 ms.workload: web
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 02/20/2018
-ms.author: tamram
+ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: 5efcb71c4eb67948c69f881c24758631aea989d4
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: e498e44fcda6877aa69ec763e46e7ae7879e5aa9
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>Vérifier les métriques de débit et de latence d’un compte de stockage
 

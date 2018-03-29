@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: f42a23a8d4e6a90f104c97d4a1cbdef5343e585e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 5cd486d9953979fe8aa9c8354c5fad5a9e11af1e
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Créer, modifier ou supprimer une homologation de réseau virtuel
 
@@ -144,7 +144,7 @@ Si vous souhaitez que les réseaux virtuels communiquent occasionnellement, au l
 - Les ressources des deux réseaux virtuels dans l’homologation peuvent communiquer entre elles avec les mêmes bande passante et latence que si elles étaient dans le même réseau virtuel. Toutefois, chaque taille de machine virtuelle a sa propre bande passante réseau maximale. Pour en savoir plus sur la bande passante réseau maximale pour différentes tailles de machine virtuelle, lisez les articles [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) sur les tailles de machine virtuelle.
 - Vous pouvez homologuer des réseaux virtuels déployés via le Gestionnaire de ressources, qu’ils figurent dans un même abonnement ou dans des abonnements différents.
 - Vous pouvez homologuer des réseaux virtuels déployés via des modèles de déploiement différents, et figurant ou non dans un même abonnement. 
-- Les abonnements dans lesquels figurent les deux réseaux virtuels doivent être associés au même client Azure Active Directory. Si vous n’avez pas encore de client Active Directory, vous pouvez rapidement en [créer un](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#start-from-scratch). Vous pouvez utiliser une [passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) pour vous connecter à deux réseaux virtuels d’abonnements différents associés à différents clients Active Directory.
+- Les abonnements dans lesquels figurent les deux réseaux virtuels doivent être associés au même client Azure Active Directory. Si vous n’avez pas encore de client Active Directory, vous pouvez rapidement en [créer un](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json##create-a-new-azure-ad-tenant). Vous pouvez utiliser une [passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) pour vous connecter à deux réseaux virtuels d’abonnements différents associés à différents clients Active Directory.
 - Un réseau virtuel peut être homologué ainsi qu’être connecté à un autre réseau virtuel avec une passerelle de réseau virtuel Azure. Lorsque des réseaux virtuels sont connectés via une homologation et une passerelle, le trafic entre les réseaux virtuels passe par l’homologation plutôt que par la passerelle.
 - Un coût nominal s’applique pour le trafic entrant et sortant qui utilise une homologation de réseau virtuel. Pour plus d’informations, consultez la [page relative aux prix appliqués](https://azure.microsoft.com/pricing/details/virtual-network).
 

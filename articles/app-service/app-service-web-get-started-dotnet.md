@@ -1,11 +1,11 @@
 ---
-title: "Créer une application web ASP.NET Core dans Azure | Microsoft Docs"
-description: "Découvrez comment exécuter des applications web dans Azure App Service en déployant l’application web ASP.NET par défaut."
+title: Créer une application web ASP.NET Core dans Azure | Microsoft Docs
+description: Découvrez comment exécuter des applications web dans Azure App Service en déployant l’application web ASP.NET par défaut.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.service: app-service-web
 ms.workload: web
@@ -16,10 +16,10 @@ ms.date: 06/14/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 698f23507da0707a4612f8d33fe7e2995429f361
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Créer une application web ASP.NET Core dans Azure
 
@@ -35,7 +35,8 @@ ms.lasthandoff: 02/01/2018
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour suivre ce didacticiel :
 
@@ -110,7 +111,7 @@ Dans la boîte de dialogue **Configurer le plan App Service**, utilisez les para
 
 ![Créer un plan App Service](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
 
-| Paramètre | Valeur suggérée | DESCRIPTION |
+| Paramètre | Valeur suggérée | Description |
 |-|-|-|
 |Plan App Service| myAppServicePlan | Nom du plan App Service. |
 | Lieu | Europe de l'Ouest | Centre de données dans lequel l’application web est hébergée. |
@@ -171,7 +172,7 @@ Le menu de gauche fournit différentes pages vous permettant de configurer votre
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Build a .NET Core and SQL Database web app in Azure App Service](app-service-web-tutorial-dotnetcore-sqldb.md) (Créer une application web .NET Core et SQL Database dans Azure App Service)

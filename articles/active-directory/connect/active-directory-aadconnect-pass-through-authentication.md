@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect : authentification directe | Microsoft Docs"
-description: "Cet article présente l’authentification directe Azure Active Directory (Azure AD) et explique comment l’utiliser pour autoriser les connexions à Azure AD en validant les mots de passe des utilisateurs à partir d’Active Directory local."
+title: 'Azure AD Connect : authentification directe | Microsoft Docs'
+description: Cet article présente l’authentification directe Azure Active Directory (Azure AD) et explique comment l’utiliser pour autoriser les connexions à Azure AD en validant les mots de passe des utilisateurs à partir d’Active Directory local.
 services: active-directory
-keywords: "qu’est-ce que l’authentification directe Azure AD Connect, installation d’Active Directory, composants requis pour Azure AD, SSO, Authentification unique"
-documentationcenter: 
+keywords: qu’est-ce que l’authentification directe Azure AD Connect, installation d’Active Directory, composants requis pour Azure AD, SSO, Authentification unique
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: billmath
-ms.openlocfilehash: 5a559c749bc7ba3cabbbb1a171605b8baf601eef
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: d19e63e10f2d42d97bb6fabca9c9e47028cbaf39
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Connexion de l’utilisateur avec l’authentification directe Azure Active Directory
 
@@ -28,7 +28,7 @@ L’authentification directe Azure Active Directory (Azure AD) permet à vos uti
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-Cette fonctionnalité est une alternative à [Synchronisation du hachage de mot de passe Azure AD](active-directory-aadconnectsync-implement-password-synchronization.md), qui offre les mêmes fonctionnalités d’authentification sur le cloud aux organisations. Toutefois, les stratégies de conformité et de sécurité de certaines organisations ne permettent pas à ces organisations d’envoyer des mots de passe utilisateurs, même dans un format haché, en dehors de leurs limites internes. L’authentification directe est la solution appropriée pour ces organisations.
+Cette fonctionnalité est une alternative à [Synchronisation du hachage de mot de passe Azure AD](active-directory-aadconnectsync-implement-password-hash-synchronization.md), qui offre les mêmes fonctionnalités d’authentification sur le cloud aux organisations. Toutefois, les stratégies de conformité et de sécurité de certaines organisations ne permettent pas à ces organisations d’envoyer des mots de passe utilisateurs, même dans un format haché, en dehors de leurs limites internes. L’authentification directe est la solution appropriée pour ces organisations.
 
 ![Authentification directe Azure AD](./media/active-directory-aadconnect-pass-through-authentication/pta1.png)
 

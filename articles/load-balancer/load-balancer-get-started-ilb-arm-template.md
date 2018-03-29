@@ -1,6 +1,6 @@
 ---
-title: "Créer un équilibrage de charge interne à l’aide d’un modèle Azure | Microsoft Docs"
-description: "Découvrez comment créer un équilibreur de charge interne à l’aide d’un modèle dans Resource Manager "
+title: Créer un équilibrage de charge interne à l’aide d’un modèle Azure | Microsoft Docs
+description: 'Découvrez comment créer un équilibreur de charge interne à l’aide d’un modèle dans Resource Manager '
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,21 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 7abb8fb5064ca2ab1e4da6e0a32335f63d87ea02
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: f92430cad52edc60a0ab69caec61cc6f20515f61
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="create-an-internal-load-balancer-using-a-template"></a>Créer un équilibrage de charge interne à l’aide d’un modèle
 
 > [!div class="op_single_selector"]
 > * [Portail Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
-> * [Interface de ligne de commande Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
+> * [interface de ligne de commande Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Modèle](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
@@ -42,7 +41,7 @@ L’exemple de modèle disponible dans le référentiel public utilise un fichie
 
 Pour déployer le modèle téléchargé à l’aide de PowerShell, suivez les étapes ci-dessous.
 
-1. Si vous n’avez jamais utilisé Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) et suivez les instructions jusqu’à la fin pour vous connecter à Azure et sélectionner votre abonnement.
+1. Si vous n'avez jamais utilisé Azure PowerShell, consultez la page [Installation et configuration d'Azure PowerShell](/powershell/azure/overview) et suivez les instructions jusqu'à la fin pour vous connecter à Azure et sélectionner votre abonnement.
 2. Téléchargez le fichier de paramètres sur votre disque local.
 3. Modifiez et enregistrez le fichier.
 4. Pour créer un groupe de ressources à l’aide du modèle, exécutez l’applet de commande **New-AzureRmResourceGroupDeployment** .

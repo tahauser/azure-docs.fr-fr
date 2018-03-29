@@ -1,11 +1,11 @@
 ---
-title: "Prise en main du Stockage Table Azure et des services connectés de Visual Studio (ASP.NET) | Microsoft Docs"
-description: "Comment prendre en main le Stockage Table Azure dans un projet ASP.NET dans Visual Studio après s’être connecté à un compte de stockage à l’aide des services connectés de Visual Studio"
+title: Prise en main du Stockage Table Azure et des services connectés de Visual Studio (ASP.NET) | Microsoft Docs
+description: Comment prendre en main le Stockage Table Azure dans un projet ASP.NET dans Visual Studio après s’être connecté à un compte de stockage à l’aide des services connectés de Visual Studio
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: kraigb
 manager: ghogen
-editor: 
+editor: ''
 ms.assetid: af81a326-18f4-4449-bc0d-e96fba27c1f8
 ms.service: storage
 ms.workload: web
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2016
 ms.author: kraigb
-ms.openlocfilehash: 32a57e77bf6fe3cff88b9d6772ede9e6669ec75f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 646ff3a12d1b28f99376ea67af25f1b6858d675a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Prise en main du Stockage Table Azure et des services connectés de Visual Studio (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -29,10 +29,11 @@ Le stockage de tables Azure vous permet de stocker de grandes quantités de donn
 
 Ce didacticiel montre comment écrire du code ASP.NET pour des scénarios courants en utilisant des entités de stockage de table Azure. Ces scénarios incluent la création d’une table ainsi que l'ajout, l'interrogation et la suppression d’entités de table. 
 
-##<a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Compte Stockage Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account)
+* [Compte Azure Storage](../storage/common/storage-create-storage-account.md#create-a-storage-account)
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -150,7 +151,7 @@ Les étapes suivantes montrent comment créer une table :
 
 1. Dans la boîte de dialogue **Ajouter une vue**, entrez **CreateTable** pour le nom de la vue, puis sélectionnez **Ajouter**.
 
-1. Ouvrez le fichier `CreateTable.cshtml` et modifiez-le pour qu’il se présente comme l'extrait de code suivant :
+1. Ouvrez le fichier `CreateTable.cshtml` et modifiez-le pour qu’il se présente comme l'extrait de code suivant :
 
     ```csharp
     @{
@@ -253,7 +254,7 @@ La classe d’entité *doit* déclarer un constructeur public sans paramètre.
 
 1. Dans la boîte de dialogue **Ajouter une vue**, entrez **AddEntity** pour le nom de la vue, puis sélectionnez **Ajouter**.
 
-1. Ouvrez le fichier `AddEntity.cshtml` et modifiez-le pour qu’il se présente comme l'extrait de code suivant :
+1. Ouvrez le fichier `AddEntity.cshtml` et modifiez-le pour qu’il se présente comme l'extrait de code suivant :
 
     ```csharp
     @{
@@ -461,7 +462,7 @@ Cette section explique comment obtenir une entité unique à partir d’une tabl
 
 1. Dans la boîte de dialogue **Ajouter une vue**, entrez **GetSingle** pour le nom de la vue, puis sélectionnez **Ajouter**.
 
-1. Ouvrez le fichier `GetSingle.cshtml` et modifiez-le pour qu’il se présente comme l'extrait de code suivant :
+1. Ouvrez le fichier `GetSingle.cshtml` et modifiez-le pour qu’il se présente comme l'extrait de code suivant :
 
     ```csharp
     @model Microsoft.WindowsAzure.Storage.Table.TableResult
@@ -571,7 +572,7 @@ Comme indiqué dans la section [Ajout d'une entité à une table](#add-an-entity
 
 1. Dans la boîte de dialogue **Ajouter une vue**, entrez **GetPartition** pour le nom de la vue, puis sélectionnez **Ajouter**.
 
-1. Ouvrez le fichier `GetPartition.cshtml` et modifiez-le pour qu’il se présente comme l'extrait de code suivant :
+1. Ouvrez le fichier `GetPartition.cshtml` et modifiez-le pour qu’il se présente comme l'extrait de code suivant :
 
     ```csharp
     @model IEnumerable<StorageAspnet.Models.CustomerEntity>
@@ -674,7 +675,7 @@ Cette section montre comment supprimer une entité d'une table.
 
 1. Dans la boîte de dialogue **Ajouter une vue**, entrez **DeleteEntity** pour le nom de la vue, puis sélectionnez **Ajouter**.
 
-1. Ouvrez le fichier `DeleteEntity.cshtml` et modifiez-le pour qu’il se présente comme l'extrait de code suivant :
+1. Ouvrez le fichier `DeleteEntity.cshtml` et modifiez-le pour qu’il se présente comme l'extrait de code suivant :
 
     ```csharp
     @model Microsoft.WindowsAzure.Storage.Table.TableResult

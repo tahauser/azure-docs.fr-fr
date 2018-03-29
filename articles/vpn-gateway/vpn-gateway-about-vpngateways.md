@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: ef6d61e9dfc7c30910d897478f07dabc14136b48
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 405af7d1191e8ea3c0ba1c526f0c5a526aef795b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="about-vpn-gateway"></a>À propos de la passerelle VPN
 
@@ -77,7 +77,7 @@ Utilisez les graphiques et les descriptions pour sélectionner la topologie de c
 
 ### <a name="S2S"></a>Site à site
 
-Une connexion par passerelle VPN site à site (S2S) est une connexion via un tunnel VPN IPsec/IKE (S2S ou IKEv1). Les connexions S2S peuvent être utilisées pour les configurations hybrides et entre différents locaux. Une connexion site à site requiert un périphérique VPN local auquel est assignée une adresse IP publique, et qui ne se situe pas derrière un NAT. Pour plus d’informations sur la sélection d’un périphérique VPN, consultez [VPN Gateway FAQ - VPN devices](/vpn-gateway-vpn-faq.md#s2s) (FAQ sur la passerelle VPN - Périphériques VPN).
+Une connexion par passerelle VPN site à site (S2S) est une connexion via un tunnel VPN IPsec/IKE (S2S ou IKEv1). Les connexions S2S peuvent être utilisées pour les configurations hybrides et entre différents locaux. Une connexion site à site requiert un périphérique VPN local auquel est assignée une adresse IP publique, et qui ne se situe pas derrière un NAT. Pour plus d’informations sur la sélection d’un périphérique VPN, consultez [VPN Gateway FAQ - VPN devices](vpn-gateway-vpn-faq.md#s2s) (FAQ sur la passerelle VPN - Périphériques VPN).
 
 ![Exemple de connexion site à site de passerelle VPN Azure](./media/vpn-gateway-about-vpngateways/vpngateway-site-to-site-connection-diagram.png)
 

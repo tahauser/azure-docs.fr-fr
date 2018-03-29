@@ -1,12 +1,12 @@
 ---
 title: Journalisation et audit Azure | Microsoft Docs
-description: "Découvrez comment utiliser les données de journalisation pour obtenir des informations détaillées sur votre application."
+description: Découvrez comment utiliser les données de journalisation pour obtenir des informations détaillées sur votre application.
 services: security
 documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -15,14 +15,14 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: 032aa4a6cedd49ff9c3b4803561b8b187e8f9af5
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-logging-and-auditing"></a>Journalisation et audit Azure
 ## <a name="introduction"></a>Introduction
-### <a name="overview"></a>Vue d’ensemble
+### <a name="overview"></a>Vue d'ensemble
 Pour aider les clients Azure actuels et à venir à comprendre et à utiliser les différentes fonctionnalités de sécurité disponibles dans la plateforme Azure et ses composants connexes, Microsoft a développé une série de livres blancs, de présentations de sécurité, de meilleures pratiques et de listes de contrôle. Les rubriques sont aussi précises que variées et sont mises à jour régulièrement. Le présent document fait partie de cette série, comme décrit dans la section Résumé ci-après.
 ### <a name="azure-platform"></a>Plateforme Azure
 Azure est une plateforme de services cloud ouverte et flexible, qui prend en charge un large éventail de systèmes d’exploitation, de langages de programmation, d’infrastructures, d’outils, de bases de données et d’appareils.

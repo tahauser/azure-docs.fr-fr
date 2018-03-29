@@ -1,12 +1,12 @@
 ---
-title: "Azure Cosmos DB : Présentation de l’API SQL | Microsoft Docs"
-description: "Découvrez comment vous pouvez utiliser Azure Cosmos DB pour stocker et interroger d’immenses volumes de données de documents JSON avec une faible latence, à l’aide de SQL et JavaScript."
-keywords: "base de données JSON, base de données Document"
+title: 'Azure Cosmos DB : Présentation de l’API SQL | Microsoft Docs'
+description: Découvrez comment vous pouvez utiliser Azure Cosmos DB pour stocker et interroger d’immenses volumes de données de documents JSON avec une faible latence, à l’aide de SQL et JavaScript.
+keywords: base de données JSON, base de données Document
 services: cosmos-db
 author: rafats
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 686cdd2b-704a-4488-921e-8eefb70d5c63
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,17 +15,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/22/2017
 ms.author: rafats
-ms.openlocfilehash: 28c18be81d184766f7b64199c09620238e47cde4
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 32313c28de9065b57ec98d3668813a4b24c0becc
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-sql-api"></a>Présentation d’Azure Cosmos DB : API SQL
 
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
-
-[Azure Cosmos DB](introduction.md) est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale pour les applications stratégiques. Azure Cosmos DB fournit la [distribution mondiale clés en main](distribute-data-globally.md), la [mise à l’échelle élastique du débit et du stockage](partition-data.md), des latences de l’ordre de quelques millisecondes dans le monde entier dans plus de 99 pour cent des cas, [cinq niveaux de cohérence bien définis](consistency-levels.md) et une garantie d’une haute disponibilité, le tout soutenu par nos [contrats SLA de pointe](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB [indexe automatiquement les données](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) sans avoir à s’occuper de la gestion des schémas et des index. Il est multi-modèle et prend en charge les modèles de données en colonnes, documents, graphiques et clé-valeur.
+[Azure Cosmos DB](introduction.md) est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale pour les applications stratégiques. Azure Cosmos DB fournit la [distribution mondiale clés en main](distribute-data-globally.md), la [mise à l’échelle élastique du débit et du stockage](partition-data.md), des latences de l’ordre de quelques millisecondes dans le monde entier dans plus de 99 pour cent des cas, [cinq niveaux de cohérence bien définis](consistency-levels.md) et une garantie d’une haute disponibilité, le tout soutenu par nos [contrats SLA de pointe](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB [indexe automatiquement les données](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) sans avoir à s’occuper de la gestion des schémas et des index. Il est multi-modèle et prend en charge les modèles de données en colonnes, documents, graphes et clé-valeur.
 
 ![API SQL Azure](./media/sql-api-introduction/cosmosdb-sql-api.png) 
 
@@ -70,7 +68,7 @@ Un compte de base de données est constitué d'un ensemble de bases de données.
 
 Azure Cosmos DB expose les ressources via l’API REST qui peut être appelée par n’importe quel langage capable de créer des requêtes HTTP/HTTPS. Par ailleurs, nous fournissons des bibliothèques de programmation pour plusieurs langages populaires pour l’API SQL. Les bibliothèques clientes simplifient de nombreuses tâches associées à l’API, car elles traitent les détails tels que la mise en cache d’adresses, la gestion des exceptions, les nouvelles tentatives automatiques, etc. Elles sont actuellement disponibles pour les langages et les plateformes suivants :  
 
-| Télécharger | Documentation |
+| Download | Documentation |
 | --- | --- |
 | [KIT DE DÉVELOPPEMENT LOGICIEL (SDK) .NET](http://go.microsoft.com/fwlink/?LinkID=402989) |[Bibliothèque .NET](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) |
 | [Kit de développement logiciel (SDK) Node.js](http://go.microsoft.com/fwlink/?LinkID=402990) |[Bibliothèque Node.js](http://azure.github.io/azure-documentdb-node/) |
