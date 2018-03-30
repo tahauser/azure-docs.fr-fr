@@ -197,7 +197,7 @@
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Tarifs
-      href: aml-services-pricing.md
+      href: aml-pricing.md
     - name: Disponibilité des régions
       href: 'https://azure.microsoft.com/regions/services/'
     - name: TDSP (Team Data Science Process)

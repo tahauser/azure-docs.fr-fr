@@ -3,8 +3,6 @@
 - name: Vue d'ensemble
   expanded: true
   items:
-    - name: Présentation de Machine Learning
-      href: what-is-machine-learning.md
     - name: Machine Learning Studio
       href: what-is-ml-studio.md
     - name: Fonctionnalités ML Studio
