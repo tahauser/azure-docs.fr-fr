@@ -3,10 +3,10 @@ documentType: LandingData
 title: Documentation Azure Cosmos DB
 metadata:
   document_id: e77bd640-1036-8b31-955c-a2cc990c69a1
-  title: "Documentation Azure Cosmos DB - Didacticiels, Référence des API"
-  description: "Apprenez à utiliser Azure Cosmos DB pour créer des bases de données multi-modèles distribuées mondialement. Le composant Didacticiels vous montre comment créer et interroger des documents, des bases de données de graphique et de clé/valeur."
+  title: Documentation Azure Cosmos DB - Didacticiels, Référence des API
+  description: Apprenez à utiliser Azure Cosmos DB pour créer des bases de données multi-modèles distribuées mondialement. Le composant Didacticiels vous montre comment créer et interroger des documents, des bases de données de graphique et de clé/valeur.
   services: cosmos-db
-  author: mimig
+  author: mimig1
   manager: jhubbard
   ms.service: cosmos-db
   ms.tgt_pltfrm: na
@@ -14,27 +14,27 @@ metadata:
   ms.topic: landing-page
   ms.date: 02/14/2018
   ms.author: mimig
-  ms.openlocfilehash: 556b60d6489f51e23d09290906b3e0d24b72cbdc
-  ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+  ms.openlocfilehash: 871160c2d4e6619fe2e79d15b5098ed05e8404ec
+  ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 03/02/2018
+  ms.lasthandoff: 03/29/2018
 abstract:
-  description: "Azure Cosmos DB est un service de base de données multimodèle distribué à l’échelle mondiale. Utilisez ces guides de démarrage rapide, didacticiels et exemples pour développer des documents, des bases de données à colonne large, de graphiques et de clé/valeur. Découvrez ensuite comment répliquer vos données sur autant de régions Azure souhaitées et mettez à l’échelle votre débit sans tenir compte de votre stockage, tout en bénéficiant de contrats de niveau de service complets."
+  description: Azure Cosmos DB est un service de base de données multimodèle distribué à l’échelle mondiale. Utilisez ces guides de démarrage rapide, didacticiels et exemples pour développer des documents, des bases de données à colonne large, de graphiques et de clé/valeur. Découvrez ensuite comment répliquer vos données sur autant de régions Azure souhaitées et mettez à l’échelle votre débit sans tenir compte de votre stockage, tout en bénéficiant de contrats de niveau de service complets.
   aside:
     image:
       alt: 
       height: 110
       src: media/index/video.png
       width: 250
-    title: "Créer des applications mobiles à l’échelle mondiale en quelques minutes (16:17)"
-    href: https://azure.microsoft.com/en-us/resources/videos/build-2017-azure-cosmos-db-build-planet-scale-mobile-apps-in-minutes/
+    title: Créer des applications mobiles à l’échelle mondiale en quelques minutes (16:17)
+    href: https://azure.microsoft.com/resources/videos/build-2017-azure-cosmos-db-build-planet-scale-mobile-apps-in-minutes/
     width: 250
 sections:
-- title: "Démarrages en 5 minutes"
+- title: Démarrages en 5 minutes
   items:
   - type: paragraph
-    text: "En savoir plus sur Azure Cosmos DB permet de créer une base de données mondialement distribuée en utilisant l’une des API multi-modèles :"
+    text: 'En savoir plus sur Azure Cosmos DB permet de créer une base de données mondialement distribuée en utilisant l’une des API multi-modèles :'
   - type: table
     style: dataMatrix
     columns:
@@ -84,19 +84,19 @@ sections:
       - href: /azure/cosmos-db/create-cassandra-nodejs
       - href: /azure/cosmos-db/create-cassandra-python
       - href: 
-- title: "Didacticiels pas à pas"
+- title: Didacticiels pas à pas
   items:
   - type: paragraph
-    text: "Apprenez à développer des applications à l’aide d’Azure Cosmos DB&#58;"
+    text: Apprenez à développer des applications à l’aide d’Azure Cosmos DB&#58;
   - type: list
     style: ordered
     items:
-    - html: "Développer une application avec Cosmos DB&#58; <a href=\"/azure/cosmos-db/tutorial-develop-sql-api-dotnet\">SQL</a> | <a href=\"/azure/cosmos-db/tutorial-develop-mongodb\">MongoDB</a> | <a href=\"/azure/cosmos-db/tutorial-develop-table-dotnet\">Table</a> | <a href=\"/azure/cosmos-db/tutorial-develop-graph-dotnet\">Graph</a> | <a href=\"https://aka.ms/cassandratutorial\">Cassandra</a>"
-    - html: "Importer des données dans DB&#58; <a href=\"import-data\">SQL</a> | <a href=\"mongodb-migrate\">MongoDB</a> | <a href=\"https://aka.ms/tableapiimporttool\">Table</a> | <a href=\"https://aka.ms/cassandraimport\">Cassandra</a>"
-    - html: "Interroger des données avec Cosmos DB&#58; <a href=\"/azure/cosmos-db/tutorial-query-sql-api\">SQL</a> | <a href=\"/azure/cosmos-db/tutorial-query-mongodb\">MongoDB</a> | <a href=\"/azure/cosmos-db/tutorial-query-table\">Table</a> | <a href=\"/azure/cosmos-db/tutorial-query-graph\">Graph</a>"
-    - html: "Réplication de base de données mondiale avec Cosmos DB&#58; <a href=\"/azure/cosmos-db/tutorial-global-distribution-sql-api\">SQL</a> | <a href=\"/azure/cosmos-db/tutorial-global-distribution-mongodb\">MongoDB</a> | <a href=\"/azure/cosmos-db/tutorial-global-distribution-table\">Table</a> | <a href=\"/azure/cosmos-db/tutorial-global-distribution-graph\">Graph</a>"
-    - html: "<a href=\"local-emulator\">Développer votre application localement à l’aide de l’émulateur</a>"
-    - html: "<a href=\"/azure/cosmos-db/tutorial-functions-http-trigger\">Créer un déclencheur HTTP avec une liaison d’entrée de base de données Azure Cosmos</a>"
+    - html: Développer une application avec Azure Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-develop-sql-api-dotnet">SQL</a> | <a href="/azure/cosmos-db/tutorial-develop-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-develop-table-dotnet">Table</a> | <a href="/azure/cosmos-db/tutorial-develop-graph-dotnet">Graph</a> | <a href="https://aka.ms/cassandratutorial">Cassandra</a>
+    - html: Importer des données dans Azure Cosmos DB&#58; <a href="import-data">SQL</a> | <a href="mongodb-migrate">MongoDB</a> | <a href="https://aka.ms/tableapiimporttool">Table</a> | <a href="https://aka.ms/cassandraimport">Cassandra</a>
+    - html: Interroger des données avec Azure Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-query-sql-api">SQL</a> | <a href="/azure/cosmos-db/tutorial-query-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-query-table">Table</a> | <a href="/azure/cosmos-db/tutorial-query-graph">Graph</a>
+    - html: Réplication de base de données mondiale avec Azure Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-global-distribution-sql-api">SQL</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-table">Table</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-graph">Graph</a>
+    - html: <a href="local-emulator">Développer votre application localement à l’aide de l’émulateur</a>
+    - html: <a href="/azure/cosmos-db/tutorial-functions-http-trigger">Créer un déclencheur HTTP avec une liaison d’entrée de base de données Azure Cosmos</a>
 - title: Exemples
   items:
   - type: list
@@ -105,7 +105,7 @@ sections:
     items:
     - html: <a href="/azure/cosmos-db/cli-samples">interface de ligne de commande Azure</a>
     - html: <a href="/azure/cosmos-db/powershell-samples">Azure PowerShell</a>
-- title: "Informations de référence"
+- title: Informations de référence
   items:
   - type: list
     style: cards

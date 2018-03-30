@@ -27,6 +27,8 @@
   items:
     - name: Utiliser le portail Azure Stack
       href: azure-stack-use-portal.md
+    - name: Utiliser l’API Azure Stack
+      href: azure-stack-rest-api-use.md
     - name: Security & Compliance
       items:
         - name: Gérer RBAC

@@ -6,6 +6,7 @@
 ## [Qu’est-ce que Resource Health ?](resource-health-overview.md)
 # Procédure
 ## [Configurer des alertes pour des évènements Service Health](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json)
+### [Afficher les notifications d’intégrité du service à l’aide du Portail Azure](../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json)
 ## [Configurer des notifications à l’aide d’un webhook](service-health-alert-webhook-guide.md)
 ### [Configurer avec ServiceNow](service-health-alert-webhook-servicenow.md)
 ### [Configurer avec PagerDuty](service-health-alert-webhook-pagerduty.md)

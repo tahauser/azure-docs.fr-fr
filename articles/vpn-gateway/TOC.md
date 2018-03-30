@@ -6,6 +6,10 @@
 ## [Limites du service et de l’abonnement](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 
 # Prise en main
+## [Création d’une passerelle VPN basée sur un itinéraire - Portail Azure](create-routebased-vpn-gateway-portal.md)
+## [Création d’une passerelle VPN basée sur un itinéraire - PowerShell](create-routebased-vpn-gateway-powershell.md)
+
+# Concepts
 ## [Planification et conception de la passerelle VPN](vpn-gateway-plan-design.md)
 ## [À propos des paramètres de la passerelle VPN](vpn-gateway-about-vpn-gateway-settings.md)
 ## [À propos des périphériques VPN](vpn-gateway-about-vpn-devices.md)
