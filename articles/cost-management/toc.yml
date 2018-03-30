@@ -39,6 +39,8 @@
       href: connect-google-account.md
     - name: Connecter un compte AWS
       href: connect-aws-account.md
+    - name: Configurer des comptes de stockage
+      href: storage-accounts.md
     - name: Utiliser les rapports Azure Cost Management
       href: use-reports.md
 - name: Ressources

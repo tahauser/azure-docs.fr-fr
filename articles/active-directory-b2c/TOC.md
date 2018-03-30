@@ -33,7 +33,7 @@
 ### [Protéger une API ASP.NET](active-directory-b2c-tutorials-web-api.md)
 ### [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)
 ### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
-### [Node.JS](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
+### [Node.JS](active-directory-b2c-devquickstarts-api-node.md)
 ### [Appeler une API web .NET](active-directory-b2c-devquickstarts-web-api-dotnet.md)
 
 # Guides
@@ -66,7 +66,8 @@
 # Identity Experience Framework (Infrastructure d’expérience d’identité)
 ## [Stratégies personnalisées](active-directory-b2c-overview-custom.md)
 ## Guides
-### [Démarrer](active-directory-b2c-get-started-custom.md)
+### [Prise en main](active-directory-b2c-get-started-custom.md)
+### [Pack de démarrage](active-directory-b2c-reference-custom-policies-understanding-contents.md)
 ### Configurer les fournisseurs OIDC et OAUTH
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
 #### [Compte Microsoft](active-directory-b2c-custom-setup-msa-idp.md)
