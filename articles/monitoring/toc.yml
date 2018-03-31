@@ -1,5 +1,5 @@
 - name: Documentation sur la Surveillance Azure
-  href: management-overview-monitoring.md
+  href: index.md
 - name: Vue d'ensemble
   items:
     - name: Surveillance dans Azure
