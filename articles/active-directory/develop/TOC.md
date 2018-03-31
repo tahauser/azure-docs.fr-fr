@@ -45,7 +45,7 @@
 ### [Déboguer l’authentification unique SAML](active-directory-saml-debugging.md)
 ### [Protocole SAML d’authentification unique](active-directory-single-sign-on-protocol-reference.md)
 ### [Protocole SAML de déconnexion unique](active-directory-single-sign-out-protocol-reference.md)
-### [Créer un client](active-directory-howto-tenant.md)
+## [Créer un client](active-directory-howto-tenant.md)
 ## [Instructions de personnalisation](active-directory-branding-guidelines.md)
 ## Authentification unique Mobile et Bureau
 ### [Activer l’authentification unique sur Android](active-directory-sso-android.md)
