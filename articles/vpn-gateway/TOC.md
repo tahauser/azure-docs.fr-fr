@@ -8,6 +8,7 @@
 # Prise en main
 ## [Création d’une passerelle VPN basée sur un itinéraire - Portail Azure](create-routebased-vpn-gateway-portal.md)
 ## [Création d’une passerelle VPN basée sur un itinéraire - PowerShell](create-routebased-vpn-gateway-powershell.md)
+## [Création d’une passerelle VPN basée sur un itinéraire - CLI](create-routebased-vpn-gateway-cli.md)
 
 # Concepts
 ## [Planification et conception de la passerelle VPN](vpn-gateway-plan-design.md)
