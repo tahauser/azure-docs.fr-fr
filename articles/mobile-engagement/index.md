@@ -1,24 +1,28 @@
 ---
-title: "Documentation Azure Mobile Engagement - Didacticiels, informations de référence sur les API | Microsoft Docs"
-description: "Découvrez comment obtenir des informations sur l’utilisation des applications mobiles et la segmentation des utilisateurs en temps réel, et comment activer des notifications push en contexte ainsi que la messagerie dans l’application."
+title: Documentation Azure Mobile Engagement - Didacticiels, informations de référence sur les API | Microsoft Docs
+description: Découvrez comment obtenir des informations sur l’utilisation des applications mobiles et la segmentation des utilisateurs en temps réel, et comment activer des notifications push en contexte ainsi que la messagerie dans l’application.
 services: mobile-engagement
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: mobile-engagement
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 5f682ba16b52b9a084505b8212c4b6f043bb94c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 874b40e0e1407be9f546c5a5f57cee2d1034a840
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="mobile-engagement-documentation"></a>Documentation Mobile Engagement
+
+> [!IMPORTANT]
+> Azure Mobile Engagement est hors service depuis le 31/03/2018. Cette page sera supprimée prochainement.
+> 
 
 Découvrez comment optimiser l’utilisation, la rétention et la monétisation d’applications mobiles avec Mobile Engagement. Des didacticiels, des kits de développement logiciel et d’autres documents vous montrent comment obtenir des informations sur l’utilisation des applications et la segmentation des utilisateurs en temps réel, et comment activer des notifications push en contexte ainsi que la messagerie dans l’application.
 
@@ -189,7 +193,7 @@ Découvrez comment optimiser l’utilisation, la rétention et la monétisation 
 
 ---
 
-<h2>Référence</h2>
+<h2>Informations de référence</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">

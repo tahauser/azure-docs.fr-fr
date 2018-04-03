@@ -25,6 +25,10 @@
   items:
     - name: Structure de définition Azure Policy
       href: policy-definition.md
+- name: Procédures
+  items:
+    - name: Créer des stratégies par programmation
+      href: policy-insights.md
 - name: Informations de référence
   items:
     - name: Azure CLI
