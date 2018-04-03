@@ -1,24 +1,24 @@
 ---
 title: Configuration de routage requise pour Azure ExpressRoute | Microsoft Docs
-description: "Cette page détaille les conditions nécessaires à la configuration et à la gestion du routage pour les circuits ExpressRoute."
+description: Cette page détaille les conditions nécessaires à la configuration et à la gestion du routage pour les circuits ExpressRoute.
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: ganesr
-editor: 
+editor: ''
 ms.assetid: 5b382e79-fa3f-495a-a764-c5ff86af66a2
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/03/2017
+ms.date: 03/28/2018
 ms.author: ganesr
-ms.openlocfilehash: 87cf32c23c2b3f50057016a23212c95b706f2910
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 829646be6404f86d9f370b3a402cfc0c0c980699
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="expressroute-routing-requirements"></a>Configuration requise pour le routage ExpressRoute
 Pour vous connecter aux services de cloud Microsoft à l’aide d’ExpressRoute, vous devez configurer et gérer le routage. Certains fournisseurs de connectivité proposent la configuration et la gestion du routage comme un service géré. Vérifiez auprès de votre fournisseur de connectivité s’il offre ce service. Si ce n’est pas le cas, vous devez respecter les conditions suivantes :
@@ -107,7 +107,7 @@ Assurez-vous que votre adresse IP et votre numéro AS sont enregistrés à votre
 
 Si vos préfixes et le numéro ASN ne vous sont pas affectés dans les registres précédents, vous devez ouvrir un dossier de support pour valider manuellement vos préfixes et votre numéro ASN. La prise en charge requiert un document, tel qu’une lettre d’autorisation, qui prouve que vous êtes autorisé à utiliser les ressources.
 
-Un numéro ASN privé est autorisé avec l’homologation Microsoft, mais nécessite également une validation manuelle.
+Un numéro ASN privé est autorisé avec l’homologation Microsoft, mais nécessite également une validation manuelle. Nous supprimons également les numéros AS privés dans le chemin AS PATH pour les préfixes reçus. En conséquence, vous ne pouvez pas ajouter de numéros AS privés au chemin AS PATH pour [influencer le routage pour l’homologation Microsoft](expressroute-optimize-routing.md). 
 
 > [!IMPORTANT]
 > Les adresses IP publiques proposées à Microsoft via ExpressRoute ne doivent pas être publiées sur Internet. Cela pourrait interrompre la connectivité avec d’autres services Microsoft. Toutefois, les adresses IP publiques utilisées par les serveurs de votre réseau qui communiquent avec les points de terminaison O365 au sein de Microsoft peuvent être publiées via ExpressRoute. 
@@ -118,7 +118,7 @@ Un numéro ASN privé est autorisé avec l’homologation Microsoft, mais néces
 L’échange de routage s’effectuera via le protocole eBGP. Des sessions EBGP sont établies entre les MSEE et les routeurs. L’authentification des sessions BGP n’est pas obligatoire. Si nécessaire, un hachage MD5 peut être configuré. Pour plus d’informations sur la configuration des sessions BGP, consultez [Configuration du routage](expressroute-howto-routing-classic.md) et [Workflows d’approvisionnement du circuit et états du circuit](expressroute-workflows.md).
 
 ## <a name="autonomous-system-numbers"></a>Numéros système autonomes
-Microsoft utilise le numéro AS 12076 pour les homologations publiques Azure, privées Azure et Microsoft. Nous avons réservé les numéros AS 65515 à 65520 pour un usage interne. Les numéros AS 16 bits et 32 bits sont pris en charge. Nous avons besoin d’un ASN enregistré publiquement pour l’homologation Microsoft uniquement. Les homologations privées et publiques peuvent utiliser des ASN privés.
+Microsoft utilise le numéro AS 12076 pour les homologations publiques Azure, privées Azure et Microsoft. Nous avons réservé les numéros AS 65515 à 65520 pour un usage interne. Les numéros AS 16 bits et 32 bits sont pris en charge.
 
 Il n’existe aucune exigence concernant une symétrie de transfert des données. Les chemins d’envoi et de réception peuvent transiter par différentes paires de routeurs. Les routages identiques doivent être publiés des deux côtés sur plusieurs paires de circuits vous appartenant. Les métriques de routage n’ont pas besoin d’être identiques.
 

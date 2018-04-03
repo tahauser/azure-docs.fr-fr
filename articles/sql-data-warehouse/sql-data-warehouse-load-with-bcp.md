@@ -1,11 +1,11 @@
 ---
-title: "Utilisation de bcp pour charger des données dans SQL Data Warehouse | Microsoft Docs"
-description: "Découvrez bcp et apprenez comment utiliser cette solution avec les scénarios d’entreposage de données."
+title: Utilisation de bcp pour charger des données dans SQL Data Warehouse | Microsoft Docs
+description: Découvrez bcp et apprenez comment utiliser cette solution avec les scénarios d’entreposage de données.
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
 manager: barbkess
-editor: 
+editor: ''
 ms.assetid: f9467d11-fcd6-4131-a65a-2022d2c32d24
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 01/22/2018
 ms.author: cakarst;barbkess
-ms.openlocfilehash: 146c6fdada651551c05b2cbcadc3e1248a40b613
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 752a2f0d7b49f9e053788b26e3df389246c72a73
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="load-data-with-bcp"></a>Charger des données avec bcp
 
@@ -42,6 +42,7 @@ Ce didacticiel :
 > 
 
 ## <a name="prerequisites"></a>Prérequis
+
 Pour parcourir ce didacticiel, vous avez besoin des éléments suivants :
 
 * Base de données SQL Data Warehouse
@@ -174,7 +175,7 @@ Pour vérifier que les données ont été exportées, ouvrez le nouveau fichier.
 > 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour concevoir votre processus de chargement, consultez la [vue d’ensemble de chargement](sql-data-warehouse-design-elt-data-loading).  
+Pour concevoir votre processus de chargement, consultez [Meilleures pratiques de chargement de données dans Azure SQL Data Warehouse](guidance-for-loading-data.md).  
 
 
 

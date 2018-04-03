@@ -1,11 +1,11 @@
 ---
-title: "Disques de données associés de groupes de machines virtuelles identiques Azure | Microsoft Docs"
-description: "Découvrez comment utiliser des disques de données associés à des groupes de machines virtuelles identiques"
+title: Disques de données associés de groupes de machines virtuelles identiques Azure | Microsoft Docs
+description: Découvrez comment utiliser des disques de données associés à des groupes de machines virtuelles identiques
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
@@ -15,55 +15,30 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: negat
-ms.openlocfilehash: 52ea7e35b941d5b1e45f39203757e4a3644cc9a5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ec11a2d66530129fb61d97681e6882b887c8654c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Groupes de machines virtuelles identiques Azure et disques de données associés
-Les [groupes de machines virtuelles identiques](/azure/virtual-machine-scale-sets/) Azure prennent désormais en charge les machines virtuelles avec des disques de données associés. Les disques de données peuvent être définis dans le profil de stockage pour des groupes identiques qui ont été créés avec des disques gérés Azure. Auparavant, les seules options de stockage associées directement disponibles avec les machines virtuelles dans des groupes identiques étaient le lecteur du système d’exploitation et les lecteurs temporaires.
+Pour développer votre espace de stockage, les [groupes de machines virtuelles identiques](/azure/virtual-machine-scale-sets/) Azure prennent en charge les instances de machine virtuelle avec des disques de données associés. Vous pouvez associer des disques de données lorsque le groupe identique est créé ou sur un groupe identique existant.
 
 > [!NOTE]
->  Lorsque vous créez un groupe identique dans lequel des disques de données associés sont définis, vous devez toujours monter et formater les disques à partir d’une machine virtuelle pour les utiliser (comme pour les machines virtuelles Azure autonomes). Une méthode pratique pour effectuer ce processus consiste à utiliser une extension de script personnalisé qui appelle un script standard pour partitionner et formater tous les disques de données sur une machine virtuelle.
+>  Lorsque vous créez un groupe identique avec des disques de données associés, vous devez monter et formater les disques à partir d’une machine virtuelle pour les utiliser (comme pour les machines virtuelles Azure autonomes). Une méthode pratique pour effectuer ce processus consiste à utiliser une extension de script personnalisé qui appelle un script pour partitionner et formater tous les disques de données sur une machine virtuelle. Pour obtenir des exemples, consultez [Create and use disks with virtual machine scale set with the Azure CLI 2.0](tutorial-use-disks-cli.md#prepare-the-data-disks) (Créer et utiliser des disques avec un groupe de machines virtuelles identiques avec Azure CLI 2.0) et [Create and use disks with virtual machine scale set with Azure PowerShell](tutorial-use-disks-powershell.md#prepare-the-data-disks) (Créer et utiliser des disques avec un groupe de machines virtuelles identiques avec Azure PowerShell).
 
-## <a name="create-a-scale-set-with-attached-data-disks"></a>Créer un groupe identique avec des disques de données associés
-Une méthode simple pour créer un groupe identique avec des disques associés consiste à utiliser la commande [az vmss create](/cli/azure/vmss#az_vmss_create). L’exemple suivant crée un groupe de ressources Azure et un groupe identique de 10 machines virtuelles Ubuntu, chacune ayant 2 disques de données associés, de 50 et 100 Go respectivement.
 
-```bash
-az group create -l southcentralus -n dsktest
-az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --data-disk-sizes-gb 50 100
-```
+## <a name="create-and-manage-disks-in-a-scale-set"></a>Créer et gérer des disques dans un groupe identique
+Pour plus d’informations sur la création d’un groupe identique avec des disques de données associés, préparer et formater ou ajouter et supprimer des disques de données, consultez l’un des didacticiels suivants :
 
-La commande [az vmss create](/cli/azure/vmss#az_vmss_create) inclut par défaut des valeurs de configuration si vous ne les spécifiez pas. Pour voir les options disponibles que vous pouvez remplacer, essayez :
+- [Azure CLI 2.0](tutorial-use-disks-cli.md)
+- [Azure PowerShell](tutorial-use-disks-powershell.md)
 
-```bash
-az vmss create --help
-```
+Le reste de cet article décrit les cas d’usage spécifiques tels que les clusters Service Fabric qui nécessitent des disques de données, ou l’association de disques de données existants à du contenu pour un groupe identique.
 
-Une autre méthode de création d’un groupe identique avec des disques de données associés consiste à définir un groupe identique dans un modèle Azure Resource Manager, à inclure une section _dataDisks_ dans le _storageProfile_ et à déployer le modèle. Les disques de 50 Go et 100 Go de l’exemple précédent seraient définis comme dans l’exemple de modèle suivant :
-
-```json
-"dataDisks": [
-    {
-    "lun": 1,
-    "createOption": "Empty",
-    "caching": "ReadOnly",
-    "diskSizeGB": 50
-    },
-    {
-    "lun": 2,
-    "createOption": "Empty",
-    "caching": "ReadOnly",
-    "diskSizeGB": 100
-    }
-]
-```
-
-Vous pouvez voir un exemple complet et prêt à déployer d’un modèle de groupe identique avec un disque associé défini ici : [https://github.com/chagarw/MDPP/tree/master/101-vmss-os-data](https://github.com/chagarw/MDPP/tree/master/101-vmss-os-data).
 
 ## <a name="create-a-service-fabric-cluster-with-attached-data-disks"></a>Créer un cluster Service Fabric avec des disques de données associés
-Chaque [type de nœud](../service-fabric/service-fabric-cluster-nodetypes.md) d’un cluster [Service Fabric](/azure/service-fabric) exécuté dans Azure est alimenté par un groupe de machines virtuelles identiques.  En vous appuyant sur un modèle Azure Resource Manager, vous pouvez associer des disques de données au groupe de machines constituant le cluster Service Fabric. Vous pouvez utiliser un [modèle existant](https://github.com/Azure-Samples/service-fabric-cluster-templates) comme point de départ. Dans le modèle, incluez une section _dataDisks_ dans l’élément _storageProfile_ des ressources _Microsoft.Compute/virtualMachineScaleSets_, puis déployez-le. Dans l’exemple suivant, un disque de données de 128 Go est associé :
+Chaque [type de nœud](../service-fabric/service-fabric-cluster-nodetypes.md) d’un cluster [Service Fabric](/azure/service-fabric) exécuté dans Azure est alimenté par un groupe de machines virtuelles identiques.  En vous appuyant sur un modèle Azure Resource Manager, vous pouvez associer des disques de données aux groupes identiques constituant le cluster Service Fabric. Vous pouvez utiliser un [modèle existant](https://github.com/Azure-Samples/service-fabric-cluster-templates) comme point de départ. Dans le modèle, incluez une section _dataDisks_ dans l’élément _storageProfile_ des ressources _Microsoft.Compute/virtualMachineScaleSets_, puis déployez-le. Dans l’exemple suivant, un disque de données de 128 Go est associé :
 
 ```json
 "dataDisks": [
@@ -115,56 +90,6 @@ Pour préparer automatiquement les disques de données dans un cluster Linux, aj
 }
 ```
 
-## <a name="adding-a-data-disk-to-an-existing-scale-set"></a>Ajouter un disque de données à un groupe identique existant
-> [!NOTE]
->  Vous pouvez uniquement associer des disques de données à un groupe identique qui a été créé avec des [disques gérés Azure](./virtual-machine-scale-sets-managed-disks.md).
-
-Vous pouvez ajouter un disque de données à un groupe de machines virtuelles identiques à l’aide de la commande _az vmss disk attach_ d’Azure CLI. Assurez-vous de spécifier un numéro d’unité logique (LUN) qui n’est pas déjà utilisé. L’exemple de CLI suivant ajoute un lecteur de 50 Go au numéro d’unité logique (LUN) 3 :
-
-```bash
-az vmss disk attach -g dsktest -n dskvmss --size-gb 50 --lun 3
-```
-
-L’exemple PowerShell suivant ajoute un lecteur de 50 Go au numéro d’unité logique (LUN) 3 :
-
-```powershell
-$vmss = Get-AzureRmVmss -ResourceGroupName myvmssrg -VMScaleSetName myvmss
-$vmss = Add-AzureRmVmssDataDisk -VirtualMachineScaleSet $vmss -Lun 3 -Caching 'ReadWrite' -CreateOption Empty -DiskSizeGB 50 -StorageAccountType StandardLRS
-Update-AzureRmVmss -ResourceGroupName myvmssrg -Name myvmss -VirtualMachineScaleSet $vmss
-```
-
-> [!NOTE]
-> Des tailles de machine virtuelle différentes présentent des limites différentes sur les nombres de lecteurs associés qu’elles peuvent prendre en charge. Vérifiez la [caractéristique de taille de la machine virtuelle](../virtual-machines/windows/sizes.md) avant d’ajouter un nouveau disque.
-
-Vous pouvez également ajouter un disque en ajoutant une nouvelle entrée à la propriété _dataDisks_ dans le _storageProfile_ de définition d’un groupe identique et en appliquant la modification. Pour tester, trouvez la définition d’un groupe identique existant dans l’[Explorateur de ressources Azure](https://resources.azure.com/). Sélectionnez _Modifier_ et ajoutez un nouveau disque à la liste des disques de données, comme illustré dans l’exemple suivant :
-
-```json
-"dataDisks": [
-    {
-    "lun": 1,
-    "createOption": "Empty",
-    "caching": "ReadOnly",
-    "diskSizeGB": 50
-    },
-    {
-    "lun": 2,
-    "createOption": "Empty",
-    "caching": "ReadOnly",
-    "diskSizeGB": 100
-    },
-    {
-    "lun": 3,
-    "createOption": "Empty",
-    "caching": "ReadOnly",
-    "diskSizeGB": 20
-    }          
-]
-```
-
-Puis sélectionnez _PUT_ pour appliquer les modifications à votre groupe identique. Cet exemple doit fonctionner tant que vous utilisez une taille de machine virtuelle qui prend en charge plus de deux disques de données associés.
-
-> [!NOTE]
-> Lorsque vous apportez une modification à une définition de groupe identique comme l’ajout ou la suppression d’un disque de données, elle s’applique à toutes les machines virtuelles qui sont créées, mais elle s’applique aux machines virtuelles existantes uniquement si la propriété _upgradePolicy_ est définie sur « Automatique ». Si elle est définie sur « Manuel », vous devez appliquer manuellement le nouveau modèle aux machines virtuelles existantes. Pour cela, dans le portail, utilisez la commande PowerShell _Update-AzureRmVmssInstance_ ou la commande _az vmss update-instances_ de la CLI.
 
 ## <a name="adding-pre-populated-data-disks-to-an-existent-scale-set"></a>Ajout de disques de données pré-remplis à un groupe identique existant 
 > En ajoutant des disques à un modèle de groupe identique existant, le disque est donc toujours vide à la création. Ce scénario inclut aussi les nouvelles instances créées par le groupe identique. Ce comportement se produit car la définition du groupe identique contient un disque de données vide. Afin de créer des disques de données préremplis pour un modèle de groupe identique existant, vous pouvez choisir une des deux options suivantes :
@@ -176,12 +101,6 @@ Puis sélectionnez _PUT_ pour appliquer les modifications à votre groupe identi
 
 > L’utilisateur doit capturer la machine virtuelle de l’instance 0 qui possède les données requises, puis utiliser le VHD pour définir l’image.
 
-## <a name="removing-a-data-disk-from-a-scale-set"></a>Supprimer un disque de données d’un groupe identique
-Vous pouvez supprimer un disque de données d’un groupe de machines virtuelles identiques à l’aide de la commande _az vmss disk detach_ d’Azure CLI. Par exemple, la commande suivante supprime le disque défini au niveau du numéro d’unité logique (LUN) 2 :
-```bash
-az vmss disk detach -g dsktest -n dskvmss --lun 2
-```  
-De même, vous pouvez également supprimer un disque d’un groupe identique en supprimant une entrée de la propriété _dataDisks_ dans le _storageProfile_ et en appliquant la modification. 
 
 ## <a name="additional-notes"></a>Remarques supplémentaires
 La prise en charge des disques gérés Azure et des disques de données associés de groupe identique ests disponible dans les versions [ _2016-04-30-preview_ ](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2016-04-30-preview/swagger/compute.json) et ultérieures de l’APi Microsoft.Compute.API.

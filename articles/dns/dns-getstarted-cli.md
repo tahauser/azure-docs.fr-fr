@@ -1,11 +1,11 @@
 ---
-title: "Prise en main d’Azure DNS à l’aide d’Azure CLI 2.0 | Microsoft Docs"
-description: "Découvrez comment créer une zone et un enregistrement DNS dans Azure DNS. Il s’agit d’un guide pas à pas pour la création et la gestion de votre première zone et de votre premier enregistrement DNS à l’aide d’Azure CLI 2.0."
+title: Prise en main d’Azure DNS à l’aide d’Azure CLI 2.0 | Microsoft Docs
+description: Découvrez comment créer une zone et un enregistrement DNS dans Azure DNS. Il s’agit d’un guide pas à pas pour la création et la gestion de votre première zone et de votre premier enregistrement DNS à l’aide d’Azure CLI 2.0.
 services: dns
 documentationcenter: na
 author: KumuD
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: fb0aa0a6-d096-4d6a-b2f6-eda1c64f6182
 ms.service: dns
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: kumud
-ms.openlocfilehash: 76782ac1e78cd0f7da4bc1aad8eff00d79865ed7
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: d24eaa4974f8bff09b337384e4fd139edb6ebd70
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-azure-dns-using-azure-cli-20"></a>Prise en main d’Azure DNS à l’aide d’Azure CLI 2.0
 
 > [!div class="op_single_selector"]
-> * [portail Azure](dns-getstarted-portal.md)
+> * [Portail Azure](dns-getstarted-portal.md)
 > * [PowerShell](dns-getstarted-powershell.md)
 > * [Azure CLI 2.0](dns-getstarted-cli.md)
 
@@ -33,6 +33,8 @@ Cet article vous guide tout au long de la procédure de création de votre premi
 Une zone DNS permet d’héberger les enregistrements DNS d’un domaine particulier. Pour commencer à héberger votre domaine dans le DNS Azure, vous devez créer une zone DNS pour ce nom de domaine. Chaque enregistrement DNS pour votre domaine est ensuite créé à l’intérieur de cette zone DNS. Enfin, pour publier votre zone DNS sur Internet, vous devez configurer les serveurs de noms du domaine. Chacune de ces étapes est décrite ci-dessous.
 
 Ces instructions partent du principe que vous avez déjà installé Azure CLI 2.0 et que vous êtes connecté. Pour obtenir de l’aide, consultez [Gérer des zones DNS dans Azure DNS à l’aide d’Azure CLI 2.0](dns-operations-dnszones-cli.md).
+
+À présent, Azure DNS prend également en charge les zones DNS privées (actuellement en préversion publique). Pour en savoir plus sur les zones DNS privées, consultez la session relative à [l’utilisation d’Azure DNS pour les domaines privés](private-dns-overview.md). Vous trouverez un exemple de création d’une zone DNS privée sur la page [Bien démarrer avec les zones privées Azure DNS à l’aide de CLI](./private-dns-getstarted-cli.md).
 
 ## <a name="create-the-resource-group"></a>Créer le groupe de ressources
 
@@ -52,7 +54,6 @@ L’exemple ci-dessous crée une zone DNS appelée *contoso.com* dans le groupe 
 az network dns zone create -g MyResourceGroup -n contoso.com
 ```
 
-
 ## <a name="create-a-dns-record"></a>Créer un enregistrement DNS
 
 Pour créer un enregistrement DNS, utilisez la commande `az network dns record-set [record type] add-record`. Pour obtenir de l’aide, concernant les enregistrements A par exemple, consultez `azure network dns record-set A add-record -h`.
@@ -65,7 +66,6 @@ az network dns record-set a add-record -g MyResourceGroup -z contoso.com -n www 
 
 Pour découvrir d’autres types d’enregistrements, des jeux d’enregistrements comportant plus d’un enregistrement et d’autres valeurs de durée de vie et pour modifier les enregistrements existants, consultez [Gérer les enregistrements DNS et les jeux d’enregistrement dans Azure DNS à l’aide d’Azure CLI 2.0](dns-operations-recordsets-cli.md).
 
-
 ## <a name="view-records"></a>Affichage des enregistrements
 
 Pour répertorier les enregistrements DNS dans votre zone, utilisez :
@@ -73,7 +73,6 @@ Pour répertorier les enregistrements DNS dans votre zone, utilisez :
 ```azurecli
 az network dns record-set list -g MyResourceGroup -z contoso.com
 ```
-
 
 ## <a name="update-name-servers"></a>Mettre à jour les serveurs de noms
 

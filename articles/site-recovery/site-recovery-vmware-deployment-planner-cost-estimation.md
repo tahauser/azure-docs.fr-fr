@@ -1,12 +1,12 @@
 ---
-title: "Azure Site Recovery deployment planner pour le déploiement de VMware vers Azure| Microsoft Docs"
-description: "Il s’agit du guide de l’utilisateur d’Azure Site Recovery deployment planner."
+title: Azure Site Recovery deployment planner pour le déploiement de VMware vers Azure| Microsoft Docs
+description: Il s’agit du guide de l’utilisateur d’Azure Site Recovery deployment planner.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: nsoneji
 manager: garavd
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: 63963804b81aa57e914e18fa474963a3830d04d5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 337217e66fe4d3780af197911a0e72c6f936e411
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Rapport d’estimation de coût du planificateur de déploiement Azure Site Recovery  
 
@@ -110,7 +110,7 @@ Pour ajouter manuellement des machines virtuelles :
 * Durée de chaque extraction de la récupération d’urgence (en jours) 
 * Type de système d’exploitation
 * Redondance des données 
-* Azure Hybrid Use Benefit
+* Azure Hybrid Benefit
 
 3.  Vous pouvez appliquer la même valeur à toutes les machines virtuelles du tableau en cliquant sur le bouton « Appliquer à tous » pour le nombre d’extraction de la récupération d’urgence par an, la durée de chaque extraction de la récupération d’urgence (en jours), la redondance des données et d’Azure Hybrid Use Benefit.
 
@@ -136,7 +136,7 @@ Pour ajouter manuellement des machines virtuelles :
 
 **Redondance des données** : une des options suivantes est possible : stockage localement redondant (LRS), stockage géo-redondant (GRS) ou stockage géo-redondant avec accès en lecture (RA-GRS). La valeur par défaut est LRS. Vous pouvez modifier le type en fonction de votre compte de stockage pour les machines virtuelles spécifiques, ou appliquer le nouveau type à toutes les machines virtuelles en modifiant le type de la ligne du haut et en cliquant sur « Appliquer à tous ».  Le coût du stockage pour la réplication est calculé en fonction du prix de la redondance des données sélectionné. 
 
-**Azure Hybrid Use Benefit** : vous pouvez l’appliquer aux machines virtuelles Windows, le cas échéant.  La valeur par défaut est Oui. Vous pouvez modifier le paramètre pour les machines virtuelles spécifiques, ou mettre à jour toutes les machines virtuelles en cliquant sur le bouton « Appliquer à tous ».
+**Azure Hybrid Benefit** : vous pouvez appliquer Azure Hybrid Benefit aux machines virtuelles Windows, le cas échéant.  La valeur par défaut est Oui. Vous pouvez modifier le paramètre pour les machines virtuelles spécifiques, ou mettre à jour toutes les machines virtuelles en cliquant sur le bouton « Appliquer à tous ».
 
 **Consommation Azure totale** : elle inclut les coûts de calcul, de stockage et de licence Azure Site Recovery pour la récupération d’urgence. Selon votre sélection, cela indique le coût mensuel ou annuel.
 

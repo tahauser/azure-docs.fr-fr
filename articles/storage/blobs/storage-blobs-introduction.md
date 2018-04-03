@@ -1,30 +1,31 @@
 ---
-title: "Présentation du Stockage Blob Azure | Microsoft Docs"
-description: "Présentation du Stockage Blob Azure"
+title: Présentation du Stockage Blob - Stockage d’objets dans Azure | Microsoft Docs
+description: Le Stockage Blob Azure est conçu pour stocker de grandes quantités de données d’objet non structurées, telles que des données texte ou binaires. Vos applications peuvent accéder aux objets du stockage Blob à partir de PowerShell ou d’Azure CLI, à partir du code via des bibliothèques clientes de stockage Azure ou par REST.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.service: storage
 ms.topic: overview
-ms.date: 09/28/2017
+ms.date: 03/27/2018
 ms.author: tamram
-ms.openlocfilehash: aabc10b1c1c501e4fa0eb31835c2818cfb8942c6
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0fff0032ec2452413bcd1df3175634b14a64208f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introduction-to-blob-storage"></a>Présentation du Stockage Blob
 
-Stockage Blob Azure est un service permettant de stocker de gros volumes de données d’objets non structurées, telles que du texte ou des données binaires, accessibles depuis n’importe où dans le monde via HTTP ou HTTPS. Vous pouvez utiliser le stockage d'objets blob pour exposer les données publiquement dans le monde ou pour le stockage privé de données d'applications.
+Le Stockage Blob Azure est la solution de stockage cloud de Microsoft pour les objets de données. Le Stockage Blob peut stocker de grandes quantités de données d’objet non structurées, telles que des données texte ou binaires. Les données du Stockage Blob sont accessibles n’importe où dans le monde via HTTP ou HTTPS. Vous pouvez utiliser le stockage d'objets blob pour exposer les données publiquement dans le monde ou pour le stockage privé de données d'applications.
 
 Voici quelques utilisations courantes du stockage d’objets blob :
 
 * Mise à disposition d’images ou de documents directement dans un navigateur
 * Stockage de fichiers pour un accès distribué
 * Diffusion en continu de vidéo et d’audio
-* Stockage de données pour la sauvegarde et la restauration, la récupération d’urgence et l’archivage
+* Stockage pour la sauvegarde et la restauration, la récupération d’urgence et l’archivage
 * Stockage des données pour l’analyse par un service local ou hébergé par Azure
+* Stockage des VHD pour l’utilisation avec des machines virtuelles Azure
 
 ## <a name="blob-service-concepts"></a>Concepts du service BLOB
 

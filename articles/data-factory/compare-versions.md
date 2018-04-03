@@ -1,11 +1,10 @@
 ---
-title: "Comparer les versions 1 et 2 d’Azure Data Factory | Microsoft Docs"
+title: Comparer les versions 1 et 2 d’Azure Data Factory | Microsoft Docs
 description: Cet article compare Azure Data Factory V1 et Azure Data Factory V2.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: kromerm
-manager: jhubbard
-editor: spelluru
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/24/2018
 ms.author: makromer
-ms.openlocfilehash: 673bc4e0d1609e445e3d18e7cf516ad532be4bc2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9aed1e903b5af3e5bcf53987ba80c1dcdb06f202
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>Comparer les versions V1 et V2 d’Azure Data Factory
 Cet article compare la version V2 à la version V1 d’Azure Data Factory. Pour une présentation de V1, consultez [Présentation d’Azure Data Factory](v1/data-factory-introduction.md). Pour une présentation de V2, consultez [Présentation d’Azure Data Factory (V2 - préversion)](introduction.md).
@@ -112,7 +111,7 @@ Dans V1, vous implémentez le code de l’activité DotNet (personnalisée) en c
 
 Dans une activité personnalisée V2, vous n’êtes pas obligé d’implémenter une interface .NET. Vous pouvez exécuter directement des commandes et des scripts, et exécuter votre propre code compilé comme un exécutable. 
 
-Pour plus d’informations, consultez [Différence entre une activité personnalisée dans V1 et V2](transform-data-using-dotnet-custom-activity.md#difference-between-custom-activity-in-azure-data-factory-v2-and-custom-dotnet-activity-in-azure-data-factory-v1).
+Pour plus d’informations, consultez [Différence entre une activité personnalisée dans V1 et V2](transform-data-using-dotnet-custom-activity.md#compare-v2-v1).
 
 ## <a name="sdks"></a>Kits de développement logiciel (SDK)
  Data Factory V2 fournit un ensemble plus riche de Kits de développement logiciel (DSK) qui peuvent être utilisés pour créer, gérer et surveiller des pipelines.
@@ -138,6 +137,13 @@ Les Kits de développement logiciel (SDK) mis à jour pour V2 ne sont pas compat
 | Kit de développement logiciel (SDK) Python | [Oui](quickstart-create-data-factory-python.md) | Non  |
 | Modèle Resource Manager | [Oui](quickstart-create-data-factory-resource-manager-template.md) | [Oui](data-factory-build-your-first-pipeline-using-arm.md) | 
 
+## <a name="roles-and-permissions"></a>Rôles et autorisations
+
+Pour créer et gérer des ressources enfants d’une Data Factory v2 :
+
+-   Le rôle de contributeur de Data Factory version 1 ne peut pas être utilisé pour créer et gérer les ressources v2.
+-   Le rôle de contributeur d’ARM standard, créé sur la ressource Data Factory, est suffisant pour créer et gérer des ressources enfants d’une Data Factory v2 déployée avec PowerShell ou les kits de développement logiciel (SDK). Il n’est pas suffisant pour créer et gérer des ressources enfants d’une Data Factory v2 déployée à partir du portail Azure ou avec le modèle de déploiement ARM.
+-   Pour créer et gérer des ressources enfants d’une Data Factory v2 déployée à partir du portail Azure ou avec le modèle de déploiement ARM, vous devez être membre du rôle « Opérateur de travaux Automation » au niveau du groupe de ressources ou au niveau de l’abonnement. Votre organisation peut également créer un rôle personnalisé qui contient « Microsoft.Resources/deployments/* » dans la liste « Actions », comme décrit dans [Créer des rôles personnalisés pour le contrôle d’accès en fonction du rôle Azure](../active-directory/role-based-access-control-custom-roles.md).
 
 ## <a name="monitoring-experience"></a>Expérience de surveillance
 Dans V2, vous pouvez également surveiller les fabriques de données à l’aide d’[Azure Monitor](monitor-using-azure-monitor.md). Les nouvelles applets de commande PowerShell prennent en charge la surveillance des [runtimes d’intégration](monitor-integration-runtime.md). V1 et V2 prennent toutes deux en charge la surveillance visuelle à l’aide d’une application de surveillance pouvant être lancée depuis le portail Azure.

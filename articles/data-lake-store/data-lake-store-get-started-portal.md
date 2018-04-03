@@ -1,8 +1,8 @@
 ---
-title: "Prise en main de Data Lake Store à l’aide du Portail Azure | Microsoft Docs"
-description: "Utiliser le Portail Azure pour créer un compte Data Lake Store et effectuer des opérations de base dans Data Lake Store"
+title: Prise en main de Data Lake Store à l’aide du Portail Azure | Microsoft Docs
+description: Utiliser le Portail Azure pour créer un compte Data Lake Store et effectuer des opérations de base dans Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/09/2018
+ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: c5b0f5250a08915e987a1eb5229f2c4648e660fd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 91ed55e5f12c10e67653bdadfca80bd072779711
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="get-started-with-azure-data-lake-store-using-the-azure-portal"></a>Prise en main d’Azure Data Lake Store à l’aide du portail Azure
 > [!div class="op_single_selector"]
@@ -31,6 +31,7 @@ ms.lasthandoff: 02/21/2018
 Apprenez à utiliser le portail Azure pour créer un compte Azure Data Lake Store et effectuer des opérations de base telles que la création de dossiers, le chargement et le téléchargement de fichiers de données, la suppression de votre compte, etc. Pour plus d’informations, consultez l’article [Présentation d’Azure Data Lake Store](data-lake-store-overview.md).
 
 ## <a name="prerequisites"></a>Prérequis
+
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -38,7 +39,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 ## <a name="create-an-azure-data-lake-store-account"></a>Créer un compte Azure Data Lake Store
 
 1. Inscrivez-vous au nouveau [portail Azure](https://portal.azure.com).
-2. Cliquez sur **Créer une ressource**, puis sur **Données + Stockage** et enfin sur **Azure Data Lake Store**. Lisez les informations contenues dans le panneau **Azure Data Lake Store**, puis cliquez sur **Créer** dans le coin inférieur gauche du panneau.
+2. Cliquez sur **Créer une ressource > Stockage > Data Lake Store**.
 3. Dans le panneau **Nouveau magasin Data Lake Store**, fournissez les valeurs indiquées dans la capture d’écran suivante :
    
     ![Créer un compte Azure Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "Créer un compte Azure Data Lake")
@@ -61,7 +62,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 4. Cliquez sur **Créer**. Si vous choisissez d’épingler le compte au tableau de bord, vous serez renvoyé au tableau de bord et vous pourrez voir la progression de l’approvisionnement de votre compte Data Lake Store. Une fois le compte Data Lake Store approvisionné, le panneau du compte s'affiche.
 
-### <a name="assign-permissions-to-azure-key-vault"></a>Attribuer des autorisations à Azure Key Vault
+## <a name="assign-permissions-to-azure-key-vault"></a>Attribuer des autorisations à Azure Key Vault
 Si vous avez utilisé des clés d’un coffre Azure Key Vault pour configurer le chiffrement sur le compte Data Lake Store, vous devez configurer l’accès entre le compte Data Lake Store et le compte Azure Key Vault. Pour ce faire, procédez comme suit.
 
 1. Si vous avez utilisé des clés du coffre Azure Key Vault, un avertissement s’affiche en haut du panneau du compte Data Lake Store. Cliquez sur l’avertissement pour ouvrir la zone **Chiffrement**.
@@ -87,7 +88,7 @@ Si vous avez utilisé des clés d’un coffre Azure Key Vault pour configurer le
 ## <a name="createfolder"></a>Créer des dossiers dans un compte Azure Data Lake Store
 Vous pouvez créer des dossiers sous votre compte Data Lake Store pour gérer et stocker des données.
 
-1. Ouvrez le compte Data Lake Store que vous avez créé. Dans le volet gauche, cliquez sur **Parcourir**, puis sur **Data Lake Store**. Ensuite, dans le panneau Data Lake Store, cliquez sur le nom du compte sous lequel vous souhaitez créer des dossiers. Si vous avez épinglé le compte au tableau d'accueil, cliquez sur la vignette de ce compte.
+1. Ouvrez le compte Data Lake Store que vous avez créé. Dans le volet gauche, cliquez sur **Toutes les ressources**, puis dans le volet Toutes les ressources, cliquez sur le nom du compte sous lequel vous souhaitez créer des dossiers. Si vous avez épinglé le compte au tableau d'accueil, cliquez sur la vignette de ce compte.
 2. Dans le panneau de votre compte Data Lake Store, cliquez sur **Explorateur de données**.
    
     ![Créer des dossiers dans un compte Data Lake Store](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Créer des dossiers dans un compte Data Lake Store")

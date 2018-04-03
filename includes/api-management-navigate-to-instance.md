@@ -2,8 +2,8 @@
 
 Pour accéder à votre instance APIM, procédez comme suit :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). 
-2. Sélectionnez ![flèche](./media/api-management-navigate-to-instance/arrow.png).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com). 
+2. En haut à gauche de l’écran, sélectionnez **Tous les services**.  
 3. Dans la zone de recherche, tapez « API ».
 4. Cliquez sur **Services Gestion des API**.
 

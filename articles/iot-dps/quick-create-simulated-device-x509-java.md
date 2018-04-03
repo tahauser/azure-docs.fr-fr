@@ -1,22 +1,22 @@
 ---
-title: "Approvisionner un appareil X.509 simulé auprès du service Azure IoT Hub à l’aide de Java | Microsoft Docs"
-description: "Démarrage rapide d’Azure : Créer et approvisionner un appareil X.509 simulé auprès du service IoT Hub Device Provisioning à l’aide du Java Device SDK"
+title: Approvisionner un appareil X.509 simulé auprès du service Azure IoT Hub à l’aide de Java | Microsoft Docs
+description: 'Démarrage rapide d’Azure : Créer et approvisionner un appareil X.509 simulé auprès du service IoT Hub Device Provisioning à l’aide du Java Device SDK'
 services: iot-dps
-keywords: 
+keywords: ''
 author: msebolt
 ms.author: v-masebo
 ms.date: 12/21/2017
 ms.topic: quickstart
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 7e4ad361df8a37d4a82c1bc50c6fb134a1ad5159
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 6ff10b982579c8c457c632055e654fefc05858a5
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>Créer et approvisionner un appareil X.509 simulé auprès du service IoT Hub Device Provisioning à l’aide du Java Device SDK
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -39,7 +39,12 @@ Avant de continuer, veillez à réaliser les étapes décrites dans la section [
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
-
+1. Accédez au répertoire azure-iot-sdk-java racine et créez le projet pour télécharger tous les packages nécessaires.
+   
+   ```cmd/sh
+   cd azure-iot-sdk-java
+   mvn install -DskipTests=true
+   ```
 1. Accédez au projet de générateur de certificats et générez le projet. 
 
     ```cmd/sh
@@ -109,7 +114,7 @@ Avant de continuer, veillez à réaliser les étapes décrites dans la section [
 
         1. Sous **Ajouter un certificat**, entrez les informations suivantes :
             - Entrez un nom de certificat unique.
-            - Sélectionnez le fichier  **_X509group.pem_**  que vous avez créé précédemment.
+            - Sélectionnez le fichier **_X509group.pem_** que vous avez créé précédemment.
             - Cela fait, cliquez sur le bouton **Enregistrer**.
 
         ![Ajouter un certificat](./media/java-quick-create-simulated-device-x509/add-certificate.png)

@@ -1,8 +1,8 @@
 ---
-title: "Vue d’ensemble du contrôle d’accès dans Data Lake Store | Microsoft Docs"
-description: "Comprendre le fonctionnement du contrôle d’accès dans Azure Data Lake Store"
+title: Vue d’ensemble du contrôle d’accès dans Data Lake Store | Microsoft Docs
+description: Comprendre le fonctionnement du contrôle d’accès dans Azure Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/09/2018
+ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: ec0d1fa9c422dbe4958c5d5f0b7a6e093aeb32da
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: a2e29fd6f2dbd4bd573b780a14bd09c0cd03395f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="access-control-in-azure-data-lake-store"></a>Contrôle d’accès dans Azure Data Lake Store
 
@@ -124,15 +124,15 @@ Voici quelques scénarios courants pour vous aider à comprendre les autorisatio
 
 ## <a name="viewing-permissions-in-the-azure-portal"></a>Affichage des autorisations dans le portail Azure
 
-Dans le panneau **Explorateur de données** du compte Data Lake Store, cliquez sur **Accès** pour afficher les ACL d’un fichier ou d’un dossier. Cliquez sur **Accès** pour afficher les ACL du dossier **catalog** dans le compte **mydatastore**.
+Dans le panneau **Explorateur de données** du compte Data Lake Store, cliquez sur **Accès** pour afficher les ACL du fichier ou du dossier qui apparaît dans l’Explorateur de données. Cliquez sur **Accès** pour afficher les ACL du dossier **catalog** dans le compte **mydatastore**.
 
 ![ACL Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
 
-Dans ce panneau, la partie supérieure affiche une vue d’ensemble des autorisations dont vous disposez. (Dans la capture d’écran, l’utilisateur est Bob.) Les autorisations d’accès sont indiquées en dessous. Ensuite, dans le panneau **Accès**, cliquez sur **Affichage simple** pour afficher une vue plus simple.
+La partie supérieure de ce panneau affiche les autorisations des propriétaires. (Dans la capture d’écran, l’utilisateur propriétaire est Bob.) Les ACL d’accès assignées sont ensuite affichées. 
 
 ![ACL Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
 
-Cliquez sur **Affichage avancé** pour afficher la vue détaillée indiquant les concepts d’ACL par défaut, de masque et de super utilisateur.
+Cliquez sur **Affichage avancé** pour afficher la vue détaillée indiquant les ACL par défaut, le masque et une description des superutilisateurs.  Ce panneau permet également de définir de manière récursive les ACL d’accès et par défaut pour les fichiers et les dossiers enfants en fonction des autorisations du dossier actif.
 
 ![ACL Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
 
@@ -164,7 +164,7 @@ L’utilisateur qui a créé l’élément est automatiquement l’utilisateur p
 * modifier le groupe propriétaire d’un fichier détenu, tant que l’utilisateur propriétaire est également membre du groupe cible.
 
 > [!NOTE]
-> L’utilisateur propriétaire *ne peut pas* modifier l’utilisateur propriétaire d’un fichier lui appartenant. Seuls les super utilisateurs peuvent modifier l’utilisateur propriétaire d’un fichier ou d’un dossier.
+> L’utilisateur propriétaire *ne peut pas* modifier l’utilisateur propriétaire d’un fichier ou d’un dossier. Seuls les super utilisateurs peuvent modifier l’utilisateur propriétaire d’un fichier ou d’un dossier.
 >
 >
 
@@ -177,9 +177,14 @@ Lorsqu’un nouvel élément de système de fichiers est créé, Data Lake Store
 * **Cas 1** : le dossier racine « / ». Ce dossier est créé lors de la création d’un compte Data Lake Store. Dans ce cas, le groupe propriétaire est celui de l’utilisateur qui a créé le compte.
 * **Cas 2** (tous les autres cas) : lorsqu’un élément est créé, le groupe propriétaire est copié à partir du dossier parent.
 
+Sinon, le groupe propriétaire se comporte comme pour les autorisations assignées à d’autres utilisateurs/groupes.
+
 Le groupe propriétaire peut être modifié par :
 * un super utilisateur ;
 * l’utilisateur propriétaire, si l’utilisateur propriétaire est également membre du groupe cible.
+
+> [!NOTE]
+> Le groupe propriétaire *ne peut pas* modifier les ACL d’un fichier ou d’un dossier.
 
 ## <a name="access-check-algorithm"></a>Algorithme de vérification des accès
 
@@ -209,7 +214,7 @@ Dans l’exemple suivant, le masque est réglé sur **R-X**. Cela signifie qu’
 ![ACL Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-mask-view.png)
 
 > [!NOTE]
-> Pour un nouveau compte Data Lake Store, le masque de l’ACL d’accès et de l’ACL par défaut du dossier racine (« / ») est défini par défaut sur RWX.
+> Pour un nouveau compte Data Lake Store, le masque de l’ACL d’accès et du dossier racine (« / ») est défini par défaut sur RWX.
 >
 >
 
@@ -308,7 +313,7 @@ Un GUID apparaît lorsque l’utilisateur n’existe plus dans Azure AD. Cela se
 
 ### <a name="does-data-lake-store-support-inheritance-of-acls"></a>Data Lake Store prend-il en charge l’héritage des ACL ?
 
-Non.
+Non, mais les ACL par défaut peuvent être utilisées pour définir les ACL des fichiers et dossiers enfants nouvellement créés sous le dossier parent.  
 
 ### <a name="what-is-the-difference-between-mask-and-umask"></a>Quelle est la différence entre le masque et umask ?
 
@@ -317,7 +322,7 @@ Non.
 | La propriété **mask** est disponible sur tous les fichiers et dossiers. | **umask** est une propriété du compte Data Lake Store. Il existe donc qu’un seul umask dans Data Lake Store.    |
 | La propriété mask sur un fichier ou dossier peut être modifiée par l’utilisateur propriétaire ou le groupe propriétaire d’un fichier, ou par un super utilisateur. | Aucun utilisateur ou super utilisateur ne peut modifier la propriété umask. Il s’agit d’une valeur constante non modifiable.|
 | La propriété mask est utilisée lors de l’exécution de l’algorithme de vérification des accès pour déterminer si un utilisateur a le droit d’effectuer une opération sur un fichier ou dossier. Le rôle du masque est de créer des « autorisations effectives » au moment de la vérification des accès. | L’umask n’est pas du tout utilisé lors de la vérification des accès. L’umask est utilisé pour déterminer l’ACL d’accès des nouveaux éléments enfants d’un dossier. |
-| Le masque est une valeur RWX de 3 bits qui s’applique à l’utilisateur nommé, au groupe nommé et à l’utilisateur propriétaire au moment de la vérification des accès.| L’umask est une valeur de 9 bits qui s’applique à l’utilisateur propriétaire, au groupe propriétaire et aux **autres rôles** d’un nouvel enfant.|
+| Le masque est une valeur RWX de 3 bits qui s’applique à l’utilisateur nommé, au groupe propriétaire et au groupe nommé lors de la vérification des accès.| L’umask est une valeur de 9 bits qui s’applique à l’utilisateur propriétaire, au groupe propriétaire et aux **autres rôles** d’un nouvel enfant.|
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>Comment en savoir plus sur le modèle de contrôle d’accès POSIX ?
 

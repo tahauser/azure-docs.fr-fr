@@ -1,6 +1,6 @@
 ---
 title: Didacticiel Kubernetes sur Azure - Surveiller Kubernetes
-description: "Didacticiel AKS - Surveiller Kubernetes à l’aide de Microsoft Operations Management Suite (OMS)"
+description: 'Didacticiel AKS : Surveiller Kubernetes avec Azure Log Analytics'
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 227601858dbe07e6cb774a2d24878ddca05aaf56
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 86ae0c5ab302c49fa58df887d9dffef6cec31708
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="monitor-azure-container-service-aks"></a>Surveillance d’Azure Container Service (AKS)
+# <a name="tutorial-monitor-azure-container-service-aks"></a>Didacticiel : Surveillance d’Azure Container Service (AKS)
 
 La surveillance de votre cluster Kubernetes et des conteneurs est cruciale, particulièrement lorsque vous exécutez un cluster de production à grande échelle avec plusieurs applications.
 
@@ -40,11 +40,11 @@ Dans le portail Azure, sélectionnez **Créer une ressource** et recherchez `Con
 
 ![Ajouter une solution](./media/container-service-tutorial-kubernetes-monitor/add-solution.png)
 
-Sélectionnez ou créez un espace de travail OMS. Le formulaire Espace de travail OMS vous explique la procédure à suivre.
+Créez un nouvel espace de travail Log Analytics où sélectionnez-en un déjà existant. Le formulaire Espace de travail Log Analytics vous explique la procédure à suivre.
 
 Lorsque vous créez un espace de travail, sélectionnez **Épingler au tableau de bord** pour le retrouver plus facilement.
 
-![Espace de travail OMS](./media/container-service-tutorial-kubernetes-monitor/oms-workspace.png)
+![Espace de travail Log Analytics](./media/container-service-tutorial-kubernetes-monitor/oms-workspace.png)
 
 Lorsque vous avez terminé, sélectionnez **OK**. Une fois la validation terminée, sélectionnez **Créer** pour créer la solution de surveillance de conteneurs.
 
@@ -58,7 +58,7 @@ Pour récupérer ces valeurs, sélectionnez **Espace de travail OMS** dans le me
 
 ## <a name="create-kubernetes-secret"></a>Créer une clé secrète Kubernetes
 
-Stockez les paramètres d’espace de travail OMS dans une clé secrète Kubernetes nommée `omsagent-secret` à l’aide de la commande [kubectl create secret][kubectl-create-secret]. Mettez à jour `WORKSPACE_ID` avec votre ID d’espace de travail OMS et `WORKSPACE_KEY` avec la clé de l’espace de travail.
+Stockez les paramètres d’espace de travail Log Analytics dans une clé secrète Kubernetes nommée `omsagent-secret` à l’aide de la commande [kubectl create secret][kubectl-create-secret]. Mettez à jour `WORKSPACE_ID` avec votre ID d’espace de travail Log Analytics et `WORKSPACE_KEY` avec la clé de l’espace de travail.
 
 ```console
 kubectl create secret generic omsagent-secret --from-literal=WSID=WORKSPACE_ID --from-literal=KEY=WORKSPACE_KEY
@@ -154,7 +154,7 @@ NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE-SELECTOR 
 omsagent   3         3         3         3            3           beta.kubernetes.io/os=linux   8m
 ```
 
-Dès lors que les agents sont en cours d’exécution, quelques minutes sont nécessaires à OMS pour ingérer et traiter les données.
+Dès lors que les agents sont en cours d’exécution, quelques minutes sont nécessaires à Log Analytics pour ingérer et traiter les données.
 
 ## <a name="access-monitoring-data"></a>Accéder aux données de surveillance
 
@@ -166,7 +166,7 @@ Consultez la [documentation Azure Log Analytics][log-analytics-docs] pour obteni
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous surveillez votre cluster Kubernetes avec OMS. Les tâches traitées ont inclus :
+Dans ce didacticiel, vous surveillez votre cluster Kubernetes avec Log Analytics. Les tâches traitées ont inclus :
 
 > [!div class="checklist"]
 > * Configuration de la solution de surveillance de conteneurs

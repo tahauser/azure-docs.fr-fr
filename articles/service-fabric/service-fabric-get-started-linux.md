@@ -1,11 +1,11 @@
 ---
-title: "Configurer votre environnement de développement sur Linux | Microsoft Docs"
-description: "Installez le runtime et le Kit de développement logiciel (SDK), puis créez un cluster de développement local sur Linux. Une fois l’installation terminée, vous serez prêt à créer des applications."
+title: Configurer votre environnement de développement sur Linux | Microsoft Docs
+description: Installez le runtime et le Kit de développement logiciel (SDK), puis créez un cluster de développement local sur Linux. Une fois l’installation terminée, vous serez prêt à créer des applications.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
 ms.service: service-fabric
 ms.devlang: dotNet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 20239acba46996ed7ec84a2fbaf300190deebc7f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: c98a5e742356e24cee9e9d1414121faabac03084
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Préparer votre environnement de développement sur Linux
 > [!div class="op_single_selector"]
@@ -30,7 +30,12 @@ ms.lasthandoff: 02/24/2018
 
 Pour déployer et exécuter des [applications Azure Service Fabric](service-fabric-application-model.md) sur votre ordinateur de développement Linux, installez le runtime et le Kit de développement logiciel (SDK) courant. Vous pouvez également installer des Kits de développement logiciel (SDK) facultatifs pour le développement de Java et .NET Core.
 
+> [!NOTE]
+> L’installation du runtime Service Fabric et du Kit de développement logiciel (SDK) sur le sous-système Windows pour Linux n’est pas prise en charge. Toutefois, l’interface de ligne de commande Azure Service Fabric, qui vous permet de gérer les entités Service Fabric hébergées ailleurs dans le cloud ou en local, est prise en charge. Pour plus d’informations sur l’installation de l’interface de ligne de commande, consultez [Interface de ligne de commande Azure Service Fabric](./service-fabric-cli.md).
+>
+
 ## <a name="prerequisites"></a>Prérequis
+
 
 Les versions de système d’exploitation prises en charge pour le développement sont les suivantes :
 
@@ -108,6 +113,12 @@ sudo apt-get install servicefabricsdkcommon
 >   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-ga select true" | sudo debconf-set-selections
 >   ```
 
+Le runtime Service Fabric qui est fourni avec l’installation ci-dessus inclut les packages dans le tableau ci-dessous. 
+
+ | | DotNetCore | Java | Python | NodeJS | 
+--- | --- | --- | --- |---
+Ubuntu | 2.0.0 | OpenJDK 1.8 | Implicite à partir de npm | le plus récent |
+
 ## <a name="set-up-a-local-cluster"></a>Configurer un cluster local
   Une fois l’installation terminée, vous devez être en mesure de démarrer un cluster local.
 
@@ -184,7 +195,7 @@ Vous pouvez installer le plug-in Eclipse pour Service Fabric à partir de l’en
 
 2. Pour installer le plug-in Service Fabric, sélectionnez **Aide** > **Installer un nouveau logiciel**.
 
-3. Dans la zone **Utiliser avec**, entrez : **http://dl.microsoft.com/eclipse**.
+3. Dans le champ **Work with** (Utiliser), tapez **http://dl.microsoft.com/eclipse**.
 
 4. Cliquez sur **Add**.
 

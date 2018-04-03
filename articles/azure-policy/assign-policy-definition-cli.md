@@ -9,11 +9,11 @@ ms.date: 03/13/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: f56f00aabbef2cfa86264d3e962af9a9c0bafa98
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1ff1240073e25bf406e7da6b79135264376a5b3f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-with-the-azure-cli"></a>Créer une affectation de stratégie pour identifier les ressources non conformes dans votre environnement Azure en utilisant l’interface de ligne de commande Azure
 
@@ -46,7 +46,7 @@ La commande précédente utilise les informations suivantes :
 - **Name** : nom d’affichage pour l’attribution de stratégie. Dans ce cas, nous allons utiliser *Audit Virtual Machines without Managed Disks Assignment* (Auditer des machines virtuelles sans attribution de disques gérés).
 - **Policy** : ID de définition de la stratégie, que vous utilisez pour créer l’attribution. Dans ce cas, il s’agit de la définition de stratégie *Audit Virtual Machines without Managed Disks* (Auditer des machines virtuelles sans disques gérés). Pour obtenir l’ID de définition de stratégie, exécutez cette commande : `az policy definition show --name 'Audit Virtual Machines without Managed Disks Assignment'`
 - **Scope** : une étendue détermine les ressources ou le regroupement de ressources sur lequel l’attribution de stratégie est appliquée. Elle va d’un abonnement à des groupes de ressources. Assurez-vous de remplacer &lt;scope&gt; par le nom de votre groupe de ressources.
-- **Sku** : cette commande crée une attribution de stratégie de niveau standard. Le niveau standard vous permet de procéder à grande échelle à la gestion, à l’évaluation de la conformité et à la correction. Le niveau standard est actuellement gratuit. À l’avenir, le niveau standard deviendra payant. La date de la modification de tarification sera annoncée ultérieurement et plus d’informations vous seront alors données sur la [tarification Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy).
+- **Sku** : cette commande crée une attribution de stratégie de niveau Standard. Le niveau Standard vous permet de procéder à grande échelle à la gestion, à l’évaluation de la conformité et à la correction. Pour plus de détails concernant les niveaux tarifaires, consultez [Tarification Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy).
 
 
 ## <a name="identify-non-compliant-resources"></a>Identifier les ressources non conformes

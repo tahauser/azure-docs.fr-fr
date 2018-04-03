@@ -1,22 +1,21 @@
 ---
-title: "Évaluer une application de bureau activée pour Azure AD B2C"
-description: "Démarrage rapide pour essayer un exemple d’application de bureau ASP.NET qui utilise Azure Active Directory B2C pour fournir une connexion utilisateur."
+title: Évaluer une application de bureau activée pour Azure AD B2C
+description: Démarrage rapide pour essayer un exemple d’application de bureau ASP.NET qui utilise Azure Active Directory B2C pour fournir une connexion utilisateur.
 services: active-directory-b2c
-author: PatAltimore
+author: davidmu1
 manager: mtillman
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 2/13/2018
-ms.author: patricka
-ms.openlocfilehash: 18c378f82255df3a999703bc319d551af4b2705c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.author: davidmu
+ms.openlocfilehash: 8726a5816623d42deb495aa062ef82f1f95b76b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-test-drive-an-azure-ad-b2c-enabled-desktop-app"></a>Démarrage rapide : Évaluer une application de bureau activée pour Azure AD B2C
 
@@ -27,6 +26,7 @@ Dans ce démarrage rapide, vous utilisez un exemple d’application de bureau Wi
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/) avec la charge de travail **Développement ASP.NET et web**. 
 * Un compte de réseau social Facebook, Google, Microsoft ou Twitter.

@@ -1,11 +1,11 @@
 ---
-title: "Créer votre première fonction dans Azure avec Java et Maven | Microsoft Docs"
-description: "Créez et publiez une fonction simple déclenchée par HTTP dans Azure avec Java et Maven."
+title: Créer votre première fonction dans Azure avec Java et Maven | Microsoft Docs
+description: Créez et publiez une fonction simple déclenchée par HTTP dans Azure avec Java et Maven.
 services: functions
 documentationcenter: na
 author: rloutlaw
 manager: justhe
-keywords: "azure functions, functions, traitement des événements, calcul, architecture sans serveur"
+keywords: azure functions, functions, traitement des événements, calcul, architecture sans serveur
 ms.service: functions
 ms.devlang: java
 ms.topic: quickstart
@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c0984075cd8e372cce09ea100378dcd4e8cddabe
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 81d9d8790a750f34133f3f00dafc15c56185d7b1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>Créer votre première fonction dans Azure avec Java et Maven (aperçu)
 
@@ -32,20 +32,28 @@ Ce démarrage rapide vous guide dans la création d’un projet de fonction [san
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
+
 Pour développer une application de fonction avec Java, les éléments suivants doivent être installés :
 
--  La version la plus récente de [.NET Core](https://www.microsoft.com/net/core).
 -  [Java Developer Kit (JDK)](https://www.azul.com/downloads/zulu/) version 8.
--  [interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure)
 -  [Apache Maven](https://maven.apache.org) version 3.0 ou ultérieure.
--  [Node.js](https://nodejs.org/download/) version 8.6 ou ultérieure.
+-  [interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure)
 
 > [!IMPORTANT] 
 > Pour pouvoir effectuer ce démarrage rapide, vous devez définir la variable d’environnement JAVA_HOME sur l’emplacement d’installation du JDK.
 
 ## <a name="install-the-azure-functions-core-tools"></a>Installer Azure Functions Core Tools
 
-[Azure Functions Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools) fournit un environnement de développement local pour l’écriture, l’exécution et le débogage des fonctions Azure Functions. Installez les outils avec [npm](https://www.npmjs.com/), qui est inclus dans [Node.js](https://nodejs.org/).
+[Azure Functions Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools) fournit un environnement de développement local pour l’écriture, l’exécution et le débogage des fonctions Azure Functions. 
+
+Pour installer, consultez la section [Installation](https://github.com/azure/azure-functions-core-tools#installing) et recherchez les instructions spécifiques à votre système d’exploitation de prédilection (Windows, Linux, Mac).
+
+Vous pouvez également l’installer manuellement avec [npm](https://www.npmjs.com/), y compris avec [Node.js](https://nodejs.org/), après avoir installé les éléments requis suivants :
+
+-  La version la plus récente de [.NET Core](https://www.microsoft.com/net/core).
+-  [Node.js](https://nodejs.org/download/) version 8.6 ou ultérieure.
+
+Pour procéder à une installation basée sur npm, exécutez :
 
 ```
 npm install -g azure-functions-core-tools@core
@@ -185,6 +193,4 @@ Vous avez créé une application de fonction Java avec un déclencheur HTTP simp
 - Pour plus d’informations sur le développement de fonctions Java, consultez le [Guide du développeur de fonctions Java](functions-reference-java.md).
 - Ajoutez des fonctions supplémentaires avec différents déclencheurs à votre projet en utilisant la cible Maven `azure-functions:add`.
 - Déboguez les fonctions localement avec Visual Studio Code. Avec le [pack d’extension Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) installé et votre projet de fonctions ouvert dans Visual Studio Code, [attachez le débogueur](https://code.visualstudio.com/Docs/editor/debugging#_launch-configurations) au port 5005. Ensuite, définissez un point d’arrêt dans l’éditeur et déclenchez votre fonction alors qu’elle s’exécute localement : ![Déboguer des fonctions dans Visual Studio Code](media/functions-create-java-maven/vscode-debug.png)
-
-
-
+- Déboguez les fonctions à distance avec Visual Studio Code. Pour obtenir des instructions, consultez la documentation relative à [l’écriture d’applications Java sans serveur](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud).

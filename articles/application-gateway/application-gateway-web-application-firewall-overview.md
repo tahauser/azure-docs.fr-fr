@@ -1,6 +1,6 @@
 ---
-title: "Présentation du pare-feu d’applications web (WAF) pour la passerelle Application Gateway Azure | Microsoft Docs"
-description: "Cette page fournit une vue d’ensemble du pare-feu d’applications web (WAF) pour la passerelle Application Gateway"
+title: Présentation du pare-feu d’applications web (WAF) pour la passerelle Application Gateway Azure | Microsoft Docs
+description: Cette page fournit une vue d’ensemble du pare-feu d’applications web (WAF) pour la passerelle Application Gateway
 documentationcenter: na
 services: application-gateway
 author: amsriva
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: amsriva
-ms.openlocfilehash: 50863b60f2843f033bdb07f4564d937cd6f0b7be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3945436a369f624ccb1d862b9623b8cfb1ed376
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="web-application-firewall-waf"></a>Pare-feu d’applications web (WAF)
 
@@ -44,7 +44,7 @@ Voici les principaux avantages liés à Application Gateway et au pare-feu d’a
 
 * Analysez les attaques contre votre application web à l’aide d’un journal WAF en temps réel. Ce journal est intégré à [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) pour effectuer le suivi des journaux et alertes WAF et analyser facilement les tendances.
 
-* WAF sera bientôt intégré à Azure Security Center. Azure Security Center vous offre un aperçu central de l’état de sécurité de toutes vos ressources Azure.
+* WAF s’intègre avec Azure Security Center. Azure Security Center vous offre un aperçu central de l’état de sécurité de toutes vos ressources Azure.
 
 ### <a name="customization"></a>Personnalisation
 
@@ -114,7 +114,7 @@ Application Gateway WAF peut être configuré pour s’exécuter dans les deux m
 
 ### <a name="application-gateway-waf-reports"></a>Surveillance du pare-feu d’applications web
 
-Il est important de surveiller l’état de votre passerelle d’application. La journalisation et l’intégration à Azure Monitor, Azure Security Center (à venir), et Log Analytics permet de surveiller l’état de votre pare-feu d’applications web et des applications qu’il protège.
+Il est important de surveiller l’état de votre passerelle d’application. La journalisation et l’intégration à Azure Monitor, Azure Security Center, et Log Analytics permet de surveiller l’état de votre pare-feu d’applications web et des applications qu’il protège.
 
 ![diagnostics](./media/application-gateway-web-application-firewall-overview/diagnostics.png)
 
@@ -122,9 +122,9 @@ Il est important de surveiller l’état de votre passerelle d’application. La
 
 Chaque journal de passerelle d’application est intégré à [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).  Cela vous permet d’effectuer le suivi des informations de diagnostic, y compris des alertes et des journaux WAF.  Cette fonctionnalité est proposée dans la ressource Application Gateway sous l’onglet **Diagnostics** du portail ou directement via le service Azure Monitor. Pour en savoir plus sur l’activation des journaux de diagnostic pour la passerelle d’application, rendez-vous sur la page [Diagnostics Application Gateway](application-gateway-diagnostics.md)
 
-#### <a name="azure-security-center"></a>Centre de sécurité Azure
+#### <a name="azure-security-center"></a>Azure Security Center
 
-[Azure Security Center](../security-center/security-center-intro.md) vous aide à prévenir, détecter et résoudre les menaces grâce à une visibilité et un contrôle accrus de la sécurité de vos ressources Azure. Désormais, Application Gateway [s’intègre à Azure Security Center](application-gateway-integration-security-center.md). Le service Azure Security Center analyse votre environnement pour détecter les applications web non protégées. Il peut à présent recommander à Application Gateway WAF de protéger ces ressources vulnérables. Vous pouvez créer des instances Application Gateway WAF directement à partir d’Azure Security Center.  Ces instances WAF sont intégrées à Azure Security Center et renverront des alertes et des informations d’intégrité à Azure Security Center à des fins de création de rapports.
+[Azure Security Center](../security-center/security-center-intro.md) vous aide à prévenir, détecter et résoudre les menaces grâce à une visibilité et un contrôle accrus de la sécurité de vos ressources Azure. Application Gateway [s’intègre à Azure Security Center](application-gateway-integration-security-center.md). Le service Azure Security Center analyse votre environnement pour détecter les applications web non protégées. Il peut à présent recommander à Application Gateway WAF de protéger ces ressources vulnérables. Vous pouvez créer des instances Application Gateway WAF directement à partir d’Azure Security Center.  Ces instances WAF sont intégrées à Azure Security Center et renverront des alertes et des informations d’intégrité à Azure Security Center à des fins de création de rapports.
 
 ![figure 1](./media/application-gateway-web-application-firewall-overview/figure1.png)
 

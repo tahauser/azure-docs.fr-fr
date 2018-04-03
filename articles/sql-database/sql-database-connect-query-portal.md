@@ -10,15 +10,15 @@ ms.custom: mvc,DBs & servers
 ms.topic: quickstart
 ms.date: 01/10/2018
 ms.author: ayolubek
-ms.openlocfilehash: e5c1a5a991284fcbeac53d2ce35be4e2634514fa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 97b14de64c4aa6bf134f2c293e4bb8b5725810d3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Portail Azure : utilisez l’éditeur de requête SQL pour vous connecter et effectuer des requêtes de données
 
-L’éditeur de requête SQL est un outil de requête de navigateur qui offre un moyen efficace et léger pour exécuter des requêtes SQL sur votre base de données SQL Azure ou Azure SQL Data Warehouse sans quitter le portail Azure. Ce guide de démarrage rapide indique comment utiliser l’éditeur de requête pour se connecter à une base de données SQL, puis utiliser les instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données dans la base de données.
+L’éditeur de requête SQL est un outil de requête de navigateur qui offre un moyen efficace et léger pour exécuter des requêtes SQL sur votre base de données SQL Azure ou Azure SQL Data Warehouse sans quitter le portail Azure. Ce didacticiel de démarrage rapide indique comment utiliser l’éditeur de requête pour se connecter à une base de données SQL, puis utiliser les instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données dans la base de données.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -143,19 +143,25 @@ Utilisez le code suivant pour supprimer le nouveau produit que vous avez ajouté
 
 ## <a name="query-editor-considerations"></a>Considérations relatives à l’éditeur de requête
 
-Il y a quelques éléments à connaître lorsque vous travaillez avec l’éditeur de requête, alors qu’il s’agit d’une préversion :
+Il y a quelques éléments à connaître lorsque vous travaillez avec l’éditeur de requête :
 
 1. Assurez-vous que le paramètre « Autoriser l’accès aux services Azure » est défini sur « ON » dans les paramètres du pare-feu de votre serveur SQL Azure. Cette option fournit l’accès de l’éditeur de requête SQL pour vos bases de données SQL et les entrepôts de données.
 
-2. La connexion de l’administrateur de Azure Active Directory ne fonctionne pas lorsque l’authentification à 2 facteurs est activée.
+2. Si le serveur SQL est dans un réseau virtuel, l’éditeur de requête ne peut pas être utilisé pour interroger les bases de données de ce serveur.
 
-3. Les comptes de messagerie (par exemple outlook.com, hotmail.com, live.com, gmail.com, yahoo.com) ne sont pas encore pris en charge comme des administrateurs Active Directory. Veillez à choisir un utilisateur créé en mode natif dans Azure Active Directory, ou fédéré dans Azure Active Directory
+3. Appuyer sur la touche F5 actualise la page de l’éditeur de requête et entraîne la perte de la requête en cours de traitement. Utilisez le bouton Exécuter dans la barre d’outils pour exécuter des requêtes.
 
-4. Les requêtes de types de données spatiales ne sont pas encore prises en charge dans l’éditeur de requête. L’interrogation de colonnes spatiales entraîne une erreur « System.IO.FileNotFoundException ».
+4. L’éditeur de requête ne prend pas en charge la connexion à une base de données master
 
-5. IntelliSense n’est pas pris en charge pour les tables et les vues de base de données. Toutefois, l’éditeur prend en charge la saisie semi-automatique des noms déjà saisis.
+5. Il y a un délai d’attente de 5 minutes pour l’exécution des requêtes.
 
-6. Appuyer sur la touche F5 actualise la page de l’éditeur de requête et entraîne la perte de la requête en cours de traitement. Utilisez le bouton Exécuter dans la barre d’outils pour exécuter des requêtes.
+6. La connexion de l’administrateur de Azure Active Directory ne fonctionne pas lorsque l’authentification à 2 facteurs est activée.
+
+7. Les comptes de messagerie (par exemple outlook.com, hotmail.com, live.com, gmail.com, yahoo.com) ne sont pas encore pris en charge comme des administrateurs Active Directory. Veillez à choisir un utilisateur créé en mode natif dans Azure Active Directory, ou fédéré dans Azure Active Directory
+
+8. L’éditeur de requête prend uniquement en charge la projection cylindrique pour les types de données de géographie.
+
+9. IntelliSense n’est pas pris en charge pour les tables et les vues de base de données. Toutefois, l’éditeur prend en charge la saisie semi-automatique des noms déjà saisis.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

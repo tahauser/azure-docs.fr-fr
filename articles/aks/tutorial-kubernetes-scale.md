@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel Kubernetes sur Azure – Mise à l’échelle d’une application"
-description: "Didacticiel ACS - Mise à l’échelle d’une application"
+title: Didacticiel Kubernetes sur Azure – Mise à l’échelle d’une application
+description: Didacticiel ACS - Mise à l’échelle d’une application
 services: container-service
 author: dlepow
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 556f4bfb204504de55c41da9615e61d5a88c75b2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 5e35be84df53386398deaca19d60d4a93f53e541
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="scale-application-in-azure-container-service-aks"></a>Mettre à jour une application dans Azure Container Service (ACS)
+# <a name="tutorial-scale-application-in-azure-container-service-aks"></a>Didacticiel : Mettre à l’échelle une application dans Azure Container Service (ACS)
 
 Si vous avez suivi les didacticiels, vous disposez d’un cluster Kubernetes opérationnel dans ACS, et avez déployé l’application Azure Voting.
 
@@ -26,7 +26,7 @@ Dans ce didacticiel (cinquième d’une série de huit), vous allez augmenter le
 > * Mise à l’échelle manuelle des pods Kubernetes
 > * Configuration de la mise à l’échelle automatique des pods qui exécutent le front-end de l’application
 
-Dans les didacticiels suivants, l’application Azure Vote est mise à jour et Operations Management Suite est configuré pour la surveillance du cluster Kubernetes.
+Dans les didacticiels suivants, l’application Azure Vote est mise à jour et Log Analytics est configuré pour la surveillance du cluster Kubernetes.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 

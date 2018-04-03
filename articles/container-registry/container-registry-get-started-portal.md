@@ -1,6 +1,6 @@
 ---
-title: "Démarrage rapide - Créer un registre Docker privé dans Azure avec le portail Azure"
-description: "Apprenez rapidement à créer un registre de conteneurs Docker privé avec le portail Azure."
+title: Démarrage rapide - Créer un registre Docker privé dans Azure avec le portail Azure
+description: Apprenez rapidement à créer un registre de conteneurs Docker privé avec le portail Azure.
 services: container-registry
 author: mmacy
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 03/03/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: db112f7f8f486093509a86f9781c30133925c25f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7ea0ae9c0c071a08c9ff99587cd8c5dc8034fe69
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="create-a-container-registry-using-the-azure-portal"></a>Créer un registre de conteneur à l’aide du portail Azure
+# <a name="quickstart-create-a-container-registry-using-the-azure-portal"></a>Démarrage rapide : Créer un registre de conteneurs à l’aide du portail Azure
 
 Un registre Azure Container Registry est un registre Docker privé dans Azure, dans lequel vous pouvez stocker et gérer vos images conteneurs Docker privées. Dans ce démarrage rapide, vous allez créer un registre de conteneurs avec le portail Azure, envoyer une image de conteneur dans le registre et enfin déployer le conteneur dans Azure Container Instances (ACI) à partir de votre registre.
 
@@ -23,7 +23,7 @@ Pour suivre cette procédure de démarrage rapide, Docker doit être installé e
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au portail Azure depuis l’adresse https://portal.azure.com.
+Connectez-vous au portail Azure sur https://portal.azure.com.
 
 ## <a name="create-a-container-registry"></a>Créer un registre de conteneur
 

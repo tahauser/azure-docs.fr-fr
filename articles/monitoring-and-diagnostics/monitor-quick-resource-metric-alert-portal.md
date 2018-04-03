@@ -1,6 +1,6 @@
 ---
-title: "Recevoir une notification quand une valeur de métrique remplit une condition | Microsoft Docs"
-description: "Guide de démarrage rapide destiné à aider les utilisateurs à créer une métrique pour une application logique"
+title: Recevoir une notification quand une valeur de métrique remplit une condition | Microsoft Docs
+description: Guide de démarrage rapide destiné à aider les utilisateurs à créer une métrique pour une application logique
 author: anirudhcavale
 manager: orenr
 services: monitoring-and-diagnostics
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 3c1a6271d0cb2157cb23f1dd4193eadba2c1679b
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 0bbb7d7036c18675a64171a8bbf5c7fa46d53336
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Recevoir une notification quand une valeur de métrique remplit une condition
 
@@ -34,20 +34,20 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 2. Recherchez et sélectionnez **Application logique**. Cliquez sur le bouton **Créer** .
 
-3. Entrez les informations d’application logique indiquées dans l’image suivante.  Utilisez l’emplacement par défaut. Sélectionnez l’option **Épingler au tableau de bord**.  Lorsque vous avez terminé, cliquez sur **Créer**. 
+3. Entrez le nom myLogicApp et le groupe de ressources myResourceGroup. Choisissez votre abonnement.  Utilisez l’emplacement par défaut. Sélectionnez l’option **Épingler au tableau de bord**.  Lorsque vous avez terminé, cliquez sur **Créer**. 
 
-    ![Saisie d’informations de base sur votre application logique dans le portail](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-portal.png)  
+    ![Saisie d’informations de base sur votre application logique dans le portail](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-portal.png)  
 
 
 4. L’application logique doit être épinglée à votre tableau de bord. Accédez à l’application logique en cliquant dessus.
 
 5. Dans le panneau Applications logiques, sélectionnez **Concepteur d’application logique**.
 
-     ![Création d’un déclencheur de périodicité dans le Concepteur d’application logique du panneau du portail](./media/monitoring-quick-resource-metric-alert-portal/logic-app-designer.png)  
+     ![Création d’un déclencheur de périodicité dans le Concepteur d’application logique du panneau du portail](./media/monitor-quick-resource-metric-alert-portal/logic-app-designer.png)  
 
 6. Définissez vos valeurs comme indiqué dans l’illustration suivante.
 
-    ![Configuration du déclencheur d’application logique dans le panneau du portail](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-triggers.png). 
+    ![Configuration du déclencheur d’application logique dans le panneau du portail](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-triggers.png). 
 
 7. Dans le concepteur, sélectionnez le déclencheur **Périodicité**.
 
@@ -75,7 +75,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 5. Un graphique indiquant le nombre total d’exécutions que votre application logique a démarrées au cours de la dernière heure doit maintenant s’afficher. Si rien ne s’affiche, assurez-vous d’avoir patienté au moins 5 minutes après l’étape ci-dessus. Ensuite, actualisez votre navigateur. 
 
-    ![Affichage d’un graphique de métriques pour la ressource d’application logique](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metric-chart.png)
+    ![Affichage d’un graphique de métriques pour la ressource d’application logique](./media/monitor-quick-resource-metric-alert-portal/logic-app-metric-chart.png)
 
 ## <a name="create-a-metric-alert-for-your-logic-app"></a>Créer une alerte de métrique pour votre application logique
 
@@ -87,7 +87,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 4. Enfin, sous **Adresse(s) e-mail administrateur supplémentaire(s)**, entrez votre adresse e-mail. Avec cette alerte, vous êtes assuré de recevoir un e-mail dès lors que votre application logique enregistre plus 10 échecs d’exécution en l’espace de 5 minutes.
 
-    ![Configuration d’une alerte d’application logique dans le panneau du portail](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metrics-alert-portal.png)
+    ![Configuration d’une alerte d’application logique dans le panneau du portail](./media/monitor-quick-resource-metric-alert-portal/logic-app-metrics-alert-portal.png)
 
 ## <a name="receive-metric-alert-notifications-for-your-logic-app"></a>Recevoir des notifications d’alerte de métrique pour votre application logique
 1. Peu de temps après, vous devez recevoir un e-mail intitulé « Alertes Microsoft Azure » vous informant que l’alerte a été « activée ».

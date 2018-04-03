@@ -1,8 +1,8 @@
 ---
-title: "Présentation d’Apache Kafka sur HDInsight - Azure | Microsoft Docs"
-description: "Découvrez Apache Kafka sur HDInsight : Présentation, fonctionnalités et exemples et informations de prise en main."
+title: Présentation d’Apache Kafka sur HDInsight - Azure | Microsoft Docs
+description: 'Découvrez Apache Kafka sur HDInsight : Présentation, fonctionnalités et exemples et informations de prise en main.'
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 35dc83dea7dc1310852437cd7eede32cfa890e8f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4a4f2c6734de211cd20ee4b9f6815bdefefb25bc
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introducing-apache-kafka-on-hdinsight"></a>Présentation d’Apache Kafka sur HDInsight
 
@@ -31,7 +31,7 @@ Le logiciel Kafka sur HDInsight offre les fonctionnalités suivantes :
 
 * __Contrat de niveau de service (SLA) de 99,9 % sur le temps d’activité de Kafka__ : pour plus d’information, consultez le document [Informations du SLA pour HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/).
 
-* __Tolérance aux pannes et reconnaissance de rack__: Kafka a été conçu avec une seule vue dimensionnelle d’un rack qui fonctionne correctement sur certains environnements. Toutefois, sur des environnements tels qu’Azure, un rack est réparti en deux dimensions : les domaines de mise à jour et les domaines d’erreur. Microsoft fournit des outils garantissant le rééquilibrage des partitions et réplicas Kafka entre les UD et les FD. 
+* __Tolérance aux pannes__ : Kafka a été conçu avec une seule vue dimensionnelle d’un rack qui fonctionne correctement sur certains environnements. Toutefois, sur des environnements tels qu’Azure, un rack est réparti en deux dimensions : les domaines de mise à jour et les domaines d’erreur. Microsoft fournit des outils permettant de rééquilibrer des partitions et réplicas Kafka entre les UD et les FD. 
 
     Pour plus d’informations, consultez [Haute disponibilité avec Kafka dans HDInsight](apache-kafka-high-availability.md).
 

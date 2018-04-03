@@ -1,6 +1,6 @@
 ---
-title: "Démarrage rapide - Créer un registre Docker privé dans Azure avec PowerShell"
-description: "Apprenez rapidement à créer un registre de conteneurs Docker privé avec PowerShell."
+title: Démarrage rapide - Créer un registre Docker privé dans Azure avec PowerShell
+description: Apprenez rapidement à créer un registre de conteneurs Docker privé avec PowerShell.
 services: container-registry
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2bae45955cf3c2b157acce2544b1f35fbddd0170
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9603ac779c7dbc640a7c24856c32f04edbac849d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="create-an-azure-container-registry-using-powershell"></a>Créer un registre Azure Container Registry à l’aide de PowerShell
+# <a name="quickstart-create-an-azure-container-registry-using-powershell"></a>Démarrage rapide : Créer un registre Azure Container Registry à l’aide de PowerShell
 
 Azure Container Registry est un service de registre de conteneurs Docker géré utilisé pour stocker des images de conteneurs Docker privés. Ce guide détaille comment créer un registre de conteneurs Azure Container Registry avec PowerShell, envoyer une image de conteneur dans le registre et enfin déployer le conteneur dans Azure Container Instances (ACI) à partir de votre registre.
 
@@ -73,7 +73,7 @@ Pour envoyer une image dans un registre Azure Container Registry, vous devez tou
 docker pull microsoft/aci-helloworld
 ```
 
-L’image doit être étiquetée avec le nom du serveur de connexion ACR. Utilisez la commande [docker tag][docker-tag] pour réaliser cette action. 
+L’image doit être étiquetée avec le nom du serveur de connexion ACR. Utilisez la commande [docker tag][docker-tag] pour réaliser cette action.
 
 ```powershell
 $image = $registry.LoginServer + "/aci-helloworld:v1"

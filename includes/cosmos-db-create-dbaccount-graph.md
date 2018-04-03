@@ -20,8 +20,6 @@
 
     ![Panneau de nouveau compte pour Azure Cosmos DB](./media/cosmos-db-create-dbaccount-graph/create-nosql-db-databases-json-tutorial-2.png)
 
-4. La création du compte prend quelques minutes. Au cours de création d’un compte, le portail affiche la vignette **Déploiement d’Azure Cosmos DB** sur le côté droit. Vous devrez peut-être faire défiler à droite sur votre tableau de bord pour voir la vignette. Il existe également une barre de progression en haut de l’écran. Vous pouvez surveiller la progression de la zone souhaitée.
+4. La création du compte prend quelques minutes. Attendez que le portail affiche la page **Félicitations ! Votre compte Azure Cosmos DB a été créé**.
 
-    ![Volet Notifications du portail Azure](./media/cosmos-db-create-dbaccount-graph/deploying-cosmos-db.png)
-
-    Une fois que le compte est créé, la page **Félicitations ! Votre compte Azure Cosmos DB a été créé** s’affiche. 
+    ![Volet Notifications du portail Azure](./media/cosmos-db-create-dbaccount-graph/azure-cosmos-db-graph-created.png)

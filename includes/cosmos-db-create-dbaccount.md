@@ -5,7 +5,7 @@
 
 3. Dans la page **Nouveau compte**, entrez les paramètres pour le nouveau compte Azure Cosmos DB. 
  
-    Paramètre|Valeur suggérée|Description
+    Paramètre|Valeur|Description
     ---|---|---
     ID|*Entrez un nom unique*|Entrez un nom unique pour identifier ce compte Azure Cosmos DB. Étant donné que *documents.azure.com* est ajouté à l’ID que vous fournissez pour créer votre URI, utilisez un ID unique mais identifiable.<br><br>L’ID ne peut contenir que des lettres minuscules, des chiffres et le caractère de trait d’union (-), et doit comporter entre 3 et 50 caractères.
     API|SQL|L’API détermine le type de compte à créer. Azure Cosmos DB fournit cinq API pour répondre aux besoins de votre application : SQL (base de données Document), Gremlin (base de données de graphiques), MongoDB (base de données Document), Table Azure et Cassandra, qui nécessitent toutes un compte séparé. <br><br>Sélectionnez **SQL**. En effet, dans ce démarrage rapide, vous créez une base de données de documents qu’il est possible d’interroger au moyen de la syntaxe SQL et à laquelle il est possible d’accéder avec l’API SQL.<br><br>[En savoir plus sur l’API SQL](../articles/cosmos-db/documentdb-introduction.md)|
@@ -19,9 +19,7 @@
 
     ![Page de nouveau compte pour Azure Cosmos DB](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
 
-4. La création du compte prend quelques minutes. Au cours de création d’un compte, le portail affiche la vignette **Déploiement d’Azure Cosmos DB** sur le côté droit. Vous devrez peut-être faire défiler à droite sur votre tableau de bord pour voir la vignette. Il existe également une barre de progression en haut de l’écran. Vous pouvez surveiller la progression de la zone souhaitée. 
+4. La création du compte prend quelques minutes. Attendez que le portail affiche la page **Félicitations ! Votre compte Azure Cosmos DB a été créé**.
 
-    ![Volet Notifications du portail Azure](./media/cosmos-db-create-dbaccount/deploying-cosmos-db.png)
-
-    Une fois que le compte est créé, la page **Félicitations ! Votre compte Azure Cosmos DB a été créé** s’affiche. 
+    ![Volet Notifications du portail Azure](./media/cosmos-db-create-dbaccount/azure-cosmos-db-account-created.png)
 

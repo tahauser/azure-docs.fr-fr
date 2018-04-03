@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel Azure Container Registry - Préparer un registre de conteneurs Azure géorépliqué | Microsoft Docs"
-description: "Créez un registre de conteneurs Azure, configurez la géoréplication, préparez une image Docker et déployez-la dans le registre. Première partie d’une série en trois parties."
+title: Didacticiel Azure Container Registry - Préparer un registre de conteneurs Azure géorépliqué | Microsoft Docs
+description: Créez un registre de conteneurs Azure, configurez la géoréplication, préparez une image Docker et déployez-la dans le registre. Première partie d’une série en trois parties.
 services: container-registry
 author: mmacy
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 10/26/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: b73222d9b31ff840273bdb91a15f7eaf37ad2508
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3463acc3db3dae9633635aaf7410d876aacf9b38
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="prepare-a-geo-replicated-azure-container-registry"></a>Préparer un registre de conteneurs Azure géorépliqué
+# <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Didacticiel : Préparer un registre de conteneurs Azure géorépliqué
 
 Un registre de conteneurs Azure est un registre Docker privé déployé dans Azure que vous pouvez conserver dans un réseau proche de vos déploiements. Dans le cadre de cet ensemble de trois articles de didacticiel, vous apprendrez à utiliser la géoréplication pour déployer une application web ASP.NET Core exécutée dans un conteneur Linux dans deux instances [Web App pour conteneurs](../app-service/containers/index.yml). Vous découvrirez comment Azure déploie automatiquement l’image dans chaque instance Web App à partir du référentiel géorépliqué le plus proche.
 
@@ -154,7 +154,7 @@ Tout d’abord, obtenez l’URL du serveur de connexion du registre à l’aide 
 az acr show --name <acrName> --query "{acrLoginServer:loginServer}" --output table
 ```
 
-Sortie :
+Output:
 
 ```bash
 AcrLoginServer
@@ -198,7 +198,7 @@ Utilisez la commande `docker images` pour voir l’image générée :
 docker images
 ```
 
-Sortie :
+Output:
 
 ```bash
 REPOSITORY                                      TAG    IMAGE ID        CREATED               SIZE
@@ -216,7 +216,7 @@ docker push <acrName>.azurecr.io/acr-helloworld:v1
 
 Comme vous avez configuré votre registre pour la géoréplication, votre image est automatiquement répliquée dans les deux régions *Ouest des États-Unis* et *Est des États-Unis* avec cette simple commande `docker push`.
 
-Sortie :
+Output:
 
 ```bash
 The push refers to a repository [uniqueregistryname.azurecr.io/acr-helloworld]

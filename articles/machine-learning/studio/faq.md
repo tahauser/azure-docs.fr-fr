@@ -1,11 +1,12 @@
 ---
 title: Forum Aux Questions (FAQ) Azure Machine Learning | Microsoft Docs
 description: "Présentation d'Azure Machine Learning : FAQ portant sur la facturation, les fonctionnalités et les limitations d'un service cloud pour la modélisation prédictive rationalisée."
-keywords: "introduction à l’apprentissage automatique, modélisation prédictive, présentation de l’apprentissage automatique"
+keywords: introduction à l’apprentissage automatique, modélisation prédictive, présentation de l’apprentissage automatique
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: paulettm
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/02/2017
-ms.author: garye
-ms.openlocfilehash: b162d7534eff0d1f79808fc86bacf92dbfc2f84a
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: ceec69ee822e118adfa3825620a31575109894ea
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Forum Aux Questions Azure Machine Learning : facturation, fonctionnalités, limitations et support
 Voici quelques-unes des questions fréquemment posées et des réponses correspondantes sur Azure Machine Learning, un service cloud pour le développement de modèles prédictifs et la mise en œuvre de solutions via des services web. Ce FAQ aborde l’utilisation du service, notamment le modèle de facturation, les fonctionnalités, les limitations et le support.
@@ -435,7 +435,7 @@ Nous vous recommandons de commencer par le niveau Standard S1 et de surveiller 
 
 Les nouveaux profils de facturation sont disponibles dans les trois régions de production dans lesquelles nous prenons en charge les nouveaux services web :
 
-* Centre-Sud des États-Unis
+* États-Unis - partie centrale méridionale
 * Europe de l'Ouest
 * Asie du Sud-Est
 

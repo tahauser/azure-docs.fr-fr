@@ -1,11 +1,11 @@
 ---
-title: "Prise en main d’Azure Notification Hubs pour les applications de plateforme Windows universelle | Microsoft Docs"
-description: "Dans ce didacticiel, vous découvrirez comment utiliser Azure Notification Hubs pour envoyer des notifications Push à une application de plateforme Windows universelle."
+title: Prise en main d’Azure Notification Hubs pour les applications de plateforme Windows universelle | Microsoft Docs
+description: Dans ce didacticiel, vous découvrirez comment utiliser Azure Notification Hubs pour envoyer des notifications Push à une application de plateforme Windows universelle.
 services: notification-hubs
 documentationcenter: windows
 author: jwhitedev
 manager: kpiteira
-editor: 
+editor: ''
 ms.assetid: cf307cf3-8c58-4628-9c63-8751e6a0ef43
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/22/2017
 ms.author: jawh
-ms.openlocfilehash: c09621d1152aafbe15039130f6ca24082dc5bd21
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 8464a7e48a02be39fb624322fac6c26f4c6c6806
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-notification-hubs-for-universal-windows-platform-apps"></a>Prise en main de Notification Hubs pour les applications de plateforme Windows universelle
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 Cet article vous indique comment utiliser Azure Notification Hubs pour envoyer des notifications Push à une application de plateforme Windows universelle (UWP).
 
 L’article vous apprend à créer une application Windows Store vide qui reçoit des notifications Push au moyen du Service de notifications Windows Push (WNS). Une fois l’opération terminée, vous pouvez utiliser votre hub de notification pour diffuser des notifications Push sur tous les appareils exécutant votre application.
@@ -35,6 +35,7 @@ L’article vous apprend à créer une application Windows Store vide qui reçoi
 Vous pouvez trouver le code complet de ce didacticiel sur [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/GetStartedWindowsUniversal).
 
 ## <a name="prerequisites"></a>Prérequis
+
 Ce didacticiel requiert les éléments suivants :
 
 * [Microsoft Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs) ou version ultérieure
@@ -94,11 +95,11 @@ Votre Notification Hub est désormais configuré pour fonctionner avec WNS. Vous
 1. Dans Visual Studio, cliquez avec le bouton droit sur la solution, puis sélectionnez **Gérer les packages NuGet**.  
     La fenêtre **Gérer les packages NuGet** s’ouvre.
 
-2. Dans la zone de recherche, saisissez **WindowsAzure.Messaging.Managed**, sélectionnez **Installer**et acceptez les conditions d’utilisation.
+2. Dans la zone de recherche, saisissez **Microsoft.Azure.NotificationHubs**, sélectionnez **Installer**et acceptez les conditions d’utilisation.
    
     ![La fenêtre Gérer les packages NuGet][20]
    
-    Une référence à la bibliothèque Azure Messaging pour Windows est alors téléchargée, installée et ajoutée à l’aide du [package NuGet WindowsAzure.Messaging.Managed](http://nuget.org/packages/WindowsAzure.Messaging).
+    Cette action télécharge, installe et ajoute une référence à la bibliothèque Azure Notification Hubs pour Windows à l’aide du [package NuGet Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs).
 
 3. Ouvrez le fichier projet App.xaml.cs et ajoutez les instructions `using` qui suivent : 
    

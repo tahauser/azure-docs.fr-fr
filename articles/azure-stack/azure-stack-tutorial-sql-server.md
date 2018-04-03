@@ -1,29 +1,28 @@
 ---
-title: "Mettre des bases de données SQL à la disposition de vos utilisateurs Azure Stack | Microsoft Docs"
-description: "Didacticiel pour installer le fournisseur de ressources SQL Server et de créer des offres permettant aux utilisateurs d’Azure Stack de créer des bases de données SQL."
+title: Mettre des bases de données SQL à la disposition de vos utilisateurs Azure Stack | Microsoft Docs
+description: Didacticiel pour installer le fournisseur de ressources SQL Server et de créer des offres permettant aux utilisateurs d’Azure Stack de créer des bases de données SQL.
 services: azure-stack
-documentationcenter: 
-author: brenduns
+documentationcenter: ''
+author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 7/03/2017
-ms.author: brenduns
-ms.reviewer: 
+ms.date: 03/22/2017
+ms.author: jeffgilb
+ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: e9fd74fa44bb9482ee2285f4305085ee6ff2fb73
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f8d2dd65d9d427872fe78508ed0bcc61e644fdb0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="make-sql-databases-available-to-your-azure-stack-users"></a>Mettre des bases de données SQL à la disposition de vos utilisateurs Azure Stack
-
 En tant qu’administrateur de cloud Azure Stack, vous pouvez créer des offres qui permettent aux utilisateurs de créer des bases de données SQL qu’ils peuvent utiliser avec leurs applications cloud natives, sites web et charges de travail. En fournissant à vos utilisateurs ces bases de données cloud à la demande et personnalisées, vous pouvez leur faire gagner du temps et économiser des ressources. Pour effectuer cette configuration, vous allez effectuer les étapes suivantes :
 
 > [!div class="checklist"]
@@ -56,7 +55,7 @@ Le processus de déploiement est décrit en détail dans l’[article Utiliser d
 Maintenant que vous avez déployé le fournisseur de ressources SQL Server et créé une offre, vous pouvez vous connecter en tant qu’utilisateur, vous abonner à l’offre, puis créer une base de données.
 
 ### <a name="subscribe-to-the-offer"></a>S’abonner à l’offre
-1. Connectez-vous au portail Azure Stack (https://portal.local.azurestack.external) en tant que locataire.
+1. Connectez-vous au portail Azure Stack (https://portal.local.azurestack.external) en tant que locataire.
 2. Cliquez sur **Prendre un abonnement**, puis tapez **TestSQLServerSubscription** sous **Nom d’affichage**.
 3. Cliquez sur **Sélectionner une offre** > **TestSQLServerOffer** > **Créer**.
 4. Cliquez sur **Plus de services** > **Abonnements** > **TestSQLServerSubscription** > **Fournisseurs de ressources**.

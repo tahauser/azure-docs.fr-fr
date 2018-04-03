@@ -1,26 +1,26 @@
 ---
-title: "Service connecté Visual Studio pour Azure Cosmos DB"
-description: "Permet aux développeurs de se connecter facilement à leur compte Azure Cosmos DB et de gérer des ressources via les services connectés Visual Studio."
+title: Service connecté Visual Studio pour Azure Cosmos DB
+description: Permet aux développeurs de se connecter facilement à leur compte Azure Cosmos DB et de gérer des ressources via les services connectés Visual Studio.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: jejiang
 manager: DJ
 +tags: cosmos-db
 editor: Jenny Jiang
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: Azure Cosmos DB
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jejiang
-ms.openlocfilehash: f63c20831a2700f1024507bef614a5a7cc87d00e
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 93be368d34f02e64d11abe9a04b11272ce18124d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cosmos-db-visual-studio-connected-service-preview"></a>Azure Cosmos DB : service connecté Visual Studio (version préliminaire)
 
@@ -28,7 +28,8 @@ Les services connectés Visual Studio permettent aux développeurs de se connect
 
 Vous pouvez également utiliser l’Explorateur de données dans le service connecté pour créer des procédures stockées, des fonctions définies par l’utilisateur et des déclencheurs afin d’exécuter la logique métier côté serveur. L’Explorateur de données affiche tous les accès aux données par programmation intégrés disponibles dans les API, mais permet d’accéder facilement à vos données.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Vérifiez que vous disposez des éléments suivants :
 
@@ -41,6 +42,8 @@ Vérifiez que vous disposez des éléments suivants :
     Vous pouvez également installer le service connecté Azure Cosmos DB à partir de [Visual Studio Marketplace](https://go.microsoft.com/fwlink/?linkid=858709).
 
     ![Capture d’écran de téléchargement de bits pour un service connecté](./media/connected-service/connected-service-downloadbits.png) 
+
+Une fois que vous avez téléchargé l’extension Connected Service d’Azure Cosmos DB, fermez Visual Studio pour installer l’extension.
 
 ## <a id="SetupVS"></a>Configurer votre solution Visual Studio
 1. Ouvrez **Visual Studio** sur votre ordinateur.

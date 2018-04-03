@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 01/22/2018
+ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 7e3fd12b2157d28c5d61bfa8d5fb69a00557a1f9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c5b7af290a5e5c45d3f64ccb50586db0811dd592
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>Créer une fabrique de données et un pipeline avec le kit .NET SDK
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -103,12 +103,12 @@ La procédure pas à pas de cet article utilise Visual Studio 2017. Vous pouvez
 Téléchargez et installez le [Kit de développement logiciel (SDK) .NET Azure](http://azure.microsoft.com/downloads/) sur votre machine.
 
 ### <a name="create-an-application-in-azure-active-directory"></a>Créer une application dans Azure Active Directory
-Suivez les instructions fournies dans [cet article](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) pour accomplir les tâches suivantes : 
+Suivez les instructions fournies dans les sections de [cet article](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) pour accomplir les tâches suivantes : 
 
 1. **Créez une application Azure Active Directory**. Créez une application dans Azure Active Directory représentant l’application .NET que vous créez dans ce didacticiel. Pour l’URL de connexion, vous pouvez fournir une URL factice, comme indiqué dans l’article (`https://contoso.org/exampleapp`).
-2. Obtenez un **ID d’application** et une **clé d’authentification**** à l’aide des instructions fournies dans la section **Obtenir un ID d’application et une clé d’authentification** de l’article. Notez ces valeurs. Elles vous serviront plus loin dans ce didacticiel. 
-3. Obtenez l’**ID de locataire** à l’aide des instructions fournies dans la section **Obtenir l’ID de locataire** de l’article. Notez cette valeur. 
-4. Affectez l’application au rôle **Contributeur** au niveau de l’abonnement afin que l’application puisse créer des fabriques de données dans l’abonnement. Pour ce faire, suivez les instructions fournies dans la section **Affecter l’application à un rôle** de l’article. 
+2. Obtenez l’**ID de l’application** et la **clé d’authentification**, puis notez ces valeurs. Elles vous serviront plus loin dans ce didacticiel. 
+3. Obtenez l’**ID d’abonné** et notez cette valeur. Elle vous servira plus loin dans ce didacticiel.
+4. Affectez l’application au rôle **Contributeur** au niveau de l’abonnement afin que l’application puisse créer des fabriques de données dans l’abonnement.
 
 ## <a name="create-a-visual-studio-project"></a>Créer un projet Visual Studio
 
