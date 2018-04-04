@@ -1,6 +1,6 @@
 ---
-title: "Audit et réception de notifications relatives à des actions importantes dans votre abonnement Azure | Microsoft Docs"
-description: "Comprendre l’historique de la gestion des ressources, de l’intégrité du service et d’autres activités relatives à l’abonnement dans le journal d’activité, puis utiliser une alerte de journal d’activité pour recevoir une notification par e-mail lorsqu’une opération disposant de privilèges élevés est effectuée dans votre abonnement."
+title: Audit et réception de notifications relatives à des actions importantes dans votre abonnement Azure | Microsoft Docs
+description: Comprendre l’historique de la gestion des ressources, de l’intégrité du service et d’autres activités relatives à l’abonnement dans le journal d’activité, puis utiliser une alerte de journal d’activité pour recevoir une notification par e-mail lorsqu’une opération disposant de privilèges élevés est effectuée dans votre abonnement.
 author: johnkemnetz
 manager: orenr
 services: monitoring-and-diagnostics
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: b0a79f46788dc7efb588110dc50805c45c373a49
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: dd04cd9c8074d49df168b32840d12901da83c834
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="audit-and-receive-notifications-about-important-actions-in-your-azure-subscription"></a>Audit et réception de notifications relatives à des actions importantes dans votre abonnement Azure
 
@@ -74,7 +74,7 @@ Cliquez sur l’onglet **JSON** pour afficher tous les détails sur l’événem
 
 5. Sous **Alert via** (Alerter via), sélectionnez le groupe d’actions **New** (Nouveau) et entrez un **nom** et un **nom court** pour le groupe d’actions. Le groupe d’actions définit l’ensemble des actions effectuées lorsque l’alerte est activée (lorsque les critères correspondent à un nouvel événement).
 
-6. Sous **Actions**, ajoutez 1 ou plusieurs actions en entrant un **nom** pour l’action, le **type d’action** (par exemple, e-mail ou SMS) et les **détails** de ce type d’action spécifique (par exemple, une URL de webhook, une adresse e-mail ou un numéro SMS).
+6. Sous **Actions**, ajoutez 1 ou plusieurs actions en entrant un **nom** pour l’action, le **type d’action** (par exemple, e-mail, SMS ou webhook) et les **détails** de ce type d’action spécifique (par exemple, une URL de webhook, une adresse e-mail ou un numéro SMS).
 
     ![Créer un groupe de sécurité réseau dans le portail](./media/monitor-quick-audit-notify-action-in-subscription/activity-log-alert-actions.png)
 
@@ -83,7 +83,7 @@ Cliquez sur l’onglet **JSON** pour afficher tous les détails sur l’événem
 ## <a name="test-the-activity-log-alert"></a>Tester l’alerte de journal d’activité
 
 > [!NOTE]
-> Il faut environ 10 minutes pour qu’une alerte de journal d’activité soit entièrement activée. Les nouveaux événements qui se produisent avant que l’alerte de journal d’activité ne soit entièrement activée ne génèrent pas de notifications.
+> Il faut environ 5 minutes pour qu’une alerte de journal d’activité soit entièrement activée. Les nouveaux événements qui se produisent avant que l’alerte de journal d’activité ne soit entièrement activée ne génèrent pas de notifications.
 >
 >
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB : Développer une application console API MongoDB avec Golang et le Portail Azure | Microsoft Docs"
-description: "Cet article présente un exemple de code Golang que vous pouvez utiliser pour vous connecter à Azure Cosmos DB et pour interroger ce service"
+title: 'Azure Cosmos DB : Développer une application console API MongoDB avec Golang et le Portail Azure | Microsoft Docs'
+description: Cet article présente un exemple de code Golang que vous pouvez utiliser pour vous connecter à Azure Cosmos DB et pour interroger ce service
 services: cosmos-db
 author: Durgaprasad-Budhwani
 manager: jhubbard
@@ -10,21 +10,22 @@ ms.topic: quickstart
 ms.date: 07/21/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 29a47646074819492e2c5179276a0c4de7f0d2d9
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 49bf6aed5a8daa482be9d22ecd97b6ab43cae5fe
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB : Développer une application console API MongoDB avec Golang et le Portail Azure
 
-Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Vous pouvez rapidement créer et interroger des documents, des paires clé/valeur et des bases de données de graphiques, tous profitant de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB.
+Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur, et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB.
 
-Ce démarrage rapide montre comment utiliser une application [MongoDB](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction) existante écrite en [Golang](https://golang.org/) et comment la connecter à votre base de données Azure Cosmos DB, qui prend en charge les connexions clientes MongoDB.
+Ce guide de démarrage rapide explique comment utiliser une application MongoDB existante écrite en [Golang](https://golang.org/) et la connecter à votre base de données Azure Cosmos DB, qui prend en charge les connexions clientes MongoDB à l’aide de l’[API MongoDB](mongodb-introduction.md).
 
 En d’autres termes, votre application Golang sait uniquement qu’elle se connecte à une base de données qui utilise des API MongoDB. L’application sait que les données sont stockées dans Azure Cosmos DB.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 - Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free) avant de commencer. 
 
@@ -78,7 +79,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 
 3. Enregistrez le fichier main.go.
 
-## <a name="review-the-code"></a>Examiner le code
+## <a name="review-the-code"></a>Vérifier le code
 
 Passons rapidement en revue ce qui se passe dans le fichier main.go. 
 
@@ -229,7 +230,7 @@ Revenez au portail Azure pour afficher votre document dans l’Explorateur de do
     
 2. Vous pouvez ensuite travailler avec le document en ligne et cliquer sur **Mettre à jour** pour l’enregistrer. Vous pouvez également supprimer le document ou créer de des documents ou des requêtes.
 
-## <a name="review-slas-in-the-azure-portal"></a>Examiner les SLA dans le Portail Azure
+## <a name="review-slas-in-the-azure-portal"></a>Vérification des contrats SLA dans le portail Azure
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
@@ -238,7 +239,7 @@ Revenez au portail Azure pour afficher votre document dans l’Explorateur de do
 Si vous ne pensez pas continuer à utiliser cette application, supprimez toutes les ressources créées durant ce guide de démarrage rapide dans le Portail Azure en procédant de la façon suivante :
 
 1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis sur le nom de la ressource que vous avez créée. 
-2. Dans la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
+2. Sur la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

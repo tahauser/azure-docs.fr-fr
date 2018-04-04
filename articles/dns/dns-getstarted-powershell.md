@@ -1,11 +1,11 @@
 ---
-title: "Prise en main d’Azure DNS à l’aide de PowerShell | Microsoft Docs"
-description: "Découvrez comment créer une zone et un enregistrement DNS dans Azure DNS. Il s’agit d’un guide pas à pas pour la création et la gestion de votre première zone et de votre premier enregistrement DNS à l’aide de PowerShell."
+title: Prise en main d’Azure DNS à l’aide de PowerShell | Microsoft Docs
+description: Découvrez comment créer une zone et un enregistrement DNS dans Azure DNS. Il s’agit d’un guide pas à pas pour la création et la gestion de votre première zone et de votre premier enregistrement DNS à l’aide de PowerShell.
 services: dns
 documentationcenter: na
 author: KumudD
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: fb0aa0a6-d096-4d6a-b2f6-eda1c64f6182
 ms.service: dns
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: kumud
-ms.openlocfilehash: 3f67d4f537a832d1d3e13ff2a67645ae17ed8669
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 050111f4a5e8459e89d049ccb879b5079ff68527
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-azure-dns-using-powershell"></a>Prise en main d’Azure DNS à l’aide de PowerShell
 
@@ -50,6 +50,7 @@ Une zone DNS est créée à l’aide de l’applet de commande `New-AzureRmDnsZo
 ```powershell
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
 ```
+À présent, Azure DNS prend également en charge les zones DNS privées (actuellement en préversion publique).  Pour en savoir plus sur les zones DNS privées, consultez la session relative à [l’utilisation d’Azure DNS pour les domaines privés](private-dns-overview.md). Vous trouverez un exemple de création d’une zone DNS privée sur la page [Bien démarrer avec les zones privées Azure DNS à l’aide de PowerShell](./private-dns-getstarted-powershell.md).
 
 ## <a name="create-a-dns-record"></a>Créer un enregistrement DNS
 

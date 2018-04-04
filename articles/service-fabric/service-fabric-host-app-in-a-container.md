@@ -1,24 +1,24 @@
 ---
-title: "Déployer une application .NET dans un conteneur vers Azure Service Fabric | Microsoft Docs"
-description: "Explique comment empaqueter une application .NET dans Visual Studio dans un conteneur Docker. Cette nouvelle application « conteneur » est ensuite déployée sur un cluster Service Fabric."
+title: Déployer une application .NET dans un conteneur vers Azure Service Fabric | Microsoft Docs
+description: Explique comment empaqueter une application .NET dans Visual Studio dans un conteneur Docker. Cette nouvelle application « conteneur » est ensuite déployée sur un cluster Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/19/2017
+ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: cd1c3b063132ae549bfbf1e059667c5056c91046
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 11bb34939e5fa3699973051664e85f9ef2147ff7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Déployer une application .NET dans un conteneur Windows vers Azure Service Fabric
 
@@ -32,6 +32,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Configurer l’intégration continue avec Visual Studio et VSTS
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 1. Installez [Docker CE pour Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) afin que vous puissiez exécuter des conteneurs sur Windows 10.
 2. Familiarisez-vous avec [l’utilisation de Windows 10 Containers][link-container-quickstart].
@@ -49,13 +50,6 @@ Les applications Service Fabric peuvent être exécutées sur un cluster, ou sur
 À présent que vous disposez d’un cluster Service Fabric s’exécutant dans Azure, vous pouvez créer et déployer une application en conteneur. Pour commencer à exécuter notre application dans un conteneur, nous devons ajouter la **prise en charge Docker** au projet dans Visual Studio. Lorsque vous ajoutez la **prise en charge Docker** à l’application, deux événements se produisent. Premièrement, un _Fichier Docker_ est ajouté au projet. Ce nouveau fichier décrit la manière dont doit être générée l’image de conteneur. Dans un deuxième temps, un nouveau projet _docker-compose_ est ajouté à la solution. Le nouveau projet contient quelques fichiers docker-compose. Les fichiers docker-compose peuvent être utilisés pour décrire la manière dont le conteneur est exécuté.
 
 En savoir plus sur l’utilisation de [Visual Studio Container Tools][link-visualstudio-container-tools].
-
->[!NOTE]
->Si vous utilisez pour la première fois des images de conteneurs Windows sur votre ordinateur, Docker CE doit extraire les images de base de vos conteneurs. Les images utilisées dans ce didacticiel font une taille de 14 Go. Poursuivez et exécutez la commande de terminal suivante pour extraire les images de base :
->```cmd
->docker pull microsoft/mssql-server-windows-developer
->docker pull microsoft/aspnet:4.6.2
->```
 
 ### <a name="add-docker-support"></a>Ajouter la prise en charge Docker
 

@@ -1,12 +1,12 @@
 ---
-title: "Montage d’un partage de fichiers Azure et accès au partage dans Windows | Microsoft Docs"
-description: "Montage d’un partage de fichiers Azure et accès au partage dans Windows."
+title: Montage d’un partage de fichiers Azure et accès au partage dans Windows | Microsoft Docs
+description: Montage d’un partage de fichiers Azure et accès au partage dans Windows.
 services: storage
 documentationcenter: na
 author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 5134fab447f1d1842369aeda4ebc1948a5d78262
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 5d6d81678d1b3c63b52b34e79979d06fdc981ad0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Montage d’un partage de fichiers Azure et accès au partage dans Windows
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Les partages de fichiers Azure peuvent être montés dans Windows et Windows Server. Cet article présente trois méthodes différentes de montage d’un partage de fichiers Azure sur Windows : avec l’interface utilisateur de l’Explorateur de fichiers, via PowerShell ou via l’invite de commandes. 
@@ -29,14 +29,14 @@ Vous pouvez monter des partages de fichiers Azure sur une installation Windows 
 
 | Version de Windows        | Version SMB | Version montable dans une machine virtuelle Azure | Montable en local |
 |------------------------|-------------|-----------------------|----------------------|
-| Canal semestriel Windows Server <sup>1</sup> | SMB 3.0 | Oui | Oui |
-| Windows 10 <sup>2</sup>  | SMB 3.0 | Oui | Oui |
-| Windows Server 2016    | SMB 3.0     | Oui                   | Oui                  |
-| Windows 8.1            | SMB 3.0     | Oui                   | Oui                  |
-| Windows Server 2012 R2 | SMB 3.0     | Oui                   | Oui                  |
-| Windows Server 2012    | SMB 3.0     | Oui                   | Oui                  |
-| Windows 7              | SMB 2.1     | Oui                   | Non                   |
-| Windows Server 2008 R2 | SMB 2.1     | Oui                   | Non                   |
+| Canal semestriel Windows Server <sup>1</sup> | SMB 3.0 | OUI | OUI |
+| Windows 10 <sup>2</sup>  | SMB 3.0 | OUI | OUI |
+| Windows Server 2016    | SMB 3.0     | OUI                   | OUI                  |
+| Windows 8.1            | SMB 3.0     | OUI                   | OUI                  |
+| Windows Server 2012 R2 | SMB 3.0     | OUI                   | OUI                  |
+| Windows Server 2012    | SMB 3.0     | OUI                   | OUI                  |
+| Windows 7              | SMB 2.1     | OUI                   | Non                    |
+| Windows Server 2008 R2 | SMB 2.1     | OUI                   | Non                    |
 
 <sup>1</sup>La version 1709 de Windows Server.  
 <sup>2</sup>Les versions 1507, 1607, 1703 et 1709 de Windows 10.
@@ -50,6 +50,31 @@ Vous pouvez monter des partages de fichiers Azure sur une installation Windows 
 * **Clé du compte de stockage** : pour monter un partage de fichiers Azure, vous avez besoin de la clé de stockage primaire (ou secondaire). Actuellement, les clés SAS ne sont pas prises en charge pour le montage.
 
 * **Assurez-vous que le port 445 est ouvert** : Azure Files utilise le protocole SMB. SMB communique via le port TCP 445. Assurez-vous que votre pare-feu ne bloque pas les ports TCP 445 à partir de la machine cliente.
+
+## <a name="persisting-connections-across-reboots"></a>Connexions persistantes entre les redémarrages
+### <a name="cmdkey"></a>CmdKey
+Pour établir des connexions persistantes, le plus simple consiste à enregistrer les informations d’identification de votre compte de stockage dans Windows à l’aide de l’utilitaire de ligne de commande « CmdKey ». Voici un exemple de ligne de commande pour conserver les informations d’identification de votre compte de stockage dans votre machine virtuelle :
+```
+C:\>cmdkey /add:<yourstorageaccountname>.file.core.windows.net /user:<domainname>\<yourstorageaccountname> /pass:<YourStorageAccountKeyWhichEndsIn==>
+```
+> [!Note]
+> DomainName ici sera « AZURE »
+
+CmdKey vous permet également de répertorier les informations d’identification qu'il stocke :
+
+```
+C:\>cmdkey /list
+```
+Le résultat sera comme suit :
+
+```
+Currently stored credentials:
+
+Target: Domain:target=<yourstorageaccountname>.file.core.windows.net
+Type: Domain Password
+User: AZURE\<yourstorageaccountname>
+```
+Une fois les informations d’identification conservées, vous n’avez plus à les fournir lors de la connexion à votre partage. Vous pouvez vous connecter sans spécifier d’informations d’identification.
 
 ## <a name="mount-the-azure-file-share-with-file-explorer"></a>Montage du partage de fichiers Azure avec l’Explorateur de fichiers
 > [!Note]  
@@ -123,7 +148,7 @@ Vous pouvez monter des partages de fichiers Azure sur une installation Windows 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez ces liens pour en savoir plus sur Azure Files.
 
-* [FAQ](../storage-files-faq.md)
+* [FORUM AUX QUESTIONS](../storage-files-faq.md)
 * [Résolution des problèmes sur Windows](storage-troubleshoot-windows-file-connection-problems.md)      
 
 ### <a name="conceptual-articles-and-videos"></a>Vidéos et articles conceptuels
@@ -142,6 +167,6 @@ Consultez ces liens pour en savoir plus sur Azure Files.
 * [Présentation de Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 * [Migration de données vers le fichier Azure](https://azure.microsoft.com/blog/migrating-data-to-microsoft-azure-files/)
 
-### <a name="reference"></a>Référence
+### <a name="reference"></a>Informations de référence
 * [Référence de la bibliothèque cliente de stockage pour .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [Référence de l’API REST du service de fichiers](http://msdn.microsoft.com/library/azure/dn167006.aspx)

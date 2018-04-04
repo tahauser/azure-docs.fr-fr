@@ -1,11 +1,11 @@
 ---
-title: "Utilisation d’Azure Media Packager pour effectuer des tâches de mise en package statique | Microsoft Docs"
-description: "Cette rubrique présente les différentes tâches qui sont effectuées avec Azure Media Packager."
+title: Utilisation d’Azure Media Packager pour effectuer des tâches de mise en package statique | Microsoft Docs
+description: Cette rubrique présente les différentes tâches qui sont effectuées avec Azure Media Packager.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 0582628e-a525-4a78-90ac-9f7fc1cd909f
 ms.service: media-services
 ms.workload: media
@@ -707,7 +707,7 @@ Si vous souhaitez chiffrer votre contenu HLS avec AES-128, vous pouvez choisir d
 > [!NOTE]
 > Pour convertir votre contenu au format HLS, vous devez tout d'abord convertir/encoder votre contenu pour le Smooth Streaming.
 > Par ailleurs, pour qu'un contenu HLS soit chiffré avec AES, assurez-vous de définir les propriétés suivantes dans votre fichier MediaPackager_SmoothToHLS.xml : définissez la propriété du chiffrement sur true et définissez la valeur de clé et la valeur keyuri de manière à ce qu’elles pointent vers votre  serveur d'authentification\autorisation.
-> Media Services crée un fichier de clé et le place dans le conteneur d'éléments. Vous devez copier le fichier /asset-containerguid/*.key sur votre serveur (ou créer votre propre fichier de clé), puis supprimer le fichier *.key du conteneur d’éléments multimédia.
+> Media Services crée un fichier de clé et le place dans le conteneur d'éléments. Vous devez copier le fichier /asset-containerguid/\*.key sur votre serveur (ou créer votre propre fichier de clé), puis supprimer le fichier *.key du conteneur d’éléments multimédia.
 > 
 > 
 

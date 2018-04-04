@@ -1,11 +1,11 @@
 ---
-title: "Créer un équilibrage de charge accessible sur Internet à l’aide du portail Azure | Microsoft Docs"
-description: "Découvrez comment créer un équilibreur de charge accessible sur Internet dans Resource Manager à l’aide du portail Azure"
+title: Créer un équilibreur de charge de base public à l’aide du portail Azure | Microsoft Docs
+description: Découvrez comment créer un équilibreur de charge de base public à l’aide du portail Azure.
 services: load-balancer
 documentationcenter: na
-author: anavinahar
-manager: narayan
-editor: 
+author: KumudD
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: aa9d26ca-3d8a-4a99-83b7-c410dd20b9d0
 ms.service: load-balancer
@@ -13,102 +13,181 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: 35632cc93c9a0650b45220ba84b4983679de3d9c
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1b7901542a699e74f65527bf734133f73acb0bea
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="creating-an-internet-facing-load-balancer-using-the-azure-portal"></a>Création d’un équilibrage de charge accessible sur Internet à l’aide du portail Azure
+# <a name="create-a-public-basic-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Créer un équilibreur de charge de base public pour équiper la charge des machines virtuelles à l’aide du portail Azure
 
-> [!div class="op_single_selector"]
-> * [Portail](../load-balancer/load-balancer-get-started-internet-portal.md)
-> * [PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
-> * [interface de ligne de commande Azure](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
-> * [Modèle](../load-balancer/load-balancer-get-started-internet-arm-template.md)
+L’équilibrage de charge offre un niveau plus élevé de disponibilité et d’évolutivité en répartissant les demandes entrantes sur plusieurs machines virtuelles. Vous pouvez utiliser le portail Azure pour créer un équilibreur de charge qui équilibre la charge des machines virtuelles. Ce guide de démarrage rapide montre comment créer des ressources réseau, des serveurs principaux et un équilibreur de charge de base public.
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
 
-[!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
+## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
-Cet article traite du modèle de déploiement de Resource Manager.
+Connectez-vous au portail Azure sur [http://portal.azure.com](http://portal.azure.com).
 
-[!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
+## <a name="create-a-basic-load-balancer"></a>Créer un équilibreur de charge de base public
 
-Cet article décrit la séquence de tâches individuelles qui doivent être exécutées pour créer un équilibrage de charge, et explique en détail les opérations effectuées pour atteindre cet objectif.
+Dans cette section, vous allez créer un équilibreur de charge de base public à l’aide du portail. L’adresse IP publique est automatiquement configurée comme serveur frontal de l’équilibreur de charge, nommé *équilibreur de charge de base public* lorsque vous créez l’adresse IP publique et la ressource de l’équilibreur de charge à l’aide du portail.
 
-## <a name="what-is-required-to-create-an-internet-facing-load-balancer"></a>Ce qui est nécessaire pour créer un équilibrage de charge accessible sur Internet
+1. En haut à gauche de l’écran, cliquez sur **Créer une ressource** > **Mise en réseau** > **Équilibreur de charge**.
+2. Dans la page **Créer un équilibreur de charge**, entrez les valeurs suivantes pour l’équilibreur de charge :
+    - *myLoadBalancer* : pour le nom de l’équilibreur de charge.
+    - **Public** : pour le type de serveur frontal de l’équilibreur de charge 
+     - *myPublicIP* : pour l’adresse IP publique que vous devez créer avec la référence SKU **De base**, et l’**Attribution** définie comme **Dynamique**.
+    - *myResourceGroupLB* : pour le nom du nouveau groupe de ressources que vous créez.
+3. Cliquez sur **Créer** pour générer l’équilibreur de charge.
+   
+    ![Créer un équilibrage de charge](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
 
-Vous devez créer et configurer les objets suivants pour déployer un équilibreur de charge.
 
-* Configuration d’adresses IP frontales : contient les adresses IP publiques pour le trafic réseau entrant.
-* Pool d’adresses principales : contient des interfaces réseau (NIC) pour que les machines virtuelles puissent recevoir le trafic réseau de l’équilibrage de charge.
-* Règles d’équilibrage de charge : contient des règles de mappage d’un port public situé sur l’équilibrage de charge pour le pool d’adresses principales.
-* Règles NAT entrantes : contient des règles de mappage d’un port public situé sur l’équilibrage de charge vers le port d’une machine virtuelle spécifique située dans le pool d’adresses principales.
-* Sondes : contient les sondes d’intégrité utilisées pour vérifier la disponibilité des instances de machines virtuelles du pool d’adresses principales.
+## <a name="create-backend-servers"></a>Créer des serveurs principaux
 
-Pour obtenir plus d’informations sur les composants de l’équilibreur de charge avec Azure Resource Manager, consultez la page [Support Azure Resource Manager pour l’équilibreur de charge](load-balancer-arm.md).
+Dans cette section, vous créez un réseau virtuel ainsi que deux machines virtuelles pour le pool principal de votre équilibreur de charge de base, puis vous installez IIS sur les machines virtuelles afin de tester l’équilibreur de charge.
 
-## <a name="set-up-a-load-balancer-in-azure-portal"></a>Configurer un équilibreur de charge dans le portail Azure
+### <a name="create-a-virtual-network"></a>Créez un réseau virtuel
+1. Sur le côté gauche de l’écran, cliquez sur **Nouveau** > **Réseau** > **Réseau virtuel** et entrez ces valeurs pour le réseau virtuel :
+    - *myVNet* : pour le nom du réseau virtuel.
+    - *myResourceGroupLB* : pour le nom du groupe de ressources existant
+    - *myBackendSubnet* : pour le nom du sous-réseau.
+2. Cliquez sur **Créer** pour créer le réseau virtuel.
 
-> [!IMPORTANT]
-> Cet exemple suppose que vous disposez d’un réseau virtuel appelé **myVNet**. Pour effectuer cette opération, consultez [Créer un réseau virtuel](../virtual-network/manage-virtual-network.md#create-a-virtual-network) . Il suppose également que vous disposez d’un sous-réseau dans **myVNet** appelé **LB-Subnet-BE** et de deux machines virtuelles appelées **web1** et **web2** respectivement dans le même groupe à haute disponibilité appelé **myAvailSet** dans **myVNet**. Pour créer les machines virtuelles, consultez [ce lien](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) .
+    ![Créez un réseau virtuel](./media/load-balancer-get-started-internet-portal/2-load-balancer-virtual-network.png)
 
-1. Dans un navigateur, accédez au portail Azure : [http://portal.azure.com](http://portal.azure.com) et connectez-vous avec votre compte Azure.
-2. Dans l’angle supérieur gauche de l’écran, cliquez sur **Créer une ressource** > **Mise en réseau** > **Équilibrage de charge**.
-3. Dans le panneau **Créer un équilibreur de charge** , tapez le nom de votre équilibreur de charge. Ici, il s’appelle **myLoadBalancer**.
-4. Sous **Type**, sélectionnez **Public**.
-5. Sous **Adresse IP publique**, créez une nouvelle adresse IP publique appelée **myPublicIP**.
-6. Sous Groupe de ressources, sélectionnez **myRG**. Sélectionnez l’**emplacement** approprié, puis cliquez sur **OK**. L’équilibreur de charge commence ensuite le déploiement, qui peut prendre plusieurs minutes.
+### <a name="create-virtual-machines"></a>Créer des machines virtuelles
 
-    ![Mise à jour du groupe de ressources de l’équilibreur de charge](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
+1. Sur le côté gauche de l’écran, cliquez sur **Nouveau** > **Calcul** > **Windows Server 2016 Datacenter** et entrez ces valeurs pour la machine virtuelle :
+    - *myVM1* : pour le nom de la machine virtuelle.        
+    - *azureuser* : pour le nom d’utilisateur administrateur. -    
+    - *myResourceGroupLB* : pour **Groupe de ressources**, sélectionnez **Utiliser existant**, puis *myResourceGroupLB*.
+2. Cliquez sur **OK**.
+3. Sélectionnez **DS1_V2** pour la taille de la machine virtuelle, puis cliquez sur **Sélectionner**.
+4. Entrez ces valeurs pour les paramètres de la machine virtuelle :
+    - *myAvailabilitySet* : pour le nom du nouveau groupe à haute disponibilité que vous créez.
+    -  *myVNet* : vérifiez qu’il est sélectionné en tant que réseau virtuel.
+    - *myBackendSubnet* : vérifiez qu’il est sélectionné en tant que sous-réseau.
+    - *myVM1-ip* : pour l’adresse IP publique.
+    - *myNetworkSecurityGroup* : pour le nom du nouveau groupe de sécurité réseau (pare-feu) que vous devez créer.
+5. Cliquez sur **Désactivé** pour désactiver les diagnostics de démarrage.
+6. Cliquez sur **OK**, vérifiez les paramètres sur la page de résumé, puis cliquez sur **Créer**.
+7. À l’aide des étapes 1 à 6, créez une deuxième machine virtuelle nommée *VM2* avec *myAvailibilityset* en tant que groupe à haute disponibilité, *myVnet* en tant que réseau virtuel, *myBackendSubnet* en tant que sous-réseau et *myNetworkSecurityGroup* en tant que groupe de sécurité réseau. 
 
-## <a name="create-a-back-end-address-pool"></a>Créer un pool d’adresses principal
+### <a name="create-nsg-rules"></a>Créer les règles du groupe de sécurité réseau
 
-1. Une fois votre équilibreur de charge déployé avec succès, sélectionnez-le depuis vos ressources. Sous Paramètres, sélectionnez Pools principaux. Saisissez le nom de votre pool principal. Cliquez sur le bouton **Ajouter** en haut du panneau qui s’affiche.
-2. Cliquez sur **Ajouter une machine virtuelle** dans le panneau **Ajouter un pool principal**.  Sélectionnez **Choisir un groupe à haute disponibilité** sous **Groupe à haute disponibilité**, puis choisissez **myAvailSet**. Sélectionnez **Choisir les machines virtuelles** dans la section Machines virtuelles du panneau, puis cliquez sur **web1** et **web2**, les deux machines virtuelles créées pour l’équilibrage de charge. Assurez-vous des coches bleues apparaissent à gauche de ces deux machines, comme le montre l’image ci-dessous. Cliquez ensuite sur **Sélectionner** dans ce panneau, sur OK dans le panneau **Choisir les machines virtuelles**, puis sur **OK** dans le panneau **Ajouter un pool principal**.
+Dans cette section, vous créez des règles du groupe de sécurité réseau pour autoriser les connexions entrantes à l’aide de HTTP et RDP.
+
+1. Cliquez sur **Toutes les ressources** dans le menu de gauche, puis dans la liste de ressources, cliquez sur **myNetworkSecurityGroup** qui se trouve dans le groupe de ressources **myResourceGroupLB**.
+2. Sous **Paramètres**, cliquez sur **Règles de sécurité entrantes**, puis sur **Ajouter**.
+3. Entrez ces valeurs pour la règle de sécurité entrante nommée *myHTTPRule* afin d’autoriser les connexions HTTP entrantes à l’aide du port 80 :
+    - *Service Tag* : pour **Source**.
+    - *Internet* : pour **Balise de service source**
+    - *80* : pour **Plages de port de destination**
+    - *TCP* : pour **Protocole**
+    - *Allow* : pour **Action**
+    - *100* pour **Priorité**
+    - *myHTTPRule* pour le nom
+    - *Allow HTTP* pour la description
+4. Cliquez sur **OK**.
+ 
+ ![Créez un réseau virtuel](./media/load-balancer-get-started-internet-portal/8-load-balancer-nsg-rules.png)
+5. Répétez les étapes 2 à 4 pour créer une autre règle nommée *myRDPRule* pour autoriser une connexion RDP entrante à l’aide du port 3389 avec les valeurs suivantes :
+    - *Service Tag* : pour **Source**.
+    - *Internet* : pour **Balise de service source**
+    - *3389* : pour **Plages de port de destination**
+    - *TCP* : pour **Protocole**
+    - *Allow* : pour **Action**
+    - *200* pour **Priorité**
+    - *myRDPRule* pour le nom
+    - *Allow RDP* pour la description
+
+   
+
+### <a name="install-iis"></a>Installer IIS
+
+1. Cliquez sur **Toutes les ressources** dans le menu de gauche, puis dans la liste de ressources, cliquez sur **myVM1** qui se trouve dans le groupe de ressources *myResourceGroupLB*.
+2. Sur la page **Vue d’ensemble**, cliquez sur **Connexion** à RDP dans la machine virtuelle.
+3. Connectez-vous à la machine virtuelle avec le nom d’utilisateur *azureuser* et le mot de passe *Azure123456!*
+4. Sur le bureau du serveur, accédez à **Outils d’administration Windows**>**Gestionnaire de serveur**.
+5. Dans le Gestionnaire de serveur, cliquez sur Gérer, puis sur **Ajouter des rôles et fonctionnalités**.
+ ![Ajout du rôle du gestionnaire de serveur](./media/load-balancer-get-started-internet-portal/servermanager.png)
+6. Dans l’Assistant **Ajouter des rôles et fonctionnalités**, utilisez les valeurs suivantes :
+    - Dans la page **Sélectionner le type d’installation**, cliquez sur **Installation basée sur un rôle ou une fonctionnalité**.
+    - Dans la page **Sélectionner le serveur de destination**, cliquez sur **myVM1**
+    - Dans la page **Sélectionner le rôle du serveur**, cliquez sur **Serveur Web (IIS)**
+    - Suivez les instructions jusqu’à la fin de l’Assistant 
+7. Répétez les étapes 1 à 6 pour la machine virtuelle *myVM2*.
+
+## <a name="create-basic-load-balancer-resources"></a>Créer des ressources d’équilibreur de charge de base
+
+Dans cette section, vous configurez les paramètres de l’équilibreur de charge pour un pool d’adresses principal et une sonde d’intégrité et spécifiez l’équilibreur de charge et les règles NAT.
+
+
+### <a name="create-a-backend-address-pool"></a>Créer un pool d’adresses principal
+
+Pour distribuer le trafic vers les machines virtuelles, un pool d’adresses principal contient les adresses IP des cartes d’interface réseau virtuelles connectées à l’équilibreur de charge. Créez le pool d’adresses principal *myBackendPool* pour inclure *VM1* et *VM2*.
+
+1. Cliquez sur **Toutes les ressources** dans le menu de gauche, puis cliquez sur **myLoadBalancer** dans la liste des ressources.
+2. Cliquez sur **Paramètres**, sur **Pools principaux**, puis sur **Ajouter**.
+3. Sur la page **Ajouter un pool principal**, procédez comme suit :
+    - Pour nom, tapez *myBackEndPool, comme nom du pool principal.
+    - Pour **Associé à**, dans le menu déroulant, cliquez sur **Groupe à haute disponibilité**
+    - Pour **Groupe à haute disponibilité**, cliquez sur **myAvailabilitySet**.
+    - Cliquez sur **Ajouter une configuration IP de réseau cible** pour ajouter chaque machine virtuelle (*myVM1* & *myVM2*) créée au pool principal.
+    - Cliquez sur **OK**.
 
     ![Ajout au pool d’adresses principal - ](./media/load-balancer-get-started-internet-portal/3-load-balancer-backend-02.png)
 
-3. Vérifiez que la liste déroulante de vos notifications comporte une mise à jour concernant l’enregistrement du pool principal de l’équilibreur de charge en plus de la mise à jour de l’interface réseau pour les deux machines virtuelles **web1** et **web2**.
+3. Vérifiez que le paramètre du pool principal de l’équilibreur de charge affiche les machines virtuelles **VM1** et **VM2**.
 
-## <a name="create-a-probe-lb-rule-and-nat-rules"></a>Créer une sonde, une règle d’équilibrage de charge et des règles NAT
+### <a name="create-a-health-probe"></a>Créer une sonde d’intégrité
 
-1. Créer une sonde d’intégrité.
+Pour permettre à l’équilibreur de charge de surveiller l’état de votre application, vous utilisez une sonde d’intégrité. La sonde d’intégrité ajoute ou supprime dynamiquement des machines virtuelles de la rotation d’équilibrage de charge en fonction de leur réponse aux vérifications d’intégrité. Créez une sonde d’intégrité *myHealthProbe* pour surveiller l’intégrité des machines virtuelles.
 
-    Dans les paramètres de votre équilibreur de charge, sélectionnez Sondes. Cliquez ensuite sur **Ajouter** en haut du panneau.
+1. Cliquez sur **Toutes les ressources** dans le menu de gauche, puis cliquez sur **myLoadBalancer** dans la liste des ressources.
+2. Cliquez sur **Paramètres**, sur **Sondes d’intégrité**, puis sur **Ajouter**.
+3. Utilisez ces valeurs pour créer la sonde d’intégrité :
+    - *myHealthProbe* : pour le nom de la sonde d’intégrité.
+    - **HTTP** : pour le type de protocole.
+    - *80* : pour le numéro de port.
+    - *15* : pour le nombre **d’intervalles** en secondes entre les tentatives de sonde.
+    - *2* : pour le nombre de **seuils de défaillance** ou d’échecs de sonde consécutifs qui se produisent avant qu’une machine virtuelle soit considérée comme défaillante.
+4. Cliquez sur **OK**.
 
-    Il existe deux façons de configurer une sonde : HTTP ou TCP. Cet exemple montre HTTP, mais TCP peut être configuré de la même manière.
-    Mettez à jour les informations nécessaires. Comme indiqué, **myLoadBalancer** équilibre le trafic sur le port 80. Le chemin d’accès sélectionné est HealthProbe.aspx, l’intervalle est de 15 secondes, et le seuil de défaillance est 2. Quand vous avez terminé, cliquez sur **OK** pour créer la sonde.
+   ![Ajout d'une sonde](./media/load-balancer-get-started-internet-portal/4-load-balancer-probes.png)
 
-    Placez le pointeur sur l’icône « i » pour en savoir plus sur ces configurations individuelles et sur la façon de les modifier selon vos besoins.
+### <a name="create-a-load-balancer-rule"></a>Créer une règle d’équilibreur de charge
 
-    ![Ajout d'une sonde](./media/load-balancer-get-started-internet-portal/4-load-balancer-probes.png)
+Une règle d’équilibreur de charge sert à définir la distribution du trafic vers les machines virtuelles. Vous définissez la configuration IP frontale pour le trafic entrant et le pool d’adresses IP principal pour recevoir le trafic, ainsi que le port source et le port de destination requis. Créez une règle d’équilibreur de charge *myLoadBalancerRuleWeb* pour écouter le port 80 dans le frontend *LoadBalancerFrontEnd* et envoyer le trafic réseau équilibré en charge vers le pool d’adresses principal *myBackEndPool* qui utilise également le port 80. 
 
-2. Créez une règle d’équilibreur de charge.
-
-    Cliquez sur Règles d’équilibrage de charge dans la section Paramètres de votre équilibreur de charge. Dans le nouveau panneau, cliquez sur **Ajouter**. Nommez votre règle. Ici, HTTP. Choisissez le port frontal et le port principal. Ici, 80 est choisi pour les deux. Choisissez **LB-backend** comme pool principal et l’élément précédemment créé **HealthProbe** comme sonde. D’autres configurations peuvent être définies selon vos besoins. Cliquez ensuite sur OK pour enregistrer la règle d’équilibrage de charge.
-
+1. Cliquez sur **Toutes les ressources** dans le menu de gauche, puis cliquez sur **myLoadBalancer** dans la liste des ressources.
+2. Cliquez sur **Paramètres**, **Règles d’équilibrage de charge**, puis sur **Ajouter**.
+3. Utilisez ces valeurs pour configurer la règle d’équilibrage de charge :
+    - *myHTTPRule* : pour que le nom de la règle d’équilibrage de charge.
+    - **TCP** : pour le type de protocole.
+    - *80* : pour le numéro de port.
+    - *80* : pour le port principal.
+    - *myBackendPool* : pour le nom du pool principal.
+    - *myHealthProbe* : pour le nom de la sonde d’intégrité.
+4. Cliquez sur **OK**.
+    
     ![Ajout d’une règle d’équilibrage de charge](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)
 
-3. Créer des règles NAT entrantes
+## <a name="test-the-load-balancer"></a>Tester l’équilibreur de charge
+1. Recherchez l’adresse IP publique de l’équilibreur de charge sur l’écran **Vue d’ensemble**. Cliquez sur **Toutes les ressources**, puis sur **myPublicIP**.
 
-    Cliquez sur Règles NAT entrantes dans la section Paramètres de votre équilibreur de charge. Dans le nouveau panneau, cliquez sur **Ajouter**. Nommez ensuite votre règle NAT entrante. Ici, elle s’appelle **inboundNATrule1**. La destination doit être l’adresse IP publique précédemment créée. Sélectionnez Personnalisé sous Service, puis choisissez le protocole que vous souhaitez utiliser. Ici, TCP est sélectionné. Entrez le port 3441 puis le port cible, 3389 dans ce cas. Cliquez ensuite sur OK pour enregistrer cette règle.
+2. Copiez l’adresse IP publique, puis collez-la dans la barre d’adresses de votre navigateur. La page par défaut du serveur Web IIS s’affiche sur le navigateur.
 
-    Une fois la première règle créée, répétez cette étape pour la seconde règle NAT entrante appelée inboundNATrule2, du port 3442 vers le port cible 3389.
+  ![Serveur Web IIS](./media/load-balancer-get-started-internet-portal/9-load-balancer-test.png)
 
-    ![Ajout d’une règle NAT entrante](./media/load-balancer-get-started-internet-portal/6-load-balancer-inbound-nat-rules.png)
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
-## <a name="remove-a-load-balancer"></a>Supprimer un équilibreur de charge
-
-Pour supprimer un équilibreur de charge, sélectionnez l’équilibreur de charge que vous souhaitez supprimer. Dans le haut du panneau *Équilibreur de charge*, cliquez sur **Supprimer**. Puis sélectionnez **Oui** à l’invite.
+Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, l’équilibreur de charge et toutes les ressources associées. Pour ce faire, sélectionnez le groupe de ressources qui contient l’équilibreur de charge, puis cliquez sur **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Prise en main de la configuration d’un équilibrage de charge interne](load-balancer-get-started-ilb-arm-cli.md)
-
-[Configuration d'un mode de distribution d'équilibrage de charge](load-balancer-distribution-mode.md)
-
-[Configuration des paramètres du délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
+Dans ce guide de démarrage rapide, vous avez créé un groupe de ressources, des ressources réseau et des serveurs principaux. Vous avez ensuite utilisé ces ressources pour créer un équilibreur de charge. Pour plus d’informations sur les équilibreurs de charge et leurs ressources associées, consultez les articles du didacticiel.

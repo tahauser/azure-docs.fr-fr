@@ -1,6 +1,6 @@
 ---
-title: "Analyse d’une application web Java avec Azure Application Insights | Microsoft Docs"
-description: "Analyse des performances des applications pour les applications web Java à l’aide d’Application Insights. "
+title: Analyse d’une application web Java avec Azure Application Insights | Microsoft Docs
+description: 'Analyse des performances des applications pour les applications web Java à l’aide d’Application Insights. '
 services: application-insights
 documentationcenter: java
 author: harelbr
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 1ec845a6491b406c1aef34609b155a9c3d087427
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 227ca3533c7a06b726c758be931df8ec0314e90f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Prise en main d'Application Insights dans un projet web Java
 
@@ -30,7 +30,7 @@ Application Insights prend en charge les applications Java exécutées sur Linux
 
 Ce dont vous avez besoin :
 
-* Oracle JRE 1.6 ou version ultérieure ou Zoulou JRE 1.6 ou version ultérieure
+* Oracle ou Zulu JRE version 1.7 ou 1.8
 * Un abonnement à [Microsoft Azure](https://azure.microsoft.com/).
 
 *Si vous disposez d’une application web déjà active, vous pouvez suivre la procédure alternative destinée à [ajouter le Kit de développement logiciel (SDK) au moment de l’exécution dans le serveur web](app-insights-java-live.md). Cette alternative évite la régénération du code, mais ne vous permet pas d’écrire du code pour effectuer le suivi de l’activité des utilisateurs.*
@@ -169,8 +169,7 @@ Le kit de développement logiciel (SDK) d’Application Insights recherche la cl
 Vous pouvez également [définir la clé dans le code](app-insights-api-custom-events-metrics.md#ikey):
 
 ```Java
-
-    telemetryClient.InstrumentationKey = "...";
+    TelemetryConfiguration.getActive().setInstrumentationKey(iKey);
 ```
 
 ## <a name="4-add-an-http-filter"></a>4. Ajouter un filtre HTTP

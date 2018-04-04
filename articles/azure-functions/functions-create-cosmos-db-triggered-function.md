@@ -1,12 +1,12 @@
 ---
-title: "Créer une fonction déclenchée par Azure Cosmos DB | Microsoft Docs"
-description: "Utilisez Azure Functions pour créer une fonction sans serveur qui est appelée quand des données sont ajoutées à une base de données dans Azure Cosmos DB."
+title: Créer une fonction déclenchée par Azure Cosmos DB | Microsoft Docs
+description: Utilisez Azure Functions pour créer une fonction sans serveur qui est appelée quand des données sont ajoutées à une base de données dans Azure Cosmos DB.
 services: azure-functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
 ms.service: functions; cosmos-db
 ms.devlang: multiple
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/07/2017
 ms.author: glenga
-ms.custom: 
-ms.openlocfilehash: 9ee3eddda53052c47f2cecff80f971f5eadac414
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.custom: ''
+ms.openlocfilehash: 435c4bf1c2619e91bbdd089375914ce06fdac6c7
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Créer une fonction déclenchée par Azure Cosmos DB
 
@@ -28,7 +28,8 @@ Découvrez comment créer une fonction qui est déclenchée quand des données s
 
 ![Affichage du message dans les journaux.](./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png)
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour suivre ce didacticiel :
 
@@ -74,7 +75,7 @@ Créez ensuite une fonction dans la nouvelle Function App.
     | Paramètre      | Valeur suggérée  | Description                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **Identifiant** | Nom de base de données | ID unique de la base de données Azure Cosmos DB  |
-    | **API** | SQL (DocumentDB) | Cette rubrique utilise l’API de base de données de document.  |
+    | **API** | SQL | Cette rubrique utilise l’API SQL.  |
     | **Abonnement** | Abonnement Azure | Abonnement sous lequel est créé ce nouveau compte Cosmos DB.  |
     | **Groupe de ressources** | myResourceGroup |  Utilisez le groupe de ressources existant qui contient votre application de fonction. |
     | **Lieu**  | WestEurope | Sélectionnez un emplacement près de votre application de fonction ou d’autres applications qui utilisent les documents stockés.  |

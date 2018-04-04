@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel Azure Container Service - Mettre à jour une application"
-description: "Didacticiel Azure Container Service - Mettre à jour une application"
+title: Didacticiel Azure Container Service - Mettre à jour une application
+description: Didacticiel Azure Container Service - Mettre à jour une application
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5f22bb3ac378bc9b1ff94db486d6ea6053c64514
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 87de0f23a00b035b12bac6cf655781961b1fb9e5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="update-an-application-in-kubernetes"></a>Mettre à jour une application dans Kubernetes
 
@@ -29,7 +29,7 @@ Dans ce didacticiel (le sixième d’une série de sept), l’exemple de l’app
 > * Envoi (push) de l’image conteneur à Azure Container Registry
 > * Déploiement de l’image conteneur mise à jour
 
-Dans les didacticiels suivants, Operations Management Suite est configuré pour la surveillance du cluster Kubernetes.
+Dans les didacticiels suivants, Log Analytics est configuré pour la surveillance du cluster Kubernetes.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -71,7 +71,7 @@ docker-compose up --build -d
 
 ## <a name="test-application-locally"></a>Tester l’application localement
 
-Accédez à http://localhost:8080 pour afficher l’application en cours d’exécution.
+Accédez à http://localhost:8080 pour voir l’application mise à jour.
 
 ![Image du cluster Kubernetes sur Azure](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 
@@ -166,7 +166,7 @@ Dans ce didacticiel, nous avons mis à jour une application et nous avons déplo
 > * Envoi (push) de l’image conteneur à Azure Container Registry
 > * Déploiement de l’application mise à jour
 
-Passez au didacticiel suivant pour en savoir plus sur la surveillance de Kubernetes avec Operations Management Suite.
+Passez au didacticiel suivant pour en savoir plus sur la surveillance de Kubernetes avec Log Analytics.
 
 > [!div class="nextstepaction"]
-> [Surveiller Kubernetes avec OMS (Operations Management Suite)](./container-service-tutorial-kubernetes-monitor.md)
+> [Effectuer le monitoring de Kubernetes avec Log Analytics](./container-service-tutorial-kubernetes-monitor.md)

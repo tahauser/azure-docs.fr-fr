@@ -1,8 +1,8 @@
 ---
-title: "Vue d’ensemble d’Azure Data Lake Store | Microsoft Docs"
-description: "Présentation d'Azure Data Lake Store et de la valeur qu'elle apporte par rapport à d'autres magasins de données"
+title: Vue d’ensemble d’Azure Data Lake Store | Microsoft Docs
+description: Présentation d'Azure Data Lake Store et de la valeur qu'elle apporte par rapport à d'autres magasins de données
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/09/2018
+ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 88c44f2e47562f9992e7c6e228b9a4c917f806ba
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 111906bc9e7e85e30a879d7bacff37edb4b204ac
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="overview-of-azure-data-lake-store"></a>Présentation d'Azure Data Lake Store
 Azure Data Lake Store est un référentiel d'entreprise à très grande échelle pour les charges de travail d'analyse du Big Data. Azure Data Lake vous permet de capturer les données de toute taille, de tout type et à toute vitesse d'ingestion dans un emplacement unique en vue d'une analyse opérationnelle et exploratoire.
@@ -61,7 +61,7 @@ Azure Data Lake Store utilise Azure Active Directory pour l'authentification et 
 | Fonctionnalité | Description |
 | --- | --- |
 | Authentification |Azure Data Lake Store s'intègre à Azure Active Directory (AAD) pour la gestion des identités et des accès de toutes les données stockées dans Azure Data Lake Store. Grâce à cette intégration, Azure Data Lake tire parti de toutes les fonctionnalités d'AAD, notamment l'authentification multifacteur, l'accès conditionnel, le contrôle d'accès en fonction du rôle, l'analyse d'utilisation des applications, la surveillance de la sécurité et les alertes, etc. Azure Data Lake Store prend en charge le protocole OAuth 2.0 pour l'authentification auprès de l'interface REST. Consultez l’article [Authentification Data Lake Store](data-lakes-store-authentication-using-azure-active-directory.md)|
-| Contrôle d’accès |Azure Data Lake Store offre un contrôle d'accès grâce à la prise en charge des autorisations de type POSIX exposées par le protocole WebHDFS. Dans la version publique préliminaire de Data Lake Store (la version actuelle), les ACL peuvent être activées au niveau du dossier racine, des sous-dossiers et des fichiers individuels. Pour plus d’informations sur le fonctionnement des ACL dans le contexte de Data Lake Store, consultez [Contrôle d’accès dans Data Lake Store](data-lake-store-access-control.md). |
+| Contrôle d’accès |Azure Data Lake Store offre un contrôle d'accès grâce à la prise en charge des autorisations de type POSIX exposées par le protocole WebHDFS. Les ACL peuvent être activées au niveau du dossier racine, des sous-dossiers et des fichiers individuels. Pour plus d’informations sur le fonctionnement des ACL dans le contexte de Data Lake Store, consultez [Contrôle d’accès dans Data Lake Store](data-lake-store-access-control.md). |
 | Chiffrement |Data Lake Store fournit également le chiffrement des données stockées dans le compte. Vous spécifiez les paramètres de chiffrement lors de la création d’un compte Data Lake Store. Vous pouvez choisir de chiffrer vos données ou non. Pour plus d’informations, consultez l’article [Chiffrement dans Data Lake Store](data-lake-store-encryption.md). Pour savoir comment fournir une configuration avec chiffrement, consultez la [Prise en main d’Azure Data Lake Store à l’aide du Portail Azure](data-lake-store-get-started-portal.md). |
 
 Vous souhaitez en savoir plus sur la sécurisation des données dans Data Lake Store ? Suivez les liens ci-dessous.

@@ -1,35 +1,34 @@
 ---
-title: "Créer une base de données de documents Azure Cosmos DB avec Java | Microsoft Docs"
-description: "Cet article présente un exemple de code Java que vous pouvez utiliser pour vous connecter à l’API SQL de Azure Cosmos DB, et pour l’interroger"
+title: Créer une base de données de documents Azure Cosmos DB avec Java | Microsoft Docs
+description: Cet article présente un exemple de code Java que vous pouvez utiliser pour vous connecter à l’API SQL d’Azure Cosmos DB, et pour l’interroger.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: mimig1
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 89ea62bb-c620-46d5-baa0-eefd9888557c
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc, devcenter
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 12/15/2017
+ms.date: 03/26/2018
 ms.author: mimig
-ms.openlocfilehash: 85f8310235e0f5b038f2b55c94fe044d1a9d9719
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 669a11368ed6ccec041701e691323a2bb2cac56a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB : créer une base de données de documents à l’aide de Java et du portail Azure
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
 
 Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Avec Azure Cosmos DB, vous pouvez rapidement créer et interroger des bases de données de documents, tables et graphiques gérées.
 
 Ce guide de démarrage rapide crée une base de données de documents à l’aide des outils du portail Azure pour Azure Cosmos DB. Ce guide vous indique également comment créer rapidement une application console Java au moyen de [l’API Java SQL](sql-api-sdk-java.md). Les instructions de ce guide de démarrage rapide s’appliquent à tous les systèmes d’exploitation pouvant exécuter Java. Après avoir suivi ce guide de démarrage rapide, vous saurez comment créer et modifier des ressources de base de données de documents dans l’interface utilisateur ou par programme, selon la méthode que vous préférez.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
@@ -46,7 +45,7 @@ Par ailleurs :
 
 ## <a name="create-a-database-account"></a>Création d'un compte de base de données
 
-Pour être en mesure de créer une base de données de documents, vous devez avoir préalablement créé un compte de base de données SQL avec Azure Cosmos DB.
+Pour être en mesure de créer une base de données de documents, vous devez avoir préalablement créé un compte d’API SQL avec Azure Cosmos DB.
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -63,7 +62,7 @@ Vous pouvez maintenant ajouter des données à votre nouvelle collection grâce 
 
    ![Créer des documents dans l’Explorateur de données, dans le Portail Azure](./media/create-sql-api-java/azure-cosmosdb-data-explorer-new-document.png)
   
-2. À présent, ajoutez un document à la collection avec la structure suivante et cliquez sur **Enregistrer**.
+2. À présent, ajoutez un document à la collection avec la structure suivante et cliquez sur **Enregistrer**. Utilisez le bouton **Copier** dans la zone de code pour copier le fichier json dans le Presse-papiers.
 
      ```json
      {
@@ -87,7 +86,7 @@ Vous pouvez désormais utiliser des requêtes dans l’Explorateur de données p
 
     ![La requête par défaut dans l’Explorateur de données est « SELECT * FROM c »](./media/create-sql-api-java/azure-cosmosdb-data-explorer-query.png)
 
-2. Pour modifier la requête, cliquez sur le bouton **Modifier le filtre**, ajoutez `ORDER BY c._ts DESC` dans la zone de prédicat de requête, puis cliquez sur **Appliquer un filtre**.
+2. Restez sur l’onglet **Documents** et modifiez la requête en cliquant sur le bouton **Modifier le filtre**, en ajoutant `ORDER BY c._ts DESC` dans la zone de prédicat de requête, puis en cliquant sur **Appliquer un filtre**.
 
     ![Modifier la requête par défaut en ajoutant ORDER BY c._ts DESC et en cliquant sur Appliquer un filtre](./media/create-sql-api-java/azure-cosmosdb-data-explorer-edit-query.png)
 
@@ -119,9 +118,11 @@ L’exercice portant sur l’Explorateur de données est désormais terminé. Av
 
 ## <a name="review-the-code"></a>Vérifier le code
 
-Cette étape est facultative. Pour savoir comment les ressources de base de données sont créées dans le code, vous pouvez examiner les extraits de code suivants. Les extraits de code sont tirés du fichier `Program.java` enregistré dans le dossier C:\git-samples\azure-cosmos-db-documentdb-java-getting-started\src\GetStarted. Sinon, vous pouvez passer à l’étape [Mise à jour de votre chaîne de connexion](#update-your-connection-string). 
+Cette étape est facultative. Pour savoir comment les ressources de base de données sont créées dans le code, vous pouvez examiner les extraits de code suivants. Sinon, vous pouvez passer à l’étape [Mise à jour de votre chaîne de connexion](#update-your-connection-string). 
 
-* Initialisation de `DocumentClient`. Le client [DocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client) fournit la représentation logique côté client pour le service de base de données Azure Cosmos DB. Ce client est utilisé pour configurer et exécuter des requêtes auprès du service.
+Les extraits de code suivants sont tirés du fichier C:\git-samples\azure-cosmos-db-documentdb-java-getting-started\src\GetStarted\Program.java.
+
+* Initialisation de `DocumentClient`. Le client [DocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client) fournit la représentation logique côté client pour le service de base de données Azure Cosmos DB. Ce client est utilisé pour configurer et exécuter des requêtes auprès du service. Les parties `FILLME` de ce code seront mises à jour plus tard dans le démarrage rapide.
 
     ```java
     this.client = new DocumentClient("https://FILLME.documents.azure.com",
@@ -231,13 +232,15 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 
     La fenêtre de terminal affiche une notification vous informant que la base de données FamilyDB a été créée. 
     
-4. Appuyez sur une touche pour créer la collection. 
+4. Appuyez sur une touche pour créer la base de données, puis sur une autre touche pour créer la collection. 
 
-5. Revenez dans l’Explorateur de données et constatez qu’il contient désormais une base de données FamilyDB.
-    
-6. Continuez à appuyer sur des touches dans la fenêtre de console pour que le code crée des documents et effectuer une requête.
-    
-    À la fin du programme, toutes les ressources obtenues à partir de cette application sont supprimées de votre compte afin que vous n’ayez aucun frais à payer. 
+    À la fin du programme, toutes les ressources sont supprimées. Vous devez donc revenir à l’Explorateur de données dans votre navigateur pour voir qu’il contient maintenant une collection FamilyCollection et une base de données FamilyDB.
+
+5. Basculez vers la fenêtre de console et appuyez sur une touche pour créer le premier document, puis sur une autre touche pour créer le deuxième document. Revenez ensuite à l’Explorateur de données pour les afficher. 
+
+6. Appuyez sur une touche pour exécuter une requête et afficher la sortie dans la fenêtre de console. 
+
+7. La prochaine touche sur laquelle vous appuierez supprimera les ressources. Si vous souhaitez conserver les ressources, vous pouvez appuyer sur CTRL + C dans la fenêtre de console pour mettre fin au programme. Sinon, appuyez sur n’importe quelle touche pour supprimer les ressources de votre compte pour éviter d’être facturé pour son utilisation. 
 
     ![Sortie de la console](./media/create-sql-api-java/console-output.png)
 

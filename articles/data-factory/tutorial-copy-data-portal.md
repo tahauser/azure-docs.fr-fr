@@ -1,11 +1,11 @@
 ---
-title: "Utiliser le portail Azure pour créer un pipeline de fabrique de données | Microsoft Docs"
-description: "Ce didacticiel fournit des instructions détaillées sur l’utilisation d’un portail Azure pour créer une fabrique de données avec un pipeline. Le pipeline utilise l’activité de copie pour copier des données d’un stockage Blob Azure vers une base de données SQL."
+title: Utiliser le portail Azure pour créer un pipeline de fabrique de données | Microsoft Docs
+description: Ce didacticiel fournit des instructions détaillées sur l’utilisation d’un portail Azure pour créer une fabrique de données avec un pipeline. Le pipeline utilise l’activité de copie pour copier des données d’un stockage Blob Azure vers une base de données SQL.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 116832175a4b7e4497c9005be7841cb56c1d235b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 34c78a114c1d106c400a94941aa113153383e206
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Copier des données à partir d’un stockage Blob Azure vers une base de données SQL en utilisant Azure Data Factory
 Dans ce didacticiel, vous créez une fabrique de données à l’aide de l’interface utilisateur (IU) d’Azure Data Factory. Le pipeline de cette fabrique de données copie les données d’un stockage Blob Azure vers une base de données SQL. Le modèle de configuration de ce didacticiel s’applique à la copie depuis un magasin de données de fichiers vers un magasin de données relationnelles. Pour obtenir la liste des magasins de données pris en charge en tant que sources et récepteurs, consultez le tableau [Magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -38,6 +38,7 @@ Dans ce didacticiel, vous effectuerez les étapes suivantes :
 > * Surveiller les exécutions de pipeline et d’activité.
 
 ## <a name="prerequisites"></a>Prérequis
+
 * **Abonnement Azure**. Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * **Compte Azure Storage**. Vous utilisez le stockage Blob comme magasin de données *source*. Si vous ne possédez pas de compte de stockage, consultez l’article [Créer un compte de stockage Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account) pour découvrir comment en créer un.
 * **Base de données SQL Azure**. Vous utilisez la base de données comme magasin de données *récepteur*. Si vous ne disposez pas d’une base de données SQL, consultez [Créer une base de données SQL](../sql-database/sql-database-get-started-portal.md) pour découvrir comment en créer une.
@@ -88,7 +89,7 @@ Dans ce didacticiel, vous effectuerez les étapes suivantes :
 2. Dans le menu sur la gauche, sélectionnez **Nouveau** > **Données + Analytique** > **Data Factory**. 
   
    ![Création d’une fabrique de données](./media/tutorial-copy-data-portal/new-azure-data-factory-menu.png)
-3. Dans la page **Nouvelle fabrique de données**, allez sous **Nom** et entrez **ADFTutorialDataFactory**. 
+3. Sur la page **Nouvelle fabrique de données**, entrez **ADFTutorialDataFactory** dans le champ **Nom**. 
       
      ![Nouvelle fabrique de données](./media/tutorial-copy-data-portal/new-azure-data-factory.png)
  
@@ -155,7 +156,7 @@ Dans ce didacticiel, vous commencez par créer le pipeline. Puis vous créez des
     ![Bouton de nouveau service lié](./media/tutorial-copy-data-portal/source-dataset-new-linked-service-button.png)
 10. Dans la fenêtre **Nouveau service lié**, procédez comme suit : 
 
-    a. Sous **Nom**, entrez **AzureStorageLinkedService**. 
+    a. Dans le champ **Nom**, entrez **AzureStorageLinkedService**. 
 
     b. Sous **Nom du compte de stockage**, sélectionnez votre compte de stockage.
 
@@ -212,7 +213,7 @@ Dans ce didacticiel, vous commencez par créer le pipeline. Puis vous créez des
     
     ![Enregistrer le nouveau service lié](./media/tutorial-copy-data-portal/new-azure-sql-linked-service-window.png)
 
-22. Dans **Table**, sélectionnez **[dbo].[emp]**. 
+22. Sélectionnez **[dbo].[emp]** dans le champ **Table**. 
 
     ![Table](./media/tutorial-copy-data-portal/select-emp-table.png)
 23. Accédez à l’onglet **Schéma**, puis sélectionnez **Importer un schéma**. 
@@ -303,7 +304,7 @@ Vous pouvez effectuer une série de tests sur un pipeline avant de publier des a
     ![Afficher les notifications](./media/tutorial-copy-data-portal/show-notifications.png)
 
 ## <a name="configure-code-repository"></a>Configurer le référentiel de code
-Vous pouvez publier le code associé à vos artefacts de fabrique de données dans un référentiel de code Visual Studio Team Services. Dans cette étape, vous créez le référentiel de code. 
+Vous pouvez publier le code associé à vos artefacts de fabrique de données dans un référentiel de code Visual Studio Team Services. Dans cette étape, vous créez le référentiel de code.  Pour en savoir plus sur la création visuelle avec l’intégration de VSTS, consultez [Author with VSTS Git integration](author-visually.md#author-with-vsts-git-integration) (Créer avec l’intégration de VSTS Git).
 
 Si vous ne souhaitez pas travailler avec le référentiel de code Visual Studio Team Services, vous pouvez ignorer cette étape. Vous pouvez continuer vos publications dans Data Factory comme vous l’avez fait à l’étape précédente. 
 

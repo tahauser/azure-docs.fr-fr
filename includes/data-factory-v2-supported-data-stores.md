@@ -1,3 +1,19 @@
+---
+title: Fichier Include
+description: Fichier Include
+services: data-factory
+author: linda33wj
+ms.service: data-factory
+ms.topic: include
+ms.date: 03/19/2018
+ms.author: jingwang
+ms.custom: include file
+ms.openlocfilehash: 4a47b30b30e15bbd3df4f70b2a6f63b4ab167aea
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 03/23/2018
+---
 | Catégorie | Banque de données | Prise en charge en tant que source | Prise en charge en tant que récepteur | Prise en charge par [Azure IR](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) | Prise en charge par [IR auto-hébergé](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **Microsoft Azure** |[Stockage Blob Azure](../articles/data-factory/connector-azure-blob-storage.md) |✓ |✓ |✓ |✓  |
@@ -46,6 +62,7 @@
 | &nbsp; |[OData générique](../articles/data-factory/connector-odata.md) |✓ | |✓ |✓  |
 | &nbsp; |[ODBC générique](../articles/data-factory/connector-odbc.md) |✓ |✓ | |✓  |
 | **Services et applications** |[Amazon Marketplace Web Service (bêta)](../articles/data-factory/connector-amazon-marketplace-web-service.md) |✓ | |✓ |✓  |
+| &nbsp; |[Common Data Service pour les applications](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Concur (bêta)](../articles/data-factory/connector-concur.md) |✓ | |✓ |✓  |
 | &nbsp; |[Dynamics 365](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Dynamics CRM](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |

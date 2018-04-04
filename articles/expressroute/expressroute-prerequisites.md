@@ -1,24 +1,24 @@
 ---
-title: "Configuration requise pour l’adoption d’Azure ExpressRoute | Microsoft Docs"
-description: "Cette page fournit une liste des exigences à respecter avant de commander un circuit Azure ExpressRoute."
+title: Configuration requise pour l’adoption d’Azure ExpressRoute | Microsoft Docs
+description: Cette page fournit une liste des exigences à respecter avant de commander un circuit Azure ExpressRoute.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f872d25e-acfd-405d-9d1b-dcb9f323a2ff
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/30/2017
+ms.date: 03/28/2018
 ms.author: cherylmc
-ms.openlocfilehash: 8629235511e0dda149ceef6a9c834c3042f64f90
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 332bfba0664391b6126669c4c89e38d1af4cf4fa
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="expressroute-prerequisites--checklist"></a>Configuration requise pour ExpressRoute et liste de contrôle
 Pour vous connecter aux services cloud de Microsoft en utilisant ExpressRoute, vous devez vérifier que les conditions requises des sections suivantes sont remplies.
@@ -46,6 +46,7 @@ Si vous prévoyez d’activer Office 365 sur ExpressRoute, consultez les docume
 
 * [Vue d’ensemble d’ExpressRoute pour Office 365](https://support.office.com/en-us/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd)
 * [Routage avec ExpressRoute pour Office 365](https://support.office.com/en-us/article/Routing-with-ExpressRoute-for-Office-365-e1da26c6-2d39-4379-af6f-4da213218408)
+* [Haute disponibilité et basculement avec ExpressRoute](https://aka.ms/erhighavailability)
 * [URL et plages d’adresses IP Office 365](https://support.office.com/en-us/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)
 * [Planification réseau et optimisation des performances pour Office 365](https://support.office.com/en-us/article/Network-planning-and-performance-tuning-for-Office-365-e5f1228c-da3c-4654-bf16-d163daee8848)
 * [Outils et calculatrices de bande passante réseau](https://support.office.com/en-us/article/Network-and-migration-planning-for-Office-365-f5ee6c33-bcd7-4b0b-b0f8-dc1d9fb8d132)
@@ -60,7 +61,7 @@ Si vous prévoyez d’activer Dynamics 365 sur ExpressRoute, consultez les docu
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour plus d'informations sur ExpressRoute, consultez le [FAQ sur ExpressRoute](expressroute-faqs.md).
-* Recherchez un fournisseur de connectivité ExpressRoute. Consultez [Partenaires ExpressRoute et emplacements d’homologation](expressroute-locations.md).
+* Recherchez un fournisseur de connectivité ExpressRoute. Consultez la page [Partenaires ExpressRoute et emplacements d’homologation](expressroute-locations.md).
 * Reportez-vous aux conditions requises pour le [routage](expressroute-routing.md), la [traduction d’adresses réseau](expressroute-nat.md) et la [qualité de service](expressroute-qos.md).
 * Configurez votre connexion ExpressRoute.
   * [Création d’un circuit ExpressRoute](expressroute-howto-circuit-classic.md)

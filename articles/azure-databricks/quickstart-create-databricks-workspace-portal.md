@@ -11,18 +11,20 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/09/2018
+ms.date: 03/23/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: 9eff06934eefa44db94de3d01be470ca69a2d88c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 19dcdeefe4a65f5c0fab06766a0fa40838df8b08
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Démarrage rapide : Exécuter une tâche Spark sur Azure Databricks à l’aide du portail Azure
 
 Ce guide de démarrage rapide montre comment créer un espace de travail Azure Databricks et un cluster Apache Spark au sein de cet espace de travail. Enfin, vous découvrirez comment exécuter un travail Spark sur le cluster Databricks. Pour plus d’informations sur Azure Databricks, consultez [Présentation d’Azure Databricks](what-is-azure-databricks.md)
+
+Dans ce démarrage rapide, dans le cadre du travail Spark, vous analysez des données d’abonnement à un canal de radio pour obtenir des informations sur l’utilisation gratuite/payante en fonction de données démographiques. 
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -30,15 +32,13 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 Connectez-vous au [portail Azure](https://portal.azure.com).
 
-## <a name="create-a-databricks-workspace"></a>Créer un espace de travail Databricks
+## <a name="create-an-azure-databricks-workspace"></a>Créer un espace de travail Azure Databricks
 
 Dans cette section, vous créez un espace de travail Azure Databricks en utilisant le portail Azure. 
 
-1. Dans le portail Azure, cliquez sur **Créer une ressource**, cliquez sur **Données + Analytique**, puis cliquez sur **Azure Databricks (préversion)**. 
+1. Dans le portail Azure, sélectionnez **Créer une ressource** > **Données + Analytique** > **Azure Databricks**. 
 
     ![Databricks sur le portail Azure](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks sur le portail Azure")
-
-2. Sous **Azure Databricks (Préversion)**, cliquez sur **Créer**.
 
 3. Sous **Service Azure Databricks**, renseignez les valeurs pour créer un espace de travail Databricks.
 
@@ -56,7 +56,7 @@ Dans cette section, vous créez un espace de travail Azure Databricks en utilisa
 
     Sélectionnez **Épingler au tableau de bord**, puis cliquez sur **Créer**.
 
-4. La création du compte prend quelques minutes. Lors de la création d’un compte, le portail affiche la vignette **Envoi du déploiement pour Azure Databricks** sur le côté droit. Vous devrez peut-être faire défiler votre tableau de bord vers la droite pour voir la vignette. Il existe également une barre de progression en haut de l’écran. Vous pouvez surveiller la progression de la zone souhaitée.
+4. La création de l’espace de travail dure quelques minutes. Lors de la création de l’espace de travail, le portail affiche la vignette **Envoi du déploiement pour Azure Databricks** sur le côté droit. Vous devrez peut-être faire défiler votre tableau de bord vers la droite pour voir la vignette. Il existe également une barre de progression en haut de l’écran. Vous pouvez surveiller la progression de la zone souhaitée.
 
     ![Vignette de déploiement Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-deployment-tile.png "Vignette de déploiement Databricks")
 
@@ -72,11 +72,13 @@ Dans cette section, vous créez un espace de travail Azure Databricks en utilisa
 
     ![Créer un cluster Databricks Spark sur Azure](./media/quickstart-create-databricks-workspace-portal/create-databricks-spark-cluster.png "Créer un cluster Databricks Spark sur Azure")
 
+    Acceptez toutes les valeurs par défaut autres que les suivantes :
+
     * Entrez un nom pour le cluster.
     * Pour cet article, créez un cluster avec le runtime **4.0**. 
     * Veillez à cocher la case **Arrêter après ___ minutes d’inactivité**. Spécifiez une durée (en minutes) pour arrêter le cluster, si le cluster n’est pas utilisé.
-    * Acceptez toutes les autres valeurs par défaut. 
-    * Cliquez sur **Créer le cluster**. Une fois que le cluster est en cours d’exécution, vous pouvez y attacher des notebooks et exécuter des travaux Spark.
+    
+    Sélectionnez **Créer un cluster**. Une fois que le cluster est en cours d’exécution, vous pouvez y attacher des notebooks et exécuter des travaux Spark. 
 
 Pour plus d’informations sur la création de clusters, consultez [Créer un cluster Spark dans Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
 
@@ -84,9 +86,9 @@ Pour plus d’informations sur la création de clusters, consultez [Créer un cl
 
 Avant de commencer cette section, vous devez effectuer les prérequis suivants :
 
-* [Création d’un compte de stockage Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
+* [Créez un compte de stockage Blob Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
 * Téléchargez un exemple de fichier JSON [depuis GitHub](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json). 
-* Chargez l’exemple de fichier JSON sur le compte de stockage Azure que vous avez créé. Vous pouvez utiliser [l’Explorateur Stockage Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) pour charger des fichiers.
+* Chargez l’exemple de fichier JSON sur le compte de stockage Blob Azure que vous avez créé. Vous pouvez utiliser [l’Explorateur Stockage Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) pour charger des fichiers.
 
 Effectuez les tâches suivantes pour créer un notebook dans Databricks, configurer le notebook pour la lecture de données d’un compte de stockage Blob Azure et exécuter un travail Spark SQL sur les données.
 
@@ -100,10 +102,10 @@ Effectuez les tâches suivantes pour créer un notebook dans Databricks, configu
 
     Cliquez sur **Créer**.
 
-3. Dans cette étape, associez le compte de Stockage Azure au cluster Spark Databricks. Il existe deux manières d’y parvenir. Vous pouvez monter le compte de Stockage Azure au système de fichiers Databricks Filesystem (DBFS) ou accéder directement au compte de Stockage Azure depuis l’application que vous créez.  
+3. Dans cette étape, associez le compte de Stockage Azure au cluster Spark Databricks. Il existe deux manières d’y parvenir. Vous pouvez monter le compte de Stockage Azure sur le système de fichiers Databricks Filesystem (DBFS) ou accéder directement au compte de Stockage Azure depuis l’application que vous créez.  
 
     > [!IMPORTANT]
-    >Cet article utilise la **méthode de montage du stockage au système de fichiers DBFS**. Cette méthode garantit l’association du stockage monté et du cluster de système de fichiers. Ainsi, toute application qui accède au cluster est en mesure d’utiliser aussi le stockage associé. La méthode d’accès direct est limitée à l’application à partir de laquelle vous configurez l’accès.
+    >Cet article utilise la méthode de **montage du stockage sur le système de fichiers DBFS**. Cette méthode garantit l’association du stockage monté et du cluster de système de fichiers. Ainsi, toute application qui accède au cluster est en mesure d’utiliser aussi le stockage associé. La méthode d’accès direct est limitée à l’application à partir de laquelle vous configurez l’accès.
     >
     > Pour utiliser la méthode de montage, vous devez créer un cluster Spark avec la version **4.0** du runtime de Databricks, que vous choisissez dans cet article.
 
@@ -129,7 +131,7 @@ Effectuez les tâches suivantes pour créer un notebook dans Databricks, configu
 
     ```sql
     %sql 
-    DROP TABLE IF EXISTS radio_sample_data
+    DROP TABLE IF EXISTS radio_sample_data;
     CREATE TABLE radio_sample_data
     USING json
     OPTIONS (
@@ -141,7 +143,7 @@ Effectuez les tâches suivantes pour créer un notebook dans Databricks, configu
 
     La commande magic `%sql` vous permet d’exécuter du code SQL à partir du notebook, même si celui-ci est d’un autre type. Pour plus d’informations, consultez [Mélange de langages dans un notebook](https://docs.azuredatabricks.net/user-guide/notebooks/index.html#mixing-languages-in-a-notebook).
 
-5. Examinons un instantané des données JSON pour mieux comprendre la requête que nous exécutons. Collez l’extrait de code suivant dans une cellule de code, puis appuyez sur **Maj+Entrée**.
+5. Examinons un instantané des données JSON pour mieux comprendre la requête que vous exécutez. Collez l’extrait de code suivant dans une cellule de code, puis appuyez sur **Maj+Entrée**.
 
     ```sql
     %sql 
@@ -183,7 +185,7 @@ Si vous n’arrêtez pas le cluster manuellement, il s’arrêtera automatiqueme
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez créé un cluster Spark dans Azure Databricks et vous avez exécuté un travail Spark avec des données dans Stockage Azure. Vous pouvez également consulter [Sources de données Spark](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) pour découvrir comment importer des données à partir d’autres sources de données dans Azure Databricks. Passez à l’article suivant pour découvrir comment diffuser des données dans Azure Databricks à l’aide d’Event Hubs.
+Dans cet article, vous avez créé un cluster Spark dans Azure Databricks et vous avez exécuté un travail Spark avec des données dans Stockage Azure. Vous pouvez également consulter [Sources de données Spark](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) pour découvrir comment importer des données à partir d’autres sources de données dans Azure Databricks. Passez à l’article suivant pour savoir comment effectuer une opération ETL (extraction, transformation et chargement de données) à l’aide d’Azure Databricks.
 
 > [!div class="nextstepaction"]
->[Diffuser en continu des données dans Azure Databricks à l’aide d’Event Hubs](databricks-stream-from-eventhubs.md)
+>[Extraire, transformer et charger des données à l’aide d’Azure Databricks](databricks-extract-load-sql-data-warehouse.md)

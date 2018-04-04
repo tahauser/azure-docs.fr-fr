@@ -1,11 +1,11 @@
 ---
-title: "Transformer et protéger votre API avec Gestion des API Azure | Microsoft Docs"
-description: "Découvrez comment protéger votre API avec les quotas et les stratégies (limite de débit) de limitation."
+title: Transformer et protéger votre API avec Gestion des API Azure | Microsoft Docs
+description: Découvrez comment protéger votre API avec les quotas et les stratégies (limite de débit) de limitation.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 772f3828d85c54e7b8bb44c857e555175b7444cc
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: fb56b8489b086b724df9f3c9179f2c3265cd05a7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="transform-and-protect-your-api"></a>Transformer et protéger votre API 
 
@@ -26,7 +26,7 @@ Le didacticiel vous montre comment transformer votre API de manière à ce qu’
 
 Ce didacticiel vous montre par ailleurs combien il est facile d’ajouter une protection à votre API principale en configurant les limite de débit avec la Gestion des API Azure. Par exemple, vous pouvez limiter le nombre d’appels dirigés vers l’API, ceci pour éviter toute surutilisation de celle-ci par les développeurs. Pour plus d’informations, consultez la section [Stratégies dans Gestion des API Azure](api-management-policies.md)
 
-Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Transformer une API pour supprimer des en-têtes de réponse
@@ -36,9 +36,10 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 ![Stratégies](./media/transform-api/api-management-management-console.png)
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
-+ Effectuez le démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
+
++ Suivez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
 + Effectuez également le didacticiel suivant : [Importer et publier votre première API](import-and-publish.md).
  
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
@@ -75,7 +76,7 @@ Pour consulter la réponse d’origine :
 7. Sélectionnez **Éditeur de Code**.
     
      ![Modifier la stratégie](./media/set-edit-policies/set-edit-policies01.png)
-9. Placez le curseur à l’intérieur de l’élément **<outbound>**.
+9. Placez le curseur à l’intérieur de l’élément **&lt;sortant&gt;**.
 10. Dans la fenêtre de droite, sous **Stratégies de transformation**, cliquez deux fois sur **+ Set HTTP header** (afin d’insérer deux extraits de stratégie).
 
     ![Stratégies](./media/transform-api/transform-api.png)
@@ -111,9 +112,9 @@ Pour consulter la réponse d’origine :
 5. Sélectionnez l’onglet **Conception** en haut de l’écran.
 6. Dans la fenêtre **Traitement sortant**, cliquez sur le triangle (à côté du crayon).
 7. Sélectionnez **Éditeur de Code**.
-8. Placez le curseur à l’intérieur de l’élément **<outbound>**.
+8. Placez le curseur à l’intérieur de l’élément **&lt;sortant&gt;**.
 9. Dans la fenêtre de droite, sous **Stratégies de transformation**, cliquez sur **+ Find and replace string in body**.
-10. Modifiez votre code **<find-and-replace** (dans l’élément **<outbound>**) afin de remplacer votre URL par une instance correspondant à celle de la passerelle APIM. Par exemple :
+10. Modifiez votre code **<find-and-replace** (dans l’élément **<outbound>**) afin de remplacer votre URL par une instance correspondant à celle de la passerelle APIM. Par exemple : 
 
         <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
 
@@ -128,7 +129,7 @@ Cette section vous montre comment ajouter une protection pour votre API principa
 5. Sélectionnez l’onglet **Conception** en haut de l’écran.
 6. Dans la fenêtre **Traitement entrant**, cliquez sur le triangle (à côté du crayon).
 7. Sélectionnez **Éditeur de Code**.
-8. Placez le curseur à l’intérieur de l’élément **<inbound>**.
+8. Placez le curseur à l’intérieur de l’élément **&lt;sortant&gt;**.
 9. Dans la fenêtre de droite, sous **Accès aux stratégies de restriction**, cliquez sur **+ Limit call rate per key**.
 10. Remplacez votre code **<rate-limit-by-key** (dans l’élément **<inbound>**) par le code suivant :
 
@@ -207,7 +208,7 @@ Le reste de cette section est dédié au test des transformations de stratégies
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Transformer une API pour supprimer des en-têtes de réponse

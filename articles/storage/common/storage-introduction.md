@@ -1,6 +1,6 @@
 ---
-title: "Présentation du stockage Azure | Microsoft Docs"
-description: "Présentation du stockage Azure, stockage de données de Microsoft dans le cloud."
+title: Présentation du stockage Azure | Microsoft Docs
+description: Présentation du stockage Azure, stockage de données de Microsoft dans le cloud.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: get-started-article
 ms.date: 03/06/2018
 ms.author: tamram
-ms.openlocfilehash: 799636d0a702407be06bbe8cebae552b34d860db
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: eb68993924bff8605fc244f438a686f0142c4762
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Introduction à Microsoft Azure Storage
 

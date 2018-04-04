@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel Azure Container Service - Mettre à l’échelle une application"
-description: "Didacticiel Azure Container Service - Mettre à l’échelle une application"
+title: Didacticiel Azure Container Service - Mettre à l’échelle une application
+description: Didacticiel Azure Container Service - Mettre à l’échelle une application
 services: container-service
 author: dlepow
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 36c5586f79cf127ec069fd3c6ef95dd073fdbdb6
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: ea64f9c52dc89dc8eb75a39afbb087a5127505f1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>Mettre à l’échelle des pods Kubernetes et l’infrastructure Kubernetes
 
@@ -28,7 +28,7 @@ Dans ce didacticiel (issu d’une série de sept didacticiels), vous allez augme
 > * Configuration de la mise à l’échelle automatique des pods qui exécutent le front-end de l’application
 > * Mettre à l’échelle les nœuds d’agents Azure Kubernetes
 
-Dans les didacticiels suivants, l’application Azure Vote est mise à jour et Operations Management Suite est configuré pour la surveillance du cluster Kubernetes.
+Dans les didacticiels suivants, l’application Azure Vote est mise à jour et Log Analytics est configuré pour la surveillance du cluster Kubernetes.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -44,7 +44,7 @@ Jusqu’à maintenant, le front-end Azure Vote et l’instance de Redis ont ét�
 kubectl get pods
 ```
 
-Sortie :
+Output:
 
 ```bash
 NAME                               READY     STATUS    RESTARTS   AGE
@@ -64,7 +64,7 @@ Exécutez [kubectl get pods](https://kubernetes.io/docs/user-guide/kubectl/v1.6/
 kubectl get pods
 ```
 
-Sortie :
+Output:
 
 ```bash
 NAME                                READY     STATUS    RESTARTS   AGE
@@ -103,7 +103,7 @@ Pour voir l’état de la mise à l’échelle automatique, exécutez la command
 kubectl get hpa
 ```
 
-Sortie :
+Output:
 
 ```bash
 NAME               REFERENCE                     TARGETS    MINPODS   MAXPODS   REPLICAS   AGE

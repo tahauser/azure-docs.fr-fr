@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel Kubernetes sur Azure - Déployer une application"
-description: "Didacticiel ACS - Déployer une application"
+title: Didacticiel Kubernetes sur Azure - Déployer une application
+description: Didacticiel ACS - Déployer une application
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 095bfe328f3e3ed220de71b3410e34b9be86cff1
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 9fad9627be453fb00508d1f6ec9594bd2bde6fad
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="run-applications-in-azure-container-service-aks"></a>Exécuter des applications dans Azure Container Service (ACS)
+# <a name="tutorial-run-applications-in-azure-container-service-aks"></a>Tutoriel : Exécuter des applications dans Azure Container Service (ACS)
 
 Dans ce didacticiel (quatrième d’une série de huit), un exemple d’application est déployé dans un cluster Kubernetes. Les étapes effectuées sont les suivantes :
 
@@ -24,7 +24,7 @@ Dans ce didacticiel (quatrième d’une série de huit), un exemple d’applicat
 > * Exécuter une application dans Kubernetes
 > * Test de l'application
 
-Dans les didacticiels suivants, cette application est mise à l’échelle et Operations Management Suite est configuré pour la surveillance du cluster Kubernetes.
+Dans les tutoriels suivants, la taille des instances de cette application est augmentée, l’application est mise à jour et Log Analytics est configuré pour la surveillance du cluster Kubernetes.
 
 Ce didacticiel suppose une compréhension élémentaire des concepts de Kubernetes. Pour en savoir plus, consultez la [documentation Kubernetes][kubernetes-documentation].
 

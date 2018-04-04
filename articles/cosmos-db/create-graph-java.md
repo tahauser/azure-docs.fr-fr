@@ -13,13 +13,13 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 01/08/2018
+ms.date: 03/26/2018
 ms.author: lbosq
-ms.openlocfilehash: e336546526c8ae5ee04dd9737f828685f8c4c009
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a5c3a0cdef488e4c4788a22976d78db72bdd55fc
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB : créer une base de données de graphiques à l’aide de Java et du portail Azure
 
@@ -63,7 +63,7 @@ Vous pouvez désormais utiliser l’outil Explorateur de données dans le portai
     ---|---|---
     ID de base de données|sample-database|Entrez le nom *sample-database* pour la nouvelle base de données. Les noms de base de données doivent inclure entre 1 et 255 caractères et ne peuvent pas contenir `/ \ # ?` ni d’espace de fin.
     ID du graphique|sample-graph|Entrez le nom *sample-graph* pour votre nouvelle collection. Les noms de graphiques sont soumis aux mêmes exigences de nombre de caractères que les ID de bases de données.
-    Capacité de stockage|Fixe (10 Go)|Modifiez la valeur en sélectionnant **Fixe (10 Go)**. Cette valeur correspond à la capacité de stockage de la base de données.
+    Capacité de stockage|Fixe (10 Go)|Conservez la valeur par défaut **Fixe (10 Go)**. Cette valeur correspond à la capacité de stockage de la base de données.
     Throughput|400 unités de requête|Changez le débit en indiquant 400 unités de requête par seconde (RU/s). Si vous souhaitez réduire la latence, vous pourrez augmenter le débit par la suite.
 
 3. Une fois le formulaire rempli, cliquez sur **OK**.
@@ -92,9 +92,11 @@ Vous pouvez désormais utiliser l’outil Explorateur de données dans le portai
 
 ## <a name="review-the-code"></a>Vérifier le code
 
-Cette étape est facultative. Pour savoir comment les ressources de base de données sont créées dans le code, vous pouvez examiner les extraits de code suivants. Les extraits de code sont tirés du fichier `Program.java` dans le dossier C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted. Sinon, vous pouvez passer à l’étape [Mise à jour de votre chaîne de connexion](#update-your-connection-information). 
+Cette étape est facultative. Pour savoir comment les ressources de base de données sont créées dans le code, vous pouvez examiner les extraits de code suivants. Sinon, vous pouvez passer à l’étape [Mise à jour de votre chaîne de connexion](#update-your-connection-information).
 
-* Le Gremlin `Client` est initialisé à partir de la configuration dans `src/remote.yaml`.
+Les extraits de code suivants sont tirés du fichier C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted\Program.java.
+
+* Le `Client` Gremlin est initialisé à partir de la configuration dans le fichier C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\remote.yaml.
 
     ```java
     cluster = Cluster.build(new File("src/remote.yaml")).create();
@@ -124,7 +126,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir vos informations de
     Copiez la première partie de la valeur de l’URI.
 
     ![Affichage et copie d’une clé d’accès rapide dans le portail Azure, page Clés](./media/create-graph-java/keys.png)
-2. Ouvrez le fichier src/remote.yaml et collez la valeur sur `$name$` dans `hosts: [$name$.graphs.azure.com]`.
+2. Ouvrez le fichier src/remote.yaml et collez la valeur d’ID unique sur `$name$` dans `hosts: [$name$.graphs.azure.com]`.
 
     La ligne 1 du fichier remote.yaml doit maintenant ressembler à la ligne suivante : 
 
@@ -149,6 +151,8 @@ Maintenant, retournez dans le portail Azure afin d’obtenir vos informations de
     to 
 
     `username: /dbs/sample-database/colls/sample-graph`
+
+    Si vous avez utilisé un nom unique pour votre exemple de base de données ou de graphique, mettez à jour les valeurs comme nécessaire.
 
 6. Enregistrez le fichier remote.yaml.
 
@@ -195,7 +199,7 @@ Vous pouvez à présent revenir à l’Explorateur de données et voir les verte
 
    ![Créer des documents dans l’Explorateur de données, dans le Portail Azure](./media/create-graph-java/azure-cosmosdb-data-explorer-new-vertex.png)
 
-4. Entrez l’étiquette *person*.
+4. Dans la zone d’étiquette, entrez *personne*.
 
 5. Cliquez sur **Ajouter une propriété** pour ajouter chacune des propriétés suivantes. Notez que vous pouvez créer des propriétés uniques pour chaque personne dans votre graphique. Seule la clé id est obligatoire.
 
@@ -228,7 +232,7 @@ Vous pouvez à présent revenir à l’Explorateur de données et voir les verte
 
     À mesure que vous ajoutez d’autres données, vous pouvez utiliser des filtres pour limiter les résultats renvoyés. Par défaut, l’Explorateur de données utilise `g.V()` pour récupérer tous les vertex dans un graphique. Vous pouvez choisir une autre [requête de graphique](tutorial-query-graph.md) comme `g.V().count()` pour retourner le nombre total de vertex dans le graphique au format JSON. Si vous avez modifié le filtre, choisissez de nouveau le filtre `g.V()` et cliquez sur **Appliquer un filtre** pour afficher de nouveau l’ensemble des résultats.
 
-12. À présent, nous pouvons connecter rakesh et ashley. Vérifiez que **ashley** est bien sélectionné dans la liste **Résultats**, puis cliquez sur le bouton de modification en regard de **Cibles** dans la partie inférieure droite de l’écran. Vous devrez peut-être élargir la fenêtre pour visualiser la zone **Propriétés**.
+12. À présent, nous pouvons connecter rakesh et ashley. Vérifiez que **ashley** est bien sélectionné dans la liste **Résultats**, puis cliquez sur ![Modifier la cible d’un vertex dans un graphique](./media/create-graph-java/edit-pencil-button.png) en regard de **Cibles** dans la partie inférieure droite de l’écran. Vous devrez peut-être élargir la fenêtre pour voir le bouton.
 
    ![Modifier la cible d’un vertex dans un graphique](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
 

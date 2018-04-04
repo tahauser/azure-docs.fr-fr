@@ -1,26 +1,26 @@
 ---
-title: "Créer et gérer des machines virtuelles Windows avec le module Azure PowerShell | Microsoft Docs"
-description: "Didacticiel : créer et gérer des machines virtuelles Windows avec le module Azure PowerShell"
+title: Créer et gérer des machines virtuelles Windows avec le module Azure PowerShell | Microsoft Docs
+description: 'Didacticiel : créer et gérer des machines virtuelles Windows avec le module Azure PowerShell'
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 02/09/2018
+ms.date: 03/23/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4cf406dfbab40631c99da70085e99ba90f563411
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 9bc5154486bf09072bdf3da6bbeb05407a140354
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-and-manage-windows-vms-with-the-azure-powershell-module"></a>Créer et gérer des machines virtuelles Windows avec le module Azure PowerShell
 
@@ -36,7 +36,7 @@ Les machines virtuelles fournissent un environnement informatique entièrement c
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module Azure PowerShell version 5.3 ou version ultérieure pour les besoins de ce didacticiel. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Login-AzureRmAccount` pour créer une connexion avec Azure. 
+Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module Azure PowerShell version 5.3 ou version ultérieure pour les besoins de ce didacticiel. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Login-AzureRmAccount` pour créer une connexion avec Azure. 
 
 ## <a name="create-resource-group"></a>Créer un groupe de ressources
 
@@ -50,7 +50,7 @@ New-AzureRmResourceGroup -ResourceGroupName "myResourceGroupVM" -Location "EastU
 
 Le groupe de ressources est spécifié lors de la création ou de la modification d’une machine virtuelle, qui peut être vue dans ce didacticiel.
 
-## <a name="create-virtual-machine"></a>Create virtual machine
+## <a name="create-virtual-machine"></a>Créer une machine virtuelle
 
 Lorsque vous créez une machine virtuelle, plusieurs options sont disponibles, comme l’image du système d’exploitation, la configuration réseau et les informations d’identification d’administration. Dans cet exemple, une machine virtuelle est créée avec le nom *myVM* ; elle exécute la dernière version par défaut de Windows Server 2016 Datacenter.
 
@@ -90,9 +90,11 @@ Exécutez la commande suivante sur la machine locale pour créer une session Bu
 mstsc /v:<publicIpAddress>
 ```
 
+Dans la fenêtre **Sécurité Windows**, sélectionnez **Plus de choix**, puis **Utiliser un autre compte**. Entrez le nom d’utilisateur et le mot de passe créés pour la machine virtuelle, puis cliquez sur **OK**.
+
 ## <a name="understand-vm-images"></a>Comprendre les images de machine virtuelle
 
-La Place de marché Azure comprend de nombreuses images de machine virtuelle qui permettent de créer une machine virtuelle. Dans les étapes précédentes, une machine virtuelle a été créée à l’aide de l’image Windows Server 2016 Datacenter. Dans cette étape, le module PowerShell est utilisé pour rechercher d’autres images Windows dans la place de marché, qui peuvent également servir de base pour les nouvelles machines virtuelles. Ce processus consiste à rechercher l’éditeur, l’offre et le nom de l’image (SKU). 
+La Place de marché Azure comprend de nombreuses images de machine virtuelle qui permettent de créer une machine virtuelle. Dans les étapes précédentes, une machine virtuelle a été créée à l’aide de l’image Windows Server 2016 Datacenter. Dans cette étape, le module PowerShell est utilisé pour rechercher d’autres images Windows dans la place de marché, qui peuvent également servir de base pour les nouvelles machines virtuelles. Ce processus consiste à trouver le serveur de publication, l’offre, la référence SKU et éventuellement un numéro de version pour [identifier](cli-ps-findimage.md#terminology) l’image. 
 
 Utilisez la commande [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) pour retourner une liste d’éditeurs d’images :
 
@@ -139,7 +141,7 @@ Skus                                      Offer         PublisherName          L
 2016-Nano-Server                          WindowsServer MicrosoftWindowsServer EastUS
 ```
 
-Ces informations peuvent être utilisées pour déployer une machine virtuelle avec une image spécifique. Dans cet exemple, une machine virtuelle est déployée à l’aide d’une image Windows Server 2016 avec conteneurs.
+Ces informations peuvent être utilisées pour déployer une machine virtuelle avec une image spécifique. Dans cet exemple, une machine virtuelle est déployée à l’aide de la dernière version d’une image Windows Server 2016 avec conteneurs.
 
 ```azurepowershell-interactive
 New-AzureRmVm `
@@ -155,7 +157,7 @@ New-AzureRmVm `
     -AsJob
 ```
 
-Le paramètre `-AsJob` crée la machine virtuelle en tant que tâche en arrière-plan. Vous recevez donc les invites PowerShell. Vous pouvez afficher les détails des travaux en arrière-plan à l’aide de la cmdlet `Job`.
+Le paramètre `-AsJob` crée la machine virtuelle en tant que tâche en arrière-plan. Vous recevez donc les invites PowerShell. Vous pouvez afficher les détails des travaux en arrière-plan à l’aide du cmdlet `Job`.
 
 
 ## <a name="understand-vm-sizes"></a>Comprendre les tailles de machine virtuelle
@@ -238,7 +240,7 @@ Get-AzureRmVM `
     -Status | Select @{n="Status"; e={$_.Statuses[1].Code}}
 ```
 
-Sortie :
+Output:
 
 ```azurepowershell-interactive
 Status

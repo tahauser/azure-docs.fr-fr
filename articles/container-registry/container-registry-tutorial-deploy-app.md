@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel d’Azure Container Registry - Déployer une application web à partir d’Azure Container Registry"
-description: "Déployez une application web basée sur Linux à l’aide d’une image de conteneur à partir d’un registre de conteneurs Azure géorépliqué. Deuxième partie d’une série de trois."
+title: Didacticiel d’Azure Container Registry - Déployer une application web à partir d’Azure Container Registry
+description: Déployez une application web basée sur Linux à l’aide d’une image de conteneur à partir d’un registre de conteneurs Azure géorépliqué. Deuxième partie d’une série de trois.
 services: container-registry
 author: mmacy
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: d775a17cb8069a7521788d850d7d52b92cc67526
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 51aa3c6fc56e974fc1729a1d2fe35c889adf35e2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="deploy-web-app-from-azure-container-registry"></a>Déployer une application web à partir d’Azure Container Registry
+# <a name="tutorial-deploy-web-app-from-azure-container-registry"></a>Didacticiel : Déployer une application web à partir d’Azure Container Registry
 
 Ceci est la deuxième partie d’une série de didacticiels qui en compte trois. Dans la [première partie](container-registry-tutorial-prepare-registry.md), un registre de conteneurs privé et géorépliqué a été créé, et une image de conteneur a été générée à partir de la source et envoyée au registre. Cet article explique comment déployer le conteneur dans deux instances d’application web situées dans deux régions Azure distinctes afin de tirer parti de la proximité réseau du registre géorépliqué.
 

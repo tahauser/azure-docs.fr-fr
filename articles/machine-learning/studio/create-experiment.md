@@ -1,11 +1,12 @@
 ---
-title: "Expérience simple dans Machine Learning Studio | Microsoft Docs"
-description: "Ce didacticiel sur l’apprentissage automatique vous guidera tout au long d’une expérience de science des données simple. Nous allons prédire le prix d’une voiture à l’aide d’un algorithme de régression."
-keywords: "expérience,régression linéaire,algorithmes d’apprentissage automatique,didacticiel d’apprentissage automatique,techniques de modélisation prédictive,expérience de science de données"
+title: Expérience simple dans Machine Learning Studio | Microsoft Docs
+description: Ce didacticiel sur l’apprentissage automatique vous guidera tout au long d’une expérience de science des données simple. Nous allons prédire le prix d’une voiture à l’aide d’un algorithme de régression.
+keywords: expérience,régression linéaire,algorithmes d’apprentissage automatique,didacticiel d’apprentissage automatique,techniques de modélisation prédictive,expérience de science de données
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: b6176bb2-3bb6-4ebf-84d1-3598ee6e01c6
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/20/2017
-ms.author: garye
-ms.openlocfilehash: 3cc4278ca7d4603f4bfb916885d44e6a85864b25
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 57461cf94898012619b865c455955f511e978995
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Didacticiel sur l’apprentissage automatique : Création de votre première expérience de science des données dans Azure Machine Learning Studio
 
@@ -55,7 +55,7 @@ Vous pouvez affiner la conception de votre modèle en modifiant l’expérience 
 
 ## <a name="open-machine-learning-studio"></a>Ouverture de Machine Learning Studio
 
-Pour commencer avec Studio, accédez à [https://studio.azureml.net](https://studio.azureml.net). Si vous vous êtes déjà connecté à Machine Learning Studio par le passé, cliquez sur **Sign In** (Se connecter). Sinon, cliquez sur **Sign up here** (S’inscrire) et faites votre choix parmi les options gratuites et payantes.
+Pour prendre en main Studio, accédez à [https://studio.azureml.net](https://studio.azureml.net). Si vous vous êtes déjà connecté à Machine Learning Studio par le passé, cliquez sur **Sign In** (Se connecter). Sinon, cliquez sur **Sign up here** (S’inscrire) et faites votre choix parmi les options gratuites et payantes.
 
 ![Connexion à Machine Learning Studio][sign-in-to-studio]
 <br/>

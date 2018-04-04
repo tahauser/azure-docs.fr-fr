@@ -1,33 +1,34 @@
 ---
-title: "Azure Cosmos DB : Générer une application web Flask avec Python et l’API MongoDB Azure Cosmos DB | Microsoft Docs"
-description: "Cet article présente un exemple de code Python Flask que vous pouvez utiliser pour vous connecter à l’API MongoDB d’Azure Cosmos DB, et pour l’interroger."
+title: 'Azure Cosmos DB : Générer une application web Flask avec Python et l’API MongoDB Azure Cosmos DB | Microsoft Docs'
+description: Cet article présente un exemple de code Python Flask que vous pouvez utiliser pour vous connecter à l’API MongoDB d’Azure Cosmos DB, et pour l’interroger.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: hshapiro
 manager: scicoria
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/2/2017
 ms.author: hshapiro
-ms.openlocfilehash: f86c6cce82812e02f373d7307c76ace26ea3e99b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ea6920c179bfee22c0aa545ccc3d0386940205e4
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>Azure Cosmos DB : Générer une application Flask avec l’API MongoDB
 
 Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur, et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB.
 
-Ce guide de démarrage rapide utilise [l’exemple Flask](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) suivant et illustre comment générer une simple application de liste de tâches Flask avec [l’émulateur Azure Cosmos DB](/local-emulator.md) plutôt que MongoDB.
+Ce guide de démarrage rapide utilise [l’exemple Flask](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) suivant et illustre comment créer une application de liste de tâches Flask simple avec [l’émulateur Azure Cosmos DB](/local-emulator.md) et l’[API MongoDB](mongodb-introduction.md) Azure Cosmos DB plutôt que MongoDB.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 - Téléchargez [l’émulateur Azure Cosmos DB](/local-emulator.md). L’émulateur est actuellement pris en charge uniquement sur Windows. L’exemple montre comment utiliser une clé de production d’Azure, ce qui peut être effectué sur n’importe quelle plateforme.
 
@@ -56,7 +57,7 @@ Ce guide de démarrage rapide utilise [l’exemple Flask](https://github.com/Azu
     ```
 4. Ouvrez le dossier dans Visual Studio Code.
 
-## <a name="review-the-code"></a>Examiner le code
+## <a name="review-the-code"></a>Vérifier le code
 
 Passons rapidement en revue ce qui se passe dans l’application. Ouvrez le fichier **app.py** dans le répertoire racine, et vous découvrirez que ces lignes de code créent la connexion Azure Cosmos DB. Le code suivant utilise la chaîne de connexion pour l’émulateur Azure Cosmos DB local. Le mot de passe doit être fractionné comme indiqué ci-dessous afin de prendre en charge les barres obliques, qui sinon ne pourraient pas être analysées.
 
@@ -146,7 +147,7 @@ Si vous ne souhaitez pas créer de duplication de ce dépôt, vous pouvez égale
 Si vous ne pensez pas continuer à utiliser cette application, supprimez toutes les ressources créées durant ce guide de démarrage rapide dans le Portail Azure en procédant de la façon suivante :
 
 1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis sur le nom de la ressource que vous avez créée.
-2. Dans la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
+2. Sur la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez le nom de la ressource à supprimer dans la zone de texte, puis cliquez sur **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

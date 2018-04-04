@@ -1,23 +1,23 @@
 ---
-title: "Didacticiel Azure Container Instances - Préparer votre application"
-description: "Didacticiel Azure Container Instances (partie 1 sur 3) - Préparer une application pour le déploiement vers Azure Container Instances"
+title: Didacticiel Azure Container Instances - Préparer votre application
+description: Didacticiel Azure Container Instances (partie 1 sur 3) - Préparer une application pour le déploiement vers Azure Container Instances
 services: container-instances
-author: seanmck
+author: mmacy
 manager: timlt
 ms.service: container-instances
 ms.topic: tutorial
-ms.date: 01/02/2018
-ms.author: seanmck
+ms.date: 03/21/2018
+ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 5012412ec642a04102836274caea253635376efb
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 134cc6ea84a5851755c757cbcf20130bf890575c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="create-container-for-deployment-to-azure-container-instances"></a>Créer un conteneur à déployer dans Azure Container Instances
+# <a name="tutorial-create-container-for-deployment-to-azure-container-instances"></a>Tutoriel : Créer un conteneur à déployer dans Azure Container Instances
 
-Azure Container Instances permet de déployer des conteneurs Docker sur l’infrastructure Azure sans configurer de machines virtuelles ni adopter de service de niveau supérieur. Dans ce didacticiel, vous allez générer une petite application web dans Node.js et vous allez l’empaqueter dans un conteneur pouvant être exécuté avec Azure Container Instances.
+Azure Container Instances permet de déployer des conteneurs Docker sur l’infrastructure Azure sans configurer de machines virtuelles ni adopter de service de niveau supérieur. Dans ce tutoriel, vous allez empaqueter une petite application web Node.js dans une image de conteneur pouvant être exécuté avec Azure Container Instances.
 
 Dans ce premier article de la série, vous allez apprendre à :
 
@@ -26,33 +26,29 @@ Dans ce premier article de la série, vous allez apprendre à :
 > * Créer une image conteneur à partir de la source de l’application.
 > * Tester l’image dans un environnement Docker local.
 
-Dans les didacticiels suivants, vous chargez votre image dans un conteneur Azure Container Registry, et vous la déployez dans Azure Container Instances.
+Dans les parties deux et trois du tutoriel, vous chargez votre image dans un conteneur Azure Container Registry, et vous la déployez dans Azure Container Instances.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Ce didacticiel nécessite l’exécution d’Azure CLI 2.0.23 ou version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0][azure-cli-install].
-
-Ce didacticiel présuppose une compréhension de base des concepts Docker essentiels, tels que les conteneurs, les images de conteneur et les commandes `docker` de base. Si besoin, consultez [Bien démarrer avec Docker][docker-get-started] pour apprendre les principes de base des conteneurs.
-
-Pour terminer ce didacticiel, il vous faut un environnement de développement Docker installé localement. Docker fournit des packages qui le configurent facilement sur n’importe quel système [Mac][docker-mac], [Windows][docker-windows] ou [Linux][docker-linux].
-
-Azure Cloud Shell n’inclut pas les composants Docker requis pour effectuer chaque étape de ce didacticiel. Vous devez installer Azure CLI et l’environnement de développement Docker sur votre ordinateur local pour pouvoir réaliser les étapes de ce didacticiel.
+[!INCLUDE [container-instances-tutorial-prerequisites](../../includes/container-instances-tutorial-prerequisites.md)]
 
 ## <a name="get-application-code"></a>Obtenir le code d’application
 
-L’exemple dans ce didacticiel inclut une application web basique générée dans [Node.js][nodejs]. L’application se présente sous forme de page HTML statique et ressemble à ceci :
+L’exemple d’application dans ce tutoriel est une application web basique générée dans [Node.js][nodejs]. L’application dessert une page HTML statique et ressemble à la capture d’écran suivante :
 
 ![Application du didacticiel affichée dans le navigateur][aci-tutorial-app]
 
-Utilisez Git pour télécharger l’exemple :
+Utiliser Git pour cloner le référentiel de l’exemple d’application :
 
 ```bash
 git clone https://github.com/Azure-Samples/aci-helloworld.git
 ```
 
+Vous pouvez également [télécharger l’archive ZIP][aci-helloworld-zip] directement à partir de GitHub.
+
 ## <a name="build-the-container-image"></a>Générer l’image de conteneur
 
-Le fichier Dockerfile fourni dans le référentiel de l’exemple montre comment le conteneur est généré. La génération du conteneur commence par une [image officielle Node.js][docker-hub-nodeimage] basée sur [Linux Alpine][alpine-linux], une petite distribution parfaitement adaptée aux conteneurs. Les fichiers d’application sont ensuite copiés dans le conteneur, les dépendances sont installées à l’aide de Node Package Manager, et l’application démarre.
+Le fichier Dockerfile de l’exemple d’application montre comment le conteneur est généré. La génération du conteneur commence par une [image officielle Node.js][docker-hub-nodeimage] basée sur [Linux Alpine][alpine-linux], une petite distribution parfaitement adaptée aux conteneurs. Les fichiers d’application sont ensuite copiés dans le conteneur, les dépendances sont installées à l’aide de Node Package Manager, et l’application démarre.
 
 ```Dockerfile
 FROM node:8.9.3-alpine
@@ -71,7 +67,8 @@ docker build ./aci-helloworld -t aci-tutorial-app
 
 Le résultat de la commande [docker build][docker-build] est similaire à ce qui suit (tronqué pour une meilleure lisibilité) :
 
-```bash
+```console
+$ docker build ./aci-helloworld -t aci-tutorial-app
 Sending build context to Docker daemon  119.3kB
 Step 1/6 : FROM node:8.9.3-alpine
 8.9.3-alpine: Pulling from library/node
@@ -96,44 +93,53 @@ Utilisez la commande [docker images][docker-images] pour voir l’image génér�
 docker images
 ```
 
-Output:
+L’image que vous venez de créer doit apparaître dans la liste :
 
-```bash
-REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
-aci-tutorial-app             latest              5c745774dfa9        39 seconds ago       68.1 MB
+```console
+$ docker images
+REPOSITORY          TAG       IMAGE ID        CREATED           SIZE
+aci-tutorial-app    latest    5c745774dfa9    39 seconds ago    68.1 MB
 ```
 
 ## <a name="run-the-container-locally"></a>Exécutez localement le conteneur
 
-Avant d’essayer de déployer le conteneur dans Azure Container Instances, exécutez-le localement pour vous assurer qu’il fonctionne. Le commutateur `-d` permet l’exécution du conteneur en arrière-plan, tandis que `-p` vous permet de mapper un port arbitraire sur votre ordinateur vers le port 80 du conteneur.
+Avant d’essayer de déployer le conteneur dans Azure Container Instances, exécutez-le localement à l’aide de [docker run][docker-run] et vérifiez qu’il fonctionne. Le commutateur `-d` permet l’exécution du conteneur en arrière-plan, tandis que `-p` vous permet de mapper un port arbitraire sur votre ordinateur vers le port 80 du conteneur.
 
 ```bash
 docker run -d -p 8080:80 aci-tutorial-app
 ```
 
-Allez à l’adresse http://localhost:8080 dans votre navigateur pour confirmer l’exécution du conteneur.
+La sortie de la commande `docker run` affiche les ID du conteneur en cours d’exécution en cas de réussite de celle-ci :
+
+```console
+$ docker run -d -p 8080:80 aci-tutorial-app
+a2e3e4435db58ab0c664ce521854c2e1a1bda88c9cf2fcff46aedf48df86cccf
+```
+
+Accédez maintenant à l’adresse http://localhost:8080 dans votre navigateur pour confirmer l’exécution du conteneur. Une page web similaire à celle ci-dessous doit s’afficher :
 
 ![Exécution locale de l’application dans le navigateur][aci-tutorial-app-local]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez créé une image de conteneur qui peut être déployée dans Azure Container Instances. Les étapes suivantes ont été effectuées :
+Dans ce tutoriel, vous avez créé une image de conteneur qui peut être déployée dans Azure Container Instances et vérifié qu’elle s’exécute localement. Dans ce tutoriel, vous avez effectué les actions suivantes :
 
 > [!div class="checklist"]
 > * Clonage de la source de l’application à partir de GitHub
-> * Création des images de conteneur à partir de la source de l’application
+> * Création d’une image conteneur à partir de la source de l’application
 > * Test de l’exécution locale du conteneur
 
-Passez au didacticiel suivant pour en savoir plus sur le stockage d’images de conteneur dans un registre Azure Container Registry.
+Passez au tutoriel suivant de la série pour en savoir plus sur le stockage d’images de conteneur dans Azure Container Registry :
 
 > [!div class="nextstepaction"]
-> [Envoyer des images à Azure Container Registry](./container-instances-tutorial-prepare-acr.md)
+> [Envoyer l’image à Azure Container Registry](container-instances-tutorial-prepare-acr.md)
 
 <!--- IMAGES --->
 [aci-tutorial-app]:./media/container-instances-quickstart/aci-app-browser.png
 [aci-tutorial-app-local]: ./media/container-instances-tutorial-prepare-app/aci-app-browser-local.png
 
 <!-- LINKS - External -->
+[aci-helloworld-zip]: https://github.com/Azure-Samples/aci-helloworld/archive/master.zip
 [alpine-linux]: https://alpinelinux.org/
 [docker-build]: https://docs.docker.com/engine/reference/commandline/build/
 [docker-get-started]: https://docs.docker.com/get-started/
@@ -143,6 +149,7 @@ Passez au didacticiel suivant pour en savoir plus sur le stockage d’images de 
 [docker-login]: https://docs.docker.com/engine/reference/commandline/login/
 [docker-mac]: https://docs.docker.com/docker-for-mac/
 [docker-push]: https://docs.docker.com/engine/reference/commandline/push/
+[docker-run]: https://docs.docker.com/engine/reference/commandline/run/
 [docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 [nodejs]: http://nodejs.org

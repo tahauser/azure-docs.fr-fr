@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 03/23/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e7dab67b46a2853e9585c88c8e4d4263f844c3b2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 487ffffca445fb3f98dcaa6550b0b1b74290b803
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>Créer et gérer des machines virtuelles Linux avec l’interface Azure CLI
 
@@ -91,7 +91,7 @@ exit
 
 ## <a name="understand-vm-images"></a>Comprendre les images de machine virtuelle
 
-La Place de marché Azure comprend de nombreuses images qui permettent de créer des machines virtuelles. Dans les étapes précédentes, une machine virtuelle a été créée à l’aide d’une image Ubuntu. Dans cette étape, vous allez utiliser l’interface Azure CLI pour rechercher dans la Place de marché une image CentOS, qui servira ensuite à déployer une deuxième machine virtuelle.  
+La Place de marché Azure comprend de nombreuses images qui permettent de créer des machines virtuelles. Dans les étapes précédentes, une machine virtuelle a été créée à l’aide d’une image Ubuntu. Dans cette étape, vous allez utiliser l’interface Azure CLI pour rechercher dans la Place de marché une image CentOS, qui servira ensuite à déployer une deuxième machine virtuelle. 
 
 Pour afficher une liste des images les plus couramment utilisées, utilisez la commande [az vm image list](/cli/azure/vm/image#az_vm_image_list).
 
@@ -136,7 +136,7 @@ CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20160309     
 CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20170207       6.5.20170207
 ```
 
-Pour déployer une machine virtuelle en utilisant une image spécifique, notez la valeur de la colonne *Urn*. Lorsque vous spécifiez l’image, le numéro de version de l’image peut être remplacé par la valeur « latest », qui sélectionne la dernière version de la distribution. Dans cet exemple, l’argument `--image` est utilisé pour spécifier la version la plus récente d’une image CentOS 6.5.  
+Pour déployer une machine virtuelle à l’aide d’une image spécifique, prenez note de la valeur dans la colonne *Urn*, qui se compose de l’éditeur, de l’offre, de la référence SKU et éventuellement du numéro de version pour [identifier](cli-ps-findimage.md#terminology) l’image. Lorsque vous spécifiez l’image, le numéro de version de l’image peut être remplacé par la valeur « latest », qui sélectionne la dernière version de la distribution. Dans cet exemple, l’argument `--image` est utilisé pour spécifier la version la plus récente d’une image CentOS 6.5.  
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:6.5:latest --generate-ssh-keys

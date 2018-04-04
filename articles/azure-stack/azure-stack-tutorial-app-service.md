@@ -1,29 +1,28 @@
 ---
-title: "Mettre des applications web et API à la disposition des utilisateurs Azure Stack | Microsoft Docs"
-description: "Didacticiel pour installer le fournisseur de ressources App Service et créer des offres qui donnent la possibilité aux utilisateurs Azure Stack de créer des applications web et API."
+title: Mettre des applications web et API à la disposition des utilisateurs Azure Stack | Microsoft Docs
+description: Didacticiel pour installer le fournisseur de ressources App Service et créer des offres qui donnent la possibilité aux utilisateurs Azure Stack de créer des applications web et API.
 services: azure-stack
-documentationcenter: 
-author: brenduns
+documentationcenter: ''
+author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 7/03/2017
-ms.author: brenduns
-ms.reviewer: 
+ms.date: 03/22/2018
+ms.author: jeffgilb
+ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 5978706f2cab69c83a49bfd0e15ae904a38c7bab
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: e2f15ca3a46af51ab6228e772298c51ad33fd49c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>Mettre des applications web et API à la disposition des utilisateurs Azure Stack
-
 En tant qu’administrateur cloud Azure Stack, vous pouvez créer des offres qui permettent aux utilisateurs (locataires) de créer des fonctions Azure Functions et des applications web et API. En permettant à vos utilisateurs d’accéder à ces applications cloud à la demande, vous pouvez leur faire gagner du temps et économiser des ressources. Pour effectuer cette configuration, vous allez effectuer les étapes suivantes :
 
 > [!div class="checklist"]
@@ -58,7 +57,7 @@ Vous pouvez créer une offre qui, par exemple, permet aux utilisateurs de créer
 Maintenant que vous avez déployé le fournisseur de ressources App Service et créé une offre, vous pouvez vous connecter en tant qu’utilisateur, vous abonner à l’offre, puis créer une application. Pour cet exemple, nous allons créer un système de gestion de contenu de plateforme DNN. Vous devez d’abord créer une base de données SQL, puis l’application web DNN.
 
 ### <a name="subscribe-to-the-offer"></a>S’abonner à l’offre
-1. Connectez-vous au portail Azure Stack (https://portal.local.azurestack.external) en tant que locataire.
+1. Connectez-vous au portail Azure Stack (https://portal.local.azurestack.external) en tant que locataire.
 2. Cliquez sur **Prendre un abonnement** > tapez **TestAppServiceSubscription** sous **’** > **Sélectionner une offre** > **TestAppServiceOffer** > **Créer**.
 
 ### <a name="create-a-sql-database"></a>Créer une base de données SQL

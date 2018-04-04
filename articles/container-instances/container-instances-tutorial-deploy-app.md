@@ -1,62 +1,66 @@
 ---
-title: "Didacticiel Azure Container Instances - Déployer des applications"
-description: "Didacticiel Azure Container Instances (3/3) – Déployer une application"
+title: Didacticiel Azure Container Instances - Déployer des applications
+description: Didacticiel Azure Container Instances (3/3) – Déployer une application
 services: container-instances
-author: seanmck
+author: mmacy
 manager: timlt
 ms.service: container-instances
 ms.topic: tutorial
-ms.date: 02/22/2018
-ms.author: seanmck
+ms.date: 03/21/2018
+ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 0532d255b271b2155ae3115f8f96c4cbb53916e4
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 29d7114f288f7387d0c7cd5c6afe2eaaa7a8c560
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="deploy-a-container-to-azure-container-instances"></a>Déployer un conteneur sur Azure Container Instances
+# <a name="tutorial-deploy-a-container-to-azure-container-instances"></a>Didacticiel : Déployer un conteneur sur Azure Container Instances
 
-Il s’agit du didacticiel final d’une série en trois parties. Dans les deux premières parties, [nous avons créé une image conteneur](container-instances-tutorial-prepare-app.md) et [nous l’avons envoyée (push) vers un conteneur Azure Container Registry](container-instances-tutorial-prepare-acr.md). Cet article termine la série de didacticiels en déployant le conteneur sur Azure Container Instances.
+Il s’agit du didacticiel final d’une série en trois parties. Dans les deux premières parties, [nous avons créé une image conteneur](container-instances-tutorial-prepare-app.md) et [nous l’avons envoyée à Azure Container Registry](container-instances-tutorial-prepare-acr.md). Cet article termine la série en déployant le conteneur sur Azure Container Instances.
 
 Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> * déployer le conteneur à partir d’Azure Container Registry à l’aide d’Azure CLI ;
-> * afficher l’application dans le navigateur ;
-> * afficher les journaux du conteneur.
+> * Déployer le conteneur à partir d’Azure Container Registry vers Azure Container Instances
+> * Afficher l’application en cours d’exécution dans le navigateur
+> * Afficher les journaux du conteneur
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Ce didacticiel nécessite l’exécution d’Azure CLI 2.0.27 ou version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0][azure-cli-install].
-
-Pour terminer ce didacticiel, il vous faut un environnement de développement Docker installé localement. Docker fournit des packages qui le configurent facilement sur n’importe quel système [Mac][docker-mac], [Windows][docker-windows] ou [Linux][docker-linux].
-
-Azure Cloud Shell n’inclut pas les composants Docker requis pour effectuer chaque étape de ce didacticiel. Vous devez installer Azure CLI et l’environnement de développement Docker sur votre ordinateur local pour pouvoir réaliser les étapes de ce didacticiel.
+[!INCLUDE [container-instances-tutorial-prerequisites](../../includes/container-instances-tutorial-prerequisites.md)]
 
 ## <a name="deploy-the-container-using-the-azure-cli"></a>Déployer le conteneur à l’aide de l’interface CLI Azure
 
-L’interface CLI Azure permet de déployer un conteneur sur Azure Container Instances en une seule commande. L’image conteneur étant hébergée dans l’Azure Container Registry privé, vous devez inclure les informations d’identification requises pour y accéder. Récupérez les informations d’identification avec les commandes Azure CLI suivantes.
+Dans cette section, vous utilisez l’interface Azure CLI pour déployer l’image générée dans le [premier didacticiel](container-instances-tutorial-prepare-app.md) et envoyée à Azure Container Registry dans le [deuxième didacticiel](container-instances-tutorial-prepare-acr.md). Assurez-vous d’avoir terminé ces didacticiels avant de continuer.
 
-Serveur de connexion au Registre de conteneurs (mettez-le à jour avec le nom de votre Registre) :
+### <a name="get-registry-credentials"></a>Obtenir les informations d’identification du registre
+
+Lorsque vous déployez une image qui est hébergée dans un registre de conteneurs privé, tel que celui créé dans le [deuxième didacticiel](container-instances-tutorial-prepare-acr.md), vous devez fournir les informations d’identification du registre.
+
+D’abord, obtenez le nom complet du serveur de connexion du registre de conteneurs (remplacez `<acrName>` par le nom de votre registre) :
 
 ```azurecli
 az acr show --name <acrName> --query loginServer
 ```
 
-Mot de passe du Registre de conteneurs :
+Ensuite, obtenez le mot de passe du registre de conteneurs :
 
 ```azurecli
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
-Votre application devra avoir été [préparée à l’avance][prepare-app], pour déployer votre image conteneur à partir du registre de conteneurs avec une requête de ressource de 1 noyau de processeur et 1 Go de mémoire, exécutez la commande [az container create][az-container-create] qui suit. Remplacez `<acrLoginServer>` et `<acrPassword>` par les valeurs obtenues à partir des deux commandes précédentes. Remplacez `<acrName>` par le nom de votre registre de conteneur ; vous pouvez également remplacer `aci-tutorial-app` par le nom que vous souhaitez donner à la nouvelle application.
+### <a name="deploy-container"></a>Déployer le conteneur
+
+Maintenant, utilisez la commande [az container create][az-container-create] pour déployer le conteneur. Remplacez `<acrLoginServer>` et `<acrPassword>` par les valeurs obtenues à partir des deux commandes précédentes. Remplacez `<acrName>` par le nom de votre registre de conteneurs.
 
 ```azurecli
 az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
 ```
 
-Après quelques secondes, vous devriez recevoir une réponse initiale de la part d’Azure Resource Manager. La valeur `--dns-name-label` doit être unique au sein de la région Azure dans laquelle vous créez l’instance de conteneur. Mettez à jour la valeur de l’exemple précédent si vous recevez un message d’erreur d’**Étiquette du nom DNS** lorsque vous exécutez la commande.
+Après quelques secondes, vous devriez recevoir une réponse initiale d’Azure. La valeur `--dns-name-label` doit être unique au sein de la région Azure dans laquelle vous créez l’instance de conteneur. Modifiez la valeur de la commande précédente si vous recevez un message d’erreur **Étiquette de nom DNS** lorsque vous exécutez la commande.
+
+### <a name="verify-deployment-progress"></a>Vérifier la progression du déploiement
 
 Pour afficher l’état du déploiement, utilisez la commande [az container show][az-container-show] :
 
@@ -74,7 +78,11 @@ Une fois le déploiement réussi, affichez le nom de domaine complet du conteneu
 az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
 ```
 
-Exemple de sortie : `"aci-demo.eastus.azurecontainer.io"`
+Par exemple : 
+```console
+$ az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
+"aci-demo.eastus.azurecontainer.io"
+```
 
 Pour afficher l’application en cours d’exécution, accédez au nom DNS affiché dans votre navigateur favori :
 
@@ -86,12 +94,13 @@ Vous pouvez également afficher la sortie du journal du conteneur :
 az container logs --resource-group myResourceGroup --name aci-tutorial-app
 ```
 
-Output:
+Exemple de sortie :
 
 ```bash
+$ az container logs --resource-group myResourceGroup --name aci-tutorial-app
 listening on port 80
 ::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET / HTTP/1.1" 200 1663 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
-::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://13.88.176.27/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
+::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://aci-demo.eastus.azurecontainer.io/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
 ```
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
@@ -104,12 +113,17 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez terminé le processus de déploiement de vos conteneurs sur Azure Container Instances. Les étapes suivantes ont été effectuées :
+Dans ce didacticiel, vous avez terminé le processus de déploiement de votre conteneur sur Azure Container Instances. Les étapes suivantes ont été effectuées :
 
 > [!div class="checklist"]
-> * déployer le conteneur à partir d’Azure Container Registry à l’aide d’Azure CLI ;
+> * Déployer le conteneur à partir d’Azure Container Registry à l’aide d’Azure CLI
 > * afficher l’application dans le navigateur ;
 > * afficher les journaux du conteneur.
+
+Maintenant que vous avez les bases, continuez pour en savoir plus sur Azure Container Instances, par exemple sur le fonctionnement des groupes de conteneurs :
+
+> [!div class="nextstepaction"]
+> [Groupes de conteneurs dans Azure Container Instances](container-instances-container-groups.md)
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png

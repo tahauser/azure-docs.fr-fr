@@ -1,18 +1,18 @@
 ---
-title: "Migrer des machines virtuelles Azure entre des régions Azure à l’aide d’Azure Site Recovery | Microsoft Docs"
-description: "Utilisez Site Recovery pour migrer des machines virtuelles IaaS Azure d’une région Azure vers une autre."
+title: Migrer des machines virtuelles Azure entre des régions Azure à l’aide d’Azure Site Recovery | Microsoft Docs
+description: Utilisez Site Recovery pour migrer des machines virtuelles IaaS Azure d’une région Azure vers une autre.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 03/24/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: abae7cbd21a2c7f49dc1fe85711b80dc43a10517
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 8de067ece55e13d32af6822e114cb9dab000bdff
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>Migrer des machines virtuelles Azure vers une autre région
 
@@ -35,7 +35,16 @@ Ce didacticiel suppose que vous possédez déjà un abonnement Azure. Si vous n�
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour effectuer ce didacticiel, vous avez besoin de machines virtuelles Azure dans une région Azure à partir de laquelle vous souhaitez migrer. En outre, il existe un certain nombre de paramètres que vous devez vérifier avant de commencer.
+
+- Assurez-vous que vous disposez des machines virtuelles Azure dans la région Azure à partir de laquelle vous souhaitez effectuer la migration.
+- Assurez-vous que vous comprenez [l’architecture et les composants du scénario](azure-to-azure-architecture.md).
+- Examinez les [exigences et les limites de prise en charge](azure-to-azure-support-matrix.md).
+
+
+
+## <a name="before-you-start"></a>Avant de commencer
+
+Avant de configurer la réplication, effectuez les étapes suivantes.
 
 
 ### <a name="verify-target-resources"></a>Vérifier les ressources cibles
@@ -76,7 +85,7 @@ Assurez-vous que tous les certificats racines les plus récents sont présents s
 Créez le coffre dans n’importe quelle région, à l’exception de la région source.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) > **Recovery Services**.
-2. Cliquez sur **Créer une ressource** > **Surveillance + gestion** > **Backup and Site Recovery**.
+2. Cliquez sur **Créer une ressource** > **Surveillance + Gestion** > **Backup and Site Recovery**.
 3. Dans **Nom**, indiquez le nom convivial **ContosoVMVault**. Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié.
 4. Créez un groupe de ressources **ContosoRG**.
 5. Spécifiez une région Azure. Pour découvrir les régions prises en charge, référez-vous à la disponibilité géographique de la page [Tarification de Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
@@ -114,9 +123,7 @@ Site Recovery récupère une liste des machines virtuelles associées à l’abo
 
     ![activer la réplication](media/tutorial-migrate-azure-to-azure/settings.png)
 
->[!NOTE]
-  >
-  > Actuellement, la réplication des machines virtuelles Azure avec des disques managés n’est pas prise en charge. 
+ 
 
 ## <a name="run-a-failover"></a>Exécuter un basculement
 

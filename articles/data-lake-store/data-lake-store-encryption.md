@@ -1,24 +1,24 @@
 ---
 title: Chiffrement dans Azure Data Lake Store | Microsoft Docs
-description: "Le chiffrement dans Azure Data Lake Store vous permet de protéger vos données, de mettre en œuvre des stratégies de sécurité d’entreprise et de répondre aux exigences de conformité réglementaire. Cet article fournit une vue d’ensemble de la conception et présente certains aspects techniques de la mise en œuvre."
+description: Le chiffrement dans Azure Data Lake Store vous permet de protéger vos données, de mettre en œuvre des stratégies de sécurité d’entreprise et de répondre aux exigences de conformité réglementaire. Cet article fournit une vue d’ensemble de la conception et présente certains aspects techniques de la mise en œuvre.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: esung22
-manager: 
-editor: 
-ms.assetid: 
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/31/2018
+ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: 4df0ce3d705361f20fa003929fed6a019f8b2f5e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 53d5f413f58cea7bc8eab081d46eff2ab83e7ecb
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="encryption-of-data-in-azure-data-lake-store"></a>Chiffrement des données dans Azure Data Lake Store
 
@@ -106,13 +106,14 @@ Le schéma suivant illustre ces concepts :
 4.  Stockez le bloc de données chiffré sur un stockage permanent.
 
 > [!NOTE] 
-> Pour des raisons de performances, la DEK est temporairement mise en mémoire cache, puis est immédiatement effacée. Sur un support permanent, elle est toujours stockée chiffrée par la MEK.
+> La clé de chiffrement est toujours stockée chiffrée par la MEK, soit sur un média persistant ou via une mise en cache en mémoire.
 
 ## <a name="key-rotation"></a>Rotation des clés
 
 Lorsque vous utilisez des clés gérées par le client, vous pouvez effectuer une rotation de la MEK. Pour savoir comment configurer un compte Data Lake Store avec des clés gérées par le client, consultez [Prise en main](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
 ### <a name="prerequisites"></a>Prérequis
+
 
 Lorsque vous avez configuré le compte Data Lake Store, vous avez choisi d’utiliser vos propres clés. Cette option ne peut pas être modifiée une fois le compte créé. Les étapes ci-dessous supposent que vous utilisez des clés gérées par le client (c’est-à-dire que vous avez choisi vos propres clés dans Key Vault).
 

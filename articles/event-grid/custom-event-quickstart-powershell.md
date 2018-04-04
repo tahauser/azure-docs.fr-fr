@@ -1,29 +1,27 @@
 ---
-title: "Événements personnalisés pour Azure Event Grid avec PowerShell| Microsoft Docs"
-description: "Utilisez Azure Event Grid et PowerShell pour publier une rubrique et pour vous abonner à cet événement."
+title: Événements personnalisés pour Azure Event Grid avec PowerShell| Microsoft Docs
+description: Utilisez Azure Event Grid et PowerShell pour publier une rubrique et pour vous abonner à cet événement.
 services: event-grid
-keywords: 
+keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 01/30/2018
+ms.date: 03/20/2018
 ms.topic: hero-article
 ms.service: event-grid
-ms.openlocfilehash: 24366df54fa4fc32ebbff7c1303183707dea17c6
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 183bafad9b38ccb0e7eaae222c5569e45b15ac21
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-and-route-custom-events-with-azure-powershell-and-event-grid"></a>Créer et acheminer des événements personnalisés avec Azure PowerShell et Event Grid
 
-Azure Event Grid est un service de gestion d’événements pour le cloud. Dans cet article, vous utilisez Azure PowerShell pour créer une rubrique personnalisée, vous abonner à cette rubrique et déclencher l’événement pour afficher le résultat. En règle générale, vous envoyez des événements à un point de terminaison qui répond à l’événement, comme un webhook ou une fonction Azure. Toutefois, pour simplifier cet article, vous envoyez les événements à une URL qui collecte seulement les messages. Vous créez cette URL à l’aide d’outils tiers à partir de [RequestBin](https://requestb.in/) ou [Hookbin](https://hookbin.com/).
+Azure Event Grid est un service de gestion d’événements pour le cloud. Dans cet article, vous utilisez Azure PowerShell pour créer une rubrique personnalisée, vous abonner à cette rubrique et déclencher l’événement pour afficher le résultat. En règle générale, vous envoyez des événements à un point de terminaison qui répond à l’événement, comme un webhook ou une fonction Azure. Toutefois, pour simplifier cet article, vous envoyez les événements à une URL qui collecte seulement les messages. Vous créez cet URL en utilisant l’outil tiers de [Hookbin](https://hookbin.com/).
 
 >[!NOTE]
->**RequestBin** et **Hookbin** ne sont pas destinés à une utilisation avec débit élevé. L’utilisation de ces outils est uniquement à but démonstratif. Si vous envoyez plusieurs événements par push en simultané, vous pouvez ne pas voir tous les événements dans l’outil.
+>**Hookbin** n’est pas destiné à une utilisation avec débit élevé. L’utilisation de cet outil est uniquement à but démonstratif. Si vous envoyez plusieurs événements par push en simultané, vous pouvez ne pas voir tous les événements dans l’outil.
 
 Une fois terminé, vous voyez que les données d’événement ont été envoyées à un point de terminaison.
-
-![Données d’événement](./media/custom-event-quickstart-powershell/request-result.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -43,7 +41,7 @@ New-AzureRmResourceGroup -Name gridResourceGroup -Location westus2
 
 ## <a name="create-a-custom-topic"></a>Créer une rubrique personnalisée
 
-Une rubrique fournit un point de terminaison défini par l’utilisateur vers lequel vous envoyez vos événements. L’exemple suivant permet de créer la rubrique dans votre groupe de ressources. Remplacez `<topic_name>` par un nom unique pour votre rubrique. Le nom de la rubrique doit être unique, car elle est représentée par une entrée DNS.
+Une rubrique de grille d’événement fournit un point de terminaison défini par l’utilisateur vers lequel vous envoyez vos événements. L’exemple suivant permet de créer la rubrique personnalisée dans votre groupe de ressources. Remplacez `<topic_name>` par un nom unique pour votre rubrique. Le nom de la rubrique doit être unique, car elle est représentée par une entrée DNS.
 
 ```powershell
 New-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Location westus2 -Name <topic_name>
@@ -51,11 +49,11 @@ New-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Location westus2
 
 ## <a name="create-a-message-endpoint"></a>Créer un point de terminaison de message
 
-Avant de nous abonner à la rubrique, nous allons créer le point de terminaison pour le message de l’événement. Au lieu d’écrire du code qui réponde à l’événement, nous allons créer un point de terminaison qui collecte les messages, afin que vous puissiez les consulter. RequestBin et Hookbin sont des outils tiers open source qui vous permettent de créer un point de terminaison et d’afficher les requêtes qui lui sont envoyées. Accédez à [RequestBin](https://requestb.in/), puis cliquez sur **Create a RequestBin** (Créer un RequestBin), ou accédez à [Hookbin](https://hookbin.com/) et cliquez sur **Create New Endpoint (Créer un point de terminaison)**.  Copiez l’URL du fichier bin, dont vous avez besoin pour vous abonner à la rubrique.
+Avant de nous abonner à la rubrique personnalisée, nous allons créer le point de terminaison pour le message de l’événement. Au lieu d’écrire du code qui réponde à l’événement, nous allons créer un point de terminaison qui collecte les messages, afin que vous puissiez les consulter. HookBin est un outil tiers qui vous permet de créer un point de terminaison et d’afficher les requêtes qui lui sont envoyées. Accédez à [Hookbin](https://hookbin.com/) et cliquez sur **Créer un nouveau point de terminaison**.  Copiez l’URL du fichier bin, dont vous avez besoin pour vous abonner à la rubrique.
 
 ## <a name="subscribe-to-a-topic"></a>S’abonner à une rubrique
 
-Vous vous abonnez à une rubrique pour communiquer à Event Grid les événements qui vous intéressent. L’exemple suivant s’abonne à la rubrique que vous avez créée et transmet l’URL à partir de RequestBin ou Hookbin en tant que point de terminaison de la notification d’événement. Remplacez `<event_subscription_name>` par un nom unique pour votre abonnement, et `<endpoint_URL>` par la valeur de la section précédente. En spécifiant un point de terminaison lors de l’abonnement, Event Grid gère le routage d’événements vers ce point de terminaison. Pour `<topic_name>`, utilisez la valeur que vous avez créée précédemment.
+Vous vous abonnez à une rubrique pour communiquer à Event Grid les événements qui vous intéressent. L’exemple suivant s’abonne à la rubrique personnalisée que vous avez créée et transmet l’URL à partir de HookBin en tant que point de terminaison de la notification d’événement. Remplacez `<event_subscription_name>` par un nom unique pour votre abonnement, et `<endpoint_URL>` par la valeur de la section précédente. En spécifiant un point de terminaison lors de l’abonnement, Event Grid gère le routage d’événements vers ce point de terminaison. Pour `<topic_name>`, utilisez la valeur que vous avez créée précédemment.
 
 ```powershell
 New-AzureRmEventGridSubscription -EventSubscriptionName <event_subscription_name> -Endpoint <endpoint_URL> -ResourceGroupName gridResourceGroup -TopicName <topic_name>
@@ -70,7 +68,7 @@ $endpoint = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Nam
 $keys = Get-AzureRmEventGridTopicKey -ResourceGroupName gridResourceGroup -Name <topic-name>
 ```
 
-Pour simplifier cet article, configurez des exemples de données d’événements à envoyer à la rubrique. En règle générale, une application ou un service Azure envoie les données d’événements. L’exemple suivant utilise la table de hachage pour construire des données de l’événement `htbody` et les convertir en un objet de charge utile JSON correct `$body`:
+Pour simplifier cet article, configurez des exemples de données d’événements à envoyer à la rubrique personnalisée. En règle générale, une application ou un service Azure envoie les données d’événements. L’exemple suivant utilise la table de hachage pour construire des données de l’événement `htbody` et les convertir en un objet de charge utile JSON correct `$body`:
 
 ```powershell
 $eventID = Get-Random 99999

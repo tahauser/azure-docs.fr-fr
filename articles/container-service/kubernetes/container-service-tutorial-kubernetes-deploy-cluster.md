@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel Azure Container Service - Déployer un cluster"
-description: "Didacticiel Azure Container Service - Déployer un cluster"
+title: Didacticiel Azure Container Service - Déployer un cluster
+description: Didacticiel Azure Container Service - Déployer un cluster
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6ef789bc017e670566d25dd9d167698515e88349
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cb7bdbaf095cefa72d1de302d90afeebbdb9d027
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-a-kubernetes-cluster-in-azure-container-service"></a>Déployer un cluster Kubernetes dans Azure Container Service
 
@@ -26,7 +26,7 @@ Kubernetes fournit une plateforme distribuée destinée aux applications en cont
 > * Installation de l’interface de ligne de commande Kubernetes (kubectl)
 > * Configuration de kubectl
 
-Dans les didacticiels suivants, l’application Azure Vote est déployée sur le cluster, puis mise à l’échelle et mise à jour. En outre, Operations Management Suite est configuré pour la surveillance du cluster Kubernetes.
+Dans les didacticiels suivants, l’application Azure Vote est déployée sur le cluster, puis mise à l’échelle et mise à jour. En outre, Log Analytics est configuré pour la surveillance du cluster Kubernetes.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -74,7 +74,7 @@ Pour vérifier la connexion à votre cluster, exécutez la commande [kubectl get
 kubectl get nodes
 ```
 
-Sortie :
+Output:
 
 ```bash
 NAME                    STATUS                     AGE       VERSION
