@@ -2,12 +2,12 @@
 title: Performances de Phoenix dans Azure HDInsight | Microsoft Docs
 description: Meilleures pratiques pour optimiser les performances de Phoenix.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.workload: big-data
@@ -233,7 +233,7 @@ Si votre scénario priorise la vitesse d’écriture par rapport à l’intégri
 
 Pour plus d’informations sur cela et d’autres options, consultez [Phoenix Grammar](http://phoenix.apache.org/language/index.html#options).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Guide d’optimisation de Phoenix](https://phoenix.apache.org/tuning_guide.html)
 * [Index secondaires](http://phoenix.apache.org/secondary_indexing.html)

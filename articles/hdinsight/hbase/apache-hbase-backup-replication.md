@@ -1,13 +1,13 @@
 ---
-title: "Configurer la sauvegarde et la réplication HBase et Phoenix - Azure HDInsight | Microsoft Docs"
-description: "Configurer la sauvegarde et de réplication pour HBase et Phoenix"
+title: Configurer la sauvegarde et la réplication HBase et Phoenix - Azure HDInsight | Microsoft Docs
+description: Configurer la sauvegarde et de réplication pour HBase et Phoenix
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.workload: big-data
@@ -209,6 +209,6 @@ Les étapes générales de configuration de la réplication sont les suivantes :
 
 Pour activer la réplication sur HDInsight, appliquez une action de script sur votre cluster HDInsight source en cours d’exécution. Pour bénéficier d’une description de l’activation de la réplication dans votre cluster, ou pour tester la réplication sur des exemples de clusters créés dans des réseaux virtuels à l’aide de modèles de gestion des ressources Azure, consultez la section [Configurer la réplication HBase](apache-hbase-replication.md). Cet article comporte également des instructions relatives à l’activation de la réplication de métadonnées Phoenix.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Configurer la réplication HBase](apache-hbase-replication.md)

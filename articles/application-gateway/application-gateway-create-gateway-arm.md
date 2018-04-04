@@ -1,10 +1,10 @@
 ---
-title: "Créer une passerelle d’application - Azure PowerShell | Microsoft Docs"
-description: "Découvrez comment créer une passerelle d’application à l’aide d’Azure PowerShell."
+title: Créer une passerelle d’application - Azure PowerShell | Microsoft Docs
+description: Découvrez comment créer une passerelle d’application à l’aide d’Azure PowerShell.
 services: application-gateway
 author: davidmu1
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.devlang: azurepowershell
@@ -208,7 +208,7 @@ Lorsque vous n’en avez plus besoin, vous pouvez utiliser la commande [Remove-A
 Remove-AzureRmResourceGroup -Name myResourceGroupAG
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce guide de démarrage rapide, vous avez créé un groupe de ressources, des ressources réseau et des serveurs principaux. Vous avez ensuite utilisé ces ressources pour créer une passerelle d’application. Pour plus d’informations sur les passerelles d’application et leurs ressources associées, consultez les articles de procédures.
 

@@ -1,11 +1,11 @@
 ---
-title: "Résoudre les problèmes associés aux connexions avec Azure Network Watcher - Azure CLI 2.0 | Microsoft Docs"
-description: "Découvrez comment utiliser la fonctionnalité de résolution des problèmes associés aux connexions d’Azure Network Watcher à l’aide d’Azure CLI 2.0."
+title: Résoudre les problèmes associés aux connexions avec Azure Network Watcher - Azure CLI 2.0 | Microsoft Docs
+description: Découvrez comment utiliser la fonctionnalité de résolution des problèmes associés aux connexions d’Azure Network Watcher à l’aide d’Azure CLI 2.0.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -268,7 +268,7 @@ Le code json suivant est un exemple de réponse tiré de l’exécution de la cm
 }
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Découvrez comment automatiser les captures de paquets avec des alertes de machine virtuelle en consultant [Create an alert triggered packet capture (Créer une capture de paquets déclenchée par alerte)](network-watcher-alert-triggered-packet-capture.md)
 
