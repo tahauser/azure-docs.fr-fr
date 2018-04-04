@@ -1,11 +1,11 @@
 ---
-title: "Obtenir de l’aide sur l’accès et l’utilisation du portail Mes applications dans Azure Active Directory | Microsoft Docs"
-description: "Obtenez de l’aide sur la connexion et l’exécution de tâches courantes dans le volet d’accès."
+title: Obtenir de l’aide sur l’accès et l’utilisation du portail Mes applications dans Azure Active Directory | Microsoft Docs
+description: Obtenez de l’aide sur la connexion et l’exécution de tâches courantes dans le volet d’accès.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: c67cd675-b567-41e1-8bc2-e06fe0b38d3b
 ms.service: active-directory
 ms.workload: identity
@@ -117,7 +117,7 @@ Sélectionnez la vignette **Groupes**, puis effectuez l’une des actions suivan
    >
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Pour obtenir des informations relatives à la résolution des problèmes, consultez [Problèmes lors de l’utilisation du site web ou de l’application mobile du volet d’accès aux applications](active-directory-application-access-panel-content-map.md).
 

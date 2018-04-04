@@ -1,12 +1,12 @@
 ---
-title: "Schéma de configuration de l’Extension Microsoft Azure Diagnostics 1.3 et versions ultérieures | Documents Microsoft"
-description: "Schéma version 1.3 et versions ultérieures pour les diagnostics Azure fournis avec le kit Microsoft Azure SDK 2.4 et versions ultérieures."
+title: Schéma de configuration de l’Extension Microsoft Azure Diagnostics 1.3 et versions ultérieures | Documents Microsoft
+description: Schéma version 1.3 et versions ultérieures pour les diagnostics Azure fournis avec le kit Microsoft Azure SDK 2.4 et versions ultérieures.
 services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na

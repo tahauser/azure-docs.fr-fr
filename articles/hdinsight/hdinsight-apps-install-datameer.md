@@ -1,13 +1,13 @@
 ---
-title: "Installer une application publiée - Datameer - Azure HDInsight | Microsoft Docs"
-description: "Installez et utilisez l’application Hadoop tierce Datameer."
+title: Installer une application publiée - Datameer - Azure HDInsight | Microsoft Docs
+description: Installez et utilisez l’application Hadoop tierce Datameer.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
@@ -110,7 +110,7 @@ Les étapes suivantes présentent une démonstration « Hello World ».
 
 Félicitations ! Vous avez créé une visualisation de vos données sans écrire de code. Vous pouvez maintenant explorer les variations et des visualisations supplémentaires.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Documentation Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft).
 * [Installer des applications personnalisées Hadoop sur Azure HDInsight](hdinsight-apps-install-custom-applications.md) : découvrez comment déployer des applications HDInsight non publiées vers HDInsight.

@@ -1,10 +1,10 @@
 ---
-title: "Créer une passerelle Application Gateway - Portail Azure | Microsoft Docs"
-description: "Découvrez comment créer une passerelle Application Gateway à l’aide du portail Azure."
+title: Créer une passerelle Application Gateway - Portail Azure | Microsoft Docs
+description: Découvrez comment créer une passerelle Application Gateway à l’aide du portail Azure.
 services: application-gateway
 author: davidmu1
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
@@ -132,6 +132,6 @@ Dans cet exemple, vous créez deux machines virtuelles à utiliser en tant que s
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, la passerelle Application Gateway et toutes les ressources associées. Pour ce faire, sélectionnez le groupe de ressources qui contient la passerelle d’application, puis cliquez sur **Supprimer**.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce guide de démarrage rapide, vous avez créé un groupe de ressources, des ressources réseau et des serveurs principaux. Vous avez ensuite utilisé ces ressources pour créer une passerelle d’application. Pour plus d’informations sur les passerelles d’application et leurs ressources associées, consultez les articles de procédures.

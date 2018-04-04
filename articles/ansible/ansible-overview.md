@@ -1,8 +1,8 @@
 ---
 title: Utiliser Ansible avec Azure
-description: "Présentation de l’utilisation d’Ansible pour automatiser l’approvisionnement du cloud, la gestion de la configuration et le déploiement des applications."
+description: Présentation de l’utilisation d’Ansible pour automatiser l’approvisionnement du cloud, la gestion de la configuration et le déploiement des applications.
 ms.service: ansible
-keywords: "ansible, azure, devops, présentation, approvisionnement du cloud, gestion de la configuration, déploiement des applications, modules ansible, playbooks ansible"
+keywords: ansible, azure, devops, présentation, approvisionnement du cloud, gestion de la configuration, déploiement des applications, modules ansible, playbooks ansible
 author: tomarcher
 manager: routlaw
 ms.author: tarcher
@@ -44,6 +44,6 @@ Via sa fonctionnalité [d’inventaire dynamique](http://docs.ansible.com/ansibl
 ## <a name="additional-azure-marketplace-options"></a>Autres options de Place de marché Microsoft Azure
 L’image Place de marché Microsoft Azure [Ansible Tower](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.ansible-tower) par Red Hat aide les organisations à mettre à l’échelle l’automatisation des tâches informatiques et à gérer les déploiements complexes dans les infrastructures physiques, virtuelles et cloud. Ansible Tower comprend des fonctionnalités qui fournissent d’autres niveaux de visibilité, de contrôle, de sécurité et d’efficacité nécessaires aux entreprises d’aujourd’hui. Ansible Tower chiffre les informations d’identification telles que les clés SSH et Azure, afin que vous puissiez déléguer des travaux à des employés moins expérimentés sans prendre le risque d’exposer vos informations d’identification.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 - [Installer et configurer Ansible pour gérer des machines virtuelles dans Azure](/azure/virtual-machines/linux/ansible-install-configure?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
 - [Créer une machine virtuelle Linux](/azure/virtual-machines/linux/ansible-create-vm?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)

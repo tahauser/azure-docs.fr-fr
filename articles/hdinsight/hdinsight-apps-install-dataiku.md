@@ -1,13 +1,13 @@
 ---
-title: "Installer une application publiée - Dataiku DSS - Azure HDInsight | Microsoft Docs"
-description: "Installez et utilisez l’application Hadoop tierce Dataiku DSS."
+title: Installer une application publiée - Dataiku DSS - Azure HDInsight | Microsoft Docs
+description: Installez et utilisez l’application Hadoop tierce Dataiku DSS.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
@@ -116,7 +116,7 @@ Vous pouvez à présent explorer DSS à l’aide des exemples de données. Vous 
 
 Pour accéder à des didacticiels complets, consultez [Learn Dataiku DSS](https://www.dataiku.com/learn/).
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Documentation sur Dataiku DSS](https://doc.dataiku.com/dss/latest/).
 * [Installer des applications HDInsight personnalisées](hdinsight-apps-install-custom-applications.md) : découvrez comment déployer des applications HDInsight non publiées sur HDInsight.

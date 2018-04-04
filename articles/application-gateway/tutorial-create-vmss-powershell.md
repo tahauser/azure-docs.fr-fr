@@ -1,6 +1,6 @@
 ---
-title: "Créer une passerelle d’application avec un groupe de machines virtuelles identiques - Azure PowerShell | Microsoft Docs"
-description: "Découvrez comment créer une passerelle d’application avec un groupe de machines virtuelles identiques à l’aide d’Azure PowerShell."
+title: Créer une passerelle d’application avec un groupe de machines virtuelles identiques - Azure PowerShell | Microsoft Docs
+description: Découvrez comment créer une passerelle d’application avec un groupe de machines virtuelles identiques à l’aide d’Azure PowerShell.
 services: application-gateway
 author: davidmu1
 manager: timlt
@@ -216,7 +216,7 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 
 ![Tester l’URL de base dans la passerelle d’application](./media/tutorial-create-vmss-powershell/tutorial-iistest.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Dans ce didacticiel, vous avez appris à :
 

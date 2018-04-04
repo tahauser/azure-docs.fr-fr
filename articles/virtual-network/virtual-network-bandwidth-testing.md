@@ -1,12 +1,12 @@
 ---
-title: "Test du débit du réseau des machines virtuelles | Microsoft Docs"
-description: "Découvrez comment tester le débit du réseau des machines virtuelles Azure."
+title: Test du débit du réseau des machines virtuelles | Microsoft Docs
+description: Découvrez comment tester le débit du réseau des machines virtuelles Azure.
 services: virtual-network
 documentationcenter: na
 author: steveesp
 manager: Gerald DeGrace
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -166,7 +166,7 @@ Vous devez ajouter la section suivante à votre ServiceDefinition.csdef
 </Endpoints> 
 ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * En fonction des résultats, vous pourriez être en mesure [d’optimiser le de débit réseau](virtual-network-optimize-network-bandwidth.md) pour votre scénario.
 * Découvrez de quelle façon [la bande passante est allouée aux machines virtuelles] (virtual-machine-network-throughput.md)
 * En savoir plus avec le [FAQ sur les réseaux virtuels Azure](virtual-networks-faq.md)
