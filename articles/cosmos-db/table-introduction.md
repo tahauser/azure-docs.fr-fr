@@ -1,12 +1,12 @@
 ---
-title: "Introduction à l’API de table d’Azure Cosmos DB | Microsoft Docs"
-description: "Découvrez comment vous pouvez utiliser Azure Cosmos DB pour stocker et interroger d’immenses volumes de données clé-valeur avec une faible latence, avec les API MongoDB OSS populaires."
+title: Introduction à l’API de table d’Azure Cosmos DB | Microsoft Docs
+description: Découvrez comment vous pouvez utiliser Azure Cosmos DB pour stocker et interroger d’immenses volumes de données clé-valeur avec une faible latence, avec les API MongoDB OSS populaires.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: monicar
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/20/2017
 ms.author: mimig
-ms.openlocfilehash: 7e116400f55375afe1e57abc6dadae0536cdfceb
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 6a69bc74f0175a8c30607ada006ebfce9a88c5b5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Présentation de l’API Table d’Azure Cosmos DB
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 01/23/2018
 
 Les applications écrites pour le stockage de table Azure peuvent migrer vers Azure Cosmos DB à l’aide de l’API de table sans aucune modification de code, et tirer parti des fonctionnalités Premium. L’API de table a des kits de développement logiciel (SDK) pour .NET, Java, Python et Node.js.
 
-Nous vous recommandons de visionner la vidéo suivante, dans laquelle Aravind Ramachandran explique comment prendre en main l’API de table d’Azure Cosmos DB :
+Nous vous recommandons de visionner la vidéo suivante, dans laquelle Aravind Krishna explique comment prendre en main l’API de table d’Azure Cosmos DB :
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Table-API-for-Azure-Cosmos-DB/player]
 > 

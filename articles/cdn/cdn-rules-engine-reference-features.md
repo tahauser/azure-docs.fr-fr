@@ -1,11 +1,11 @@
 ---
-title: "Fonctionnalités du moteur de règles Azure CDN | Microsoft Docs"
-description: "Documentation de référence sur les fonctionnalités et conditions de correspondance du moteur de règles Azure CDN."
+title: Fonctionnalités du moteur de règles Azure CDN | Microsoft Docs
+description: Documentation de référence sur les fonctionnalités et conditions de correspondance du moteur de règles Azure CDN.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: Lichard
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 949b957716af2d7dfd704b4fca48afb78d0fed1e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 9f1a9343a657e076e94f6aa59fd03128ef488ac9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Fonctionnalités du moteur de règles Azure CDN
 Cet article comprend les descriptions détaillées des fonctionnalités du [moteur de règles](cdn-rules-engine.md) Azure Content Delivery Network (CDN).
@@ -46,28 +46,28 @@ Ces fonctionnalités sont conçues pour personnaliser la mise en cache du conten
 NOM | Objectif
 -----|--------
 [Bandwidth Parameters](#bandwidth-parameters) | Détermine si les paramètres de limitation de bande passante (par exemple, ec_rate et ec_prebuf) sont actifs.
-[Bandwidth Throttling](#bandwidth-throttling) | Limite la bande passante pour la réponse fournie par nos serveurs Edge.
+[Bandwidth Throttling](#bandwidth-throttling) | Limite la bande passante pour la réponse fournie par le point de présence (POP).
 [Bypass Cache](#bypass-cache) | Détermine si la requête doit contourner la mise en cache.
-[Cache-Control Header Treatment](#cache-control-header-treatment) | Contrôle la génération des en-têtes `Cache-Control` par le serveur Edge quand la fonctionnalité External Max-Age est active.
+[Cache-Control Header Treatment](#cache-control-header-treatment) | Contrôle la génération des en-têtes `Cache-Control` par le point de présence quand la fonctionnalité Obsolescence maximale externe est active.
 [Cache-Key Query String](#cache-key-query-string) | Détermine si la clé de cache inclut ou exclut les paramètres de chaîne de requête associés à une requête.
 [Cache-Key Rewrite](#cache-key-rewrite) | Réécrit la clé de cache associée à une requête.
-[Complete Cache Fill](#complete-cache-fill) | Détermine ce qui se passe quand une requête génère une absence de cache partielle sur un serveur Edge.
+[Complete Cache Fill](#complete-cache-fill) | Détermine ce qui se passe quand une requête génère une absence de cache partielle sur un point de présence.
 [Compress File Types](#compress-file-types) | Définit les formats de fichier des fichiers qui sont compressés sur le serveur.
-[Default Internal Max-Age](#default-internal-max-age) | Détermine l’intervalle d’âge maximal par défaut pour la revalidation du cache entre le serveur Edge et le serveur d’origine.
-[Expires Header Treatment](#expires-header-treatment) | Contrôle la génération des en-têtes `Expires` par un serveur Edge quand la fonctionnalité External Max-Age est active.
-[External Max-Age](#external-max-age) | Détermine l’intervalle d’âge maximal pour la revalidation du cache entre le navigateur et le serveur Edge.
-[Force Internal Max-Age](#force-internal-max-age) | Détermine l’intervalle d’âge maximal pour la revalidation du cache entre le serveur Edge et le serveur d’origine.
+[Default Internal Max-Age](#default-internal-max-age) | Détermine l’intervalle d’âge maximal par défaut pour la revalidation du cache entre le point de présence et le serveur d’origine.
+[Expires Header Treatment](#expires-header-treatment) | Contrôle la génération des en-têtes `Expires` par un point de présence quand la fonctionnalité Obsolescence maximale externe est active.
+[External Max-Age](#external-max-age) | Détermine l’intervalle d’âge maximal pour la revalidation du cache entre le navigateur et le point de présence.
+[Force Internal Max-Age](#force-internal-max-age) | Détermine l’intervalle d’âge maximal pour la revalidation du cache entre le point de présence et le serveur d’origine.
 [H.264 Support (HTTP Progressive Download)](#h264-support-http-progressive-download) | Détermine les types de formats de fichier H.264 qui peuvent être utilisés pour diffuser du contenu.
 [Honor No-Cache Request](#honor-no-cache-request) | Détermine si les requêtes non-cache d’un client HTTP sont transmises au serveur d’origine.
 [Ignore Origin No-Cache](#ignore-origin-no-cache) | Détermine si le CDN ignore certaines directives remises par un serveur d’origine.
 [Ignore Unsatisfiable Ranges](#ignore-unsatisfiable-ranges) | Détermine la réponse à retourner aux clients quand une requête génère un code d’état 416 Plage demandée non satisfaisante.
-[Internal Max-Stale](#internal-max-stale) | Contrôle la durée après l’expiration normale d’une ressource mise en cache pendant laquelle cette ressource peut être remise depuis un serveur Edge quand ce serveur Edge ne parvient pas à la revalider avec le serveur d’origine.
+[Internal Max-Stale](#internal-max-stale) | Contrôle la durée après l’expiration normale d’une ressource mise en cache pendant laquelle cette ressource peut être remise depuis un point de présence quand ce point de présence ne parvient pas à la revalider avec le serveur d’origine.
 [Partial Cache Sharing](#partial-cache-sharing) | Détermine si une requête peut générer du contenu partiellement mis en cache.
 [Prevalidate Cached Content](#prevalidate-cached-content) | Détermine si du contenu mis en cache peut faire l’objet d’une revalidation anticipée avant l’expiration de sa durée de vie.
-[Refresh Zero-Byte Cache Files](#refresh-zero-byte-cache-files) | Détermine la façon dont les serveurs Edge gèrent la requête d’un client HTTP liée à une ressource de cache de 0 octet.
+[Refresh Zero-Byte Cache Files](#refresh-zero-byte-cache-files) | Détermine la façon dont les points de présence gèrent la requête d’un client HTTP liée à une ressource de cache de 0 octet.
 [Set Cacheable Status Codes](#set-cacheable-status-codes) | Définit l’ensemble des codes d’état qui peuvent générer du contenu mis en cache.
 [Stale Content Delivery on Error](#stale-content-delivery-on-error) | Détermine si du contenu mis en cache qui a expiré est remis quand une erreur se produit pendant la revalidation du cache ou l’extraction du contenu demandé à partir du serveur d’origine du client.
-[Stale While Revalidate](#stale-while-revalidate) | Améliore les performances en permettant aux serveurs Edge de rendre obsolète le client pour le demandeur pendant la revalidation.
+[Stale While Revalidate](#stale-while-revalidate) | Améliore les performances en permettant aux points de présence de rendre obsolète le client pour le demandeur pendant la revalidation.
 
 ## <a name="comment-feature"></a>Fonctionnalité de commentaire
 
@@ -110,7 +110,7 @@ Name | Purpose
 Edge Optimizer | Determines whether Edge Optimizer can be applied to a request.
 Edge Optimizer – Instantiate Configuration | Instantiates or activates the Edge Optimizer configuration associated with a site.
 
-###Edge Optimizer
+### Edge Optimizer
 **Purpose:** Determines whether Edge Optimizer can be applied to a request.
 
 If this feature has been enabled, then the following criteria must also be met before the request will be processed by Edge Optimizer:
@@ -128,7 +128,7 @@ Disabled|Restores the default behavior. The default behavior is to deliver conte
 **Default Behavior:** Disabled
  
 
-###Edge Optimizer - Instantiate Configuration
+### Edge Optimizer - Instantiate Configuration
 **Purpose:** Instantiates or activates the Edge Optimizer configuration associated with a site.
 
 This feature requires the ADN platform and the Edge Optimizer feature.
@@ -151,7 +151,7 @@ Ces fonctionnalités sont conçues pour contrôler la manière dont le CDN commu
 NOM | Objectif
 -----|--------
 [Maximum Keep-Alive Requests](#maximum-keep-alive-requests) | Définit le nombre maximal de requêtes pour une connexion toujours active avant sa fermeture.
-[Proxy Special Headers](#proxy-special-headers) | Définit l’ensemble des en-têtes de requête propres à CDN à transmettre depuis un serveur Edge vers un serveur d’origine.
+[Proxy Special Headers](#proxy-special-headers) | Définit l’ensemble des en-têtes de requête propres à CDN à transmettre depuis un point de présence vers un serveur d’origine.
 
 
 ## <a name="specialty-features"></a>Fonctionnalités spéciales
@@ -201,8 +201,8 @@ Les paramètres de limitation de bande passante déterminent si le taux de trans
 
 Valeur|Résultat
 --|--
-activé|Permet aux serveurs Edge d’honorer les requêtes de limitation de bande passante.
-Désactivé|Force les serveurs Edge à ignorer les paramètres de limitation de bande passante. Le contenu demandé est pris en charge normalement (c’est-à-dire, sans limitation de bande passante).
+activé|Permet aux points de présence d’honorer les requêtes de limitation de bande passante.
+Désactivé|Force les points de présence à ignorer les paramètres de limitation de bande passante. Le contenu demandé est pris en charge normalement (c’est-à-dire, sans limitation de bande passante).
 
 **Comportement par défaut :** Activé.
  
@@ -212,14 +212,14 @@ Désactivé|Force les serveurs Edge à ignorer les paramètres de limitation de 
 
 ---
 ### <a name="bandwidth-throttling"></a>Limitation de bande passante
-**Objectif :** limite la bande passante pour la réponse fournie par les serveurs Edge.
+**Objectif :** limite la bande passante pour la réponse fournie par les points de présence.
 
 Les deux options suivantes doivent être définies pour configurer correctement la limitation de bande passante.
 
-Option|DESCRIPTION
+Option|Description
 --|--
 Koctets par seconde|Définissez cette option sur la bande passante maximale (en Ko par seconde) qui peut être utilisée pour fournir la réponse.
-Secondes prebuf|Définissez cette option sur le nombre de secondes que doivent attendre les serveurs Edge pour que soit effectuée la limitation de la bande passante. L’objectif de cette période de bande passante illimitée consiste à éviter les problèmes de coupure ou de mise en mémoire tampon pour un lecteur multimédia en raison d’une limitation de bande passante.
+Secondes prebuf|Définissez cette option sur le nombre de secondes que doivent attendre les points de présence pour que soit effectuée la limitation de la bande passante. L’objectif de cette période de bande passante illimitée consiste à éviter les problèmes de coupure ou de mise en mémoire tampon pour un lecteur multimédia en raison d’une limitation de bande passante.
 
 **Comportement par défaut** : Désactivé.
 
@@ -233,8 +233,8 @@ Secondes prebuf|Définissez cette option sur le nombre de secondes que doivent a
 
 Valeur|Résultat
 --|--
-activé|Force toutes les requêtes à passer par le serveur d’origine, même si le contenu a été précédemment mis en cache sur les serveurs Edge.
-Désactivé|Force les serveurs Edge à mettre les ressources en cache selon la stratégie de cache définie dans ses en-têtes de réponse.
+activé|Force toutes les requêtes à passer par le serveur d’origine, même si le contenu a été précédemment mis en cache sur les points de présence.
+Désactivé|Force les points de présence à mettre les ressources en cache selon la stratégie de cache définie dans ses en-têtes de réponse.
 
 **Comportement par défaut :**
 
@@ -289,7 +289,7 @@ Informations essentielles :
 
 ---
 ### <a name="cache-control-header-treatment"></a>Traitement d’en-tête de contrôle de cache
-**Objectif :** contrôle la génération des en-têtes `Cache-Control` par un serveur Edge quand la fonctionnalité External Max-Age est active.
+**Objectif :** contrôle la génération des en-têtes `Cache-Control` par le point de présence quand la fonctionnalité Obsolescence maximale externe est active.
 
 Pour obtenir ce type de configuration le plus simple consiste à placer les fonctionnalités Âge maximal externe et En-tête de contrôle de cache dans la même instruction.
 
@@ -315,7 +315,7 @@ Informations essentielles :
 - Spécifiez un ou plusieurs noms de paramètre de chaîne de requête. Délimite chaque nom de paramètre par un espace.
 - Cette fonctionnalité détermine si les paramètres de chaîne de requête sont inclus ou exclus de la clé de cache. Vous trouverez des informations supplémentaires pour chaque option dans le tableau suivant.
 
-type|DESCRIPTION
+type|Description
 --|--
  Inclure|  Indique que chaque paramètre spécifié doit être inclus dans la clé de cache. Une clé de cache unique est générée pour chaque requête contenant une valeur unique pour un paramètre de chaîne de requête défini dans cette fonctionnalité. 
  Inclure tout  |Indique qu’une clé de cache unique est créée pour chaque requête dans une ressource qui inclut une chaîne de requête unique. Ce type de configuration n’est généralement pas recommandé, car il peut entraîner un petit pourcentage de correspondances dans le cache. Un faible nombre de correspondances dans le cache augmente la charge sur le serveur d’origine, car il doit traiter plus de requêtes. Cette configuration duplique le comportement de mise en cache appelé « unique-cache » sur la page de mise en cache de la chaîne de requête. 
@@ -387,7 +387,7 @@ Une clé de cache est le chemin d’accès relatif qui identifie une ressource p
 
 Configurez cette fonctionnalité en définissant les deux options suivantes :
 
-Option|DESCRIPTION
+Option|Description
 --|--
 Chemin d’accès d’origine| Permet de définir le chemin d’accès relatif aux types de requêtes dont la clé de cache est réécrite. Un chemin d’accès relatif peut être défini en sélectionnant un chemin d’accès d’origine de base et en définissant un modèle d’expression régulière.
 Nouveau chemin d’accès|Permet de définir le chemin d’accès relatif pour la nouvelle clé de cache. Un chemin d’accès relatif peut être défini en sélectionnant un chemin d’accès d’origine de base et en définissant un modèle d’expression régulière. Ce chemin d’accès relatif peut être construit de manière dynamique via l’utilisation de variables HTTP
@@ -415,9 +415,9 @@ Informations essentielles :
 
 ---
 ### <a name="complete-cache-fill"></a>Remplissage de cache complet
-**Objectif :** détermine ce qui se passe quand une requête génère une absence de cache partielle sur un serveur Edge.
+**Objectif :** détermine ce qui se passe quand une requête génère une absence de cache partielle sur un point de présence.
 
-Une absence de cache partielle décrit l’état du cache pour une ressource qui n’a pas été complètement téléchargée sur un serveur Edge. Si une ressource n’est que partiellement mise en cache sur un serveur Edge, la requête suivante de cette ressource est transférée à nouveau sur le serveur d’origine.
+Une absence de cache partielle décrit l’état du cache pour une ressource qui n’a pas été complètement téléchargée sur un point de présence. Si une ressource n’est que partiellement mise en cache sur un point de présence, la requête suivante de cette ressource est transférée à nouveau sur le serveur d’origine.
 <!---
 This feature is not available for the ADN platform. The typical traffic on this platform consists of relatively small assets. The size of the assets served through these platforms helps mitigate the effects of partial cache misses, since the next request will typically result in the asset being cached on that POP.
 
@@ -430,8 +430,8 @@ En raison de la manière dont les paramètres de cache sont suivis, cette foncti
 
 Valeur|Résultat
 --|--
-activé|Restaure le comportement par défaut. Le comportement par défaut consiste à forcer le serveur Edge à lancer une récupération en arrière-plan de la ressource à partir du serveur d’origine. Après quoi, la ressource se trouvera dans le cache local du serveur Edge.
-Désactivé|Empêche un serveur Edge d’effectuer une récupération en arrière-plan pour la ressource. Le résultat est tel que la requête suivante pour cette ressource à partir de cette région force un serveur Edge à la demander à partir du serveur d’origine du client.
+activé|Restaure le comportement par défaut. Le comportement par défaut consiste à forcer le point de présence à lancer une récupération en arrière-plan de la ressource à partir du serveur d’origine. Après quoi, la ressource se trouvera dans le cache local du point de présence.
+Désactivé|Empêche un point de présence d’effectuer une récupération en arrière-plan pour la ressource. Le résultat est tel que la requête suivante pour cette ressource à partir de cette région force un point de présence à la demander à partir du serveur d’origine du client.
 
 **Comportement par défaut :** Activé.
 
@@ -445,7 +445,7 @@ Désactivé|Empêche un serveur Edge d’effectuer une récupération en arrièr
 
 Un format de fichier peut être spécifié à l’aide de son type de média Internet (par exemple, Content-Type). Le type de média Internet est constitué de métadonnées indépendantes de la plateforme, permettant aux serveurs d’identifier le format de fichier d’une ressource particulière. Vous trouverez ci-dessous une liste des types de média Internet courants.
 
-Type de média Internet|DESCRIPTION
+Type de média Internet|Description
 --|--
 texte/brut|Fichiers de texte brut
 texte/html| Fichiers HTML
@@ -523,14 +523,14 @@ Désactivé|L’en-tête de réponse X-EC-Debug est exclu de la réponse.
 
 ---
 ### <a name="default-internal-max-age"></a>Âge maximal interne par défaut
-**Objectif :** détermine l’intervalle d’âge maximal par défaut pour la revalidation du cache entre le serveur Edge et le serveur d’origine. En d’autres termes, il s’agit de la durée s’écoulant avant qu’un serveur Edge vérifie si une ressource mise en cache correspond à la ressource stockée sur le serveur d’origine.
+**Objectif :** détermine l’intervalle d’âge maximal par défaut pour la revalidation du cache entre le point de présence et le serveur d’origine. En d’autres termes, il s’agit de la durée s’écoulant avant qu’un point de présence ne vérifie si une ressource mise en cache correspond à la ressource stockée sur le serveur d’origine.
 
 Informations essentielles :
 
 - Cette action a lieu uniquement pour les réponses issues d’un serveur d’origine qui n’a pas attribué d’indication d’âge maximal (max-age) dans l’en-tête `Cache-Control` ou `Expires`.
 - Cette action n’aura pas lieu pour les ressources qui ne sont pas considérées comme susceptibles d’être mises en cache.
-- Cette action n’affecte pas les revalidations du cache entre le navigateur et le serveur Edge. Ces types de revalidations sont déterminés par les en-têtes `Cache-Control` ou `Expires` envoyés au navigateur, qui peuvent être personnalisés avec la fonctionnalité External Max-Age.
-- Les résultats de cette action n’ont pas d’effet visible sur les en-têtes de réponse et le contenu renvoyé à partir des serveurs Edge de votre contenu, mais cela peut avoir une incidence sur la quantité de trafic de revalidation envoyé à partir des serveurs Edge vers votre serveur d’origine.
+- Cette action n’affecte pas les revalidations du cache entre le navigateur et le point de présence. Ces types de revalidations sont déterminés par les en-têtes `Cache-Control` ou `Expires` envoyés au navigateur, qui peuvent être personnalisés avec la fonctionnalité External Max-Age.
+- Les résultats de cette action n’ont pas d’effet visible sur les en-têtes de réponse et le contenu retourné à partir des points de présence de votre contenu, mais cela peut avoir une incidence sur la quantité de trafic de revalidation envoyé à partir des points de présence vers votre serveur d’origine.
 - Configurez cette fonctionnalité en :
     - sélectionnant le code d’état pour lequel un âge maximal interne par défaut peut être appliqué.
     - spécifiant une valeur entière, puis en sélectionnant l’unité de temps souhaitée (par exemple, secondes, minutes, heures, etc.). Cette valeur définit l’intervalle d’âge maximal interne.
@@ -571,7 +571,7 @@ Désactivé| Restaure le comportement par défaut. Le comportement par défaut c
 
 ---
 ### <a name="expires-header-treatment"></a>Expiration du traitement d’en-tête
-**Objectif :** contrôle la génération des en-têtes `Expires` par un serveur Edge quand la fonctionnalité External Max-Age est active.
+**Objectif :** contrôle la génération des en-têtes `Expires` par un point de présence quand la fonctionnalité Obsolescence maximale externe est active.
 
 La manière la plus simple d’atteindre ce type de configuration consiste à placer les fonctionnalités Âge maximal externe et Expiration du traitement d’en-tête dans la même instruction.
 
@@ -590,15 +590,15 @@ Supprimer| Garantit qu’aucun en-tête `Expires` n’est inclus dans la répons
 
 ---
 ### <a name="external-max-age"></a>Âge maximal externe
-**Objectif :** détermine l’intervalle d’âge maximal pour la revalidation du cache entre le navigateur et le serveur Edge. En d’autres termes, il s’agit de la durée s’écoulant avant qu’un navigateur puisse rechercher la nouvelle version d’une ressource à partir d’un serveur Edge.
+**Objectif :** détermine l’intervalle d’âge maximal pour la revalidation du cache entre le navigateur et le point de présence. En d’autres termes, il s’agit de la durée s’écoulant avant qu’un navigateur puisse rechercher la nouvelle version d’une ressource à partir d’un point de présence.
 
-L’activation de cette fonctionnalité génère des en-têtes `Cache-Control: max-age` et `Expires` à partir des serveurs Edge, et les envoie au client HTTP. Par défaut, ces en-têtes remplacent ceux créés par le serveur d’origine. Toutefois, les fonctionnalités Traitement d’en-tête de contrôle de cache et Expiration du traitement d’en-tête peuvent servir à modifier ce comportement.
+L’activation de cette fonctionnalité génère des en-têtes `Cache-Control: max-age` et `Expires` à partir des points de présence, et les envoie au client HTTP. Par défaut, ces en-têtes remplacent ceux créés par le serveur d’origine. Toutefois, les fonctionnalités Traitement d’en-tête de contrôle de cache et Expiration du traitement d’en-tête peuvent servir à modifier ce comportement.
 
 Informations essentielles :
 
-- Cette action n’affecte pas les revalidations du cache entre le serveur d’origine et le serveur Edge. Ces types de revalidations sont déterminés par les en-têtes `Cache-Control` et `Expires` provenant du serveur d’origine, et peuvent être personnalisés avec les fonctionnalités Default Internal Max-Age et Force Internal Max-Age.
+- Cette action n’affecte pas les revalidations du cache entre le point de présence et le serveur d’origine. Ces types de revalidations sont déterminés par les en-têtes `Cache-Control` et `Expires` provenant du serveur d’origine, et peuvent être personnalisés avec les fonctionnalités Default Internal Max-Age et Force Internal Max-Age.
 - Configurez cette fonctionnalité en spécifiant une valeur entière, puis en sélectionnant l’unité de temps souhaitée (par exemple, secondes, minutes, heures, etc.).
-- Définissez cette fonctionnalité sur une valeur négative pour que les serveurs Edge envoient un `Cache-Control: no-cache`, ainsi qu’une heure `Expires` passée avec chaque réponse au navigateur. Même si un client HTTP ne met pas en cache la réponse, ce paramètre n’affecte pas la capacité des serveurs Edge à mettre en cache la réponse provenant du serveur d’origine.
+- Définissez cette fonctionnalité sur une valeur négative pour que les points de présence envoient un `Cache-Control: no-cache`, ainsi qu’une heure `Expires` passée avec chaque réponse envoyée au navigateur. Même si un client HTTP ne met pas en cache la réponse, ce paramètre n’affecte pas la capacité des points de présence à mettre en cache la réponse provenant du serveur d’origine.
 - La définition de l’unité de temps sur « Désactivé » a pour effet de désactiver cette fonctionnalité. Les en-têtes `Cache-Control` et `Expires` avec la réponse du serveur d’origine sont transmis directement au navigateur.
 
 **Comportement par défaut :** Désactivé
@@ -628,13 +628,13 @@ Désactivé|Les requêtes ne seront pas redirigées.
 
 ---
 ### <a name="force-internal-max-age"></a>Forcer l’âge maximal interne
-**Objectif :** détermine l’intervalle d’âge maximal pour la revalidation du cache entre le serveur Edge et le serveur d’origine. En d’autres termes, il s’agit de la durée s’écoulant avant qu’un serveur Edge puisse vérifier si une ressource mise en cache correspond à la ressource stockée sur le serveur d’origine.
+**Objectif :** détermine l’intervalle d’âge maximal pour la revalidation du cache entre le point de présence et le serveur d’origine. En d’autres termes, il s’agit de la durée s’écoulant avant qu’un point de présence ne vérifie si une ressource mise en cache correspond à la ressource stockée sur le serveur d’origine.
 
 Informations essentielles :
 
 - Cette fonctionnalité remplace l’intervalle d’âge maximal (max-age interval) défini dans les en-têtes `Cache-Control` ou `Expires` générés à partir d’un serveur d’origine.
-- Cette fonctionnalité n’affecte pas les revalidations du cache entre le navigateur et le serveur Edge. Ces types de revalidations sont déterminés par les en-têtes `Cache-Control` ou `Expires` envoyés au navigateur.
-- Cette fonctionnalité n’a pas d’effet visible sur la réponse fournie par un serveur Edge au demandeur. Toutefois, elle peut avoir une incidence sur la quantité de trafic de revalidation envoyé à partir des serveurs Edge vers le serveur d’origine.
+- Cette fonctionnalité n’affecte pas les revalidations du cache entre le navigateur et le point de présence. Ces types de revalidations sont déterminés par les en-têtes `Cache-Control` ou `Expires` envoyés au navigateur.
+- Cette fonctionnalité n’a pas d’effet visible sur la réponse fournie par un point de présence au demandeur. Toutefois, elle peut avoir une incidence sur la quantité de trafic de revalidation envoyée à partir des points de présence vers le serveur d’origine.
 - Configurez cette fonctionnalité en :
     - sélectionnant le code d’état pour lequel un âge maximal interne sera appliqué.
     - spécifiant une valeur entière et en sélectionnant l’unité de temps souhaitée (par exemple, secondes, minutes, heures, etc.). Cette valeur définit l’intervalle d’âge maximal de la requête.
@@ -678,10 +678,10 @@ Une demande non-cache se produit lorsque le client HTTP envoie un en-tête `Cach
 
 Valeur|Résultat
 --|--
-activé|Permet de transmettre une requête non cache d’un client HTTP au serveur d’origine. Le serveur d’origine renvoie alors les en-têtes et le corps de la réponse via le serveur Edge au client HTTP.
+activé|Permet de transmettre une requête non cache d’un client HTTP au serveur d’origine. Le serveur d’origine retourne alors les en-têtes et le corps de la réponse via le point de présence au client HTTP.
 Désactivé|Restaure le comportement par défaut. Le comportement par défaut consiste à éviter la transmission des requêtes non cache au serveur d’origine.
 
-Pour tout le trafic de production, il est fortement recommandé de laisser cette fonctionnalité désactivée par défaut. Dans le cas contraire, les serveurs d’origine ne seront pas protégés des utilisateurs finaux qui peuvent par inadvertance déclencher un grand nombre de demandes non-cache lors de l’actualisation des pages web ou des nombreux lecteurs multimédias populaires codés pour envoyer un en-tête non cache avec chaque requête vidéo. Néanmoins, il peut être utile d’appliquer cette fonctionnalité à certains répertoires de test ou intermédiaires hors production pour autoriser la collecte de contenu actualisé à partir du serveur d’origine à la demande.
+Pour tout le trafic de production, il est fortement recommandé de laisser cette fonctionnalité désactivée par défaut. Dans le cas contraire, les serveurs d’origine ne sont pas protégés des utilisateurs finaux qui peuvent par inadvertance déclencher un grand nombre de requêtes non cache lors de l’actualisation des pages web ou des nombreux lecteurs multimédias populaires codés pour envoyer un en-tête non cache avec chaque requête vidéo. Néanmoins, il peut être utile d’appliquer cette fonctionnalité à certains répertoires de test ou intermédiaires hors production pour autoriser la collecte de contenu actualisé à partir du serveur d’origine à la demande.
 
 L’état du cache qui sera signalé pour une requête, dont le transfert vers un serveur d’origine est autorisé en raison de cette fonctionnalité est TCP_Client_Refresh_Miss. Le rapport des états du cache, qui est disponible dans le module de création de rapports de base, fournit des informations statistiques par état de cache. Cela vous permet de suivre le nombre et le pourcentage de requêtes transférées vers un serveur d’origine en raison de cette fonctionnalité.
 
@@ -724,11 +724,11 @@ Informations essentielles :
 ### <a name="ignore-unsatisfiable-ranges"></a>Ignorer les plages inacceptables 
 **Objectif :** détermine la réponse à renvoyer aux clients quand une requête génère un code d’état 416 Plage demandée non satisfaisante.
 
-Par défaut, ce code d’état est renvoyé lorsque la requête de plage d’octets spécifiée ne peut pas être satisfaite par un serveur Edge et qu’un champ d’en-tête de requête If-Range n’a pas été spécifié.
+Par défaut, ce code d’état est retourné lorsque la requête de plage d’octets spécifiée ne peut pas être satisfaite par un point de présence et qu’un champ d’en-tête de requête If-Range n’a pas été spécifié.
 
 Valeur|Résultat
 -|-
-activé|Empêche les serveurs Edge de répondre à une requête de plage d’octets non valide avec un code d’état 416 Plage demandée non satisfaisante. Au lieu de cela, les serveurs fournissent la ressource demandée et retournent le code 200 - OK au client.
+activé|Empêche les points de présence de répondre à une requête de plage d’octets non valide avec un code d’état 416 Plage demandée non satisfaisante. Au lieu de cela, les serveurs fournissent la ressource demandée et retournent le code 200 - OK au client.
 Désactivé|Restaure le comportement par défaut. Le comportement par défaut consiste à respecter le code d’état 416 Plage demandée non satisfaisante.
 
 **Comportement par défaut** : Désactivé.
@@ -739,15 +739,15 @@ Désactivé|Restaure le comportement par défaut. Le comportement par défaut co
 
 ---
 ### <a name="internal-max-stale"></a>Obsolescence maximale interne
-**Objectif :** contrôle la durée après l’expiration normale d’une ressource mise en cache pendant laquelle cette ressource peut être remise depuis un serveur Edge quand ce serveur Edge ne parvient pas à la revalider avec le serveur d’origine.
+**Objectif :** contrôle la durée après l’expiration normale d’une ressource mise en cache pendant laquelle cette ressource peut être remise depuis un point de présence quand ce point de présence ne parvient pas à la revalider avec le serveur d’origine.
 
-Normalement, lorsque l’élément max-age d’une ressource expire, le serveur Edge envoie une requête de revalidation au serveur d’origine. Le serveur d’origine répond ensuite par un 304 Non modifié pour permettre au serveur Edge d’exploiter la ressource mise en cache, ou un 200 OK pour fournir au serveur Edge une version mise à jour de la ressource mise en cache.
+Normalement, lorsque l’élément max-age d’une ressource arrive à expiration, le point de présence envoie une requête de revalidation au serveur d’origine. Le serveur d’origine répond ensuite par un 304 Non modifié pour permettre au point de présence d’exploiter la ressource mise en cache, ou un 200 OK pour fournir au point de présence une version mise à jour de la ressource mise en cache.
 
-Si le serveur Edge n’est pas en mesure d’établir une connexion avec le serveur d’origine lors de la tentative d’une telle revalidation, cette fonctionnalité Obsolescence maximale interne contrôle si et depuis combien de temps, le serveur Edge peut continuer à traiter la ressource now-stale.
+Si le point de présence n’est pas en mesure d’établir une connexion avec le serveur d’origine lors de la tentative d’une telle revalidation, cette fonctionnalité Obsolescence maximale interne contrôle si et depuis combien de temps, le point de présence peut continuer à traiter la ressource now-stale.
 
 Notez que cet intervalle de temps démarre à compter de l’expiration de l’âge maximal de la ressource et non lors de l’échec d’une revalidation. Par conséquent, la durée maximale pendant laquelle une ressource peut être traitée sans réussir la revalidation correspond à la durée spécifiée par la combinaison max-age/max-stale. Par exemple, si une ressource a été mise en cache à 9 h 00, avec un âge maximal (max-age) de 30 minutes et une obsolescence maximale de 15 minutes, l’échec d’une tentative de revalidation à 9 h 44 entraînerait la réception par l’utilisateur final de la ressource mise en cache obsolète, tandis que l’échec d’une tentative de revalidation à 9 h 46 entraînerait la réception par l’utilisateur final d’un 504 Expiration de la passerelle.
 
-Les valeurs configurées pour cette fonctionnalité sont remplacées par les en-têtes `Cache-Control: must-revalidate` ou `Cache-Control: proxy-revalidate` reçus du serveur d’origine. Si un de ces en-têtes issus du serveur d’origine est reçu lors de la mise en cache initiale d’une ressource, le serveur Edge ne traite pas de ressource mise en cache obsolète. Dans ce cas, si le serveur Edge n’est pas en mesure de revalider avec le serveur d’origine après expiration de l’intervalle max-age de la ressource, le serveur Edge retourne une erreur 504 Expiration de la passerelle.
+Les valeurs configurées pour cette fonctionnalité sont remplacées par les en-têtes `Cache-Control: must-revalidate` ou `Cache-Control: proxy-revalidate` reçus du serveur d’origine. Si l’un de ces en-têtes issus du serveur d’origine est reçu lors de la mise en cache initiale d’une ressource, le point de présence ne traite pas de ressource mise en cache obsolète. Dans ce cas, si le point de présence n’est pas en mesure de revalider avec le serveur d’origine après expiration de l’intervalle d’âge maximal de la ressource, le point de présence retourne une erreur 504 Expiration de la passerelle.
 
 Informations essentielles :
 
@@ -814,7 +814,7 @@ Les requêtes transmises à un serveur d’origine reflètent les modifications 
 
 Une des actions suivantes peut être effectuée sur un en-tête de requête :
 
-Option|DESCRIPTION|exemples
+Option|Description|Exemples
 -|-|-
 Append|La valeur spécifiée sera ajoutée à la fin de la valeur d’en-tête de requête existante.|**Valeur d’en-tête de requête (Client) :**Value1 <br/> **Valeur d’en-tête de requête (moteur de règles HTTP) :** Value2 <br/>**Nouvelle valeur d’en-tête de requête :** Value1Value2
 Remplacer|La valeur d’en-tête de requête est définie sur la valeur spécifiée.|**Valeur d’en-tête de requête (Client) :**Value1 <br/>**Valeur d’en-tête de requête (moteur de règles HTTP) :** Value2 <br/>**Nouvelle valeur d’en-tête de requête :** Value2 <br/>
@@ -828,7 +828,7 @@ Informations essentielles :
     - CACHE-CONTROL
     - cachE-Control
 - Lorsque vous spécifiez un nom d’en-tête, utilisez uniquement des caractères alphanumériques, des tirets ou des traits de soulignement.
-- La suppression d’un en-tête évite sa transmission à un serveur d’origine par les serveurs Edge.
+- La suppression d’un en-tête évite sa transmission à un serveur d’origine par les points de présence.
 - Les en-têtes suivants sont réservés et ne peuvent pas être modifiés par cette fonctionnalité :
     - forwarded
     - host
@@ -848,11 +848,11 @@ Chaque réponse contient un ensemble d’en-têtes de réponse qui la décrivent
 - Ajouter ou remplacer la valeur affectée à un en-tête de réponse. Si l’en-tête de requête spécifié n’existe pas, cette fonctionnalité l’ajoute à la réponse.
 - Supprimez un en-tête de réponse de la réponse.
 
-Par défaut, les valeurs d’en-tête de réponse sont définies par un serveur d’origine et par les serveurs Edge.
+Par défaut, les valeurs d’en-tête de réponse sont définies par un serveur d’origine et par les points de présence.
 
 Une des actions suivantes peut être effectuée sur un en-tête de réponse :
 
-Option|DESCRIPTION|exemples
+Option|Description|Exemples
 -|-|-
 Append|La valeur spécifiée sera ajoutée à la fin de la valeur d’en-tête de réponse existante.|**Valeur d’en-tête de réponse (Client) :**Value1 <br/> **Valeur d’en-tête de réponse (moteur de règles HTTP) :** Value2 <br/>**Nouvelle valeur d’en-tête de réponse :** Value1Value2
 Remplacer|La valeur d’en-tête de réponse est définie sur la valeur spécifiée.|**Valeur d’en-tête de réponse (Client) :**Value1 <br/>**Valeur d’en-tête de réponse (moteur de règles HTTP) :** Value2 <br/>**Nouvelle valeur d’en-tête de réponse :** Value2 <br/>
@@ -912,7 +912,7 @@ Définissez la durée avant expiration de la durée de vie du contenu demandé a
 
 Informations essentielles :
 
-- Sélectionnez « Désactivé », dans la mesure où l’unité de temps nécessite la revalidation une fois la durée de vie du contenu mis en cache expirée. Le temps ne doit pas être spécifié, et sera ignoré.
+- Sélectionnez « Désactivé », dans la mesure où l’unité de temps nécessite la revalidation une fois la durée de vie du contenu mis en cache expirée. Le temps ne doit pas être spécifié, et est ignoré.
 
 **Comportement par défaut :** Désactivé. La revalidation peut uniquement avoir lieu après l’expiration de la durée de vie du contenu mis en cache.
 
@@ -922,7 +922,7 @@ Informations essentielles :
 
 ---
 ### <a name="proxy-special-headers"></a>En-têtes spéciaux de proxy
-**Objectif :** définit l’ensemble d’en-têtes de requête propres à CDN devant être transmis depuis un serveur Edge vers un serveur d’origine.
+**Objectif :** définit l’ensemble d’en-têtes de requête propres à CDN devant être transmis depuis un point de présence vers un serveur d’origine.
 
 Informations essentielles :
 
@@ -937,15 +937,15 @@ Informations essentielles :
 
 ---
 ### <a name="refresh-zero-byte-cache-files"></a>Actualiser les fichiers de cache de zéro octet
-**Objectif :** détermine la façon dont les serveurs Edge gèrent la requête d’un client HTTP liée à une ressource de cache de 0 octet.
+**Objectif :** détermine la façon dont les points de présence gèrent la requête d’un client HTTP liée à une ressource de cache de 0 octet.
 
 Les valeurs autorisées sont :
 
 Valeur|Résultat
 --|--
-activé|Force le serveur Edge à récupérer de nouveau la ressource à partir du serveur d’origine.
+activé|Force le point de présence à récupérer de nouveau la ressource à partir du serveur d’origine.
 Désactivé|Restaure le comportement par défaut. Le comportement par défaut consiste à fournir des ressources de cache valides sur requête.
-Cette fonctionnalité n’est pas requise pour la mise en cache correcte et la distribution de contenu, mais peut être utile comme solution de contournement. Par exemple, des générateurs de contenu dynamiques sur des serveurs d’origine peuvent entraîner par inadvertance l’envoi de réponses de 0 octet aux serveurs Edge. Ces types de réponses sont généralement mis en cache par les serveurs Edge. Si vous savez qu’une réponse de 0 octet n’est jamais une réponse valide 
+Cette fonctionnalité n’est pas requise pour la mise en cache correcte et la distribution de contenu, mais peut être utile comme solution de contournement. Par exemple, des générateurs de contenu dynamique sur des serveurs d’origine peuvent entraîner par inadvertance l’envoi de réponses de 0 octet aux points de présence. Ces types de réponses sont généralement mis en cache par les points de réponse. Si vous savez qu’une réponse de 0 octet n’est jamais une réponse valide 
 
 pour ce type de contenu, cette fonctionnalité peut empêcher le traitement de ces types de ressources sur vos clients.
 
@@ -1016,12 +1016,12 @@ Désactivé|L’erreur du serveur d’origine est transférée au demandeur.
 
 ---
 ### <a name="stale-while-revalidate"></a>Rendre obsolète pendant la revalidation
-**Objectif :** améliore les performances en permettant aux serveurs Edge de rendre obsolète le contenu pour le demandeur pendant la revalidation.
+**Objectif :** améliore les performances en permettant aux points de présence de rendre obsolète le contenu pour le demandeur pendant la revalidation.
 
 Informations essentielles :
 
 - Le comportement de cette fonctionnalité varie en fonction de l’unité de temps sélectionnée.
-    - **Unité de temps :** spécifiez une durée, puis sélectionnez une unité de temps (par exemple, secondes, minutes, heures, etc.) pour permettre la distribution de contenu obsolète. Ce type d’installation permet au CDN d’étendre la durée pendant laquelle il peut fournir du contenu avant de demander une validation en fonction de la formule suivante :**TTL** + **Rendre obsolète pendant la revalidation** 
+    - **Unité de temps :** spécifiez une durée, puis sélectionnez une unité de temps (par exemple, secondes, minutes, heures, etc.) pour permettre la distribution de contenu obsolète. Ce type d’installation permet au CDN d’étendre la durée pendant laquelle il peut fournir du contenu avant de demander une validation en fonction de la formule suivante : **TTL** + **Rendre obsolète pendant la revalidation** 
     - **Désactivé :** sélectionnez « Désactivé » pour demander la revalidation avant qu’une requête de contenu obsolète puisse être traitée.
         - Ne spécifiez pas de durée, car elle est inapplicable et sera ignorée.
 
@@ -1056,7 +1056,7 @@ Désactivé| Restaure le comportement par défaut. Le comportement par défaut c
 
 Les codes de réponse disponibles sont répertoriés ci-dessous.
 
-Code de la réponse|Nom de la réponse|DESCRIPTION
+Code de la réponse|Nom de la réponse|Description
 ----------------|-----------|--------
 301|Déplacé de façon permanente|Ce code d’état redirige les utilisateurs non autorisés vers l’URL spécifiée dans l’en-tête Location.
 302|Trouvé|Ce code d’état redirige les utilisateurs non autorisés vers l’URL spécifiée dans l’en-tête Location. Ce code d’état est la méthode standard du secteur en termes d’exécution d’une redirection.
@@ -1109,7 +1109,7 @@ Les valeurs autorisées sont :
 
 Valeur|Résultat
 ---|----
-activé|Force le serveur Edge à ignorer la casse lors de la comparaison des URL pour les paramètres d’authentification basée sur les jetons.
+activé|Force le point de présence à ignorer la casse lors de la comparaison des URL pour les paramètres d’authentification basée sur les jetons.
 Désactivé|Restaure le comportement par défaut. Le comportement par défaut pour les comparaisons d’URL pour l’authentification du jeton consiste à respecter la casse.
 
 **Comportement par défaut** : Désactivé.
@@ -1145,7 +1145,7 @@ Désactivé|Un jeton peut être spécifié comme un paramètre de chaîne de req
 
 La configuration de cette fonctionnalité nécessite de définir les options suivantes :
 
-Option|DESCRIPTION
+Option|Description
 -|-
 Code|Sélectionnez le code de réponse qui sera renvoyé au demandeur.
 Source et modèle| Ces paramètres définissent un modèle d’URI de requête qui identifie le type de requêtes pouvant être redirigées. Seules les requêtes dont l’URL satisfait aux deux critères suivants seront redirigées : <br/> <br/> **Source (ou point d’accès au contenu) :** sélectionnez un chemin d’accès relatif qui identifie un serveur d’origine. Il s’agit de la section « /XXXX/ » et de votre nom de point de terminaison. <br/> **Source (modèle) :** Un modèle qui identifie les requêtes via un chemin d’accès relatif doit être défini. Ce modèle d’expression régulière doit définir un chemin d’accès commençant directement après le point d’accès au contenu sélectionné précédemment (voir ci-dessus). <br/> - Vérifiez que les critères d’URI de requête (c’est-à-dire, Source et Modèle) définis précédemment ne sont pas en conflit avec les conditions de correspondance définies pour cette fonctionnalité. <br/> - Spécifiez un modèle. Si vous utilisez une valeur vide comme modèle, toutes les chaînes sont mises en correspondance.
@@ -1156,7 +1156,7 @@ Il est fortement recommandé d’utiliser une URL absolue. L’utilisation d’u
 
 Dans cet exemple, nous expliquons comment rediriger une URL CNAME Edge qui correspond à l’URL CDN de base suivante : http://marketing.azureedge.net/brochures
 
-Les requêtes éligibles sont redirigées vers l’URL CNAME Edge de base suivante : http://cdn.mydomain.com/resources
+Les requêtes éligibles sont redirigées vers l’URL CNAME Edge de base suivante : http://cdn.mydomain.com/resources
 
 Cette redirection d’URL peut être obtenue via la configuration suivante :![](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
 
@@ -1165,14 +1165,14 @@ Cette redirection d’URL peut être obtenue via la configuration suivante :![]
 - La fonctionnalité Redirection d’URL définit les URL de requête à rediriger. Par conséquent, aucune condition de correspondance supplémentaire n’est requise. Bien que la condition de correspondance ait été définie en tant que « Toujours », seules les requêtes pointant vers le dossier « brochures » du serveur d’origine du client « marketing » s’afficheront. 
 - Toutes les requêtes correspondantes seront redirigées vers l’URL CNAME Edge définie dans l’option Destination. 
     - Exemple de scénario n°1 : 
-        - Exemple de requête (URL CDN) : http://marketing.azureedge.net/brochures/widgets.pdf 
-        - URL de requête (après redirection) : http://cdn.mydomain.com/resources/widgets.pdf  
+        - Exemple de requête (URL CDN) : http://marketing.azureedge.net/brochures/widgets.pdf 
+        - URL de la requête (après la redirection) : http://cdn.mydomain.com/resources/widgets.pdf  
     - Exemple de scénario n°2 : 
-        - Exemple de requête (URL CNAME Edge) : http://marketing.mydomain.com/brochures/widgets.pdf 
-        - URL de requête (après redirection) : http://cdn.mydomain.com/resources/widgets.pdf  Exemple de scénario
+        - Exemple de requête (URL CNAME Edge) : http://marketing.mydomain.com/brochures/widgets.pdf 
+        - URL de la requête (après la redirection) : http://cdn.mydomain.com/resources/widgets.pdf
     - Exemple de scénario n°3 : 
-        - Exemple de requête (URL CNAME Edge) : http://brochures.mydomain.com/campaignA/final/productC.ppt 
-        - URL de requête (après redirection) : http://cdn.mydomain.com/resources/campaignA/final/productC.ppt  
+        - Exemple de requête (URL CNAME Edge) : http://brochures.mydomain.com/campaignA/final/productC.ppt 
+        - URL de la requête (après la redirection) : http://cdn.mydomain.com/resources/campaignA/final/productC.ppt  
 - La variable Modèle de requête (%{scheme}) a été utilisée dans l’option Destination. Cela garantit que le modèle de requête reste inchangé après la redirection.
 - Les segments d’URL qui ont été capturés à partir de la requête sont ajoutés à la nouvelle URL via « $1 ».
 
@@ -1188,17 +1188,17 @@ Informations essentielles :
 
 - La configuration de cette fonctionnalité nécessite de définir les options suivantes :
 
-Option|DESCRIPTION
+Option|Description
 -|-
  Source et modèle | Ces paramètres définissent un modèle d’URI de requête qui identifie le type de requêtes pouvant être réécrites. Seules les requêtes dont l’URL satisfait aux deux critères suivants seront réécrites : <br/>     - **Source (ou point d’accès au contenu) :** sélectionnez un chemin d’accès relatif qui identifie un serveur d’origine. Il s’agit de la section « /XXXX/ » et de votre nom de point de terminaison. <br/> - **Source (modèle) :** un modèle qui identifie les requêtes via un chemin d’accès relatif doit être défini. Ce modèle d’expression régulière doit définir un chemin d’accès commençant directement après le point d’accès au contenu sélectionné précédemment (voir ci-dessus). <br/> Vérifiez que les critères d’URI de requête (c’est-à-dire, Source et Modèle) définis précédemment ne sont pas en conflit avec les conditions de correspondance définies pour cette fonctionnalité. Spécifiez un modèle. Si vous utilisez une valeur vide comme modèle, toutes les chaînes sont mises en correspondance. 
  Destination  |Définissez l’URL relative vers laquelle les requêtes ci-dessus seront réécrites en : <br/>    1. Sélectionnant un point d’accès au contenu qui identifie un serveur d’origine. <br/>    2. Définissant un chemin d’accès relatif à l’aide des éléments suivants : <br/>        - Un modèle d’expression régulière <br/>        - Des variables HTTP <br/> <br/> Remplacez les valeurs capturées dans le modèle source dans le modèle de destination à l’aide de $_n_ où _n_ identifie une valeur par l’ordre dans lequel elle a été capturée. Par exemple, $1 représente la première valeur capturée dans le modèle source, tandis que $2 représente la deuxième valeur. 
- Cette fonctionnalité permet aux serveurs Edge de réécrire l’URL sans effectuer de redirection classique. Cela signifie que le demandeur reçoit un code de réponse identique à celui reçu si l’URL réécrite avait été demandée.
+ Cette fonctionnalité permet aux points de présence de réécrire l’URL sans effectuer de redirection classique. Cela signifie que le demandeur reçoit un code de réponse identique à celui reçu si l’URL réécrite avait été demandée.
 
 **Exemple de scénario nº 1**
 
 Dans cet exemple, nous expliquons comment rediriger une URL CNAME Edge qui correspond à l’URL CDN de base suivante : http://marketing.azureedge.net/brochures/
 
-Les demandes éligibles sont redirigées vers l’URL CNAME Edge de base suivante : http://MyOrigin.azureedge.net/resources/
+Les requêtes éligibles sont redirigées vers l’URL CNAME Edge de base suivante : http://MyOrigin.azureedge.net/resources/
 
 Cette redirection d’URL peut être obtenue via la configuration suivante :![](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
 

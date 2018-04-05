@@ -1,11 +1,11 @@
 ---
-title: "Présentation de Web Apps | Microsoft Docs"
-description: "Découvrez comment Azure App Service vous aide à développer et héberger des applications web."
+title: Présentation de Web Apps | Microsoft Docs
+description: Découvrez comment Azure App Service vous aide à développer et héberger des applications web.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.service: app-service-web
 ms.workload: web
@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 01/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: f8510bb6b412e9af8aad30ba32bc74206c22042f
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: e789d3c6e10399491eb055b850a590ae10aacd11
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="web-apps-overview"></a>Vue d'ensemble de Web Apps
 
@@ -29,17 +29,12 @@ Web Apps non seulement ajoute la puissance de Microsoft Azure à votre applicati
 
 Avec App Service, vous payez pour les ressources de calcul Azure que vous utilisez. Les ressources de calcul que vous utilisez sont déterminées par le _plan App Service_ sur lequel vous exécutez Web Apps. Pour plus d’informations, consultez [Plans App Service dans Azure Web Apps](azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
-La vidéo suivante de 5 minutes présente Azure App Service Web Apps.
-
->[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-App-Service-Web-Apps-with-Yochay-Kiriaty/player]
->
->
-
 ## <a name="why-use-web-apps"></a>Pourquoi utiliser Web Apps ?
+
 Voici quelques-unes des principales fonctionnalités d’App Service Web Apps :
 
 * **Plusieurs langages et infrastructures**: Web Apps offre une prise en charge de première classe pour ASP.NET, ASP.NET Core, Java, Ruby, Node.js, PHP ou Python. Vous pouvez également exécuter [PowerShell et d’autres scripts ou exécutables](web-sites-create-web-jobs.md) comme services en arrière-plan.
-* **Optimisation DevOps** : configurez [l’intégration et le déploiement continus](app-service-continuous-deployment.md) avec Visual Studio Team Services, GitHub, BitBucket, Docker Hub ou Azure Container Service. Assurez la promotion des mises à jour par le biais des [environnements de test et intermédiaires](web-sites-staged-publishing.md). Gérez vos applications dans Web Apps à l’aide d’[Azure PowerShell](/powershell/azureps-cmdlets-docs) ou de l’[interface CLI interplateforme](/cli/azure/install-azure-cli).
+* **Optimisation DevOps** : configurez [l’intégration et le déploiement continus](app-service-continuous-deployment.md) avec Visual Studio Team Services, GitHub, BitBucket, Docker Hub ou Azure Container Registry. Assurez la promotion des mises à jour par le biais des [environnements de test et intermédiaires](web-sites-staged-publishing.md). Gérez vos applications dans Web Apps à l’aide d’[Azure PowerShell](/powershell/azureps-cmdlets-docs) ou de l’[interface CLI interplateforme](/cli/azure/install-azure-cli).
 * **Mise à l’échelle globale avec une haute disponibilité** : effectuez des [montées en puissance](web-sites-scale.md) ou [augmentez la taille des instances](../monitoring-and-diagnostics/insights-how-to-scale.md) manuellement ou automatiquement. Hébergez vos applications n’importe où dans l’infrastructure mondiale des centres de données de Microsoft, et bénéficiez des garanties du [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) App Service en matière de haute disponibilité.
 * **Connexion aux plateformes SaaS et données locales** : choisissez parmi plus de 50 [connecteurs](../connectors/apis-list.md) pour des systèmes d’entreprise tels que SAP, des services SaaS tels que Salesforce et des services Internet tels que Facebook. Accédez aux données locales à l’aide de [connexions hybrides](../biztalk-services/integration-hybrid-connection-overview.md) et de [réseaux virtuels Azure](web-sites-integrate-with-vnet.md).
 * **Sécurité et conformité** : App Service est [conforme aux normes ISO, SOC et PCI](https://www.microsoft.com/TrustCenter/). Authentifiez les utilisateurs avec [Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md) ou avec une connexion sociale ([Google](app-service-mobile-how-to-configure-google-authentication.md), [Facebook](app-service-mobile-how-to-configure-facebook-authentication.md), [Twitter](app-service-mobile-how-to-configure-twitter-authentication.md) et [ Microsoft](app-service-mobile-how-to-configure-microsoft-authentication.md)). Créez des [restrictions par adresse IP](app-service-ip-restrictions.md) et [gérez les identités de service](app-service-managed-service-identity.md).
@@ -71,4 +66,3 @@ Créez votre première application web.
 
 > [!div class="nextstepaction"]
 > [HTML](app-service-web-get-started-html.md)
-
