@@ -1,11 +1,11 @@
 ---
-title: "Créer un pont Android WebView avec le Kit SDK Mobile Engagement Android natif"
-description: "Décrit comment créer un pont entre WebView exécutant Javascript et le Kit SDK Mobile Engagement Android natif"
+title: Créer un pont Android WebView avec le Kit SDK Mobile Engagement Android natif
+description: Décrit comment créer un pont entre WebView exécutant Javascript et le Kit SDK Mobile Engagement Android natif
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: cf272f3f-2b09-41b1-b190-944cdca8bba2
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: f4fc7b3c81747ec80974a99084eeb1acc311f11f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 717c0360042b8f2afd9c41f1ee97e64e95a76a2b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="bridge-android-webview-with-native-mobile-engagement-android-sdk"></a>Créer un pont Android WebView avec le Kit SDK Mobile Engagement Android natif
+> [!IMPORTANT]
+> Azure Mobile Engagement est hors service depuis le 31/03/2018. Cette page sera supprimée prochainement.
+> 
+
 > [!div class="op_single_selector"]
 > * [Pont Android](mobile-engagement-bridge-webview-native-android.md)
 > * [Pont iOS](mobile-engagement-bridge-webview-native-ios.md)

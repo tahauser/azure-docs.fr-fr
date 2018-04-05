@@ -7,6 +7,8 @@
 
 Les représentations d’appareil sont des documents JSON qui stockent des informations sur l’état des appareils (métadonnées, configurations et conditions). IoT Hub conserve une représentation d’appareil pour chaque appareil que vous y connectez.
 
+[!INCLUDE [iot-hub-basic](iot-hub-basic-whole.md)]
+
 Vous pouvez utiliser des jumeaux d’appareil pour répondre aux besoins suivants :
 
 * Stockez les métadonnées d’appareil à partir de votre serveur principal de solution.
@@ -14,8 +16,7 @@ Vous pouvez utiliser des jumeaux d’appareil pour répondre aux besoins suivant
 * Synchronisez l’état des workflows de longue durée (par exemple, mises à jour de microprogramme et de configuration) entre l’application d’appareil et une application de serveur principal.
 * Interroger les métadonnées, la configuration ou l’état de vos appareils
 
-> [!NOTE]
-> Les représentations d’appareil sont conçues pour les synchronisations et pour l’interrogation des configurations et des conditions d’appareil. Pour plus d’informations sur l’utilisation des jumeaux d’appareil, consultez [Comprendre les jumeaux d’appareil][lnk-twins].
+Les représentations d’appareil sont conçues pour les synchronisations et pour l’interrogation des configurations et des conditions d’appareil. Pour plus d’informations sur l’utilisation des jumeaux d’appareil, consultez [Comprendre les jumeaux d’appareil][lnk-twins].
 
 Les représentations d’appareil sont stockées dans un IoT Hub et contiennent les éléments suivants :
 

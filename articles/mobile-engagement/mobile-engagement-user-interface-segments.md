@@ -1,11 +1,11 @@
 ---
 title: Interface utilisateur d'Azure Mobile Engagement - Segments
-description: "Découvrez comment créer et gérer des segments d'utilisateurs afin d'identifier des modèles d'utilisation grâce à Azure Mobile Engagement"
+description: Découvrez comment créer et gérer des segments d'utilisateurs afin d'identifier des modèles d'utilisation grâce à Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 6a4f2205-4a3c-406e-a04f-5e6f2a36653f
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 087f4a1fef420abe9669f8dfe2b84c7a847ce263
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 53c5b1b672a0d7212a3d298c3e411a9cc6ac0807
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-create-and-manage-segments-of-users-to-identify-usage-patterns"></a>Comment créer et gérer des segments d'utilisateurs afin d'identifier des modèles d'utilisation
+> [!IMPORTANT]
+> Azure Mobile Engagement est hors service depuis le 31/03/2018. Cette page sera supprimée prochainement.
+> 
+
 Cet article décrit l’onglet **SEGMENTS** du portail **Mobile Engagement**. Le portail **Mobile Engagement** sert à surveiller et à gérer vos applications mobiles.
 
 La section Segments de l'interface utilisateur vous permet de segmenter vos utilisateurs en fonction des différents comportements et analyses que vous pouvez obtenir à partir de l'application et via l'API Segments. Les segments sont calculés une première fois 24 heures après leur création, puis recalculés toutes les 24 heures à partir des dernières informations d'analyse. Une fois un segment calculé, il affiche un graphique « Historique journalier » chaque jour.

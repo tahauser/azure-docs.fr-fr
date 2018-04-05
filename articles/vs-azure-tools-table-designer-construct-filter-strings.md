@@ -1,11 +1,11 @@
 ---
-title: "Construction de chaînes de filtrage pour le Concepteur de tables | Microsoft Docs"
-description: "Construction de chaînes de filtrage pour le Concepteur de tables"
+title: Construction de chaînes de filtrage pour le Concepteur de tables | Microsoft Docs
+description: Construction de chaînes de filtrage pour le Concepteur de tables
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: a1a10ea1-687a-4ee1-a952-6b24c2fe1a22
 ms.service: storage
 ms.devlang: multiple
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
-ms.author: kraigb
-ms.openlocfilehash: 069224d84462b4955912ce1462a65298a5acc04a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: 722052e351062efba85eb143b2ea7bd0136002a0
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="constructing-filter-strings-for-the-table-designer"></a>Construction de chaînes de filtrage pour le Concepteur de tables
 ## <a name="overview"></a>Vue d'ensemble
@@ -38,7 +38,7 @@ Les opérateurs logiques suivants sont pris en charge par tous les types de prop
 | le |Inférieur ou égal à |Prix le 100 |
 | ne |Non égal à |Ville ne 'Londres' |
 | and |and |Prix le 200 and prix gt 3,5 |
-| ou |ou |Prix le 3,5 or prix gt 200 |
+| or |Ou |Prix le 3,5 or prix gt 200 |
 | not |not |not isAvailable |
 
 Quand vous créez une chaîne de filtrage, il est important de suivre les règles suivantes :

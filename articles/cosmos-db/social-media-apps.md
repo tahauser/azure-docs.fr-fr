@@ -1,12 +1,12 @@
 ---
-title: "Modèle de conception Azure Cosmos DB : applications de réseaux sociaux | Microsoft Docs"
-description: "Découvrez un modèle de conception destiné aux réseaux sociaux et tirant parti de la souplesse du stockage d’Azure Cosmos DB et d’autres services Azure."
-keywords: "applications de réseaux sociaux"
+title: 'Modèle de conception Azure Cosmos DB : applications de réseaux sociaux | Microsoft Docs'
+description: Découvrez un modèle de conception destiné aux réseaux sociaux et tirant parti de la souplesse du stockage d’Azure Cosmos DB et d’autres services Azure.
+keywords: applications de réseaux sociaux
 services: cosmos-db
 author: ealsur
 manager: jhubbard
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 2dbf83a7-512a-4993-bf1b-ea7d72e095d9
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: mimig
-ms.openlocfilehash: c89b2db6d5a80f184ca98ef757605272d385a81c
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: d223187ab1f8338c57e6aa32903ea9b762393ab5
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Réseaux sociaux avec Azure Cosmos DB
 Vivre dans une société massivement interconnectée signifie qu’à un moment donné, vous intégrerez forcément un **réseau social**. Nous utilisons les réseaux sociaux pour rester en contact avec nos amis, nos collègues, notre famille ou parfois pour partager notre passion avec des personnes ayant des intérêts communs.
@@ -229,7 +229,7 @@ Cosmos DB prend en charge nativement le [partitionnement dynamique](https://azur
 
 Cosmos DB exécute vos requêtes (y compris les [agrégats](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)) de façon transparente sur toutes vos partitions, et vous n’avez pas besoin d’ajouter de logique à mesure que vos données augmentent.
 
-Avec le temps, le trafic et la consommation des ressources augmenteront (mesurés en unité de requête ou [RU](request-units.md)). Vous lirez et écrirez plus fréquemment à mesure que votre base d’utilisateurs se développe et ces utilisateurs créeront et liront plus de contenus ; la possibilité de **mise à l’échelle de votre débit** est donc indispensable. Augmenter vos RU est très facile : nous pouvons le faire en quelques clics sur le portail Azure ou en [émettant des commandes via l’API](https://docs.microsoft.com/rest/api/documentdb/replace-an-offer).
+Avec le temps, le trafic et la consommation des ressources augmenteront (mesurés en unité de requête ou [RU](request-units.md)). Vous lirez et écrirez plus fréquemment à mesure que votre base d’utilisateurs se développe et ces utilisateurs créeront et liront plus de contenus ; la possibilité de **mise à l’échelle de votre débit** est donc indispensable. Augmenter vos RU est très facile : nous pouvons le faire en quelques clics sur le portail Azure ou en [émettant des commandes via l’API](https://docs.microsoft.com/rest/api/cosmos-db/replace-an-offer).
 
 ![Mise à l’échelle et définition d’une clé de partition](./media/social-media-apps/social-media-apps-scaling.png)
 

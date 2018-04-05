@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 03/29/2018
 ms.author: jeedes
-ms.openlocfilehash: 038b2337ea49b769c6b19e9d50a5f0f2edd13d56
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6c8c920a801e223e2a8f557ffb7f820a8b6db605
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp"></a>Didacticiel : Intégration d’Azure Active Directory à ADP
 
@@ -154,7 +154,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 7. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-    ![Lien de téléchargement du certificat](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_certificate.png) 
+    ![Lien Téléchargement de certificat](./media/active-directory-saas-adpfederatedsso-tutorial/tutorial_adp_certificate.png) 
 
 8. Pour configurer l’authentification unique côté **ADP**, vous devez charger le **XML de métadonnées** téléchargé sur le [site web ADP](https://adpfedsso.adp.com/public/login/index.fcc).
 
@@ -211,23 +211,23 @@ Une fois la confirmation reçue de votre représentant ADP, configurez vos servi
     
     * **ADP Workforce Now**
         
-        `<User access URL>?Relay State=https://fed.adp.com/saml/fedlanding.html?WFN`
+        `<User access URL>?relaystate=https://fed.adp.com/saml/fedlanding.html?WFN`
 
     * **ADP Workforce Now Enhanced Time**
         
-        `<User access URL>?Relay State=https://fed.adp.com/saml/fedlanding.html?EETDC2`
+        `<User access URL>?relaystate=https://fed.adp.com/saml/fedlanding.html?EETDC2`
     
     * **ADP Vantage HCM**
         
-        `<User access URL>?Relay State=https://fed.adp.com/saml/fedlanding.html?ADPVANTAGE`
+        `<User access URL>?relaystate=https://fed.adp.com/saml/fedlanding.html?ADPVANTAGE`
 
     * **ADP Enterprise HR**
 
-        `<User access URL>?Relay State=https://fed.adp.com/saml/fedlanding.html?PORTAL`
+        `<User access URL>?relaystate=https://fed.adp.com/saml/fedlanding.html?PORTAL`
 
     * **MyADP**
 
-        `<User access URL>?Relay State=https://fed.adp.com/saml/fedlanding.html?REDBOX`
+        `<User access URL>?relaystate=https://fed.adp.com/saml/fedlanding.html?REDBOX`
 
 9. **Enregistrez** vos modifications.
 

@@ -131,7 +131,7 @@ Les applications qui gèrent des événements de stockage d’objets Blob doiven
 > * Ignorez les champs que vous ne comprenez pas.  Cette pratique vous aidera à prendre en charge les nouvelles fonctionnalités qui peuvent être ajoutées à l’avenir.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 En savoir plus sur Event Grid et essayer les événements de stockage d’objets Blob :
 

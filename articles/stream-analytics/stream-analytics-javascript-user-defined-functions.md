@@ -1,24 +1,23 @@
 ---
-title: "Fonctions JavaScript définies par l’utilisateur Azure Stream Analytics | Microsoft Docs"
-description: "Effectuer des requêtes avancées avec les fonctions JavaScript définies par l’utilisateur"
-keywords: "JavaScript, fonctions définies par l’utilisateur"
+title: Fonctions JavaScript définies par l’utilisateur Azure Stream Analytics | Microsoft Docs
+description: Effectuer des requêtes avancées avec les fonctions JavaScript définies par l’utilisateur
+keywords: JavaScript, fonctions définies par l’utilisateur
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 
+author: jseb225
+manager: ryanw
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: e8c1c784a598416b478d1430258201053185fdee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: f2b14029ebea7f9cf1fa74a384ecbb72b08b7ad6
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-functions"></a>Fonctions JavaScript définies par l’utilisateur Azure Stream Analytics
 Azure Stream Analytics prend en charge les fonctions définies par l’utilisateur écrites en JavaScript. Avec le large éventail de méthodes **String**, **RegExp**, **Math**, **Array** et **Date** que fournit JavaScript, les transformations complexes de données des travaux Stream Analytics sont plus faciles à créer.
@@ -87,9 +86,9 @@ Il existe des différences entre les types pris en charge dans le langage de req
 Stream Analytics | JavaScript
 --- | ---
 bigint | Number (JavaScript ne peut représenter les entiers que jusqu’à 2^53 précisément)
-DateTime | Date (JavaScript ne prend en charge que les millisecondes)
+Datetime | Date (JavaScript ne prend en charge que les millisecondes)
 double | Number
-nvarchar(MAX) | String
+nvarchar(MAX) | Chaîne
 Enregistrement | Object
 Tableau | Tableau
 NULL | Null
@@ -101,14 +100,14 @@ Voici les conversions de JavaScript à Stream Analytics :
 JavaScript | Stream Analytics
 --- | ---
 Number | Bigint (si le nombre est rond et entre long.MinValue et long.MaxValue, sinon, double)
-Date | DateTime
-String | nvarchar(MAX)
+Date | Datetime
+Chaîne | nvarchar(MAX)
 Object | Enregistrement
 Tableau | Tableau
 Null, Undefined | NULL
 Un autre type (par exemple une fonction ou une erreur) | Non pris en charge (entraîne une erreur d’exécution)
 
-## <a name="troubleshooting"></a>résolution des problèmes
+## <a name="troubleshooting"></a>Résolution de problèmes
 Les erreurs d’exécution JavaScript sont considérées comme irrécupérables et remontées par le biais du journal d’activité. Pour récupérer le journal, dans le portail Azure, accédez à votre travail et sélectionnez **Journal d’activité**.
 
 

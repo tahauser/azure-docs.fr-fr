@@ -1,21 +1,21 @@
 ---
-title: "Exécuter des travaux Azure Batch de bout en bout sans écrire de code (préversion) | Microsoft Docs"
-description: "Créez des modèles de fichier pour Azure CLI afin de créer des pools, travaux et tâches Batch."
+title: Exécuter des travaux Azure Batch de bout en bout sans écrire de code (préversion) | Microsoft Docs
+description: Créez des modèles de fichier pour Azure CLI afin de créer des pools, travaux et tâches Batch.
 services: batch
 author: mscurrell
-manager: timlt
-ms.assetid: 
+manager: jeconnoc
+ms.assetid: ''
 ms.service: batch
 ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
 ms.date: 12/18/2017
 ms.author: markscu
-ms.openlocfilehash: c2d4a33cd6c4c9db608a76b24935b474b551b291
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: c991a1535b82a76a3d0b9bdbf4ede8f3e22bc866
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Utiliser des modèles d’interface CLI Azure Batch et le transfert de fichiers (préversion)
 
@@ -23,7 +23,7 @@ Vous pouvez utiliser l’interface Azure CLI pour exécuter des travaux Batch s
 
 Créez et utilisez des modèles de fichier avec Azure CLI pour créer des pools, travaux et tâches Batch. Les fichiers d’entrée des travaux peuvent être facilement chargés sur le compte de stockage associé au compte Batch et aux fichiers de sortie de travaux téléchargés.
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 Une extension de l’interface Azure CLI permet aux utilisateurs qui ne sont pas des développeurs d’utiliser Batch de bout en bout. Un pool peut être créé, les données d’entrée chargées, les travaux et tâches associées créés et les données de sortie produites téléchargées. Aucun code n’est nécessaire, car l’interface CLI est utilisée directement ou intégrée à des scripts.
 

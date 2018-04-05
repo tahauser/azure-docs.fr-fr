@@ -1,11 +1,11 @@
 ---
-title: "Intégration du SDK Android d'Azure Mobile Engagement"
-description: "Dernières mises à jour et procédures du SDK Android pour Azure Mobile Engagement"
+title: Intégration du SDK Android d'Azure Mobile Engagement
+description: Dernières mises à jour et procédures du SDK Android pour Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a5487793-1a12-4f6c-a1cf-587c5a671e6b
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,15 +14,19 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 35bd92e52b7a02f58620a03156902f9f91be57ae
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: fffff6de996b8295639b3d595c5f778de8a0f74f
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-integrate-engagement-on-android"></a>Comment intégrer Engagement à Android
+> [!IMPORTANT]
+> Azure Mobile Engagement est hors service depuis le 31/03/2018. Cette page sera supprimée prochainement.
+> 
+
 > [!div class="op_single_selector"]
-> * [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md)
+> * [Windows Universel](mobile-engagement-windows-store-integrate-engagement.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
 > * [iOS](mobile-engagement-ios-integrate-engagement.md)
 > * [Android](mobile-engagement-android-integrate-engagement.md)
@@ -150,7 +154,7 @@ Si vous ne pouvez pas ou ne voulez pas surcharger vos classes `Activity`, vous p
 > 
 > 
 
-Voici un exemple :
+Voici un exemple : 
 
             public class MyActivity extends Some3rdPartyActivity
             {

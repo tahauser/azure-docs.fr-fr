@@ -1,6 +1,6 @@
 ---
-title: "Créer des groupes de sécurité réseau - Azure PowerShell | Microsoft Docs"
-description: "Découvrez comment créer et déployer des groupes de sécurité réseau à l’aide de PowerShell."
+title: Créer des groupes de sécurité réseau - Azure PowerShell | Microsoft Docs
+description: Découvrez comment créer et déployer des groupes de sécurité réseau à l’aide de PowerShell.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -17,10 +17,10 @@ ms.date: 02/23/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 26fe67b43d63c6685d8ae7644dd7df6931a4d2a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/31/2018
 ---
 # <a name="create-network-security-groups-using-powershell"></a>Créer des groupes de sécurité réseau à l’aide de PowerShell
 
@@ -34,10 +34,10 @@ Azure propose deux modèles de déploiement : Azure Resource Manager et classi
 
 Les exemples de commandes PowerShell ci-dessous supposent qu’un environnement simple a déjà été créé conformément au scénario décrit ci-dessous. Si vous souhaitez exécuter les commandes telles qu’elles sont présentées dans ce document, commencez par créer l’environnement de test en déployant [ce modèle](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd), cliquez sur **Déployer dans Azure**, remplacez les valeurs des paramètres par défaut si nécessaire, puis suivez les instructions dans le portail.
 
-## <a name="how-to-create-the-nsg-for-the-front-end-subnet"></a>Création du groupe de sécurité réseau pour le sous-réseau frontal
+## <a name="how-to-create-the-nsg-for-the-front-end-subnet"></a>Comment créer le groupe de sécurité réseau pour le sous-réseau frontal
 Pour créer un groupe de sécurité réseau nommé *NSG-FrontEnd* selon le scénario ci-dessus, procédez comme suit :
 
-1. Si vous n’avez jamais utilisé Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) et suivez les instructions jusqu’à la fin pour vous connecter à Azure et sélectionner votre abonnement.
+1. Si vous n'avez jamais utilisé Azure PowerShell, consultez la page [Installation et configuration d'Azure PowerShell](/powershell/azure/overview) et suivez les instructions jusqu'à la fin pour vous connecter à Azure et sélectionner votre abonnement.
 2. Créer une règle de sécurité autorisant l'accès à partir d'Internet vers le port 3389.
 
     ```powershell

@@ -5,7 +5,7 @@ services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 09b62659-82ae-4a55-8784-fca0b6b22eaf
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: d353cd2fe47c54a0282cc5bb1b22b4a56e0cd82c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 79d0652be227dd6703a35d31409cf8e0d9c59519
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-use-the-engagement-api-on-android"></a>Comment utiliser l'API Engagement sur Android
+> [!IMPORTANT]
+> Azure Mobile Engagement est hors service depuis le 31/03/2018. Cette page sera supprimée prochainement.
+> 
+
 Ce document vient compléter le document [Options de génération de rapports avancés pour le Kit de développement logiciel (SDK) Azure Mobile Engagement pour Android](mobile-engagement-android-advanced-reporting.md). Il fournit des informations détaillées sur l'utilisation de l'API Engagement pour signaler les statistiques de votre application.
 
 N'oubliez pas que si vous voulez qu'Engagement ne crée des rapports que sur les sessions, les activités, les blocages et les informations techniques de votre application, le plus simple est de faire hériter vos sous-classes `Activity` de la classe correspondante `EngagementActivity`.
@@ -91,7 +95,7 @@ Les événements de session servent généralement à signaler les actions effec
 ### <a name="standalone-events"></a>Événements autonomes
 Contrairement aux événements de session, les événements autonomes peuvent se produire en dehors du contexte d'une session.
 
-**Exemple :**
+**Exemple :**
 
 Supposons que vous voulez signaler les événements qui se produisent quand un récepteur de diffusion est déclenché :
 
@@ -126,7 +130,7 @@ Les erreurs de session servent généralement à signaler les erreurs affectant 
 ### <a name="standalone-errors"></a>Erreurs autonomes
 Contrairement aux erreurs de session, les erreurs autonomes peuvent se produire en dehors du contexte d'une session.
 
-**Exemple :**
+**Exemple :**
 
 L'exemple suivant montre comment signaler une erreur chaque fois que la mémoire est insuffisante sur le téléphone pendant l'exécution de votre application.
 
@@ -139,7 +143,7 @@ L'exemple suivant montre comment signaler une erreur chaque fois que la mémoire
             }
 
 ## <a name="reporting-jobs"></a>Rapports de travaux
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 Supposons que vous voulez créer un rapport de la durée de votre processus de connexion :
 
             [...]
@@ -161,7 +165,7 @@ Supposons que vous voulez créer un rapport de la durée de votre processus de c
 ### <a name="report-errors-during-a-job"></a>Signaler les erreurs lors d'un travail
 Les erreurs peuvent être associées à un travail en cours d'exécution plutôt qu'à la session utilisateur en cours.
 
-**Exemple :**
+**Exemple :**
 
 Supposons que vous voulez signaler une erreur pendant votre connexion :
 
@@ -195,7 +199,7 @@ Supposons que vous voulez signaler une erreur pendant votre connexion :
 ### <a name="reporting-events-during-a-job"></a>Rapports d'événements pendant une tâche
 Les événements peuvent être associés à un travail en cours d'exécution au lieu de se rapporter à la session utilisateur en cours.
 
-**Exemple :**
+**Exemple :**
 
 Supposons que nous disposons d'un réseau social et que nous utilisons une tâche pour signaler la durée totale pendant laquelle l'utilisateur est connecté au serveur. L'utilisateur peut rester connecté en arrière-plan même quand il utilise une autre application ou que le téléphone est en veille, dans ce cas, il n'y a pas de session.
 
@@ -231,14 +235,14 @@ Ces données peuvent être structurées, elles utilisent la classe Bundle d'Andr
 > 
 > 
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
             Bundle extras = new Bundle();
             extras.putString("video_id", 123);
             extras.putString("ref_click", "http://foobar.com/blog");
             EngagementAgent.getInstance(context).sendEvent("video_clicked", extras);
 
-### <a name="limits"></a>Limites
-#### <a name="keys"></a>de clés symétriques
+### <a name="limits"></a>limites
+#### <a name="keys"></a>Clés
 Chaque clé dans `Bundle` doit correspondre à l'expression régulière suivante :
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
@@ -259,7 +263,7 @@ Notez que ces informations peuvent être envoyées de façon incrémentielle : 
 
 À l'instar des paramètres extras des événements, la classe Bundle est utilisée pour récupérer les informations de l'application. Notez que les tableaux ou les sous-groupes seront considérés comme des chaînes plates (à l'aide de la sérialisation JSON).
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 Voici un exemple de code pour envoyer des informations sur la date de naissance et le sexe de l'utilisateur :
 
             Bundle appInfo = new Bundle();
@@ -267,8 +271,8 @@ Voici un exemple de code pour envoyer des informations sur la date de naissance 
             appInfo.putString("expiration", "2016-12-07"); // December 7th 2016
             EngagementAgent.getInstance(context).sendAppInfo(appInfo);
 
-### <a name="limits"></a>Limites
-#### <a name="keys"></a>de clés symétriques
+### <a name="limits"></a>limites
+#### <a name="keys"></a>Clés
 Chaque clé dans `Bundle` doit correspondre à l'expression régulière suivante :
 
 `^[a-zA-Z][a-zA-Z_0-9]*`

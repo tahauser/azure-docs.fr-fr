@@ -1,11 +1,11 @@
 ---
 title: 'Authentification avec les API REST Azure Mobile Engagement : configuration manuelle'
-description: "Décrit comment configurer manuellement l’authentification pour les API REST Mobile Engagement"
+description: Décrit comment configurer manuellement l’authentification pour les API REST Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 2e79f9c9-41e4-45ac-b427-3b8338675163
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 0b4a999c6778040e71f862d3a010b6635e84b26e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 0d71908b34ddf8313aa45014420c9e63a00078c9
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="authenticate-with-mobile-engagement-rest-apis-manual-setup"></a>Authentification avec les API REST Azure Mobile Engagement : configuration manuelle
+# <a name="authenticate-with-mobile-engagement-rest-apis---manual-setup"></a>Azure Mobile Engagement - Configuration manuelle de l’utilisation des API pour l’authentification
+> [!IMPORTANT]
+> Azure Mobile Engagement est hors service depuis le 31/03/2018. Cette page sera supprimée prochainement.
+> 
+
 Ce document est une annexe de l’article [Authentification avec les API REST Azure Mobile Engagement](mobile-engagement-api-authentication.md). Assurez-vous de lire d’abord cet article pour comprendre le contexte. Il décrit également une autre méthode de configuration de l’authentification unique pour les API REST Azure Mobile Engagement à l’aide du portail Azure.
 
 > [!NOTE]

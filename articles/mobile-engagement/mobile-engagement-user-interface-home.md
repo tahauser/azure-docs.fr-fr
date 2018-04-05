@@ -1,11 +1,11 @@
 ---
 title: Interface utilisateur d'Azure Engagement Mobile - Accueil
-description: "Apprenez à gérer votre application et vos projets existants à l'aide d'Azure Mobile Engagement"
+description: Apprenez à gérer votre application et vos projets existants à l'aide d'Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: aff578d2-40f6-43e4-b0ea-7d2674cb28a1
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 0f15cb975f57f6f5cab12d5118ff50a6fab14388
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c0379e51a30927af88367fc687d8f8ce66eb827f
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-manage-your-existing-application-and-projects"></a>Gestion de votre application et de vos projets existants
+> [!IMPORTANT]
+> Azure Mobile Engagement est hors service depuis le 31/03/2018. Cette page sera supprimée prochainement.
+> 
+
 Cet article décrit la page **d’accueil** du portail **Mobile Engagement**. Le portail **Mobile Engagement** sert à surveiller et à gérer vos applications mobiles. Notez que pour utiliser le portail, vous devez tout d’abord créer un compte **Azure Mobile Engagement** . 
 
 Pour accéder à la page d’accueil, cliquez sur **Accueil** dans la partie supérieure gauche de la page. La page contient la liste de toutes vos applications qui font partie de la collection choisie. Sur cette page, vous bénéficiez d’une rapide vue d’ensemble de vos applications.
@@ -42,7 +46,7 @@ Entre autres choses, la vue d’ensemble de vos applications inclut :
 * **Sessions**: une session désigne une utilisation de l’application effectuée par un utilisateur, à partir du moment où il commence à l’utiliser jusqu’à ce qu’il arrête.
 * **Tendances des sessions** : évolution des sessions au cours des deux dernières semaines.
 
-Une fois que vous cliquez sur une application, vous pouvez démarrer la surveillance et la gestion de vos applications via l’interface utilisateur. Par exemple :    
+Une fois que vous cliquez sur une application, vous pouvez démarrer la surveillance et la gestion de vos applications via l’interface utilisateur. Par exemple :     
 
 * [Surveillance des données en temps réel concernant votre application](mobile-engagement-user-interface-monitor.md)
 * [Analyse des données historiques de votre application](mobile-engagement-user-interface-analytics.md)

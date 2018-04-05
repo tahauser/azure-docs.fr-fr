@@ -1,11 +1,11 @@
 ---
-title: "Intégration du SDK iOS Azure Mobile Engagement | Microsoft Docs"
-description: "Dernières mises à jour et procédures du Kit de développement logiciel (SDK) iOS pour Azure Mobile Engagement"
+title: Intégration du SDK iOS Azure Mobile Engagement | Microsoft Docs
+description: Dernières mises à jour et procédures du Kit de développement logiciel (SDK) iOS pour Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 947ea44b-00c1-450f-9a3b-74437954dc56
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,15 +14,19 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: piyushjo
-ms.openlocfilehash: 01fdbb43c21ac6932e8462f4a6507fc63e50542d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f0d650205ca86205ad857003f892c1a60b3831bf
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-integrate-engagement-on-ios"></a>Intégration d'Engagement sur iOS
+> [!IMPORTANT]
+> Azure Mobile Engagement est hors service depuis le 31/03/2018. Cette page sera supprimée prochainement.
+> 
+
 > [!div class="op_single_selector"]
-> * [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md)
+> * [Windows Universel](mobile-engagement-windows-store-integrate-engagement.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
 > * [iOS](mobile-engagement-ios-integrate-engagement.md)
 > * [Android](mobile-engagement-android-integrate-engagement.md)
@@ -75,7 +79,7 @@ Vous devez modifier votre délégué d'application :
       }
 
 ## <a name="basic-reporting"></a>Génération de rapports de base
-### <a name="recommended-method-overload-your-uiviewcontroller-classes"></a>Méthode recommandée : surchargez vos classes `UIViewController`
+### <a name="recommended-method-overload-your-uiviewcontroller-classes"></a>Méthode recommandée : surchargez vos classes `UIViewController`
 Pour activer le rapport de tous les journaux requis par Engagement pour calculer les statistiques relatives aux utilisateurs, aux sessions, aux activités, aux incidents et aux informations techniques, il vous suffit de faire hériter toutes vos `UIViewController`sous-classes des classes `EngagementViewController` (même règle pour `UITableViewController` -\> `EngagementTableViewController`).
 
 **Sans Engagement :**

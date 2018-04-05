@@ -1,12 +1,11 @@
 ---
-title: "Profiter de la parallélisation de requête dans Azure Stream Analytics| Microsoft Docs"
-description: "Découvrez comment mettre à l’échelle des travaux Stream Analytics en configurant des partitions d’entrée, en réglant la définition de requête et en configurant les unités de diffusion en continu d’un travail."
-keywords: "diffusion en continu de données, traitement de données de diffusion en continu, régler l’analyse"
+title: Profiter de la parallélisation de requête dans Azure Stream Analytics| Microsoft Docs
+description: Découvrez comment mettre à l’échelle des travaux Stream Analytics en configurant des partitions d’entrée, en réglant la définition de requête et en configurant les unités de diffusion en continu d’un travail.
+keywords: diffusion en continu de données, traitement de données de diffusion en continu, régler l’analyse
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: JSeb225
-manager: jhubbard
-editor: cgronlun
+manager: ryanw
 ms.assetid: 7e857ddb-71dd-4537-b7ab-4524335d7b35
 ms.service: stream-analytics
 ms.devlang: na
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/22/2017
 ms.author: jeanb
-ms.openlocfilehash: dd60026cad9246da8eba141125aebf061ecf7e9d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: eb19a9b4e92e7007f64ae7b593663be6a47a7a4b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Profiter de la parallélisation de requête dans Azure Stream Analytics
 Cet article explique comment tirer parti de la parallélisation dans Azure Stream Analytics. Vous découvrez comment mettre à l’échelle des travaux Stream Analytics en configurant des partitions d’entrée et en réglant la définition de requête Analytics.
@@ -39,7 +38,7 @@ Toutes les entrées Azure Stream Analytics peuvent tirer parti du partitionnemen
 -   IoT Hub (nécessité de définir la clé de partition explicitement)
 -   Stockage d'objets blob
 
-### <a name="outputs"></a>outputs
+### <a name="outputs"></a>Outputs
 
 Quand vous utilisez Stream Analytics, vous pouvez tirer parti du partitionnement dans les sorties :
 -   Azure Data Lake Storage
@@ -175,11 +174,11 @@ Lorsqu’une requête est partitionnée, les événements d’entrée sont trait
 Toutes les étapes non partitionnées ensemble peuvent être mises à l’échelle jusqu’à atteindre six unités SU par travail Stream Analytics. En outre, vous pouvez ajouter 6 unités de streaming pour chaque partition dans une étape partitionnée.
 Vous pouvez voir quelques **exemples** dans le tableau ci-dessous.
 
-| Interroger                                               | Nombre d’unités SU maximal pour le travail |
+| Requête                                               | Nombre d’unités SU maximal pour le travail |
 | --------------------------------------------------- | ------------------- |
-| <ul><li>La requête contient une étape.</li><li>L'étape n'est pas partitionnée.</li></ul> | 6 |
+| <ul><li>La requête contient une étape.</li><li>L'étape n'est pas partitionnée.</li></ul> | 6. |
 | <ul><li>Le flux de données d’entrée est partitionné par 16.</li><li>La requête contient une étape.</li><li>L'étape est partitionnée.</li></ul> | 96 (6 * 16 partitions) |
-| <ul><li>La requête contient 2 étapes.</li><li>Aucune des étapes n'est partitionnée.</li></ul> | 6 |
+| <ul><li>La requête contient 2 étapes.</li><li>Aucune des étapes n'est partitionnée.</li></ul> | 6. |
 | <ul><li>Le flux de données d'entrée est partitionné par 3.</li><li>La requête contient 2 étapes. L'étape d'entrée est partitionnée et la deuxième étape ne l'est pas.</li><li>L’instruction <strong>SELECT</strong> lit dans l’entrée partitionnée.</li></ul> | 24 (18 pour les étapes partitionnées + 6 pour les étapes non partitionnées) |
 
 ### <a name="examples-of-scaling"></a>Exemples de mise à l’échelle

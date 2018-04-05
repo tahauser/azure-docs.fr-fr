@@ -3,7 +3,7 @@ title: Azure Service Fabric - Configurer la surveillance avec OMS Log Analytics 
 description: Découvrez comment configurer Operations Management Suite pour visualiser et analyser des événements afin de surveiller vos clusters Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/17/2017
-ms.author: dekapur
-ms.openlocfilehash: 98ac32b011744ce388762322edd538b467f93494
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.date: 3/30/2018
+ms.author: dekapur; srrengar
+ms.openlocfilehash: 2589efa1808a394f2e32b842efa2ee70809da232
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="set-up-operations-management-suite-log-analytics-for-a-cluster"></a>Configurer Operations Management Suite Log Analytics pour un cluster
 
@@ -75,7 +75,7 @@ Vous avez ajouté la solution Service Fabric Analytics dans un espace de travail
 
 Quand vous déployez un cluster à l’aide d’un modèle Resource Manager, le modèle crée un espace de travail OMS, y ajoute la solution Service Fabric et le configure pour lire des données provenant des tables de stockage appropriées.
 
-Vous pouvez utiliser et modifier [cet exemple de modèle](https://azure.microsoft.com/resources/templates/service-fabric-oms/) pour répondre à vos besoins. Pour obtenir des modèles proposant plusieurs options de configuration pour les espaces de travail OMS, consultez [Modèles Service Fabric et OMS](https://azure.microsoft.com/resources/templates/?term=service+fabric+OMS).
+Vous pouvez utiliser et modifier [cet exemple de modèle](https://github.com/krnese/azure-quickstart-templates/tree/master/service-fabric-oms) pour répondre à vos besoins.
 
 Apportez les modifications suivantes :
 1. Ajoutez `omsWorkspaceName` et `omsRegion` à vos paramètres en ajoutant l’extrait de code suivant aux paramètres définis dans le fichier *template.json*. N’hésitez pas à modifier les valeurs par défaut selon vos besoins. Ajoutez aussi les deux nouveaux paramètres du fichier *parameters.json* pour définir leurs valeurs lors du déploiement de ressources :

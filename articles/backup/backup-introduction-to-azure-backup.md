@@ -1,12 +1,12 @@
 ---
-title: "Qu’est-ce qu’Azure Backup ? | Microsoft Docs"
-description: "Utilisez la sauvegarde Azure pour sauvegarder et restaurer les données et les charges de travail depuis les serveurs Windows Server, les stations de travail Windows, les serveurs System Center DPM et les machines virtuelles Azure."
+title: Qu’est-ce qu’Azure Backup ? | Microsoft Docs
+description: Utilisez la sauvegarde Azure pour sauvegarder et restaurer les données et les charges de travail depuis les serveurs Windows Server, les stations de travail Windows, les serveurs System Center DPM et les machines virtuelles Azure.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "sauvegarde et restauration ; services de restauration ; solutions de sauvegarde"
+editor: ''
+keywords: sauvegarde et restauration ; services de restauration ; solutions de sauvegarde
 ms.assetid: 0d2a7f08-8ade-443a-93af-440cbf7c36c4
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;anuragm
 ms.custom: mvc
-ms.openlocfilehash: 600c4a29d7d7daabbbf6d1825671d109ea499c4b
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 00ed2a64c672e1d2ae9a0037905a544b6c4424b7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Vue d’ensemble des fonctionnalités de sauvegarde Azure
 Azure Backup est le service Azure qui vous permet de sauvegarder (ou de protéger) et de restaurer vos données dans le cloud Microsoft. Azure Backup remplace votre solution de sauvegarde locale ou hors site par une solution basée dans le cloud à la fois fiable, sécurisée et économique. Azure Backup propose plusieurs composants que vous pouvez télécharger et déployer sur l’ordinateur ou sur le serveur approprié, ou dans le cloud. Vous déployez un composant (ou un agent) en fonction de ce que vous souhaitez protéger. Vous pouvez utiliser tous les composants de Sauvegarde Azure (que vous protégiez des données en local ou dans le cloud) pour sauvegarder des données dans un coffre Recovery Services d’Azure. Pour plus d’informations sur le composant à utiliser pour protéger des données, des applications ou des charges de travail spécifiques, consultez le [tableau des composants Azure Backup](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (plus loin dans cet article).
@@ -34,7 +34,7 @@ Les solutions de sauvegarde traditionnelles ont évolué et considèrent désorm
 
 **Mise à l’échelle illimitée** : Azure Backup utilise la puissance et l’échelle illimitée du cloud Azure pour garantir la haute disponibilité, sans supplément de maintenance ou de surveillance. Vous pouvez configurer des alertes pour fournir des informations sur les événements, mais vous n’avez pas à vous soucier de la haute disponibilité de vos données dans le cloud.
 
-**Diverses options de stockage** : la réplication du stockage est l’un des facteurs de haute disponibilité. La solution Sauvegarde Azure propose deux types de réplications : le [stockage localement redondant](../storage/common/storage-redundancy.md#locally-redundant-storage) et le [stockage géoredondant](../storage/common/storage-redundancy.md#geo-redundant-storage). Choisissez l’option de stockage de sauvegarde en fonction de vos besoins :
+**Diverses options de stockage** : la réplication du stockage est l’un des facteurs de haute disponibilité. La solution Sauvegarde Azure propose deux types de réplications : le [stockage localement redondant](../storage/common/storage-redundancy-lrs.md) et le [stockage géoredondant](../storage/common/storage-redundancy-grs.md). Choisissez l’option de stockage de sauvegarde en fonction de vos besoins :
 
 * Le stockage localement redondant (LRS) réplique vos données trois fois (il crée trois copies de vos données) dans une unité d’échelle de stockage dans un centre de données. Toutes les copies des données existent dans la même région. Le stockage LRS est une option à faible coût qui protège vos données contre les défaillances matérielles locales.
 
@@ -219,7 +219,7 @@ Parmi les exemples d’instances protégées, citons les machines virtuelles, le
 
 
 ## <a name="what-is-a-recovery-services-vault"></a>Présentation d’un coffre Recovery Services
-Un coffre Recovery Services est une entité de stockage en ligne dans Azure qui permet de conserver les données telles que les copies de sauvegarde, les points de récupération et les stratégies de sauvegarde. Vous pouvez utiliser les coffres Recovery Services pour conserver les données de sauvegarde pour les services Azure et les stations de travail et serveurs locaux. Les coffres Recovery Services facilitent l’organisation de vos données de sauvegarde, tout en réduisant le temps de gestion. Dans chaque abonnement Azure, vous pouvez créer jusqu’à 25 coffres Recovery Services par région Azure. Concernant le choix du lieu où stocker vos données, les régions présentent des différences. Consultez [Stockage géoredondant](../storage/common/storage-redundancy.md#geo-redundant-storage) pour plus d’informations sur les appariements de régions et d’autres considérations sur le stockage.
+Un coffre Recovery Services est une entité de stockage en ligne dans Azure qui permet de conserver les données telles que les copies de sauvegarde, les points de récupération et les stratégies de sauvegarde. Vous pouvez utiliser les coffres Recovery Services pour conserver les données de sauvegarde pour les services Azure et les stations de travail et serveurs locaux. Les coffres Recovery Services facilitent l’organisation de vos données de sauvegarde, tout en réduisant le temps de gestion. Dans chaque abonnement Azure, vous pouvez créer jusqu’à 25 coffres Recovery Services par région Azure. Concernant le choix du lieu où stocker vos données, les régions présentent des différences. Consultez [Stockage géoredondant](../storage/common/storage-redundancy-grs.md) pour plus d’informations sur les appariements de régions et d’autres considérations sur le stockage.
 
 Les coffres de sauvegarde, qui étaient basés sur Azure Service Manager, constituaient la première version des coffres. Les coffres Recovery Services, qui ajoutent les fonctionnalités du modèle Azure Resource Manager, en constituent la seconde version. Pour une description complète des différences de fonctionnalités, consultez [l’article de présentation du coffre Recovery Services](backup-azure-recovery-services-vault-overview.md). Vous ne pouvez plus créer de coffres de sauvegarde, et tous les archivages de sauvegarde existants ont été mis à niveau vers les coffres Recovery Services. Vous pouvez utiliser le portail Azure pour gérer les coffres mis à niveau vers les coffres Recovery Services.
 

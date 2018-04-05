@@ -1,19 +1,19 @@
 ---
-title: "Déployer Azure Stream Analytics avec Azure IoT Edge | Microsoft Docs"
-description: "Déployer Azure Stream Analytics en tant que module dans un appareil Edge"
+title: Déployer Azure Stream Analytics avec Azure IoT Edge | Microsoft Docs
+description: Déployer Azure Stream Analytics en tant que module dans un appareil Edge
 services: iot-edge
-keywords: 
-author: msebolt
+keywords: ''
+author: kgremban
 manager: timlt
-ms.author: v-masebo
+ms.author: kgremban
 ms.date: 11/28/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: f40fb81fc03e796b906db12bf3bf6904b27b46eb
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: c94652017216bd9c8ff319e0b19fa3597c75e81c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Déployer Azure Stream Analytics en tant que module IoT Edge - version préliminaire
 
@@ -36,7 +36,8 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Connecter le nouveau travail Azure Stream Analytics à d’autres modules IoT Edge.
 > * Déployer le travail Azure Stream Analytics sur un appareil IoT Edge.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
+
 
 * Un IoT Hub. 
 * L’appareil que vous avez créé et configuré dans le guide de démarrage rapide ou dans les articles sur le déploiement d’Azure IoT Edge sur un appareil simulé dans [Windows][lnk-tutorial1-win] ou [Linux][lnk-tutorial1-lin]. Vous devez connaître la clé de connexion et l’ID de l’appareil. 

@@ -317,7 +317,7 @@ Certains de ces messages d'erreur peuvent également apparaître dans le portail
 * **Description**: configuration du cluster incorrecte. Configuration de compte WASB requise introuvable dans les comptes externes.  
 * **Atténuation**: vérifiez que le compte existe et qu’il est correctement spécifié dans la configuration, puis retentez l’opération.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 * [Utiliser les vues Ambari pour déboguer les travaux Tez dans HDInsight](../hdinsight-debug-ambari-tez-view.md)
 * [Activer les dumps de tas pour les services Hadoop sur HDInsight sur Linux](../hdinsight-hadoop-collect-debug-heap-dump-linux.md)

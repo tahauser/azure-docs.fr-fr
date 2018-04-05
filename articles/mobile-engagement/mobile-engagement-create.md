@@ -1,11 +1,11 @@
 ---
-title: "Création d’un compte Azure Mobile Engagement | Microsoft Docs"
-description: "Décrit comment créer une nouvelle application Mobile Engagement dans Azure pour commencer à gérer vos applications à l’aide du portail Mobile Engagement."
+title: Création d’un compte Azure Mobile Engagement | Microsoft Docs
+description: Décrit comment créer une nouvelle application Mobile Engagement dans Azure pour commencer à gérer vos applications à l’aide du portail Mobile Engagement.
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: b8aa1798-28c6-424c-a5b5-8a264d5a0ff0
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,19 +14,23 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: piyushjo
-ms.openlocfilehash: 47c1e122f6f38654cd63bb59e50e68803f76c83d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0f47133a466f00de43ebfb2652eaf9058899f140
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-an-azure-mobile-engagement-app"></a>Création d’un compte Azure Mobile Engagement
+> [!IMPORTANT]
+> Azure Mobile Engagement est hors service depuis le 31/03/2018. Cette page sera supprimée prochainement.
+> 
+
 Cet article explique comment utiliser la méthode **Création rapide** pour créer une application **Azure Mobile Engagement**. Il explique également comment accéder à votre portail **Mobile Engagement** pour commencer à surveiller et gérer vos applications. 
 
 Notez que vous devez ajouter un minimum « d’intégration de base » pour pouvoir collecter les données de votre application et envoyer des notifications push. Vous trouverez la documentation complète sur l’intégration dans [Intégration de Mobile Engagement](mobile-engagement-windows-store-integrate-engagement.md).
 
 > [!IMPORTANT]
-> Pour suivre n’importe quel didacticiel lié à Azure Mobile Engagement, vous avez besoin d’un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Version d'évaluation gratuite d'Azure</a>.
+> Pour suivre n’importe quel didacticiel lié à Azure Mobile Engagement, vous avez besoin d’un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Version d'évaluation gratuite d'Azure</a>.
 > 
 > 
 

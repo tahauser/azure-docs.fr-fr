@@ -1,12 +1,11 @@
 ---
-title: "Sorties Stream Analytics : options de stockage et d’analyse | Microsoft Docs"
-description: "Découvrez les options de sorties de données Stream Analytics, notamment Power BI pour les résultats de l’analyse."
-keywords: "transformation de données, résultats d’analyse, options de stockage de données"
+title: 'Sorties Stream Analytics : options de stockage et d’analyse | Microsoft Docs'
+description: Découvrez les options de sorties de données Stream Analytics, notamment Power BI pour les résultats de l’analyse.
+keywords: transformation de données, résultats d’analyse, options de stockage de données
 services: stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage
-documentationcenter: 
+documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-editor: cgronlun
 ms.assetid: ba6697ac-e90f-4be3-bafd-5cfcf4bd8f1f
 ms.service: stream-analytics
 ms.devlang: na
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 02/18/2017
 ms.author: sngun
-ms.openlocfilehash: 6df9a3fafea97638d63c0dc4601c5ced357c410d
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: a641c7e5e792b020be54a2ebc4bac63b545ce71e
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="stream-analytics-outputs-options-for-storage-analysis"></a>Sorties Stream Analytics : options de stockage, d’analyse
 Lorsque vous créez une tâche Stream Analytics, songez à la façon dont les données obtenues devront être consommées. Comment allez-vous afficher les résultats du travail Stream Analytics et où allez-vous les stocker ?
@@ -345,7 +344,7 @@ De plus, si aucun événement n’est signalé dans le temps imparti, aucune sor
 ## <a name="get-help"></a>Obtenir de l’aide
 Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Stream Analytics, un service géré d’analyse de diffusion en continu des données à partir de l’Internet des objets vous a été présenté. Pour en savoir plus sur ce service, consultez les rubriques suivantes :
 
 * [Prise en main d'Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

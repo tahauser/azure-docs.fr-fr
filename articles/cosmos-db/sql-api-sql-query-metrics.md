@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: arramac
-ms.openlocfilehash: a92d2ed1686765a54812ff82066bc30c1d48848d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c0ba9934afef6cb4d546e315c271cc19b6d3fa02
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Réglage des performances de requête avec Azure Cosmos DB
 
@@ -138,7 +138,7 @@ Les en-têtes de réponse de la clé retournés par la requête comprennent les 
 | `x-ms-documentdb-query-metrics` | Les statistiques de la requête pour l’exécution. Il s’agit d’une chaîne délimitée qui contient des statistiques de temps passé dans les différentes phases d’exécution de la requête. Retournées si `x-ms-documentdb-populatequerymetrics` a la valeur `True`. | 
 | `x-ms-request-charge` | Le nombre d’[unités de requête](request-units.md) consommées par la requête. | 
 
-Pour plus d’informations sur les options et les en-têtes de demande d’API REST, consultez [Interrogation des ressources à l’aide de l’API REST](https://docs.microsoft.com/rest/api/documentdb/querying-documentdb-resources-using-the-rest-api).
+Pour plus d’informations sur les options et les en-têtes de demande d’API REST, consultez [Interrogation des ressources à l’aide de l’API REST](https://docs.microsoft.com/rest/api/cosmos-db/querying-cosmosdb-resources-using-the-rest-api).
 
 ## <a name="best-practices-for-query-performance"></a>Meilleures pratiques pour les performances de requêtes
 Les éléments suivants sont les facteurs les plus courants qui affectent les performances de requêtes Azure Cosmos DB. Nous approfondissons chacune de ces rubriques dans cet article.

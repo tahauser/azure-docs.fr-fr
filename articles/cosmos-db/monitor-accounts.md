@@ -84,6 +84,6 @@ Les requêtes permettant de récupérer des mesures individuelles utilisent le f
 
 Pour plus d’informations, consultez [Récupération des mesures de ressources via l’API REST Azure Monitor](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/02/23/retrieving-resource-metrics-via-the-azure-insights-api/). Notez que « Azure Insights » a été renommé « Azure Monitor ».  Cette entrée de blog fait référence à l’ancien nom.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 Pour en savoir plus sur la planification de la capacité d’Azure Cosmos DB, consultez le [planificateur de capacité Azure Cosmos DB](https://www.documentdb.com/capacityplanner).
 
