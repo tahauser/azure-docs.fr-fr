@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 2b55307c3122513b414c3f90a6a36d230f3459c2
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 328cf016c98575ecd0fa7be023b48e670211babf
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Programmation Azure Cosmos DB côté serveur : procédures stockées, déclencheurs de base de données et fonctions définies par l’utilisateur
 
@@ -54,7 +54,7 @@ Cette approche du *« JavaScript en tant que langage T-SQL actualisé »* lib�
   * Une couche d'abstraction est ajoutée aux données brutes, ce qui permet aux architectes de données de faire évoluer leurs applications indépendamment des données. Cette couche d’abstraction est particulièrement avantageuse lorsque les données ne présentent pas de schéma, en raison des hypothèses fragiles devant être intégrées à l'application si elles doivent gérer des données directement.  
   * Cette abstraction permet aux entreprises d'assurer la sécurité de leurs données en simplifiant l'accès à partir des scripts.  
 
-La création et l’exécution de déclencheurs de base de données, de procédures stockées et d’opérateurs de requêtes personnalisés sont prises en charge par le biais du [portail Azure](https://portal.azure.com), de [l’API REST](/rest/api/documentdb/), [d’Azure Document DB Studio](https://github.com/mingaliu/DocumentDBStudio/releases) et de [SDK clients](sql-api-sdk-dotnet.md) sur de nombreuses plateformes, dont .NET, Node.js et JavaScript.
+La création et l’exécution de déclencheurs de base de données, de procédures stockées et d’opérateurs de requêtes personnalisés sont prises en charge par le biais du [portail Azure](https://portal.azure.com), de [l’API REST](/rest/api/cosmos-db/), [d’Azure Document DB Studio](https://github.com/mingaliu/DocumentDBStudio/releases) et de [SDK clients](sql-api-sdk-dotnet.md) sur de nombreuses plateformes, dont .NET, Node.js et JavaScript.
 
 Ce didacticiel utilise le [kit SDK Node.js avec Q Promises](http://azure.github.io/azure-documentdb-node-q/) pour illustrer la syntaxe et l’utilisation des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur.   
 

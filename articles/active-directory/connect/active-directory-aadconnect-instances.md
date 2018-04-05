@@ -64,5 +64,5 @@ Fonctionnalités actuellement absentes du cloud Microsoft Azure Government :
 * L’**écriture différée de mot de passe** est disponible en préversion avec Azure AD Connect version 1.1.570.0 et ultérieures.
 * Les autres services Azure AD Premium ne sont pas disponibles.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
