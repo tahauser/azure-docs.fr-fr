@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: mimig
-ms.openlocfilehash: d117f0571bef8f8a2ec48a067d7796f03c0e535a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 07680340ca0f4f54c2ee8645f1374b6e9d08f393
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Java Async Azure Cosmos DB pour API SQL : notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -29,8 +29,8 @@ ms.lasthandoff: 03/28/2018
 > * [Java asynchrone](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/documentdb/)
-> * [API REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
+> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [API REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
@@ -45,7 +45,7 @@ Le Kit de développement logiciel (SDK) Java Async de l’API SQL est différent
 
 <tr><td>**Contribution au Kit de développement logiciel (SDK)**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-java)</td></tr>
 
-<tr><td>**Prise en main**</td><td>[Prise en main du Kit de développement logiciel (SDK) Java Async](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started)</td></tr>
+<tr><td>**Démarrer**</td><td>[Prise en main du Kit de développement logiciel (SDK) Java Async](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started)</td></tr>
 
 <tr><td>**Code sample**</td><td>[Github](https://github.com/Azure/azure-cosmosdb-java#usage-code-sample)</td></tr>
 

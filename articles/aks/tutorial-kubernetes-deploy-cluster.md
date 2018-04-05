@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 1f31af4fcc7ef70889ad8bc021bea0796721e5f5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a28f2f3e397c33e8bd98fcee68c5a051432cb3db
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="tutorial-deploy-an-azure-container-service-aks-cluster"></a>Didacticiel : Déployer un cluster Azure Container Service (AKS)
 

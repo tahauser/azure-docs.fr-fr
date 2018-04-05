@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: maquaran
-ms.openlocfilehash: 54e366de60e34ef0aac258e16ac585c3b930ebf7
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 43ba189332cf012a80c309a0dc0f383e38a0915c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Kit SDK du processeur de flux de modification .NET : téléchargement et notes de publication
 > [!div class="op_single_selector"]
@@ -29,15 +29,15 @@ ms.lasthandoff: 03/28/2018
 > * [Java asynchrone](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/documentdb/)
-> * [API REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
+> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [API REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 
 |   |   |
 |---|---|
 |**Téléchargement du Kit de développement logiciel (SDK)**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
 |**Documentation de l’API**|[Documentation de référence de l’API de la bibliothèque du processeur de flux de modification](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
-|**Prise en main**|[Prise en main du kit SDK du processeur de flux de modification .NET](change-feed.md)|
+|**Démarrer**|[Prise en main du kit SDK du processeur de flux de modification .NET](change-feed.md)|
 |**Infrastructure actuellement prise en charge**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 ## <a name="release-notes"></a>Notes de publication

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/20/2017
 ms.author: mimig
-ms.openlocfilehash: 6a69bc74f0175a8c30607ada006ebfce9a88c5b5
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ee5ceb29a3782967b0b9682a4b1f3d69cffd0e03
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
-# <a name="introduction-to-azure-cosmos-db-table-api"></a>Présentation de l’API Table d’Azure Cosmos DB
+# <a name="introduction-to-azure-cosmos-db-table-api"></a>Présentation d’Azure Cosmos DB : API de table
 
 [Azure Cosmos DB](introduction.md) fournit l’API de table aux applications qui sont écrites pour le stockage de table Azure et qui ont besoin de fonctionnalités Premium comme :
 

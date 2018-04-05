@@ -83,7 +83,7 @@ Par exemple, supposons l’entrée « tour* » dans une recherche par caractère
 
 La plupart des clients choisissent des champs dédiés plutôt qu’une collection lorsque plusieurs paramètres régionaux (langues) doivent être pris en charge dans un même index. Les champs spécifiques aux paramètres régionaux permettent d’attribuer un analyseur adapté. Par exemple, vous pouvez affecter l’analyseur de français Microsoft à un champ contenant des chaînes en langue française. Cela simplifie également le filtrage. Si vous savez qu’une requête est exécutée sur une page fr-fr, vous pouvez limiter les résultats de la recherche à ce champ. Sinon, vous pouvez aussi créer un [profil de score](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) afin de donner au champ un poids plus relatif. Le service Recherche Azure prend en charge plus de [50 analyseurs de langue](https://docs.microsoft.com/azure/search/search-language-support) sélectionnables.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 
 Votre question concerne-t-elle une fonctionnalité manquante ? Demandez cette fonctionnalité sur le [site web UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 

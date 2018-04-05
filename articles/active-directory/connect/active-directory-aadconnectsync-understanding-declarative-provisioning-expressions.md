@@ -84,7 +84,7 @@ Par exemple,
 `Word([proxyAddresses],1,"@") & "@contoso.com"` Pour chaque valeur comportant un signe @-sign, remplacez le domaine par @contoso.com.  
 `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` Recherchez l’adresse SIP et supprimez-la des valeurs.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>étapes suivantes
 * En savoir plus sur le modèle de configuration dans [Comprendre l’approvisionnement déclaratif](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 * Apprendre comment l’approvisionnement déclaratif est utilisé out-of-box dans [Présentation de la configuration par défaut](active-directory-aadconnectsync-understanding-default-configuration.md).
 * Apprendre à effectuer une modification pratique à l’aide de l’approvisionnement déclaratif dans [Comment modifier la configuration par défaut](active-directory-aadconnectsync-change-the-configuration.md).

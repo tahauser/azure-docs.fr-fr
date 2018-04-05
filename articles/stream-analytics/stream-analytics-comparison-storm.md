@@ -1,12 +1,11 @@
 ---
-title: "Plateformes d’analyse : comparaison entre Apache Storm et Stream Analytics | Microsoft Docs"
-description: "Comparez Apache Storm et Stream Analytics pour vous aider à choisir une plateforme d’analyse cloud. Découvrez les fonctionnalités et les différences."
-keywords: "plateforme d’analyse, plateformes d’analyse, plateforme d’analyse cloud, comparaison avec storm"
+title: 'Plateformes d’analyse : comparaison entre Apache Storm et Stream Analytics | Microsoft Docs'
+description: Comparez Apache Storm et Stream Analytics pour vous aider à choisir une plateforme d’analyse cloud. Découvrez les fonctionnalités et les différences.
+keywords: plateforme d’analyse, plateformes d’analyse, plateforme d’analyse cloud, comparaison avec storm
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
+documentationcenter: ''
+author: jseb225
+manager: ryanw
 ms.assetid: b9aac017-9866-4d0a-b98f-6f03881e9339
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/27/2017
-ms.author: samacha
-ms.openlocfilehash: 97044cb5d7b0b3fcb3b85328df618a265bc59b61
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: 48599c362c5db50ebec3acd0aaa4359439edb00b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="choosing-a-streaming-analytics-platform-comparing-apache-storm-and-azure-stream-analytics"></a>Choix d’une plateforme d’analyse de flux : comparaison d’Apache Storm et d’Azure Stream Analytics
 Azure fournit plusieurs solutions pour analyser les données de flux : [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) et [Apache Storm sur Azure HDInsight](https://azure.microsoft.com/services/hdinsight/apache-storm/). Les deux plateformes d’analyse offrent les avantages d’une solution PaaS, mais leurs fonctionnalités sont sensiblement différentes, tout comme la façon de les configurer et de les gérer. 
@@ -33,7 +32,7 @@ Cet article contient un tableau comparatif des fonctionnalités pour vous aider 
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong></strong>
+                    <strong> </strong>
                 </p>
             </td>
             <td width="204" valign="top">
@@ -72,11 +71,11 @@ Oui. Apache Storm est une technologie sous licence Apache.
             </td>
             <td width="204" valign="top">
                 <p>
-Oui </p>
+OUI </p>
             </td>
             <td width="246" valign="top">
                 <p>
-Oui </p>
+OUI </p>
             </td>
         </tr>
         <tr>
@@ -145,7 +144,7 @@ Pour plus d’informations, voir <a href="http://azure.microsoft.com/pricing/det
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong></strong>
+                    <strong> </strong>
                 </p>
             </td>
             <td width="204" valign="top">
@@ -254,7 +253,7 @@ Oui. Les utilisateurs peuvent écrire du code personnalisé en C#, Java ou dans 
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong></strong>
+                    <strong> </strong>
                 </p>
             </td>
             <td width="204" valign="top">
@@ -344,7 +343,7 @@ Les utilisateurs peuvent implémenter tout format d’encodage des données à l
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong></strong>
+                    <strong> </strong>
                 </p>
             </td>
             <td width="204" valign="top">
@@ -492,7 +491,7 @@ Apache Storm est une plateforme de diffusion en continu à tolérance de panne.
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong></strong>
+                    <strong> </strong>
                 </p>
             </td>
             <td width="204" valign="top">
