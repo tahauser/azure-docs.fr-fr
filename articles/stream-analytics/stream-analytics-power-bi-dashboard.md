@@ -1,12 +1,11 @@
 ---
-title: "Tableau de bord Power BI sur Azure Stream Analytics | Microsoft Docs"
-description: "Utilisez un tableau de bord Power BI de diffusion en temps réel pour collecter des informations d’analyse décisionnelle et analyser les données volumineuses à partir d’un travail Stream Analytics."
-keywords: "tableau de bord d’analyse, tableau de bord en temps réel"
+title: Tableau de bord Power BI sur Azure Stream Analytics | Microsoft Docs
+description: Utilisez un tableau de bord Power BI de diffusion en temps réel pour collecter des informations d’analyse décisionnelle et analyser les données volumineuses à partir d’un travail Stream Analytics.
+keywords: tableau de bord d’analyse, tableau de bord en temps réel
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
+documentationcenter: ''
+author: jseb225
+manager: ryanw
 ms.assetid: fe8db732-4397-4e58-9313-fec9537aa2ad
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/27/2017
-ms.author: samacha
-ms.openlocfilehash: b446e2296f2747012849936b994c4a4a2044869e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: e1f1d960c312362e0e0cd6d2f83599c28c8c3f05
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics et Power BI : tableau de bord d’analyse en temps réel pour les données de streaming
 Azure Stream Analytics vous permet de tirer parti de [Microsoft Power BI](https://powerbi.com/), l’un des principaux outils d’analyse décisionnelle. Dans cet article, vous allez découvrir comment créer des outils d’analyse décisionnelle en utilisant Power BI comme sortie pour vos travaux Azure Stream Analytics. Vous allez également découvrir comment créer et utiliser un tableau de bord en temps réel.
@@ -29,9 +28,10 @@ Cet article est la suite du didacticiel [Détection des fraudes en temps réel](
 Vous pouvez visionner [une vidéo](https://www.youtube.com/watch?v=SGUpT-a99MA) illustrant ce scénario.
 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, veillez à disposer des éléments qui suivent :
+
+Avant de commencer, veillez à disposer des éléments qui suivent :
 
 * Un compte Azure.
 * Un compte pour Power BI. Vous pouvez utiliser un compte professionnel ou un compte scolaire.
@@ -72,7 +72,7 @@ Dans le didacticiel de détection des fraudes en temps réel, la sortie est envo
     > Nous vous recommandons de ne pas créer explicitement ce jeu de données et cette table dans votre compte Power BI. Ceux-ci sont automatiquement créés au démarrage du travail Stream Analytics et lorsque celui-ci se met à injecter des sorties dans Power BI. Si la requête de travail ne retourne aucun résultat, le jeu de données et la table ne sont pas créés.
     >
 
-8. Cliquez sur **Create**.
+8. Cliquez sur **Créer**.
 
 Le jeu de données est créé avec les paramètres suivants :
 
@@ -113,7 +113,7 @@ Pour plus d’informations sur les jeux de données Power BI, consultez la réf
         WHERE CS1.SwitchNum != CS2.SwitchNum
         GROUP BY TumblingWindow(Duration(second, 1))
 
-4. Cliquez sur **Save**.
+4. Cliquez sur **Enregistrer**.
 
 
 ## <a name="test-the-query"></a>Tester la requête
@@ -179,7 +179,7 @@ Le travail Stream Analytics commence par rechercher les appels frauduleux dans 
 
     ![Titre et sous-titre de la nouvelle vignette](./media/stream-analytics-power-bi-dashboard/pbi-new-tile-details.png)
 
-9. Cliquez sur **Apply**.
+9. Cliquez sur **Appliquer**.
 
     Nous avons à présent un compteur de fraudes.
 
@@ -217,7 +217,7 @@ Vous pouvez utiliser l’équation suivante pour calculer la valeur à donner à
 
 ![Equation1](./media/stream-analytics-power-bi-dashboard/equation1.png)  
 
-Par exemple :
+Par exemple : 
 
 * Vous disposez de 1 000 appareils qui envoient des données à des intervalles d’une seconde.
 * Vous utilisez la référence Power BI Pro qui prend en charge 1 000 000 lignes par heure.

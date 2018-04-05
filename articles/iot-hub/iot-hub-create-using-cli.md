@@ -1,12 +1,12 @@
 ---
-title: "Création d’un IoT Hub à l’aide de l’interface de ligne de commande Azure (az.py) | Microsoft Docs"
-description: "Création d’un Azure IoT Hub à l’aide de l’interface Azure CLI 2.0 (az.py)."
+title: Création d’un IoT Hub à l’aide de l’interface de ligne de commande Azure (az.py) | Microsoft Docs
+description: Création d’un Azure IoT Hub à l’aide de l’interface Azure CLI 2.0 (az.py).
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-hub
 ms.devlang: azurecli
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: dobett
-ms.openlocfilehash: 161089159999a4a63a39b059e69a08b7a9297445
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: c89ecc31754d355d6469d54dcd45e1cc2ef106f0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli-20"></a>Création d’un IoT Hub à l’aide de l’interface Azure CLI 2.0
 
@@ -89,7 +89,6 @@ Utilisez l’interface de ligne de commande Azure pour créer un groupe de resso
 > [!NOTE]
 > La commande précédente crée un IoT Hub dans le niveau de tarification S1 pour lequel vous êtes facturé. Pour plus d’informations, voir la [tarification d’Azure IoT Hub][lnk-iot-pricing].
 >
->
 
 ## <a name="remove-an-iot-hub"></a>Supprimer un hub IoT
 
@@ -110,7 +109,7 @@ az group delete --name {your resource group name}
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur le développement pour IoT Hub, consultez les articles suivants :
 
-* [Guide du développeur IoT Hub][lnk-devguide]
+* [Guide du développeur d’IoT Hub][lnk-devguide]
 
 Pour explorer davantage les capacités de IoT Hub, consultez :
 

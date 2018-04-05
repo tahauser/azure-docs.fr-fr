@@ -1,11 +1,11 @@
 ---
-title: "Consulter et gérer les ressources de stockage à l’aide de l’Explorateur de serveurs | Microsoft Docs"
-description: "Consultation et gestion des ressources de stockage à l’aide de l’Explorateur de serveurs"
+title: Consulter et gérer les ressources de stockage à l’aide de l’Explorateur de serveurs | Microsoft Docs
+description: Consultation et gestion des ressources de stockage à l’aide de l’Explorateur de serveurs
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 658dc064-4a4e-414b-ae5a-a977a34c930d
 ms.service: storage
 ms.devlang: multiple
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/24/2017
-ms.author: kraigb
-ms.openlocfilehash: ee91ca168acf2fa0d248e18cce64ac546740a2bd
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: ghogen
+ms.openlocfilehash: 59e26082845b5934a5918ccfb3dc8b971bba7d54
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>Consulter et gérer les ressources de stockage à l’aide de l’Explorateur de serveurs
 
@@ -264,7 +264,7 @@ Il existe deux façons d’ajouter des comptes de stockage à l’aide de l’Ex
    * La région ou le groupe d’affinités (comme l’Ouest des États-Unis ou l’Est de l’Asie)
    * Le type de réplication que vous voulez utiliser pour le compte de stockage, par exemple localement redondant
 
-   ![Création d'un compte de stockage Azure](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744166.png)
+   ![Créer un compte de stockage Azure](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744166.png)
 
 1. Sélectionnez **Créer**.
 

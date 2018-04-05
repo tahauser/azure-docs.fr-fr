@@ -1,23 +1,23 @@
 ---
 title: Sauvegarder des fichiers Azure sur Azure
-description: "Cet article explique comment sauvegarder et restaurer vos partages de fichiers Azure et explique les tâches de gestion."
+description: Cet article explique comment sauvegarder et restaurer vos partages de fichiers Azure et explique les tâches de gestion.
 services: backup
-keywords: "N’ajoutez pas ou ne modifiez pas de mots clés sans consulter votre expert SEO."
+keywords: N’ajoutez pas ou ne modifiez pas de mots clés sans consulter votre expert SEO.
 author: markgalioto
 ms.author: markgal
-ms.date: 2/21/2018
+ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: b9bf1582aa1c1b8878b8426f60a18282598eb2b9
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: ba457daca030d3219fe32177b0b5f8b5565ff544
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="back-up-azure-file-shares"></a>Sauvegarder des partages de fichiers Azure
+# <a name="back-up-azure-file-shares-preview"></a>Sauvegarde des partages de fichiers Azure (préversion)
 
-Cet article explique comment sauvegarder les [partages de fichiers Azure](../storage/files/storage-files-introduction.md).
+Cet article explique comment utiliser le portail Azure pour sauvegarder et restaurer des [partages de fichiers Azure](../storage/files/storage-files-introduction.md) dans Azure.
 
 Dans ce guide, vous apprendrez comment :
 > [!div class="checklist"]
@@ -30,6 +30,16 @@ Dans ce guide, vous apprendrez comment :
 
 ## <a name="prerequisites"></a>Prérequis
 Avant de sauvegarder un partage de fichiers Azure, assurez-vous qu’il est présent dans l’un des [types de compte de stockage pris en charge](troubleshoot-azure-files.md#preview-boundaries). Après avoir vérifié ce point, vous pouvez protéger vos partages de fichiers.
+
+## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Limitations pour la sauvegarde de partage de fichiers Azure en préversion
+Sauvegarde de fichiers Azure est en préversion. Gardez à l’esprit les limitations suivantes quand la préversion est utilisée :
+- Vous ne pouvez protéger les partages de fichiers dans des comptes de stockage disposant d’une réplication de [stockage redondant dans une zone](../storage/common/storage-redundancy.md#zone-redundant-storage) (ZRS) ou de [stockage géo-redondant avec accès en lecture](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS).
+- Vous ne pouvez pas protéger les partages de fichiers dans des comptes de stockage qui ont activé les réseaux virtuels.
+- Aucune interface PowerShell ou interface de ligne de commande n’est disponible pour la protection des fichiers Azure.
+- Vous pouvez effectuer une seule sauvegarde planifiée par jour.
+- Vous pouvez effectuer quatre sauvegardes à la demande par jour maximum.
+- Utilisez les [verrous de ressources](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) sur le compte de stockage pour empêcher la suppression accidentelle des sauvegardes de votre coffre Recovery Services.
+- Ne supprimez pas les instantanés créés par Sauvegarde Azure. La suppression d’instantanés peut provoquer une perte de points de récupération et/ou des échecs de restauration. 
 
 ## <a name="configuring-azure-file-shares-backup"></a>Configuration de la sauvegarde des partages de fichiers Azure
 

@@ -1,11 +1,11 @@
 ---
-title: "Prise en main des applets de commande PowerShell pour Azure Batch | Microsoft Docs"
-description: "Brève présentation des applets de commande Azure PowerShell à utiliser pour gérer les ressources Batch."
+title: Prise en main des applets de commande PowerShell pour Azure Batch | Microsoft Docs
+description: Brève présentation des applets de commande Azure PowerShell à utiliser pour gérer les ressources Batch.
 services: batch
-documentationcenter: 
-author: tamram
-manager: timlt
-editor: 
+documentationcenter: ''
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: f9ad62c5-27bf-4e6b-a5bf-c5f5914e6199
 ms.service: batch
 ms.devlang: NA
@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: powershell
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e33be6ed658e00250ea1e80cd7da4d348fb18296
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6767257a540e4f29bb5445a718ad65a31e1f373e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Gérer les ressources Batch avec les applets de commande PowerShell
 
@@ -29,7 +29,8 @@ Pour obtenir une liste complète des applets de commande Batch et la syntaxe dé
 
 Cet article est basé sur les applets de commande d’Azure PowerShell version 3.0.0. Nous vous recommandons de mettre à jour votre Azure PowerShell fréquemment pour tirer parti des améliorations et des mises à jour de service.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 Effectuez les opérations suivantes pour utiliser Azure PowerShell pour gérer vos ressources de traitement par lots.
 
 * [Installation et configuration d'Azure PowerShell](/powershell/azure/overview)
@@ -42,11 +43,11 @@ Effectuez les opérations suivantes pour utiliser Azure PowerShell pour gérer v
 
 ## <a name="manage-batch-accounts-and-keys"></a>Gestion des clés et des comptes Batch
 ### <a name="create-a-batch-account"></a>Création d’un compte Batch
-**New-AzureBatchAccount** crée un compte Batch dans un groupe de ressources spécifié. Si vous ne disposez pas d’un groupe de ressources, créez-en un en exécutant l’applet de commande [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Spécifiez une des régions Azure dans le paramètre **Emplacement**, « États-Unis du Centre » par exemple. Par exemple :
+**New-AzureBatchAccount** crée un compte Batch dans un groupe de ressources spécifié. Si vous ne disposez pas d’un groupe de ressources, créez-en un en exécutant l’applet de commande [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Spécifiez une des régions Azure dans le paramètre **Emplacement**, « États-Unis du Centre » par exemple. Par exemple : 
 
     New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
 
-Créez ensuite un compte Batch dans le groupe de ressources en spécifiant le nom du compte dans <*nom_compte*> et l’emplacement et le nom de votre groupe de ressources. La procédure de création du compte Batch peut prendre un certain temps. Par exemple :
+Créez ensuite un compte Batch dans le groupe de ressources en spécifiant le nom du compte dans <*nom_compte*> et l’emplacement et le nom de votre groupe de ressources. La procédure de création du compte Batch peut prendre un certain temps. Par exemple : 
 
     New-AzureRmBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName <res_group_name>
 
@@ -75,7 +76,7 @@ Créez ensuite un compte Batch dans le groupe de ressources en spécifiant le no
 > 
 
 ### <a name="delete-a-batch-account"></a>Suppression d’un compte Batch
-**Remove-AzureRmBatchAccount** supprime un compte Batch. Par exemple :
+**Remove-AzureRmBatchAccount** supprime un compte Batch. Par exemple : 
 
     Remove-AzureRmBatchAccount -AccountName <account_name>
 
@@ -134,7 +135,7 @@ Une alternative au filtre OData consiste à utiliser le paramètre **Id** . Pour
 Le paramètre **Id** prend uniquement en charge la recherche de l’identificateur complet, et non les caractères génériques ni les filtres de style OData.
 
 ### <a name="use-the-maxcount-parameter"></a>Utilisation du paramètre MaxCount
-Par défaut, chaque applet de commande retourne un maximum de 1 000 objets. Si vous atteignez cette limite, affinez votre filtration pour limiter le nombre d’objets retournés, ou définissez explicitement une utilisation maximale à l’aide du paramètre **MaxCount** . Par exemple :
+Par défaut, chaque applet de commande retourne un maximum de 1 000 objets. Si vous atteignez cette limite, affinez votre filtration pour limiter le nombre d’objets retournés, ou définissez explicitement une utilisation maximale à l’aide du paramètre **MaxCount** . Par exemple : 
 
     Get-AzureBatchTask -MaxCount 2500 -BatchContext $context
 

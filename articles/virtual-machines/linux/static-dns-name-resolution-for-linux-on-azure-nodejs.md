@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2016
 ms.author: v-livech
-ms.openlocfilehash: e73e780123f4582c9fa78975324e7904c85f87be
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 6072374cd7a37df6d7cc75479e24996dff3ee667
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="using-internal-dns-for-vm-name-resolution-on-azure"></a>Utilisation de DNS interne pour la résolution de noms de machines virtuelles dans Azure
 
@@ -105,7 +105,7 @@ azure network vnet create myVNet \
 
 ## <a name="create-the-nsg"></a>Créer le groupe de sécurité réseau
 
-Le sous-réseau se trouvant derrière un groupe de sécurité réseau existant, nous développons le groupe de sécurité en premier.  Les groupes de sécurité réseau Azure s’apparentent à un pare-feu au niveau de la couche réseau.  Pour plus d’informations sur les groupes de sécurité réseau Azure, consultez la section [Comment créer des groupes de sécurité réseau dans l’interface de ligne de commande Azure](../../virtual-network/virtual-networks-create-nsg-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Le sous-réseau se trouvant derrière un groupe de sécurité réseau existant, nous développons le groupe de sécurité en premier.  Les groupes de sécurité réseau Azure s’apparentent à un pare-feu au niveau de la couche réseau.  Pour plus d’informations sur les groupes de sécurité réseau Azure, consultez la section [Comment créer des groupes de sécurité réseau dans l’interface de ligne de commande Azure](../../virtual-network/tutorial-filter-network-traffic-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ```azurecli
 azure network nsg create myNSG \

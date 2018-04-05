@@ -1,19 +1,19 @@
 ---
-title: "Déployer des groupes de plusieurs conteneurs dans Azure Container Instances"
-description: "Découvrez comment déployer un groupe de conteneurs avec plusieurs conteneurs dans Azure Container Instances."
+title: Déployer des groupes de plusieurs conteneurs dans Azure Container Instances
+description: Découvrez comment déployer un groupe de conteneurs avec plusieurs conteneurs dans Azure Container Instances.
 services: container-instances
 author: neilpeterson
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 03/30/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 41a47adb1f1da417038757934f0a6cf7e11555da
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 58fd4c18df5ec0a5d02be0e6e89cb2b4af26b20e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-a-container-group"></a>Déployer un groupe de conteneurs
 
@@ -22,7 +22,7 @@ Azure Container Instances prend en charge le déploiement de plusieurs conteneur
 Ce document décrit pas à pas l’exécution d’une configuration simple d’annexe à plusieurs conteneurs à l’aide d’un modèle Azure Resource Manager.
 
 > [!NOTE]
-> Les groupes à plusieurs conteneurs sont actuellement restreints aux conteneurs Linux. Nous travaillons actuellement à proposer toutes ces fonctionnalités dans des conteneurs Windows. En attendant, nous vous invitons à découvrir les différences de la plateforme actuelle dans [Quotas et disponibilité des régions pour Azure Container Instances](container-instances-quotas.md).
+> Les groupes à plusieurs conteneurs sont actuellement restreints aux conteneurs Linux. Nous travaillons actuellement à proposer toutes ces fonctionnalités dans des conteneurs Windows. En attendant, nous vous invitons à découvrir les différences actuelles de la plateforme dans [Disponibilité des régions et quotas pour Azure Container Instances](container-instances-quotas.md).
 
 ## <a name="configure-the-template"></a>Configurer le modèle
 
@@ -45,7 +45,7 @@ Dans cet exemple, un groupe de conteneurs est défini. Il comprend deux conteneu
     {
       "name": "myContainerGroup",
       "type": "Microsoft.ContainerInstance/containerGroups",
-      "apiVersion": "2017-10-01-preview",
+      "apiVersion": "2018-04-01",
       "location": "[resourceGroup().location]",
       "properties": {
         "containers": [
@@ -144,7 +144,7 @@ Pour afficher l’état du déploiement, utilisez la commande [az container show
 az container show --resource-group myResourceGroup --name myContainerGroup --output table
 ```
 
-Sortie :
+Output:
 
 ```bash
 Name              ResourceGroup    ProvisioningState    Image                                                           IP:ports               CPU/Memory       OsType    Location
@@ -160,7 +160,7 @@ Consultez la sortie du journal d’un conteneur à l’aide de la commande [az c
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
 ```
 
-Sortie :
+Output:
 
 ```bash
 listening on port 80
@@ -175,7 +175,7 @@ Pour afficher les journaux du conteneur annexe, exécutez la même commande, en 
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
 ```
 
-Sortie :
+Output:
 
 ```bash
 Every 3s: curl -I http://localhost                          2018-01-09 23:25:11

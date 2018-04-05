@@ -1,11 +1,11 @@
 ---
-title: "Configuration avancée pour le SDK Android pour Azure Mobile Engagement"
-description: "Décrit les options de configuration avancées, notamment le manifeste Android avec le SDK Android pour Azure Mobile Engagement"
+title: Configuration avancée pour le SDK Android pour Azure Mobile Engagement
+description: Décrit les options de configuration avancées, notamment le manifeste Android avec le SDK Android pour Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 37d2c09a-86fa-473d-8987-c7e35a0eb3e8
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: 0301f71c76872714aa1bf727a6c21dd7a63db036
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 29a7bb7daae59e2034504ce27c9ba66755b11e4b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="advanced-configuration-for-azure-mobile-engagement-android-sdk"></a>Configuration avancée pour le SDK Android pour Azure Mobile Engagement
+> [!IMPORTANT]
+> Azure Mobile Engagement est hors service depuis le 31/03/2018. Cette page sera supprimée prochainement.
+> 
+
 > [!div class="op_single_selector"]
 > * [Windows universel](mobile-engagement-windows-store-advanced-configuration.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
@@ -31,7 +35,8 @@ ms.lasthandoff: 12/21/2017
 
 Cette procédure explique comment définir différentes options de configuration pour les applications Azure Mobile Engagement pour Android.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
 
 ## <a name="permission-requirements"></a>Autorisations requises
@@ -44,9 +49,9 @@ Le code d’autorisation doit ressembler à ce qui suit, en renseignant l’auto
 
 | Autorisation | Quand l’utiliser |
 | --- | --- |
-| INTERNET |Obligatoire. Pour la génération de rapports de base |
-| ACCESS_NETWORK_STATE |Obligatoire. Pour la génération de rapports de base |
-| RECEIVE_BOOT_COMPLETED |Obligatoire. Pour afficher le centre de notifications après le redémarrage de l’appareil |
+| INTERNET |Requis. Pour la génération de rapports de base |
+| ACCESS_NETWORK_STATE |Requis. Pour la génération de rapports de base |
+| RECEIVE_BOOT_COMPLETED |Requis. Pour afficher le centre de notifications après le redémarrage de l’appareil |
 | WAKE_LOCK |Recommandé. Active la collecte de données quand vous utilisez le Wi-Fi ou quand l’écran est éteint |
 | VIBRATE |facultatif. Active la vibration lors de la réception des notifications |
 | DOWNLOAD_WITHOUT_NOTIFICATION |facultatif. Active la Notification de la vue d’ensemble Android |

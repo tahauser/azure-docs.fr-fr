@@ -1,22 +1,22 @@
 ---
-title: "Événement de fin de suppression de pool Azure Batch | Microsoft Docs"
-description: "Référence pour l’événement de fin de suppression de pool Batch."
+title: Événement de fin de suppression de pool Azure Batch | Microsoft Docs
+description: Référence pour l’événement de fin de suppression de pool Batch.
 services: batch
-author: tamram
-manager: timlt
-ms.assetid: 
+author: dlepow
+manager: jeconnoc
+ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: tamram
-ms.openlocfilehash: 890f2ba7fda37060c56177868d6214d517d91831
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: danlep
+ms.openlocfilehash: bfcbcf40efc64ab1c79ee1a86e02502c68ad6d47
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="pool-delete-complete-event"></a>Événement de fin de suppression de pool
 
@@ -32,10 +32,10 @@ ms.lasthandoff: 10/11/2017
 }
 ```
 
-|Élément|Type|Remarques|
+|Élément|Type|Notes|
 |-------------|----------|-----------|
-|id|String|ID du pool.|
-|startTime|DateTime|Heure de début de la suppression du pool.|
+|id|Chaîne|ID du pool.|
+|startTime|Datetime|Heure de début de la suppression du pool.|
 |endTime|DateTime|Heure de fin de la suppression du pool.|
 
 ## <a name="remarks"></a>Remarques

@@ -1,11 +1,11 @@
 ---
-title: "Mise en œuvre d’Azure Mobile Engagement avec une application de jeux"
-description: "Scénario d’application de jeux pour mettre en œuvre Azure Mobile Engagement"
+title: Mise en œuvre d’Azure Mobile Engagement avec une application de jeux
+description: Scénario d’application de jeux pour mettre en œuvre Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 2cafc044-4902-4058-8037-49399bf6bf7f
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 0ca35a3d634db8eb5c63afacba046a35b8a3e7ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96e827b57e804cc91798859bc906e49046decede
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="implement-mobile-engagement-with-gaming-app"></a>Mise en œuvre de Mobile Engagement avec une application de jeu
 ## <a name="overview"></a>Vue d'ensemble
+> [!IMPORTANT]
+> Azure Mobile Engagement est hors service depuis le 31/03/2018. Cette page sera supprimée prochainement.
+> 
+
 Une jeune entreprise spécialisée dans les jeux a lancé un nouveau jeu de rôle/de stratégie sur le thème de la pêche. Ce jeu est opérationnel depuis 6 mois. Il connaît un énorme succès et a été téléchargé des millions de fois. De plus, la rétention est très élevée par rapport à d’autres applications de jeu. Lors de la réunion d’examen trimestrielle, les différents intervenants estiment qu’ils doivent augmenter les revenus moyens par utilisateur (revenu moyen par abonné). Des packages au sein du jeu sont disponibles sous forme d’offres spéciales. Ces packages de jeu permettent aux utilisateurs de mettre à niveau l’apparence et les performances de leurs lignes de pêche et des appâts et des articles au sein du jeu. Toutefois, les ventes de package sont très faibles. Par conséquent, il a été décidé dans un premier temps d’analyser l’expérience client à l’aide d’un outil d’analyse, puis de développer un programme d’engagement afin d’augmenter les ventes au moyen d’une segmentation avancée.
 
 En s’appuyant sur [Azure Mobile Engagement - Guide de prise en main et meilleures pratiques](mobile-engagement-getting-started-best-practices.md) , ils ont élaboré une stratégie d’engagement.

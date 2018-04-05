@@ -1,12 +1,12 @@
 ---
-title: "Créer une fonction qui s’intègre avec Azure Logic Apps | Documents Microsoft"
-description: "Créez une fonction qui s’intègre à Azure Logic Apps et à Azure Cognitive Services pour catégoriser les sentiments de tweets et envoyer des notifications quand le sentiment est peu favorable."
+title: Créer une fonction qui s’intègre avec Azure Logic Apps | Documents Microsoft
+description: Créez une fonction qui s’intègre à Azure Logic Apps et à Azure Cognitive Services pour catégoriser les sentiments de tweets et envoyer des notifications quand le sentiment est peu favorable.
 services: functions, logic-apps, cognitive-services
-keywords: "flux de travail, applications cloud, services cloud, processus d’entreprise, intégration de systèmes, intégration d’applications d’entreprise, IAE"
-documentationcenter: 
+keywords: flux de travail, applications cloud, services cloud, processus d’entreprise, intégration de systèmes, intégration d’applications d’entreprise, IAE
+documentationcenter: ''
 author: ggailey777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
 ms.service: functions
 ms.workload: na
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/12/2017
 ms.author: glenga
-ms.custom: mvc
-ms.openlocfilehash: 9e9369d9dc9f7298b93927b49685f4e24de8a7fd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: mvc, cc996988-fb4f-47
+ms.openlocfilehash: 16a46b4c49687186e25c399dcc2c5c168e7c5004
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Créer une fonction qui s’intègre avec Azure Logic Apps
 
@@ -41,6 +41,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Envoyer un courrier électronique en fonction de la réponse de la fonction.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 + Un compte [Twitter](https://twitter.com/) actif. 
 + Un compte [Outlook.com](https://outlook.com/) (pour l’envoi de notifications).
@@ -71,8 +72,6 @@ Les API Cognitive Services sont disponibles dans Azure en tant que ressources in
 5. Dans la colonne de navigation gauche, cliquez sur **Clés**, puis copiez la valeur de **Clé 1** et enregistrez-la. Cette clé vous permet de connecter l’application logique à votre API Cognitive Services. 
  
     ![Clés](media/functions-twitter-email/keys.png)
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
 ## <a name="create-the-function-app"></a>Créer l’application de fonction
 

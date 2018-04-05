@@ -3,8 +3,8 @@ title: Publication d’un service cloud à l’aide des outils Azure | Microsoft
 description: Découvrez comment publier des projets de service cloud Azure à l'aide de Visual Studio.
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
+author: ghogen
+manager: douge
 editor: ''
 ms.assetid: 1a07b6e4-3678-4cbf-b37e-4520b402a3d9
 ms.service: multiple
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2017
-ms.author: kraigb
-ms.openlocfilehash: e854c46329f092388531a73ada50829c4579806d
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.author: ghogen
+ms.openlocfilehash: 59a34f92937136079d8c693a1747b2d54f37e6d8
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="publishing-a-cloud-service-using-visual-studio"></a>Publication d'un service cloud avec Visual Studio
 
@@ -49,7 +49,7 @@ Lorsque vous publiez votre application Azure, vous pouvez effectuer l'une des t�
 
    b. Dans la boîte de dialogue **Package Azure Application** , choisissez la configuration du service pour lequel vous souhaitez créer un package, puis la configuration de la version.
 
-   c. (facultatif) Pour activer le Bureau à distance pour le service cloud après sa publication, activez la case à cocher **Activer le Bureau à distance pour tous les rôles**, puis sélectionnez **Paramètres** pour configurer les informations d’identification le Bureau à distance. Pour plus d’informations, consultez [Activer une connexion Bureau à distance pour un rôle dans Azure Cloud Services avec PowerShell](cloud-services/cloud-services-role-enable-remote-desktop-visual-studio.md).
+   c. (facultatif) Pour activer le Bureau à distance pour le service cloud après sa publication, activez la case à cocher **Activer le Bureau à distance pour tous les rôles**, puis sélectionnez **Paramètres** pour configurer les informations d’identification le Bureau à distance. Pour plus d’informations, consultez la page [Activer la Connexion Bureau à distance pour un rôle dans Azure Cloud Services avec Visual Studio](cloud-services/cloud-services-role-enable-remote-desktop-visual-studio.md).
 
       Si vous souhaitez déboguer votre service cloud après sa publication, activez le débogage à distance en sélectionnant **Activer le débogueur distant pour tous les rôles**.
 

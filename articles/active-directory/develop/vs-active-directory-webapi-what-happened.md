@@ -3,8 +3,8 @@ title: Modifications apportées à un projet WebApi quand vous vous connectez à
 description: Décrit ce qui se passe dans votre projet WebApi quand vous vous connectez à Azure AD en utilisant Visual Studio
 services: active-directory
 documentationcenter: ''
-author: kraigb
-manager: ghogen
+author: ghogen
+manager: douge
 editor: ''
 ms.assetid: 57630aee-26a2-4326-9dbb-ea2a66daa8b0
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vs-what-happened
 ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
-ms.author: kraigb
+ms.author: ghogen
 ms.custom: aaddev
-ms.openlocfilehash: 140f555d28c4d5a923b9c255d8e61d7aea9bb23f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: fc6506ccb7b4c9b7fa43a378df47094de92c73b6
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>Qu’est-il arrivé à mon projet WebApi (service connecté Azure Active Directory de Visual Studio)
 
@@ -33,7 +33,7 @@ Pour plus d’informations sur l’utilisation du service connecté, consultez [
 
 ## <a name="added-references"></a>Références ajoutées
 
-Affecte les références *.NET du fichier projet) et `packages.config` (références NuGet).
+Affecte les références *.NET du fichier projet et `packages.config` (références NuGet).
 
 | type | Informations de référence |
 | --- | --- |
@@ -46,7 +46,7 @@ Affecte les références *.NET du fichier projet) et `packages.config` (référe
 | .NET ; NuGet | Owin |
 | .NET ; NuGet | System.IdentityModel.Tokens.Jwt |
 
-Références supplémentaires si vous avez sélectionné l’option **Lire les données de l’annuaire** :
+Références supplémentaires si l’option **Lire les données d’annuaire** est sélectionnée :
 
 | type | Informations de référence |
 | --- | --- |
@@ -68,13 +68,13 @@ Les références suivantes sont supprimées (projets ASP.NET 4 uniquement, comme
 | .NET ; NuGet | Microsoft.AspNet.Identity.EntityFramework |
 | .NET ; NuGet | Microsoft.AspNet.Identity.Owin |
 
-## <a name="project-file-changes"></a>Modifications du fichier projet
+## <a name="project-file-changes"></a>Modifications apportées au fichier projet
 
 - Définissez la propriété `IISExpressSSLPort` sur un nombre distinct.
-- Définissez la propriété `WebProject_DirectoryAccessLevelKey` sur 0 ou 1 si vous sélectionnez l’option **Lire les données de l’annuaire**.
-- Définissez la propriété `IISUrl` sur `https://localhost:<port>/` où `<port>` correspond à la valeur `IISExpressSSLPort`.
+- Définissez la propriété `WebProject_DirectoryAccessLevelKey` sur 0, ou 1 si l’option **Lire les données d’annuaire** est sélectionnée.
+- Définissez la propriété `IISUrl` sur `https://localhost:<port>/`, où `<port>` correspond à la valeur `IISExpressSSLPort`.
 
-## <a name="webconfig-or-appconfig-changes"></a>modifications de web.config ou app.config
+## <a name="webconfig-or-appconfig-changes"></a>Modifications apportées à web.config ou à app.config
 
 - Vous avez ajouté les entrées de configuration suivantes :
 
@@ -112,7 +112,7 @@ Les références suivantes sont supprimées (projets ASP.NET 4 uniquement, comme
 
 ### <a name="file-backup-visual-studio-2015"></a>Sauvegarde de fichiers (Visual Studio 2015)
 
-Lorsque vous ajoutez le service connecté, Visual Studio 2015 sauvegarde les fichiers modifiés et supprimés. Tous les fichiers affectés sont enregistrés dans le dossier `Backup/AzureAD`. Visual Studio 2017 ne crée pas de sauvegardes.
+Lors de l’ajout du service connecté, Visual Studio 2015 sauvegarde les fichiers modifiés et supprimés. Tous les fichiers affectés sont enregistrés dans le dossier `Backup/AzureAD`. Visual Studio 2017 ne crée pas de sauvegardes.
 
 - `Startup.cs`
 - `App_Start\IdentityConfig.cs`
@@ -124,12 +124,12 @@ Lorsque vous ajoutez le service connecté, Visual Studio 2015 sauvegarde les fic
 
 ## <a name="changes-on-azure"></a>Modifications apportées à Azure
 
-- Vous avez créé une application Azure AD dans le domaine que vous avez sélectionné lors de l’ajout du service connecté.
-- Vous avez mis à jour l’application pour inclure l’autorisation **Lire les données de l’annuaire** si cette option a été sélectionnée.
+- Création d’une application Azure AD dans le domaine sélectionné lors de l’ajout du service connecté.
+- Mise à jour de l’application pour inclure l’autorisation **Lire les données d’annuaire** si cette option est sélectionnée.
 
 [En savoir plus sur Azure Active Directory](https://azure.microsoft.com/services/active-directory/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Scénarios d’authentification pour Azure Active Directory](active-directory-authentication-scenarios.md)
-- [Ajouter la connexion avec Microsoft à une application Web ASP.NET](guidedsetups/active-directory-aspnetwebapp-v1.md)
+- [Ajouter la connexion avec Microsoft à une application web ASP.NET](guidedsetups/active-directory-aspnetwebapp-v1.md)

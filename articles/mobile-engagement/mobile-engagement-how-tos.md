@@ -1,11 +1,11 @@
 ---
-title: "Interface utilisateur d'Azure Mobile Engagement - Procédure de Reach"
-description: "Présentation de l'interface utilisateur d'Azure Mobile Engagement"
+title: Interface utilisateur d'Azure Mobile Engagement - Procédure de Reach
+description: Présentation de l'interface utilisateur d'Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 30af87e6-c816-4cce-8609-6cbd3e83de14
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 33a0a9d0c399cb7f0a791c4c16dde2e2d62364ca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0c536d378023ee4a9675bb2d67262fb485c8052b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-get-started-using-and-managing-pushes-to-reach-out-to-your-end-users"></a>Procédure de mise en route pour l’utilisation et la gestion des push en vue d’atteindre vos utilisateurs finaux
+> [!IMPORTANT]
+> Azure Mobile Engagement est hors service depuis le 31/03/2018. Cette page sera supprimée prochainement.
+> 
+
 Une fois que le Kit de développement logiciel (SDK) est totalement intégré à votre application, vous pouvez commencer à utiliser la section Reach de l'interface utilisateur pour envoyer des notifications Push aux utilisateurs de votre application.  
 
 ## <a name="do-your-first-push-notification-campaign"></a>Lancer votre première campagne de notification push

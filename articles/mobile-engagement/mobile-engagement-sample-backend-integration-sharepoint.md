@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement - Intégration au serveur principal"
-description: "Connexion d’Azure Mobile Engagement avec un serveur principal SharePoint pour créer des campagnes à partir de SharePoint"
+title: Azure Mobile Engagement - Intégration au serveur principal
+description: Connexion d’Azure Mobile Engagement avec un serveur principal SharePoint pour créer des campagnes à partir de SharePoint
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 06297b43-579f-46e6-8a58-961a68f9aa09
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: d49f1094f4c3f170f3618f3e19e42266f9ae8858
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf530ca6dce32050487f367aa80b10bf7f20b7e7
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement---api-integration"></a>Azure Mobile Engagement - Intégration dans une API
+> [!IMPORTANT]
+> Azure Mobile Engagement est hors service depuis le 31/03/2018. Cette page sera supprimée prochainement.
+> 
+
 Dans un système marketing automatisé, la création et l'activation des campagnes marketing peuvent également être automatiques. À cette fin, Azure Mobile Engagement permet également de créer ces campagnes marketing automatisées à l'aide d’API. 
 
 En général, les clients utilisent l'interface frontale de Mobile Engagement pour créer des annonces/sondages et autres dans le cadre de leurs campagnes marketing. Toutefois, à mesure que les campagnes marketing mûrissent, il est nécessaire d'exploiter les données enfermées dans les systèmes principaux (comme n'importe quel système de  CRM ou CMS comme SharePoint) afin qu'un pipeline entièrement automatisé puisse être créé pour générer des campagnes de façon dynamique dans Mobile Engagement en se basant sur les données contenues dans les systèmes principaux. 

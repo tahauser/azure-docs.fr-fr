@@ -3,8 +3,8 @@ title: Utilisation de l’Assistant Publication d’application Azure dans Visua
 description: Découvrez comment configurer les différents paramètres de l’Assistant Publication d’application Azure dans Visual Studio
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
+author: ghogen
+manager: douge
 editor: ''
 ms.assetid: 7d8f1ac9-e439-47e0-a183-0642c4ea1920
 ms.service: multiple
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2017
-ms.author: kraigb
-ms.openlocfilehash: d29cae9710cc9c01dae09e8fd8273ac30dd61827
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.author: ghogen
+ms.openlocfilehash: 980809bc62f7766971ea4753e1cfb165aa1cffc2
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="using-the-visual-studio-publish-azure-application-wizard"></a>Utilisation de l’Assistant Publication d’application Azure dans Visual Studio
 
@@ -65,7 +65,7 @@ Vous pouvez accéder à l’Assistant Publication d’application Azure de deux�
 
 **Configuration de service** : sélectionnez **Cloud** ou **Local**.
 
-**Activer le Bureau à distance pour tous les rôles** : Sélectionnez cette option si vous souhaitez pouvoir vous connecter à distance au service. Cette option est principalement utilisée pour le dépannage. Pour plus d’informations, consultez [Activer une connexion Bureau à distance pour un rôle dans Azure Cloud Services avec PowerShell](cloud-services/cloud-services-role-enable-remote-desktop-visual-studio.md).
+**Activer le Bureau à distance pour tous les rôles** : Sélectionnez cette option si vous souhaitez pouvoir vous connecter à distance au service. Cette option est principalement utilisée pour le dépannage. Pour plus d’informations, consultez la page [Activer la Connexion Bureau à distance pour un rôle dans Azure Cloud Services avec Visual Studio](cloud-services/cloud-services-role-enable-remote-desktop-visual-studio.md).
 
 **Activer Web Deploy pour tous les rôles web** : Sélectionnez cette option pour activer le déploiement web du service. Vous devez aussi sélectionner l’option **Activer le Bureau à distance pour tous les rôles** pour utiliser cette fonctionnalité. Pour plus d’informations, consultez [Publication d’un service cloud en utilisant Visual Studio](vs-azure-tools-publishing-a-cloud-service.md).
 

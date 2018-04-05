@@ -1,11 +1,11 @@
 ---
-title: "Prise en main du Stockage File d’attente Azure et des services connectés de Visual Studio (ASP.NET) | Microsoft Docs"
-description: "Comment prendre en main le Stockage File d’attente Azure dans un projet ASP.NET dans Visual Studio après s’être connecté à un compte de stockage à l’aide des services connectés de Visual Studio"
+title: Prise en main du Stockage File d’attente Azure et des services connectés de Visual Studio (ASP.NET) | Microsoft Docs
+description: Comment prendre en main le Stockage File d’attente Azure dans un projet ASP.NET dans Visual Studio après s’être connecté à un compte de stockage à l’aide des services connectés de Visual Studio
 services: storage
-documentationcenter: 
-author: kraigb
-manager: ghogen
-editor: 
+documentationcenter: ''
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 94ca3413-5497-433f-abbe-836f83a9de72
 ms.service: storage
 ms.workload: web
@@ -13,26 +13,27 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 12/23/2016
-ms.author: kraigb
-ms.openlocfilehash: 4687e5dfce72583728068c176d86d100313badf6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: 89baa741dcd916b70514f9703255b9e6d01c689b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Prise en main du Stockage File d’attente Azure et des services connectés de Visual Studio (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 Le stockage de files d’attente Azure fournit une messagerie cloud entre les composants d’application. Lors de la conception d'applications pour la mise à l'échelle, des composants d'application sont souvent découplés, de sorte qu'ils peuvent être mis à l'échelle indépendamment. Le stockage de files d’attente offre une messagerie asynchrone pour la communication entre les composants d’application, qu’ils soient exécutés dans le cloud, sur le bureau, sur un serveur local ou sur un appareil mobile. Le stockage de files d’attente prend également en charge la gestion des tâches asynchrones et la création des flux de travail de processus.
 
 Ce didacticiel montre comment écrire du code ASP.NET pour des scénarios courants en utilisant des entités de stockage de file d’attente Azure. Ces scénarios incluent des tâches courantes telles que la création d’une file d’attente Azure, l'ajout, la modification, la lecture et la suppression de messages de file d’attente.
 
-##<a name="prerequisites"></a>Composants requis
+##<a name="prerequisites"></a>Prérequis
+
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Compte Stockage Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account)
+* [Compte Azure Storage](../storage/common/storage-create-storage-account.md#create-a-storage-account)
 
 [!INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
@@ -62,7 +63,7 @@ Ce didacticiel montre comment écrire du code ASP.NET pour des scénarios coura
     using Microsoft.WindowsAzure.Storage.Auth;
     using Microsoft.WindowsAzure.Storage.Queue;
     ```
-## <a name="create-a-queue"></a>Création d’une file d’attente
+## <a name="create-a-queue"></a>Créer une file d’attente
 
 Les étapes suivantes montrent comment créer une file d'attente :
 
@@ -206,7 +207,7 @@ Une fois que vous avez [créé une file d’attente](#create-a-queue), vous pouv
 
 1. Dans la boîte de dialogue **Ajouter une vue**, entrez **AddMessage** pour le nom de la vue, puis sélectionnez **Ajouter**.
 
-1. Ouvrez le fichier `AddMessage.cshtml` et modifiez-le pour qu’il se présente comme l'extrait de code suivant :
+1. Ouvrez le fichier `AddMessage.cshtml` et modifiez-le pour qu’il se présente comme l'extrait de code suivant :
 
     ```csharp
     @{
@@ -289,7 +290,7 @@ Cette section illustre comment lire rapidement un message mis en file d’attent
 
 1. Dans la boîte de dialogue **Ajouter une vue**, entrez **PeekMessage** pour le nom de la vue, puis sélectionnez **Ajouter**.
 
-1. Ouvrez le fichier `PeekMessage.cshtml` et modifiez-le pour qu’il se présente comme l'extrait de code suivant :
+1. Ouvrez le fichier `PeekMessage.cshtml` et modifiez-le pour qu’il se présente comme l'extrait de code suivant :
 
     ```csharp
     @{
@@ -380,7 +381,7 @@ Dans cette section, vous allez apprendre à lire et à supprimer un message d’
 
 1. Dans la boîte de dialogue **Ajouter une vue**, entrez **ReadMessage** pour le nom de la vue, puis sélectionnez **Ajouter**.
 
-1. Ouvrez le fichier `ReadMessage.cshtml` et modifiez-le pour qu’il se présente comme l'extrait de code suivant :
+1. Ouvrez le fichier `ReadMessage.cshtml` et modifiez-le pour qu’il se présente comme l'extrait de code suivant :
 
     ```csharp
     @{
@@ -470,7 +471,7 @@ Cette section montre comment obtenir la longueur de la file d’attente (nombre 
 
 1. Dans la boîte de dialogue **Ajouter une vue**, entrez **GetQueueLength** pour le nom de la vue, puis sélectionnez **Ajouter**.
 
-1. Ouvrez le fichier `GetQueueLengthMessage.cshtml` et modifiez-le pour qu’il se présente comme l'extrait de code suivant :
+1. Ouvrez le fichier `GetQueueLengthMessage.cshtml` et modifiez-le pour qu’il se présente comme l'extrait de code suivant :
 
     ```csharp
     @{
@@ -550,7 +551,7 @@ Cette section montre comment supprimer une file d’attente.
 
 1. Dans la boîte de dialogue **Ajouter une vue**, entrez **DeleteQueue** pour le nom de la vue, puis sélectionnez **Ajouter**.
 
-1. Ouvrez le fichier `DeleteQueue.cshtml` et modifiez-le pour qu’il se présente comme l'extrait de code suivant :
+1. Ouvrez le fichier `DeleteQueue.cshtml` et modifiez-le pour qu’il se présente comme l'extrait de code suivant :
 
     ```csharp
     @{

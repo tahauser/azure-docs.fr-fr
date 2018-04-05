@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 03/09/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 46fec48720c817072ce838dd2e4c07725be5a7fe
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: d07f06a1a70c859544c3b1ceb6146dc11e4d10aa
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-cli"></a>Créer un réseau virtuel à l’aide d’Azure CLI
 
@@ -124,9 +124,9 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, créez un réseau virtuel par défaut et deux machines virtuelles. Vous vous connectez à une machine virtuelle à partir d’internet et vous communiquez de manière privée entre la machine virtuelle et une autre. Pour plus d’informations sur les réseaux virtuels, consultez [Gérer un réseau virtuel](manage-virtual-network.md). 
+Dans cet article, vous avez créé un réseau virtuel par défaut et deux machines virtuelles. Vous vous êtes connecté à une machine virtuelle à partir d’Internet et communiqué en privé entre la machine virtuelle et une autre. Pour plus d’informations sur les réseaux virtuels, consultez [Gérer un réseau virtuel](manage-virtual-network.md). 
 
 Par défaut, Azure autorise une communication privée illimitée entre des machines virtuelles, mais autorise uniquement les sessions SSH sur des machines virtuelles Linux à partir d’Internet. Pour découvrir comment autoriser ou limiter les différents types de communication réseau vers et depuis les machines virtuelles, passez au didacticiel suivant.
 
 > [!div class="nextstepaction"]
-> [Filtrer le trafic réseau](virtual-networks-create-nsg-arm-cli.md)
+> [Filtrer le trafic réseau](tutorial-filter-network-traffic-cli.md)

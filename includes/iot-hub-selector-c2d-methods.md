@@ -7,6 +7,8 @@
 
 Azure IoT Hub est un service entièrement géré qui permet des communications bidirectionnelles fiables et sécurisées entre des millions d’appareils et un serveur principal de solution. Les didacticiels précédents ([Prise en main d’IoT Hub] et [Envoi de messages cloud-à-appareil avec IoT Hub]) illustre les fonctionnalités de base de messagerie appareil-à-cloud et cloud-à-appareil offertes par IoT Hub. IoT Hub permet également d’appeler des méthodes non durables sur des appareils à partir du cloud. Les méthodes directes représentent une interaction de demande-réponse avec un appareil, similaire à un appel HTTPS, dans la mesure où elles réussissent ou échouent immédiatement (après un délai d’attente spécifié par l’utilisateur) pour permettre à l’utilisateur de connaître l’état de l’appel. [Appeler une méthode directe sur un appareil][lnk-devguide-methods] décrit plus en détail les méthodes directes, et indique quand utiliser des méthodes directes plutôt que des messages cloud-à-appareil ou des propriétés souhaitées.
 
+[!INCLUDE [iot-hub-basic](iot-hub-basic-whole.md)]
+
 Ce didacticiel vous explique les procédures suivantes :
 
 * Utiliser le portail Azure pour créer un IoT Hub et une identité d’appareil dans celui-ci.
