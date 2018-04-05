@@ -238,6 +238,9 @@
       items:
         - name: Gérer la tarification et le volume des données
           href: app-insights-pricing.md
+          items:
+            - name: Détails du plan Entreprise
+              href: app-insights-pricing-enterprise-details.md
         - name: Analyse des performances des applications à l’aide d’Application Insights pour SCOM
           href: app-insights-scom.md
     - name: Exportation

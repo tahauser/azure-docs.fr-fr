@@ -1,13 +1,12 @@
 ---
-title: "Traitement de l’ordre et du retard des événements avec Azure Stream Analytics | Microsoft Docs"
-description: "Découvrez le fonctionnement de Stream Analytics avec des événements en retard ou en désordre dans les flux de données."
-keywords: "Événements en désordre, en retard"
-documentationcenter: 
+title: Traitement de l’ordre et du retard des événements avec Azure Stream Analytics | Microsoft Docs
+description: Découvrez le fonctionnement de Stream Analytics avec des événements en retard ou en désordre dans les flux de données.
+keywords: Événements en désordre, en retard
+documentationcenter: ''
 services: stream-analytics
 author: jseb225
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 
+manager: ryanw
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 6478d577c52ffa23c3149c8213f182eaa1e466bd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3c1924ad87715f7a44c3666991e792adc3a20af9
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-stream-analytics-event-order-considerations"></a>Considérations relatives à l’ordre des événements Azure Stream Analytics
 
@@ -74,7 +73,7 @@ Quand Stream Analytics réorganise les événements reçus dans la fenêtre de t
 ### <a name="early-events"></a>Événements précoces
 Lors du traitement selon l’heure de l’application, les événements dont l’heure de l’application est en avance de plus de 5 minutes sur leur heure d’arrivée sont supprimés ou ajustés en fonction de l’option de configuration sélectionnée.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 
 * Tolérance d’arrivée tardive = 10 minutes<br/>
 * Tolérance de désordre = 3 minutes<br/>

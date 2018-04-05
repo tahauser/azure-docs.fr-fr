@@ -1,6 +1,6 @@
 ---
-title: "Surveiller les journaux d’accès, les journaux des performances, l’intégrité du serveur principal, ainsi que les métriques d’Application Gateway | Microsoft Docs"
-description: "Découvrez comment activer et gérer les journaux d’accès et les journaux des performances pour Application Gateway"
+title: Surveiller les journaux d’accès, les journaux des performances, l’intégrité du serveur principal, ainsi que les métriques d’Application Gateway | Microsoft Docs
+description: Découvrez comment activer et gérer les journaux d’accès et les journaux des performances pour Application Gateway
 services: application-gateway
 documentationcenter: na
 author: amitsriva
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2017
+ms.date: 3/23/2018
 ms.author: amitsriva
-ms.openlocfilehash: 12c252340b82aba5ee69b12db83353750782e7c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 885ae8b97175cac4cd29793eb0a935e81d54d0e4
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Intégrité du serveur principal, journaux de diagnostic et métriques pour la passerelle Application Gateway
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 
 * [Intégrité du serveur principal](#back-end-health) : Application Gateway permet de surveiller l’intégrité des serveurs dans les pools principaux au moyen du portail Azure et de Powershell. Vous pouvez également accéder à l’intégrité des pools principaux via les journaux de diagnostic des performances.
 
-* [Journaux](#diagnostic-logs) : les journaux permettent d’enregistrer ou d’utiliser les performances, les accès et les autres données à partir d’une ressource à des fins de surveillance.
+* [Journaux](#diagnostic-logging) : les journaux permettent d’enregistrer ou d’utiliser les performances, les accès et les autres données à partir d’une ressource à des fins de surveillance.
 
 * [Mesures](#metrics) : la passerelle Application Gateway possède actuellement une métrique. Cette métrique mesure le débit de la passerelle Application Gateway en octets par seconde.
 
@@ -152,9 +152,9 @@ La journalisation d’activité est automatiquement activée pour chaque ressour
 
    ![Démarrage du processus de configuration][2]
 
-4. Sélectionnez ou créez un espace de travail OMS (Operations Management Suite) existant. Cet exemple utilise un espace de travail existant.
+4. Choisissez un espace de travail Log Analytics existant ou créez en un nouveau. Cet exemple utilise un espace de travail existant.
 
-   ![Options des espaces de travail OMS][3]
+   ![Options d’espaces de travail Log Analytics][3]
 
 5. Confirmez les paramètres et cliquez sur **Enregistrer**.
 
@@ -176,7 +176,7 @@ Le journal d’accès n’est généré que si vous l’avez activé sur chaque 
 |clientPort     | Port d’origine de la requête.       |
 |httpMethod     | Méthode HTTP utilisée par la requête.       |
 |requestUri     | URI de la requête reçue.        |
-|RequestQuery     | **Acheminée par le serveur** : instance de pool principal à laquelle la requête a été envoyée. </br> **X-AzureApplicationGateway-journal-ID** : ID de corrélation utilisé pour la requête. Peut être utilisée pour résoudre les problèmes de trafic sur les serveurs principaux. </br>**ÉTAT DU SERVEUR** : code de réponse HTTP reçu par Application Gateway à partir du serveur principal.       |
+|RequestQuery     | **Acheminée par le serveur** : instance de pool principal à laquelle la requête a été envoyée.</br>**X-AzureApplicationGateway-journal-ID** : ID de corrélation utilisé pour la requête. Peut être utilisée pour résoudre les problèmes de trafic sur les serveurs principaux. </br>**ÉTAT DU SERVEUR** : code de réponse HTTP reçu par Application Gateway à partir du serveur principal.       |
 |UserAgent     | Agent utilisateur de l’en-tête de requête HTTP.        |
 |httpStatus     | Code d’état HTTP renvoyé au client à partir de d’Application Gateway.       |
 |httpVersion     | Version HTTP de la requête.        |
@@ -316,9 +316,21 @@ Vous pouvez également vous connecter à votre compte de stockage et récupérer
 
 ## <a name="metrics"></a>Mesures
 
-Les mesures représentent une fonctionnalité de certaines ressources Azure, vous permettant d’afficher les compteurs de performances dans le portail. Pour Application Gateway, une métrique est désormais disponible. Vous pouvez afficher cette métrique, le débit, dans le portail. Accédez à une passerelle Application Gateway et cliquez sur **Métriques**. Sélectionnez Débit dans la section **Mesures disponibles** pour afficher les valeurs. L’image suivante montre un exemple avec les filtres que vous pouvez utiliser pour afficher les données dans différentes périodes.
+Les mesures représentent une fonctionnalité de certaines ressources Azure, vous permettant d’afficher les compteurs de performances dans le portail. Pour Application Gateway, les métriques suivantes sont disponibles :
 
-![Affichage de métriques avec des filtres][5]
+- Connexions courantes
+- Demandes ayant échoué
+- Nombre d’hôtes intègres
+- État de la réponse
+- Throughput
+- Total de requêtes
+- Nombre d’hôtes non intègres
+
+Accédez à une passerelle d’applications, sous **Analyse** cliquez sur **Métriques**. Pour afficher les valeurs disponibles, sélectionnez la liste déroulante **MÉTRIQUE**.
+
+Dans l’image suivante, consultez un exemple avec trois métriques affichées pour les 30 dernières minutes :
+
+[![](media/application-gateway-diagnostics/figure5.png "Affichage des métriques")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
 
 Pour afficher une liste actuelle des métriques, consultez [Mesures prises en charge avec Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
 

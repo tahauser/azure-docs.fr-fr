@@ -1,9 +1,9 @@
 ---
-title: "Prise en main d’Azure Monitor | Microsoft Docs"
-description: "Prenez en main Azure Monitor pour obtenir un aperçu du fonctionnement de vos ressources et prendre des initiatives sur la base des données."
+title: Prise en main d’Azure Monitor | Microsoft Docs
+description: Prenez en main Azure Monitor pour obtenir un aperçu du fonctionnement de vos ressources et prendre des initiatives sur la base des données.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: ce2930aa-fc41-4b81-b0cb-e7ea922467e1
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: johnkem
-ms.openlocfilehash: 9c352c67aa0e9392c9e9d68822abeb27344bd8b7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 69ec5392f034ffe94315c17366a9242d86c69d6d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-azure-monitor"></a>Prise en main d’Azure Monitor
-Azure Monitor est le service de plateforme qui fournit une source unique d’analyse des ressources Azure. Avec Azure Monitor, vous pouvez visualiser, interroger, acheminer, archiver et agir sur les mesures et journaux provenant des ressources dans Azure. Vous pouvez utiliser ces données à l’aide du portail Azure, des [applets de commande PowerShell Monitor](insights-powershell-samples.md), de [l’interface de ligne de commande multiplateforme](insights-cli-samples.md) ou des [API REST Azure Monitor](https://msdn.microsoft.com/library/dn931943.aspx). Dans cet article, nous étudions quelques composants clés d’Azure Monitor, en utilisant le portail pour une démonstration.
+Azure Monitor est le service de plateforme qui fournit une source unique d’analyse des ressources Azure. Azure Monitor permet de visualiser, d’interroger, de router et d’archiver les métriques et journaux provenant de ressources Azure, ainsi que d’entreprendre des actions sur ceux-ci. Vous pouvez utiliser ces données à l’aide du portail Azure, des [applets de commande PowerShell Monitor](insights-powershell-samples.md), de [l’interface de ligne de commande multiplateforme](insights-cli-samples.md) ou des [API REST Azure Monitor](https://msdn.microsoft.com/library/dn931943.aspx). Dans cet article, nous étudions quelques composants clés d’Azure Monitor, en utilisant le portail pour une démonstration.
 
 ## <a name="walkthrough"></a>Procédure pas à pas
 1. Dans le portail, accédez à **Tous les services** et recherchez l’option **Monitor**. Cliquez sur l’étoile pour ajouter cette option à votre liste de favoris afin qu’elle soit toujours facilement accessible à partir de la barre de navigation de gauche.
@@ -39,7 +39,7 @@ Azure Monitor est le service de plateforme qui fournit une source unique d’ana
     Le [**journal d’activité**](monitoring-overview-activity-logs.md) décrit toutes les opérations effectuées sur les ressources dans votre abonnement. Avec le journal d’activité, vous pouvez déterminer « qui, quand et quoi » pour toutes les opérations de création, de mise à jour ou de suppression sur des ressources dans votre abonnement. Par exemple, le journal d’activité vous indique lorsqu’une application web s’est arrêtée et qui l’a arrêtée. Les événements du journal d’activité sont stockés dans la plateforme et disponibles pour l’interrogation pendant 90 jours.
 
     Vous pouvez créer et enregistrer des requêtes pour les filtres courants, puis épingler les requêtes les plus importantes à un tableau de bord du portail pour que vous sachiez toujours si les événements qui répondent à vos critères se sont produits.
-4. Filtrez l’affichage sur un groupe de ressources particulier sur la semaine dernière, puis cliquez sur le bouton **Enregistrer** .
+4. Filtrez l’affichage sur un groupe de ressources particulier sur la semaine dernière, puis cliquez sur le bouton **Enregistrer** . Nommez votre requête. 
 
     ![Enregistrer la requête de journal d’activité](./media/monitoring-get-started/monitor-act-log-save.png)
 5. Maintenant, cliquez sur le **Épingler** .

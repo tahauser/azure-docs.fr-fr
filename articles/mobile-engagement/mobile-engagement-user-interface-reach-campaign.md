@@ -1,11 +1,11 @@
 ---
-title: "Interface utilisateur d'Azure Mobile Engagement - Campagne Reach"
-description: "Découvrez comment créer et gérer les campagnes de notifications Push à l'aide d'Azure Mobile Engagement"
+title: Interface utilisateur d'Azure Mobile Engagement - Campagne Reach
+description: Découvrez comment créer et gérer les campagnes de notifications Push à l'aide d'Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 2fe124a2-a86f-4136-81ba-a9d298ec798a
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: fc88db8db11d1ed12fa95c2087c9a32b21bf4de5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9d457a8d5f68f70f6bf7a5f086b5e1d65bd1ea95
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-create-and-manage-push-notification-campaigns"></a>Création et gestion des campagnes de notification Push
+> [!IMPORTANT]
+> Azure Mobile Engagement est hors service depuis le 31/03/2018. Cette page sera supprimée prochainement.
+> 
+
 Vous pouvez utiliser la section Reach de l'interface utilisateur pour créer une nouvelle campagne Push à l'aide d'une formule complexe en indiquant toutes les informations dont vous avez besoin pour envoyer une notification Push. Les options d'une campagne Push varient quelque peu selon les quatre types de campagne : Annonces, Sondages, Push de données et Vignettes (Windows Phone uniquement).
 
 ### <a name="option-applies-to"></a>L'option s'applique à :
@@ -124,7 +128,7 @@ Vous pouvez utiliser la section Contenu pour modifier le contenu de vos annonces
 
 ![Reach-Campaign5][24]
 
-## <a name="audience"></a>Public ciblé
+## <a name="audience"></a>Audience
 Utilisez la section Audience pour définir une liste d'éléments standard pour limiter votre campagne ou pour définir les limites de votre campagne en fonction des critères personnalisés. L'ensemble des options standard pour limiter votre audience vous permet d'envoyer des notifications Push aux nouveaux ou aux anciens utilisateurs, ou aux utilisateurs des Push natifs uniquement. Vous pouvez également définir un quota pour limiter le nombre d'utilisateurs recevant la notification Push. Vous pouvez modifier manuellement l'expression pour définir la façon dont votre campagne est filtrée afin d'inclure un ou plusieurs critères pour les utilisateurs cibles. Vous pouvez taper manuellement une expression d'audience. Ce type d'expression doit définir explicitement la relation entre les critères. Un critère est décrit par un identificateur qui doit commencer par une majuscule et ne peut pas contenir d'espace. La relation entre les critères peut être décrite à l'aide des opérateurs and, or, not (et, ou, pas) ainsi que '(', ')'. Exemple : « Critère1 ou (Critère1 sans Critère2) ».
 
 > [!NOTE]

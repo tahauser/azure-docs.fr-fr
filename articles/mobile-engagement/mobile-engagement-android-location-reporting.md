@@ -1,11 +1,11 @@
 ---
-title: "Génération de rapports d’emplacement pour le SDK Azure Mobile Engagement pour Android"
-description: "Décrit comment configurer la génération de rapports d’emplacement pour le SDK Azure Mobile Engagement pour Android"
+title: Génération de rapports d’emplacement pour le SDK Azure Mobile Engagement pour Android
+description: Décrit comment configurer la génération de rapports d’emplacement pour le SDK Azure Mobile Engagement pour Android
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 6cab5ed1-b767-46ac-9f0b-48a4e249d88c
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: 777d5719cce505b55dfb61c91dcac7e713b077a9
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 7978010bd92af18e3ab7c8ccab8dc682d7ef18df
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="location-reporting-for-azure-mobile-engagement-android-sdk"></a>Génération de rapports d’emplacement pour le SDK Azure Mobile Engagement pour Android
+> [!IMPORTANT]
+> Azure Mobile Engagement est hors service depuis le 31/03/2018. Cette page sera supprimée prochainement.
+> 
+
 > [!div class="op_single_selector"]
 > * [Android](mobile-engagement-android-integrate-engagement.md)
 > 
@@ -28,7 +32,8 @@ ms.lasthandoff: 12/21/2017
 
 Cette rubrique explique comment générer des rapports d’emplacement pour votre application Android.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
 
 ## <a name="location-reporting"></a>Rapports d'emplacement

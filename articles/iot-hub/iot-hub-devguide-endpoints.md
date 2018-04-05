@@ -1,11 +1,11 @@
 ---
-title: "Présentation des points de terminaison Azure IoT Hub | Microsoft Docs"
-description: "Guide du développeur – informations de référence sur les points de terminaison côté appareil et côté service IoT Hub."
+title: Présentation des points de terminaison Azure IoT Hub | Microsoft Docs
+description: Guide du développeur – informations de référence sur les points de terminaison côté appareil et côté service IoT Hub.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 57ba52ae-19c6-43e4-bc6c-d8a5c2476e95
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 54491d0ca1f515786af07146d83ef65fc7d46f11
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 17479fce776b0786e2fa32054eec8b0456871aae
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="reference---iot-hub-endpoints"></a>Référence - Points de terminaison IoT Hub
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## <a name="iot-hub-names"></a>Noms IoT Hub
 

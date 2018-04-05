@@ -1,6 +1,6 @@
 ---
-title: "Groupes de disponibilité SQL Server - Machines virtuelles Azure - Didacticiel | Microsoft Docs"
-description: "Ce didacticiel montre comment créer un groupe de disponibilité AlwaysOn SQL Server sur des machines virtuelles Azure."
+title: Groupes de disponibilité SQL Server - Machines virtuelles Azure - Didacticiel | Microsoft Docs
+description: Ce didacticiel montre comment créer un groupe de disponibilité AlwaysOn SQL Server sur des machines virtuelles Azure.
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 70e483f8b64648200bd6f0898a2877c2bf95e590
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: fe79c6e6344bef8f25ae2e343e3301959c4e0ae5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configurer manuellement des groupes de disponibilité AlwaysOn dans une machine virtuelle Azure
 
@@ -32,7 +32,8 @@ Ce schéma illustre ce que vous allez créer dans ce didacticiel.
 
 ![Groupe de disponibilité](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
+
 
 Ce didacticiel suppose que vous avez des notions de base sur les groupes de disponibilité AlwaysOn SQL Server. Pour plus d’informations, consultez [Vue d’ensemble des groupes de disponibilité AlwaysOn (SQL Server)](http://msdn.microsoft.com/library/ff877884.aspx).
 
@@ -356,7 +357,7 @@ Sur les machines virtuelles Azure, un groupe de disponibilité SQL Serveur requi
    | **Réseau virtuel** |Utilisez le nom de votre réseau virtuel Azure. |
    | **Sous-réseau** |Utilisez le nom du sous-réseau auquel appartient la machine virtuelle.  |
    | **Affectation d’adresses IP** |statique |
-   | **Adresse IP** |Utilisez une adresse disponible du sous-réseau. |
+   | **Adresse IP** |Utilisez une adresse disponible du sous-réseau. Notez que celle-ci diffère de l’adresse IP de votre cluster |
    | **Abonnement** |Utilisez le même abonnement que la machine virtuelle. |
    | **Lieu** |Utilisez le même emplacement que la machine virtuelle. |
 
@@ -376,7 +377,7 @@ Pour configurer l’équilibrage de charge, vous devez créer un pool principal 
 
 1. Cliquez sur l’équilibrage de charge, sur **Pools principaux**, puis sur **+Ajouter**. Configurez le pool principal comme suit :
 
-   | Paramètre | Description | exemples
+   | Paramètre | Description | Exemples
    | --- | --- |---
    | **Name** | Tapez un nom. | SQLLBBE
    | **Associé à** | Choisir dans la liste | Groupe à haute disponibilité
@@ -399,7 +400,7 @@ Pour configurer l’équilibrage de charge, vous devez créer un pool principal 
 
 1. Configurez la sonde d’intégrité comme suit :
 
-   | Paramètre | Description | exemples
+   | Paramètre | Description | Exemples
    | --- | --- |---
    | **Name** | Texte | SQLAlwaysOnEndPointProbe |
    | **Protocole** | Choisissez TCP. | TCP |
@@ -414,7 +415,7 @@ Pour configurer l’équilibrage de charge, vous devez créer un pool principal 
 1. Cliquez sur l’équilibrage de charge, sur **Règles d’équilibrage de charge** et sur **+Ajouter**.
 
 1. Configurez les règles d’équilibrage de charge comme suit :
-   | Paramètre | Description | exemples
+   | Paramètre | Description | Exemples
    | --- | --- |---
    | **Name** | Texte | SQLAlwaysOnEndPointListener |
    | **Frontend IP address (Adresse IP frontale)** | Choisissez une adresse. |Utilisez l’adresse que vous avez créée lorsque vous avez créé l’équilibrage de charge. |

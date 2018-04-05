@@ -25,10 +25,10 @@ Quand votre code charge des données à l’aide de Sources de données Azure Ma
 |---------|---------|---------|---------|---------|
 |Python local ;    |     Prise en charge    |Non pris en charge         | Non pris en charge        |         |
 |Python Docker (machine virtuelle Linux)     |Pris en charge dans les fichiers projet uniquement*         | Non pris en charge        |        Non pris en charge |         |
-|PySpark Docker (machine virtuelle Linux)     |Pris en charge dans les fichiers projet uniquement*     |Prise en charge         | Pris en charge \**        |         |
+|PySpark Docker (machine virtuelle Linux)     |Pris en charge dans les fichiers projet uniquement*     |Prise en charge         | Pris en charge \*\*        |         |
 |Azure Data Science Virtual Machine Python     |Pris en charge dans les fichiers projet uniquement*         |Non pris en charge         |Non pris en charge         |         |
 |Azure Data Science Virtual Machine PySPark     | Pris en charge dans les fichiers projet uniquement*        |Non pris en charge         |Non pris en charge         |         |
-|Azure HDInsight PySpark     | Non pris en charge        |Prise en charge         |Pris en charge \**         |         |
+|Azure HDInsight PySpark     | Non pris en charge        |Prise en charge         |Pris en charge \*\*         |         |
 |Azure HDInsight Python     | Non pris en charge        | Non pris en charge        | Non pris en charge        |         |
 
 À l’heure actuelle, Azure Data Lake Store n’est pris en charge pour aucune cible de calcul.

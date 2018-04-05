@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 5f42bee31e3bc1a23c9b0c6de9d6748e23c94713
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 401542bf61aa27138d26cce522e24078503b77e0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planification d’un déploiement Azure File Sync (préversion)
 Utilisez Azure File Sync (préversion) pour centraliser les partages de fichiers de votre organisation dans Azure Files, tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -160,9 +160,14 @@ Azure File Sync (préversion) est disponible uniquement dans les régions suivan
 |--------|---------------------|
 | Est de l’Australie | Nouvelle-Galles du Sud |
 | Centre du Canada | Toronto |
+| Centre des États-Unis | Iowa |
+| Est de l'Asie | Hong Kong |
 | Est des États-Unis | Virginie |
+| Est des États-Unis 2 | Virginie |
+| Europe du Nord | Irlande |
 | Asie du Sud-Est | Singapour |
 | Sud du Royaume-Uni | Londres |
+| Ouest du centre des États-Unis |
 | Europe de l'Ouest | Pays-bas |
 | États-Unis de l’Ouest | Californie |
 
@@ -172,6 +177,7 @@ La préversion prend en charge la synchronisation uniquement avec un partage de 
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
+* [Prenez en compte les paramètres de pare-feu et de proxy](storage-sync-files-firewall-and-proxy.md)
 * [Planification d’un déploiement Azure Files](storage-files-planning.md)
 * [Déployer Azure Files](storage-files-deployment-guide.md)
 * [Déployer Azure File Sync](storage-sync-files-deployment-guide.md)

@@ -1,12 +1,11 @@
 ---
-title: "Introduction aux fonctions de fenêtrage de Stream Analytics | Microsoft Docs"
-description: "Découvrez les trois fonctions de fenêtrage de Stream Analytics (bascule, récurrente, glissante)."
-keywords: "fenêtre bascule, fenêtre glissante, fenêtre récurrente"
-documentationcenter: 
+title: Introduction aux fonctions de fenêtrage de Stream Analytics | Microsoft Docs
+description: Découvrez les trois fonctions de fenêtrage de Stream Analytics (bascule, récurrente, glissante).
+keywords: fenêtre bascule, fenêtre glissante, fenêtre récurrente
+documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
+author: jseb225
+manager: ryanw
 ms.assetid: 0d8d8717-5d23-43f0-b475-af078ab4627d
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: 2a6559551f608cf435e89997392a6a0ba995c583
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: 3757834ff816fffc4571aeef8c164c2230c0f7c2
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="introduction-to-stream-analytics-window-functions"></a>Introduction aux fonctions de fenêtrage de Stream Analytics
 Dans de nombreux scénarios de diffusion en continu en temps réel, il est nécessaire de n’effectuer des opérations que sur les données contenues dans des fenêtres temporelles. La prise en charge native des fonctions de fenêtrage est une fonctionnalité essentielle d’Azure Stream Analytics qui déplace le curseur de productivité des développeurs dans la création de tâches complexes de traitement de flux. Stream Analytics permet aux développeurs d’utiliser des fenêtres [**bascules**](https://msdn.microsoft.com/library/dn835055.aspx), [**récurrentes**](https://msdn.microsoft.com/library/dn835041.aspx) et [**glissantes**](https://msdn.microsoft.com/library/dn835051.aspx) pour effectuer des opérations temporelles sur des données de diffusion en continu. Il est important de noter que tous les opérations de [fenêtrage](https://msdn.microsoft.com/library/dn835019.aspx) renvoient les résultats à la **fin** de la fenêtre. La sortie de la fenêtre sera un événement unique qui dépendra de la fonction d’agrégation utilisée. L’événement aura l’horodatage de la fin de la fenêtre ; toutes les fonctions de fenêtrage sont définies avec une longueur fixe. Enfin, il est important de noter que toutes les fonctions de fenêtrage doivent être utilisées dans une clause [**GROUP BY**](https://msdn.microsoft.com/library/dn835023.aspx).
@@ -47,7 +46,7 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 ## <a name="next-steps"></a>Étapes suivantes
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
 * [Prise en main d’Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
+* [Mise à l’échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

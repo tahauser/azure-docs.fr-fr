@@ -1,11 +1,11 @@
 ---
-title: "Génération de rapports avancés pour des applications Windows Universal avec Mobile Apps Engagement"
-description: "Intégration du module Azure Mobile Engagement avec des applications universelles Windows"
+title: Génération de rapports avancés pour des applications Windows Universal avec Mobile Apps Engagement
+description: Intégration du module Azure Mobile Engagement avec des applications universelles Windows
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: ea5030bf-73ac-49b7-bc3e-c25fc10e945a
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: feac309db1ffce0945012e293bfc1df417aed876
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 88d28bbc32179698147ab7516cc414fd23ed4bd6
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="advanced-reporting-with-the-windows-universal-apps-engagement-sdk"></a>Génération de rapports avancés avec le Kit de développement logiciel (SDK) des applications Windows Universal Engagement
+> [!IMPORTANT]
+> Azure Mobile Engagement est hors service depuis le 31/03/2018. Cette page sera supprimée prochainement.
+> 
+
 > [!div class="op_single_selector"]
 > * [Windows universel](mobile-engagement-windows-store-advanced-reporting.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
@@ -31,7 +35,8 @@ ms.lasthandoff: 12/21/2017
 
 Cette rubrique décrit des scénarios de génération de rapports supplémentaires dans votre application Windows Universal. Ces scénarios incluent des options que vous pouvez choisir d’intégrer à l’application créée dans le didacticiel [Prise en main](mobile-engagement-windows-store-dotnet-get-started.md) .
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
+
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-windows-store-prereqs.md)]
 
 Avant de commencer ce didacticiel, vous devez suivre le didacticiel [Prise en main](mobile-engagement-windows-store-dotnet-get-started.md) , qui est délibérément direct et simple. Ce didacticiel présente les options supplémentaires vous pouvez choisir.
@@ -52,7 +57,7 @@ Mais vous pouvez également le spécifier lors de l'exécution en appelant la m
 
 
 
-## <a name="recommended-method-overload-your-page-classes"></a>Méthode recommandée : surchargez vos classes `Page`
+## <a name="recommended-method-overload-your-page-classes"></a>Méthode recommandée : surchargez vos classes `Page`
 Pour activer la génération de tous les journaux requis par Engagement pour calculer les statistiques concernant les utilisateurs, les sessions, les activités, les incidents et les informations techniques, configurez toutes vos sous-classes `Page` de manière à ce qu'elles héritent des classes `EngagementPage`.
 
 Voici un exemple appliqué à une page de votre application. Vous pouvez faire la même chose pour toutes les pages de votre application.

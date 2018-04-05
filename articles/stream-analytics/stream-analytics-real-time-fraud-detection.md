@@ -1,12 +1,11 @@
 ---
-title: "Stream Analytics : détection des fraudes en temps réel | Microsoft Docs"
-description: "Apprenez à créer une solution de détection des fraudes en temps réel avec Stream Analytics. Utilisez un concentrateur d’événements pour le traitement des événements en temps réel."
-keywords: "détection des anomalies, détection des fraudes, détection d’anomalies en temps réel"
+title: 'Stream Analytics : détection des fraudes en temps réel | Microsoft Docs'
+description: Apprenez à créer une solution de détection des fraudes en temps réel avec Stream Analytics. Utilisez un concentrateur d’événements pour le traitement des événements en temps réel.
+keywords: détection des anomalies, détection des fraudes, détection d’anomalies en temps réel
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: SnehaGunda
-manager: jhubbard
-editor: cgronlun
+manager: kfile
 ms.assetid: c10dd53f-d17a-4268-a561-cb500a8c04eb
 ms.service: stream-analytics
 ms.devlang: na
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: sngun
-ms.openlocfilehash: a3b61b0eeef9ffc97b0cc06a8de44859e4d6db85
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a622b7851f52f65efe4450191c2cf65e73e816bc
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Prise en main de l’utilisation d’Azure Stream Analytics : détection des fraudes en temps réel
 
@@ -38,6 +37,7 @@ Dans ce didacticiel, nous utilisons l’exemple de détection des fraudes en tem
 Une société de télécommunication dispose d’un volume important de données pour les appels entrants. La société souhaite détecter les appels frauduleux en temps réel afin de pouvoir informer ses clients ou arrêter un service à partir d’un nombre donné. Un type de fraude à la carte SIM implique plusieurs appels simultanés provenant d’une même identité, mais à des emplacements géographiquement distincts. Pour détecter ce type de fraude, la société doit examiner les enregistrements téléphoniques entrants et rechercher des modèles spécifiques, dans ce cas précis, des appels passés en même temps dans différents pays. Tous les enregistrements téléphoniques qui s’inscrivent dans cette catégorie sont écrits dans l’espace de stockage en vue d’une analyse ultérieure.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Dans ce didacticiel, vous allez simuler des données d’appels téléphoniques à l’aide d’une application cliente générant un exemple de métadonnées d’appel téléphonique. Certains des enregistrements produits par l’application ressemblent à des appels frauduleux. 
 
@@ -58,8 +58,8 @@ Pour analyser un flux de données, *ingérez-le* dans Azure. Pour ingérer des d
 >[!NOTE]
 >Pour consulter une version plus détaillée de cette procédure, voir [Créer un espace de noms Event Hubs et un concentrateur d’événements avec le portail Azure](../event-hubs/event-hubs-create.md). 
 
-### <a name="create-a-namespace-and-event-hub"></a>Créer un espace de noms et un hub d’événements
-Dans cette procédure, vous allez commencer par créer un espace de noms Event Hub, puis ajouter un hub d’événements à cet espace de noms. Les espaces de noms Event Hub sont utilisés pour regrouper logiquement des instances de bus d’événements associées. 
+### <a name="create-a-namespace-and-event-hub"></a>Créer un concentrateur Event Hub et un espace de noms
+Dans cette procédure, vous allez commencer par créer un espace de noms Event Hub, puis ajouter un concentrateur Event Hub à cet espace de noms. Les espaces de noms Event Hub sont utilisés pour regrouper logiquement des instances Event Hub associées. 
 
 1. Connectez-vous au portail Azure, puis cliquez sur **Créer une ressource** > **Internet des objets** > **Hub d’événements**. 
 
@@ -73,28 +73,28 @@ Dans cette procédure, vous allez commencer par créer un espace de noms Event 
 
 5. Cliquez sur le nouvel espace de noms, puis, dans le volet d’espace de noms, cliquez sur **Hub d’événements**.
 
-    ![Bouton Ajouter un hub d’événements permettant de créer un hub d’événements ](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-button-new-portal.png)    
+    ![Bouton Ajouter un hub d’événements permettant de créer un concentrateur Event Hub ](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-button-new-portal.png)    
  
-6. Nommez le nouveau hub d’événements `sa-eh-frauddetection-demo`. Vous pouvez utiliser un autre nom. Le cas échéant, prenez-en note, car vous devrez l’utiliser ultérieurement. Pour le moment, vous n’avez pas besoin de définir d’autres options pour le hub d’événements.
+6. Nommez le nouveau concentrateur Event Hub `sa-eh-frauddetection-demo`. Vous pouvez utiliser un autre nom. Le cas échéant, prenez-en note, car vous devrez l’utiliser ultérieurement. Pour le moment, vous n’avez pas besoin de définir d’autres options pour le concentrateur Event Hub.
 
-    ![Panneau de création d’un hub d’événements](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png)
+    ![Panneau de création d’un concentrateur Event Hub](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png)
     
  
 7. Cliquez sur **Créer**.
-### <a name="grant-access-to-the-event-hub-and-get-a-connection-string"></a>Accorder l’accès au hub d’événements et obtenir une chaîne de connexion
+### <a name="grant-access-to-the-event-hub-and-get-a-connection-string"></a>Accorder l’accès au concentrateur Event Hub et obtenir une chaîne de connexion
 
-Pour qu’un processus puisse envoyer des données à un hub d’événements, ce hub doit disposer d’une stratégie autorisant un accès approprié. La stratégie d’accès génère une chaîne de connexion qui inclut des informations d’autorisation.
+Pour qu’un processus puisse envoyer des données à un concentrateur Event Hub, ce concentrateur doit disposer d’une stratégie autorisant un accès approprié. La stratégie d’accès génère une chaîne de connexion qui inclut des informations d’autorisation.
 
 1.  Dans le volet d’espace de noms, cliquez sur **Hubs d’événements**, puis sur le nom de votre nouvel hub d’événements.
 
 2.  Dans le volet de hub d’événements, cliquez sur **Stratégies d’accès partagé**, puis sur **+&nbsp;Ajouter**.
 
     >[!NOTE]
-    >Veillez à utiliser le hub d’événements et pas l’espace de noms Event Hub.
+    >Veillez à utiliser le concentrateur Event Hub et pas l’espace de noms Event Hub.
 
 3.  Ajoutez la stratégie nommée `sa-policy-manage-demo` et, pour **Revendication**, sélectionnez **Gérer**.
 
-    ![Panneau de création d’une stratégie d’accès au hub d’événements](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png)
+    ![Panneau de création d’une stratégie d’accès au concentrateur Event Hub](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png)
  
 4.  Cliquez sur **Créer**.
 
@@ -169,7 +169,7 @@ Maintenant que vous disposez d’un flux des événements d’appel, vous pouvez
 
 2. Nommez le travail `sa_frauddetection_job_demo`, puis spécifiez un abonnement, un groupe de ressources et un emplacement.
 
-    Il est judicieux de placer la tâche et le hub d’événements dans la même région afin d’optimiser les performances. Ce faisant, vous ne payez pas pour transférer des données entre les régions.
+    Il est judicieux de placer le travail et le concentrateur Event Hub dans la même région afin d’optimiser les performances. Ce faisant, vous ne payez pas pour transférer des données entre les régions.
 
     ![Créer un travail Stream Analytics](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-job-new-portal.png)
 
@@ -191,7 +191,7 @@ Maintenant que vous disposez d’un flux des événements d’appel, vous pouvez
     * **Source** : sélectionnez **Event Hub**.
     * **Option d’importation** : sélectionnez **Utiliser le hub d’événements de l’abonnement actuel**. 
     * **Espace de noms Service Bus** : sélectionnez l’espace de noms Event Hub que vous avez créé précédemment (`<yourname>-eh-ns-demo`).
-    * **Hub d’événements** : sélectionnez le hub d’événements que vous avez créé précédemment (`sa-eh-frauddetection-demo`).
+    * **Event Hub** : sélectionnez le concentrateur Event Hub que vous avez créé précédemment (`sa-eh-frauddetection-demo`).
     * **Nom de la stratégie du hub d’événements** : sélectionnez la stratégie d’accès que vous avez créée précédemment (`sa-policy-manage-demo`).
 
     ![Créer une entrée pour le travail Stream Analytics](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png)
@@ -210,7 +210,7 @@ Pour plus d’informations sur ce langage, consultez la page [Références sur l
 
 ### <a name="get-sample-data-for-testing-queries"></a>Obtenir des exemples de données pour tester des requêtes
 
-L’application TelcoGenerator envoie des enregistrements d’appels au hub d’événements, et votre travail Stream Analytics est configuré pour la lecture d’un hub d’événements. Vous pouvez utiliser une requête pour tester le travail afin de vous assurer qu’il lit correctement. Pour tester une requête dans la console Azure, vous avez besoin d’exemples de données. Pour cette procédure pas à pas, vous allez extraire des exemples de données à partir du flux entrant dans le hub d’événements.
+L’application TelcoGenerator envoie des enregistrements d’appels au concentrateur Event Hub, et votre travail Stream Analytics est configuré pour la lecture d’un concentrateur Event Hub. Vous pouvez utiliser une requête pour tester le travail afin de vous assurer qu’il lit correctement. Pour tester une requête dans la console Azure, vous avez besoin d’exemples de données. Pour cette procédure pas à pas, vous allez extraire des exemples de données à partir du flux entrant dans le concentrateur Event Hub.
 
 1. Assurez-vous que l’application TelcoGenerator s’exécute et qu’elle produit des enregistrements d’appels.
 2. Dans le portail, retournez dans le volet du travail Stream Analytics. (Si vous avez fermé le volet, recherchez `sa_frauddetection_job_demo` dans le volet **Toutes les ressources**.)
@@ -401,7 +401,7 @@ Toutefois, si vous en avez terminé et n’avez pas besoin des ressources que vo
 2. Arrêtez l’application TelcoGenerator. Dans la fenêtre de commande où vous avez démarré l’application, appuyez sur Ctrl+C.
 3. Si vous avez créé un compte de stockage d’objets blob pour ce didacticiel, supprimez-le. 
 4. Supprimez le travail Stream Analytics.
-5. Supprimez le hub d’événements.
+5. Supprimez le concentrateur Event Hub.
 6. Supprimez l’espace de noms Event Hub.
 
 ## <a name="get-support"></a>Obtenir de l’aide

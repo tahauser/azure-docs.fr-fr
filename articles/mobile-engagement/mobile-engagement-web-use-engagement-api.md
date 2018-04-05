@@ -1,11 +1,11 @@
 ---
 title: API du SDK web Azure Mobile Engagement | Microsoft Docs
-description: "Dernières mises à jour et procédures du Kit de développement logiciel (SDK) web pour Azure Mobile Engagement"
+description: Dernières mises à jour et procédures du Kit de développement logiciel (SDK) web pour Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8a87d5ac-d8b7-4a0d-bdee-414dbcc561b2
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: js
 ms.topic: article
 ms.date: 06/07/2016
 ms.author: piyushjo
-ms.openlocfilehash: 54c22ce6a03e382b1bbde102bccc97deec249b30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6d2ae75b384b60d0383c1682a00a4fc0d19d0f43
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="use-the-azure-mobile-engagement-api-in-a-web-application"></a>Utiliser l’API Azure Mobile Engagement dans une application web
+> [!IMPORTANT]
+> Azure Mobile Engagement est hors service depuis le 31/03/2018. Cette page sera supprimée prochainement.
+> 
+
 Ce document vient compléter celui vous décrivant comment [intégrer Mobile Engagement dans une application web](mobile-engagement-web-integrate-engagement.md). Il fournit des informations détaillées sur l’utilisation de l’API Azure Mobile Engagement pour signaler les statistiques de votre application.
 
 L’API Mobile Engagement est fournie par l’objet `engagement.agent` . L’alias du Kit de développement logiciel (SDK) web d’Azure Mobile Engagement par défaut est `engagement`. Vous pouvez redéfinir cet alias dans la configuration du Kit de développement logiciel (SDK).
@@ -110,7 +114,7 @@ Pour cela, utilisez `engagement.agent.sendError` au lieu de `engagement.agent.se
 ## <a name="reporting-jobs"></a>Rapports de travaux
 Les rapports de travaux couvrent les erreurs et les événements qui se produisent lors d’un travail, ainsi que les rapports d’incidents.
 
-**Exemple :**
+**Exemple :**
 
 Pour surveiller une requête AJAX, vous utilisez les éléments suivants :
 
@@ -128,7 +132,7 @@ Pour surveiller une requête AJAX, vous utilisez les éléments suivants :
 ### <a name="reporting-errors-during-a-job"></a>Signaler les erreurs lors d’un travail
 Les erreurs peuvent être associées à un travail en cours d’exécution plutôt qu’à la session utilisateur en cours.
 
-**Exemple :**
+**Exemple :**
 
 Pour signaler une erreur si une requête AJAX échoue :
 
@@ -164,15 +168,15 @@ Vous pouvez joindre des données arbitraires à un événement, une erreur, une 
 
 Les données peuvent être n’importe quel objet JSON (mais pas un tableau ou un type primitif).
 
-**Exemple :**
+**Exemple :**
 
     var extras = {"video_id": 123, "ref_click": "http://foobar.com/blog"};
     engagement.agent.sendEvent("video_clicked", extras);
 
-### <a name="limits"></a>Limites
+### <a name="limits"></a>limites
 Les limites qui s’appliquent aux paramètres supplémentaires se situent dans les zones des expressions régulières pour les clés, les types de valeur et la taille.
 
-#### <a name="keys"></a>de clés symétriques
+#### <a name="keys"></a>Clés
 Chaque clé de l'objet doit correspondre à l'expression régulière suivante :
 
     ^[a-zA-Z][a-zA-Z_0-9]*
@@ -192,17 +196,17 @@ Notez que ces informations peuvent être envoyées de façon incrémentielle. Se
 
 Comme pour les paramètres supplémentaires d’événement, vous pouvez utiliser n’importe quel objet JSON pour extraire des informations sur l’application. Notez que les tableaux ou les sous-objets sont traités comme des chaînes plates (à l’aide de la sérialisation JSON).
 
-**Exemple :**
+**Exemple :**
 
 Voici un exemple de code pour l’envoi du sexe et de la date de naissance de l’utilisateur :
 
     var appInfos = {"birthdate":"1983-12-07","gender":"female"};
     engagement.agent.sendAppInfo(appInfos);
 
-### <a name="limits"></a>Limites
+### <a name="limits"></a>limites
 Les limites qui s’appliquent aux informations sur l’application se situent dans les zones des expressions régulières pour les clés et la taille.
 
-#### <a name="keys"></a>de clés symétriques
+#### <a name="keys"></a>Clés
 Chaque clé de l'objet doit correspondre à l'expression régulière suivante :
 
     ^[a-zA-Z][a-zA-Z_0-9]*

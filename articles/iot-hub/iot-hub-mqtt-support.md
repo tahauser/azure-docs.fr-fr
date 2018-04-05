@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/05/2018
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d119cc4c4053a737e48739c17ae586abd51f3efa
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 23f98d4e9f711496480d5e02b4d5b23cd8abab0c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Communication avec votre IoT Hub à l’aide du protocole MQTT
 
@@ -27,6 +27,8 @@ Grâce à IoT Hub, les appareils peuvent communiquer avec les points de terminai
 
 * [MQTT v3.1.1] [ lnk-mqtt-org] sur le port 8883.
 * MQTT v3.1.1 sur WebSocket sur le port 443.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 Toutes les communications des appareils avec IoT Hub doivent être sécurisées à l’aide de TLS/SSL. Par conséquent, IoT Hub ne prend pas en charge les connexions non sécurisées sur le port 1883.
 

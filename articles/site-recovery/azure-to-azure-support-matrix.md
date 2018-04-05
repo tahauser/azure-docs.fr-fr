@@ -1,21 +1,21 @@
 ---
-title: "Matrice de support Azure Site Recovery pour la réplication Azure vers Azure | Microsoft Docs"
-description: "Fournit un récapitulatif des systèmes d’exploitation et des configurations pris en charge pour la réplication de machines virtuelles Azure Site Recovery d’une région à une autre à des fins de récupération d’urgence."
+title: Matrice de support Azure Site Recovery pour la réplication Azure vers Azure | Microsoft Docs
+description: Fournit un récapitulatif des systèmes d’exploitation et des configurations pris en charge pour la réplication de machines virtuelles Azure Site Recovery d’une région à une autre à des fins de récupération d’urgence.
 services: site-recovery
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 03/24/2018
 ms.author: sujayt
-ms.openlocfilehash: 4383286285f02bad1645344fab43f8b6bdb145cb
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 30ee269b3f484256001af211181a517821d79617
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Matrice de support Azure Site Recovery pour la réplication Azure vers Azure
+# <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matrice de support pour la réplication à partir d’une région Azure vers une autre
 
 
 >[!NOTE]
@@ -28,7 +28,7 @@ Cet article récapitule les composants et les configurations pris en charge pour
 
 **Interface utilisateur** |  **Prise en charge / Non prise en charge**
 --- | ---
-**Portail Azure** | Prise en charge
+**Portail Azure** | Prise en charge
 **Portail Classic** | Non pris en charge
 **PowerShell** | Non pris en charge pour le moment
 **API REST** | Non prise en charge pour le moment
@@ -133,7 +133,7 @@ Chine | Est de la Chine, Nord de la Chine
 
 **Configuration** | **Prise en charge/Non prise en charge** | **Remarques**
 --- | --- | ---
-Taille | N’importe quelle taille de machine virtuelle Azure avec au moins deux cœurs d’UC et 1 Go de RAM | Voir [Tailles de machine virtuelle Azure](../virtual-machines/windows/sizes.md).
+Taille | N’importe quelle taille de machine virtuelle Azure avec au moins 2 cœurs d’UC et 1 Go de RAM | Voir [Tailles de machine virtuelle Azure](../virtual-machines/windows/sizes.md).
 Groupes à haute disponibilité | Prise en charge | Si vous utilisez l’option par défaut pendant l’étape « Activation de la réplication » dans le portail, le groupe à haute disponibilité est créé automatiquement en fonction de la configuration de la région source. Vous pouvez changer le groupe à haute disponibilité cible à tout moment dans « Élément répliqué > Paramètres > Calcul et réseau > Groupe à haute disponibilité ».
 Machines virtuelles HUB (Hybrid Use Benefit) | Prise en charge | Si la machine virtuelle source a une licence HUB activée, la machine virtuelle de basculement ou de test de basculement utilise également la licence HUB.
 Groupes identiques de machines virtuelles  | Non pris en charge |
@@ -179,7 +179,7 @@ Interfaces réseau | Jusqu’à la quantité maximale de cartes réseau prises e
 Équilibreur de charge interne | Prise en charge | Vous devez associer l’équilibreur de charge préconfiguré de manière à l’aide d’un script d’automatisation Azure dans un plan de récupération.
 Adresse IP publique| Prise en charge | Vous devez associer une adresse IP publique existante à la carte réseau ou en créer une et l’associer à la carte réseau à l’aide d’un script d’automatisation Azure dans un plan de récupération.
 Groupe de sécurité réseau sur la carte réseau (Resource Manager)| Prise en charge | Vous devez associer le groupe de sécurité réseau à la carte réseau à l’aide d’un script d’automatisation Azure dans un plan de récupération.  
-Groupe de sécurité réseau sur le sous-réseau (Resource Manager et Classique)| Prise en charge | Vous devez associer le groupe de sécurité réseau à la carte réseau à l’aide d’un script d’automatisation Azure dans un plan de récupération.
+Groupe de sécurité réseau sur le sous-réseau (Resource Manager et Classique)| Prise en charge | Vous devez associer le groupe de sécurité réseau au sous-réseau à l’aide d’un script d’automatisation Azure dans un plan de récupération.
 Groupe de sécurité réseau sur la machine virtuelle (Classique)| Prise en charge | Vous devez associer le groupe de sécurité réseau à la carte réseau à l’aide d’un script d’automatisation Azure dans un plan de récupération.
 Adresse IP réservée (adresse IP statique) / Conserver l’adresse IP source | Prise en charge | Si la carte réseau sur la machine virtuelle source a une configuration IP statique et que le sous-réseau cible a la même adresse IP disponible, elle est affectée à la machine virtuelle de basculement. Si le sous-réseau cible n’a pas la même adresse IP disponible, l’une des adresses IP disponibles sur le sous-réseau est réservée à cette machine virtuelle. Vous pouvez spécifier l’adresse IP fixe de votre choix dans « Élément répliqué > Paramètres > Calcul et réseau > Interfaces réseau ». Vous pouvez sélectionner la carte réseau et spécifier le sous-réseau et l’adresse IP de votre choix.
 Adresse IP dynamique| Prise en charge | Si la carte réseau sur la machine virtuelle source a une configuration IP dynamique, la carte réseau sur la machine virtuelle de basculement est également dynamique par défaut. Vous pouvez spécifier l’adresse IP fixe de votre choix dans « Élément répliqué > Paramètres > Calcul et réseau > Interfaces réseau ». Vous pouvez sélectionner la carte réseau et spécifier le sous-réseau et l’adresse IP de votre choix.

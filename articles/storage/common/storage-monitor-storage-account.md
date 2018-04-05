@@ -1,8 +1,8 @@
 ---
-title: "Surveillance d’un compte de stockage Azure | Microsoft Docs"
-description: "Découvrez comment surveiller un compte de stockage dans Azure en utilisant le portail Azure."
+title: Surveillance d’un compte de stockage Azure | Microsoft Docs
+description: Découvrez comment surveiller un compte de stockage dans Azure en utilisant le portail Azure.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: tamram
-ms.openlocfilehash: 20cb425b64bfba06d64b3c6c41f9ef496395ad8e
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: ffc7d46bbfa4db47a47e416c395efdfc451cadc1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Surveillance d'un compte de stockage dans le portail Azure
 
@@ -28,8 +28,6 @@ ms.lasthandoff: 01/24/2018
 > L’analyse des données de surveillance dans le portail Azure occasionne des frais. Pour plus d'informations, consultez la page [Storage Analytics et facturation](/rest/api/storageservices/Storage-Analytics-and-Billing).
 >
 > Azure Files prend actuellement en charge les métriques de Storage Analytics, mais pas encore la journalisation.
->
-> Les comptes de stockage avec un type de réplication Stockage redondant dans une zone (ZRS) prennent en charge les mesures et la journalisation. Les comptes ZRS précédents, qui ont été renommés ZRS Classic, ne prennent pas en charge les mesures et la journalisation. Pour plus d’informations sur ZRS, consultez [Stockage redondant dans une zone](storage-redundancy.md#zone-redundant-storage). 
 > 
 > Pour obtenir un guide détaillé concernant l'utilisation de Storage Analytics et d'autres outils permettant d'analyser, de diagnostiquer et de résoudre les problèmes d'Azure Storage, consultez [Analyse, diagnostic et résolution des problèmes rencontrés sur Microsoft Azure Storage](../storage-monitoring-diagnosing-troubleshooting.md).
 >

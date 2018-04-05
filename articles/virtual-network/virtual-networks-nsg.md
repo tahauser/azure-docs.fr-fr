@@ -1,6 +1,6 @@
 ---
-title: "Groupes de sécurité réseau dans Azure | Microsoft Docs"
-description: "Découvrez comment isoler et contrôler le flux de trafic au sein des réseaux virtuels utilisant le pare-feu distribué dans Azure à l’aide des groupes de sécurité réseau."
+title: Groupes de sécurité réseau dans Azure | Microsoft Docs
+description: Découvrez comment isoler et contrôler le flux de trafic au sein des réseaux virtuels utilisant le pare-feu distribué dans Azure à l’aide des groupes de sécurité réseau.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: bd15b7786552d21c8791eeb307aa8c87066b2bcd
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: c38223674061aa8c257e47b6208f890b7aef378d
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Filtrer le trafic réseau avec les groupes de sécurité réseau
 
@@ -123,10 +123,10 @@ Vous pouvez implémenter des NSG dans les modèles de déploiement Resource Mana
 
 | Outil de déploiement | Classique | Gestionnaire de ressources |
 | --- | --- | --- |
-| Portail Azure   | Non  | [Oui](virtual-networks-create-nsg-arm-pportal.md) |
-| PowerShell     | [Oui](virtual-networks-create-nsg-classic-ps.md) | [Oui](virtual-networks-create-nsg-arm-ps.md) |
-| Azure CLI **V1**   | [Oui](virtual-networks-create-nsg-classic-cli.md) | [Oui](virtual-networks-create-nsg-arm-cli.md) |
-| Azure CLI **V2**   | Non  | [Oui](virtual-networks-create-nsg-arm-cli.md) |
+| Portail Azure   | OUI | [Oui](virtual-networks-create-nsg-arm-pportal.md) |
+| PowerShell     | [Oui](virtual-networks-create-nsg-classic-ps.md) | [Oui](tutorial-filter-network-traffic.md) |
+| Azure CLI **V1**   | [Oui](virtual-networks-create-nsg-classic-cli.md) | [Oui](tutorial-filter-network-traffic-cli.md) |
+| Azure CLI **V2**   | Non  | [Oui](tutorial-filter-network-traffic-cli.md) |
 | Modèle Azure Resource Manager   | Non   | [Oui](virtual-networks-create-nsg-arm-template.md) |
 
 ## <a name="planning"></a>Planification
