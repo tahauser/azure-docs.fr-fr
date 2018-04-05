@@ -1,6 +1,6 @@
 ---
 title: Comment restaurer un serveur dans Azure Database pour PostgreSQL
-description: "Cet article décrit comment restaurer un serveur Azure Database pour PostgreSQL à l’aide du portail Azure."
+description: Cet article décrit comment restaurer un serveur Azure Database pour PostgreSQL à l’aide du portail Azure.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -8,14 +8,14 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 7607a3e60eec39de61c785b8ff75a9f11fa02d0c
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 04/01/2018
+ms.openlocfilehash: 0d67bf5625ee9037c5ec152c8ce8564235018e8e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Comment sauvegarder et restaurer un serveur dans Azure Database pour PostgreSQL à l’aide du portail Azure
+# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Comment sauvegarder et restaurer un serveur Azure Database pour PostgreSQL à l’aide du portail Azure
 
 ## <a name="backup-happens-automatically"></a>La sauvegarde s’effectue automatiquement
 Les serveurs Azure Database pour PostgreSQL sont sauvegardés régulièrement pour activer les fonctionnalités de restauration. À l’aide de cette fonctionnalité, vous pouvez restaurer le serveur et toutes ses bases de données à un point dans le temps antérieur, sur un nouveau serveur.
@@ -45,7 +45,7 @@ Dans la capture d’écran ci-dessous, elle a été augmentée à 34 jours.
 
 La période de rétention de sauvegarde détermine jusqu’à quelle date une restauration à un point dans le temps peut être récupérée, dans la mesure où elle est basée sur les sauvegardes disponibles. La restauration à un point dans le temps est décrite plus loin dans la section suivante. 
 
-## <a name="point-in-time-restore-in-the-azure-portal"></a>Restauration à un point dans le temps dans le portail Azure
+## <a name="point-in-time-restore"></a>Limite de restauration dans le temps
 Azure Database pour PostgreSQL vous permet de restaurer le serveur à un point dans le temps et dans une nouvelle copie du serveur. Vous pouvez utiliser ce nouveau serveur pour récupérer vos données ou faire en sorte que vos applications client pointent vers ce nouveau serveur.
 
 Par exemple, si une table a été accidentellement supprimée à midi aujourd'hui, vous pourrez restaurer à l’heure juste avant midi et retrouver la table et les données manquantes à partir de cette nouvelle copie du serveur. La restauration à un point dans le temps est effectuée au niveau du serveur, pas au niveau de la base de données.
@@ -72,6 +72,22 @@ Les étapes suivantes restaurent l’exemple de serveur à un point dans le temp
 >[!Note]
 >Le serveur créé par la restauration à un point dans le temps a les mêmes nom de connexion administrateur de serveur et mot de passe qui étaient valides pour le serveur existant au point dans le temps choisi. Vous pouvez modifier le mot de passe sur la page **Vue d’ensemble** du nouveau serveur.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="geo-restore"></a>Restauration géographique
+Si vous avez configuré votre serveur pour les sauvegardes redondantes géographiquement, un serveur peut être créé à partir de la sauvegarde de ce serveur existant. Ce serveur peut être créé dans toutes les régions dans lesquelles Azure Database pour PostgreSQL est disponible.  
+
+1. Cliquez sur le bouton **Créer une ressource** (+) dans le coin supérieur gauche du portail. Sélectionnez **Bases de données** > **Azure Database pour PostgreSQL**.
+
+   ![L’option Azure Database pour PostgreSQL](./media/howto-restore-server-portal/1-navigate-to-postgres.png)
+
+2. Dans la liste déroulante **Sélectionner la source** du formulaire, choisissez **Sauvegarde**. Cette action charge une liste des serveurs pour lesquels les sauvegardes géoredondantes sont activées. Sélectionnez l’une de ces sauvegardes comme source pour votre nouveau serveur.
+   ![Sélectionner la source : sauvegarde et liste des sauvegardes géoredondantes](./media/howto-restore-server-portal/2-georestore.png)
+
+3. Renseignez le reste du formulaire avec vos préférences. Vous pouvez sélectionner n’importe quel **Emplacement**. Une fois l’emplacement sélectionné, vous pouvez sélectionner **Niveau tarifaire**. Par défaut, les paramètres du serveur existant à partir duquel vous effectuez la restauration sont affichés. Vous pouvez cliquer sur **OK** sans apporter de modifications pour hériter de ces paramètres. Sinon, vous pouvez modifier la **génération de calcul** (si disponible dans la région choisie), le nombre de **vCores**, la **période de rétention de sauvegarde** et **l’option de redondance de sauvegarde**. La modification du **niveau tarifaire** (De base, Usage général ou À mémoire optimisée) ou de la taille du**stockage** pendant la restauration n’est pas prise en charge.
+
+>[!Note]
+>Le serveur créé par la restauration géographique a les mêmes nom de connexion administrateur de serveur et mot de passe qui étaient valides pour le serveur existant au moment où la restauration a été initiée. Le mot de passe peut être modifié sur la page **Vue d’ensemble** du nouveau serveur.
+
+
+## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur les [sauvegardes](concepts-backup.md) du service.
 - En savoir plus sur les options de [continuité d’activité](concepts-business-continuity.md).

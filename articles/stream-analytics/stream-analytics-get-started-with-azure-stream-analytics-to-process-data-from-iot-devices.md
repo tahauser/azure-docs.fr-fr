@@ -1,12 +1,11 @@
 ---
-title: "Flux de données en temps réel IoT et Azure Stream Analytics | Microsoft Docs"
-description: "Flux de données et balises de capteur IoT avec analyses de flux et traitement des données en temps réel"
-keywords: "solution IoT, prise en main d’IoT"
+title: Flux de données en temps réel IoT et Azure Stream Analytics | Microsoft Docs
+description: Flux de données et balises de capteur IoT avec analyses de flux et traitement des données en temps réel
+keywords: solution IoT, prise en main d’IoT
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: SnehaGunda
-manager: jhubbard
-editor: cgronlun
+manager: ryanw
 ms.assetid: 3e829055-75ed-469f-91f5-f0dc95046bdb
 ms.service: stream-analytics
 ms.devlang: na
@@ -15,16 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: sngun
-ms.openlocfilehash: a4b2fda6c5cc5ea341618ec5fa8638a5c887bf84
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 52b05d4daf75d81402d7c72cd05f3819a3456171
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Prendre en main Azure Stream Analytics pour traiter des données à partir d’appareils IoT
 Dans ce didacticiel, vous allez apprendre à créer une logique de traitement de flux pour collecter des données à partir d’appareils IoT (Internet des objets). Nous allons recourir à un cas d’utilisation réel de l’IoT pour vous montrer comment générer votre solution rapidement et à moindre coût.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
+
 * [Abonnement Azure](https://azure.microsoft.com/pricing/free-trial/)
 * Exemples de fichiers de requête et de données téléchargeables à partir de [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot)
 

@@ -141,13 +141,15 @@
       href: sql-data-warehouse-troubleshoot.md
 - name: Procédures
   items:
-    - name: Fonctionnalités du service
+    - name: Mise à niveau
+      href: upgrade-to-latest-generation.md
+    - name: Restore
       items:
-        - name: Restaurer un entrepôt de données - portail
+        - name: Portail
           href: sql-data-warehouse-restore-database-portal.md
-        - name: Restaurer un entrepôt de données - PowerShell
+        - name: PowerShell
           href: sql-data-warehouse-restore-database-powershell.md
-        - name: Restaurer un entrepôt de données - API REST
+        - name: API REST
           href: sql-data-warehouse-restore-database-rest-api.md
     - name: Sécurité
       items:

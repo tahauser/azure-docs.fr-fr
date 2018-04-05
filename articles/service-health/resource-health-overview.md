@@ -1,11 +1,11 @@
 ---
-title: "Présentation d’Azure Resource Health | Microsoft Docs"
-description: "Vue d’ensemble d’Azure Resource Health"
+title: Présentation d’Azure Resource Health | Microsoft Docs
+description: Vue d’ensemble d’Azure Resource Health
 services: Resource health
-documentationcenter: 
+documentationcenter: ''
 author: shawntabrizi
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
 ms.service: service-health
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/01/2017
 ms.author: shawn.tabrizi
-ms.openlocfilehash: 50a173a3d3a10ed59492b4a1d64173913f331639
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 661faf8560295dd037364f9509d21719362ae727
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-resource-health-overview"></a>Vue d’ensemble d’Azure Resource Health
  
@@ -77,7 +77,7 @@ Si vous pensez que l’état d’intégrité actuel est incorrect, vous pouvez n
 ![Zone pour l’envoi d’informations sur un état incorrect](./media/resource-health-overview/incorrect-status.png)
 
 ## <a name="historical-information"></a>Informations d’historique
-Vous pouvez accéder jusqu’à 14 jours d’historique d’intégrité en sélectionnant **Afficher l’historique** dans Resource Health. 
+Vous pouvez accéder jusqu’à 14 jours d’historique d’intégrité dans la section **Historique des états** de Resource Health. 
 
 ![Liste des événements Resource Health sur les deux dernières semaines](./media/resource-health-overview/history-blade.png)
 
@@ -93,7 +93,7 @@ Vous pouvez également accéder à Resource Health en sélectionnant **Tous les 
 
 ![Ouverture de Resource Health à partir de « Tous les services »](./media/resource-health-overview/FromOtherServices.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur Resource Health, consultez les ressources suivantes :
 -  [Types de ressources et les contrôles d’intégrité dans Azure Resource Health](resource-health-checks-resource-types.md)

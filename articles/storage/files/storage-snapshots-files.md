@@ -1,6 +1,6 @@
 ---
-title: "Vue d’ensemble des instantanés de partage pour Azure Files (préversion) | Microsoft Docs"
-description: "Un instantané de partage est une version en lecture seule d’un partage Azure Files enregistrée à un point dans le temps pour sauvegarder le partage."
+title: Vue d’ensemble des instantanés de partage pour Azure Files (préversion) | Microsoft Docs
+description: Un instantané de partage est une version en lecture seule d’un partage Azure Files enregistrée à un point dans le temps pour sauvegarder le partage.
 services: storage
 documentationcenter: .net
 author: RenaShahMSFT
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: c309804f33fc0e5b2091e18dfe5fe3c9849a2709
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 671e3737a620d85c732a091d5a62f35f35c1d515
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="overview-of-share-snapshots-for-azure-files-preview"></a>Vue d’ensemble des instantanés de partage pour Azure Files (préversion)
-Azure Files vous permet de prendre des instantanés de partages de fichiers. Les instantanés de partage (préversion) capturent l’état d’un partage à ce point dans le temps. Dans cet article, nous décrivons les fonctionnalités fournies par les instantanés de partage et comment vous pouvez en tirer parti dans votre propre cas d’usage.
+# <a name="overview-of-share-snapshots-for-azure-files"></a>Vue d’ensemble des instantanés de partage pour Azure Files 
+Azure Files vous permet de prendre des instantanés de partages de fichiers. Les instantanés de partage capturent l’état d’un partage à ce point dans le temps. Dans cet article, nous décrivons les fonctionnalités fournies par les instantanés de partage et comment vous pouvez en tirer parti dans votre propre cas d’usage.
 
 
 ## <a name="when-to-use-share-snapshots"></a>Quand utiliser les instantanés de partage
@@ -48,7 +48,7 @@ Une fois créé, un instantané de partage peut être lu, copié ou supprimé, m
 
 La fonctionnalité d’instantané de partage est fournie au niveau du partage de fichiers. La récupération est fournie au niveau des fichiers individuels pour permettre la restauration de fichiers spécifiques. Vous pouvez restaurer un partage de fichier complet à l’aide de SMB, de l’API REST, du portail, de la bibliothèque cliente ou des outils PowerShell/CLI.
 
-Un instantané d’un partage d’un partage de fichiers est identique au partage de fichiers de base, à ceci près que l’URI du partage présente une valeur **DateTime** à la fin qui indique l’heure à laquelle l’instantané de partage a été pris. Par exemple, si l’URI d’un partage de fichiers est http://storagesample.core.file.windows.net/myshare, l’URI de l’instantané de partage ressemble à ce qui suit :
+Un instantané d’un partage d’un partage de fichiers est identique au partage de fichiers de base, à ceci près que l’URI du partage présente une valeur **DateTime** à la fin qui indique l’heure à laquelle l’instantané de partage a été pris. Par exemple, si l’URI d’un partage de fichiers est http://storagesample.core.file.windows.net/myshare, l’URI de l’instantané de partage est similaire à ceci :
 ```
 http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
@@ -98,5 +98,5 @@ Les instantanés de partage assurent uniquement une protection au niveau des fic
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Utiliser des instantanés de partage](storage-how-to-use-files-snapshots.md)
-* [Forum aux questions sur les instantanés de partage](storage-files-faq.md)
+* [Forum aux questions sur les instantanés de partage](storage-files-faq.md#share-snapshots)
 

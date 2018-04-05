@@ -1,12 +1,11 @@
 ---
-title: "Connexion de données : entrées de flux de données issues d’un flux d’événements | Microsoft Docs"
-description: "En savoir plus sur la configuration d’une connexion de données à Stream Analytics nommée « entrées ». Les données incluent un flux de données de partir d’événements et également des données de référence."
-keywords: "flux de données, connexion de données, flux d’événements"
+title: 'Connexion de données : entrées de flux de données issues d’un flux d’événements | Microsoft Docs'
+description: En savoir plus sur la configuration d’une connexion de données à Stream Analytics nommée « entrées ». Les données incluent un flux de données de partir d’événements et également des données de référence.
+keywords: flux de données, connexion de données, flux d’événements
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-editor: cgronlun
 ms.assetid: 8155823c-9dd8-4a6b-8393-34452d299b68
 ms.service: stream-analytics
 ms.devlang: na
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/11/2017
 ms.author: sngun
-ms.openlocfilehash: e8b55269e861dc010c911491d52973b674dd50ca
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 0ddc3187e9fc0664838dd07f781f4d7e2e4a7fe0
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Connexion de données : en savoir plus sur les entrées de flux de données pour Stream Analytics
 La connexion de données à un travail Stream Analytics est un flux d’événements provenant d’une source de données, qui est appelée *entrée* du travail. Stream Analytics propose une intégration de pointe aux sources de flux de données Azure, notamment [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) et le [stockage Blob Azure](https://azure.microsoft.com/services/storage/blobs/). Ces sources d’entrée peuvent provenir du même abonnement Azure que votre travail d’analyse ou d’un autre abonnement.
@@ -151,7 +150,7 @@ Le tableau suivant décrit chaque propriété du panneau **Nouvelle entrée** du
 | **Clé du compte de stockage** | Clé secrète associée au compte de stockage. |
 | **Conteneur** | Conteneur pour les entrées d’objets blob. Les conteneurs fournissent un regroupement logique des objets blob stockés dans le service d’objets blob Microsoft Azure. Lorsque vous chargez un objet blob dans le service de stockage Blob Azure, vous devez spécifier un conteneur pour cet objet blob. |
 | **Modèle de chemin d’accès** (facultatif) | Chemin d’accès au fichier utilisé pour localiser les objets blob dans le conteneur spécifié. Dans le chemin d’accès, vous pouvez spécifier une ou plusieurs instances de l’une des trois variables suivantes : `{date}`, `{time}` ou `{partition}`<br/><br/>Exemple 1 : `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Exemple 2 : `cluster1/logs/{date}`<br/><br/>Le caractère `*` n’est pas une valeur autorisée pour le préfixe du chemin d’accès. Seuls les <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">caractères d’objet blob Azure</a> valides sont autorisés. |
-| **Format de date** (facultatif) | Format de date suivant lequel les fichiers sont organisés si vous utilisez la variable de date dans le chemin d’accès. Exemple : `YYYY/MM/DD` |
+| **Format de date** (facultatif) | Format de date suivant lequel les fichiers sont organisés si vous utilisez la variable de date dans le chemin d’accès. Exemple : `YYYY/MM/DD` |
 | **Format d’heure** (facultatif) |  Format d’heure suivant lequel les fichiers sont organisés si vous utilisez la variable d’heure dans le chemin d’accès. Actuellement, la seule valeur prise en charge est `HH`. |
 | **Format de sérialisation de l’événement** | Format de sérialisation (JSON, CSV ou Avro) des flux de données entrants. |
 | **Encodage** | Pour CSV et JSON, UTF-8 est le seul format d’encodage actuellement pris en charge. |
@@ -176,14 +175,14 @@ SELECT
 FROM Input
 ````
 
-## <a name="get-help"></a>Obtenir de l'aide
+## <a name="get-help"></a>Obtenir de l’aide
 Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous avez appris à connaître les options de connexion de données dans Azure pour vos travaux Stream Analytics. Pour en savoir plus sur Stream Analytics, consultez :
 
 * [Prise en main d'Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
+* [Mise à l’échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

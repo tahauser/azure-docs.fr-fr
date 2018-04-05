@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/16/2018
 ms.author: billmath
-ms.openlocfilehash: 0c6a0c43eb7d0187120c3264f1f439af66d73978
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 8bae1140d4a3ac4762bdcbabb16851d29415a8fe
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect : historique de publication des versions
 L’équipe Azure Active Directory (Azure AD) met régulièrement à jour Azure AD Connect avec de nouvelles fonctions et fonctionnalités. Tous les ajouts ne sont pas applicables à toutes les configurations.
@@ -37,9 +37,13 @@ Autorisations requises | Pour plus d’informations sur les autorisations requis
 Télécharger| [Télécharger Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
 ## <a name="117500"></a>1.1.750.0
-État : publié pour certains clients. Cette version est actuellement distribuée à une petite sélection aléatoire de locataires AAD Connect qui ont activé la mise à niveau automatique. Nous augmenterons ce groupe de locataires dans les semaines à venir jusqu’à ce que 100 % de nos clients de mise à niveau automatique aient reçu cette version. Ensuite, nous publierons la version accessible au téléchargement général dans le lien de téléchargement ci-dessus.
+État 22/3/2018 : publié pour la mise à niveau automatique et le téléchargement.
 >[!NOTE]
 >Lorsque la mise à niveau vers cette nouvelle version s’exécute, elle déclenche automatiquement une synchronisation complète et une importation intégrale pour le Connecteur Azure AD, ainsi qu’une synchronisation complète pour le Connecteur AD. Selon la taille de l’environnement Azure AD Connect, cette opération peut prendre un certain temps ; veillez à prendre les mesures nécessaires pour qu’elle ne gêne pas vos activités, ou différez la mise à niveau jusqu’au moment opportun.
+
+>[!NOTE]
+>« La fonctionnalité de mise à niveau automatique a été erronément désactivée pour certains clients ayant déployé des builds postérieures à la build 1.1.524.0. Pour vous assurer que votre instance Azure AD Connect est éligible pour la mise à niveau automatique, exécutez l’applet de commande PowerShell suivante : « Set-ADSyncAutoUpgrade -AutoupGradeState Enabled »
+
 
 ### <a name="azure-ad-connect"></a>Azure AD Connect
 #### <a name="fixed-issues"></a>Problèmes résolus

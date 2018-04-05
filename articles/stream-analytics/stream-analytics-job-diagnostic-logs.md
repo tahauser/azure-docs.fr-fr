@@ -1,25 +1,24 @@
 ---
-title: "Résoudre les problèmes liés à Azure Stream Analytics à l’aide des journaux de diagnostic | Microsoft Docs"
-description: "Découvrez comment analyser les journaux de diagnostic à partir de travaux Stream Analytics dans Microsoft Azure."
-keywords: 
-documentationcenter: 
+title: Résoudre les problèmes liés à Azure Stream Analytics à l’aide des journaux de diagnostic | Microsoft Docs
+description: Découvrez comment analyser les journaux de diagnostic à partir de travaux Stream Analytics dans Microsoft Azure.
+keywords: ''
+documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 
+author: jseb225
+manager: ryanw
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
-ms.author: samacha
-ms.openlocfilehash: c9772df2c216d465ca6e90e69bce011969dd4f02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: 164d522d7beaea222dbc408765877fa67a34c203
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Résoudre les problèmes liés à Azure Stream Analytics à l’aide des journaux de diagnostic
 
@@ -77,14 +76,14 @@ Deux catégories de journaux de diagnostic sont actuellement disponibles :
 
 Tous les journaux sont stockés au format JSON. Chaque entrée comprend les champs de chaîne courants suivants :
 
-Nom | Description
+NOM | Description
 ------- | -------
 time | L’horodatage (heure UTC) du journal.
-resourceId | L’ID de la ressource sur laquelle l’opération a eu lieu, en majuscules. Comprend l’ID d’abonnement, le groupe de ressources et le nom du travail. Par exemple, **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
+ResourceId | L’ID de la ressource sur laquelle l’opération a eu lieu, en majuscules. Comprend l’ID d’abonnement, le groupe de ressources et le nom du travail. Par exemple, **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
 category | La catégorie de journal, **Exécution** ou **Création**.
 operationName | Le nom de l’opération qui est journalisée. Par exemple, **Événements d’envoi : Échec d’écriture de la sortie SQL sur mysqloutput**.
 status | État de l’opération. Par exemple, **Échec** ou **Réussite**.
-minimal | Le niveau du journal. Par exemple, **Erreur**, **Avertissement** ou **Informations**.
+level | Le niveau du journal. Par exemple, **Erreur**, **Avertissement** ou **Informations**.
 properties | Détail spécifique de l’entrée du journal, sérialisé comme chaîne JSON. Pour plus d’informations, consultez les sections suivantes.
 
 ### <a name="execution-log-properties-schema"></a>Schéma de propriétés des journaux d’exécution
@@ -95,11 +94,11 @@ Les journaux d’exécution contiennent des informations sur les événements qu
 
 Toute erreur qui se produit lorsque le travail traite des données est consignée dans cette catégorie de journaux. La plupart du temps, ces journaux sont créés au cours des opérations de lecture, de sérialisation et d’écriture des données. Ces journaux n’incluent pas les erreurs de connectivité. Les erreurs de connectivité sont traitées comme des événements génériques.
 
-Nom | Description
+NOM | Description
 ------- | -------
 Source | Nom de l’entrée ou de la sortie du travail où l’erreur s’est produite.
 Message | Message associé à l’erreur.
-Type | Le type d’erreur. Par exemple, **DataConversionError**, **CsvParserError** ou **ServiceBusPropertyColumnMissingError**.
+type | Le type d’erreur. Par exemple, **DataConversionError**, **CsvParserError** ou **ServiceBusPropertyColumnMissingError**.
 Données | Contient des données utiles pour localiser avec précision la source de l’erreur. Troncation possible en fonction de la taille.
 
 En fonction de la valeur **operationName**, les erreurs de données ont le schéma suivant :
@@ -112,11 +111,11 @@ En fonction de la valeur **operationName**, les erreurs de données ont le sché
 
 Les événements génériques couvrent tout le reste.
 
-Nom | Description
+NOM | Description
 -------- | --------
 Error | (facultatif) Informations sur l’erreur, en général des informations sur l’exception si celles-ci sont disponibles.
 Message| Message de journal.
-Type | Type de message, correspond à la catégorisation interne des erreurs. Par exemple, **JobValidationError** ou **BlobOutputAdapterInitializationFailure**.
+type | Type de message, correspond à la catégorisation interne des erreurs. Par exemple, **JobValidationError** ou **BlobOutputAdapterInitializationFailure**.
 ID de corrélation : | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) qui identifie de façon unique l’exécution du travail. Toutes les entrées du journal d’exécution générées depuis le démarrage du travail jusqu’à son arrêt ont le même **ID de corrélation**.
 
 ## <a name="next-steps"></a>Étapes suivantes

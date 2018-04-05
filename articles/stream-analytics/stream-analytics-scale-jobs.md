@@ -1,12 +1,11 @@
 ---
-title: "Mettre à l’échelle des travaux Stream Analytics pour augmenter le débit | Microsoft Docs"
-description: "Découvrez comment mettre à l’échelle des travaux Stream Analytics en configurant des partitions d’entrée, en réglant la définition de requête et en configurant les unités de diffusion en continu d’un travail."
-keywords: "diffusion en continu de données, traitement de données de diffusion en continu, régler l’analyse"
+title: Mettre à l’échelle des travaux Stream Analytics pour augmenter le débit | Microsoft Docs
+description: Découvrez comment mettre à l’échelle des travaux Stream Analytics en configurant des partitions d’entrée, en réglant la définition de requête et en configurant les unités de diffusion en continu d’un travail.
+keywords: diffusion en continu de données, traitement de données de diffusion en continu, régler l’analyse
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: JSeb225
-manager: jhubbard
-editor: cgronlun
+manager: ryanw
 ms.assetid: 7e857ddb-71dd-4537-b7ab-4524335d7b35
 ms.service: stream-analytics
 ms.devlang: na
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/22/2017
 ms.author: jeanb
-ms.openlocfilehash: 781a3b71c35cb48e40202e3b1acc8edbbaf865c4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2e0487a9e4cd6346312c6817ef2768556cba72ba
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="scale-azure-stream-analytics-jobs-to-increase--throughput"></a>Mettre à l’échelle des travaux Azure Stream Analytics pour augmenter le débit
 Cet article vous indique comment régler une requête Stream Analytics pour augmenter le débit des travaux Stream Analytics. Vous pouvez utiliser le guide suivant pour mettre à l’échelle votre travail afin de gérer une charge plus élevée et de bénéficier de davantage de ressources système (par exemple, plus de bande passante, de ressources processeur, de mémoire).

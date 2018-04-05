@@ -1,11 +1,11 @@
 ---
-title: "Interface utilisateur d'Azure Mobile Engagement - Analyses"
-description: "En savoir plus sur l’analyse des données historiques de votre application avec Azure Mobile Engagement"
+title: Interface utilisateur d'Azure Mobile Engagement - Analyses
+description: En savoir plus sur l’analyse des données historiques de votre application avec Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 6b2533ac-b8ec-4e35-872c-d563895bdc0c
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: ad05676919d6c254d60fd010c3f589f663c4745d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fceae1ffff40fc525170121181e21726fe2bd3f7
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-analyze-historical-data-about-your-application"></a>Analyse des données historiques de votre application
+> [!IMPORTANT]
+> Azure Mobile Engagement est hors service depuis le 31/03/2018. Cette page sera supprimée prochainement.
+> 
+
 Cet article décrit l’onglet **ANALYTICS** du portail **Mobile Engagement**. Le portail **Mobile Engagement** sert à surveiller et à gérer vos applications mobiles. Notez que pour utiliser le portail, vous devez tout d’abord créer un compte **Azure Mobile Engagement** .
 
 La section Analyses de l'interface utilisateur fournit des informations globales sur votre application basées sur des données historiques qui sont mises à jour toutes les 24 heures. Les informations sont affichées sur différents tableaux de bord composés de graphiques linéaires/à barres/en secteurs, de grilles et de cartes. Les données peuvent également être téléchargées sous forme de fichiers .csv. La plupart de ces mêmes informations sont disponibles en temps réel dans la section Écran de l'interface utilisateur, et peuvent également être consultées à partir de l'API Analyses.

@@ -1,24 +1,24 @@
 ---
-title: "Utilisation du point de terminaison privilégié dans Azure Stack | Microsoft Docs"
-description: "Montre comment utiliser le point de terminaison privilégié dans Azure Stack (pour un opérateur Azure Stack)."
+title: Utilisation du point de terminaison privilégié dans Azure Stack | Microsoft Docs
+description: Montre comment utiliser le point de terminaison privilégié dans Azure Stack (pour un opérateur Azure Stack).
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: e94775d5-d473-4c03-9f4e-ae2eada67c6c
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
+ms.date: 03/22/2018
 ms.author: mabrigg
-ms.openlocfilehash: 29ac4517ec691f94f24ced81ca227cd4d1e7214e
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: fb4dea9832e781b2ec9f4cfa573b5a4f630188db
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Utilisation du point de terminaison privilégié dans Azure Stack
 
@@ -74,7 +74,7 @@ Nous vous recommandons de vous connecter au point de terminaison privilégié un
       ```` 
    Quand vous y êtes invité, utilisez les informations d’identification suivantes :
 
-      - **Nom d’utilisateur** : spécifiez le compte CloudAdmin, au format **&lt;*domaine Azure Stack*&gt;\cloudadmin**. (Pour le Kit ASDK, le nom d’utilisateur est **azurestack\cloudadmin**.)
+      - **Nom d’utilisateur** : spécifiez le compte CloudAdmin, au format **&lt;*domaine Azure Stack*&gt;\nomcompte**. (pour le Kit ASDK, le nom d’utilisateur est **azurestack\nomcompte**). 
       - **Mot de passe** : entrez le mot de passe fourni pendant l’installation pour le compte d’administrateur de domaine AzureStackAdmin.
     
 3.  Après vous être connecté, l’invite devient **[*adresse IP ou nom de machine virtuelle ERCS*]: PS>** ou **[azs-ercs01]: PS>**, en fonction de l’environnement. Depuis cette invite, exécutez `Get-Command` pour afficher la liste des applets de commande disponibles.
@@ -143,7 +143,7 @@ Pour importer la session du point de terminaison privilégié sur votre ordinate
       ```` 
    Quand vous y êtes invité, utilisez les informations d’identification suivantes :
 
-      - **Nom d’utilisateur** : spécifiez le compte CloudAdmin, au format **&lt;*domaine Azure Stack*&gt;\cloudadmin**. (Pour le Kit ASDK, le nom d’utilisateur est **azurestack\cloudadmin**.)
+      - **Nom d’utilisateur** : spécifiez le compte CloudAdmin, au format **&lt;*domaine Azure Stack*&gt;\nomcompte**. (pour le Kit ASDK, le nom d’utilisateur est **azurestack\nomcompte**). 
       - **Mot de passe** : entrez le mot de passe fourni pendant l’installation pour le compte d’administrateur de domaine AzureStackAdmin.
 
 3. Importer la session du point de terminaison privilégié dans votre ordinateur local

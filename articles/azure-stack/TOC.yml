@@ -6,14 +6,14 @@
       href: azure-stack-poc.md
     - name: Notes de publication
       items:
+        - name: "mise à jour\_1803"
+          href: azure-stack-update-1803.md
         - name: "mise à jour\_1802"
           href: azure-stack-update-1802.md
         - name: mise à jour 1712
           href: azure-stack-update-1712.md
         - name: mise à jour 1711
           href: azure-stack-update-1711.md
-        - name: mise à jour 1710
-          href: azure-stack-update-1710.md
 - name: Démarrages rapides
   expanded: true
   items:
@@ -58,9 +58,9 @@
             - name: Obtenir des certificats PKI Azure Stack
               href: azure-stack-get-pki-certs.md
             - name: Préparer des certificats PKI Azure Stack
-              href: prepare-pki-certs.md
+              href: azure-stack-prepare-pki-certs.md
             - name: Valider des certificats PKI Azure Stack
-              href: validate-pki-certs.md
+              href: azure-stack-validate-pki-certs.md
         - name: Intégration des identités
           href: azure-stack-integrate-identity.md
         - name: Surveillance externe

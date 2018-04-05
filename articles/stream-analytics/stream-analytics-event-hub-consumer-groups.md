@@ -1,25 +1,24 @@
 ---
-title: "Déboguer Azure Stream Analytics avec des destinataires de hub d’événement | Microsoft Docs"
-description: "Meilleures pratiques pour considérer les groupes de consommateurs Event Hubs dans Stream Analytics."
-keywords: "limite de hub d’événement, groupe de consommateurs"
+title: Déboguer Azure Stream Analytics avec des destinataires de hub d’événement | Microsoft Docs
+description: Meilleures pratiques pour considérer les groupes de consommateurs Event Hubs dans Stream Analytics.
+keywords: limite de hub d’événement, groupe de consommateurs
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 
+documentationcenter: ''
+author: jseb225
+manager: ryanw
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
-ms.author: samacha
-ms.openlocfilehash: ede3137de92e251f4ad020bc1ce3f041918242b2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: 48fa5d0274549aa35e67526a758eef1f34198a6a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="debug-azure-stream-analytics-with-event-hub-receivers"></a>Déboguer Azure Stream Analytics avec des destinataires de hub d’événement
 
@@ -60,9 +59,9 @@ FROM inputEventHub
 Utilisez cette requête :
 
 ```
-WITH input (
+WITH data AS (
    SELECT * FROM inputEventHub
-) as data
+)
 
 SELECT foo
 INTO output1
@@ -79,7 +78,7 @@ FROM data
 Pour les requêtes dans lesquelles au moins trois entrées sont connectées au même groupe de consommateurs Event Hubs, créez des groupes de consommateurs distincts. Vous devez dans ce cas créer d’autres entrées Stream Analytics.
 
 
-## <a name="get-help"></a>Obtenir de l'aide
+## <a name="get-help"></a>Obtenir de l’aide
 Pour une assistance supplémentaire, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Étapes suivantes

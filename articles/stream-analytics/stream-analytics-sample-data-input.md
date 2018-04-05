@@ -1,13 +1,12 @@
 ---
-title: "Test des requêtes dans Azure Stream Analytics | Microsoft Docs"
-description: "Identifiez les problèmes lors du dépannage des travaux Stream Analytics."
-keywords: "résoudre les problèmes d’entrée, échantillonnage des entrées"
-documentationcenter: 
+title: Test des requêtes dans Azure Stream Analytics | Microsoft Docs
+description: Identifiez les problèmes lors du dépannage des travaux Stream Analytics.
+keywords: résoudre les problèmes d’entrée, échantillonnage des entrées
+documentationcenter: ''
 services: stream-analytics
 author: jseb225
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 
+manager: ryanw
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: e2636b8b89b86bbb2a2991972386462535d5a10f
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 99c9f7f2dc84f53d09b7aee1916c5532427de692
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-stream-analytics-query-testing-and-input-stream-sampling"></a>Test des requêtes et échantillonnage de flux d’entrée Azure Stream Analytics
 
@@ -55,13 +54,13 @@ Lorsque vous utilisez plusieurs sorties dans une requête, vous pouvez voir les 
 
 Une fois que vous êtes satisfait des résultats, vous pouvez enregistrer votre requête, lancer votre travail, vous installer confortablement et regarder la magie de Stream Analytics opérer.
 
-## <a name="get-help"></a>Obtenir de l'aide
+## <a name="get-help"></a>Obtenir de l’aide
 
 Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
 * [Prise en main d’Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
+* [Mise à l’échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

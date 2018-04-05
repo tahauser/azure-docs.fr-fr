@@ -1,11 +1,11 @@
 ---
 title: Extension de machine virtuelle OMS Azure pour Windows | Microsoft Docs
-description: "Déployez l’Agent OMS sur une machine virtuelle Windows avec une extension de machine virtuelle."
+description: Déployez l’Agent OMS sur une machine virtuelle Windows avec une extension de machine virtuelle.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: danielsollondon
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: feae6176-2373-4034-b5d9-a32c6b4e1f10
 ms.service: virtual-machines-windows
@@ -15,17 +15,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danis
-ms.openlocfilehash: 19f116470ac7a73daea6ad03699ef53d86cfb321
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 9b090029ade1cab1d0be17f7622ecf622521fc14
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="oms-virtual-machine-extension-for-windows"></a>Extension de machine virtuelle OMS pour Windows
 
 Operations Management Suite (OMS) fournit des fonctionnalités de surveillance, d’alerte et de correction des alertes sur le ressources cloud et locales. L’extension de machine virtuelle de l’agent OMS pour Windows est publiée et prise en charge par Microsoft. L’extension installe l’agent OMS sur les machines virtuelles Azure et inscrit les machines virtuelles dans un espace de travail OMS existant. Ce document présente les plateformes, configurations et options de déploiement prises en charge pour l’extension de machine virtuelle OMS pour Windows.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 ### <a name="operating-system"></a>Système d’exploitation
 
@@ -151,7 +152,7 @@ Set-AzureRmVMExtension -ExtensionName "Microsoft.EnterpriseCloud.Monitoring" `
     -TypeHandlerVersion 1.0 `
     -Settings $PublicSettings `
     -ProtectedSettings $ProtectedSettings `
-    -Location WestUS ` 
+    -Location WestUS 
 ```
 
 ## <a name="troubleshoot-and-support"></a>Dépannage et support technique

@@ -99,12 +99,19 @@
               href: azure-stack-powershell-download.md
             - name: Configurer PowerShell - Utilisateur
               href: azure-stack-powershell-configure-user.md
-            - name: Installer et configurer Azure Stack CLI
-              href: azure-stack-connect-cli.md
             - name: Installation de Visual Studio
               href: azure-stack-install-visual-studio.md
-            - name: Gérer les profils de version des API
+            - name: Utiliser des profils de version d’API
               href: azure-stack-version-profiles.md
+              items:
+                - name: PowerShell
+                  href: azure-stack-version-profiles-powershell.md
+                - name: "Azure CLI\_2.0"
+                  href: azure-stack-version-profiles-azurecli2.md
+                - name: GO
+                  href: azure-stack-version-profiles-go.md
+                - name: API du fournisseur de ressources prises en charge par les profils
+                  href: azure-stack-profiles-azure-resource-manager-versions.md
         - name: Utiliser le module de stratégie
           href: azure-stack-policy-module.md
         - name: Utiliser des modèles

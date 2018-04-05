@@ -1,11 +1,11 @@
 ---
-title: "Configuration avancée du Kit de développement logiciel (SDK) des applications Windows Universal pour Engagement"
-description: "Options de configuration avancées pour Engagement avec des applications Windows Universal"
+title: Configuration avancée du Kit de développement logiciel (SDK) des applications Windows Universal pour Engagement
+description: Options de configuration avancées pour Engagement avec des applications Windows Universal
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 6d85dd5d-ac07-43ba-bbe4-e91c3a17690b
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: cb9454212c94cf65093219c3d24c71277ede7877
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c0f666a0dd3441dfe3de0e82953b78c139091672
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="advanced-configuration-for-windows-universal-apps-engagement-sdk"></a>Configuration avancée du Kit de développement logiciel (SDK) des applications Windows Universal pour Engagement
+> [!IMPORTANT]
+> Azure Mobile Engagement est hors service depuis le 31/03/2018. Cette page sera supprimée prochainement.
+> 
+
 > [!div class="op_single_selector"]
 > * [Windows universel](mobile-engagement-windows-store-advanced-configuration.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
@@ -31,7 +35,8 @@ ms.lasthandoff: 12/21/2017
 
 Cette procédure explique comment définir différentes options de configuration pour les applications Azure Mobile Engagement pour Android.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-windows-store-prereqs.md)]
 
 ## <a name="advanced-configuration"></a>Configuration avancée

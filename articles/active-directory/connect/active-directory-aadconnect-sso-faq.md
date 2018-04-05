@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/22/2018
 ms.author: billmath
-ms.openlocfilehash: 8a91960f150e9298515cd52fe192ec1abdd89f9c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c34293796860e0ab72eecedab9cd8b023237050d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Authentification unique transparente Azure Active Directory : questions fréquentes
 
@@ -38,16 +38,23 @@ Non. L’authentification unique transparente est uniquement disponible dans l�
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Quelles sont les applications qui tirent parti des paramètres `domain_hint` et `login_hint` de l’authentification unique transparente ?
 
-Vous trouverez ci-dessous une liste non exhaustive des applications qui envoient ces paramètres à Azure AD, et permettent donc aux utilisateurs de se connecter de manière silencieuse à l’aide de l’authentification unique transparente :
+Vous trouverez ci-dessous une liste non exhaustive des applications qui envoient ces paramètres à Azure AD et permettent donc aux utilisateurs de se connecter de manière silencieuse à l’aide de l’authentification unique transparente (par ex. les utilisateurs n’ont pas besoin d’entrer leur nom d’utilisateur) :
 
 | Nom de l’application | URL d’application à utiliser |
 | -- | -- |
 | Panneau d’accès | myapps.microsoft.com/contoso.com |
 | Outlook sur le Web | outlook.office365.com/contoso.com |
 
-Dans le tableau ci-dessus, remplacez « contoso.com » par votre nom de domaine pour obtenir les URL d’application de votre locataire.
+En outre, les utilisateurs obtiennent également une expérience de connexion silencieuse si une application envoie des requêtes aux points de terminaison desquels Azure AD est abonné, c'est-à-dire, https://login.microsoftonline.com/contoso.com/<..> ou https://login.microsoftonline.com/<tenant_ID>/<..>, au lieu du point de terminaison commun d’Azure AD, c'est-à-dire, https://login.microsoftonline.com/common/<...>. Vous trouverez ci-dessous une liste non exhaustive d’applications qui rendent ces types de requêtes de connexion.
 
-Si vous disposez d’autres applications qui peuvent y figurer, faites-le nous savoir dans la section des commentaires.
+| Nom de l’application | URL d’application à utiliser |
+| -- | -- |
+| SharePoint Online | contoso.sharepoint.com |
+| Portail Azure | portal.azure.com/contoso.com |
+
+Dans les tables ci-dessus, remplacez « contoso.com » par votre nom de domaine pour obtenir les URL d’application de votre abonné.
+
+Si vous souhaitez que d’autres applications utilisent notre expérience d’authentification en mode silencieux, faites-le nous savoir dans la section des commentaires.
 
 ## <a name="does-seamless-sso-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>L’authentification unique transparente prend-elle en charge `Alternate ID` comme nom d’utilisateur à la place de `userPrincipalName` ?
 

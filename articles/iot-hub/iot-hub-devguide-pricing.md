@@ -1,11 +1,11 @@
 ---
-title: "Présentation des tarifs Azure IoT Hub | Microsoft Docs"
-description: "Guide du développeur : informations concernant le fonctionnement des mesures et des tarifs IoT Hub, avec des exemples."
+title: Présentation des tarifs Azure IoT Hub | Microsoft Docs
+description: 'Guide du développeur : informations concernant le fonctionnement des mesures et des tarifs IoT Hub, avec des exemples.'
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1ac90923-1edf-4134-bbd4-77fee9b68d24
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,15 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: dbceca3daed53da2a383fd8a6b7a0bd1f225cf77
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 390e917990586642e55913a69873b1707e371de3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Informations sur les tarifs Azure IoT Hub
 
 La [tarification d’Azure IoT Hub][lnk-pricing] fournit des informations générales sur les différentes références SKU et les tarifs d’IoT Hub. Cet article contient des informations supplémentaires sur la manière dont les différentes fonctionnalités d’IoT Hub sont mesurées en tant que messages par IoT Hub.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## <a name="charges-per-operation"></a>Frais par opération
 
@@ -30,7 +32,7 @@ La [tarification d’Azure IoT Hub][lnk-pricing] fournit des informations géné
 | --------- | ------------------- |
 | Opérations du registre d’identité <br/> (créer, récupérer, répertorier, mettre à jour, supprimer) | Non facturé. |
 | Messages appareil-à-cloud | Les messages envoyés avec succès sont facturés en blocs de 4 Ko une fois entrés dans IoT Hub. Par exemple, un message de 6 Ko est facturé 2 messages. |
-| Messages cloud-à-appareil | Les messages envoyés avec succès sont facturés en blocs de 4 Ko ; par exemple, un message de 6 Ko est facturé deux messages. |
+| Messages Cloud vers appareil | Les messages envoyés avec succès sont facturés en blocs de 4 Ko ; par exemple, un message de 6 Ko est facturé 2 messages. |
 | Chargements de fichiers | Le transfert de fichiers vers Stockage Azure n’est pas mesuré par IoT Hub. Les messages de lancement et de complétion du transfert de fichiers sont facturés en tant que messages, par incréments de 4 Ko. Par exemple, le transfert d’un fichier de 10 Mo est facturé deux messages, en plus du coût de Stockage Azure. |
 | Méthodes directes | Les demandes réussies de méthodes sont facturées par blocs de 4 Ko, tandis que les réponses comportant des corps non vides sont elles aussi facturées par blocs de 4 Ko, en tant que messages supplémentaires. Les demandes dirigées vers des appareils déconnectés sont facturées en tant que messages, par blocs de 4 Ko. Par exemple, une méthode avec un corps de 6 Ko qui génère une réponse sans corps de l’appareil est facturée comme deux messages. Une méthode avec un corps de 6 Ko qui génère une réponse de 1 Ko de l’appareil est facturée comme deux messages pour la demande, plus un autre message pour la réponse. |
 | Lectures de jumeaux d’appareil | Les lectures de jumeaux d’appareil de l’appareil et du back-end de la solution sont facturées en tant que messages, par blocs de 512 octets. Par exemple, la lecture d’un jumeau d’appareil de 6 Ko est facturée comme 12 messages. |

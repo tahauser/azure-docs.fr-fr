@@ -1,11 +1,11 @@
 ---
 title: Publish-WebApplicationVM | Microsoft Docs
-description: "Découvrez comment déployer une application web sur une machine virtuelle. Ce script crée les ressources requises dans votre abonnement Azure si elles n’existent pas."
+description: Découvrez comment déployer une application web sur une machine virtuelle. Ce script crée les ressources requises dans votre abonnement Azure si elles n’existent pas.
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: de4cec95-f73f-44d9-babd-9f47f2633cdb
 ms.service: multiple
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
-ms.author: kraigb
-ms.openlocfilehash: 2738fc1dff50a177a227ae2c7719bd9a192d82ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: 49778b00dc9b1f6a8a11de5e3575599957b753fe
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="publish-webapplicationvm-windows-powershell-script"></a>Publish-WebApplicationVM (script Windows PowerShell)
 Déploie une application web sur un ordinateur virtuel. Le script crée les ressources requises dans votre abonnement Azure si elles n’existent pas.
@@ -37,18 +37,18 @@ Publish-WebApplicationVM
 ### <a name="configuration"></a>Configuration
 Le chemin d'accès au fichier de configuration JSON qui décrit les détails du déploiement.
 
-| Alias | (aucun) |
+| Alias | Aucun |
 | --- | --- |
 | Requis ? |true |
 | Position |named |
-| Valeur par défaut |(aucun) |
+| Valeur par défaut |Aucun |
 | Accepter l'entrée de pipeline ? |false |
 | Accepter les caractères génériques ? |false |
 
 ### <a name="subscriptionname"></a>SubscriptionName
 Nom de l’abonnement Azure dans lequel vous souhaitez créer la machine virtuelle.
 
-| Alias | (aucun) |
+| Alias | Aucun |
 | --- | --- |
 | Requis ? |false |
 | Position |named |
@@ -59,18 +59,18 @@ Nom de l’abonnement Azure dans lequel vous souhaitez créer la machine virtuel
 ### <a name="webdeploypackage"></a>WebDeployPackage
 Le chemin d’accès au package de déploiement web à publier sur la machine virtuelle. Vous pouvez créer ce package à l'aide de l'Assistant Publier le site web dans Visual Studio. Consultez [Création d’un package de déploiement web dans Visual Studio](https://msdn.microsoft.com/library/dd465323.aspx).
 
-| Alias | (aucun) |
+| Alias | Aucun |
 | --- | --- |
 | Requis ? |false |
 | Position |named |
-| Valeur par défaut |(aucun) |
+| Valeur par défaut |Aucun |
 | Accepter l'entrée de pipeline ? |false |
 | Accepter les caractères génériques ? |false |
 
 ### <a name="allowuntrusted"></a>AllowUntrusted
 Si la valeur est true, autorise l’utilisation de certificats qui ne sont pas signés par une autorité racine approuvée.
 
-| Alias | (aucun) |
+| Alias | Aucun |
 | --- | --- |
 | Requis ? |false |
 | Position |named |
@@ -81,29 +81,29 @@ Si la valeur est true, autorise l’utilisation de certificats qui ne sont pas s
 ### <a name="vmpassword"></a>VMPassword
 Informations d’identification de votre compte de machine virtuelle. Exemple : -VMPassword @{Name = "admin"; Password = "mdp"}
 
-| Alias | (aucun) |
+| Alias | Aucun |
 | --- | --- |
 | Requis ? |false |
 | Position |named |
-| Valeur par défaut |(aucun) |
+| Valeur par défaut |Aucun |
 | Accepter l'entrée de pipeline ? |false |
 | Accepter les caractères génériques ? |false |
 
 ### <a name="databaseserverpassword"></a>DatabaseServerPassword
 Informations d’identification de la base de données SQL Azure. Exemple : -DatabaseServerPassword @{Name = "admin"; Password = "mdp"}
 
-| Alias | (aucun) |
+| Alias | Aucun |
 | --- | --- |
 | Requis ? |false |
 | Position |named |
-| Valeur par défaut |(aucun) |
+| Valeur par défaut |Aucun |
 | Accepter l'entrée de pipeline ? |false |
 | Accepter les caractères génériques ? |false |
 
 ### <a name="sendhostmessagestooutput"></a>SendHostMessagesToOutput
 Si true, imprime des messages à partir du script dans le flux de sortie.
 
-| Alias | (aucun) |
+| Alias | Aucun |
 | --- | --- |
 | Requis ? |false |
 | Position |named |

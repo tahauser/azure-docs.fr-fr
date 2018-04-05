@@ -6,13 +6,13 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/20/2018
 ms.author: raynew
-ms.openlocfilehash: c4fb466443e2f29fb79c3707ce142895f140f9a7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6f2f28b36fdb3751a469d66f242f9fa2119f9ae8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matrice de support pour la réplication des machines virtuelles VMware et des serveurs physiques vers Azure
 
@@ -175,7 +175,7 @@ Architecture du système d’exploitation invité | 64 bits. | La vérification
 Taille du disque du système d’exploitation | Jusqu’à 2 048 Go. | La vérification est mise en échec en cas de défaut de prise en charge. 
 Nombre de disques du système d’exploitation | 1 | La vérification est mise en échec en cas de défaut de prise en charge.  
 Nombre de disques de données | 64 ou moins. | La vérification est mise en échec en cas de défaut de prise en charge.  
-Taille du disque dur virtuel de données | Jusqu’à 4 095 Go | La vérification est mise en échec en cas de défaut de prise en charge. 
+Taille de disque de données | Jusqu’à 4 095 Go | La vérification est mise en échec en cas de défaut de prise en charge. 
 Adaptateurs réseau | Prise en charge de plusieurs adaptateurs réseau. | 
 Disque dur virtuel partagé | Non pris en charge. | La vérification est mise en échec en cas de défaut de prise en charge. 
 Disque FC | Non pris en charge. | La vérification est mise en échec en cas de défaut de prise en charge. 

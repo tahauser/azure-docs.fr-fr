@@ -1,11 +1,11 @@
 ---
-title: "Intégration du SDK Android d'Azure Mobile Engagement"
-description: "Dernières mises à jour et procédures du SDK Android pour Azure Mobile Engagement"
+title: Intégration du SDK Android d'Azure Mobile Engagement
+description: Dernières mises à jour et procédures du SDK Android pour Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 9ec3fab3-35ec-458e-bf41-6cdd69e3fa44
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 06/27/2016
 ms.author: piyushjo
-ms.openlocfilehash: 26ba47b19f3a503693d60d344ad39b9eba74fe99
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 15e71d8aeb8c8060161ade4262e0be0a093b5650
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-integrate-engagement-reach-on-android"></a>Comment intégrer le module de couverture Engagement sur Android
+> [!IMPORTANT]
+> Azure Mobile Engagement est hors service depuis le 31/03/2018. Cette page sera supprimée prochainement.
+> 
+
 > [!IMPORTANT]
 > Vous devez suivre la procédure d'intégration décrite dans le document « Comment intégrer Engagement sur Android » avant de suivre ce guide.
 > 
@@ -127,7 +131,7 @@ Si vous voulez que votre application puisse recevoir des Push de données de cou
               </intent-filter>
             </receiver>
 
-Ensuite, vous pouvez remplacer les rappels `onDataPushStringReceived` et `onDataPushBase64Received`. Voici un exemple :
+Ensuite, vous pouvez remplacer les rappels `onDataPushStringReceived` et `onDataPushBase64Received`. Voici un exemple : 
 
             public class MyDataPushReceiver extends EngagementReachDataPushReceiver
             {
@@ -415,7 +419,7 @@ Si vous souhaitez les modifier, vous devez redéfinir la méthode `EngagementDef
 ##### <a name="system-notifications"></a>Notifications système
 En étendant `EngagementDefaultNotifier`, vous pouvez remplacer `onNotificationPrepared` pour modifier la notification préparée par l'implémentation par défaut.
 
-Par exemple :
+Par exemple : 
 
             @Override
             protected boolean onNotificationPrepared(Notification notification, EngagementReachInteractiveContent content)

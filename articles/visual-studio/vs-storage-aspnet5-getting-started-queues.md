@@ -1,11 +1,11 @@
 ---
-title: "Bien démarrer avec Stockage File d’attente et les services connectés de Visual Studio (ASP.NET Core) | Microsoft Docs"
-description: "Guide pratique pour bien démarrer avec Azure Stockage File d’attente dans un projet ASP.NET Core dans Visual Studio"
+title: Bien démarrer avec Stockage File d’attente et les services connectés de Visual Studio (ASP.NET Core) | Microsoft Docs
+description: Guide pratique pour bien démarrer avec Azure Stockage File d’attente dans un projet ASP.NET Core dans Visual Studio
 services: storage
-documentationcenter: 
-author: kraigb
-manager: ghogen
-editor: 
+documentationcenter: ''
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 04977069-5b2d-4cba-84ae-9fb2f5eb1006
 ms.service: storage
 ms.workload: web
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
-ms.author: kraigb
-ms.openlocfilehash: d83ad26e4f96e1a7670c5212b7e9ca8182b7cec4
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.author: ghogen
+ms.openlocfilehash: e2d11102d07eeb151769f81e79abd22dfa1d8734
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-queue-storage-and-visual-studio-connected-services-aspnet-core"></a>Bien démarrer avec Stockage File d’attente et les services connectés de Visual Studio (ASP.NET Core)
 

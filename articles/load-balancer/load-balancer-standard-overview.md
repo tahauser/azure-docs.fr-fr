@@ -1,6 +1,6 @@
 ---
-title: Présentation de la référence Standard d’Azure Load Balancer | Microsoft Docs
-description: Présentation de la référence Standard d’Azure Load Balancer
+title: Présentation de Azure Load Balancer Standard | Microsoft Docs
+description: Présentation des fonctionnalités Azure Load Balancer Standard
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -12,61 +12,87 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2018
+ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: 2d7fcb3ee066fa768615fbf643a0c2e1c1d28498
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d7ee74a19f806faed0bcfcfa5f1c5de3937d9f31
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="azure-load-balancer-standard-overview-preview"></a>Présentation de la référence Standard d’Azure Load Balancer (préversion)
+# <a name="azure-load-balancer-standard-overview"></a>Présentation de Azure Load Balancer Standard
 
-Utilisées ensemble, la référence SKU Standard d’Azure Load Balancer et la référence SKU Standard d’adresse IP publique vous permettent de créer des architectures hautement évolutives et fiables. Les applications qui utilisent la référence Standard de Load Balancer peuvent tirer parti de nouvelles fonctionnalités, notamment d’une faible latence, d’un débit élevé et de la mise à l’échelle pour des millions de flux et pour toutes les applications TCP et UDP.
+Azure Load Balancer vous permet de mettre à l’échelle vos applications et de créer une haute disponibilité pour vos services. Load Balancer peut être utilisé dans des scénarios entrants et sortants et offre une latence faible, un débit élevé et une montée en puissance jusqu’à plusieurs millions de flux pour toutes les applications TCP et UDP. 
+
+Cet article se concentre sur Load Balancer Standard.  Pour obtenir une présentation plus générale d’Azure Load Balancer, consultez [Présentation de Load Balancer](load-balancer-overview.md) également.
+
+## <a name="what-is-standard-load-balancer"></a>Qu’est-ce que Load Balancer Standard ?
+
+Load Balancer Standard est un nouveau produit Load Balancer pour toutes les applications TCP et UDP avec une fonctionnalité mieux développée et plus granulaire définie sur Load Balancer de base.  Bien qu’il existe de nombreuses similitudes, il est important de vous familiariser avec les différences, comme souligné dans cet article.
+
+Vous pouvez utiliser Load Balancer Standard comme un équilibreur de charge public ou interne. Et une machine virtuelle peut être connectée à une ressource Load Balancer publique et interne.
+
+Les fonctions de la ressource Load Balancer sont toujours exprimées en tant que définition de serveur frontal, de règle, de sonde d’intégrité et de pool principal.  Une ressource peut contenir plusieurs règles. Vous pouvez placer des machines virtuelles dans le pool principal en spécifiant le pool principal à partir de la ressource de la carte réseau de la machine virtuelle.  Dans le cas d’un groupe de machines virtuelles identiques, ce paramètre est passé via le profil de réseau et développé.
+
+L’étendue du réseau virtuel pour la ressource constitue un aspect clé.  Bien que Load Balancer de base existe dans l’étendue d’un groupe à haute disponibilité, un Load Balancer Standard est entièrement intégré à l’étendue d’un réseau virtuel et tous les concepts de réseau virtuel s’appliquent.
+
+Les ressources Load Balancer sont des objets dans lesquels vous pouvez exprimer la manière dont Azure doit programmer son infrastructure mutualisée pour obtenir le scénario que vous souhaitez créer.  Il n’existe aucune relation directe entre les ressources Load Balancer et l’infrastructure réelle ; la création d’un Load Balancer ne crée pas d’instance et il y a toujours de la capacité disponible et aucun retard de démarrage ou de mise à l’échelle à prendre en compte. 
 
 >[!NOTE]
-> La référence SKU Standard de Load Balancer est actuellement en préversion. Le niveau de disponibilité et la fiabilité des fonctionnalités de la préversion peuvent différer de ceux de la version publique. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Pour vos services de production, utilisez la [référence SKU De base de Load Balancer](load-balancer-overview.md) de la version publique. Pour utiliser la [version préliminaire des zones de disponibilité](https://aka.ms/availabilityzones) avec cette version préliminaire, il vous faut une [inscription différente](https://aka.ms/availabilityzones), en plus de l’inscription à la [version préliminaire standard](#preview-sign-up) de Load Balancer.
+> Azure offre une suite de solutions d’équilibrage de charge entièrement managées pour vos scénarios.  Si vous recherchez une terminaison TLS (« déchargement SSL ») ou un traitement de couche d’application par requête HTTP/HTTPS, consultez [Application Gateway](../application-gateway/application-gateway-introduction.md).  Si vous recherchez un équilibrage de charge DNS global, consultez [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  Vos scénarios de bout en bout peuvent tirer parti de la combinaison de ces solutions en fonction de vos besoins.
 
-## <a name="why-use-load-balancer-standard"></a>Pourquoi utiliser la référence Standard de Load Balancer ?
+## <a name="why-use-standard-load-balancer"></a>Pourquoi utiliser Load Balancer Standard ?
 
-Vous pouvez utiliser la référence Standard de Load Balancer pour l’intégralité de la plage de centres de données virtuels. Des déploiements à petite échelle aux architectures multizones étendues et complexes, la référence Standard de Load Balancer permet de tirer parti des capacités suivantes :
+Utilisez Load Balancer Standard pour l’intégralité de la plage de centres de données virtuels, allant des déploiements à petite échelle à des architectures multizones étendues et complexes.
 
-- [Une mise à l’échelle d’entreprise](#enterprisescale) peut être obtenue avec la référence Standard de Load Balancer. Cette fonctionnalité peut être utilisée avec n’importe quelle instance de machine virtuelle dans un réseau virtuel et avec un maximum de 1 000 instances de machine virtuelle.
+Consultez la table ci-dessous pour obtenir une vue d’ensemble des différences entre Load Balancer Standard et Load Balancer de base :
 
-- [De nouvelles informations de diagnostic](#diagnosticinsights) sont disponibles pour vous aider à comprendre, gérer et résoudre les problèmes de ce composant essentiel de votre centre de données virtuel. Utilisez Azure Monitor (préversion) pour afficher, filtrer et grouper les nouvelles métriques multidimensionnelles et mesurer en continu l’intégrité du chemin de données. Surveillez vos données, du serveur frontal à la machine virtuelle, les sondes d’intégrité de point de terminaison, les tentatives de connexion TCP et les connexions sortantes.
+>[!NOTE]
+> De nouvelles conceptions doivent être envisagées à l’aide de Load Balancer Standard. 
 
-- [Les groupes de sécurité réseau](#nsg) sont désormais nécessaires pour toute instance de machine virtuelle associée aux références SKU Standard de Load Balancer ou d’adresse IP publique. Ils assurent une meilleure sécurité pour votre scénario.
+| | Référence SKU standard | Référence SKU de base |
+| --- | --- | --- |
+| Taille de pool de serveur principal | jusqu'à 1 000 instances | jusqu'à 100 instances |
+| Points de terminaison de pool principal | toute machine virtuelle dans un seul réseau virtuel, y compris la fusion de machines virtuelles, les groupes à haute disponibilité, groupes de machines identiques. | machines virtuelles dans un groupe à haute disponibilité ou un groupe de machines virtuelles identiques unique |
+| Zones de disponibilité | serveurs frontaux redondants dans une zone et zonaux pour trafic entrant et sortant, les mappages de flux sortants survivent aux échecs de zone, l’équilibrage de charge inter-zone | / |
+| Diagnostics | Azure Monitor, métriques à plusieurs dimensions, notamment les compteurs d’octets et de paquets, état de la sonde d’intégrité, tentatives de connexion (TCP SYN), intégrité de la connexion sortante (flux SNAT réussies et échouées), mesures de plan de données actives | Azure Log Analytics pour le Load Balancer public seulement, alerte d’insuffisance SNAT, compte d’intégrité du pool principal |
+| Ports HA | Load Balancer interne | / |
+| Sécuriser par défaut | par défaut fermé pour les points de terminaison IP et Load Balancer publics et un groupe de sécurité réseau doit être utilisé pour mettre explicitement sur liste verte le flux du trafic | ouvert par défaut, groupe de sécurité réseau facultatif |
+| Connexions sortantes | Plusieurs serveurs frontaux avec règle de retrait. Un scénario sortant _doit_ être explicitement créé pour que la machine virtuelle puisse utiliser une connectivité sortante.  [Les points de terminaison de service du réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md) peuvent être atteints sans connectivité sortante et ne sont pas comptabilisés dans les données traitées.  Toutes les adresses IP publiques, y compris les services PaaS Azure non disponibles comme les points de terminaison de service réseau virtuel doivent être atteints via la connectivité sortante et comptabilisés dans les données traitées. Lorsque seul un Load Balancer interne est utilisé par une machine virtuelle, les connexions sortantes via la SNAT par défaut ne sont pas disponibles. La programmation de SNAT sortante est un protocole de transport spécifique basé sur le protocole de la règle d’équilibrage de charge entrant. | Serveur frontal unique, sélectionné de manière aléatoire lorsque plusieurs serveurs frontaux sont présents.  Lorsque seul un Load Balancer interne est utilisé par une machine virtuelle, la valeur par défaut SNAT est utilisée. |
+| Plusieurs serveurs frontaux | Trafic entrant et sortant | Entrant uniquement |
+| Opérations de gestion | La plupart des opérations < 30 secondes | généralement 60 à 90 secondes et plus par défaut |
+| Contrat SLA | 99,99 % pour le chemin de données avec les deux machines virtuelles intègres | Implicite dans le contrat de niveau de service de la machine virtuelle | 
+| Tarifs | Facturé en fonction du nombre de règles, des données traitées entrantes ou sortantes associées aux ressources  | Aucun frais |
 
-- [Les ports de haute disponibilité (HA, High Availability) offrent haute fiabilité](#highreliability) et mise à l’échelle pour les appliances virtuelles réseau et d’autres scénarios d’application. Les ports HA équilibrent la charge de tous les ports d’un serveur frontal Azure Load Balancer interne sur un pool d’instances de machine virtuelle.
-
-- [Les connexions sortantes](#outboundconnections) utilisent désormais un nouveau modèle d’allocation de port SNAT (Source Network Address Translation) qui fournit une meilleure résilience et une meilleure mise à l’échelle.
-
-- [La référence Standard de Load Balancer avec des zones de disponibilité](#availabilityzones) peut être utilisée pour construire des architectures zonales et redondantes dans une zone. Ces deux architectures peuvent inclure l’équilibrage de charge entre les zones. Vous pouvez obtenir une redondance dans une zone sans dépendance vis-à-vis des enregistrements DNS. Une seule adresse IP est redondante dans une zone par défaut  et peut atteindre toutes les machines virtuelles d’un réseau virtuel dans une région sur toutes les zones de disponibilité.
+Consultez les [limites de service pour Load Balancer](https://aka.ms/lblimits), ainsi que la [tarification](https://aka.ms/lbpricing) et le [contrat de niveau de service](https://aka.ms/lbsla).
 
 
-Vous pouvez utiliser la référence Standard de Load Balancer dans des configurations publiques ou internes pour prendre en charge les scénarios de base suivants :
+### <a name="backend"></a>Pool principal
 
-- Équilibrer la charge du trafic entrant sur des instances de serveur principal saines.
-- Réacheminer les ports du trafic entrant sur une instance de serveur principal unique.
-- Traduire le trafic sortant d’une adresse IP privée dans le réseau en une adresse IP publique.
+Les pools principaux Load Balancer Standard se développent sur n’importe quelle ressource de machine virtuelle dans un réseau virtuel.  Il peut contenir jusqu'à 1 000 instances de serveur principal.  Une instance de serveur principal est une configuration IP, qui est une propriété de ressource de la carte réseau.
 
-### <a name = "enterprisescale"></a>Mise à l’échelle d’entreprise
+Le pool principal peut contenir des machines virtuelles autonomes, des groupes à haute disponibilité ou des groupes de machines virtuelles identiques.  Vous pouvez fusionner les ressources dans le pool principal et il peut contenir n’importe quelle combinaison de ces ressources, jusqu'à 150 au total.
 
- Utilisez la référence Standard de Load Balancer pour concevoir votre centre de données virtuel hautes performances et prendre en charge toute application TCP ou UDP. Utilisez des instances de machine virtuelle autonomes ou jusqu’à 1 000 instances de groupes de machines virtuelles identiques dans un pool principal. Continuez à exploiter la faible latence de réacheminement, les performances de débit élevé et la mise à l’échelle de millions de flux sur un service Azure entièrement géré.
- 
-La référence Standard de Load Balancer peut réacheminer le trafic sur toute instance de machine virtuelle dans un réseau virtuel d’une région. Les tailles de pool principal peuvent autoriser jusqu’à 1 000 instances avec toute combinaison des scénarios de machine virtuelle suivants :
+Lorsque vous envisagez la conception de votre pool principal, vous pouvez concevoir le moins de ressources de pool principal individuelles pour optimiser davantage la durée des opérations de gestion.  Il n’existe aucune différence de performances ou de mise à l’échelle du plan de données.
 
-- Machines virtuelles autonomes sans groupe à haute disponibilité
-- Machines virtuelles autonomes avec groupes à haute disponibilité
-- Groupes de machines virtuelles identiques (jusqu’à 1 000 instances)
-- Plusieurs groupes de machines virtuelles identiques
-- Mélanges de machines virtuelles et de groupes de machines virtuelles identiques
+## <a name="az"></a> Zones de disponibilité
 
-Les groupes à haute disponibilité ne sont plus requis. Cependant, vous pouvez choisir d’en utiliser pour bénéficier des autres avantages qu’ils offrent.
+>[!NOTE]
+> Pour utiliser [Préversion des Zones de disponibilité](https://aka.ms/availabilityzones) avec Load Balancer Standard une [inscription aux Zones de disponibilité](https://aka.ms/availabilityzones) est requise.
 
-### <a name = "diagnosticinsights"></a>Informations de diagnostic
+Load Balancer Standard prend en charge des fonctionnalités supplémentaires dans les régions où les Zones de disponibilité sont disponibles.  Ces fonctionnalités sont incrémentielles pour tous les Load Balancer Standard fournis.  Les configurations de Zones de disponibilité sont disponibles pour Load Balancer Standard public et interne.
 
-La référence Standard de Load Balancer offre de nouvelles fonctionnalités de diagnostic multidimensionnel pour les configurations Load Balancer publiques et internes. Ces nouvelles métriques sont fournies par le biais d’Azure Monitor (préversion) et utilisent toutes les fonctions connexes, y compris la possibilité d’intégration à divers consommateurs en aval.
+Des serveurs frontaux non-zonaux deviennent redondants dans une zone par défaut lors du déploiement dans une région avec des Zones de disponibilité.   Un serveur frontal redondant dans une zone survit à des échecs de zone et est pris en charge par une infrastructure dédiée dans toutes les zones simultanément. 
+
+En outre, vous pouvez garantir un serveur frontal dans une zone spécifique. Un serveur frontal zonal partage le même devenir que la zone concernée et est pris en charge uniquement par une infrastructure dédiée dans une seule zone.
+
+L’équilibrage de charge entre les zones est disponible pour le pool principal et n’importe quelle ressource de machine virtuelle dans un réseau virtuel peut faire partie d’un pool principal.
+
+Consultez la [discussion détaillée sur les fonctionnalités relatives aux Zones de disponibilité](load-balancer-standard-availability-zones.md).
+
+### <a name="diagnostics"></a> Diagnostics
+
+Load Balancer Standard fournit des métriques multidimensionnelles via Azure Monitor.  Ces métriques peuvent être filtrées, regroupées et fournissent des analyses en cours et historiques sur les performances et l’intégrité de votre service.  Resource Health est également pris en charge.  Voici une brève vue d’ensemble des diagnostics pris en charge :
 
 | Métrique | Description |
 | --- | --- |
@@ -77,222 +103,74 @@ La référence Standard de Load Balancer offre de nouvelles fonctionnalités de 
 | Compteurs d’octets | La référence Standard de Load Balancer indique les données traitées par serveur frontal.|
 | Compteurs de paquets | La référence Standard de Load Balancer indique les paquets traités par serveur frontal.|
 
-### <a name = "highreliability"></a>Haute fiabilité
+Consultez la [discussion détaillée sur les diagnostics de Load Balancer Standard](load-balancer-standard-diagnostics.md).
 
-Configurez des règles d’équilibrage de charge pour mettre à l’échelle votre application et qu’elle soit très fiable. Vous pouvez configurer des règles pour chaque port ou vous pouvez utiliser les ports HA pour équilibrer tout le trafic, quel que soit le numéro de port TCP ou UDP.  
+### <a name="haports"></a>Ports HA
 
-Vous pouvez utiliser la nouvelle fonctionnalité de ports HA pour déverrouiller un éventail de scénarios, y compris la haute disponibilité et la mise à l’échelle d’appliances virtuelles réseau internes. Cette fonctionnalité s’avère également utile pour d’autres scénarios, par exemple lorsqu’il est difficile ou qu’il n’est pas souhaitable de spécifier les ports individuels. Les ports HA assurent la redondance et la mise à l’échelle en autorisant autant d’instances que nécessaire. Votre configuration n’est plus limitée aux scénarios actifs/passifs. Vos configurations de sonde d’intégrité protègent votre service en réacheminant le trafic uniquement sur les instances saines.
+Load Balancer Standard prend en charge un nouveau type de règle.  
 
-Les fournisseurs d’appliances virtuelles réseau peuvent offrir à leurs clients des scénarios résilients et entièrement pris en charge par le fournisseur. Le point de défaillance unique est supprimé, et plusieurs instances actives sont prises en charge pour la mise à l’échelle. Vous pouvez mettre à l’échelle deux instances ou plus selon les capacités de votre appliance. Contactez votre fournisseur d’appliances virtuelles réseau pour obtenir des conseils supplémentaires pour ces scénarios.
+Vous pouvez configurer des règles d’équilibrage de charge pour mettre à l’échelle votre application et qu’elle soit très fiable. Lorsque vous utilisez une règle d’équilibrage de charge des ports HA, Load Balancer Standard fournit un équilibrage de charge par flux sur tous les ports éphémères d’adresse IP de serveur frontal de Load Balancer Standard interne.  Cette fonctionnalité s’avère également utile pour d’autres scénarios, par exemple lorsqu’il est difficile ou qu’il n’est pas souhaitable de spécifier les ports individuels.
 
-### <a name = "availabilityzones"></a>Zones de disponibilité
+Une règle d’équilibrage de charge de ports HA vous permet de créer des scénarios actif-passif ou actif-actif n+1 pour des appliances virtuelles et toute application qui nécessite de grandes plages de ports entrants.  Une sonde d’intégrité peut être utilisée pour déterminer quels serveurs principaux devraient recevoir de nouveau flux.  Vous pouvez utiliser un groupe de sécurité réseau pour émuler un scénario de plage de ports.
 
-[!INCLUDE [availability-zones-preview-statement](../../includes/availability-zones-preview-statement.md)]
+>[!IMPORTANT]
+> Si vous envisagez d’utiliser une appliance virtuelle de réseau, consultez votre fournisseur pour obtenir des conseils quant aux tests effectués sur leur produit avec les ports HA et suivre leurs instructions spécifiques pour l’implémentation. 
 
-Développez la résilience de votre application avec l’utilisation de zones de disponibilité dans des régions prises en charge. Les zones de disponibilité sont actuellement en préversion dans des régions spécifiques et nécessitent un abonnement supplémentaire.
+Consultez une [discussion détaillée sur les ports HA](load-balancer-ha-ports-overview.md).
 
-### <a name="automatic-zone-redundancy"></a>Redondance dans une zone automatique
+### <a name="securebydefault"></a>Sécuriser par défaut
 
-Vous pouvez choisir si Load Balancer doit fournir un serveur frontal zonal ou redondant dans une zone pour chacune de vos applications. Vous pouvez facilement créer une redondance dans une zone avec la référence Standard de Load Balancer. Une adresse IP de serveur frontal unique est automatiquement redondante dans une zone. Un serveur frontal redondant dans une zone est servi par toutes les zones de disponibilité d’une région simultanément. Un chemin de données redondant dans une zone est créé pour les connexions entrantes et sortantes. La redondance dans une zone dans Azure ne nécessite pas plusieurs adresses IP et enregistrements DNS. 
-
-Cette redondance dans une zone est disponible pour les serveurs frontaux publics ou internes. Votre adresse IP publique, ainsi que l’adresse IP privée de serveur frontal pour votre service Load Balancer interne peuvent être redondantes dans une zone.
-
-Utilisez le script suivant pour créer une adresse IP publique redondante dans une zone pour votre service Load Balancer interne. Si vous utilisez des modèles Resource Manager existants dans votre configuration, ajoutez la section **sku** à ces modèles.
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/publicIPAddresses",
-            "name": "public_ip_standard",
-            "location": "region",
-            "sku":
-            {
-                "name": "Standard"
-            },
-```
-
-Utilisez le script suivant pour créer une adresse IP de serveur frontal redondant dans une zone pour votre service Load Balancer interne. Si vous utilisez des modèles Resource Manager existants dans votre configuration, ajoutez la section **sku** à ces modèles.
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/loadBalancers",
-            "name": "load_balancer_standard",
-            "location": "region",
-            "sku":
-            {
-                "name": "Standard"
-            },
-            "properties": {
-                "frontendIPConfigurations": [
-                    {
-                        "name": "zone_redundant_frontend",
-                        "properties": {
-                            "subnet": {
-                                "Id": "[variables('subnetRef')]"
-                            },
-                            "privateIPAddress": "10.0.0.6",
-                            "privateIPAllocationMethod": "Static"
-                        }
-                    },
-                ],
-```
-
-Si votre serveur frontal d’adresse IP publique est redondant dans une zone, les connexions sortantes établies à partir d’instances de machine virtuelle deviennent automatiquement redondantes dans une zone. Le serveur frontal est protégé contre les défaillances de zone. Votre allocation de port SNAT survit également aux défaillances de zone.
-
-#### <a name="cross-zone-load-balancing"></a>Équilibrage de charge entre les zones
-
-L’équilibrage de charge entre les zones est disponible dans une région pour le pool principal et offre une flexibilité maximale à vos instances de machine virtuelle. Un serveur frontal fournit des flux à toutes les machines virtuelles dans le réseau virtuel, quelle que soit la zone de disponibilité de l’instance de machine virtuelle.
-
-Vous pouvez également spécifier une zone particulière pour vos instances de serveur frontal et de serveur principal, afin d’aligner votre chemin de données et vos ressources avec une zone spécifique.
-
-Les sous-réseaux et réseaux virtuels ne sont jamais limités par une zone. Il vous suffit de définir un pool principal avec les instances de machine virtuelle de votre choix, et votre configuration est terminée.
-
-#### <a name="zonal-deployments"></a>Déploiements zonaux
-
-Vous pouvez également aligner votre serveur frontal d’équilibrage de charge sur une zone spécifique en définissant un serveur frontal zonal. Un serveur frontal zonal est servi par la zone de disponibilité unique désignée seulement. Lorsqu’il est combiné à des instances de machine virtuelle zonales, vous pouvez aligner des ressources sur des zones spécifiques.
-
-Une adresse IP publique créée dans une zone spécifique existe toujours dans cette zone uniquement. Il n’est pas possible de modifier la zone d’une adresse IP publique. Si vous souhaitez avoir une adresse IP publique qui peut être associée à des ressources dans plusieurs zones, vous devez créer une adresse IP publique redondante dans une zone à la place.
-
-Utilisez le script suivant pour créer une adresse IP publique zonale dans la zone de disponibilité 1. Si vous utilisez des modèles Resource Manager existants dans votre configuration, ajoutez la section **sku** à ces modèles.
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/publicIPAddresses",
-            "name": "public_ip_standard",
-            "location": "region",
-            "zones": [ "1" ],
-            "sku":
-            {
-                "name": "Standard"
-            },
-```
-
-Utilisez le script suivant pour créer un serveur frontal Load Balancer interne dans la zone de disponibilité 1.
-
-Si vous utilisez des modèles Resource Manager existants dans votre configuration, ajoutez la section **sku** à ces modèles. Définissez également la propriété **zones** dans la configuration IP frontale pour la ressource enfant.
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/loadBalancers",
-            "name": "load_balancer_standard",
-            "location": "region",
-            "sku":
-            {
-                "name": "Standard"
-            },
-            "properties": {
-                "frontendIPConfigurations": [
-                    {
-                        "name": "zonal_frontend_in_az1",
-                        "zones": [ "1" ],
-                        "properties": {
-                            "subnet": {
-                                "Id": "[variables('subnetRef')]"
-                            },
-                            "privateIPAddress": "10.0.0.6",
-                            "privateIPAllocationMethod": "Static"
-                        }
-                    },
-                ],
-```
-
-Ajoutez un équilibrage de charge entre les zones pour votre pool principal en plaçant dans le pool vos instances de machine virtuelle qui se trouvent dans un réseau virtuel.
-
-La ressource Standard de Load Balancer est toujours régionale et redondante dans une zone, là où les zones de disponibilité sont prises en charge. Vous pouvez déployer une adresse IP publique ou un serveur frontal Load Balancer interne n’ayant aucune zone affectée à une région. La prise en charge des zones de disponibilité n’affecte pas la fonctionnalité de déploiement. Si une région obtient des zones de disponibilité plus tard, un serveur frontal Load Balancer interne ou une adresse IP publique déjà déployé devient automatiquement redondant dans une zone. Le chemin de données redondant dans une zone n’implique pas 0 % de pertes de paquets.
-
-### <a name = "nsg"></a>Groupes de sécurité réseau
-
-Les références Standard de Load Balancer et Standard d’adresse IP publique s’intègrent totalement au réseau virtuel, et des Groupes de sécurité réseau sont donc nécessaires. Ils permettent de mettre le flux de trafic sur liste verte. Vous pouvez les utiliser pour bénéficier d’un contrôle total sur le trafic vers votre déploiement. Il n’est plus nécessaire d’attendre la fin des autres flux de trafic.
-
-Associez des Groupes de sécurité réseau à des sous-réseaux ou aux interfaces réseau des instances de machine virtuelle dans le pool principal. Utilisez cette configuration avec les références Standard de Load Balancer et Standard d’adresse IP publique en cas d’utilisation en tant qu’adresse IP publique de niveau d’instance. Le Groupe de sécurité réseau doit explicitement mettre sur liste verte le trafic que vous souhaitez autoriser pour que celui-ci puisse avoir lieu.
+Load Balancer Standard est entièrement intégré au réseau virtuel.  Le réseau virtuel est un réseau privé et fermé.  Étant donné que les équilibreurs de charge Standard et des adresses IP publiques Standard sont conçus pour permettre à ce réseau virtuel d’être accessible depuis l’extérieur du réseau virtuel, ces ressources sont désormais fermées par défaut, sauf si vous les ouvrez. Cela signifie que les Groupes de sécurité réseau (NSG) sont désormais utilisés pour autoriser explicitement et mettre sur liste verte le trafic autorisé.  Vous pouvez créer votre centre de données virtuel complet et décider via le Groupe de sécurité réseau de ce qui doit être disponible et quand.  Si vous n’avez pas de Groupe de sécurité réseau sur un sous-réseau ou une carte réseau de votre ressource de machine virtuelle, nous n’autoriserons pas au trafic d’atteindre cette ressource.
 
 Pour plus d’informations sur les Groupes de sécurité réseau et la façon de les appliquer à votre scénario, consultez [Filtrer le trafic réseau avec les groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md).
 
-### <a name ="outboundconnections"></a>Connexions sortantes
+### <a name="outbound"></a> Connexions sortantes
 
-La référence Standard de Load Balancer fournit des connexions sortantes pour les machines virtuelles à l’intérieur du réseau virtuel lorsqu’un équilibreur de charge utilise un algorithme SNAT d’usurpation d’identité de port. L’algorithme SNAT d’usurpation d’identité de port offre davantage de robustesse et une meilleure mise à l’échelle.
+Load Balancer prend en charge les scénarios entrants et sortants.  Load Balancer Standard est très différent de Load Balancer de base en ce qui concerne les connexions sortantes.
 
-Lorsqu’une ressource Load Balancer publique est associée à des instances de machine virtuelle, la source de chaque connexion sortante est réécrite. La source est réécrite depuis l’espace d’adressage IP privé du réseau virtuel dans l’adresse IP publique frontale de l’équilibreur de charge.
+La traduction d’adresses réseau sources (SNAT) est utilisée pour mapper les adresses IP internes et privées sur votre réseau virtuel vers les adresses IP publiques sur les serveurs frontaux Load Balancer.
 
-Lorsque les connexions sortantes sont utilisées avec un serveur frontal redondant dans une zone, elles sont également redondantes dans une zone, et les allocations de port SNAT survivent aux défaillances de zone.
+Load Balancer Standard introduit un nouvel algorithme pour un [algorithme SNAT plus robuste, évolutif et prévisible](load-balancer-outbound-connections.md#snat) et active de nouvelles fonctionnalités, supprime l’ambiguïté et force les configurations explicites plutôt que les effets secondaires. Ces modifications sont nécessaires pour autoriser l’émergence de nouvelles fonctionnalités. 
 
-Le nouvel algorithme de la référence Standard de Load Balancer préalloue les ports SNAT à l’interface réseau de chaque machine virtuelle. Lorsqu’une interface réseau est ajoutée au pool, les ports SNAT sont préalloués selon la taille du pool. Le tableau suivant présente les préallocations de port pour six niveaux de taille de pool de principal :
+Voici les principes clés à retenir lors de l’utilisation de Load Balancer Standard :
 
-| Taille du pool (instances de machine virtuelle) | Nombre préalloué de ports SNAT |
-| --- | --- |
-| 1 - 50 | 1 024 |
-| 51 - 100 | 512 |
-| 101 - 200 | 256 |
-| 201 - 400 | 128 |
-| 401 - 800 | 64 |
-| 801 - 1,000 | 32 |
+- la réalisation d’une règle dirige la ressource du Load Balancer  toute programmation Azure dérive de sa configuration
+- lorsque plusieurs serveurs frontaux sont disponibles, tous les serveurs frontaux sont utilisés et chacun multiplie le nombre de ports SNAT disponibles
+- vous pouvez choisir et contrôler si vous ne souhaitez pas utiliser un serveur frontal particulier pour des connexions sortantes
+- les scénarios sortants sont explicites et la connectivité sortante n’existe pas jusqu'à ce qu’elle ait été spécifiée.
+- les règles de l’équilibrage de charge infèrent la programmation de la SNAT. Les règles de l’équilibrage de charge sont spécifiques au protocole. La SNAT est spécifique au protocole et la configuration doit refléter cela plutôt que créer un effet secondaire.
 
-Les ports SNAT ne traduisent pas directement en nombre de connexions sortantes. Un port SNAT peut être réutilisé pour plusieurs destinations uniques. Pour plus d’informations, consultez l’article sur les [connexions sortantes](load-balancer-outbound-connections.md).
+#### <a name="multiple-frontends"></a>Plusieurs serveurs frontaux
+Si vous souhaitez davantage de ports SNAT, car vous attendez ou vous rencontrez déjà une demande élevée pour les connexions sortantes, vous pouvez également ajouter l’inventaire de ports SNAT incrémentiels en configurant d’autres serveurs frontaux, des règles et des pools principaux aux ressources de la même machine virtuelle.
 
-Si la taille du pool principal augmente et passe à un niveau supérieur, la moitié des ports alloués est récupérée. Les connexions associées à un port récupéré expirent et doivent être établies une nouvelle fois. Les nouvelles tentatives de connexion réussissent immédiatement. Si la taille du pool principal diminue et passe à un niveau inférieur, le nombre de ports SNAT disponibles augmente. Dans ce cas, les connexions existantes ne sont pas affectées.
+#### <a name="control-which-frontend-is-used-for-outbound"></a>Contrôler quel serveur frontal utiliser pour la sortie
+Si vous souhaitez limiter la provenance des connexions sortantes à une seule adresse IP de serveur frontal spécifique, vous pouvez éventuellement désactiver la SNAT sortante sur la règle qui exprime le mappage sortant.
 
-La référence Standard de Load Balancer dispose d’une option de configuration supplémentaire, fonctionnant sur une base par règle. Vous pouvez déterminer le serveur frontal utilisé pour l’algorithme SNAT d’usurpation d’identité de port lorsque plusieurs serveurs frontaux sont disponibles.
+#### <a name="control-outbound-connectivity"></a>Contrôler la connectivité sortante
+Load Balancer Standard existe dans le contexte du réseau virtuel.  Un réseau virtuel est un réseau isolé et privé.  Sauf si une association avec une adresse IP publique existe, la connectivité n’est pas autorisée.  Vous pouvez atteindre des [points de terminaison de service du réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md) car ils se trouvent à l’intérieur et sont locaux à votre réseau virtuel.  Si vous souhaitez établir une connectivité sortante vers une destination en dehors de votre réseau virtuel, vous avez deux options :
+- assigner une adresse IP publique de référence SKU Standard comme adresse IP publique de niveau de l’Instance à la ressource de la machine virtuelle ou
+- placer la ressource de la machine virtuelle dans le pool principal d’un Load Balancer Standard public.
 
-Lorsque seule la référence Standard de Load Balancer traite les instances de machine virtuelle, les connexions SNAT sortantes sont indisponibles. Vous pouvez restaurer cette capacité explicitement en assignant également des instances de machine virtuelle à un équilibreur de charge public ou en assignant des adresses IP publiques en tant qu’adresses IP publiques de niveau d’instance directement à chaque instance de machine virtuelle. Cette option de configuration peut être nécessaire pour certains scénarios d’application et de système d’exploitation. 
+Les deux permettent une connectivité sortante à partir du réseau virtuel vers l’extérieur du réseau virtuel. 
 
-### <a name="port-forwarding"></a>Réacheminement de port
+Si vous disposez _uniquement_ d’un Load Balancer Standard interne associé au pool principal dans lequel se trouve votre ressource de machine virtuelle, votre machine virtuelle ne peut atteindre que des ressources de réseau virtuel et les [points de terminaison de service du réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md).  Vous pouvez suivre les étapes décrites dans le paragraphe précédent pour créer une connectivité sortante.
 
-Les références Standard et De base de Load Balancer permettent de configurer des règles NAT entrantes pour mapper un port de serveur frontal à une instance de serveur principal individuelle. En configurant ces règles, vous pouvez exposer des points de terminaison de protocole RDP (Remote Desktop Protocol) et SSH ou effectuer d’autres scénarios d’application.
+La connectivité sortante d’une ressource de machine virtuelle non associée aux références SKU Standard reste comme avant.
 
-La référence Standard de Load Balancer continue de fournir la fonction de réacheminement de port via des règles NAT entrantes. Utilisées avec des serveurs frontaux redondants dans une zone, les règles NAT entrantes deviennent redondantes dans une zone et survivent aux défaillances de zone.
+Consultez la [discussion détaillée sur les connexions sortantes](load-balancer-outbound-connections.md).
 
-### <a name="multiple-front-ends"></a>Plusieurs serveurs frontaux
+### <a name="multife"></a>Plusieurs serveurs frontaux
+Load Balancer prend en charge plusieurs règles avec plusieurs serveurs frontaux.  Load Balancer Standard s’étend aux scénarios sortants.  Les scénarios sortants sont essentiellement l’inverse d’une règle d’équilibrage de charge entrante.  La règle d’équilibrage de charge entrante crée également une règle associée aux connexions sortantes. Load Balancer Standard utilise tous les serveurs frontaux associés à une ressource de machine virtuelle via une règle d’équilibrage de charge.  En outre, un paramètre sur la règle de l’équilibrage de charge vous permet de supprimer une règle d’équilibrage de charge pour les besoins de la connectivité sortante, ce qui permet de sélectionner les serveurs frontaux spécifiques, y compris aucun.
 
-Configurez plusieurs serveurs frontaux pour une conception flexible dans laquelle les applications ont besoin que plusieurs adresses IP individuelles soient exposées (par exemple, des sites web TLS ou des points de terminaison de groupes de disponibilité AlwaysOn SQL). 
+Pour la comparaison, Load Balancer de base sélectionne un seul serveur frontal de manière aléatoire et il n’existe aucune possibilité de contrôler quel serveur est sélectionné.
 
-La référence Standard de Load Balancer continue de fournir plusieurs serveurs frontaux lorsque vous devez exposer un point de terminaison d’application spécifique sur une adresse IP unique.
+Consultez la [discussion détaillée sur les connexions sortantes](load-balancer-outbound-connections.md).
 
-Pour plus d’informations sur la configuration de plusieurs adresses IP frontales, consultez [Adresses IP virtuelles multiples pour Azure Load Balancer](load-balancer-multivip-overview.md).
+### <a name="operations"></a> Opérations de gestion
 
-## <a name = "sku"></a>À propos des références SKU
+Les ressources de Load Balancer Standard existent sur une plateforme d’infrastructure entièrement nouvelle.  Cela permet des opérations de gestion beaucoup plus rapides pour les références SKU Standard et les durées d’exécution sont généralement inférieures à 30 secondes par ressource de référence SKU Standard.  Notez qu’étant donné que la taille des pools principaux augmente, la durée requise pour la modification du pool principal augmente également.
 
-Les références SKU sont uniquement disponibles dans le modèle de déploiement Azure Resource Manager. Cette préversion introduit deux références SKU pour les ressources de Load Balancer et d’adresse IP publique : De base et Standard. Les fonctionnalités, les caractéristiques de performances, les limitations et certains comportements intrinsèques diffèrent d’une référence SKU à l’autre. Les machines virtuelles peuvent être utilisées avec l’une ou l’autre des références SKU. Pour les ressources de Load Balancer et d’adresse IP publique, les références SKU restent des attributs facultatifs. Lorsqu’elles sont omises dans une définition de scénario, la configuration par défaut est celle de la référence De base.
-
->[!IMPORTANT]
->La référence SKU d’une ressource n’est pas mutable. Vous ne pouvez pas modifier la référence SKU d’une ressource existante.  
-
-### <a name="load-balancer"></a>Équilibreur de charge
-
-La [ressource de Load Balancer existante](load-balancer-overview.md) devient la référence SKU De base et reste disponible publiquement et inchangée.
-
-La référence SKU Standard de Load Balancer est nouvelle actuellement en préversion. Le 1er août 2017, la version de l’API pour Microsoft.Network/loadBalancers a ajouté la propriété **sku** à la définition de ressource :
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/loadBalancers",
-            "name": "load_balancer_standard",
-            "location": "region",
-            "sku":
-            {
-                "name": "Standard"
-            },
-```
-Dans les régions offrant des zones de disponibilité, la référence Standard de Load Balancer est automatiquement résiliente dans la zone. Si le service Load Balancer a été déclaré comme zonal, il n’est pas automatiquement résilient dans la zone.
-
-### <a name="public-ip"></a>Adresse IP publique
-
-La [ressource d’adresse IP publique existante](../virtual-network/virtual-network-ip-addresses-overview-arm.md) devient la référence SKU De base et reste disponible publiquement avec toutes ses fonctionnalités, caractéristiques de performances et limitations.
-
-La référence SKU Standard d’adresse IP publique est nouvelle et actuellement en préversion. Le 1er août 2017, la version de l’API pour Microsoft.Network/publicIPAddresses a ajouté la propriété **sku** à la définition de ressource :
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/publicIPAddresses",
-            "name": "public_ip_standard",
-            "location": "region",
-            "sku":
-            {
-                "name": "Standard"
-            },
-```
-
-Contrairement à la référence De base d’adresse IP publique, qui propose plusieurs méthodes d’allocation, la référence Standard d’adresse IP publique offre toujours une méthode d’allocation statique.
-
-Dans les régions offrant des zones de disponibilité, la référence Standard d’adresse IP publique est automatiquement résiliente dans la zone. Si l’adresse IP publique a été déclarée comme zonale, elle n’est pas automatiquement résiliente dans la zone. Une adresse IP publique zonale ne peut pas être transférée d’une zone à une autre.
+Vous pouvez modifier des ressources du Load Balancer Standard et déplacer une adresse IP publique Standard d’une machine virtuelle à l’autre beaucoup plus rapidement.
 
 ## <a name="migration-between-skus"></a>Migration entre les références SKU
 
@@ -322,158 +200,41 @@ Les références SKU ne sont pas mutables. Suivez les étapes décrites dans cet
 >
 >Les ports HA et les diagnostics de la référence SKU Standard sont uniquement disponibles dans la référence SKU Standard. Vous ne pouvez pas migrer de la référence SKU Standard à la référence SKU De base et conserver ces fonctionnalités.
 >
->Les références SKU qui correspondent doivent être utilisées pour les ressources de Load Balancer et d’adresse IP publique. Vous ne pouvez pas avoir à la fois des ressources de référence SKU De base et de référence SKU Standard. Vous ne pouvez pas associer une machine virtuelle, des machines virtuelles dans un groupe à haute disponibilité ou un groupe de machines virtuelles identiques aux deux références SKU simultanément.
+>Les références SKU de base et Standard présentent plusieurs différences comme décrit dans cet article.  Assurez-vous avoir compris et être bien préparé.
 >
+>Les références SKU qui correspondent doivent être utilisées pour les ressources de Load Balancer et d’adresse IP publique. Vous ne pouvez pas avoir à la fois des ressources de référence SKU De base et de référence SKU Standard. Vous ne pouvez pas joindre des machines virtuelles autonomes, des machines virtuelles dans une ressource de groupe à haute disponibilité ou des ressources de groupe de machines virtuelles identiques aux deux références SKU simultanément.
 
 ## <a name="region-availability"></a>Disponibilité des régions
 
-Load Balancer Standard est actuellement disponible dans toutes les régions cloud publiques, excepté dans l’ouest des États-Unis.
+La référence Standard de Load Balancer est actuellement disponible dans toutes les régions cloud publiques.
 
->[!IMPORTANT]
-> Pendant une courte période, l’accès aux régions extérieures au lancement initial (Est des États-Unis 2, Centre des États-Unis, Europe du Nord, Centre-Ouest des États-Unis, Europe de l’Ouest, Asie du Sud-Est) nécessite l’inscription à des fonctionnalités d’abonnement supplémentaires (AllowLBPreviewWave2 et AllowLBPreviewWave3).  [Procédez comme suit](#additionalpreviewregions). Effectuez toutes les opérations, même si vous vous êtes déjà inscrit pour AllowLBPreview.
-> Cette condition ne sera plus obligatoire d’ici quelques semaines.
+## <a name="sla"></a>Contrat SLA
 
-## <a name="sku-service-limits-and-abilities"></a>Fonctions et limites de service des références SKU
+Les Load Balancer Standard sont disponibles avec un Contrat de niveau de service de 99,99 %.  Examinez le [Contrat de niveau de service Load Balancer Standard](https://aka.ms/lbsla) pour plus d’informations.
 
-[Les limites de service pour la mise en réseau Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits) s’appliquent par région et par abonnement. 
-
-Le tableau suivant compare les limites et fonctions des références SKU De base et Standard de Load Balancer :
-
-| Équilibreur de charge | De base | standard |
-| --- | --- | --- |
-| Taille de pool principal | jusqu’à 100 | jusqu’à 1 000 |
-| Limite de pool principal | Groupe à haute disponibilité | réseau virtuel, région |
-| Conception de pool principal | Machines virtuelles dans un groupe à haute disponibilité, groupe de machines virtuelles identiques dans un groupe à haute disponibilité | N’importe quelle instance de machine virtuelle dans le réseau virtuel |
-| Ports HA | Non pris en charge | Disponible |
-| Diagnostics | Limités, publics uniquement | Disponible |
-| Disponibilité VIP  | Non pris en charge | Disponible |
-| Mobilité d’adresses IP rapide | Non pris en charge | Disponible |
-|Scénarios de zones de disponibilité | Zonaux uniquement | Équilibrage de charge entre les zones, redondant dans une zone, zonal |
-| Algorithme SNAT sortant | À la demande | Préalloué |
-| Sélection du serveur frontal SNAT sortant | Non configurable, plusieurs candidats | Configuration facultative pour réduire les candidats |
-| Groupe de sécurité réseau | Facultatif sur la carte d’interface réseau/le sous-réseau | Obligatoire |
-
-Le tableau suivant compare les limites et fonctions des références SKU d’adresse IP publique De base et Standard :
-
-| Adresse IP publique | De base | standard |
-| --- | --- | --- |
-| Scénarios de zones de disponibilité | Zonaux uniquement | Redondants dans une zone (par défaut), zonaux (facultatif) | 
-| Mobilité d’adresses IP rapide | Non pris en charge | Disponible |
-| Disponibilité VIP | Non pris en charge | Disponible |
-| Counters | Non pris en charge | Disponible |
-| Groupe de sécurité réseau | Facultatif sur la carte d’interface réseau | Obligatoire |
-
-
-## <a name="preview-sign-up"></a>S’inscrire à la préversion
-
-Pour découvrir la préversion de la référence SKU Standard de Load Balancer et à la référence SKU Standard d’adresse IP publique associée, inscrivez votre abonnement.  L’inscription de votre abonnement vous fait bénéficier d’un accès par le biais de PowerShell ou Azure CLI 2.0. Pour effectuer l’inscription, procédez comme suit :
-
->[!NOTE]
->La prise d’effet globale de l’inscription de la fonctionnalité Standard de Load Balancer peut prendre jusqu’à une heure. Si vous souhaitez utiliser Load Balancer Standard avec des [Zones de disponibilité](https://aka.ms/availabilityzones), une [inscription distincte](https://aka.ms/availabilityzones) est requise pour la préversion AZ.
-
-<a name="additionalpreviewregions"></a>
->[!IMPORTANT]
-> Pendant une courte période, l’accès aux régions extérieures au lancement initial (Est des États-Unis 2, Centre des États-Unis, Europe du Nord, Centre-Ouest des États-Unis, Europe de l’Ouest, Asie du Sud-Est) nécessite l’inscription à des fonctionnalités d’abonnement supplémentaires (AllowLBPreviewWave2 et AllowLBPreviewWave3).  Les étapes ci-dessous ont été modifiées afin d’autoriser des fonctionnalités d’abonnement supplémentaires. Effectuez toutes les opérations, même si vous vous êtes déjà inscrit pour AllowLBPreview. Cette condition ne sera plus obligatoire d’ici quelques semaines.
-
-
-### <a name="sign-up-by-using-azure-cli-20"></a>S’inscrire à l’aide d’Azure CLI 2.0
-
-1. Inscrire la fonctionnalité auprès du fournisseur :
-
-    ```cli
-    az feature register --name AllowLBPreview --namespace Microsoft.Network
-    az feature register --name AllowLBPreviewWave2 --namespace Microsoft.Network
-    az feature register --name AllowLBPreviewWave3 --namespace Microsoft.Network
-    ```
-    
-2. L’opération peut prendre jusqu’à 10 minutes. Vous pouvez vérifier l’état de l’opération à l’aide de la commande suivante :
-
-    ```cli
-    az feature list --query "[?name=='Microsoft.Network/AllowLBPreview']" --output json
-    az feature list --query "[?name=='Microsoft.Network/AllowLBPreviewWave2']" --output json
-    az feature list --query "[?name=='Microsoft.Network/AllowLBPreviewWave3']" --output json
-    ```
-    
-    Passez à l’étape suivante lorsque l’état d’inscription de la fonctionnalité renvoie « Inscrit » pour chaque fonctionnalité d’abonnement ci-dessus. Exemple :
-   
-    ```json
-    {
-       "id": "/subscriptions/foo/providers/Microsoft.Features/providers/Microsoft.Network/features/AllowLBPreview",
-       "name": "Microsoft.Network/AllowLBPreview",
-       "properties": {
-          "state": "Registered"
-       },
-       "type": "Microsoft.Features/providers/features"
-    }
-    ```
-    
-4. Complétez l’inscription à la préversion en réinscrivant votre abonnement avec le fournisseur de ressources :
-
-    ```cli
-    az provider register --namespace Microsoft.Network
-    ```
-    
-
-### <a name="sign-up-by-using-powershell"></a>S’inscrire à l’aide de PowerShell
-
-1. Inscrire la fonctionnalité auprès du fournisseur :
-
-    ```powershell
-    Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
-    Register-AzureRmProviderFeature -FeatureName AllowLBPreviewWave2 -ProviderNamespace Microsoft.Network
-    Register-AzureRmProviderFeature -FeatureName AllowLBPreviewWave3 -ProviderNamespace Microsoft.Network
-    ```
-    
-2. L’opération peut prendre jusqu’à 10 minutes. Vous pouvez vérifier l’état de l’opération à l’aide de la commande suivante :
-
-    ```powershell
-    Get-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
-    Get-AzureRmProviderFeature -FeatureName AllowLBPreviewWave2 -ProviderNamespace Microsoft.Network
-    Get-AzureRmProviderFeature -FeatureName AllowLBPreviewWave3 -ProviderNamespace Microsoft.Network
-    ```
-
-  Passez à l’étape suivante lorsque l’état d’inscription de la fonctionnalité renvoie « Inscrit » pour chaque fonctionnalité d’abonnement ci-dessus. Exemple :
-
-    ```
-    FeatureName      ProviderName        RegistrationState
-    -----------      ------------        -----------------
-    AllowLBPreview   Microsoft.Network   Registered
-    ```
-    
-3. Complétez l’inscription à la préversion en réinscrivant votre abonnement avec le fournisseur de ressources :
-
-    ```powershell
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-    ```
- 
 ## <a name="pricing"></a>Tarifs
 
-La facturation de la référence SKU Standard de Load Balancer est basée sur les règles configurées et les données traitées. Aucuns frais ne sont facturés lors de la durée de la préversion. Consultez les pages de tarification de [Load Balancer](https://aka.ms/lbpreviewpricing) et [d’adresse IP publique](https://aka.ms/lbpreviewpippricing) pour plus d’informations.
-
-Les clients peuvent continuer à profiter de la référence SKU De base de Load Balancer sans rien débourser.
+Load Balancer Standard est un produit facturé en fonction du nombre de règles d’équilibrage de charge configurées et du volume total de données entrantes et sortantes traitées. Pour plus d’informations sur la tarification de Load Balancer Standard, consultez la page [Tarification de Load Balancer](https://aka.ms/lbpricing).
 
 ## <a name="limitations"></a>Limites
 
-Les limitations suivantes s’appliquent au moment de la préversion et sont susceptibles de changer :
-
 - Actuellement, les instances de serveur principal Load Balancer ne peuvent pas être placées dans des réseaux virtuels homologués. Toutes les instances de serveur principal doivent être dans la même région.
 - Les références SKU ne sont pas mutables. Vous ne pouvez pas modifier la référence SKU d’une ressource existante.
-- Une machine virtuelle autonome, les instances de machine virtuelle dans un groupe à haute disponibilité et un groupe de machines virtuelles identiques peuvent être utilisées avec les deux références SKU simultanément. Les combinaisons de machines virtuelles ne peuvent pas être utilisées avec les deux références SKU simultanément. Le mélange de références SKU au sein d’une même configuration n’est pas autorisé.
-- L’utilisation d’une référence Standard de Load Balancer interne avec une instance de machine virtuelle (ou une partie d’un groupe à haute disponibilité) désactive les [connexions sortantes SNAT par défaut](load-balancer-outbound-connections.md). Vous pouvez restaurer cette fonction sur une machine virtuelle autonome, des instances de machine virtuelle dans un groupe à haute disponibilité ou un groupe de machines virtuelles identiques. Vous pouvez également restaurer la fonction permettant d’établir des connexions sortantes. Pour cela, assignez simultanément une référence Standard de Load Balancer public ou une référence Standard d’adresse IP publique en tant qu’adresse IP publique de niveau d’instance à la même instance de machine virtuelle. Une fois l’assignation effectuée, l’algorithme SNAT d’usurpation d’identité de port sur une adresse IP publique est de nouveau disponible.
-- Les instances de machine virtuelle doivent éventuellement être rassemblées dans des groupes à haute disponibilité pour obtenir une mise à l’échelle intégrale du pool principal. Jusqu’à 150 groupes à haute disponibilité et machines virtuelles autonomes peuvent être placés dans un seul pool principal.
-- IPv6 n’est pas pris en charge.
-- Dans le contexte des zones de disponibilité, un serveur frontal ne peut pas passer de zonal à redondant dans une zone, et vice versa. Un serveur frontal créé comme redondant dans une zone reste redondant dans une zone. Un serveur frontal créé comme zonal reste zonal.
-- Dans le contexte des zones de disponibilité, une adresse IP publique zonale ne peut pas être déplacée d’une zone à l’autre.
+- Une ressource de machine virtuelle autonome, une ressource de groupe à haute disponibilité ou une ressource de groupe de machines virtuelles identiques peut faire référence à une seule référence SKU, jamais aux deux.
 - Les [alertes Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md) ne sont pas prises en charge pour l’instant.
-- Le portail ne prend pas encore en charge les régions développées en préversion.  Veuillez utiliser les outils client comme les modèles, Azure CLI 2.0 ou PowerShell comme solution de contournement.
 - Les [opérations de déplacement d’abonnement](../azure-resource-manager/resource-group-move-resources.md) ne sont pas prises en charge pour les ressources LB et PIP de SKU standard.
-- Non disponible dans l’ouest des États-Unis.
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur [la référence De base de Load Balancer](load-balancer-overview.md)
+- Découvrez comment utiliser [Load Balancer Standard et les zones de disponibilité](load-balancer-standard-availability-zones.md)
 - En savoir plus sur les [zones de disponibilité](../availability-zones/az-overview.md)
+- En savoir plus sur les [Diagnostics Load Balancer Standard](load-balancer-standard-diagnostics.md).
+- En savoir plus sur les [métriques multidimensionnelles prises en charge](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) pour obtenir des diagnostics dans [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
+- Découvrez comment utiliser [Load Balancer pour les connexions sortantes](load-balancer-outbound-connections.md)
+- En savoir plus sur [Load Balancer Standard avec les règles d’équilibrage de charge des ports HA](load-balancer-ha-ports-overview.md)
+- Découvrez comment utiliser [Load Balancer avec plusieurs serveurs frontaux](load-balancer-multivip-overview.md)
+- En savoir plus sur les [Réseaux virtuels](../virtual-network/virtual-networks-overview.md).
 - En savoir plus sur les [groupes de sécurité réseau](../virtual-network/virtual-networks-nsg.md).
+- En savoir plus sur les [Points de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md)
 - En savoir plus sur les autres [fonctionnalités de mise en réseau](../networking/networking-overview.md) clés d’Azure.
-- En savoir plus sur les [métriques exposées](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) dans [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
+- En savoir plus sur [Load Balancer](load-balancer-overview.md).

@@ -1,11 +1,11 @@
 ---
-title: "Prise en main du stockage d’objets blob Azure et des services connectés de Visual Studio (ASP.NET) | Microsoft Docs"
-description: "Comment prendre en main le stockage d’objets blob Azure dans le cadre d’un projet ASP.NET Visual Studio après s’être connecté à un compte de stockage à l’aide des services connectés de Visual Studio"
+title: Prise en main du stockage d’objets blob Azure et des services connectés de Visual Studio (ASP.NET) | Microsoft Docs
+description: Comment prendre en main le stockage d’objets blob Azure dans le cadre d’un projet ASP.NET Visual Studio après s’être connecté à un compte de stockage à l’aide des services connectés de Visual Studio
 services: storage
-documentationcenter: 
-author: kraigb
-manager: ghogen
-editor: 
+documentationcenter: ''
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: b3497055-bef8-4c95-8567-181556b50d95
 ms.service: storage
 ms.workload: web
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
-ms.author: kraig
-ms.openlocfilehash: cb406e528568dafd1e142943f5273ad58e550609
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.author: ghogen
+ms.openlocfilehash: 657eff077f9a72bad97e8bea3ad3efc0da1420d5
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet"></a>Prise en main du stockage d’objets blob Azure et des services connectés de Visual Studio (ASP.NET)
 
@@ -26,13 +26,14 @@ ms.lasthandoff: 01/06/2018
 > - [ASP.NET](./vs-storage-aspnet-getting-started-blobs.md)
 > - [ASP.NET Core](./vs-storage-aspnet-core-getting-started-blobs.md)
 
-Le stockage d’objets blob Azure est un service qui stocke des données non structurées dans le cloud en tant qu’objets ou blobs. Ce service peut stocker tout type de données texte ou binaires, par exemple, un document, un fichier multimédia ou un programme d’installation d’application. Le stockage d’objets blob est également appelé Stockage Blob.
+Le Stockage Blob Azure est un service qui stocke des données non structurées dans le cloud sous forme d’objets ou d’objets blob. Ce service peut stocker tout type de données texte ou binaires, par exemple, un document, un fichier multimédia ou un programme d’installation d’application. Le stockage d’objets blob est également appelé Stockage Blob.
 
 Ce didacticiel montre comment écrire du code ASP.NET pour des scénarios courants d’utilisation du stockage d’objets blob Azure. Ces scénarios incluent la création d’un conteneur d’objets blob, ainsi que le chargement, la création d’une liste, le téléchargement et la suppression d’objets blob.
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
+
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 
@@ -67,7 +68,7 @@ Ce didacticiel montre comment écrire du code ASP.NET pour des scénarios coura
 
 ## <a name="connect-to-a-storage-account-and-get-a-container-reference"></a>Se connecter à un compte de stockage et récupérer une référence de conteneur
 
-Un conteneur d’objets blob est une hiérarchie imbriquée d’objets blobs et de dossiers. Le reste des étapes de ce document requiert une référence à un conteneur d’objets blob ; ce code doit donc être placé dans sa propre méthode à des fins de réutilisation.
+Un conteneur d’objets blob est une hiérarchie imbriquée d’objets blobs et de dossiers. Les autres étapes de ce document requièrent une référence à un conteneur d’objets blob ; dans un souci de réutilisabilité, ce code doit donc être placé dans sa propre méthode.
 
 Les étapes suivantes permettent de créer une méthode pour se connecter au compte de stockage à l’aide de la chaîne de connexion dans **Web.config**. Elles créent également une référence à un conteneur.  Le nom du paramètre de chaîne de connexion dans **Web.config** est au format `<storageaccountname>_AzureStorageConnectionString`. 
 
@@ -87,7 +88,7 @@ Les étapes suivantes permettent de créer une méthode pour se connecter au com
     ```
 
 > [!NOTE]
-> Même si *test-blob-container* n’existe pas encore, ce code crée une référence à ce conteneur. Ainsi, celui-ci pourra être créé avec la méthode `CreateIfNotExists` indiquée à l’étape suivante.
+> Même si *test-blob-container* n’existe pas encore, ce code crée une référence à ce conteneur. Ainsi, ce dernier pourra être créé avec la méthode `CreateIfNotExists` indiquée à l’étape suivante.
 
 ## <a name="create-a-blob-container"></a>Création d’un conteneur d’objets blob
 
@@ -116,7 +117,7 @@ Les étapes suivantes montrent comment créer un conteneur d’objets blob :
     ViewBag.Success = container.CreateIfNotExists();
     ```
 
-1. Mettez à jour l’élément `ViewBag` avec le nom du conteneur d’objets blob.
+1. Attribuez à `ViewBag` le nom du conteneur d’objets blob.
 
     ```csharp
     ViewBag.BlobContainerName = container.Name;
@@ -135,7 +136,7 @@ Les étapes suivantes montrent comment créer un conteneur d’objets blob :
     }
     ```
 
-1. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le dossier **Vues**.
+1. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le dossier **Affichages**.
 
 2. Dans le menu contextuel, sélectionnez **Ajouter** > **Nouveau dossier**. Nommez ce nouveau dossier *Objets blob*. 
  
@@ -143,7 +144,7 @@ Les étapes suivantes montrent comment créer un conteneur d’objets blob :
 
 4. Dans le menu contextuel, sélectionnez **Ajouter** > **Affichage**.
 
-1. Dans la boîte de dialogue **Ajouter une vue**, entrez **CreateBlobContainer** pour le nom de la vue, puis sélectionnez **Ajouter**.
+1. Dans la boîte de dialogue **Ajouter un affichage**, entrez **CreateBlobContainer** comme nom de l’affichage, puis sélectionnez **Ajouter**.
 
 1. Ouvrez le fichier `CreateBlobContainer.cshtml` et modifiez-le pour qu’il se présente comme l'extrait de code suivant :
 
@@ -165,7 +166,7 @@ Les étapes suivantes montrent comment créer un conteneur d’objets blob :
     <li>@Html.ActionLink("Create blob container", "CreateBlobContainer", "Blobs")</li>
     ```
 
-1. Exécutez l’application, puis sélectionnez **Créer un conteneur d’objets blob** pour afficher des résultats similaires à la capture d’écran suivante :
+1. Exécutez l’application, puis sélectionnez **Créer un conteneur d’objets blob** pour afficher des résultats qui devraient ressembler à la capture d’écran suivante :
   
     ![Capture d’écran d’un conteneur d’objets blob](./media/vs-storage-aspnet-getting-started-blobs/create-blob-container-results.png)
 
@@ -173,7 +174,7 @@ Les étapes suivantes montrent comment créer un conteneur d’objets blob :
 
 ## <a name="upload-a-blob-into-a-blob-container"></a>Charger un objet blob dans un conteneur d’objets blob
 
-Une fois que le [conteneur d’objets blob](#create-a-blob-container) est créé, chargez des fichiers dans ce conteneur. Cette section présente la procédure à suivre pour charger un fichier local dans un conteneur d’objets blob. Dans ces étapes, partez du principe qu’il existe un conteneur d’objets blob nommé *test-blob-container*. 
+Une fois le [conteneur d’objets blob créé](#create-a-blob-container), chargez-y des fichiers. Cette section présente la procédure à suivre pour charger un fichier local dans un conteneur d’objets blob. Dans ces étapes, partez du principe qu’il existe un conteneur d’objets blob nommé *test-blob-container*. 
 
 1. Ouvrez le fichier `BlobsController.cs` .
 
@@ -194,7 +195,7 @@ Une fois que le [conteneur d’objets blob](#create-a-blob-container) est créé
     CloudBlobContainer container = GetCloudBlobContainer();
     ```
 
-1. Le stockage Azure prend en charge différents types d’objets blob. Ce didacticiel utilise des objets blob de blocs. Pour récupérer une référence à un objet blob de blocs, appelez la méthode `CloudBlobContainer.GetBlockBlobReference`.
+1. Le Stockage Azure prend en charge différents types d’objets blob. Ce didacticiel utilise des objets blob de blocs. Pour récupérer une référence à un objet blob de blocs, appelez la méthode `CloudBlobContainer.GetBlockBlobReference`.
 
     ```csharp
     CloudBlockBlob blob = container.GetBlockBlobReference("myBlob");
@@ -203,7 +204,7 @@ Une fois que le [conteneur d’objets blob](#create-a-blob-container) est créé
     > [!NOTE]
     > Le nom de l’objet blob fait partie de l’URL utilisée pour récupérer un objet blob et peut être n’importe quelle chaîne, y compris le nom du fichier.
 
-1. Une fois que vous disposez d’une référence d’objet blob, vous pouvez charger n’importe quel flux de données vers cet objet en appelant la méthode `UploadFromStream`pour l’objet de cette référence. La méthode `UploadFromStream` crée l’objet blob s’il n’existe pas ou le remplace s’il est déjà présent. (Remplacez *&lt;file-to-upload>* par un chemin d’accès complet au fichier à charger.)
+1. Dès qu’une référence d’objet blob est créée, il est possible d’y charger n’importe quel flux de données en appelant la méthode `UploadFromStream` de son objet. La méthode `UploadFromStream` crée l’objet blob s’il n’existe pas ou le remplace s’il est déjà présent. (Remplacez *&lt;file-to-upload>* par un chemin d’accès complet au fichier à charger.)
 
     ```csharp
     using (var fileStream = System.IO.File.OpenRead(@"<file-to-upload>"))
@@ -235,9 +236,9 @@ Une fois que le [conteneur d’objets blob](#create-a-blob-container) est créé
     <li>@Html.ActionLink("Upload blob", "UploadBlob", "Blobs")</li>
     ```
 
-1. Exécutez l’application, puis sélectionnez **Upload blob** (Charger l’objet blob).  Le mot *success* doit apparaître.
+1. Exécutez l’application, puis sélectionnez **Upload blob** (Charger l’objet blob).  Le mot *success!* (réussite) devrait apparaître.
     
-    ![Capture d’écran de vérification de réussite](./media/vs-storage-aspnet-getting-started-blobs/upload-blob.png)
+    ![Capture d’écran de la vérification de réussite](./media/vs-storage-aspnet-getting-started-blobs/upload-blob.png)
   
 ## <a name="list-the-blobs-in-a-blob-container"></a>Répertorier les objets blob d’un conteneur d’objets blob
 
@@ -348,7 +349,7 @@ Cette section explique comment répertorier les objets blob d’un conteneur d�
 
 2. Dans le menu contextuel, sélectionnez **Ajouter** > **Affichage**.
 
-1. Dans la boîte de dialogue **Ajouter une vue**, entrez `ListBlobs` pour le nom de la vue, puis sélectionnez **Ajouter**.
+1. Dans la boîte de dialogue **Ajouter un affichage**, entrez `ListBlobs` comme nom de l’affichage, puis sélectionnez **Ajouter**.
 
 1. Ouvrez `ListBlobs.cshtml` et remplacez le contenu par le code suivant :
 
@@ -376,7 +377,7 @@ Cette section explique comment répertorier les objets blob d’un conteneur d�
     <li>@Html.ActionLink("List blobs", "ListBlobs", "Blobs")</li>
     ```
 
-1. Exécutez l’application, puis sélectionnez **List blobs** (Créer une liste d’objets blob) pour afficher des résultats similaires à la capture d’écran suivante :
+1. Exécutez l’application, puis sélectionnez **Lister les objets blob** pour afficher des résultats qui devraient ressembler à la capture d’écran suivante :
   
     ![Capture d’écran Lister les objets blob](./media/vs-storage-aspnet-getting-started-blobs/listblobs.png)
 
@@ -504,5 +505,5 @@ Les étapes suivantes montrent comment supprimer un objet blob :
 
 Dans ce didacticiel, vous avez appris à stocker, répertorier et récupérer des objets blob dans le stockage Azure à l’aide d’ASP.NET. Pour plus d’informations sur les autres options de stockage de données dans Azure, consultez d’autres guides de fonctionnalités.
 
-  * [Prise en main du stockage de tables Azure et des services connectés de Visual Studio (ASP.NET)](vs-storage-aspnet-getting-started-tables.md)
-  * [Prise en main du stockage de files d’attente Azure et des services connectés de Visual Studio (ASP.NET)](vs-storage-aspnet-getting-started-queues.md)
+  * [Bien démarrer avec le Stockage Table Azure et les services connectés de Visual Studio (ASP.NET)](vs-storage-aspnet-getting-started-tables.md)
+  * [Bien démarrer avec le Stockage File d’attente Azure et les services connectés de Visual Studio (ASP.NET)](vs-storage-aspnet-getting-started-queues.md)

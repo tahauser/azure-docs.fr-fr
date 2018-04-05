@@ -1,24 +1,24 @@
 ---
-title: "Comprendre le flux du code d’autorisation OAuth 2.0 dans Azure AD"
-description: "Cet article explique comment utiliser des messages HTTP pour autoriser l’accès aux applications web et API web dans votre client à l’aide d’Azure Active Directory et OAuth 2.0."
+title: Comprendre le flux du code d’autorisation OAuth 2.0 dans Azure AD
+description: Cet article explique comment utiliser des messages HTTP pour autoriser l’accès aux applications web et API web dans votre client à l’aide d’Azure Active Directory et OAuth 2.0.
 services: active-directory
 documentationcenter: .net
-author: dstrockis
+author: hpsin
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
-ms.author: dastrock
+ms.date: 03/19/2018
+ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 77df32710f17f8c5b749c39af9f6c64f0cc0b376
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 87a24ae9b620557e3106eb7f51b3f002cd76dd03
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="authorize-access-to-web-applications-using-oauth-20-and-azure-active-directory"></a>Autoriser l’accès aux applications web à l’aide d’OAuth 2.0 et Azure Active Directory
 Azure Active Directory (Azure AD) utilise OAuth 2.0 pour vous permettre d’autoriser l’accès aux applications web et aux API web dans votre client Azure AD. Ce guide est indépendant du langage. Il explique comment envoyer et recevoir des messages HTTP sans utiliser l’une de nos bibliothèques open source.
@@ -50,7 +50,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Paramètre |  | Description |
 | --- | --- | --- |
 | locataire |required |La valeur `{tenant}` dans le chemin d’accès de la requête peut être utilisée pour contrôler les utilisateurs qui peuvent se connecter à l’application.  Les valeurs autorisées sont les identificateurs du client, par exemple `8eaef023-2b34-4da1-9baa-8bc8c9d6a490`, `contoso.onmicrosoft.com` ou `common` pour les jetons indépendants du client |
-| client_id |required |L’ID d’application attribué à votre application lorsque vous l’avez inscrite auprès d’Azure AD. Vous le trouverez sur le portail Azure. Cliquez sur **Active Directory**, sur le répertoire, sélectionnez l’application et cliquez sur **Configurer** |
+| client_id |required |L’ID de l’application assignée à votre application lorsque vous l’avez inscrite auprès d’Azure AD. Vous le trouverez sur le portail Azure. Cliquez sur **Active Directory**, sur le répertoire, sélectionnez l’application et cliquez sur **Configurer** |
 | response_type |required |Doit inclure `code` pour le flux de code d’autorisation. |
 | redirect_uri |recommandé |L’URI de redirection de votre application, vers lequel votre application peut envoyer et recevoir des réponses d’authentification.  Il doit correspondre exactement à l’un des URI de redirection enregistrés dans le portail, auquel s’ajoute le codage dans une URL.  Pour les applications natives et mobiles, vous devez utiliser la valeur par défaut `urn:ietf:wg:oauth:2.0:oob`. |
 | response_mode |recommandé |Spécifie la méthode à utiliser pour envoyer le jeton résultant à votre application.  Peut être `query` ou `form_post`. |
@@ -59,6 +59,8 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | prompt |facultatif |Indique le type d’interaction utilisateur requis.<p> Les valeurs autorisées sont : <p> *login*: l’utilisateur doit être invité à se réauthentifier. <p> *consent*: le consentement de l’utilisateur a été accordé, mais il doit être mis à jour. L’utilisateur doit être invité à donner son consentement. <p> *admin_consent* : un administrateur doit être invité à donner son consentement pour le compte de tous les utilisateurs de son organisation |
 | login_hint |facultatif |Peut être utilisé pour remplir au préalable le champ réservé au nom d’utilisateur/à l’adresse électronique de la page de connexion de l’utilisateur si vous connaissez déjà son nom d’utilisateur.  Les applications utilisent souvent ce paramètre au cours de la réauthentification, après avoir extrait le nom d’utilisateur d’une connexion précédente à l’aide de la revendication `preferred_username`. |
 | domain_hint |facultatif |Fournit une indication sur le client ou le domaine que l’utilisateur doit utiliser pour se connecter. La valeur du paramètre domain_hint est un domaine inscrit pour le client. Si le client est fédéré sur un répertoire local, AAD redirige vers le serveur de fédération du client spécifié. |
+| code_challenge_method | facultatif    | La méthode utilisée pour encoder le `code_verifier` pour le paramètre `code_challenge`. Peut être `plain` ou `S256`.  Si exclu, `code_challenge` est censé être dans un texte en clair si `code_challenge` est inclus.  Azure AAD v2.0 prend en charge `plain` et `S256`. Pour plus d'informations, consultez le [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| code_challenge        | facultatif    | Utilisé pour sécuriser l’octroi du code d’autorisation via la clé de preuve pour le Code Exchange (PKCE) à partir d’un client natif. Obligatoire si `code_challenge_method` est inclus.  Pour plus d'informations, consultez le [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
 > [!NOTE]
 > Si l’utilisateur fait partie d’une organisation, un administrateur de l’organisation peut donner son consentement ou refuser pour le compte de l’utilisateur, ou autoriser l’utilisateur à donner son consentement. L’utilisateur a la possibilité de donner son consentement uniquement lorsque l’administrateur le lui permet.
@@ -138,6 +140,7 @@ grant_type=authorization_code
 | redirect_uri |required |Valeur `redirect_uri` qui a été utilisée pour acquérir le `authorization_code`. |
 | client_secret |requis pour les applications Web |Le secret d’application que vous avez créé dans le portail d’inscription des applications pour votre application.  Il ne doit pas être utilisé dans une application native, car les clés secrètes client ne peuvent pas être stockées de manière sûre sur les appareils.  Il est requis pour les applications web et les API web, qui peuvent stocker en toute sécurité le `client_secret` sur le côté serveur. |
 | resource |requis s’il est spécifié dans la demande de code d’autorisation, facultatif dans le cas contraire |URI ID d’application de l’API web (ressource sécurisée). |
+| code_verifier | facultatif              | Le même code_verifier utilisé pour obtenir l’authorization_code.  Obligatoire si PKCE est utilisé dans la requête d’octroi de code d’autorisation.  Pour plus d'informations, consultez le [RFC PKCE](https://tools.ietf.org/html/rfc7636)                                                                                                                                                                                                                                                                                             |
 
 Pour rechercher l’URI ID d’application, dans le portail de gestion Azure, cliquez successivement sur **Active Directory**, le répertoire, l’application, puis sur **Configurer**.
 
@@ -290,7 +293,7 @@ WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/co
 #### <a name="error-parameters"></a>Paramètres d’erreur
 | Paramètre | Description |
 | --- | --- |
-| authorization_uri |L’URI (point de terminaison physique) du serveur d’autorisation. Cette valeur est également utilisée comme clé de recherche pour obtenir plus d’informations sur le serveur à partir d’un point de terminaison de détection. <p><p> Le client doit valider l’approbation du serveur d’autorisation. Quand la ressource est protégée par Azure AD, il suffit de vérifier que l’URL commence par https://login.microsoftonline.com ou un autre nom d’hôte pris en charge par Azure AD. Une ressource spécifique au client doit toujours retourner un URI d’autorisation spécifique au client. |
+| authorization_uri |L’URI (point de terminaison physique) du serveur d’autorisation. Cette valeur est également utilisée comme clé de recherche pour obtenir plus d’informations sur le serveur à partir d’un point de terminaison de détection. <p><p> Le client doit valider l’approbation du serveur d’autorisation. Lorsque la ressource est protégée par Azure AD, il suffit de vérifier que l’URL commence par https://login.microsoftonline.com ou un autre nom d’hôte pris en charge par Azure AD. Une ressource spécifique au client doit toujours retourner un URI d’autorisation spécifique au client. |
 | error |Une valeur de code d’erreur définie dans la section 5.2 du document [OAuth 2.0 Authorization Framework](http://tools.ietf.org/html/rfc6749)(Infrastructure d’autorisation OAuth 2.0). |
 | error_description |Une description plus détaillée de l’erreur. Ce message n’est pas destiné à offrir une description claire à l’utilisateur final. |
 | resource_id |Retourne l’identificateur unique de la ressource. L’application cliente peut utiliser cet identificateur en tant que valeur du paramètre `resource` lorsqu’elle demande un jeton pour la ressource. <p><p> Il est important pour l’application cliente de vérifier cette valeur. Sinon, un service malveillant peut être en mesure de provoquer une attaque **par élévation de privilèges** <p><p> La stratégie recommandée pour empêcher une attaque consiste à vérifier que le paramètre `resource_id` correspond à la base de l’URL de l’API web faisant l’objet de l’accès. Par exemple, si https://service.contoso.com/data fait l’objet d’un accès, `resource_id` peut être htttps://service.contoso.com/. L’application cliente doit rejeter un `resource_id` qui ne commence pas par l’URL de base sauf s’il existe une autre façon fiable de vérifier l’ID. |

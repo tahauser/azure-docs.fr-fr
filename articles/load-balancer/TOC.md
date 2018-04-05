@@ -20,13 +20,19 @@
 
 # Procédures
 
+## [Créer un équilibreur de charge standard public et redondant dans une zone](load-balancer-get-started-internet-az-portal.md)
+### [Créer un équilibreur de charge standard public et redondant dans une zone (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
+### [Créer un équilibreur de charge standard public et redondant dans une zone (CLI)](load-balancer-get-started-internet-az-cli.md)
+## [Créer un équilibrage de charge standard public et zonal](load-balancer-get-started-internet-availability-zones-zonal-portal.md)
+### [Créer un équilibrage de charge standard public et zonal (PowerShell)](load-balancer-get-started-internet-availability-zones-zonal-powershell.md)
+### [Créer un équilibrage de charge standard public et redondant dans une zone (CLI)](load-balancer-get-started-internet-availability-zones-zonal-cli.md)
+## [Équilibrer la charge de machines virtuelles entre des zones de disponibilité](load-balancer-standard-public-availability-zones-portal.md)
+###  [Équilibrer la charge de machines virtuelles entre des zones de disponibilité (CLI)](load-balancer-standard-public-zone-redundant-cli.md)
+##  [Équilibrer la charge de machines virtuelles au sein d’une zone (CLI)](load-balancer-standard-public-zonal-cli.md)   
+## [Créer un équilibrage de charge de base (modèle)](load-balancer-get-started-internet-arm-template.md)
 ## [Créer un équilibreur de charge public avec IPv6](load-balancer-ipv6-internet-ps.md)
 ### [Créer un équilibreur de charge public avec IPv6 (interface de ligne de commande)](load-balancer-ipv6-internet-cli.md)
 ### [Créer un équilibreur de charge public avec IPv6 (modèle)](load-balancer-ipv6-internet-template.md)
-## [Créer un niveau Standard d’équilibreur de charge public et redondant dans une zone](load-balancer-get-started-internet-az-portal.md)
-### [Créer un niveau Standard d’équilibreur de charge publique et redondant dans une zone (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
-### [Créer un niveau Standard d’équilibreur de charge publique et redondant dans une zone (interface de ligne de commande)](load-balancer-get-started-internet-az-cli.md)
-## [Créer un équilibrage de charge de base (modèle)](load-balancer-get-started-internet-arm-template.md)
 ## [Configuration de l’équilibreur de charge interne](load-balancer-get-started-ilb-arm-portal.md)
 ### [Configuration de l’équilibreur de charge interne (PowerShell)](load-balancer-get-started-ilb-arm-ps.md)
 ### [Configuration de l’équilibreur de charge interne (interface de ligne de commande)](load-balancer-get-started-ilb-arm-cli.md)

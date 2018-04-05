@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement - Guide de prise en main et meilleures pratiques"
-description: "Guide de prise en main d’Azure Mobile Engagement et meilleures pratiques pour l’intégration"
+title: Azure Mobile Engagement - Guide de prise en main et meilleures pratiques
+description: Guide de prise en main d’Azure Mobile Engagement et meilleures pratiques pour l’intégration
 services: mobile-engagement
 documentationcenter: mobile
 author: wesmc7777
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: dfce1183-6398-466e-aa7e-ed702fb52818
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/04/2016
 ms.author: wesmc;ricksal
-ms.openlocfilehash: 0cb54f6c4b84597fbc21fa691f88f6f7a37beedd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf9dc5febeae27473d2adb8a024536b945bb9d13
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement---getting-started-guide-with-best-practices"></a>Azure Mobile Engagement - Guide de prise en main et meilleures pratiques
-## <a name="overview"></a>Vue d’ensemble
+> [!IMPORTANT]
+> Azure Mobile Engagement est hors service depuis le 31/03/2018. Cette page sera supprimée prochainement.
+> 
+
+## <a name="overview"></a>Vue d'ensemble
 **L’écran mobile est un espace très encombré :** en 2013, une étude révélait que l’appareil mobile moyen avait 27 applications installées. Les utilisateurs passaient généralement 30 heures par mois sur leurs applications. La majeure partie de ce temps était consacrée aux réseaux sociaux et aux jeux (environ 20 heures). En 2014, les utilisateurs Android avaient le choix parmi environ 1,5 million d’applications. L’App Store d’Apple contenait environ 1,2 million d’applications. L’utilisation des applications mobiles continue à augmenter alors que les développeurs se font concurrence sur ce marché en pleine expansion. 
 
 L’utilisateur mobile moyen installe et désinstalle des applications très fréquemment en fonction de l’évolution de ses intérêts et de l’expérience au sein des applications. Pour déterminer le succès d’une application, la simple connaissance du nombre d’utilisateurs qui installent votre application ne suffit plus. Il est essentiel de savoir dans quelle mesure votre application est utile et si cette tendance d’utilisation évolue. Les questions suivantes deviennent importantes :
@@ -239,7 +243,7 @@ Une activité est un regroupement logique d’un ensemble d’éléments que l�
 ###### <a name="events"></a>Événements
 Les événements sont utilisés pour signaler les interactions utilisateur avec l’application. Il peut s’agir d’actions instantanées, telles que le partage de contenu ou le lancement d’une vidéo. En balisant les événements, vous disposez de collections de données qui montrent comment les utilisateurs interagissent avec l’application. 
 
-###### <a name="jobs"></a>Travaux
+###### <a name="jobs"></a>Tâches
 Les travaux sont utilisés pour signaler les actions qui présentent une durée. Voici quelques exemples :
 
 * Exécution d’appels d’API
@@ -248,7 +252,7 @@ Les travaux sont utilisés pour signaler les actions qui présentent une durée.
 * Durée du processus d’achat
 * Affichage d’une vidéo
 
-###### <a name="errors"></a>Erreurs
+###### <a name="errors"></a>Errors
 Les erreurs sont utilisées pour signaler les problèmes détectés par l’application, par exemple les actions utilisateur incorrectes ou les échecs d’appel d’API.
 
 ###### <a name="application-information"></a>Informations de l'application

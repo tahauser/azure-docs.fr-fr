@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory Connect Health : FAQ - Azure | Microsoft Docs"
-description: "Ce FAQ répond aux questions que vous pouvez vous poser au sujet d’Azure AD Connect. Ce FAQ couvre les questions sur l'utilisation du service, notamment le modèle de facturation, les fonctionnalités, les limitations et le support."
+title: 'Azure Active Directory Connect Health : FAQ - Azure | Microsoft Docs'
+description: Ce FAQ répond aux questions que vous pouvez vous poser au sujet d’Azure AD Connect. Ce FAQ couvre les questions sur l'utilisation du service, notamment le modèle de facturation, les fonctionnalités, les limitations et le support.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 312980ded8fad84f2ea4a41078597dd3a6cb8ca7
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: b4c977b54c87276bd4b168bc56e70f3b918e6634
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Forum Aux Questions (FAQ) Azure AD Connect Health
 Cet article répond aux questions fréquemment posées sur Azure Active Directory (Azure AD) Connect Health. Ces FAQ abordent l’utilisation du service, notamment le modèle de facturation, les fonctionnalités, les limitations et le support.
@@ -175,6 +175,9 @@ CheckForMS17-010
 
 ```
 
+**Q : Pourquoi la cmdlet PowerShell <i>Get-MsolDirSyncProvisioningError</i> affiche moins d’erreurs de synchronisation dans le résultat ?**
+
+<i>Get-MsolDirSyncProvisioningError</i> renvoie uniquement les erreurs d’approvisionnement DirSync. En outre, le portail Connect Health affiche également d’autres types d’erreurs de synchronisation telles que des erreurs d’exportation. Cela est cohérent avec le résultat delta Azure AD Connect. En savoir plus sur les [erreurs de synchronisation Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-sync-errors).
 
 
 ## <a name="related-links"></a>Liens connexes

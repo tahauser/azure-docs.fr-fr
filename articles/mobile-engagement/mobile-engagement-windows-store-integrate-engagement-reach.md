@@ -1,11 +1,11 @@
 ---
-title: "Intégration du Kit de développement logiciel du module Couverture des applications Windows Universal"
-description: "Intégration du module Couverture d’Azure Mobile Engagement avec des applications Windows Universal"
+title: Intégration du Kit de développement logiciel du module Couverture des applications Windows Universal
+description: Intégration du module Couverture d’Azure Mobile Engagement avec des applications Windows Universal
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a31ca1d6-856f-4aec-898a-07969ae5f7ec
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 9311e998e67d8d0d56da68fc9460df32ce7ce5a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8472af2ac72a1976871970963851be775b19859b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="windows-universal-apps-reach-sdk-integration"></a>Intégration du Kit de développement logiciel du module Couverture des applications Windows Universal
+> [!IMPORTANT]
+> Azure Mobile Engagement est hors service depuis le 31/03/2018. Cette page sera supprimée prochainement.
+> 
+
 Vous devez suivre la procédure d'intégration décrite dans la rubrique [Intégration du Kit de développement logiciel Windows Universal Engagement](mobile-engagement-windows-store-integrate-engagement.md) avant de suivre ce guide.
 
 ## <a name="embed-the-engagement-reach-sdk-into-your-windows-universal-project"></a>Intégration du Kit de développement logiciel (SDK) du module Couverture d’Engagement à votre projet Windows Universal

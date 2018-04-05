@@ -1,11 +1,11 @@
 ---
-title: "Guide de dépannage d’Azure Mobile Engagement - Analyse"
-description: "Dépannage des problèmes d’analyse, de surveillance, de segmentation et de tableau de bord dans Azure Mobile Engagement"
+title: Guide de dépannage d’Azure Mobile Engagement - Analyse
+description: Dépannage des problèmes d’analyse, de surveillance, de segmentation et de tableau de bord dans Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 04a7020a-ad74-4491-be69-0bd574890029
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: e30c9ac0a8421ffcf4fc3e2548cfd7ac49701900
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b19d018b83ee8b3d5848d29afff190d3dcaf3fde
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshooting-guide-for-analytics-monitoring-segmentation-and-dashboard-issues"></a>Guide de dépannage pour les problèmes d’analyse, de surveillance, de segmentation et de tableau de bord
+> [!IMPORTANT]
+> Azure Mobile Engagement est hors service depuis le 31/03/2018. Cette page sera supprimée prochainement.
+> 
+
 Les éléments suivants sont des problèmes potentiels liés à la façon dont Azure Mobile Engagement rassemble des informations sur vos applications, périphériques et utilisateurs.
 
 ## <a name="missingdelayed-information"></a>Informations manquantes/retardées

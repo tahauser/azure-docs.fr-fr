@@ -1,11 +1,11 @@
 ---
-title: "Prise en main d’Azure Mobile Engagement pour Xamarin.iOS"
-description: "Découvrez comment utiliser Azure Mobile Engagement avec les analyses et les notifications Push pour les applications Xamarin.iOS."
+title: Prise en main d’Azure Mobile Engagement pour Xamarin.iOS
+description: Découvrez comment utiliser Azure Mobile Engagement avec les analyses et les notifications Push pour les applications Xamarin.iOS.
 services: mobile-engagement
 documentationcenter: xamarin
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 0448209e-fff6-47bd-985c-2cf074bac12f
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,20 +14,24 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 9938c3e994acf31244825b1afb347f8c9f90ebe3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 78ba376eb4552468810a1de72d53ceb59ec9d395
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-xamarinios-apps"></a>Prise en main d’Azure Mobile Engagement pour les applications Xamarin.iOS
+> [!IMPORTANT]
+> Azure Mobile Engagement est hors service depuis le 31/03/2018. Cette page sera supprimée prochainement.
+> 
+
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 Cette rubrique indique comment utiliser Azure Mobile Engagement pour comprendre l’utilisation de votre application et envoyer des notifications Push aux utilisateurs segmentés d’une application Xamarin.iOS.
 Dans ce didacticiel, vous allez créer une application Xamarin.iOS vide qui collecte des données de base et reçoit des notifications Push à l’aide du service APN (Apple Push Notification).
 
 > [!NOTE]
-> Le service Azure Mobile Engagement ne sera plus disponible à partir de mars 2018. Actuellement, il reste uniquement accessible aux clients déjà abonnés à ce service. Pour plus d’informations, consultez la page [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/).
+> Le service Azure Mobile Engagement ne sera plus disponible à partir de mars 2018. Actuellement, il reste uniquement disponible pour les clients déjà abonnés à ce service. Pour plus d’informations, consultez [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/).
 
 Ce didacticiel requiert les éléments suivants :
 
@@ -35,7 +39,7 @@ Ce didacticiel requiert les éléments suivants :
 * [Kit de développement logiciel (SDK) Mobile Engagement pour Xamarin](https://www.nuget.org/packages/Microsoft.Azure.Engagement.Xamarin/)
 
 > [!NOTE]
-> Pour suivre ce didacticiel, vous avez besoin d'un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-xamarin-ios-get-started).
+> Pour suivre ce didacticiel, vous avez besoin d'un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-xamarin-ios-get-started).
 > 
 > 
 

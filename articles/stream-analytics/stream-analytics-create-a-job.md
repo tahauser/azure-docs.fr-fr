@@ -1,12 +1,11 @@
 ---
-title: "Guide pratique pour créer un travail de traitement d’analyse de données pour Stream Analytics | Microsoft Docs"
-description: "Créer une tâche de traitement d’analyse de données pour Stream Analytics | segment du parcours d’apprentissage."
-keywords: "traitement d’analyse de données"
-documentationcenter: 
+title: Guide pratique pour créer un travail de traitement d’analyse de données pour Stream Analytics | Microsoft Docs
+description: Créer une tâche de traitement d’analyse de données pour Stream Analytics | segment du parcours d’apprentissage.
+keywords: traitement d’analyse de données
+documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
+author: jseb225
+manager: ryanw
 ms.assetid: e825fbcf-69e9-443f-b402-3b7a4568f415
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: 98784783beccc19df916920fc41364a23e6bae11
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: jeanb
+ms.openlocfilehash: 03f21c076624ee758d313c4f58e29c616226de57
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-create-a-data-analytics-processing-job-for-stream-analytics"></a>Comment créer une tâche de traitement d’analyse de données pour Stream Analytics
 La ressource de niveau supérieur dans Azure Stream Analytics est une tâche Stream Analytics.  Elle se compose d'une ou plusieurs sources de données d'entrée, une requête exprimant la transformation de données et une ou plusieurs cibles de sortie où les résultats sont écrits. Ensemble, ces éléments permettent à l’utilisateur de traiter l’analyse des données dans différents scénarios de données de diffusion en continu.

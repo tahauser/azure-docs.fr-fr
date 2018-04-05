@@ -2,7 +2,7 @@
 ## [Sécuriser l’accès privilégié](active-directory-securing-privileged-access.md)
 ## [Qu’est-ce qu’Azure AD B2C ?](../active-directory-privileged-identity-management-configure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [Rôles](../active-directory-privileged-identity-management-roles.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-## [PIM pour les ressources Azure (Version préliminaire)](azure-pim-resource-rbac.md)
+## [PIM pour les ressources Azure](azure-pim-resource-rbac.md)
 ## [Flux de travail d’approbation Privileged Identity Management (PIM)](azure-ad-pim-approval-workflow.md)
 
 # Prise en main
@@ -24,7 +24,7 @@
 ### [Comment exiger l’authentification MFA](../active-directory-privileged-identity-management-how-to-require-mfa.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ### [Utilisation du journal d’audit](../active-directory-privileged-identity-management-how-to-use-audit-log.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 
-# Référence
+# Informations de référence
 ## [Exemples de code](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 
 # Rubriques connexes

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/22/2018
 ms.author: billmath
-ms.openlocfilehash: 14018db3cbe34c9eca9048ceaf376ff3a06a4353
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b1c82727e97b85fae5f315ceb1cd79cfdd111b45
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Authentification unique transparente Azure Active Directory
 
@@ -50,7 +50,8 @@ L’authentification unique transparente peut être combinée avec la [synchroni
 
 - Le nom d’utilisateur peut être soit le nom d’utilisateur local par défaut (`userPrincipalName`), soit un autre attribut configuré dans Azure AD Connect (`Alternate ID`). Les deux cas d’utilisation fonctionnent car l’authentification unique transparente utilise la revendication `securityIdentifier` dans le ticket Kerberos pour rechercher l’objet utilisateur correspondant dans Azure AD.
 - L’authentification unique transparente est une fonctionnalité opportuniste. Si elle échoue pour une raison quelconque, l’expérience de connexion utilisateur retrouve son comportement normal (l’utilisateur doit alors entrer son mot de passe dans la page de connexion).
-- Si une application transfère un paramètre `domain_hint` (OpenID Connect) ou `whr` (SAML), correspondant à votre locataire, ou encore un paramètre `login_hint`, correspondant à l’utilisateur, dans sa demande de connexion Azure AD, les utilisateurs sont automatiquement connectés, sans qu’ils n’aient à entrer leurs nom d’utilisateur et mot de passe.
+- Si une application (par exemple, https://myapps.microsoft.com/contoso.com)) transfère un paramètre `domain_hint` (OpenID Connect) ou `whr` (SAML), correspondant à votre locataire, ou encore un paramètre `login_hint`, correspondant à l’utilisateur, dans sa demande de connexion Azure AD, les utilisateurs sont automatiquement connectés, sans qu’ils n’aient à entrer leurs nom d’utilisateur et mot de passe.
+- Les utilisateurs obtiennent également une expérience de connexion silencieuse si une application (par exemple, https://contoso.sharepoint.com)) envoie des demandes de connexion aux points de terminaison avec des locataires d’Azure AD ; c'est-à-dire, https://login.microsoftonline.com/contoso.com/<..> ou https://login.microsoftonline.com/<tenant_ID>/<..> au lieu du point de terminaison commun d’Azure AD ; c'est-à-dire, https://login.microsoftonline.com/common/<...>.
 - La déconnexion est prise en charge. Cela permet aux utilisateurs de choisir le compte Azure AD auquel se connecter, au lieu d’être connecté automatiquement à l’aide de l’authentification unique transparente.
 - Les clients Office 365 (16.0.8730.xxxx et versions ultérieures) sont prises en charge à l’aide d’un flux non interactif.
 - L’authentification unique transparente peut être activée par le biais d’Azure AD Connect.

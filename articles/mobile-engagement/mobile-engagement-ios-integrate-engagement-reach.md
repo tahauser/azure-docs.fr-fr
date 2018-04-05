@@ -1,11 +1,11 @@
 ---
-title: "Intégration Reach du SDK iOS Azure Mobile Engagement | Microsoft Docs"
-description: "Dernières mises à jour et procédures du Kit de développement logiciel (SDK) iOS pour Azure Mobile Engagement"
+title: Intégration Reach du SDK iOS Azure Mobile Engagement | Microsoft Docs
+description: Dernières mises à jour et procédures du Kit de développement logiciel (SDK) iOS pour Azure Mobile Engagement
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 1f5f5857-867c-40c5-9d76-675a343a0296
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 12/13/2016
 ms.author: piyushjo
-ms.openlocfilehash: ba74e0c442ac10f096d465f989e03d2ceae8cd88
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8d531f5850e8f7f352774f5894285402bd4cc53e
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-integrate-engagement-reach-on-ios"></a>Comment intégrer Engagement Reach sur iOS
+> [!IMPORTANT]
+> Azure Mobile Engagement est hors service depuis le 31/03/2018. Cette page sera supprimée prochainement.
+> 
+
 Vous devez suivre la procédure d'intégration décrite dans la procédure [Intégration d'Engagement sur un document iOS](mobile-engagement-ios-integrate-engagement.md) avant de suivre ce guide.
 
 Cette documentation nécessite XCode 8. Si vous dépendez vraiment de XCode 7, vous pouvez utiliser [iOS SDK Engagement v3.2.4](https://aka.ms/r6oouh). Il existe un bogue connu concernant cette version précédente quand elle est exécutée sur des appareils iOS 10 : les notifications système ne sont pas activées. Pour corriger ce problème, vous devez implémenter l’API déconseillée `application:didReceiveRemoteNotification:` dans votre délégué d’application comme suit :
@@ -36,7 +40,7 @@ Cette documentation nécessite XCode 8. Si vous dépendez vraiment de XCode 7, v
 >
 >
 
-### <a name="enable-your-app-to-receive-silent-push-notifications"></a>Activer votre application pour recevoir des notifications Push Silent
+### <a name="enable-your-app-to-receive-silent-push-notifications"></a>Activer votre application pour recevoir des notifications push Silent
 [!INCLUDE [mobile-engagement-ios-silent-push](../../includes/mobile-engagement-ios-silent-push.md)]
 
 ## <a name="integration-steps"></a>Étapes d'intégration

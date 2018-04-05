@@ -1,6 +1,6 @@
 ---
-title: "Options liées au compte de stockage Azure | Microsoft Doc"
-description: "Comprendre les options pour l’utilisation de Stockage Azure."
+title: Options liées au compte de stockage Azure | Microsoft Doc
+description: Comprendre les options pour l’utilisation de Stockage Azure.
 services: storage
 author: jirwin
 manager: jwillis
@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: get-started-article
 ms.date: 01/17/2018
 ms.author: jirwin
-ms.openlocfilehash: 2c69519b865169b477950bc8fa659d5ad9081bbf
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 75d1580df5e36b2c88939fde9077c5a1948f6348
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-storage-account-options"></a>Options de compte de stockage Azure
 
@@ -218,7 +218,7 @@ Pour analyser vos comptes de stockage existants et rassembler ces informations, 
 Pour plus d’informations, consultez les articles [À propos des métriques de Storage Analytics](https://msdn.microsoft.com/library/azure/hh343258.aspx) et [Schéma de table de métriques Storage Analytics](https://msdn.microsoft.com/library/azure/hh343264.aspx)
 
 > [!NOTE]
-> Les comptes de stockage d’objets blob exposent le point de terminaison du service de table uniquement pour le stockage et l’accès aux métriques associées à ce compte. Contrairement aux comptes de stockage ZRS classiques, les comptes de stockage redondant dans une zone (ZRS) prennent en charge la collecte des données de métriques. Pour plus d’informations sur ZRS, consultez l’article [Stockage redondant dans une zone](storage-redundancy.md#zone-redundant-storage). 
+> Les comptes de stockage d’objets blob exposent le point de terminaison du service de table uniquement pour le stockage et l’accès aux métriques associées à ce compte. 
 
 Pour analyser la consommation de stockage pour le service de stockage d’objets blob, vous devez activer les métriques de capacité.
 Lorsque cette option est activée, les données de capacité sont enregistrées quotidiennement pour le service blob d’un compte de stockage comme une entrée de table écrite dans la table *$MetricsCapacityBlob* dans le même compte de stockage.

@@ -1,11 +1,11 @@
 ---
 title: Publish-WebApplicationWebSite (script Windows PowerShell) | Microsoft Docs
-description: "Découvrez comment publier un projet web sur un site web Azure. Ce script crée les ressources requises dans votre abonnement Azure si elles n’existent pas."
+description: Découvrez comment publier un projet web sur un site web Azure. Ce script crée les ressources requises dans votre abonnement Azure si elles n’existent pas.
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 63cfaa2d-f04d-40dc-8677-345385c278d5
 ms.service: multiple
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
-ms.author: kraigb
-ms.openlocfilehash: 07d21b7ce6cd8aee1cff704d316e7a2ca8c00437
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: aaa1f679b0368b0ca93305fe867a63f3971a788c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="publish-webapplicationwebsite-windows-powershell-script"></a>Publish-WebApplicationWebSite (script Windows PowerShell)
 ## <a name="syntax"></a>Syntaxe
@@ -38,10 +38,10 @@ Le chemin d'accès au fichier de configuration JSON qui décrit les détails du 
 
 | Paramètre | Valeur par défaut |
 | --- | --- |
-| Alias |(aucun) |
+| Alias |Aucun |
 | Requis ? |true |
 | Position |named |
-| Valeur par défaut |(aucun) |
+| Valeur par défaut |Aucun |
 | Accepter l'entrée de pipeline ? |false |
 | Accepter les caractères génériques ? |false |
 
@@ -50,10 +50,10 @@ Nom de l’abonnement Azure dans lequel vous souhaitez créer le site web.
 
 | Paramètre | Valeur par défaut |
 | --- | --- |
-| Alias |(aucun) |
+| Alias |Aucun |
 | Requis ? |false |
 | Position |named |
-| Valeur par défaut |(aucun) |
+| Valeur par défaut |Aucun |
 | Accepter l'entrée de pipeline ? |false |
 | Accepter les caractères génériques ? |false |
 
@@ -62,10 +62,10 @@ Le chemin d'accès au package de déploiement web à publier sur le site web. Vo
 
 | Paramètre | Valeur par défaut |
 | --- | --- |
-| Alias |(aucun) |
+| Alias |Aucun |
 | Requis ? |false |
 | Position |named |
-| Valeur par défaut |(aucun) |
+| Valeur par défaut |Aucun |
 | Accepter l'entrée de pipeline ? |false |
 | Accepter les caractères génériques ? |false |
 
@@ -74,10 +74,10 @@ Le nom d’utilisateur et le mot de passe pour la base de données SQL dans Azur
 
 | Paramètre | Valeur par défaut |
 | --- | --- |
-| Alias |(aucun) |
+| Alias |Aucun |
 | Requis ? |false |
 | Position |named |
-| Valeur par défaut |(aucun) |
+| Valeur par défaut |Aucun |
 | Accepter l'entrée de pipeline ? |false |
 | Accepter les caractères génériques ? |false |
 
@@ -86,7 +86,7 @@ Si true, imprime des messages à partir du script dans le flux de sortie.
 
 | Paramètre | Valeur par défaut |
 | --- | --- |
-| Alias |(aucun) |
+| Alias |Aucun |
 | Requis ? |false |
 | Position |named |
 | Valeur par défaut |false |

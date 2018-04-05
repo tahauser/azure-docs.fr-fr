@@ -1,11 +1,11 @@
 ---
-title: "Comprendre le langage de requête d’Azure IoT Hub | Microsoft Docs"
-description: "Guide du développeur - Description du langage de requête IoT Hub de type SQL utilisé pour récupérer des informations sur les jumeaux d’appareil et les travaux à partir de votre hub IoT."
+title: Comprendre le langage de requête d’Azure IoT Hub | Microsoft Docs
+description: Guide du développeur - Description du langage de requête IoT Hub de type SQL utilisé pour récupérer des informations sur les jumeaux d’appareil et les travaux à partir de votre hub IoT.
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 851a9ed3-b69e-422e-8a5d-1d79f91ddf15
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 624f706532645034f19af15d10352dbc6db0b6c1
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: ef0d135a744cd37d888496073c7959ddc815ec91
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>Langage de requête IoT Hub pour les jumeaux d’appareil, les travaux et le routage des messages
 
@@ -26,6 +26,8 @@ IoT Hub fournit un puissant langage de type SQL pour récupérer des information
 
 * Une introduction aux principales fonctionnalités du langage de requête d’IoT Hub
 * Une description détaillée du langage
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## <a name="device-twin-queries"></a>Requêtes de représentations d’appareil
 Des [jumeaux d’appareil][lnk-twins] peuvent contenir des objets JSON arbitraires tels que des balises (tags) et des propriétés. IoT Hub vous permet d’interroger des jumeaux d’appareil sous la forme d’un seul document JSON contenant toutes les informations sur les jumeaux d’appareil.
