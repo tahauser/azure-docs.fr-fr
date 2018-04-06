@@ -1,11 +1,11 @@
 ---
-title: "Utiliser le Kit de développement logiciel (SDK) de serveur principal Node.js pour Mobile Apps | Microsoft Docs"
-description: "Découvrez comment utiliser le Kit de développement logiciel (SDK) du serveur principal Node.js pour Azure App Service Mobile Apps."
+title: Utiliser le Kit de développement logiciel (SDK) de serveur principal Node.js pour Mobile Apps | Microsoft Docs
+description: Découvrez comment utiliser le Kit de développement logiciel (SDK) du serveur principal Node.js pour Azure App Service Mobile Apps.
 services: app-service\mobile
-documentationcenter: 
+documentationcenter: ''
 author: elamalani
 manager: elamalani
-editor: 
+editor: ''
 ms.assetid: e7d97d3b-356e-4fb3-ba88-38ecbda5ea50
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: bd423d6fb62b2ace16832f665c8834b4aea7e26f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 335186deccaa82b9a8d262d62dd8ce5d620446b6
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Utiliser le Kit de développement logiciel (SDK) Node.js pour Mobile Apps
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -119,7 +119,7 @@ Visual Studio 2015 requiert une extension pour développer les applications No
         app.use(mobile);
 
    Enregistrez le fichier .
-10. Exécutez l’application en local (l’API est disponible sur http://localhost:3000) ou publiez-la dans Azure.
+10. Exécutez l’application localement (l’API est disponible sur http://localhost:3000)) ou publiez-la sur Azure.
 
 ### <a name="create-node-backend-portal"></a>Créer un serveur principal Node.js à l’aide du portail Azure
 Vous pouvez créer un serveur principal Mobile Apps dans le [portail Azure]. Vous pouvez suivre la procédure ci-dessous, ou créer simultanément un client et un serveur en suivant le didacticiel [Créer une application mobile](app-service-mobile-ios-get-started.md). Ce didacticiel contient une version simplifiée de ces instructions et convient mieux aux projets de preuve de concept.
@@ -135,7 +135,7 @@ Lorsque vous créez un serveur principal Node.js pour Mobile Apps à l’aide du
 La procédure suivante utilise un référentiel Git pour télécharger le code de projet de démarrage rapide :
 
 1. Si vous ne l’avez pas déjà fait, installez Git. La procédure requise pour installer Git diffère selon les systèmes d'exploitation. Consultez la rubrique [Installing Git](http://git-scm.com/book/en/Getting-Started-Installing-Git) (Installation de Git) pour accéder aux distributions et consignes d’installation propres aux différents systèmes d’exploitation.
-2. Suivez la procédure indiquée dans [Étape 3 : activation du référentiel de l’application App Service](../app-service/app-service-deploy-local-git.md#Step3) pour activer le référentiel Git pour votre site de serveur principal. Notez le nom d’utilisateur et le mot de passe associés au déploiement.
+2. Pour activer le dépôt Git pour votre site principal, voir [Préparer votre dépôt](../app-service/app-service-deploy-local-git.md#prepare-your-repository). Notez le nom d’utilisateur et le mot de passe associés au déploiement.
 3. Dans le volet de votre serveur principal Mobile Apps, prenez note du paramètre **URL de clone Git**.
 4. Exécutez la commande `git clone` à l’aide de l’URL de clone Git. Entrez votre mot de passe lorsque vous y êtes invité, comme dans l’exemple suivant :
 

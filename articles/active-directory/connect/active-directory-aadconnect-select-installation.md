@@ -1,12 +1,12 @@
 ---
-title: "Azure AD Connect : Sélectionner le type d’installation | Microsoft Docs"
-description: "Cette rubrique vous montre comment sélectionner le type d’installation à utiliser pour Azure AD Connect"
+title: 'Azure AD Connect : Sélectionner le type d’installation | Microsoft Docs'
+description: Cette rubrique vous montre comment sélectionner le type d’installation à utiliser pour Azure AD Connect
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 9b7bcd5856ec94367edd586c28c781ac9569a792
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 76f1ce12ab149f57ec6e995d132de83105c5e0ca
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Sélectionner le type d’installation à utiliser pour Azure AD Connect
 Azure AD Connect a deux types d’installation pour une nouvelle installation : Express et personnalisée. Cette rubrique vous aide à choisir l’option à utiliser lors de l’installation.
@@ -34,7 +34,7 @@ Elle suppose que :
 
 Vous obtenez :
 
-- La [synchronisation du mot de passe](active-directory-aadconnectsync-implement-password-synchronization.md) du système local vers Azure AD pour l’authentification unique.
+- La [synchronisation de hachage du mot de passe](active-directory-aadconnectsync-implement-password-hash-synchronization.md) du système local vers Azure AD pour l’authentification unique.
 - Une configuration qui synchronise [les utilisateurs, les groupes, les contacts et les ordinateurs Windows 10](active-directory-aadconnectsync-understanding-default-configuration.md).
 - La synchronisation de tous les objets éligibles dans tous les domaines et toutes les unités d’organisation.
 - La [mise à niveau automatique](active-directory-aadconnect-feature-automatic-upgrade.md) est activée pour garantir que vous utilisez toujours la dernière version disponible.

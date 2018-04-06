@@ -1,12 +1,12 @@
 ---
-title: "Résolution de problèmes Storm à l’aide d’Azure HDInsight | Microsoft Docs"
-description: "Obtenez les réponses aux questions courantes sur l’utilisation d’Apache Storm avec Azure HDInsight."
-keywords: "Azure HDInsight, Storm, FAQ, guide de dépannage, problèmes courants"
+title: Résolution de problèmes Storm à l’aide d’Azure HDInsight | Microsoft Docs
+description: Obtenez les réponses aux questions courantes sur l’utilisation d’Apache Storm avec Azure HDInsight.
+keywords: Azure HDInsight, Storm, FAQ, guide de dépannage, problèmes courants
 services: Azure HDInsight
 documentationcenter: na
 author: raviperi
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 74E51183-3EF4-4C67-AA60-6E12FAC999B5
 ms.service: multiple
 ms.workload: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: raviperi
-ms.openlocfilehash: c0295af2e71d891d07dad7012b7a27402c375178
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 6ee408b32650fe0f0e0b66294896756732a2ca5b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-storm-by-using-azure-hdinsight"></a>Résolution de problèmes Storm à l’aide d’Azure HDInsight
 
@@ -71,7 +71,7 @@ La commande d’exportation écrit les métadonnées sur un chemin d’accès Ap
     ```
 
 #### <a name="import-offset-metadata"></a>Importer les métadonnées de décalage
-1. À l’aide de SSH, accédez à l’ancien cluster ZooKeeper à partir duquel les données de décalage de point de contrôle doivent être exportées.
+1. À l’aide de SSH, accédez à l’ancien cluster ZooKeeper à partir duquel les données de décalage de point de contrôle doivent être importées.
 2. Exécutez la commande suivante (après avoir mis à jour la chaîne de la version HDP) pour importer les données de décalage ZooKeeper à partir du chemin de stockage HDFS /stormmetadata/zkdata vers le serveur ZooKeeper dans le cluster cible :
 
     ```apache
@@ -79,7 +79,7 @@ La commande d’exportation écrit les métadonnées sur un chemin d’accès Ap
     ```
    
 #### <a name="delete-offset-metadata-so-that-topologies-can-start-processing-data-from-the-beginning-or-from-a-timestamp-that-the-user-chooses"></a>Supprimer les métadonnées de décalage afin que les topologies puissent commencer à traiter les données à partir du début ou d’un horodatage défini par l’utilisateur
-1. À l’aide de SSH, accédez à l’ancien cluster ZooKeeper à partir duquel les données de décalage de point de contrôle doivent être exportées.
+1. À l’aide de SSH, accédez à l’ancien cluster ZooKeeper à partir duquel les données de décalage de point de contrôle doivent être supprimées.
 2. Exécutez la commande suivante (après avoir mis à jour la chaîne de la version HDP) pour supprimer les données de décalage ZooKeeper du cluster actuel :
 
     ```apache

@@ -11,11 +11,11 @@ ms.workload: data-management
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: genemi
-ms.openlocfilehash: 82983c8926bdf3c7256c529448e5b4f3b2c2381c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3806b165e0124e979f59b51d5583cdbb1f949366
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Déployer et explorer une application multilocataire partitionnée qui utilise Azure SQL Database
 
@@ -173,7 +173,7 @@ Le déploiement initial inclut trois exemples de locataires dans la base de donn
 2. Appuyez sur **F5** (et non **F8**)pour exécuter le script (laissez les valeurs par défaut pour l’instant).
 
    > [!NOTE]
-   > Vous devez exécuter les scripts PowerShell uniquement en appuyant sur la touche **F5**, et non en appuyant sur **F8** pour exécuter une partie sélectionnée du script. Le problème avec **F8** est que la variable *$PSScriptRoot* n’est pas évaluée. Cette variable est requise par de nombreux scripts pour naviguer dans des dossiers, pour appeler d’autres scripts ou pour importer des modules.
+   > Vous devez exécuter les scripts PowerShell uniquement en appuyant sur la touche **F5**, et non en appuyant sur **F8** pour exécuter une partie sélectionnée du script. Le problème avec **F8** est que la variable *$PSScriptRoot* n’est pas évaluée. Cette variable est requise par de nombreux scripts pour naviguer dans des dossiers, appeler d’autres scripts ou importer des modules.
 
 Le nouveau locataire Red Maple Racing est ajouté à la base de données *Tenants1* et enregistré dans le catalogue. Le site **événements** de vente de tickets du nouveau locataire s’ouvre dans votre navigateur :
 

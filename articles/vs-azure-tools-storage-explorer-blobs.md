@@ -1,11 +1,11 @@
 ---
-title: "Gérer les ressources Stockage Blob Azure avec l’Explorateur de stockage (version préliminaire) | Microsoft Docs"
-description: "Gérer les conteneurs d’objets blob et les blobs Azure avec l’Explorateur de stockage (version préliminaire)"
+title: Gérer les ressources Stockage Blob Azure avec l’Explorateur de stockage (version préliminaire) | Microsoft Docs
+description: Gérer les conteneurs d’objets blob et les blobs Azure avec l’Explorateur de stockage (version préliminaire)
 services: storage
 documentationcenter: na
 author: cawa
 manager: paulyuk
-editor: 
+editor: ''
 ms.assetid: 2f09e545-ec94-4d89-b96c-14783cc9d7a9
 ms.service: storage
 ms.devlang: multiple
@@ -14,18 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
-ms.openlocfilehash: c23b87cca66df0834a31494be7d8657ff9f2a865
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 98a1016f78587b4139041f140634b98fa47edfd1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer-preview"></a>Gérer les ressources Azure Blob Storage avec l’Explorateur de stockage (version préliminaire)
 ## <a name="overview"></a>Vue d'ensemble
 Le [Stockage Blob Azure](storage/blobs/storage-dotnet-how-to-use-blobs.md) est un service permettant de stocker de gros volumes de données non structurées, telles que du texte ou des données binaires, accessibles depuis n’importe où dans le monde via HTTP ou HTTPS.
 Vous pouvez utiliser le stockage d'objets blob pour exposer les données publiquement dans le monde ou pour le stockage privé de données d'applications. Dans cet article, vous allez apprendre à utiliser l’Explorateur de stockage (version préliminaire) pour utiliser des conteneurs d’objets blob et des objets blob.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 Pour pouvoir suivre les étapes de cet article, vous devrez :
 
 * [Télécharger et installer l’Explorateur de stockage (version préliminaire)](http://www.storageexplorer.com)
@@ -41,7 +42,7 @@ Les étapes suivantes expliquent comment créer un conteneur d’objets blob dan
 3. Cliquez avec le bouton droit sur **Conteneurs d’objets blob** puis, dans le menu contextuel, sélectionnez **Créer un conteneur d’objets blob**.
 
    ![Création de conteneurs d’objets blob - Menu contextuel][0]
-4. Une zone de texte apparaît sous le dossier **Conteneurs d’objets blob** . Entrez le nom de votre conteneur d’objets blob. Consultez la section relative aux [règles d’affectation des noms de conteneurs](storage/blobs/storage-dotnet-how-to-use-blobs.md#create-a-container) pour obtenir la liste des règles et restrictions applicables aux noms de conteneurs d’objets blob.
+4. Une zone de texte apparaît sous le dossier **Conteneurs d’objets blob** . Entrez le nom de votre conteneur d’objets blob. Pour des informations sur les règles et restrictions applicables aux noms de conteneurs d’objets blob, voir [Créer le conteneur et définir les autorisations](storage/blobs/storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions).
 
    ![Création de conteneurs d’objets blob - Zone de texte][1]
 5. Appuyez sur **Entrée** pour créer le conteneur d’objets blob, ou sur **ÉCHAP** pour annuler. Une fois le conteneur créé, il apparaît sous le dossier **Conteneurs d’objets blob** correspondant au compte de stockage sélectionné.
@@ -174,7 +175,7 @@ Les étapes suivantes expliquent comment gérer les objets blob (et les dossiers
      2. Dans la boîte de dialogue **Télécharger des fichiers**, sélectionnez le bouton des points de suspension (**…**) situé sur le côté droit de la zone **Fichiers** pour sélectionner les fichiers que vous souhaitez charger.
 
         ![Télécharger des fichiers - Options][16]
-     3. Spécifiez le **Type d’objet blob**. L’article [Prise en main du Stockage Blob Azure à l’aide de .NET](storage/blobs/storage-dotnet-how-to-use-blobs.md#blob-service-concepts) explique les différences entre les divers types d’objets blob.
+     3. Spécifiez le **Type d’objet blob**. Pour plus d’informations, voir [Créer le conteneur et définir des autorisations](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container).
      4. Si vous le souhaitez, spécifiez un dossier cible dans lequel charger les fichiers sélectionnés. Si le dossier cible n’existe pas, il sera créé.
      5. Sélectionnez **Télécharger**.
    * **Télécharger un dossier dans un conteneur d’objets blob**
@@ -185,7 +186,7 @@ Les étapes suivantes expliquent comment gérer les objets blob (et les dossiers
      2. Dans la boîte de dialogue **Télécharger un dossier**, sélectionnez le bouton des points de suspension (**…**) situé sur le côté droit de la zone **Dossier** pour sélectionner le dossier que vous souhaitez charger.
 
         ![Télécharger un dossier - Options][18]
-     3. Spécifiez le **Type d’objet blob**. L’article [Prise en main du Stockage Blob Azure à l’aide de .NET](storage/blobs/storage-dotnet-how-to-use-blobs.md#blob-service-concepts) explique les différences entre les divers types d’objets blob.
+     3. Spécifiez le **Type d’objet blob**. Pour plus d’informations, voir [Créer le conteneur et définir des autorisations](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container).
      4. Si vous le souhaitez, spécifiez un dossier cible dans lequel charger le contenu du dossier sélectionné. Si le dossier cible n’existe pas, il sera créé.
      5. Sélectionnez **Télécharger**.
    * **Télécharger un objet blob sur votre ordinateur local**

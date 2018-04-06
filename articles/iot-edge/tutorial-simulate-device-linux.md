@@ -1,8 +1,8 @@
 ---
 title: Simuler Azure IoT Edge sur Linux | Microsoft Docs
-description: "Installer le runtime Azure IoT Edge sur un appareil simulé dans Linux et déployer votre premier module"
+description: Installer le runtime Azure IoT Edge sur un appareil simulé dans Linux et déployer votre premier module
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -10,11 +10,11 @@ ms.reviewer: elioda
 ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 55770c92f5d5959e83066b425bc6ccf2b9dcc62e
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 65a3f6d71c0c0d92f703a5d48760dd348c726ba4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-linux-or-macos---preview"></a>Déployer Azure IoT Edge sur un appareil simulé dans Linux ou MacOS : préversion
 
@@ -31,12 +31,18 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 L’appareil simulé que vous créez dans ce didacticiel est un moniteur qui génère des données de pression, d’humidité et de température. Les autres didacticiels Azure IoT Edge s’appuient sur le travail que vous effectuez en déployant des modules qui analysent les données des informations métier. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
+
 
 Ce didacticiel utilise votre ordinateur ou machine virtuelle comme un appareil Internet des objets. Pour faire de votre machine un appareil IoT Edge, les services suivants sont requis :
 
 * Python pip, pour installer le runtime IoT Edge.
    * Linux : `sudo apt-get install python-pip`.
+     * _Notez que, sur certaines distributions (par exemple, Raspbian), vous devrez peut-être également mettre à niveau certains packages pip et installer les dépendances supplémentaires :_
+     ```
+     sudo pip install --upgrade setuptools pip
+     sudo apt-get install python2.7-dev libffi-dev libssl-dev
+     ```
    * MacOS : `sudo easy_install pip`.
 * Docker, pour exécuter les modules IoT Edge
    * [Installez Docker pour Linux][lnk-docker-ubuntu] et assurez-vous qu’il s’exécute correctement. 
@@ -70,7 +76,7 @@ sudo pip install -U azure-iot-edge-runtime-ctl
 
 Configurez le runtime avec votre chaîne de connexion d'appareil IoT Edge de la section précédente :
 ```cmd
-sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+sudo iotedgectl setup --connection-string "{device connection string}" --nopass
 ```
 
 Démarrez le runtime :

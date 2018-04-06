@@ -2,10 +2,10 @@
 title: Limites et configuration - Azure Logic Apps | Microsoft Docs
 description: Limites de service et valeurs de configuration pour Azure Logic Apps
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
 ms.service: logic-apps
 ms.workload: integration
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 54a35607e107a09188373cc5f71bb3068b4c6bab
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 740a31f4b5e0ffe9fe2ae04d3dac51cf25ab3055
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Limites et configuration de Logic Apps
 
@@ -86,7 +86,7 @@ Les limites pour une instance d’application logique sont les suivantes :
 
 | NOM | Limite | Notes | 
 | ----- | ----- | ----- | 
-| Exécutions d’actions par tranche de 5 minutes | 100 000 | Pour augmenter la limite à 300 000, vous pouvez exécuter une application de logique en mode `High Througput`. Pour configurer le mode de débit élevé, sous `runtimeConfiguration` de la ressource de flux de travail, définissez la propriété `operationOptions` sur `OptimizedForHighThroughput`. <p>**Remarque** : le mode Débit élevé est en préversion. Vous pouvez également distribuer la charge de travail entre plusieurs applications si nécessaire. | 
+| Exécutions d’actions par tranche de 5 minutes | 100 000 | Pour augmenter la limite à 300 000, vous pouvez exécuter une application de logique en mode `High Throughput`. Pour configurer le mode de débit élevé, sous `runtimeConfiguration` de la ressource de flux de travail, définissez la propriété `operationOptions` sur `OptimizedForHighThroughput`. <p>**Remarque** : le mode Débit élevé est en préversion. Vous pouvez également distribuer une charge de travail entre plusieurs applications si nécessaire. | 
 | Appels sortants simultanés des actions | ~2,500 | Diminuer le nombre de demandes simultanées ou réduire la durée en fonction des besoins. | 
 | Point de terminaison du runtime : appels entrants simultanés |~1,000 | Diminuer le nombre de demandes simultanées ou réduire la durée en fonction des besoins. | 
 | Point de terminaison du runtime : appels de lecture toutes les cinq minutes  | 60 000 | Possibilité de distribuer la charge de travail entre plusieurs applications au besoin. | 
@@ -235,7 +235,7 @@ Les appels émis par des [connecteurs](../connectors/apis-list.md) proviennent d
 |Ouest du Royaume-Uni|51.141.47.105|
 | | | 
 
-## <a name="next-steps"></a>étapes suivantes  
+## <a name="next-steps"></a>Étapes suivantes  
 
 * [Créez votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md)  
 * [Exemples et scénarios courants](../logic-apps/logic-apps-examples-and-scenarios.md)

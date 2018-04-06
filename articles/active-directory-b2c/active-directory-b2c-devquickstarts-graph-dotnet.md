@@ -1,24 +1,21 @@
 ---
-title: "Utiliser l’API Graph - Azure AD B2C | Microsoft Docs"
-description: "Comment appeler l’API Graph pour un client B2C à l’aide d’une identité d’application pour automatiser le processus."
+title: Utiliser l’API Graph - Azure AD B2C | Microsoft Docs
+description: Comment appeler l’API Graph pour un client B2C à l’aide d’une identité d’application pour automatiser le processus.
 services: active-directory-b2c
 documentationcenter: .net
-author: parakhj
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: f9904516-d9f7-43b1-ae4f-e4d9eb1c67a0
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
-ms.author: parakhj
-ms.openlocfilehash: aee051946c90c686959066ac14798f807e7b91b0
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.author: davidmu
+ms.openlocfilehash: ff3aa44a4e2513f4d3e5ac2eed84715b8fe9b004
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C : Utiliser l’API Graph Azure AD
 
@@ -48,7 +45,7 @@ Une fois que vous avez un locataire B2C, vous devez inscrire votre application p
 3. Dans le volet de navigation de gauche, choisissez **Tous les services**, cliquez sur **Inscriptions des applications**, puis cliquez sur **Ajouter**.
 4. Suivez les invites et créez une application. 
     1. Sélectionnez **Application web/API** en tant que Type d’application.    
-    2. Fournissez **les URI de redirection** (par exemple, https://B2CGraphAPI) dans la mesure où cela n’est pas pertinent pour cet exemple.  
+    2. Fournissez **toutes les URL de connexion** (par exemple, https://B2CGraphAPI) comme elle ne convient pas pour cet exemple.  
 5. L’application va maintenant s’afficher dans la liste des applications. Cliquez sur celle-ci pour obtenir l’**ID de l’application** (également appelé ID client). Copiez-le, car vous en aurez besoin dans une section ultérieure.
 6. Dans le menu Paramètres, cliquez sur **Clés** et ajoutez une nouvelle clé (également appelée clé secrète client). Copiez-la également pour une utilisation dans une section ultérieure.
 

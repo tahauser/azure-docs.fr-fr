@@ -1,11 +1,11 @@
 ---
-title: "Gérer Key Vault dans Azure Stack avec PowerShell | Microsoft Docs"
-description: "Découvrir comment gérer Key Vault dans Azure Stack avec PowerShell"
+title: Gérer Key Vault dans Azure Stack avec PowerShell | Microsoft Docs
+description: Découvrir comment gérer Key Vault dans Azure Stack avec PowerShell
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 22B62A3B-B5A9-4B8C-81C9-DA461838FAE5
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: mabrigg
-ms.openlocfilehash: 6ee2ceff10d16456a6e8c6283f40fa594b3311bc
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 9dac59d74347e21bebaf7cb65d199711f45b29a9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-key-vault-in-azure-stack-by-using-powershell"></a>Gérer Key Vault dans Azure Stack avec PowerShell
 
@@ -27,7 +27,8 @@ Cet article montre comment créer et gérer Key Vault dans Azure Stack à l’ai
    - Stocker et gérer des clés de chiffrement et des secrets. 
    - Autoriser des utilisateurs ou des applications à appeler des opérations dans le coffre. 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 * Vous devez vous abonner à une offre qui inclut le service Azure Key Vault.
 * [Installez PowerShell pour Azure Stack](azure-stack-powershell-install.md).  
 * [Configurez l’environnement PowerShell de l’utilisateur Azure Stack](azure-stack-powershell-configure-user.md).
@@ -81,7 +82,7 @@ New-AzureRmKeyVault -VaultName “Vault01” -ResourceGroupName “VaultRG” -L
 
 ![Nouveau coffre de clés](media/azure-stack-kv-manage-powershell/image4.png)
 
-La sortie de cette commande affiche les propriétés du coffre de clés que vous avez créé. Quand une application accède à ce coffre, elle utilise la propriété **Vault URI** indiquée dans la sortie. Par exemple, dans ce cas, l’URI du coffre est « https://vault01.vault.local.azurestack.external ». Les applications qui interagissent avec ce coffre de clés via l’API REST doivent utiliser cet URI.
+La sortie de cette commande affiche les propriétés du coffre de clés que vous avez créé. Quand une application accède à ce coffre, elle utilise la propriété **Vault URI** indiquée dans la sortie. Par exemple, dans ce cas, l’URI du coffre est « https://vault01.vault.local.azurestack.external ». Les applications qui interagissent avec ce coffre de clés via l’API REST doivent utiliser cet URI.
 
 Dans les déploiements AD FS, quand vous créez un coffre de clés avec PowerShell, vous pouvez recevoir un avertissement indiquant : « La stratégie d’accès n’est pas définie. Aucun utilisateur ou application n’est autorisé à utiliser ce coffre ». Pour résoudre ce problème, définissez une stratégie d’accès pour le coffre à l’aide de la commande [Set-AzureRmKeyVaultAccessPolicy](azure-stack-kv-manage-powershell.md#authorize-an-application-to-use-a-key-or-secret) :
 
@@ -90,7 +91,7 @@ Dans les déploiements AD FS, quand vous créez un coffre de clés avec PowerShe
 $adUser = Get-ADUser -Filter "Name -eq '{Active directory user name}'"
 $objectSID = $adUser.SID.Value 
 
-#Set the key vault access policy
+# Set the key vault access policy
 Set-AzureRmKeyVaultAccessPolicy -VaultName "{key vault name}" -ResourceGroupName "{resource group name}" -ObjectId "{object SID}" -PermissionsToKeys {permissionsToKeys} -PermissionsToSecrets {permissionsToSecrets} -BypassObjectIdValidation 
 ```
 
@@ -111,10 +112,10 @@ Le paramètre **Destination** permet de spécifier que la clé est protégée pa
 
 ![Nouvelle clé](media/azure-stack-kv-manage-powershell/image5.png)
 
-Vous pouvez maintenant référencer la clé créée à l’aide de son URI. Si vous créez ou importez une clé qui a le même nom qu’une clé existante, la clé d’origine est mise à jour avec les valeurs spécifiées dans la nouvelle clé. Vous pouvez accéder à la version précédente à l’aide de l’URI propre à la version de la clé. Par exemple : 
+Vous pouvez maintenant référencer la clé créée à l’aide de son URI. Si vous créez ou importez une clé qui a le même nom qu’une clé existante, la clé d’origine est mise à jour avec les valeurs spécifiées dans la nouvelle clé. Vous pouvez accéder à la version précédente à l’aide de l’URI propre à la version de la clé. Par exemple :  
 
-* Utilisez « https://vault10.vault.local.azurestack.external:443/keys/key01 » pour toujours obtenir la version actuelle. 
-* Utilisez « https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a » pour obtenir cette version spécifique.
+* Utilisez « https://vault10.vault.local.azurestack.external:443/keys/key01» pour obtenir toujours la version en cours. 
+* Utilisez « https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a » pour obtenir cette version spécifique.
 
 ### <a name="get-a-key"></a>Obtenir une clé
 

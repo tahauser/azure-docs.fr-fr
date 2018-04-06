@@ -1,8 +1,8 @@
 ---
-title: "Créer une solution IoT à l’aide de Stream Analytics | Microsoft Docs"
-description: "Prise en main du didacticiel pour la solution IoT Stream Analytics d’un scénario de station de péage"
-keywords: "solution IOT, fonctions de fenêtre"
-documentationcenter: 
+title: Créer une solution IoT à l’aide de Stream Analytics | Microsoft Docs
+description: Prise en main du didacticiel pour la solution IoT Stream Analytics d’un scénario de station de péage
+keywords: solution IOT, fonctions de fenêtre
+documentationcenter: ''
 services: stream-analytics
 author: SnehaGunda
 manager: kfile
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/12/2018
+ms.date: 03/21/2018
 ms.author: sngun
-ms.openlocfilehash: cc84a34a410a750ddf2acb8f19b3bb809d269098
-ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
+ms.openlocfilehash: 6ee2c1c4b1255b462f2974c111e626d62608de5c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Créer une solution IoT à l’aide de Stream Analytics
 
@@ -35,14 +35,14 @@ Après avoir effectué ce didacticiel, vous pourrez :
 * vous appuyer sur l’expérience de surveillance et de journalisation pour résoudre les problèmes.
 
 ## <a name="prerequisites"></a>Prérequis
+
 Pour suivre ce didacticiel, vous avez besoin des composants suivants :
 
 * La version la plus récente d’ [Azure PowerShell](/powershell/azure/overview)
 * Visual Studio 2017, 2015 ou la version gratuite de [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
 * Un [abonnement Azure](https://azure.microsoft.com/pricing/free-trial/)
 * Des privilèges d’administrateur sur l’ordinateur
-* Téléchargement de [TollApp.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TollApp/TollApp.zip) à partir du Centre de téléchargement Microsoft
-* Facultatif : Code source du générateur d’événements TollApp dans [GitHub](https://aka.ms/azure-stream-analytics-toll-source)
+* Téléchargez le code source pour l’analyse de données du capteur TollApp à partir du [référentiel GitHub azure-stream-analytics](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp). Ce référentiel contient des exemples de données et des requêtes que vous utiliserez dans les sections suivantes. 
 
 ## <a name="scenario-introduction-hello-toll"></a>Présentation du scénario - « Hello, Péage ! »
 Une gare de péage est un dispositif très répandu. Il s’en trouve sur de nombreux autoroutes, ponts et tunnels dans le monde entier. Chaque station de péage compte plusieurs guichets. Aux guichets manuels, vous vous arrêtez pour régler le montant du péage à un guichetier. Aux guichets automatisés, un capteur scanne une carte RFID apposée sur le pare-brise de votre véhicule lorsque vous franchissez le péage. Il est facile de visualiser le franchissement de ces stations de péage par les véhicules sous la forme d’un flux d’événements sur lequel des opérations intéressantes peuvent être effectuées.
@@ -173,7 +173,7 @@ Vous voyez également une autre fenêtre semblable à la capture d’écran suiv
 
 ![Capture d’écran « Envoi de données de hub d’événements »](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image7.png)
 
-Normalement, toutes vos ressources doivent maintenant apparaître dans le portail Azure. Accédez à <https://manage.windowsazure.com> et connectez-vous avec les informations d’identification de votre compte. Notez que certaines fonctionnalités utilisent actuellement le portail Classic. Ces étapes sont clairement indiquées.
+Normalement, toutes vos ressources doivent maintenant apparaître dans le portail Azure. Accédez à <https://portal.azure.com>, et connectez-vous avec les informations d’identification de votre compte. Notez que certaines fonctionnalités utilisent actuellement le portail Classic. Ces étapes sont clairement indiquées.
 
 ### <a name="azure-event-hubs"></a>Hubs d'événements Azure
 

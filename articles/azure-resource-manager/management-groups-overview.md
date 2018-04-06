@@ -10,13 +10,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2018
+ms.date: 3/20/2018
 ms.author: rithorn
-ms.openlocfilehash: a86fc568a0c7f4ada0b853cda8a7b2e06ed7dfcb
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: db472345bacda916f1b1664ed7803978ab235a2a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organiser vos ressources avec des groupes d’administration Azure 
 
@@ -24,15 +24,13 @@ Si votre organisation dispose de plusieurs abonnements, vous pouvez avoir besoin
 
 La fonctionnalité de groupe d’administration est disponible dans une préversion publique. Pour commencer à utiliser des groupes d’administration, connectez-vous au [portail Azure](https://portal.azure.com) et recherchez **Groupes d’administration** dans la section **Tous les services**. 
 
-La prise en charge Azure Policy des groupes d’administration n’est pas encore disponible en préversion publique. Elle le sera dans les semaines qui viennent.  
-
 Par exemple, vous pouvez appliquer des stratégies à un groupe d’administration pour limiter les régions disponibles pour la création de machines virtuelles. Une telle stratégie s’appliquerait alors à tous les groupes d’administration, abonnements et ressources sous ce groupe d’administration en autorisant uniquement la création de machines virtuelles dans une région donnée.
 
 ## <a name="hierarchy-of-management-groups-and-subscriptions"></a>Hiérarchie des groupes d’administration et des abonnements 
 
 Vous pouvez créer une structure flexible de groupes d’administration et d’abonnements pour organiser vos ressources dans une hiérarchie à des fins de stratégie unifiée et de gestion de l’accès. Le diagramme suivant illustre un exemple de hiérarchie qui comprend des groupes d’administration et des abonnements organisés en services.    
 
-![hiérarchie](media/management-groups/MG_overview.png)
+![arborescence](media/management-groups/MG_overview.png)
 
 En créant une hiérarchie regroupée par services, vous pouvez affecter des rôles de [contrôle d’accès en fonction du rôle (RBAC)](../active-directory/role-based-access-control-what-is.md) dont *héritent* les services sous ce groupe d’administration. En utilisant des groupes d’administration, vous pouvez réduire votre charge de travail et le risque d’erreur en n’ayant à attribuer le rôle qu’une seule fois. 
 
@@ -42,6 +40,14 @@ En créant une hiérarchie regroupée par services, vous pouvez affecter des rô
     - Cette limite n’inclut pas le niveau racine ni le niveau d’abonnement.
 - Chaque groupe d’administration peut uniquement prendre en charge un seul parent.
 - Chaque groupe d’administration peut avoir plusieurs enfants. 
+
+### <a name="preview-subscription-visibility-limitation"></a>Limitation de visibilité des abonnements aux préversions 
+Il existe actuellement une limitation dans la préversion ne vous permettant pas d’afficher les abonnements auxquels vous avez hérité l’accès. L’accès à l’abonnement est hérité, mais Azure Resource Manager n’est pas encore en mesure d’honorer l’accès hérité.  
+
+L’utilisation de l’API REST pour obtenir des informations sur l’abonnement renvoie les détails puisque vous y avez accès, mais les abonnements n’apparaissent pas dans le portail Azure et Azure Powershell. 
+
+Cet élément est en cours de traitement et sera résolu avant que les groupes d’administration soient annoncés en tant que « Disponibilité générale ».  
+
 
 ## <a name="root-management-group-for-each-directory"></a>Groupe d’administration racine pour chaque annuaire
 

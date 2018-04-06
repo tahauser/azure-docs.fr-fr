@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: edfd317e7d3f7595f656c6c24ad65f3d87fea14c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 18059ef1e0efba4f030a6e99198f0b7c72b7daf3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Exécution d'un Runbook dans Azure Automation
 Lorsque vous démarrez un Runbook dans Azure Automation, une tâche est créée. Une tâche est une instance d'exécution unique d'un Runbook. Un travail Azure Automation est assigné pour exécuter chaque tâche. Même si les travaux sont partagés par plusieurs comptes Azure, les tâches des différents comptes Automation sont isolées les unes des autres. Vous n'avez pas le contrôle du travail qui traite la demande de votre tâche. Un même Runbook peut avoir plusieurs tâches s'exécutant à la fois.  L’environnement d’exécution pour les travaux du même compte Automation peut être réutilisé. Lorsque vous affichez la liste des Runbooks du portail Azure, vous voyez l'état de toutes les tâches démarrées pour chaque Runbook. Vous pouvez afficher la liste des tâches de chaque Runbook pour en assurer le suivi de l'état. Pour obtenir une description des différents états des tâches, consultez [États des tâches](#job-statuses).
@@ -46,7 +46,7 @@ Le tableau suivant décrit les différents statuts possibles pour une tâche.
 | Suspension |Le système tente de suspendre la tâche à la demande de l'utilisateur. Le Runbook doit atteindre son prochain point de contrôle avant de pouvoir être suspendu. S'il a déjà passé le dernier point de contrôle, il se termine avant d'être suspendu.  S'applique aux [Runbooks graphiques et de workflow PowerShell](automation-runbook-types.md) uniquement. |
 
 ## <a name="viewing-job-status-from-the-azure-portal"></a>Affichage de l’état du travail à partir du portail Azure
-Vous pouvez afficher une synthèse de l’état de toutes les tâches du Runbook ou explorer les détails d’une tâche spécifique du Runbook dans le portail Azure ou en configurant l’intégration à votre espace de travail Microsoft Operations Management Suite (OMS) Log Analytics pour transférer l’état des tâches de Runbook et les flux de tâches.  Pour plus d’informations sur l’intégration à OMS Log Analytics, consultez [Transférer l’état d’un travail et des flux de travail d’Automation vers Log Analytics (OMS)](automation-manage-send-joblogs-log-analytics.md).  
+Vous pouvez afficher une synthèse de l’état de toutes les tâches du Runbook ou explorer les détails d’une tâche spécifique du Runbook dans le portail Azure ou en configurant l’intégration à votre espace de travail Log Analytics pour transférer l’état des tâches et les flux de tâches de Runbook.  Pour plus d’informations sur l’intégration avec Log Analytics, voir [Transférer l’état d’un travail et des flux de travail d’Automation vers Log Analytics](automation-manage-send-joblogs-log-analytics.md).  
 
 ### <a name="automation-runbook-jobs-summary"></a>Résumé des tâches de Runbook Automation
 À droite de votre compte Automation, vous pouvez observer un résumé de toutes les tâches de Runbook pour un compte Automation sélectionné sous la vignette **Statistiques des tâches**.<br><br> ![Vignette Statistiques des tâches](./media/automation-runbook-execution/automation-account-job-status-summary.png).<br> Cette vignette affiche un nombre et une représentation graphique de l’état de toutes les tâches exécutées.  

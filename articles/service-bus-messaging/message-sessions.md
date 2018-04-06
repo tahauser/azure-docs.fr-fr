@@ -1,11 +1,11 @@
 ---
 title: Sessions de messagerie Azure Service Bus | Microsoft Docs
-description: "Traitez les séquences de messages Azure Service Bus à l’aide de sessions."
+description: Traitez les séquences de messages Azure Service Bus à l’aide de sessions.
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: sethm
-ms.openlocfilehash: 7a594e5951f6e90c9151fbaf231675d6ed091d1f
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 551432cd13c16fdd5423c46ed9c6f740353808f8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Sessions de messagerie : premier entré, premier sorti (FIFO) 
 
@@ -53,13 +53,7 @@ Ce verrouillage est désactivé lorsque la méthode **Close** ou **CloseAsync** 
 
 Lorsque plusieurs destinataires simultanés extraient des données de la file d’attente, les messages appartenant à une session spécifique sont envoyés au destinataire concerné qui détient actuellement le verrouillage pour cette session. Grâce à cette opération, un flux de messages entrelacé présent dans une file d’attente ou dans un abonnement est correctement démultiplexé vers différents destinataires, qui peuvent également résider sur des machines clientes distinctes, étant donné que la gestion des verrouillages se produit côté service, au sein de Service Bus.
 
-Toutefois, une file d’attente reste une file d’attente : il n’existe aucun accès aléatoire. Si plusieurs destinataires simultanés attendent d’accepter des sessions spécifiques ou attendent des messages en provenance de certaines sessions, et que le premier message de la file d’attente appartient à une session qu’aucun destinataire n’a encore revendiquée, les remises sont suspendues jusqu’à ce qu’un destinataire de session revendique cette session.
-
-La figure précédente illustre trois destinataires de session simultanés, qui doivent tous récupérer activement des messages de la file d’attente pour que chaque destinataire puisse progresser. La session précédente dotée de la valeur `SessionId`=4 n’appartient à aucun client actif, ce qui signifie qu’aucun message n’est remis à quiconque jusqu’à ce que ce message soit récupéré par un destinataire nouvellement créé en tant que propriétaire de la session.
-
-Bien que cette approche puisse sembler contraignante, un même processus de destinataire peut gérer facilement une multitude de sessions simultanées, notamment lorsque ces dernières sont écrites en code strictement asynchrone ; grâce au modèle de rappel, il est possible de jongler automatiquement et de manière efficace avec plusieurs douzaines de sessions simultanées.
-
-Dans le cas de nombreuses sessions simultanées, où chaque session ne reçoit des messages que de façon sporadique, la stratégie de traitement recommandée consiste pour le gestionnaire à abandonner la session après une durée d’inactivité donnée et à reprendre le traitement lorsque la session est acceptée à l’arrivée de la session suivante.
+L’illustration précédente montre trois récepteurs de session simultanée. Une Session avec `SessionId` = 4 ne contenant aucun client actif, propriétaire, aucun message n’est remis à partir de cette session. Une session se comporte à maints égards comme une sous-file d’attente.
 
 Le verrouillage de session détenu par le destinataire de session constitue une protection pour les verrouillages de message utilisés par le mode de règlement *peek-lock*. Un destinataire ne peut pas avoir deux messages « en cours » simultanément, mais les messages doivent être traités dans l’ordre. Un nouveau message ne peut être obtenu que lorsque le message précédent a été traité ou placé dans la file d’attente de lettres mortes. L’abandon d’un message entraîne un nouveau traitement de ce message lors de l’opération de réception suivante.
 

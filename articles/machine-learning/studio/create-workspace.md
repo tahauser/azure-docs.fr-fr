@@ -1,22 +1,21 @@
 ---
-title: "Créer un espace de travail Machine Learning Studio | Microsoft Docs"
-description: "Création d’un espace de travail pour Microsoft Azure Machine Learning Studio."
+title: Créer un espace de travail Machine Learning Studio | Microsoft Docs
+description: Création d’un espace de travail pour Microsoft Azure Machine Learning Studio.
 services: machine-learning
-author: garyericson
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: aa96b784-ac6c-44bc-a28a-85d49fbe90a2
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/07/2017
-ms.author: garye
-ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview
-ms.openlocfilehash: 7aad885b1643ddeb25e5d00a151005b8444315fa
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 8da10e474c62868ca109a44e7c66dc11ee62b6de
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-and-share-an-azure-machine-learning-workspace"></a>Créer et partager un espace de travail Azure Machine Learning
 Ce menu pointe vers des rubriques qui décrivent comment configurer les différents environnements de science de données utilisés par le processus d’analyse Cortana (CAP).
@@ -50,7 +49,7 @@ Pour utiliser Azure Machine Learning Studio, vous devez disposer d’un espace d
 
 Une fois l’espace de travail déployé, vous pouvez l’ouvrir dans Machine Learning Studio.
 
-1. Accédez à Machine Learning Studio à l’adresse [https://studio.azureml.net](https://studio.azureml.net/).
+1. Accédez à Machine Learning Studio à l’adresse [https://studio.azureml.net/](https://studio.azureml.net/).
 
 2. Sélectionnez votre espace de travail dans le coin supérieur droit.
 
@@ -77,7 +76,7 @@ Une fois l’espace de travail Machine Learning créé, vous pouvez y inviter le
 
 ### <a name="to-share-a-workspace"></a>Pour partager un espace de travail
 
-1. Connectez-vous à Machine Learning Studio à l’adresse [https://studio.azureml.net/Home](https://studio.azureml.net/Home).
+1. Connectez-vous à Machine Learning Studio à l’adresse [https://studio.azureml.net/Home](https://studio.azureml.net/Home)
 
 2. Dans le panneau gauche, cliquez sur **SETTINGS (PARAMÈTRES)**.
 

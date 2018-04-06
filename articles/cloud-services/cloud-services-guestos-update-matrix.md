@@ -1,24 +1,24 @@
 ---
-title: "En savoir plus sur les dernières publications du SE invité de Microsoft Azure | Microsoft Docs"
-description: "Dernières informations de publication et de compatibilité du Kit de développement logiciel (SDK) pour le SE invité de Microsoft Azure Cloud Services."
+title: En savoir plus sur les dernières publications du SE invité de Microsoft Azure | Microsoft Docs
+description: Dernières informations de publication et de compatibilité du Kit de développement logiciel (SDK) pour le SE invité de Microsoft Azure Cloud Services.
 services: cloud-services
 documentationcenter: na
 author: raiye
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6306cafe-1153-44c7-8554-623b03d59a34
 ms.service: cloud-services
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/27/2018
+ms.date: 3/19/2018
 ms.author: raiye
-ms.openlocfilehash: dac0efdb1ce76ad6f143479782f164d3304aeaf3
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 0456bf8d8cdd84078d12c3fc0f48d16b0370cddd
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure
 Fournit des informations récentes sur les dernières publications du SE (système d’exploitation) invité de Microsoft Azure pour Cloud Services. Ces informations vous permettent de planifier votre mise à niveau avant la désactivation d’un SE invité. Si vous configurez vos rôles pour utiliser les mises à jour *automatiques* d’un SE invité comme cela est décrit dans [Paramètres de mise à jour du SE invité Azure][Azure Guest OS Update Settings], il n’est pas indispensable que vous lisiez cette page.
@@ -42,6 +42,9 @@ Fournit des informations récentes sur les dernières publications du SE (systè
 Vous ne savez pas exactement ce qu’est un SE invité ou en quoi consistent les publications du SE invité ? Lisez [cette](#how-it-works) section.
 
 ## <a name="news-updates"></a>Nouvelles mises à jour
+###### <a name="march-19-2018"></a>**19 mars 2018**
+Le SE invité de février a publié.
+
 ###### <a name="january-29-2018"></a>**29 janvier 2018**
 Le système d’exploitation invité de janvier a été publié pour les familles de système d’exploitation 2 (WA-GUEST-OS-2.70_201801-01) & 3 (WA-GUEST-OS-3.57_201801-01)
 
@@ -72,12 +75,6 @@ Publication du SE invité juillet.
 ###### <a name="july-19-2017"></a>**19 juillet 2017**
 Début du déploiement du SE invité de juillet le 19 juillet et publication projetée le 8 août.
 
-###### <a name="july-7-2017"></a>**7 juillet 2017**
-Publication du SE invité juin.
-
-###### <a name="june-16-2017"></a>**16 juin 2017**
-Début du déploiement du SE invité de juin le 16 juin et publication projetée le 11 juillet.
-
 
 ## <a name="releases"></a>Publications
 ## <a name="family-5-releases"></a>Publications de famille 5
@@ -93,8 +90,9 @@ Début du déploiement du SE invité de juin le 16 juin et publication projeté
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.16_201802-01 |12 mars 2018 |Post 5.18 |TBD |
 | WA-GUEST-OS-5.15_201801-01 |4 janvier 2018 |Publication 5.17 |TBD |
-| WA-GUEST-OS-5.14_201712-01 |4 janvier 2018 |Publication 5.16 |TBD |
+|~~WA-GUEST-OS-5.14_201712-01~~ |4 janvier 2018 |12 mars 2018 |TBD |
 |~~WA-GUEST-OS-5.13_201711-01~~ |14 décembre 2017 |4 janvier 2018|TBD |
 |~~WA-GUEST-OS-5.12_201710-02~~ |8 novembre 2017 |4 janvier 2018 |TBD |
 |~~WA-GUEST-OS-5.11_201709-01~~ |6 octobre 2017 |14 décembre 2017 |TBD |
@@ -118,8 +116,9 @@ Début du déploiement du SE invité de juin le 16 juin et publication projeté
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.51_201802-01 |12 mars 2018 |Post 4.53 |TBD |
 | WA-GUEST-OS-4.50_201801-01 |4 janvier 2018 |Publication 4.52 |TBD |
-| WA-GUEST-OS-4.49_201712-01 |4 janvier 2018 |Publication 4.51 |TBD |
+|~~WA-GUEST-OS-4.49_201712-01~~ |4 janvier 2018 |12 mars 2018 |TBD |
 |~~WA-GUEST-OS-4.48_201711-01~~ |14 décembre 2017 |4 janvier 2018 |TBD |
 |~~WA-GUEST-OS-4.47_201710-02~~ |8 novembre 2017 |4 janvier 2018 |TBD |
 |~~WA-GUEST-OS-4.46_201709-01~~ |6 octobre 2017 |14 décembre 2017 |TBD |
@@ -143,8 +142,9 @@ Début du déploiement du SE invité de juin le 16 juin et publication projeté
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.58_201802-01 |19 mars 2018 |Post 3.60 |TBD |
 | WA-GUEST-OS-3.57_201801-01 |29 janvier 2018 |Billet 3.59 |TBD |
-| WA-GUEST-OS-3.56_201712-01 |4 janvier 2018 |Publication 3.58 |TBD |
+|~~WA-GUEST-OS-3.56_201712-01~~ |4 janvier 2018 |19 mars 2018 |TBD |
 |~~WA-GUEST-OS-3.55_201711-01~~ |14 décembre 2017 |29 janvier 2018 |TBD |
 |~~WA-GUEST-OS-3.54_201710-02~~ |8 novembre 2017 |4 janvier 2018 |TBD |
 |~~WA-GUEST-OS-3.53_201709-01~~ |6 octobre 2017 |14 décembre 2017 |TBD |
@@ -168,8 +168,9 @@ Début du déploiement du SE invité de juin le 16 juin et publication projeté
 
 | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.71_201802-01 |12 mars 2018 |Post 2.73 |TBD |
 | WA-GUEST-OS-2.70_201801-01 |29 janvier 2018 |Billet 2.72 |TBD |
-| WA-GUEST-OS-2.69_201712-01 |4 janvier 2018 |Publication 2.71 |TBD |
+|~~WA-GUEST-OS-2.69_201712-01~~ |4 janvier 2018 |12 mars 2018 |TBD |
 |~~WA-GUEST-OS-2.68_201711-01~~ |14 décembre 2017 |29 janvier 2018 |TBD |
 |~~WA-GUEST-OS-2.67_201710-02~~ |8 novembre 2017 |4 janvier 2018 |TBD |
 |~~WA-GUEST-OS-2.66_201709-01~~ |6 octobre 2017 |14 décembre 2017 |TBD |

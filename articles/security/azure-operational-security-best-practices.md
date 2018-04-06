@@ -6,7 +6,7 @@ documentationcenter: na
 author: unifycloud
 manager: swadhwa
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: db9840817d92b4f2f63009d30dbd554666d53dbe
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: bb7e0df046ecc2ffcd3fa59ac53edf36095933c7
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-operational-security-best-practices"></a>Bonnes pratiques pour Azure Operational Security
 Azure Operational Security renvoie aux services, contrôles et fonctionnalités auxquels les utilisateurs ont accès pour protéger leurs données, leurs applications et d’autres ressources dans Microsoft Azure. Azure Operational Security repose sur une infrastructure qui intègre les connaissances acquises via différentes fonctionnalités spécifiques de Microsoft, y compris Microsoft Security Development Lifecycle (SDL), le programme Microsoft Security Response Center et une connaissance approfondie des cybermenaces.
@@ -167,10 +167,10 @@ Pour plus d’informations sur la façon de configurer Network Watcher et de l�
 Voici certaines pratiques Azure DevOps dans cet espace Microsoft Cloud, qui permettent aux entreprises et aux équipes d’être productives et efficaces.
 
 -   **IaC (Infrastructure as Code) :** IaC est un ensemble de techniques et pratiques grâce auquel les professionnels de l’informatique peuvent supprimer la charge associée à la génération et à la gestion quotidiennes d’une infrastructure modulaire. Il permet aux professionnels de l’informatique de créer et de gérer leur environnement serveur moderne d’une façon similaire à celle dont les développeurs de logiciels génèrent et gèrent le code de l’application. Dans le cas d’Azure, [Azure Resource Manager]( https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) vous permet d’approvisionner vos applications à l’aide d’un modèle déclaratif. Dans un modèle unique, vous pouvez déployer plusieurs services ainsi que leurs dépendances. Le même modèle vous permet de déployer plusieurs fois votre application à chaque phase du cycle de vie de l’application.
--   **Intégration et déploiement continus :** vous pouvez configurer vos projets d’équipe Visual Studio Online afin de les [générer et déployer automatiquement](https://www.visualstudio.com/docs/build/overview) sur des applications web Azure ou des services cloud. VSO déploie automatiquement les fichiers binaires après avoir effectué une génération sur Azure au terme de chaque archivage de code. Le processus de génération du package décrit ici est équivalent à la commande Package de Visual Studio et les étapes de la publication sont les mêmes que pour la commande Publier dans Visual Studio.
+-   **Intégration et déploiement continus :** vous pouvez configurer vos projets d’équipe Visual Studio Team Services (VSTS) afin de les [générer et déployer automatiquement](https://www.visualstudio.com/docs/build/overview) sur des applications web Azure ou des services cloud. VSTS déploie automatiquement les fichiers binaires après avoir effectué une génération sur Azure au terme de chaque archivage de code. Le processus de génération du package décrit ici est équivalent à la commande Package de Visual Studio et les étapes de la publication sont les mêmes que pour la commande Publier dans Visual Studio.
 -   **Release Management :** Visual Studio [Release Management](https://msdn.microsoft.com/library/vs/alm/release/overview) est une excellente solution pour automatiser le déploiement en plusieurs étapes et gérer le processus de mise en production. Créez des pipelines de déploiement gérés et continus pour des publications rapides, faciles et fréquentes. Grâce à Release Management, vous pouvez automatiser une très grande partie du processus de mise en production et avoir des workflows d’approbation prédéfinis. Déployez localement et dans le cloud, étendez et personnalisez en fonction de vos besoins.
 -   **Surveillance du niveau de performance des applications :** détectez et résolvez les problèmes, et améliorez en permanence vos applications. Diagnostiquer rapidement les problèmes dans votre application en ligne. Comprendre comment vos utilisateurs l’utilisent. La configuration consiste simplement à ajouter du code JS et une entrée webconfig ; les résultats apparaissent au bout de quelques minutes dans le portail avec tous les détails. [Application Insights](https://azure.microsoft.com/documentation/articles/app-insights-start-monitoring-app-health-usage/) aide les entreprises à détecter et à traiter les problèmes plus rapidement.
--   **Test de charge et mise à l’échelle automatique :** vous pouvez détecter les problèmes de performances dans l’application, afin d’améliorer la qualité du déploiement et vous assurer que l’application est toujours fonctionnelle ou disponible pour répondre aux besoins de l’entreprise. Assurez-vous que votre application peut gérer le trafic de votre prochaine campagne de marketing ou de lancement. Commencez à exécuter des [tests de charge](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing) informatiques en un minimum de temps avec Visual Studio Online.
+-   **Test de charge et mise à l’échelle automatique :** vous pouvez détecter les problèmes de performances dans l’application, afin d’améliorer la qualité du déploiement et vous assurer que l’application est toujours fonctionnelle ou disponible pour répondre aux besoins de l’entreprise. Assurez-vous que votre application peut gérer le trafic de votre prochaine campagne de marketing ou de lancement. Commencez à exécuter des [tests de charge](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing) informatiques en un minimum de temps avec VSTS.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Découvrez-en plus sur [Azure Operational Security](https://docs.microsoft.com/azure/security/azure-operational-security).

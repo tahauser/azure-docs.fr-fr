@@ -1,6 +1,6 @@
 ---
 title: Niveaux tarifaires dans Azure Database pour PostgreSQL
-description: "Cet article présente les niveaux tarifaires dans Azure Database pour PostgreSQL."
+description: Cet article présente les niveaux tarifaires dans Azure Database pour PostgreSQL.
 services: postgresql
 author: jan-eng
 ms.author: janeng
@@ -8,12 +8,12 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: ee75af9b1d7b77799fe02d87da257ff73bc567e6
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: 21f8eb795aa1675e2bbd5284f88b39c76ad59228
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Niveaux tarifaires d’Azure Database pour PostgreSQL
 
@@ -22,7 +22,7 @@ Un serveur Azure Database pour PostgreSQL peut être créé dans un des trois di
 |    | **De base** | **Usage général** | **Mémoire optimisée** |
 |:---|:----------|:--------------------|:---------------------|
 | Génération de calcul | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
-| vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16, 32 |
+| vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
 | Mémoire par vCore | 1x | 2x De base | 2x Usage général |
 | Taille de stockage | 5 Go à 1 To | 5 Go à 1 To | 5 Go à 1 To |
 | Type de stockage | Stockage Azure Standard | Stockage Premium Azure | Stockage Premium Azure |
@@ -40,7 +40,32 @@ Après avoir créé un serveur, le nombre de vCores peut être augmenté ou dimi
 
 ## <a name="compute-generations-vcores-and-memory"></a>Générations de calcul, vCores et mémoire
 
-Les ressources de calcul sont fournies en tant que vCores, représentant le processeur logique du matériel sous-jacent. Actuellement, deux générations de calcul, Gen 4 et Gen 5, vous sont proposées. Les processeurs logiques Gen 4 sont basés sur des processeurs Intel E5-2673 v3 (Haswell) 2.4 GHz. Les processeurs logiques Gen 5 sont basés sur des processeurs Intel E5-2673 v4 (Broadwell) 2.3 GHz.
+Les ressources de calcul sont fournies en tant que vCores, représentant le processeur logique du matériel sous-jacent. Actuellement, deux générations de calcul, Gen 4 et Gen 5, vous sont proposées. Les processeurs logiques Gen 4 sont basés sur des processeurs Intel E5-2673 v3 (Haswell) 2.4 GHz. Les processeurs logiques Gen 5 sont basés sur des processeurs Intel E5-2673 v4 (Broadwell) 2.3 GHz. Les processeurs Gen 4 et Gen 5 sont disponibles dans les régions suivantes (« X » indique la disponibilité) : 
+
+| **Région Azure** | **Génération 4** | **Génération 5** |
+|:---|:----------:|:--------------------:|
+| Centre des États-Unis |  | X |
+| Est des États-Unis | X | X |
+| Est des États-Unis 2 | X |  |
+| Centre-Nord des États-Unis | X |  |
+| États-Unis - partie centrale méridionale | X |  |
+| États-Unis de l’Ouest | X | X |
+| Ouest des États-Unis 2 |  | X |
+| Centre du Canada | X | X |
+| Est du Canada | X | X |
+| Sud du Brésil | X |  |
+| Europe du Nord | X | X |
+| Europe de l'Ouest | X | X |
+| Ouest du Royaume-Uni |  | X |
+| Sud du Royaume-Uni |  | X |
+| Est de l'Asie | X |  |
+| Asie du Sud-Est | X |  |
+| Est de l’Australie |  | X |
+| Inde centrale | X |  |
+| Inde occidentale | X |  |
+| Est du Japon | X |  |
+| Ouest du Japon | X |  |
+| Corée du Sud |  | X |
 
 Selon le niveau tarifaire, chaque vCore est doté d’une quantité spécifique de mémoire. Lorsque vous augmentez ou diminuez le nombre de vCores pour votre serveur, la mémoire augmente ou diminue proportionnellement. Le niveau Usage général fournit le double de quantité de mémoire par vCore par rapport au niveau De base. Le niveau À mémoire optimisée fournit le double de quantité de mémoire par rapport au niveau Usage général.
 

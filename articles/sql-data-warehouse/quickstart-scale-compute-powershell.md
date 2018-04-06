@@ -1,24 +1,24 @@
 ---
-title: "Démarrage rapide : Monter en puissance le calcul dans Azure SQL Data Warehouse - PowerShell | Microsoft Docs"
-description: "Les tâches PowerShell permettent de monter en puissance les ressources de calcul en ajustant les unités de l’entrepôt de données."
+title: 'Démarrage rapide : Monter en puissance le calcul dans Azure SQL Data Warehouse - PowerShell | Microsoft Docs'
+description: Les tâches PowerShell permettent de monter en puissance les ressources de calcul en ajustant les unités de l’entrepôt de données.
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
 manager: jhubbard
-editor: 
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 01/31/2018
+ms.date: 03/16/2018
 ms.author: elbutter;barbkess
-ms.openlocfilehash: a3a435d6bdb0d35c96349540d5e9f9b5be61bd9b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3236c0ad9676712afd220a3c8a9326f3ea1f59d5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>Démarrage rapide : Mettre à l’échelle le calcul dans Azure SQL Data Warehouse avec PowerShell
 
@@ -64,7 +64,7 @@ Suivez ces étapes pour rechercher des informations sur l’emplacement de votre
 
     ![Nom du serveur et groupe de ressources](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-4. Notez le nom de l’entrepôt de données qui sera utilisé comme nom de base de données. Notez également le nom du serveur et le groupe de ressources. Vous les utiliserez dans les commandes de suspension et de reprise.
+4. Notez le nom de l’entrepôt de données qui sera utilisé comme nom de base de données. N’oubliez pas qu’un entrepôt de données est un type de base de données. Notez également le nom du serveur et le groupe de ressources. Vous les utiliserez dans les commandes de suspension et de reprise.
 5. Si votre serveur est foo.database.windows.net, utilisez uniquement la première partie comme nom du serveur dans les applets de commande PowerShell. Dans l’image précédente, le nom complet est newserver-20171113.database.windows.net. Nous utilisons **newserver-20171113** comme nom de serveur dans l’applet de commande PowerShell.
 
 ## <a name="scale-compute"></a>Mise à l’échelle des ressources de calcul
@@ -77,12 +77,13 @@ Pour modifier les unités de l’entrepôt de données (DWU), utilisez l’apple
 Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
 ```
 
-## <a name="check-database-state"></a>Vérifier l’état de la base de données
+## <a name="check-data-warehouse-state"></a>Vérifiez l’état de l’entrepôt de données
 
 Pour afficher l’état actuel de l’entrepôt de données, utilisez l’applet de commande PowerShell [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase). Il obtient l’état de la base de données **mySampleDataWarehouse** dans le groupe de ressources **myResourceGroup** et le serveur **mynewserver-20171113.database.windows.net**.
 
 ```powershell
-Get-AzureRmSqlDatabase -ResourceGroupName myResourceGroup -ServerName mynewserver-20171113 -DatabaseName mySampleDataWarehouse
+$database = Get-AzureRmSqlDatabase -ResourceGroupName myResourceGroup -ServerName mynewserver-20171113 -DatabaseName mySampleDataWarehouse
+$database
 ```
 
 Ce qui donnera quelque chose comme ceci :
@@ -113,7 +114,13 @@ ReadScale                     : Disabled
 ZoneRedundant                 : False
 ```
 
-Vous pouvez ensuite vérifier **l’état** de la base de données. Dans ce cas, vous pouvez voir que la base de données est en ligne.  Lorsque vous exécutez cette commande, vous devriez recevoir une valeur d’état En ligne, Suspension, Reprise, Mise à l’échelle ou Suspendu.
+Vous pouvez voir l’**État** de la base de données dans la sortie. Dans ce cas, vous pouvez voir que la base de données est en ligne.  Lorsque vous exécutez cette commande, vous devriez recevoir une valeur d’état En ligne, Suspension, Reprise, Mise à l’échelle ou Suspendu. 
+
+Pour afficher l’état proprement dit, utilisez la commande suivante :
+
+```powershell
+$database | Select-Object DatabaseName,Status
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous savez maintenant mettre à l’échelle le calcul pour votre entrepôt de données. Pour en savoir plus sur Azure SQL Data Warehouse, continuez avec le didacticiel de chargement des données.

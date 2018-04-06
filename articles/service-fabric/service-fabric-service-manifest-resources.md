@@ -1,11 +1,11 @@
 ---
-title: "Spécification de points de terminaison du service Service Fabric | Microsoft Docs"
-description: "Comment décrire les ressources du point de terminaison dans un manifeste de service, y compris comment configurer des points de terminaison HTTPS"
+title: Spécification de points de terminaison du service Service Fabric | Microsoft Docs
+description: Comment décrire les ressources du point de terminaison dans un manifeste de service, y compris comment configurer des points de terminaison HTTPS
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: da36cbdb-6531-4dae-88e8-a311ab71520d
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 6fa425829e8da294c8db3d64c3d8fd202c74375a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: a028471871754c2b9c3981ec13f5788643675a77
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Spécifier des ressources dans un manifeste de service
 ## <a name="overview"></a>Vue d'ensemble
@@ -154,7 +154,7 @@ Pour les clusters Linux, le **MY** stocke par défaut dans le dossier **/var/lib
 
 ## <a name="overriding-endpoints-in-servicemanifestxml"></a>Écraser des points de terminaison dans ServiceManifest.xml
 
-Dans ServiceManifest, ajoutez une section ResourceOverrides, qui sera la sœur de la section ConfigOverrides. Vous pouvez y spécifier le remplacement de la section Points de terminaison dans la section Ressources spécifiée dans le manifeste de service.
+Dans ServiceManifest, ajoutez une section ResourceOverrides, qui sera la sœur de la section ConfigOverrides. Vous pouvez y spécifier le remplacement de la section Points de terminaison dans la section Ressources spécifiée dans le manifeste de service. Le remplacement des points de terminaison est pris en charge dans le runtime 5.7.217/SDK 2.7.217 et versions supérieures.
 
 Pour pouvoir remplacer EndPoint dans ServiceManifest à l’aide d’ApplicationParameters, modifiez ainsi ApplicationManifest :
 

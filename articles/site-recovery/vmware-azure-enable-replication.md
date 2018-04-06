@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: asgang
-ms.openlocfilehash: 17cd6a931563c7d33576749453d742aca253526b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 48d84f59a80ea14c2b40821d886fc410c7e3f2c3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Activer la réplication des machines virtuelles VMware dans Azure
 
@@ -113,15 +113,15 @@ Vérifiez ensuite les propriétés de la machine source. N’oubliez pas que le 
     Par exemple, si une machine source présente deux cartes réseau et que la taille de la machine cible en accepte quatre, la machine cible présente deux cartes. Si la machine source présente deux cartes, mais que la taille cible n’en prend en charge qu’une seule, la machine cible n’a qu’une seule carte.
     - Si la machine virtuelle possède plusieurs cartes réseau, elles se connectent toutes au même réseau. La première qui s’affiche dans la liste devient la carte réseau *par défaut* dans la machine virtuelle Azure.
 
-### <a name="azure-hybrid-use-benefit"></a>Azure Hybrid Use Benefit
+### <a name="azure-hybrid-benefit"></a>Azure Hybrid Benefit
 
-Les clients Microsoft Software Assurance peuvent utiliser Azure Hybrid User Benefit afin de réduire les coûts de licences pour les machines Windows Server qui sont migrées vers Azure ou qui utilisent Azure pour la récupération d’urgence. Si vous êtes autorisé à utiliser Azure Hybrid Use Benefit, vous pouvez spécifier que la machine virtuelle qui doit en profiter est celle créée par Azure Site Recovery en cas de basculement. Pour ce faire :
+Les clients Microsoft Software Assurance peuvent utiliser Azure Hybrid Benefit afin de réduire les coûts de licences pour les machines Windows Server qui sont migrées vers Azure ou qui utilisent Azure pour la récupération d’urgence. Si vous êtes autorisé à utiliser Azure Hybrid Benefit, vous pouvez spécifier que la machine virtuelle qui doit en profiter est celle créée par Azure Site Recovery en cas de basculement. Pour ce faire :
 - Accédez à la section des propriétés Calcul et Réseau de la machine virtuelle répliquée.
-- Répondez à la question qui vous demande si vous avez une licence Windows Server qui vous permet de profiter d’Azure Hybrid Use Benefit.
-- Cochez la case pour confirmer que vous possédez une licence Windows Server éligible avec Software Assurance vous permettant d’appliquer Hybrid Use Benefit sur la machine qui sera créée pendant le basculement.
+- Répondez à la question qui vous demande si vous avez une licence Windows Server qui vous permet de profiter d’Azure Hybrid Benefit.
+- Cochez la case pour confirmer que vous possédez une licence Windows Server éligible avec Software Assurance vous permettant d’appliquer Azure Hybrid Benefit sur la machine qui sera créée pendant le basculement.
 - Enregistrez les paramètres de la machine répliquée.
 
-En savoir plus sur l’offre [Azure Hybrid Use Benefit](https://aka.ms/azure-hybrid-use-benefit-pricing).
+En savoir plus sur [Azure Hybrid Benefit](https://aka.ms/azure-hybrid-benefit-pricing).
 
 ## <a name="common-issues"></a>Problèmes courants
 

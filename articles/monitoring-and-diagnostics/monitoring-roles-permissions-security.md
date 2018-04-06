@@ -1,9 +1,9 @@
 ---
-title: "Familiarisation avec les rôles, les autorisations et la sécurité dans Azure Monitor | Microsoft Docs"
-description: "Découvrez comment utiliser les rôles intégrés et les autorisations d’Azure Monitor pour restreindre l’accès à l’analyse des ressources."
+title: Familiarisation avec les rôles, les autorisations et la sécurité dans Azure Monitor | Microsoft Docs
+description: Découvrez comment utiliser les rôles intégrés et les autorisations d’Azure Monitor pour restreindre l’accès à l’analyse des ressources.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 2686e53b-72f0-4312-bcd3-3dc1b4a9b912
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: johnkem
-ms.openlocfilehash: f8767073bb7a6723088bb2727346d23ec8872cd1
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 81f083b799e359f69605de22c30d3adc4480e44b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Familiarisation avec les rôles, les autorisations et la sécurité dans Azure Monitor
 De nombreuses équipes ont besoin de réglementer strictement l’accès aux données et aux paramètres d’analyse. Par exemple, si des membres de votre équipe travaillent exclusivement sur l’analyse (ingénieurs du support technique, ingénieurs devops) ou si vous utilisez un fournisseur de services gérés, vous souhaiterez leur accorder l’accès à l’analyse des données tout en limitant leur capacité à créer, modifier ou supprimer des ressources. Cet article montre comment appliquer un rôle RBAC d’analyse intégré à un utilisateur dans Azure ou créer vos propres rôles personnalisés pour un utilisateur qui a rapidement besoin d’autorisations limitées pour l’analyse. Il évoque ensuite les considérations de sécurité pour vos ressources liées à Azure Monitor et comment vous pouvez restreindre l’accès aux données contenues.
@@ -30,6 +30,7 @@ Les rôles intégrés d’Azure Monitor sont conçus pour vous aider à limiter 
 Les personnes affectées au rôle de lecteur d’analyse peuvent afficher toutes les données d’analyse dans un abonnement, mais ne peuvent pas modifier de ressource ou modifier les paramètres relatifs à l’analyse des ressources. Ce rôle est approprié pour les utilisateurs dans une organisation, tels que les ingénieurs de support ou d’opération, qui doivent être en mesure de faire ce qui suit :
 
 * Afficher des tableaux de bord d’analyse dans le portail et créer leurs propres tableaux de bord privés d’analyse.
+* Afficher les règles d’alerte définies dans [Alertes Azure](monitoring-overview-unified-alerts.md)
 * Requête de mesures avec l’[API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn931930.aspx), les [applets de commande PowerShell](insights-powershell-samples.md) ou le [CLI multiplateforme](insights-cli-samples.md).
 * Interroger le journal d’activité via le portail, l’API REST Azure Monitor, les applets de commande PowerShell ou le CLI multiplateforme.
 * Affichez les [Paramètres de diagnostic](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) pour une ressource.
@@ -55,7 +56,7 @@ Les personnes affectées au rôle de contributeur d’analyse peuvent afficher t
 * Publier des tableaux de bord d’analyse en tant que tableau de bord partagé.
 * Définissez les [Paramètres de diagnostic](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) pour une ressource.*
 * Définir le [profil de journal](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) pour un abonnement.*
-* Définir les activités et paramètres d’alerte.
+* Définir l’activité et les paramètres de règles d’alerte via [Alertes Azure](monitoring-overview-unified-alerts.md).
 * Créer des tests web et composants Application Insights.
 * Répertorier les clés partagées d’espace de travail Log Analytics.
 * Activer ou désactiver les Intelligence Packs Log Analytics.
@@ -76,20 +77,22 @@ Si les rôles intégrés ci-dessus ne répondent pas aux besoins exacts de votre
 | --- | --- |
 | Microsoft.Insights/ActionGroups/[Read, Write, Delete] |Lire/écrire/supprimer des groupes d’actions. |
 | Microsoft.Insights/ActivityLogAlerts/[Read, Write, Delete] |Lire/écrire/supprimer des alertes de journal d’activité. |
-| Microsoft.Insights/AlertRules/[Read, Write, Delete] |Lire/écrire/supprimer des règles d’alerte (alertes de métrique). |
+| Microsoft.Insights/AlertRules/[Read, Write, Delete] |Lire/écrire/supprimer des règles d’alerte (à partir d’alertes classiques). |
 | Microsoft.Insights/AlertRules/Incidents/Read |Liste d’incidents (historique de la règle d’alerte déclenchée) pour les règles d’alerte. Cela s’applique uniquement au portail. |
 | Microsoft.Insights/AutoscaleSettings/[Read, Write, Delete] |Paramètres de mise à l’échelle automatique en lecture/écriture/suppression. |
 | Microsoft.Insights/DiagnosticSettings/[Read, Write, Delete] |Paramètres de diagnostic en lecture/écriture/suppression. |
-| Microsoft.Insights/EventCategories/Read |Énumérer toutes les catégories possibles dans le journal d’activité. Utilisée par le Portail Azure. |
+| Microsoft.Insights/EventCategories/Read |Énumérer toutes les catégories possibles dans le journal d’activité. Utilisé par le Portail Azure. |
 | Microsoft.Insights/eventtypes/digestevents/Read |Cette autorisation est nécessaire pour les utilisateurs qui doivent accéder aux journaux d’activité via le portail. |
 | Microsoft.Insights/eventtypes/values/Read |Événements du journal d’activité, (événements de gestion) dans un abonnement. Cette autorisation est applicable pour l’accès par programme et portail dans le journal d’activité. |
 | Microsoft.Insights/ExtendedDiagnosticSettings/[Read, Write, Delete] | Lire/écrire/supprimer des paramètres de diagnostic pour les journaux de flux réseau. |
 | Microsoft.Insights/LogDefinitions/Read |Cette autorisation est nécessaire pour les utilisateurs qui doivent accéder aux journaux d’activité via le portail. |
 | Microsoft.Insights/LogProfiles/[Read, Write, Delete] |Lire/écrire/supprimer des profils de journal (diffusion en continu du journal d’activité vers le Event Hub ou le compte de stockage). |
-| Microsoft.Insights/MetricAlerts/[Read, Write, Delete] |Lire/écrire/supprimer des alertes de métrique quasiment en temps réel (préversion publique). |
+| Microsoft.Insights/MetricAlerts/[Read, Write, Delete] |Lire/écrire/supprimer des alertes métriques quasiment en temps réel |
 | Microsoft.Insights/MetricDefinitions/Read |Lire des définitions de mesure (liste de types de mesure disponibles pour une ressource). |
 | Microsoft.Insights/Metrics/Read |Lire des mesures pour une ressource. |
 | Microsoft.Insights/Register/Action |Inscrire le fournisseur de ressources Azure Monitor. |
+| Microsoft.Insights/ScheduledQueryRules/[Read, Write, Delete] |Lire/écrire/supprimer des alertes de journal pour Application Insights. |
+
 
 
 > [!NOTE]
@@ -118,9 +121,9 @@ Les données d’analyse (les fichiers journaux en particulier) peuvent contenir
 2. Les journaux de diagnostic, qui sont des journaux émis par une ressource.
 3. Les mesures, qui sont émises par les ressources.
 
-Ces trois types de données peuvent être stockés dans un compte de stockage ou diffusés vers un hub d’événements, qui sont tous deux des ressources Azure à usage général. Comme ce sont des ressources à usage général, leur création, leur suppression et leur accès sont des opérations privilégiées généralement réservées à un administrateur. Nous vous conseillons d’utiliser les pratiques suivantes pour les ressources liées à l’analyse afin d’éviter une mauvaise utilisation :
+Ces trois types de données peuvent être stockés dans un compte de stockage ou diffusés vers un hub d’événements, qui sont tous deux des ressources Azure à usage général. Étant donné qu’il s’agit de ressources à usage général, leur création, leur suppression et leur accès sont des opérations privilégiées réservées à un administrateur. Nous vous conseillons d’utiliser les pratiques suivantes pour les ressources liées à l’analyse afin d’éviter une mauvaise utilisation :
 
-* Utilisez un compte de stockage unique, dédié pour l’analyse des données. Si vous devez séparer les données d’analyse sur plusieurs comptes de stockage, ne partagez jamais l’utilisation d’un compte de stockage entre les données d’analyse et les données hors analyse, car cela peut donner par inadvertance l’accès à ces dernières à ceux qui doivent uniquement accéder aux données d’analyse (par ex. un SIEM tiers).
+* Utilisez un compte de stockage unique, dédié pour l’analyse des données. Si vous devez séparer les données d’analyse sur plusieurs comptes de stockage, ne partagez jamais l’utilisation d’un compte de stockage entre les données d’analyse et les données hors analyse, car cela peut donner par inadvertance l’accès aux données hors analyse à ceux qui doivent uniquement accéder aux données d’analyse (par ex. un SIEM (Security Information and Event Management) tiers).
 * Utilisez un espace de noms de hub d’événements ou Service Bus unique pour tous les paramètres de diagnostic pour la même raison que ci-dessus.
 * Limitez l’accès aux comptes de stockage liés à l’analyse et aux hubs d’événements en les conservant dans un groupe de ressources distinct et [utilisez les étendues](../active-directory/role-based-access-control-what-is.md#basics-of-access-management-in-azure) sur vos rôles d’analyse pour limiter l’accès à ce groupe de ressources uniquement.
 * N’accordez jamais l’autorisation ListKeys aux comptes de stockage ou hubs d’événements dont la portée comprend l’abonnement lorsqu’un utilisateur doit uniquement accéder aux données d’analyse. Au lieu de cela, accordez ces autorisations à l’utilisateur sur une ressource ou un groupe de ressources (si vous avez un groupe de ressources d’analyse).

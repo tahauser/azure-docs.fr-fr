@@ -1,8 +1,8 @@
 ---
-title: "Vue d’ensemble de la science des données à l’aide de Spark sur Azure HDInsight | Microsoft Docs"
-description: "La boîte à outils MLlib de Spark offre de nombreuses fonctionnalités de modélisation Machine Learning (ML) à cet environnement distribué."
+title: Vue d’ensemble de la science des données à l’aide de Spark sur Azure HDInsight | Microsoft Docs
+description: La boîte à outils MLlib de Spark offre de nombreuses fonctionnalités de modélisation Machine Learning (ML) à cet environnement distribué.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: e1c4a507214b9686154fc8311121b56f42f5cd40
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: bradsev
+ms.openlocfilehash: a12e2f1af945c8186067b791c4e96a52eb23f52f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Vue d’ensemble de la science des données à l’aide de Spark sur Azure HDInsight
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -53,9 +53,9 @@ Ces blocs-notes doivent être exécutés dans le noyau pySpark3 du serveur de Bl
 > [!NOTE]
 > Le jeu de données de compagnies aériennes a été ajouté aux notebooks Spark 2.0 pour mieux illustrer l’utilisation des algorithmes de classification. Consultez les liens suivants pour plus d’informations sur le jeu de données sur les compagnies aériennes et celui sur les données météorologiques :
 
->- Données sur les départs à l’heure des compagnies aériennes : [http://www.transtats.bts.gov/ONTIME/](http://www.transtats.bts.gov/ONTIME/)
+>- Données de départs prévus de compagnie aérienne : [http://www.transtats.bts.gov/ONTIME/](http://www.transtats.bts.gov/ONTIME/)
 
->- Données météorologiques des aéroports : [https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/) 
+>- Données météorologiques d’aéroport : [https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/) 
 > 
 > 
 
@@ -70,7 +70,8 @@ L’exécution des blocs-notes Spark 2.0 sur les jeux de données « NYC taxi a
 
 Pour obtenir des conseils sur l’utilisation d’un modèle Spark 2.0 et la consommation de modèle à des fins de notation, consultez le [document Spark 1.6 sur la consommation](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-model-consumption.ipynb) pour obtenir un exemple des étapes requises. Pour utiliser cette option sur Spark 2.0, remplacez le fichier de code Python par [ce fichier](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py).
 
-### <a name="prerequisites"></a>Composants requis
+### <a name="prerequisites"></a>Prérequis
+
 Les procédures ci-dessous sont relatives à Spark 1.6. Pour la version Spark 2.0, utilisez les blocs-notes décrits et référencés précédemment. 
 
 1. Vous devez avoir un abonnement Azure. Si vous n’en avez pas, consultez [Obtenir une version d’évaluation gratuite Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -149,7 +150,7 @@ Vous pouvez lancer le notebook Jupyter à partir du portail Azure. Recherchez vo
 
 ![Tableaux de bord des clusters](./media/spark-overview/spark-jupyter-on-portal.png)
 
-Vous pouvez également naviguer vers ***https://CLUSTERNAME.azurehdinsight.net/jupyter*** pour accéder aux Blocs-notes Jupyter. Remplacez la partie CLUSTERNAME de cette URL par le nom de votre propre cluster. Pour accéder aux blocs-notes, vous avez besoin du mot de passe de votre compte d’administrateur.
+Vous pouvez également naviguer vers ***https://CLUSTERNAME.azurehdinsight.net/jupyter*** pour accéder aux blocs-notes Jupyter. Remplacez la partie CLUSTERNAME de cette URL par le nom de votre propre cluster. Pour accéder aux blocs-notes, vous avez besoin du mot de passe de votre compte d’administrateur.
 
 ![Parcourez Jupyter Notebooks](./media/spark-overview/spark-jupyter-notebook.png)
 

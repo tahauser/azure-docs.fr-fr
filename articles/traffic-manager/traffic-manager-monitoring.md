@@ -1,11 +1,11 @@
 ---
-title: "Surveillance des points de terminaison Azure Traffic Manager | Microsoft Docs"
-description: "Cet article explique comment Traffic Manager utilise la surveillance des points de terminaison et le basculement automatique des points de terminaison pour aider les clients Azure à déployer des applications haute disponibilité"
+title: Surveillance des points de terminaison Azure Traffic Manager | Microsoft Docs
+description: Cet article explique comment Traffic Manager utilise la surveillance des points de terminaison et le basculement automatique des points de terminaison pour aider les clients Azure à déployer des applications haute disponibilité
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fff25ac3-d13a-4af9-8916-7c72e3d64bc7
 ms.service: traffic-manager
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2017
 ms.author: kumud
-ms.openlocfilehash: 3b30aa04854b779c25582abafc0f9ebba65b71ba
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: c54454dd2e7b56820834e4f3cd7452be10d5ddca
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Surveillance des points de terminaison Traffic Manager
 
@@ -68,28 +68,31 @@ En utilisant le paramètre d’état de profil, vous pouvez activer ou désactiv
 
 L’état de surveillance des points de terminaison est une valeur générée par Traffic Manager qui affiche l’état du point de terminaison. Vous ne pouvez pas modifier ce paramètre manuellement. L’état de surveillance des points de terminaison est une combinaison des résultats de la surveillance du point de terminaison et de l’état du point de terminaison configuré. Les valeurs possibles de l’état de surveillance des points de terminaison sont affichées dans la table suivante :
 
-| État du profil | État du point de terminaison | État de surveillance des points de terminaison | Remarques |
+| État du profil | État du point de terminaison | État de surveillance des points de terminaison | Notes |
 | --- | --- | --- | --- |
-| Désactivé |Activé |Inactif |Le profil a été désactivé. Même si l’état du point de terminaison est Activé, l’état du profil (Désactivé) a la priorité. Dans les profils désactivés, les points de terminaison ne sont pas surveillés. Un code de réponse NXDOMAIN est renvoyé pour la requête DNS. |
+| Désactivé |activé |Inactif |Le profil a été désactivé. Même si l’état du point de terminaison est Activé, l’état du profil (Désactivé) a la priorité. Dans les profils désactivés, les points de terminaison ne sont pas surveillés. Un code de réponse NXDOMAIN est renvoyé pour la requête DNS. |
 | &lt;any&gt; |Désactivé |Désactivé |Le point de terminaison a été désactivé. Les points de terminaison désactivés ne sont pas surveillés. Le point de terminaison n’est pas inclus dans les réponses DNS, et par conséquent, il ne reçoit pas de trafic. |
-| Activé |Activé |En ligne |Le point de terminaison est surveillé et sain. Il est inclus dans les réponses DNS et peut recevoir le trafic. |
-| Activé |Activé |Détérioré |Les contrôles d’intégrité de surveillance des points de terminaison sont défaillants. Le point de terminaison n’est pas inclus dans les réponses DNS et ne reçoit pas de trafic. <br>Exception : si tous les points de terminaison sont défectueux, auquel cas l’on considère qu’ils sont tous renvoyés dans la réponse à la requête.</br>|
-| Activé |Activé |CheckingEndpoint |Le point de terminaison est surveillé, mais les résultats de la première analyse n’ont pas encore été reçus. CheckingEndpoint est un état temporaire qui survient généralement immédiatement après l’ajout ou l’activation d’un point de terminaison dans le profil. Un point de terminaison avec cet état est inclus dans les réponses DNS et peut recevoir le trafic. |
-| Activé |Activé |Arrêté |Le service cloud ou l’application web vers lequel/laquelle le point de terminaison pointe ne s’exécute pas. Vérifiez les paramètres du service cloud ou de l’application web. Cela peut également se produire si le point de terminaison est de type imbriqué et que le profil enfant est désactivé ou inactif. <br>Un point de terminaison avec l’état Arrêté n’est pas surveillé. Il n’est pas inclus dans les réponses DNS et ne reçoit pas de trafic. Exception : si tous les points de terminaison sont défectueux, auquel cas l’on considère qu’ils sont tous renvoyés dans la réponse à la requête.</br>|
+| activé |activé |En ligne |Le point de terminaison est surveillé et sain. Il est inclus dans les réponses DNS et peut recevoir le trafic. |
+| activé |activé |Détérioré |Les contrôles d’intégrité de surveillance des points de terminaison sont défaillants. Le point de terminaison n’est pas inclus dans les réponses DNS et ne reçoit pas de trafic. <br>Exception : si tous les points de terminaison sont défectueux, auquel cas l’on considère qu’ils sont tous renvoyés dans la réponse à la requête.</br>|
+| activé |activé |CheckingEndpoint |Le point de terminaison est surveillé, mais les résultats de la première analyse n’ont pas encore été reçus. CheckingEndpoint est un état temporaire qui survient généralement immédiatement après l’ajout ou l’activation d’un point de terminaison dans le profil. Un point de terminaison avec cet état est inclus dans les réponses DNS et peut recevoir le trafic. |
+| activé |activé |Arrêté |Le service cloud ou l’application web vers lequel/laquelle le point de terminaison pointe ne s’exécute pas. Vérifiez les paramètres du service cloud ou de l’application web. Cela peut également se produire si le point de terminaison est de type imbriqué et que le profil enfant est désactivé ou inactif. <br>Un point de terminaison avec l’état Arrêté n’est pas surveillé. Il n’est pas inclus dans les réponses DNS et ne reçoit pas de trafic. Exception : si tous les points de terminaison sont défectueux, auquel cas l’on considère qu’ils sont tous renvoyés dans la réponse à la requête.</br>|
 
 Pour savoir comment l’état de surveillance des points de terminaison est calculé pour les points de terminaison imbriqués, consultez la section relative aux [profils Traffic Manager imbriqués](traffic-manager-nested-profiles.md).
+
+>[!NOTE]
+> Un état du moniteur Point de terminaison arrêté peut se produire sur App Service si votre application web ne s’exécute pas au niveau Standard ou à un niveau supérieur. Pour plus d’informations, voir [Intégration de Traffic Manager avec App Service](/azure/app-service/web-sites-traffic-manager).
 
 ### <a name="profile-monitor-status"></a>État de surveillance du profil
 
 L’état de surveillance du profil est une combinaison de l’état du profil configuré et des valeurs de l’état de surveillance de l’ensemble des points de terminaison. Les valeurs possibles sont décrites dans le tableau suivant :
 
-| État du profil (conformément à la configuration) | État de surveillance des points de terminaison | État de surveillance du profil | Remarques |
+| État du profil (conformément à la configuration) | État de surveillance des points de terminaison | État de surveillance du profil | Notes |
 | --- | --- | --- | --- |
 | Désactivé |&lt;any&gt;  ou profil sans points de terminaison définis. |Désactivé |Le profil a été désactivé. |
-| Activé |Un ou plusieurs points de terminaison ont l’état Détérioré. |Détérioré |Passez en revue les valeurs d’état de chaque point de terminaison pour déterminer quels points de terminaison doivent être examinés. |
-| Activé |Un ou plusieurs points de terminaison ont l’état En ligne. Aucun point de terminaison n’a l’état Détérioré. |En ligne |Le service accepte le trafic. Aucune action supplémentaire n’est requise. |
-| Activé |Un ou plusieurs points de terminaison ont l’état CheckingEndpoint. Aucun point de terminaison n’a l’état En ligne ou Détérioré. |CheckingEndpoints |Cet état de transition se produit lorsqu’un profil est créé ou activé. L’intégrité du point de terminaison est vérifiée pour la première fois. |
-| Activé |Tous les points de terminaison dans le profil ont l’état Désactivé ou Arrêté, ou le profil n’inclut aucun point de terminaison défini. |Inactif |Aucun point de terminaison n’est actif, mais le profil est toujours Activé. |
+| activé |Un ou plusieurs points de terminaison ont l’état Détérioré. |Détérioré |Passez en revue les valeurs d’état de chaque point de terminaison pour déterminer quels points de terminaison doivent être examinés. |
+| activé |Un ou plusieurs points de terminaison ont l’état En ligne. Aucun point de terminaison n’a l’état Détérioré. |En ligne |Le service accepte le trafic. Aucune action supplémentaire n’est requise. |
+| activé |Un ou plusieurs points de terminaison ont l’état CheckingEndpoint. Aucun point de terminaison n’a l’état En ligne ou Détérioré. |CheckingEndpoints |Cet état de transition se produit lorsqu’un profil est créé ou activé. L’intégrité du point de terminaison est vérifiée pour la première fois. |
+| activé |Tous les points de terminaison dans le profil ont l’état Désactivé ou Arrêté, ou le profil n’inclut aucun point de terminaison défini. |Inactif |Aucun point de terminaison n’est actif, mais le profil est toujours Activé. |
 
 ## <a name="endpoint-failover-and-recovery"></a>Basculement et récupération du point de terminaison
 

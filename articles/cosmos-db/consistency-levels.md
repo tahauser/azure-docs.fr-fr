@@ -1,31 +1,35 @@
 ---
-title: "Niveaux de cohérence dans Azure Cosmos DB | Microsoft Docs"
-description: "Azure Cosmos DB offre cinq niveaux de cohérence qui permettent de faire des compromis avisés entre cohérence éventuelle, disponibilité et latence."
-keywords: "cohérence éventuelle, azure cosmos db, azure, Microsoft Azure"
+title: Niveaux de cohérence dans Azure Cosmos DB | Microsoft Docs
+description: Azure Cosmos DB offre cinq niveaux de cohérence qui permettent de faire des compromis avisés entre cohérence éventuelle, disponibilité et latence.
+keywords: cohérence éventuelle, azure cosmos db, azure, Microsoft Azure
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: cgronlun
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 3fe51cfa-a889-4a4a-b320-16bf871fe74c
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 03/27/2018
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c3bd28316e3d2e7596021d6964594002d47d160a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 5b0e46eb001e0b100ad1e181b02c18cfe67648f9
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Niveaux de cohérence des données paramétrables dans Azure Cosmos DB
 Azure Cosmos DB a été conçu dès le départ pour être distribué à l’échelle mondiale. Il offre des garanties de latence faible prévisible et plusieurs modèles de cohérence souples bien définis. Pour le moment, Azure Cosmos DB prend en charge cinq niveaux de cohérence : Fort, Obsolescence limitée, Session, Préfixe cohérent et Éventuel. Les termes « obsolescence limitée », « session », « préfixe cohérent » et « éventuelle » font référence à des modèles de « cohérence souple », qui fournissent un niveau de cohérence inférieur à celui de la cohérence forte (qui constitue le niveau de cohérence le plus élevé). 
 
 Outre les modèles de cohérence **forte** et **éventuelle** souvent proposés par les bases de données distribuées, Azure Cosmos DB propose trois modèles de cohérence supplémentaires soigneusement codifiés et mis en œuvre : **Obsolescence limitée**, **Session** et **Préfixe cohérent**. L’utilité de chacun de ces niveaux de cohérence a été vérifiée à l’aide de cas d’utilisation réels. Ensemble, ces cinq niveaux de cohérence vous permettent de trouver un bon compromis entre cohérence, disponibilité et latence. 
+
+Dans la vidéo suivante, le Manager du programme Azure Cosmos DB Andrew Liu illustre les fonctionnalités de la distribution globale clés en main.
+
+>[!VIDEO https://www.youtube.com/embed/-4FsGysVD14]
 
 ## <a name="distributed-databases-and-consistency"></a>Bases de données distribuées et cohérence
 Les bases de données distribuées commerciales se répartissent en deux catégories : les bases de données qui n’offrent pas de choix de cohérence bien définis et démontrables, et celles qui offrent deux possibilités de programmabilité extrêmes (cohérence éventuelle et cohérence forte). 
@@ -60,14 +64,16 @@ La granularité de la cohérence est limitée à la demande d’un utilisateur u
 ## <a name="consistency-levels"></a>Niveaux de cohérence
 Vous pouvez configurer un niveau de cohérence par défaut sur votre compte de base de données, qui s’applique à toutes les collections (et bases de données) sous votre compte Cosmos DB. Par défaut, toutes les lectures et requêtes émises vers les ressources définies par l’utilisateur utilisent le niveau de cohérence par défaut spécifié sur le compte de base de données. Vous pouvez assouplir le niveau de cohérence d’une demande spécifique de lecture/requête donnée dans chacune des API prises en charge. Cinq types de niveaux de cohérence sont pris en charge par le protocole de réplication de d’Azure Cosmos DB. Ils offrent un compromis clair entre les garanties de cohérence spécifiques et les performances, comme décrit dans cette section.
 
-**Remarque**: 
+<a id="strong"></a>
+**Remarque** : 
 
 * Une cohérence forte offre une garantie de [linéarisabilité](https://aphyr.com/posts/313-strong-consistency-models) qui permet de s’assurer que les lectures renvoient la version la plus récente d’un élément. 
 * la cohérence forte garantit qu'une écriture est visible uniquement après sa validation durable par le quorum majoritaire de réplicas. Une écriture est soit validée durablement de manière synchrone par les quorums principal et secondaire, soit abandonnée. Une lecture est toujours reconnue par le quorum de lecture majoritaire : un client ne voit jamais une écriture partielle ou non validée. Il est assuré de lire la toute dernière écriture reconnue. 
 * Les comptes Azure Cosmos DB configurés pour utiliser une cohérence forte ne peuvent pas associer plus d’une région Azure à leur compte.  
 * Le coût d’une opération de lecture (en termes [d’unités de requête](request-units.md) consommées) avec une cohérence forte est supérieur à celui des niveaux Session et Éventuel, mais équivalent à celui du niveau Obsolescence limitée.
 
-**Obsolescence limitée**: 
+<a id="bounded-staleness"></a>
+**Obsolescence limitée** : 
 
 * Le niveau de cohérence obsolescence limitée garantit que les lectures sont retardées derrière les écritures par, au plus, des versions ou préfixes *K* d’un élément ou un intervalle de temps *t*. 
 * Par conséquent, lors du choix du niveau de cohérence obsolescence limitée, l’« obsolescence » peut être configurée de deux façons : par le nombre de versions *K* de l’élément par lequel les lectures sont retardées derrière les écritures, et l’intervalle de temps *t* 
@@ -76,7 +82,8 @@ Vous pouvez configurer un niveau de cohérence par défaut sur votre compte de b
 * Les comptes Azure Cosmos DB configurés avec une cohérence de type obsolescence limitée peuvent associer n’importe quel nombre de régions Azure avec leur compte. 
 * Le coût d’une opération de lecture (en termes d’unités de requête consommées) en fonction de l’obsolescence limitée est supérieur à celui des niveaux de cohérence Session et Éventuel, mais identique au niveau de cohérence forte.
 
-**Session**: 
+<a id="session"></a>
+**Session** : 
 
 * contrairement aux modèles de cohérence globaux offerts par les niveaux de cohérence Fort et Obsolescence limitée, le niveau Session s’étend à une session client spécifique. 
 * La cohérence Session est idéale pour tous les scénarios dans lesquels une session utilisateur ou d’appareil est impliquée, car elle garantit des lectures unitones, des écritures unitones et des garanties de lecture de vos propres écritures. 
@@ -91,7 +98,8 @@ Vous pouvez configurer un niveau de cohérence par défaut sur votre compte de b
 * Le niveau de cohérence préfixe cohérent garantit que les lectures ne voient jamais d’écritures dans le désordre. Si les écritures ont été effectuées dans l’ordre `A, B, C`, un client voit `A`, `A,B` ou `A,B,C`, mais jamais dans le désordre comme `A,C` ou `B,A,C`.
 * Les comptes Azure Cosmos DB configurés avec une cohérence de type préfixe cohérent peuvent associer n’importe quel nombre de régions Azure avec leur compte. 
 
-**Eventual (Éventuel)**: 
+<a id="eventual"></a>
+**Éventuel** : 
 
 * Le niveau de cohérence Éventuel garantit qu’en l’absence d’autres écritures, les réplicas du groupe finissent par converger. 
 * Il s’agit de la forme de cohérence la plus faible qui permet à un client d’obtenir des valeurs plus anciennes que celles qu’il a pu voir précédemment.
@@ -125,19 +133,12 @@ Azure Cosmos DB implémente actuellement MongoDB version 3.4, qui a deux param�
 ## <a name="next-steps"></a>Étapes suivantes
 Si vous souhaitez en lire plus sur les niveaux de cohérence et les différents compromis, nous vous recommandons les ressources suivantes :
 
-* Doug Terry. La cohérence des données répliquées expliquée par le baseball (vidéo).   
-  [https://www.youtube.com/watch?v=gluIh8zd26I](https://www.youtube.com/watch?v=gluIh8zd26I)
-* Doug Terry. La cohérence des données répliquées basée sur l’exemple du baseball.   
-  [http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
-* Doug Terry. Le niveau Par session garantit des données répliquées peu cohérentes.   
-  [http://dl.acm.org/citation.cfm?id=383631](http://dl.acm.org/citation.cfm?id=383631)
-* Daniel Abadi. Cohérence des compromis en termes de conception de systèmes de base de données distribuée moderne : CAP n’est qu’une partie de l’histoire.   
-  [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
-* Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. Probabilités en fonction de l'obsolescence (PBS) pour les quorums partiels pratiques   
-  [http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
-* Werner Vogels. Niveau de cohérence Éventuel repensé.    
-  [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
-* Moni Naor , Avishai Wool, The Load, Capacity, and Availability of Quorum Systems, SIAM Journal on Computing, v.27 n.2, p.423-447, avril 1998.
-  [http://epubs.siam.org/doi/abs/10.1137/S0097539795281232](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)
-* Sebastian Burckhardt, Chris Dern, Macanal Musuvathi, Roy Tan, Line-up : a complete and automatic linearizability checker, Proceedings of the 2010 ACM SIGPLAN conference on Programming language design and implementation, 05-10 juin 2010, Toronto, Ontario, Canada  [doi>10.1145/1806596.1806634] [http://dl.acm.org/citation.cfm?id=1806634](http://dl.acm.org/citation.cfm?id=1806634)
-* Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica, Probabilistically bounded staleness for practical partial quorums, Proceedings of the VLDB Endowment, v.5 n.8, p.776-787, avril 2012 [http://dl.acm.org/citation.cfm?id=2212359](http://dl.acm.org/citation.cfm?id=2212359)
+* [La cohérence des données répliquées expliquée par le baseball (vidéo) par Doug Terry](https://www.youtube.com/watch?v=gluIh8zd26I)
+* [La cohérence des données répliquées expliquée par le baseball (livre blanc) par Doug Terry](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
+* [Garanties de session pour des données répliquées peu cohérentes](http://dl.acm.org/citation.cfm?id=383631)
+* [Cohérence des compromis en termes de conception de systèmes de base de données distribuée moderne : CAP n’est qu’une partie de l’histoire](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
+* [Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf) (Probabilités en fonction de l’obsolescence limitée (PBS) pour les quorums partiels pratiques)
+* [Niveau de cohérence éventuel repensé](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
+* [La charge, la capacité et la disponibilité des systèmes quorum, journal SIAM sur l’informatique](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)
+* [Alignement : un vérificateur de linéarisabilité automatique et complet, traitement de la conférence ACM SIGPLAN 2010 sur l’implémentation et la conception du langage de programmation](http://dl.acm.org/citation.cfm?id=1806634)
+* [Probabilités en fonction de l’obsolescence limitée pour des quorums partiels](http://dl.acm.org/citation.cfm?id=2212359)

@@ -1,8 +1,8 @@
 ---
-title: "Configuration de stratégies Hive dans HDInsight joint à un domaine - Azure | Microsoft Docs"
-description: "Découvrir..."
+title: Configuration de stratégies Hive dans HDInsight joint à un domaine - Azure | Microsoft Docs
+description: Découvrir...
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: saurinsh
 manager: jhubbard
 editor: cgronlun
@@ -16,16 +16,17 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
-ms.openlocfilehash: 35a74ffb6a30fe2ae7db686be5b6774800ce37b1
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 919a0a45c4c8c94b19ed1d602ed20df0afabd09a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-hive-policies-in-domain-joined-hdinsight"></a>Configurer les stratégies Hive dans HDInsight joint à un domaine
 Découvrez comment configurer des stratégies Apache Ranger pour Hive. Dans cet article, vous créez deux stratégies Ranger pour restreindre l’accès à hivesampletable. hivesampletable dispose de clusters HDInsight. Après avoir configuré les stratégies, vous utilisez Excel et le pilote ODBC pour vous connecter à des tables Hive dans HDInsight.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
+
 * Un cluster HDInsight joint à un domaine. Consultez [Configuration de cluster HDInsight joints à un domaine](apache-domain-joined-configure.md).
 * Une station de travail avec Office 2016, Office 2013 ProPlus, Office 365 Pro Plus, l’édition autonome d’Excel 2013 ou Office Professionnel Plus 2010.
 
@@ -45,10 +46,10 @@ Découvrez comment configurer des stratégies Apache Ranger pour Hive. Dans cet 
     Actuellement, Ranger fonctionne uniquement avec Yarn et Hive.
 
 ## <a name="create-domain-users"></a>Création d’utilisateurs du domaine
-Dans [Configuration de clusters HDInsight joints à un domaine](apache-domain-joined-configure.md#optional-create-ad-users-and-groups), vous avez créé hiveruser1 et hiveuser2. Vous utilisez les deux comptes utilisateur dans ce didacticiel.
+Pour plus d’informations sur la création de hiveruser1 et hiveuser2, voir [Créer un cluster HDInsight joint à un domaine](apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster). Dans ce didacticiel, vous utilisez les deux comptes utilisateur.
 
 ## <a name="create-ranger-policies"></a>Création de stratégies Ranger
-Dans cette section, vous créez deux stratégies Ranger pour accéder à hivesampletable. Vous accordez une autorisation select sur différents ensembles de colonnes. Les deux utilisateurs ont été créés dans [Configuration de clusters HDInsight joints à un domaine](apache-domain-joined-configure.md#optional-create-ad-users-and-groups).  Dans la section suivante, vous allez tester les deux stratégies dans Excel.
+Dans cette section, vous créez deux stratégies Ranger pour accéder à hivesampletable. Vous accordez une autorisation select sur différents ensembles de colonnes. Les deux utilisateurs ont été créés en suivant les instructions de l’article [Créer un cluster HDInsight joint à un domaine](apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster). Dans la section suivante, vous allez tester les deux stratégies dans Excel.
 
 **Pour créer des stratégies Ranger**
 

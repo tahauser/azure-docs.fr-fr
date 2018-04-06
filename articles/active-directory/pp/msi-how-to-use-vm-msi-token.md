@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 68454d3f3880df82ca895d1c5f140ebdb6030e77
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6c6422bc2b13c0c40e48dabf0470c821b13e7851
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="acquire-an-access-token-for-a-vm-user-assigned-managed-service-identity-msi"></a>Acquérir un jeton d’accès pour une identité MSI affectée par l’utilisateur sur une machine virtuelle
 
@@ -43,7 +43,9 @@ Une application cliente peut demander un [jeton d’accès d’application uniqu
 | [Obtenir un jeton par CURL](#get-a-token-using-curl) | Exemple d’utilisation du point de terminaison REST de MSI à partir d’un client Bash/CURL |
 | [Gestion de l’expiration du jeton](#handling-token-expiration) | Conseils pour la gestion des jetons d’accès expirés |
 | [Gestion des erreurs](#error-handling) | Conseils pour la gestion des erreurs HTTP retournées par le point de terminaison de jeton de MSI |
+| [Guide de la limitation](#throttling-guidance) | Conseils pour la gestion de la limitation du point de terminaison du jeton MSI |
 | [ID de ressource pour les services Azure](#resource-ids-for-azure-services) | Où obtenir les ID de ressource pour les services Azure pris en charge |
+
 
 ## <a name="get-a-token-using-http"></a>Obtenir un jeton par HTTP 
 
@@ -165,6 +167,16 @@ Cette section documente les réponses possibles aux erreurs. Un état « 200 OK 
 |           | unsupported_response_type | Le serveur d’autorisation ne prend pas en charge l’obtention d’un jeton d’accès par cette méthode. |  |
 |           | invalid_scope | L’étendue demandée est incorrecte, inconnue ou non valide. |  |
 | Erreur interne 500 du serveur | unknown | Impossible de récupérer le jeton depuis Active Directory. Pour plus d’informations, consultez les journaux dans *\<Chemin d’accès de fichier\>* | Vérifiez que l’identité du service administré a été activée dans la machine virtuelle. Consultez [Configurer une identité du service administré (MSI) d’une machine virtuelle à l’aide du portail Azure](msi-qs-configure-portal-windows-vm.md) si vous avez besoin d’aide pour la configuration d’une machine virtuelle.<br><br>Vérifiez également que votre URI de requête HTTP GET est correctement mise en forme, en particulier l’URI de la ressource spécifiée dans la chaîne de requête. Pour obtenir une liste des services et leur ID de ressource respectif, consultez « Exemple de demande » dans la section [Obtenir un jeton par HTTP](#get-a-token-using-http) ou [Services Azure prenant en charge l’authentification Azure AD](msi-overview.md#azure-services-that-support-azure-ad-authentication).
+
+## <a name="throttling-guidance"></a>Guide de la limitation 
+
+Les limites de la limitation s’appliquent au nombre d’appels effectués au point de terminaison MSI IMDS. Lorsque le seuil de limitation est dépassé, le point de terminaison MSI IMDS limite toutes les autres requêtes pendant que la limitation est appliquée. Pendant cette période, le point de terminaison MSI IMDS renvoie le code d’état HTTP 429 (« Un trop grand nombre de requêtes ») et les requêtes échouent. 
+
+Pour une nouvelle tentative, nous vous recommandons la stratégie suivante : 
+
+| **Stratégie de nouvelle tentative** | **Paramètres** | **Valeurs** | **Fonctionnement** |
+| --- | --- | --- | --- |
+|ExponentialBackoff |Nombre de tentatives<br />Temporisation min<br />Temporisation max<br />Temporisation delta<br />Première nouvelle tentative rapide |5.<br />0 seconde<br />60 secondes<br />2 secondes<br />false |Tentative 1 - délai 0 s<br />Tentative 2 - délai ~2 s<br />Tentative 3 - délai ~6 s<br />Tentative 4 - délai ~14 s<br />Tentative 5 - délai ~30 s |
 
 ## <a name="resource-ids-for-azure-services"></a>ID de ressource pour les services Azure
 

@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: lakasa
-ms.openlocfilehash: d9df2218acc218a796e502fa4e3b94573af86ca8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1963d011462255d45de327ec17b7fad564d87654
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Azure Storage Service Encryption pour les données au repos
 
@@ -50,9 +50,9 @@ R : Lorsque le chiffrement est activé par défaut, le stockage Azure chiffre a
 
 R : Storage Service Encryption est activé par défaut sur tous les comptes de stockage Resource Manager existants. Il est pris en charge pour le stockage Blob, le stockage Table, le stockage File d’attente et les fichiers Azure. 
 
-**Q : comment chiffrer les données dans un compte de stockage Resource Manager ?**
+**Q : Comment chiffrer les données dans un compte de stockage Resource Manager ?**
 
-R : Storage Service Encryption est activé par défaut pour tous les comptes de stockage : classiques et Resource Manager. Toutefois, les données existantes ne sont pas chiffrées. Pour chiffrer des données existantes, vous pouvez les copier sous un autre nom ou dans un autre conteneur, puis supprimer les versions non chiffrées. 
+R : Le chiffrement du service de stockage est activé par défaut pour tous les comptes de stockage (comptes classiques et comptes du Gestionnaire des ressources). Tous les fichiers existants dans le compte de stockage créés avant l’activation du chiffrement sont chiffrés rétroactivement par un processus de chiffrement en arrière-plan.
 
 **Q : Puis-je créer des comptes de stockage dans lesquels Storage Service Encryption est activé à l’aide d’Azure PowerShell et de l’interface de ligne de commande Azure ?**
 

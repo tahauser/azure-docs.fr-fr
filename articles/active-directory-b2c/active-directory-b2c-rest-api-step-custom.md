@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C : échanges de revendications de l’API REST en tant qu’étape d’orchestration | Microsoft Docs"
-description: "Une rubrique sur les stratégies personnalisées d’Azure Active Directory B2C qui s’intègrent à une API"
+title: 'Azure Active Directory B2C : échanges de revendications de l’API REST en tant qu’étape d’orchestration | Microsoft Docs'
+description: Une rubrique sur les stratégies personnalisées d’Azure Active Directory B2C qui s’intègrent à une API
 services: active-directory-b2c
-documentationcenter: 
-author: rojasja
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: rojasja
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 04/24/2017
-ms.author: joroja
-ms.openlocfilehash: 3e4f0bccf02c0332663a746d4ed8e5234c51f54e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: bde1ef711fe19b7e26f2d93b58d653dc816b1a07
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>Procédure pas à pas : intégration des échanges de revendications de l’API REST dans votre parcours utilisateur Azure AD B2C comme étape d’orchestration
 
@@ -42,7 +39,8 @@ Le scénario est le suivant : quand un utilisateur effectue une modification du 
 2. Obtenir la ville dans laquelle cet utilisateur est inscrit.
 3. Retourner cet attribut à l’application sous forme de revendication.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 - Un locataire Azure AD B2C configuré pour effectuer une inscription/connexion à un compte local, comme décrit dans [Bien démarrer](active-directory-b2c-get-started-custom.md).
 - Un point de terminaison API REST avec lequel vous allez interargir. Cette procédure pas à pas utilise comme exemple un webhook d’application de fonction Azure simple.
@@ -78,7 +76,7 @@ return request.CreateResponse<ResponseContent>(
     "application/json");
 ```
 
-Une application de fonction Azure facilite l’obtention de l’URL de la fonction, qui inclut l’identificateur de la fonction spécifique. Dans ce cas, l’URL est : https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==. Vous pouvez l’utiliser pour les tests.
+Une application de fonction Azure facilite l’obtention de l’URL de la fonction, qui inclut l’identificateur de la fonction spécifique. Dans ce cas, l’URL est la suivante : https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==. Vous pouvez l’utiliser pour les tests.
 
 ## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworextensionsxml-file"></a>Étape 2 : configuration de l’échange de revendications de l’API RESTful comme profil technique dans votre fichier TrustFrameworExtensions.xml
 

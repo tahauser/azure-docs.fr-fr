@@ -6,14 +6,14 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/19/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 8deb78ba108aafc3297e6b96d6d88d0c56c60afd
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: d26fe28d301cf563dc6bdb3d9e17903dea3e73fc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Haute disponibilité et Azure SQL Database
 Depuis la sortie de l’offre PaaS Azure SQL Database, Microsoft a promis à ses clients d’intégrer au service la haute disponibilité afin qu’ils n’aient plus à intervenir, à ajouter une logique particulière ou à prendre des décisions dans ce domaine. Microsoft offre aux clients un contrat de niveau de service (SLA) et conserve un contrôle total sur la configuration et l’utilisation du système de haute disponibilité. Le SLA relatif à la haute disponibilité s’applique à une base de données SQL dans une région et ne fournit aucune protection en cas de panne généralisée, dès lors que les raisons de cette panne échappent au contrôle raisonnable de Microsoft (catastrophe naturelle, guerre, actes de terrorisme, émeutes, action des pouvoirs publics, panne d’un réseau ou d’un appareil autre que celle des centres de données de Microsoft, notamment sur le site du client ou entre le site du client et le centre de données de Microsoft).
@@ -23,7 +23,7 @@ Pour simplifier le problème d’espace lié à la haute disponibilité, Microso
 2.  Le personnel en charge de l’exploitation commet des erreurs qui entraînent des échecs.
 3.  Les opérations de maintenance planifiées provoquent des pannes. 
 
-Si de tels événements sont rares, ils sont fréquents à l’échelle du cloud. Leur fréquence est hebdomadaire, parfois même quotidienne. 
+Bien que de tels événements individuels soient rares, à une échelle du cloud, leur fréquence est hebdomadaire, parfois même quotidienne. 
 
 ## <a name="fault-tolerant-sql-databases"></a>Bases de données SQL tolérantes aux pannes
 Les clients s’intéressent davantage à la résilience de leurs propres bases de données qu’à celle du service SQL Database dans son ensemble. La disponibilité d’un service a beau être de 99,99 %, cela est sans importance si « ma base de données» fait partie des 0,01 % de celles qui sont en panne. Chaque base de données doit être tolérante aux pannes et l’atténuation des risques ne doit jamais provoquer la perte d’une transaction validée. 
@@ -46,7 +46,7 @@ Principaux avantages :
 
 ## <a name="data-redundancy"></a>Redondance des données
 
-La solution de haute disponibilité dans SQL Database s’appuie sur la technologie [Always ON](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) de SQL Server et la rend disponible à la fois dans les bases de données LS et RS, sans grande différence. Always ON est utilisé pour la persistance dans la configuration d’un stockage LS et pour la disponibilité (objectif de délai de récupération faible) dans la configuration d’un stockage RS. 
+La solution de haute disponibilité dans SQL Database s’appuie sur la technologie [Groupes de disponibilité Always ON](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) de SQL Server et la rend disponible à la fois dans les bases de données LS et RS, sans grande différence. La technologie du groupe de disponibilité Always ON est utilisé pour la persistance dans la configuration LS tandis que dans la configuration RS elle est utilisée pour la disponibilité (RTO faible). 
 
 ## <a name="local-storage-configuration"></a>Configuration du stockage local
 

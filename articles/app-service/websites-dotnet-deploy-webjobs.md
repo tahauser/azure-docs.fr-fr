@@ -1,9 +1,9 @@
 ---
-title: "Développer et déployer des tâches web à l’aide de Visual Studio - Azure"
-description: "Découvrez comment développer et déployer des tâches web Azure dans Azure App Service à l’aide de Visual Studio."
+title: Développer et déployer des tâches web à l’aide de Visual Studio - Azure
+description: Découvrez comment développer et déployer des tâches web Azure dans Azure App Service à l’aide de Visual Studio.
 services: app-service
-documentationcenter: 
-author: ggailey777
+documentationcenter: ''
+author: tdykstra
 manager: erikre
 editor: jimbe
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2017
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 8793485f2f1967e8c14ef335f14f81c9b946f974
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: babe190c0865f5be4aeecb40ca48b52673c6920e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Développer et déployer des tâches web à l’aide de Visual Studio - Azure App Service
 
@@ -29,7 +29,7 @@ Cette rubrique explique comme utiliser Visual Studio pour déployer un projet d�
 Lorsque Visual Studio déploie un projet d'application console compatible avec des tâches web, il exécute deux tâches :
 
 * Il copie des fichiers exécutables dans le dossier approprié de l’application web (*App_Data/jobs/continuous* pour les tâches web continues, *App_Data/jobs/triggered* pour les tâches web planifiées et à la demande).
-* Il configure des [tâches Azure Scheduler](#scheduler) pour les tâches web dont l’exécution est prévue à des horaires précis. (inutile pour les tâches web continues).
+* Il configure des [tâches Azure Scheduler](https://docs.microsoft.com/azure/scheduler/) pour WebJobs dont l’exécution est prévue à des heures précises. (inutile pour les tâches web continues).
 
 Un projet compatible avec les tâches web se voit ajouter les éléments suivants :
 
@@ -44,7 +44,8 @@ Vous pouvez déployer un projet sous forme de tâche web ou le lier à un projet
 
 ![Diagram showing WebJob project linking to web project](./media/websites-dotnet-deploy-webjobs/link.png)
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Si vous utilisez Visual Studio 2015, installez le [Kit de développement logiciel (SDK) Azure .NET (Visual Studio 2015)](https://azure.microsoft.com/downloads/).
 
@@ -140,7 +141,7 @@ Lorsque vous configurez une application console pour un déploiement de tâches 
           "runMode": "Continuous"
         }
 
-Vous pouvez modifier ce fichier directement. Visual Studio est doté d'IntelliSense. Le schéma du fichier est stocké et consultable à l’adresse [http://schemastore.org](http://schemastore.org/schemas/json/webjob-publish-settings.json).  
+Vous pouvez modifier ce fichier directement. Visual Studio est doté d'IntelliSense. Le schéma de fichier est stocké à l’adresse [http://schemastore.org](http://schemastore.org/schemas/json/webjob-publish-settings.json) où vous pouvez le consulter.  
 
 ## <a id="webjobslist"></a>webjobs-list.json
 Lorsque vous liez un projet compatible avec des tâches web à un projet web, Visual Studio stocke le nom du projet de tâches web sous le nom de fichier *webjobs-list.json* dans le dossier *Propriétés* du projet web. La liste peut contenir plusieurs projets WebJobs, comme illustré dans l’exemple suivant :
@@ -157,7 +158,7 @@ Lorsque vous liez un projet compatible avec des tâches web à un projet web, Vi
           ]
         }
 
-Vous pouvez modifier ce fichier directement. Visual Studio est doté d'IntelliSense. Le schéma du fichier est stocké et consultable à l’adresse [http://schemastore.org](http://schemastore.org/schemas/json/webjobs-list.json).
+Vous pouvez modifier ce fichier directement. Visual Studio est doté d'IntelliSense. Le schéma de fichier est stocké à l’adresse [http://schemastore.org](http://schemastore.org/schemas/json/webjobs-list.json) où vous pouvez le consulter.
 
 ## <a id="deploy"></a>Déployer un projet WebJobs
 Lorsqu'il est lié à un projet web, un projet de tâches web est déployé automatiquement avec ce dernier. Pour plus d’informations sur le déploiement du projet web, consultez **Procédures** > **Déployer une application** dans le volet de navigation gauche.

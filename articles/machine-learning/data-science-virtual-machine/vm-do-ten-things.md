@@ -3,7 +3,7 @@ title: Dix choses que vous pouvez effectuer sur la machine virtuelle Science des
 description: Effectuez diverses tâches de modélisation et d'exploration des données sur la machine virtuelle pour la science des données.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 145dfe3e-2bd2-478f-9b6e-99d97d789c62
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: gokuma;weig;bradsev
-ms.openlocfilehash: 71745260f45c5a5c150fdd3eac4e9a8221b8bce4
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.author: gokuma
+ms.openlocfilehash: f11aff2231a5ae6a58d5c9a3f53379a6849d226a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="ten-things-you-can-do-on-the-data-science-virtual-machine"></a>Dix choses que vous pouvez effectuer sur la machine virtuelle pour la science des données
 
@@ -814,7 +814,7 @@ Une fois les données importées, vous pouvez accéder à Jupyter et ouvrir le n
 ## <a name="8-build-reports-and-dashboard-using-the-power-bi-desktop"></a>8. Générer des rapports et des tableaux de bord à l'aide de Power BI Desktop
 Vous pouvez visualiser le fichier Volcan JSON de l’exemple Cosmos DB précédent dans Power BI afin d’obtenir un aperçu visuel des données. Les étapes détaillées sont présentées dans [l’article Power BI](../../cosmos-db/powerbi-visualize.md). Les étapes principales sont les suivantes :
 
-1. Ouvrez Power BI Desktop et cliquez sur « Obtenir les données ». Spécifiez l’URL comme : https://cahandson.blob.core.windows.net/samples/volcano.json
+1. Ouvrez Power BI Desktop et cliquez sur « Obtenir les données ». Spécifiez l’URL suivante : https://cahandson.blob.core.windows.net/samples/volcano.json
 2. Vous devez voir les enregistrements JSON importés sous forme de liste
 3. Convertissez la liste en table afin que Power BI puisse l’utiliser
 4. Développez les colonnes en cliquant sur l’icône Développer (celle avec l’icône « flèche gauche et flèche droite » à droite de la colonne)

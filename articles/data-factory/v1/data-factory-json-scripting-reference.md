@@ -4,7 +4,7 @@ description: Fournit des schémas JSON pour les entités Data Factory.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
+manager: craigg
 editor: ''
 ms.service: data-factory
 ms.workload: data-services
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 519a762e5f89533f4425d38e4a1ca76d8e3dd40f
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 198fa15b7ee8cce6781e6a2575844a9666185be9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Référence de script JSON
 > [!NOTE]
@@ -415,7 +415,7 @@ Pour lier votre compte de stockage Azure à une fabrique de données à l’aide
 |:--- |:--- |:--- |
 | connectionString |Spécifier les informations requises pour la connexion au stockage Azure pour la propriété connectionString. |OUI |
 
-##### <a name="example"></a>Exemple  
+##### <a name="example"></a>Exemples  
 
 ```json
 {
@@ -436,7 +436,7 @@ Le service lié Stockage Azure SAS vous permet de lier un compte de stockage Azu
 |:--- |:--- |:--- |
 | sasUri |Spécifiez l’URI de signature d’accès partagé des ressources Stockage Azure, telles qu’un objet blob, un conteneur ou une table. |OUI |
 
-##### <a name="example"></a>Exemple
+##### <a name="example"></a>Exemples
 
 ```json
 {  
@@ -463,7 +463,7 @@ Pour définir un jeu de données d’objet blob Azure, définissez le **type** d
 | format | Les types de formats suivants sont pris en charge : **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Définissez la propriété **type** située sous Format sur l’une de ces valeurs. Pour en savoir plus, consultez les sections relatives à [format Text](data-factory-supported-file-and-compression-formats.md#text-format), [format Json](data-factory-supported-file-and-compression-formats.md#json-format), [format Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [format Orc](data-factory-supported-file-and-compression-formats.md#orc-format) et [format Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Si vous souhaitez **copier des fichiers en l’état** entre des magasins de fichiers (copie binaire), ignorez la section Format dans les deux définitions de jeu de données d’entrée et de sortie. |Non  |
 | compression | Spécifiez le type et le niveau de compression pour les données. Les types pris en charge sont : **GZip**, **Deflate**, **BZip2** et **ZipDeflate**. Les niveaux pris en charge sont **Optimal** et **Fastest**. Pour plus d’informations, consultez [Formats de fichiers et de compression pris en charge dans Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Non  |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -493,13 +493,13 @@ Pour définir un jeu de données d’objet blob Azure, définissez le **type** d
 Pour plus d’informations, consultez l’article [Azure Blob connector (connecteur d’objet blob Azure)](data-factory-azure-blob-connector.md#dataset-properties).
 
 ### <a name="blobsource-in-copy-activity"></a>BlobSource dans l’activité de copie
-Si vous copiez des données à partir d’un stockage d’objets blob Azure, définissez le **type de source** de l’activité de copie sur **BlobSource** et spécifiez les propriétés suivantes dans la section **source** :
+Si vous copiez des données à partir d’un Stockage Blob Azure, définissez le **type de source** de l’activité de copie sur **BlobSource** et spécifiez les propriétés suivantes dans la section **source** :
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
 | recursive |Indique si les données sont lues de manière récursive à partir des sous-dossiers ou uniquement du dossier spécifié. |True (valeur par défaut), False |Non  |
 
-#### <a name="example-blobsource"></a>Exemple : BlobSource**
+#### <a name="example-blobsource"></a>Exemple : **BlobSource**
 ```json
 {
     "name": "SamplePipeline",
@@ -646,7 +646,7 @@ Pour définir un jeu de données Azure Data Lake Store, définissez le **type** 
 | format | Les types de formats suivants sont pris en charge : **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Définissez la propriété **type** située sous Format sur l’une de ces valeurs. Pour en savoir plus, consultez les sections relatives à [format Text](data-factory-supported-file-and-compression-formats.md#text-format), [format Json](data-factory-supported-file-and-compression-formats.md#json-format), [format Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [format Orc](data-factory-supported-file-and-compression-formats.md#orc-format) et [format Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Si vous souhaitez **copier des fichiers en l’état** entre des magasins de fichiers (copie binaire), ignorez la section Format dans les deux définitions de jeu de données d’entrée et de sortie. |Non  |
 | compression | Spécifiez le type et le niveau de compression pour les données. Les types pris en charge sont : **GZip**, **Deflate**, **BZip2** et **ZipDeflate**. Les niveaux pris en charge sont **Optimal** et **Fastest**. Pour plus d’informations, consultez [Formats de fichiers et de compression pris en charge dans Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Non  |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 ```json
 {
     "name": "AzureDataLakeStoreInput",
@@ -788,7 +788,7 @@ Pour définir un service lié Azure Cosmos DB, réglez le **type** du service li
 | --- | --- | --- |
 | connectionString |Spécifiez les informations requises pour se connecter à la base de données Azure Cosmos DB. |OUI |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -810,7 +810,7 @@ Pour définir un jeu de données Azure Cosmos DB, réglez le **type** du jeu de 
 | --- | --- | --- |
 | collectionName |Nom de la collection Azure Cosmos DB. |OUI |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -840,7 +840,7 @@ Si vous copiez des données à partir d’Azure Cosmos DB, réglez le **type de 
 | query |Spécifier la requête pour lire les données. |Chaîne de requête prise en charge par Azure Cosmos DB. <br/><br/>Exemple : `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Non  <br/><br/>Si non spécifié, l’instruction SQL exécutée : `select <columns defined in structure> from mycollection` |
 | nestingSeparator |Caractère spécial pour indiquer que le document est imbriqué. |Tout caractère. <br/><br/>Azure Cosmos DB est une banque NoSQL de documents JSON, où les structures imbriquées sont autorisées. Azure Data Factory permet à l'utilisateur de désigner la hiérarchie via nestingSeparator, qui est « . » dans les exemples ci-dessus. Avec le séparateur, l'activité de copie générera l'objet « Name » avec trois éléments enfants First, Middle et Last, en fonction de « Name.First », « Name.Middle » et « Name.Last » dans la définition de la table. |Non  |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -887,7 +887,7 @@ Si vous copiez des données dans Azure Cosmos DB, réglez le **type de récepteu
 | writeBatchSize |Nombre de requêtes parallèles auprès du service Azure Cosmos DB pour créer des documents.<br/><br/>Vous pouvez optimiser les performances lors de la copie des données dans/à partir d’Azure Cosmos DB à l’aide de cette propriété. Vous pouvez obtenir de meilleures performances en augmentant writeBatchSize car davantage de requêtes sont envoyées à Azure Cosmos DB. Toutefois, vous devez éviter les limitations qui peuvent déclencher le message d’erreur : « Le taux de demandes est élevé ».<br/><br/>Une limitation dépend de divers facteurs, dont la taille des documents, le nombre de termes qu’ils contiennent, la stratégie d’indexation de la collection cible, etc. Pour les opérations de copie, vous pouvez utiliser une meilleure collection (par exemple, S3) pour que le débit disponible soit maximal (2 500 unités de demande par seconde). |Entier  |Non (valeur par défaut : 5) |
 | writeBatchTimeout |Temps d'attente pour que l'opération soit terminée avant d'expirer. |intervalle de temps<br/><br/> Exemple : « 00:30:00 » (30 minutes). |Non  |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -938,7 +938,7 @@ Pour définir un service lié Azure SQL Database, définissez le **type** du ser
 | --- | --- | --- |
 | connectionString |Spécifier les informations requises pour la connexion à l’instance de base de données SQL Azure pour la propriété connectionString. |OUI |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 ```json
 {
     "name": "AzureSqlLinkedService",
@@ -960,7 +960,7 @@ Pour définir un jeu de données Azure SQL Database, définissez le **type** du 
 | --- | --- | --- |
 | TableName |Nom de la table ou de la vue dans l’instance Azure SQL Database à laquelle le service lié fait référence. |OUI |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -998,7 +998,7 @@ Si vous copiez des données à partir d’Azure SQL Database, définissez le **t
 | sqlReaderStoredProcedureName |Nom de la procédure stockée qui lit les données de la table source. |Nom de la procédure stockée. |Non  |
 | storedProcedureParameters |Paramètres de la procédure stockée. |Paires nom/valeur. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. |Non  |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -1055,7 +1055,7 @@ Si vous copiez des données dans Azure SQL Database, définissez le **type de r�
 | storedProcedureParameters |Paramètres de la procédure stockée. |Paires nom/valeur. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. |Non  |
 | sqlWriterTableType |Spécifiez le nom du type de table à utiliser dans la procédure stockée. L’activité de copie place les données déplacées disponibles dans une table temporaire avec ce type de table. Le code de procédure stockée peut ensuite fusionner les données copiées avec les données existantes. |Nom de type de table. |Non  |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -1111,7 +1111,7 @@ Pour définir un service lié Azure SQL Data Warehouse, définissez le **type** 
 
 
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -1134,7 +1134,7 @@ Pour définir un jeu de données Azure SQL Data Warehouse, définissez le **type
 | --- | --- | --- |
 | TableName |Nom de la table ou de la vue dans la base de données Azure SQL Data Warehouse à laquelle le service lié fait référence. |OUI |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -1173,7 +1173,7 @@ Si vous copiez des données à partir d’Azure SQL Data Warehouse, définissez 
 | sqlReaderStoredProcedureName |Nom de la procédure stockée qui lit les données de la table source. |Nom de la procédure stockée. |Non  |
 | storedProcedureParameters |Paramètres de la procédure stockée. |Paires nom/valeur. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. |Non  |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -1233,7 +1233,7 @@ Si vous copiez des données dans Azure SQL Data Warehouse, définissez le **type
 | writeBatchSize |Insère des données dans la table SQL lorsque la taille du tampon atteint writeBatchSize |Nombre entier (nombre de lignes) |Non (valeur par défaut : 10000) |
 | writeBatchTimeout |Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer. |intervalle de temps<br/><br/> Exemple : « 00:30:00 » (30 minutes). |Non  |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -1289,7 +1289,7 @@ Pour définir un service lié Recherche Azure, définissez le **type** du servic
 | url | URL du service Recherche Azure. | OUI |
 | key | Clé d’administration du service Recherche Azure. | OUI |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -1314,7 +1314,7 @@ Pour définir un jeu de données Recherche Azure, définissez le **type** du jeu
 | Type | La propriété de type doit être définie sur **AzureSearchIndex**.| OUI |
 | indexName | Nom de l’index Recherche Azure. Data Factory ne crée pas l’index. L’index doit exister dans Recherche Azure. | OUI |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -1343,7 +1343,7 @@ Si vous copiez des données dans un Index Recherche Azure, définissez le **type
 | WriteBehavior | Indique s’il convient de procéder à une fusion ou à un remplacement lorsqu’un document existe déjà dans l’index. | Merge (par défaut)<br/>Télécharger| Non  |
 | writeBatchSize | Charge des données dans l’index Recherche Azure lorsque la taille du tampon atteint writeBatchSize. | 1 à 1 000. Valeur par défaut : 1 000. | Non  |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -1446,7 +1446,7 @@ Pour définir un jeu de données Table Azure, définissez le **type** du jeu de 
 | --- | --- | --- |
 | TableName |Nom de la table dans l'instance de base de données Table Azure à laquelle le service lié fait référence. |Oui. Lorsqu’un tableName est spécifié sans azureTableSourceQuery, tous les enregistrements de la table sont copiés vers la destination. Si un azureTableSourceQuery est également spécifié, les enregistrements de la table qui satisfont à la requête sont copiés vers la destination. |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -1483,7 +1483,7 @@ Si vous copiez des données à partir d’un stockage de table Azure, définisse
 | AzureTableSourceQuery |Utilise la requête personnalisée pour lire des données. |Chaîne de requête de table Azure. Consultez les exemples dans la section suivante. |Non. Lorsqu’un tableName est spécifié sans azureTableSourceQuery, tous les enregistrements de la table sont copiés vers la destination. Si un azureTableSourceQuery est également spécifié, les enregistrements de la table qui satisfont à la requête sont copiés vers la destination. |
 | azureTableSourceIgnoreTableNotFound |Indiquer si l'exception de la table n'existe pas. |TRUE<br/>FALSE |Non  |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -1540,7 +1540,7 @@ Si vous copiez des données dans un stockage de table Azure, définissez le **ty
 | writeBatchSize |Insère des données dans la table Azure lorsque la valeur de writeBatchSize ou writeBatchTimeout est atteinte. |Nombre entier (nombre de lignes) |Non (valeur par défaut : 10000) |
 | writeBatchTimeout |Insère des données dans la table Azure lorsque la valeur de writeBatchSize ou writeBatchTimeout est atteinte |intervalle de temps<br/><br/>Exemple : « 00: 20:00 » (20 minutes) |Non (Valeur par défaut du délai d'attente du stockage client par défaut : 90 secondes) |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -1592,13 +1592,13 @@ Pour définir un service lié Amazon Redshift, définissez le **type** du servic
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| server |Nom d’hôte ou adresse IP du serveur Amazon Redshift. |OUI |
+| serveur |Nom d’hôte ou adresse IP du serveur Amazon Redshift. |OUI |
 | port |Le numéro du port TCP utilisé par le serveur Amazon Redshift pour écouter les connexions clientes. |Non, valeur par défaut : 5439 |
 | database |Nom de la base de données Amazon Redshift. |OUI |
 | username |Nom d’utilisateur ayant accès à la base de données. |OUI |
 | password |Mot de passe du compte d’utilisateur. |OUI |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -1626,7 +1626,7 @@ Pour définir un jeu de données Amazon Redshift, définissez le **type** du jeu
 | TableName |Nom de la table dans l’instance de base de données Amazon Redshift à laquelle le service lié fait référence. |Non (si la **requête** de **RelationalSource** est spécifiée) |
 
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -1654,7 +1654,7 @@ Si vous copiez des données à partir d’Amazon Redshift, définissez le **type
 | --- | --- | --- | --- |
 | query |Utilise la requête personnalisée pour lire des données. |Chaîne de requête SQL. Par exemple : `select * from MyTable`. |Non (si **tableName** de **dataset** est spécifiée) |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -1712,7 +1712,7 @@ Pour définir un service lié IBM DB2, définissez le **type** du service lié s
 | password |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. |Non  |
 | gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données DB2 locale. |OUI |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 ```json
 {
     "name": "OnPremDb2LinkedService",
@@ -1739,7 +1739,7 @@ Pour définir un jeu de données DB2, définissez le **type** du jeu de données
 | --- | --- | --- |
 | TableName |Nom de la table dans l'instance de base de données DB2 à laquelle le service lié fait référence. Le nom de la table respecte la casse. |Non (si la **requête** de **RelationalSource** est spécifiée) 
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 ```json
 {
     "name": "Db2DataSet",
@@ -1773,7 +1773,7 @@ Si vous copiez des données à partir d’IBM DB2, définissez le **type de sour
 | --- | --- | --- | --- |
 | query |Utilise la requête personnalisée pour lire des données. |Chaîne de requête SQL. Par exemple : `"query": "select * from "MySchema"."MyTable""`. |Non (si **tableName** de **dataset** est spécifiée) |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 ```json
 {
     "name": "CopyDb2ToBlob",
@@ -1820,7 +1820,7 @@ Pour définir un service lié MySQL, définissez le **type** du service lié sur
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| server |Nom du serveur MySQL. |OUI |
+| serveur |Nom du serveur MySQL. |OUI |
 | database |Nom de la base de données MySQL. |OUI |
 | schema |Nom du schéma dans la base de données. |Non  |
 | authenticationType |Type d'authentification utilisé pour se connecter à la base de données MySQL. Les valeurs possibles sont les suivantes : `Basic`. |OUI |
@@ -1828,7 +1828,7 @@ Pour définir un service lié MySQL, définissez le **type** du service lié sur
 | password |Spécifiez le mot de passe du compte d’utilisateur que vous avez indiqué. |OUI |
 | gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données MySQL locale. |OUI |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -1857,7 +1857,7 @@ Pour définir un jeu de données MySQL, définissez le **type** du jeu de donné
 | --- | --- | --- |
 | TableName |Nom de la table dans l'instance de base de données MySQL à laquelle le service lié fait référence. |Non (si la **requête** de **RelationalSource** est spécifiée) |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -1892,7 +1892,7 @@ Si vous copiez des données à partir d’une base de données MySQL, définisse
 | query |Utilise la requête personnalisée pour lire des données. |Chaîne de requête SQL. Par exemple : `select * from MyTable`. |Non (si **tableName** de **dataset** est spécifiée) |
 
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 ```json
 {
     "name": "CopyMySqlToBlob",
@@ -1946,7 +1946,7 @@ Pour définir un service lié Oracle, définissez le **type** du service lié su
 | connectionString | Spécifier les informations requises pour la connexion à l’instance de base de données Oracle pour la propriété connectionString. | OUI |
 | gatewayName | Nom de la passerelle utilisée pour se connecter au serveur Oracle local |OUI |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 ```json
 {
     "name": "OnPremisesOracleLinkedService",
@@ -1970,7 +1970,7 @@ Pour définir un jeu de données Oracle, définissez le **type** du jeu de donn�
 | --- | --- | --- |
 | TableName |Nom de la table dans la base de données Oracle à laquelle le service lié fait référence. |Non (si **oracleReaderQuery** de **OracleSource** est spécifié) |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -2007,7 +2007,7 @@ Si vous copiez des données à partir d’une base de données Oracle, définiss
 | --- | --- | --- | --- |
 | oracleReaderQuery |Utilise la requête personnalisée pour lire des données. |Chaîne de requête SQL. Par exemple : `select * from MyTable` <br/><br/>Si non spécifié, l’instruction SQL exécutée : `select * from MyTable` |Non (si **tableName** de **dataset** est spécifiée) |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -2062,7 +2062,7 @@ Si vous copiez des données dans une base de données Oracle, définissez le **t
 | sqlWriterCleanupScript |Spécifiez une requête pour exécuter l’activité de copie afin que les données d’un segment spécifique soient nettoyées. |Une instruction de requête. |Non  |
 | sliceIdentifierColumnName |Spécifiez le nom de la colonne que l’activité de copie doit remplir avec l’identificateur de segment généré automatiquement, et qui est utilisée pour nettoyer les données d’un segment spécifique lors de la réexécution. |Nom d’une colonne avec le type de données binary(32). |Non  |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 ```json
 {
     "name": "SamplePipeline",
@@ -2111,7 +2111,7 @@ Pour définir un service lié PostgreSQL, définissez le **type** du service li�
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| server |Nom du serveur PostgreSQL. |OUI |
+| serveur |Nom du serveur PostgreSQL. |OUI |
 | database |Nom de la base de données PostgreSQL. |OUI |
 | schema |Nom du schéma dans la base de données. Le nom du schéma respecte la casse. |Non  |
 | authenticationType |Type d'authentification utilisé pour se connecter à la base de données PostgreSQL. Les valeurs possibles sont : Anonyme, De base et Windows. |OUI |
@@ -2119,7 +2119,7 @@ Pour définir un service lié PostgreSQL, définissez le **type** du service li�
 | password |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. |Non  |
 | gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données PostgreSQL locale. |OUI |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -2147,7 +2147,7 @@ Pour définir un jeu de données PostgreSQL, définissez le **type** du jeu de d
 | --- | --- | --- |
 | TableName |Nom de la table dans l'instance de base de données PostgreSQL à laquelle le service lié fait référence. Le nom de la table respecte la casse. |Non (si la **requête** de **RelationalSource** est spécifiée) |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 ```json
 {
     "name": "PostgreSqlDataSet",
@@ -2180,7 +2180,7 @@ Si vous copiez des données à partir d’une base de données PostgreSQL, défi
 | --- | --- | --- | --- |
 | query |Utilise la requête personnalisée pour lire des données. |Chaîne de requête SQL. Par exemple : "query": "select * from \"MySchema\".\"MyTable\"". |Non (si **tableName** de **dataset** est spécifiée) |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -2230,7 +2230,7 @@ Pour définir un service lié SAP Business Warehouse (BW), définissez le **type
 
 Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
-server | Nom du serveur sur lequel réside l’instance SAP BW. | chaîne | OUI
+serveur | Nom du serveur sur lequel réside l’instance SAP BW. | chaîne | OUI
 systemNumber | Numéro de système du système SAP BW. | Nombre décimal à deux chiffres représenté sous forme de chaîne. | OUI
 clientId | ID client du client dans le système SAP W. | Nombre décimal à trois chiffres représenté sous forme de chaîne. | OUI
 username | Nom de l’utilisateur qui a accès au serveur SAP | chaîne | OUI
@@ -2238,7 +2238,7 @@ password | Mot de passe pour l’utilisateur. | chaîne | OUI
 gatewayName | Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à l’instance SAP BW locale. | chaîne | OUI
 Encryptedcredential | La chaîne d’informations d’identification chiffrée. | chaîne | Non 
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -2262,7 +2262,7 @@ Pour plus d’informations, consultez l’article [SAP Business Warehouse connec
 ### <a name="dataset"></a>Jeu de données
 Pour définir un jeu de données SAP BW, définissez le **type** du jeu de données sur **RelationalTable**. Aucune propriété propre à un type n’est prise en charge pour le type de jeu de données SAP BW **RelationalTable**.  
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -2289,7 +2289,7 @@ Si vous copiez des données à partir de SAP Business Warehouse, définissez le 
 | --- | --- | --- | --- |
 | query | Spécifie la requête MDX pour lire les données de l’instance SAP BW. | Requête MDX. | OUI |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -2340,14 +2340,14 @@ Pour définir un service lié SAP HANA, définissez le **type** du service lié 
 
 Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
-server | Le nom du serveur sur lequel réside l’instance SAP HANA. Si votre serveur utilise un port personnalisé, spécifiez `server:port`. | chaîne | OUI
+serveur | Le nom du serveur sur lequel réside l’instance SAP HANA. Si votre serveur utilise un port personnalisé, spécifiez `server:port`. | chaîne | OUI
 authenticationType | Type d'authentification. | chaîne. « Basic » ou « Windows » | OUI 
 username | Nom de l’utilisateur qui a accès au serveur SAP | chaîne | OUI
 password | Mot de passe pour l’utilisateur. | chaîne | OUI
 gatewayName | Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à l’instance SAP HANA locale. | chaîne | OUI
 Encryptedcredential | La chaîne d’informations d’identification chiffrée. | chaîne | Non 
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -2370,7 +2370,7 @@ Pour plus d’informations, consultez l’article [SAP HANA connector (connecteu
 ### <a name="dataset"></a>Jeu de données
 Pour définir un jeu de données SAP HANA, définissez le **type** du jeu de données sur **RelationalTable**. Aucune propriété propre à un type n’est prise en charge pour le type de jeu de données SAP HANA **RelationalTable**. 
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -2397,7 +2397,7 @@ Si vous copiez des données à partir d’un magasin de données SAP HANA, défi
 | query | Spécifie la requête SQL pour lire les données de l’instance SAP HANA. | Requête SQL. | OUI |
 
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 
 ```json
@@ -2507,7 +2507,7 @@ Pour définir un jeu de données SQL Server, définissez le **type** du jeu de d
 | --- | --- | --- |
 | TableName |Nom de la table ou de la vue dans l’instance de base de données SQL Server à laquelle le service lié fait référence. |OUI |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 ```json
 {
     "name": "SqlServerInput",
@@ -2555,7 +2555,7 @@ Si vous ne spécifiez pas sqlReaderQuery ou sqlReaderStoredProcedureName, les co
 > Quand vous utilisez **sqlReaderStoredProcedureName**, vous devez toujours spécifier une valeur pour la propriété **tableName** du code JSON du jeu de données. Cependant, il n’existe aucune validation effectuée pour cette table.
 
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 ```json
 {
     "name": "SamplePipeline",
@@ -2616,7 +2616,7 @@ Si vous copiez des données dans une base de données SQL Server, définissez le
 | storedProcedureParameters |Paramètres de la procédure stockée. |Paires nom/valeur. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. |Non  |
 | sqlWriterTableType |Spécifiez le nom du type de table à utiliser dans la procédure stockée. L’activité de copie place les données déplacées disponibles dans une table temporaire avec ce type de table. Le code de procédure stockée peut ensuite fusionner les données copiées avec les données existantes. |Nom de type de table. |Non  |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 Le pipeline contient une activité de copie qui est configurée pour utiliser ces jeux de données d'entrée et de sortie, et qui est planifiée pour s'exécuter toutes les heures. Dans la définition du pipeline JSON, le type **source** est défini sur **BlobSource** et le type **sink** est défini sur **SqlSink**.
 
 ```json
@@ -2669,7 +2669,7 @@ Pour définir un service lié Sybase, définissez le **type** du service lié su
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| server |Nom du serveur Sybase. |OUI |
+| serveur |Nom du serveur Sybase. |OUI |
 | database |Nom de la base de données Sybase. |OUI |
 | schema |Nom du schéma dans la base de données. |Non  |
 | authenticationType |Type d'authentification utilisé pour se connecter à la base de données Sybase. Les valeurs possibles sont : Anonyme, De base et Windows. |OUI |
@@ -2677,7 +2677,7 @@ Pour définir un service lié Sybase, définissez le **type** du service lié su
 | password |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. |Non  |
 | gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données Sybase locale. |OUI |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 ```json
 {
     "name": "OnPremSybaseLinkedService",
@@ -2705,7 +2705,7 @@ Pour définir un jeu de données Sybase, définissez le **type** du jeu de donn�
 | --- | --- | --- |
 | TableName |Nom de la table dans l'instance de base de données Sybase à laquelle le service lié fait référence. |Non (si la **requête** de **RelationalSource** est spécifiée) |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -2740,7 +2740,7 @@ Si vous copiez des données à partir d’une base de données Sybase, définiss
 | --- | --- | --- | --- |
 | query |Utilise la requête personnalisée pour lire des données. |Chaîne de requête SQL. Par exemple : `select * from MyTable`. |Non (si **tableName** de **dataset** est spécifiée) |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -2789,13 +2789,13 @@ Pour définir un service lié Teradata, définissez le **type** du service lié 
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| server |Nom du serveur Teradata. |OUI |
+| serveur |Nom du serveur Teradata. |OUI |
 | authenticationType |Type d'authentification utilisé pour se connecter à la base de données Teradata. Les valeurs possibles sont : Anonyme, De base et Windows. |OUI |
 | username |Spécifiez le nom d'utilisateur si vous utilisez l'authentification de base ou Windows. |Non  |
 | password |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. |Non  |
 | gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données Teradata locale. |OUI |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 ```json
 {
     "name": "OnPremTeradataLinkedService",
@@ -2817,7 +2817,7 @@ Pour plus d’informations, consultez l’article [Teradata connector (connecteu
 ### <a name="dataset"></a>Jeu de données
 Pour définir un jeu de données d’objet blob Teradata, définissez le **type** du jeu de données sur **RelationalTable**. Il n’existe actuellement aucune propriété type prise en charge pour le jeu de données Teradata. 
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 ```json
 {
     "name": "TeradataDataSet",
@@ -2850,7 +2850,7 @@ Si vous copiez des données à partir d’une base de données Teradata, défini
 | --- | --- | --- | --- |
 | query |Utilise la requête personnalisée pour lire des données. |Chaîne de requête SQL. Par exemple : `select * from MyTable`. |OUI |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -2911,7 +2911,7 @@ Pour définir un service lié Cassandra, définissez le **type** du service lié
 | gatewayName |Le nom de la passerelle qui est utilisée pour se connecter à la base de données Cassandra locale. |OUI |
 | Encryptedcredential |Informations d’identification chiffrées par la passerelle. |Non  |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -2940,7 +2940,7 @@ Pour définir un jeu de données Cassandra, définissez le **type** du jeu de do
 | espace de clé |Nom de l’espace de clé ou du schéma dans la base de données Cassandra. |Oui (si la **requête** pour **CassandraSource** n’est pas définie). |
 | TableName |Nom de la table dans la base de données Cassandra. |Oui (si la **requête** pour **CassandraSource** n’est pas définie). |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -2978,7 +2978,7 @@ Si vous copiez des données depuis un système Cassandra, définissez le **type 
 | query |Utilise la requête personnalisée pour lire des données. |Requête SQL-92 ou requête CQL. Reportez-vous à [référence CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Lorsque vous utilisez la requête SQL, indiquez **keyspace name.table name** pour représenter la table que vous souhaitez interroger. |Non (si tableName et keyspace sur le jeu de données sont définis). |
 | Niveau de cohérence |Le niveau de cohérence spécifie le nombre de réplicas devant répondre à une demande de lecture avant de renvoyer des données à l’application cliente. Cassandra vérifie le nombre de réplicas spécifié pour permettre aux données de répondre à la demande de lecture. |UN, DEUX, TROIS, QUORUM, TOUT, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. Reportez-vous à [Configuring data consistency (Configuration de la cohérence des données)](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) pour plus d’informations. |Non. La valeur par défaut est UN. |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
   
 ```json
 {
@@ -3030,7 +3030,7 @@ Pour définir un service lié MongoDB, définissez le **type** du service lié s
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| server |Nom d’hôte ou adresse IP du serveur MongoDB. |OUI |
+| serveur |Nom d’hôte ou adresse IP du serveur MongoDB. |OUI |
 | port |Le port TCP utilisé par le serveur MongoDB pour écouter les connexions clientes. |Facultatif, valeur par défaut : 27017 |
 | authenticationType |De base ou anonyme. |OUI |
 | username |Compte d’utilisateur pour accéder à MongoDB. |Oui (si l’authentification de base est utilisée). |
@@ -3040,7 +3040,7 @@ Pour définir un service lié MongoDB, définissez le **type** du service lié s
 | gatewayName |Nom de la passerelle qui accède au magasin de données. |OUI |
 | Encryptedcredential |Informations d’identification chiffrées par la passerelle. |Facultatif |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -3070,7 +3070,7 @@ Pour définir un jeu de données MongoDB, définissez le **type** du jeu de donn
 | --- | --- | --- |
 | collectionName |Nom de la collection dans la base de données MongoDB. |OUI |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -3099,7 +3099,7 @@ Si vous copiez des données à partir de MongoDB, définissez le **type de sourc
 | --- | --- | --- | --- |
 | query |Utilise la requête personnalisée pour lire des données. |Chaîne de requête SQL-92. Par exemple : `select * from MyTable`. |Non (si **collectionName** du **jeu de données** est spécifié) |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -3154,7 +3154,7 @@ Pour définir un service lié Amazon S3, définissez le **type** du service lié
 | accessKeyID |ID de la clé d’accès secrète. |chaîne |OUI |
 | secretAccessKey |La clé d’accès secrète elle-même. |Chaîne secrète chiffrée |OUI |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 ```json
 {
     "name": "AmazonS3LinkedService",
@@ -3262,7 +3262,7 @@ Si vous copiez des données à partir d’Amazon S3, définissez le **type de so
 | recursive |Spécifie s’il faut répertorier de manière récursive les objets S3 sous le répertoire. |true/false |Non  |
 
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 
 ```json
@@ -3325,8 +3325,8 @@ Vous pouvez lier un système de fichiers local à une fabrique de données Azure
 #### <a name="sample-folder-path-definitions"></a>Exemples de définitions de chemin d’accès du dossier 
 | Scénario | Hôte dans la définition du service lié | folderPath dans la définition du jeu de données |
 | --- | --- | --- |
-| Dossier local sur l’ordinateur passerelle de gestion des données :  <br/><br/>Exemples : D:\\\* ou D:\dossier\sous-dossier\\\* |D:\\\\ (pour la passerelle de gestion des données 2.0 et versions ultérieures) <br/><br/> hôte local (pour les versions de la passerelle de gestion des données antérieures à 2.0) |.\\\\ ou dossier\\\\sous-dossier (pour la passerelle de gestion des données 2.0 et versions ultérieures) <br/><br/>D:\\\\ ou D:\\\\dossier\\\\sous-dossier (pour les versions de la passerelle antérieures à 2.0) |
-| Dossier partagé distant :  <br/><br/>Exemples : \\\\myserver\\share\\\* ou \\\\myserver\\share\\dossier\\sous-dossier\\\* |\\\\\\\\myserver\\\\share |.\\\\ ou dossier\\\\sous-dossier |
+| Dossier local sur l’ordinateur passerelle de gestion des données :  <br/><br/>Exemples : D:\\\* ou D:\dossier\sous-dossier\\* |D:\\\\ (pour la passerelle de gestion des données 2.0 et versions ultérieures) <br/><br/> hôte local (pour les versions de la passerelle de gestion des données antérieures à 2.0) |.\\\\ ou dossier\\\\sous-dossier (pour la passerelle de gestion des données 2.0 et versions ultérieures) <br/><br/>D:\\\\ ou D:\\\\dossier\\\\sous-dossier (pour les versions de la passerelle antérieures à 2.0) |
+| Dossier partagé distant :  <br/><br/>Exemples : \\\\myserver\\share\\\* ou \\\\myserver\\share\\dossier\\sous-dossier\\* |\\\\\\\\myserver\\\\share |.\\\\ ou dossier\\\\sous-dossier |
 
 
 #### <a name="example-using-username-and-password-in-plain-text"></a>Exemple : utilisation d’un nom d'utilisateur et d’un mot de passe en texte brut
@@ -3379,7 +3379,7 @@ Pour définir un jeu de données de système de fichiers, définissez le **type*
 > [!NOTE]
 > Vous ne pouvez pas utiliser fileName et fileFilter simultanément.
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -3445,7 +3445,7 @@ Si vous copiez des données à partir d’un système de fichiers, définissez l
 | --- | --- | --- | --- |
 | recursive |Indique si les données sont lues de manière récursive à partir des sous-dossiers ou uniquement du dossier spécifié. |True, False (par défaut) |Non  |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -3496,7 +3496,7 @@ Si vous copiez des données dans un système de fichiers, définissez le **type 
 | copyBehavior |Cette propriété définit le comportement de copie lorsque la source est BlobSource ou FileSystem. |**PreserveHierarchy :** conserve la hiérarchie des fichiers dans le dossier cible. Le chemin d’accès relatif du fichier source vers le dossier source est identique au chemin d’accès relatif du fichier cible vers le dossier cible.<br/><br/>**FlattenHierarchy**: tous les fichiers du dossier source sont créés dans le premier niveau du dossier cible. Les fichiers cibles sont créés avec un nom généré automatiquement.<br/><br/>**MergeFiles** : fusionne tous les fichiers du dossier source dans un même fichier. Si le nom d’objet blob ou le nom de fichier est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, il s’agit d’un nom de fichier généré automatiquement. |Non  |
 auto-
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -3645,7 +3645,7 @@ Pour définir un jeu de données FTP, définissez le **type** du jeu de données
 > [!NOTE]
 > fileName et fileFilter ne peuvent pas être utilisés simultanément.
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -3676,7 +3676,7 @@ Si vous copiez des données à partir d’un serveur FTP, définissez le **type 
 | --- | --- | --- | --- |
 | recursive |Indique si les données sont lues de manière récursive dans les sous-dossiers ou uniquement dans le dossier spécifié. |True, False (par défaut) |Non  |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -3785,7 +3785,7 @@ Pour définir un jeu de données HDFS, définissez le **type** du jeu de donnée
 > [!NOTE]
 > fileName et fileFilter ne peuvent pas être utilisés simultanément.
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -3816,7 +3816,7 @@ Si vous copiez des données à partir de HDFS, définissez le **type de source**
 | --- | --- | --- | --- |
 | recursive |Indique si les données sont lues de manière récursive dans les sous-dossiers ou uniquement dans le dossier spécifié. |True, False (par défaut) |Non  |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -3898,7 +3898,7 @@ Pour utiliser l’authentification de base, définissez `authenticationType` sur
 }
 ```
 
-#### <a name="example-basic-authentication-with-encrypted-credential"></a>Exemple : authentification de base avec des informations d’identification chiffrées**
+#### <a name="example-basic-authentication-with-encrypted-credential"></a>Exemple : **authentification de base avec des informations d’identification chiffrées**
 
 ```json
 {
@@ -3919,7 +3919,7 @@ Pour utiliser l’authentification de base, définissez `authenticationType` sur
 }
 ```
 
-#### <a name="using-ssh-public-key-authentication"></a>Utilisation de l’authentification par clé publique SSH : **
+#### <a name="using-ssh-public-key-authentication"></a>**Utilisation de l’authentification par clé publique SSH :**
 
 Pour utiliser l’authentification de base, définissez `authenticationType` sur `SshPublicKey` et spécifiez les propriétés suivantes en plus des propriétés génériques du connecteur SFTP présentées dans la dernière section :
 
@@ -3949,7 +3949,7 @@ Pour utiliser l’authentification de base, définissez `authenticationType` sur
 }
 ```
 
-#### <a name="example-sshpublickey-authentication-using-private-key-content"></a>Exemple : authentification SshPublicKey à l’aide du contenu de clé privée**
+#### <a name="example-sshpublickey-authentication-using-private-key-content"></a>Exemple : **authentification SshPublicKey à l’aide du contenu de clé privée**
 
 ```json
 {
@@ -4019,7 +4019,7 @@ Si vous copiez des données à partir d’une source SFTP, définissez le **type
 
 
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -4216,7 +4216,7 @@ Si vous copiez des données à partir d’une source HTTP, définissez le **type
 | httpRequestTimeout | Délai d’expiration (TimeSpan) pour l’obtention d’une réponse par la requête HTTP. Il s’agit du délai d’expiration pour l’obtention d’une réponse, et non du délai d’expiration pour la lecture des données de la réponse. | Non. Valeur par défaut : 00:01:40 |
 
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -4349,7 +4349,7 @@ Pour définir un jeu de données OData, définissez le **type** du jeu de donné
 | --- | --- | --- |
 | chemin d’accès |Chemin d'accès à la ressource OData |Non  |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -4380,11 +4380,11 @@ Pour plus d’informations, consultez l’article [OData connector (connecteur O
 ### <a name="relational-source-in-copy-activity"></a>Source relationnelle dans l’activité de copie
 Si vous copiez des données à partir d’une source OData, définissez le **type de source** de l’activité de copie sur **RelationalSource** et spécifiez les propriétés suivantes dans la section **source** :
 
-| Propriété | Description | Exemple | Obligatoire |
+| Propriété | Description | Exemples | Obligatoire |
 | --- | --- | --- | --- |
 | query |Utilise la requête personnalisée pour lire des données. |"?$select=Name, Description&$top=5" |Non  |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -4505,7 +4505,7 @@ Pour définir un jeu de données ODBC, définissez le **type** du jeu de donnée
 | TableName |Nom de la table dans le magasin de données ODBC. |OUI |
 
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -4539,7 +4539,7 @@ Si vous copiez des données à partir d’un magasin de données ODBC, définiss
 | --- | --- | --- | --- |
 | query |Utilise la requête personnalisée pour lire des données. |Chaîne de requête SQL. Par exemple : `select * from MyTable`. |OUI |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -4591,12 +4591,12 @@ Pour définir un service lié Salesforce, définissez le **type** du service li�
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| environmentUrl | Spécifiez l’URL de l’instance Salesforce. <br><br> - L’URL par défaut est « https://login.salesforce.com ». <br> - Pour copier des données à partir du bac à sable (sandbox), spécifiez « https://test.salesforce.com ». <br> - Pour copier des données du domaine personnalisé, spécifiez, par exemple : « https://[domain].my.salesforce.com ». |Non  |
+| environmentUrl | Spécifiez l’URL de l’instance Salesforce. <br><br> - La valeur par défaut est « https://login.salesforce.com ». <br> - Pour copier des données du bac à sable, spécifiez « https://test.salesforce.com ». <br> - Pour copier des données du domaine personnalisé, spécifiez, par exemple : « https://[domain].my.salesforce.com ». |Non  |
 | username |Spécifiez un nom d’utilisateur pour le compte d’utilisateur. |OUI |
 | password |Spécifiez le mot de passe du compte d’utilisateur. |OUI |
 | securityToken |Spécifiez le jeton de sécurité du compte d’utilisateur. Consultez l’article [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Obtenir un jeton de sécurité) pour obtenir des instructions sur la réinitialisation et l’obtention d’un jeton de sécurité. Pour en savoir plus sur les jetons de sécurité, consultez l’article [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Sécurité et API). |OUI |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -4621,7 +4621,7 @@ Pour définir un jeu de données Salesforce, définissez le **type** du jeu de d
 | --- | --- | --- |
 | TableName |Nom de la table dans Salesforce. |Non (si une **requête** de type **RelationalSource** est spécifiée) |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -4657,7 +4657,7 @@ Si vous copiez des données à partir de Salesforce, définissez le **type de so
 | --- | --- | --- | --- |
 | query |Utilise la requête personnalisée pour lire des données. |Une requête SQL-92 ou une requête [SOQL (Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Par exemple : `select * from MyTable__c`. |Non (si l’attribut **tableName** de l’élément **dataset** est spécifié) |
 
-#### <a name="example"></a>Exemple  
+#### <a name="example"></a>Exemples  
 
 
 
@@ -4718,7 +4718,7 @@ Pour définir un service lié Web, définissez le **type** du service lié sur *
 | authenticationType |Anonyme |OUI |
  
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 
 ```json
@@ -4745,7 +4745,7 @@ Pour définir un jeu de données Web, définissez le **type** du jeu de données
 | chemin d’accès |URL relative de la ressource qui contient la table. |Non. Quand le chemin d’accès n’est pas spécifié, seule l’URL spécifiée dans la définition du service lié est utilisée. |
 | index |Index de la table dans la ressource. Pour savoir comment obtenir l’index d’une table dans une page HTML, consultez la section [Obtenir l’index d’une table dans une page HTML](#get-index-of-a-table-in-an-html-page) . |OUI |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {
@@ -4771,7 +4771,7 @@ Pour plus d’informations, consultez l’article [Web Table connector (connecte
 ### <a name="web-source-in-copy-activity"></a>Source Web dans l’activité de copie
 Si vous copiez des données à partir d’une table web, définissez le **type de source** de l’activité de copie sur **WebSource**. Actuellement, lorsque la source de l’activité de copie est de type **WebSource**, aucune propriété supplémentaire n’est prise en charge.
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 ```json
 {

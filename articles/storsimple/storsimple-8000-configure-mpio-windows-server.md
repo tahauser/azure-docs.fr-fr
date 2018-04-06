@@ -1,30 +1,30 @@
 ---
 title: Configuration de MPIO pour votre appareil StorSimple | Microsoft Docs
-description: "Décrit comment configurer Multipath I/O (MPIO) pour votre appareil StorSimple connecté à un hôte exécutant Windows Server 2012 R2."
+description: Décrit comment configurer Multipath I/O (MPIO) pour votre appareil StorSimple connecté à un hôte exécutant Windows Server 2012 R2.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/05/2017
+ms.date: 03/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 9fe3fa3a2df63d111de742ecb48b1469aad543cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4f2b094604f486d283574f4669fcad6f72bd4431
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>Configuration de Multipath I/O pour votre appareil StorSimple
 
 Ce didacticiel décrit les étapes que vous devez suivre pour installer et utiliser la fonctionnalité MPIO (Multipath I/O) sur un hôte exécutant Windows Server 2012 R2 et connecté à un appareil physique StorSimple. Les instructions de cet article s’appliquent uniquement aux appareils physiques de la gamme StorSimple 8000. La fonctionnalité MPIO n’est actuellement pas prise en charge sur StorSimple Cloud Appliance.
 
-Microsoft a créé la prise en charge de la fonctionnalité MPIO (Multipath I/O) dans Windows Server pour vous aider à créer des configurations SAN hautement disponibles et tolérantes aux pannes. MPIO utilise les composants de chemin d’accès physique redondants (adaptateurs, câbles et commutateurs) pour créer des chemins d’accès logiques entre le serveur et l’appareil de stockage. En cas de défaillance de composant à l’origine de l’échec du chemin d’accès logique, la logique de gestion multivoie utilise un autre chemin pour l’E/S afin que les applications puissent toujours accéder à leurs données. De plus, selon votre configuration, MPIO peut également améliorer les performances en rééquilibrant la charge sur tous ces chemins d’accès. Pour plus d’informations, consultez la [Présentation de MPIO](https://technet.microsoft.com/library/cc725907.aspx "Présentation de MPIO and features").
+Microsoft a créé la prise en charge de la fonctionnalité MPIO (Multipath I/O) dans Windows Server pour vous aider à créer des configurations réseau iSCSI hautement disponibles et tolérantes aux pannes. MPIO utilise les composants de chemin d’accès physique redondants (adaptateurs, câbles et commutateurs) pour créer des chemins d’accès logiques entre le serveur et l’appareil de stockage. En cas de défaillance de composant à l’origine de l’échec du chemin d’accès logique, la logique de gestion multivoie utilise un autre chemin pour l’E/S afin que les applications puissent toujours accéder à leurs données. De plus, selon votre configuration, MPIO peut également améliorer les performances en rééquilibrant la charge sur tous ces chemins d’accès. Pour plus d’informations, consultez la [Présentation de MPIO](https://technet.microsoft.com/library/cc725907.aspx "Présentation de MPIO and features").
 
 Pour la haute disponibilité de votre solution StorSimple, MPIO doit être configuré sur votre appareil StorSimple. Lorsque MPIO est installé sur vos serveurs hôtes exécutant Windows Server 2012 R2, les serveurs peuvent tolérer une défaillance de lien, de réseau ou d’interface.
 
@@ -149,12 +149,12 @@ Une fois MPIO configuré sur Windows Server, le ou les volumes créés sur l’a
 
 ## <a name="step-4-configure-mpio-for-high-availability-and-load-balancing"></a>Étape 4 : configurer MPIO pour la haute disponibilité et l’équilibrage de charge
 
-Pour les chemins d’accès multiples basés sur la haute disponibilité et l’équilibrage de charge, vous devez ajouter plusieurs sessions manuellement pour déclarer les différents chemins d’accès disponibles. Par exemple, si l’hôte possède deux interfaces connectées au réseau SAN et si l’appareil possède deux interfaces connectées au réseau SAN, vous avez besoin de quatre sessions configurées avec les permutations de chemin d’accès appropriées (seules deux sessions seront requises si chaque interface DATA et interface d’hôte se trouve sur un sous-réseau d’adresse IP différent et n’est pas routable).
+Pour les chemins d’accès multiples basés sur la haute disponibilité et l’équilibrage de charge, vous devez ajouter plusieurs sessions manuellement pour déclarer les différents chemins d’accès disponibles. Par exemple, si l’hôte possède deux interfaces connectées au réseau iSCSI et si l’appareil possède deux interfaces connectées au réseau iSCSI, vous avez besoin de quatre sessions configurées avec les permutations de chemin d’accès appropriées (seules deux sessions seront requises si chaque interface DATA et interface d’hôte se trouve sur un sous-réseau d’adresse IP différent et n’est pas routable).
 
 **Nous vous recommandons d’avoir au moins 8 sessions parallèles actives entre l’appareil et votre hôte d’application.** Cela est possible en activant 4 interfaces réseau sur votre système Windows Server. Utilisez des interfaces réseau physiques ou des interfaces virtuelles via des technologies de virtualisation de réseau au niveau du matériel ou du système d’exploitation sur votre hôte Windows Server. Avec deux interfaces réseau sur l’appareil, cette configuration permet 8 sessions actives. Cette configuration permet d’optimiser le débit de l’appareil et du cloud.
 
 > [!IMPORTANT]
-> **Nous vous recommandons de ne pas mélanger les interfaces réseau 1 Gigabit Ethernet et 10 Gigabit Ethernet. Si vous utilisez deux interfaces réseau, elles doivent être du même type.**
+> **Nous vous recommandons de ne pas mélanger les interfaces réseau 1 Gigabit Ethernet et 10 Gigabit Ethernet. Si vous utilisez deux interfaces réseau, elles doivent être d’un même type.**
 
 La procédure suivante décrit comment ajouter des sessions lorsqu’un appareil StorSimple possédant deux interfaces réseau est connecté à un hôte avec deux interfaces réseau. Cela vous donne seulement 4 sessions. Utilisez la même procédure avec un appareil StorSimple possédant deux interfaces réseau et connecté à un hôte avec quatre interfaces réseau. Vous devez configurer 8 sessions au lieu des 4 décrites ici.
 
@@ -172,15 +172,15 @@ La procédure suivante décrit comment ajouter des sessions lorsqu’un appareil
 6. Dans la boîte de dialogue **Paramètres avancés** :
    
    1. Dans la liste déroulante **Adaptateur local**, sélectionnez **Initiateur Microsoft iSCSI**.
-   2. Dans la liste déroulante **IP de l’initiateur** , sélectionnez l’adresse IP de l’hôte.
-   3. Dans la liste déroulante **IP du portail cible** , sélectionnez l’adresse IP de l’interface de données activée sur l’appareil.
+   2. Dans la liste déroulante **IP de l’initiateur**, sélectionnez l’adresse IP correspondant à la première interface sur l’hôte (interface iSCSI).
+   3. Dans la liste déroulante **IP du portail cible**, sélectionnez l’adresse IP de la première interface de données activée sur l’appareil.
    4. Cliquez sur **OK** pour revenir à la boîte de dialogue Propriétés de l’initiateur iSCSI.
 7. Cliquez sur **Propriétés**, puis, dans la boîte de dialogue **Propriétés**, cliquez sur **Ajouter une session**.
 8. Dans la boîte de dialogue **Se connecter à la cible**, sélectionnez la case à cocher **Activer la prise en charge de plusieurs chemins d’accès**, puis cliquez sur **Avancé**.
 9. Dans la boîte de dialogue **Paramètres avancés** :
    
    1. Dans la liste déroulante **Adaptateur local**, sélectionnez **Initiateur Microsoft iSCSI**.
-   2. Dans la liste déroulante **IP de l’initiateur** , sélectionnez l’adresse IP correspondant à la deuxième interface sur l’hôte.
+   2. Dans la liste déroulante **IP de l’initiateur**, sélectionnez l’adresse IP correspondant à la deuxième interface iSCSI sur l’hôte.
    3. Dans la liste déroulante **IP du portail cible** , sélectionnez l’adresse IP de la deuxième interface de données activée sur l’appareil.
    4. Cliquez sur **OK** pour revenir à la boîte de dialogue **Propriétés de l’initiateur iSCSI**. Vous avez à présent ajouté une deuxième session à la cible.
 10. Répétez les étapes 8 à 10 pour ajouter des sessions supplémentaires (chemins d’accès) à la cible. Avec deux interfaces sur l’hôte et deux sur l’appareil, vous pouvez ajouter un total de quatre sessions.

@@ -1,22 +1,22 @@
 ---
-title: "Concepts d’appareil dans Azure Device Provisioning | Microsoft Docs"
-description: "Décrit les concepts d’approvisionnement d’appareil spécifiques aux appareils avec le service Device Provisioning et IoT Hub"
+title: Concepts d’appareil dans Azure Device Provisioning | Microsoft Docs
+description: Décrit les concepts d’approvisionnement d’appareil spécifiques aux appareils avec le service Device Provisioning et IoT Hub
 services: iot-dps
-keywords: 
+keywords: ''
 author: nberdy
 ms.author: nberdy
 ms.date: 09/05/2017
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 5297bc57729d9e983d63244c71eb21995cf73f0e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5482801461e2afea33d65d559723116f37a35d1f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="iot-hub-device-provisioning-service-device-concepts"></a>Concepts d’appareil du service IoT Hub Device Provisioning
 
@@ -33,7 +33,7 @@ Le mécanisme d’attestation est la méthode utilisée pour confirmer l’ident
 
 Le service Device Provisioning prend en charge deux formes d’attestation :
 * **Certificats X.509** basés sur le flux d’authentification de certificat X.509 standard.
-* **Jetons SAP** basés sur une stimulation de nonces utilisant le standard TPM pour les clés. Il n’est pas nécessaire d’avoir un TPM physique sur l’appareil, mais le service utilise pour l’attestation la paire de clés de type EK conformément à la [spécification TPM](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
+* **Module de plateforme sécurisée (TPM)** basé sur un défi nonce, utilisant la norme de module de plateforme sécurisée (TPM) pour les clés afin de présenter un jeton de signature d’accès partagé (SAS) signé. Il n’est pas nécessaire d’avoir un TPM physique sur l’appareil, mais le service utilise pour l’attestation la paire de clés de type EK conformément à la [spécification TPM](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
 
 ## <a name="hardware-security-module"></a>Module de sécurité matériel
 

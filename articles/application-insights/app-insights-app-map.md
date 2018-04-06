@@ -1,8 +1,8 @@
 ---
-title: "Mise en correspondance d’applications dans Azure Application Insights | Microsoft Docs"
-description: "Surveiller des topologies d’applications complexes avec la mise en correspondance d’applications"
+title: Mise en correspondance d’applications dans Azure Application Insights | Microsoft Docs
+description: Surveiller des topologies d’applications complexes avec la mise en correspondance d’applications
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: SoubhagyaDash
 manager: carmonm
 ms.assetid: 3bf37fe9-70d7-4229-98d6-4f624d256c36
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 3bbed59bf93eab5e729fbdd3ccae04599ac47081
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 4b95cd947cd977208dee32d18fbc6a1fb099ff3b
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mise en correspondance d’applications : trier des applications distribuées
 La mise en correspondance d’applications vous permet d’identifier les baisses de performances ou les défaillances sur l’ensemble des composants de votre application distribuée. Chaque nœud de cette mise en correspondance représente un composant d’application ou ses dépendances, avec des indicateurs de performance clés d’intégrité et l’état des alertes. Vous pouvez cliquer sur n’importe quel composant pour obtenir des diagnostics plus détaillés, par exemple des événements Application Insights. Si votre application utilise les services Azure, vous pouvez également accéder aux diagnostics Azure, et notamment aux recommandations de SQL Database Advisor.
@@ -37,7 +37,7 @@ Activez « Composite Application Map » (Cartographie d'application composite) 
 ![Activer la mise en correspondance de préversion](media/app-insights-app-map/preview-from-classic.png)
 
 >[!Note]
-Cette préversion remplace la préversion « Mise en correspondance d'applications multirôle » précédente. À ce stade, utilisez-la pour afficher la topologie complète sur plusieurs niveaux de dépendances des composants d’application. Envoyez-nous vos commentaires : nous ajouterons d’autres fonctionnalités similaires à celles prises en charge par la mise en correspondance classique.
+Cette préversion remplace la préversion précédente, « Mise en correspondance d’application multirôle ». À ce stade, utilisez-la pour afficher la topologie complète sur plusieurs niveaux de dépendances des composants d’application. Envoyez-nous vos commentaires : nous ajouterons d’autres fonctionnalités similaires à celles prises en charge par la mise en correspondance classique.
 
 Vous pouvez afficher la topologie complète des applications sur plusieurs niveaux des composants d’application associés. Les composants peuvent représenter différentes ressources Application Insights, ou différents rôles d’une seule ressource. La mise en correspondance d’applications trouve les composants en suivant les appels de dépendance HTTP effectués entre les serveurs sur lesquels le kit SDK Application Insights est installé. 
 
@@ -142,4 +142,4 @@ Merci d’envoyer des commentaires via l’option de commentaires du portail.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Portail Azure](https://portal.azure.com)
+* [Portail Azure](https://portal.azure.com)

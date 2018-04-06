@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 193003cef0aed464596e913c0df86e6123292b9f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: e484dac645ff2e5867d2e652c389a9950e8bac12
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 Azure exécute régulièrement des mises à jour afin d’améliorer la fiabilité, les performances et la sécurité de l’infrastructure hôte des machines virtuelles. Ces mises à jour vont de la mise à jour corrective de composants logiciels dans l’environnement d’hébergement (système d’exploitation, hyperviseur et différents agents déployés sur l’hôte) en passant par la mise à niveau des composants réseau, jusqu’à la désaffectation de matériel. La majorité de ces mises à jour ont lieu sans affecter les machines virtuelles hébergées. Cependant, il existe des cas où les mises à jour ont un impact :
 
-- Lorsque la maintenance ne nécessite pas de redémarrage, Azure utilise une migration sur place pour mettre en pause la machine virtuelle pendant la mise à jour de l’hôte.
+- Si une mise à jour sans redémarrage est possible, Azure utilise la maintenance avec préservation de la mémoire pour mettre en pause la machine virtuelle tandis que l’hôte est mis à jour ou que la machine virtuelle est déplacée vers un hôte déjà mis à jour.
 
 - Si la maintenance nécessite un redémarrage, une notification vous dira pour quand est prévue la maintenance. Dans ces cas, vous disposez aussi d’une période pour commencer la maintenance vous-même, au moment qui vous convient.
 
@@ -26,13 +26,13 @@ Les applications qui s’exécutent sur une machine virtuelle peuvent recueillir
 
 Pour obtenir des guides pratiques sur la gestion de la maintenance planifiée, consultez « Gestion des notifications de maintenance planifiée » pour [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) ou [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
 
-## <a name="in-place-vm-migration"></a>Migration sur place d’une machine virtuelle
+## <a name="memory-preserving-maintenance"></a>Maintenance avec préservation de la mémoire
 
-Lorsque les mises à jour ne nécessitent pas un redémarrage complet, une migration dynamique sur place est utilisée. Lors de la mise à jour, la machine virtuelle est mise en pause pendant environ trente secondes, conservant la mémoire RAM, tandis que l’environnement d’hébergement applique les correctifs et mises à jour nécessaires. La machine virtuelle est redémarrée et l’horloge de la machine virtuelle est automatiquement synchronisée.
+Lorsque les mises à jour ne nécessitent pas un redémarrage complet, des mécanismes de maintenance avec préservation de la mémoire sont utilisés pour limiter l’impact sur la machine virtuelle. La machine virtuelle est mise en pause pendant 30 secondes maximum, préservant la mémoire RAM, tandis que l’environnement d’hébergement applique les correctifs et mises à jour nécessaires ou déplace la machine virtuelle vers un hôte déjà mis à jour. La machine virtuelle est redémarrée et l’horloge de la machine virtuelle est automatiquement synchronisée. 
 
 Pour les machines virtuelles dans des groupes à haute disponibilité, les domaines de mise à jour sont mis à jour un par un. Toutes les machines virtuelles d’un domaine de mise à jour (UD) sont mises en pause, mises à jour et redémarrées avant que la maintenance planifiée ne passe au domaine de mise à jour suivant.
 
-Certaines applications peuvent être affectées par ces types de mises à jour. Par exemple, les applications qui effectuent des scénarios de traitement d’événements en temps réel, comme le streaming multimédia, le transcodage multimédia ou la mise en réseau à débit élevé, ne peuvent pas être conçues pour tolérer une pause de trente secondes. <!-- sooooo, what should they do? --> 
+Certaines applications peuvent être affectées par ces types de mises à jour. Par exemple, les applications qui effectuent des scénarios de traitement d’événements en temps réel, comme le streaming multimédia, le transcodage multimédia ou la mise en réseau à débit élevé, ne peuvent pas être conçues pour tolérer une pause de trente secondes. <!-- sooooo, what should they do? --> Si la machine virtuelle est déplacée vers un hôte différent, certaines charges de travail sensibles peuvent subir une légère dégradation des performances dans les quelques minutes qui précèdent la mise en pause de la machine virtuelle. 
 
 
 ## <a name="maintenance-requiring-a-reboot"></a>Maintenance nécessitant un redémarrage
@@ -46,6 +46,8 @@ Lorsque vous démarrez une maintenance en libre-service, votre machine virtuelle
 Si vous démarrez une maintenance en libre-service et rencontrez une erreur au cours du processus, l’opération s’interrompt, la machine virtuelle n’est pas mise à jour et est retirée de l’itération de la maintenance planifiée. Un nouveau planning vous sera fourni ultérieurement et une nouvelle occasion de procéder à une maintenance en libre-service. 
 
 C’est après la fenêtre de libre-service qu’apparaît la **fenêtre de maintenance planifiée**. Pendant cet intervalle de temps, vous pouvez toujours interroger la fenêtre de maintenance, mais vous ne pouvez plus démarrer la maintenance.
+
+Pour obtenir des informations sur la gestion de la maintenance nécessitant un redémarrage, consultez « Gestion des notifications de maintenance planifiée » pour [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) ou [Windows](../articles/virtual-machines/windows/maintenance-notifications.md). 
 
 ## <a name="availability-considerations-during-planned-maintenance"></a>Considérations relatives à la disponibilité lors de la maintenance planifiée 
 

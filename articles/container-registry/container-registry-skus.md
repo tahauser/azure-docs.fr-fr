@@ -1,18 +1,18 @@
 ---
-title: "Références (SKU) Azure Container Registry"
-description: "Comparez les différents niveaux de service disponibles dans Azure Container Registry."
+title: Références (SKU) Azure Container Registry
+description: Comparez les différents niveaux de service disponibles dans Azure Container Registry.
 services: container-registry
 author: mmacy
 manager: timlt
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/20/2017
+ms.date: 03/15/2018
 ms.author: marsma
-ms.openlocfilehash: 15179fa3e3567f92a5eae69ba9a684addc3138dd
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: c9b8e072b5ccd89c27d9c46407e472d6bf1e1e84
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-container-registry-skus"></a>Références (SKU) Azure Container Registry
 
@@ -37,11 +37,11 @@ Les références SKU de base, Standard et Premium sont collectivement appelées 
 
 ### <a name="managed-basic-standard-premium"></a>Managé (de base, Standard, Premium)
 
-Les registres managés sont soutenus par un compte de stockage Azure géré par Azure. Autrement dit, le compte de stockage qui stocke vos images n’apparaît pas dans votre abonnement Azure. L’utilisation de références SKU de registre managé offre plusieurs avantages, présentés en détail dans [Mise à niveau d’un registre Classique][container-registry-upgrade]. Cet article se concentre sur les références SKU de registre managé et leurs fonctionnalités.
+Les registres managés bénéficient du stockage des images entièrement managé par Azure. Autrement dit, le compte de stockage qui stocke vos images n’apparaît pas dans votre abonnement Azure. L’utilisation de l’une des références SKU du registre managée offre plusieurs avantages, présentés en détail dans [Stockage des images conteneur dans Azure Container Registry][container-registry-storage]. Cet article se concentre sur les références SKU de registre managé et leurs fonctionnalités.
 
 ### <a name="unmanaged-classic"></a>Non managé (classique)
 
-Les registres Classiques sont « non managés », dans le sens où le compte de stockage qui soutient un registre Classique se trouve dans *votre* abonnement Azure. Par conséquent, vous êtes responsable de la gestion du compte de stockage rassemblant vos images de conteneur. Avec les registres non managés, vous ne pouvez pas changer de références SKU selon vos besoins (sauf pour effectuer une [mise à niveau][container-registry-upgrade] vers un registre managé), et plusieurs fonctionnalités des registres managés ne sont pas disponibles (par exemple, la suppression d’image de conteneur, la [géoréplication][container-registry-geo-replication] et les [webhooks][container-registry-webhook]).
+Les registres Classiques sont « non managés », dans le sens où le compte de stockage qui soutient un registre Classique se trouve dans *votre* abonnement Azure. Par conséquent, vous êtes responsable de la gestion du compte de stockage rassemblant vos images de conteneur. Avec les registres non managés, vous ne pouvez pas changer de références SKU selon vos besoins (sauf pour effectuer une [mise à niveau][container-registry-upgrade] vers un registre managé), et plusieurs fonctionnalités des registres managés ne sont pas disponibles (par exemple, la suppression d’image conteneur, la [géoréplication][container-registry-geo-replication] et les [webhooks][container-registry-webhook]).
 
 Pour plus d’informations sur la mise à niveau d’un registre Classique vers une des références SKU managées, voir [Mise à niveau d’un registre Classique][container-registry-upgrade].
 
@@ -103,4 +103,5 @@ Proposez et votez pour des suggestions de fonctionnalités dans [ACR UserVoice][
 [az-acr-update]: /cli/azure/acr#az_acr_update
 [container-registry-geo-replication]: container-registry-geo-replication.md
 [container-registry-upgrade]: container-registry-upgrade.md
+[container-registry-storage]: container-registry-storage.md
 [container-registry-webhook]: container-registry-webhook.md

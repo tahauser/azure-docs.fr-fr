@@ -1,11 +1,12 @@
 ---
-title: "Vos données sont-elles prêtes pour la science des données ? Évaluation des données - Azure Machine Learning | Microsoft Docs"
-description: "Quatre critères que vos données doivent respecter pour être prêtes pour la science des données. Cette vidéo contient des exemples concrets pour faciliter l’évaluation de données de base."
-keywords: "données pertinentes,évaluer des données,préparer les données,critères de données,données prêtes"
+title: Vos données sont-elles prêtes pour la science des données ? Évaluation des données - Azure Machine Learning | Microsoft Docs
+description: Quatre critères que vos données doivent respecter pour être prêtes pour la science des données. Cette vidéo contient des exemples concrets pour faciliter l’évaluation de données de base.
+keywords: données pertinentes,évaluer des données,préparer les données,critères de données,données prêtes
 services: machine-learning
 documentationcenter: na
-author: cjgronlund
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cjgronlund
 ms.assetid: d502062c-da70-4b21-9054-0bfd9902612e
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.author: cgronlun
-ms.openlocfilehash: 4ab9462c4cc4573717450ce48028807960cecee9
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: 2d9c66d89b82c63561b147f3d2537ba6ad07c511
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="is-your-data-ready-for-data-science"></a>Vos données sont-elles prêtes pour la science des données ?
 ## <a name="video-2-data-science-for-beginners-series"></a>Vidéo 2 : série Science des données pour les débutants
@@ -47,9 +47,7 @@ Bienvenue dans « Vos données sont-elles prêtes pour la science des données 
 Avant que la science des données ne puisse vous fournir les réponses souhaitées, vous devez lui donner des matériaux bruts avec lesquels elle pourra travailler. C’est comme pour préparer une pizza : plus les ingrédients sont excellents, plus la qualité du produit fini est bonne. 
 
 ## <a name="criteria-for-data"></a>Critères pour les données
-Par conséquent, dans le cas de la science des données, vous avez besoin de certains ingrédients.
-
-Nous avons besoin de données :
+Dans la science des données, il existe certains ingrédients qui doivent être extraits ensemble, notamment :
 
 * Pertinentes
 * Connecté
@@ -57,13 +55,13 @@ Nous avons besoin de données :
 * Suffisantes
 
 ## <a name="is-your-data-relevant"></a>Vos données sont-elles pertinentes ?
-Le premier ingrédient est donc des données pertinentes.
+Le premier ingrédient est donc que les données doivent être pertinentes.
 
 ![Données pertinentes et données non pertinentes - évaluation des données](./media/data-science-for-beginners-is-your-data-ready-for-data-science/relevant-and-irrelevant-data.png)
 
-Examinez le tableau sur la gauche. Nous avons rencontré sept personnes à la sortie de bars à Boston, mesuré leur taux d’alcool dans le sang, la moyenne à la batte des Red Sox lors de leur dernier match et le prix du lait dans le magasin le plus proche.
+À gauche, la table présente le taux d’alcool dans le sang de sept personnes testées en dehors d’un bar de Boston, la moyenne au bâton des Red Sox lors de leur dernier match et le prix du lait dans le magasin le plus proche.
 
-Il s’agit de données parfaitement légitimes. Le seul problème est qu’elles ne sont pas pertinentes. À première vue, il n’existe aucune relation évidente entre ces chiffres. Si je vous donne le prix actuel du lait et la moyenne à la batte des Red Sox, il n’existe aucun moyen vous permettant de deviner mon taux d’alcool dans le sang.
+Il s’agit de données parfaitement légitimes. Le seul problème est qu’elles ne sont pas pertinentes. À première vue, il n’existe aucune relation évidente entre ces chiffres. Si je vous donne le prix actuel du lait et la moyenne au bâton des Red Sox, il n’existe aucun moyen vous permettant de deviner mon taux d’alcool dans le sang.
 
 Maintenant, examinez le tableau sur la droite. Cette fois, nous avons mesuré la masse corporelle de chaque personne et compté le nombre de boissons qu’elles ont consommé.  Les chiffres dans chaque ligne sont désormais pertinents une fois mis en relation. Si je vous ai donné mon indice de masse corporelle et le nombre de margaritas que j’ai bus, vous pouvez estimer mon taux d’alcool dans le sang.
 
@@ -76,35 +74,35 @@ Voici certaines données sur la qualité des hamburgers : la température du gri
 
 La plupart des jeux de données n’ont pas de valeurs. C’est un problème commun qu’il est possible de contourner. Mais si trop de valeurs manquent, vos données commencent à ressembler à gruyère.
 
-Si vous examinez le tableau sur la gauche, il manque tant de données qu’il est difficile de trouver n’importe quel type de relation entre la température du grill et le poids du steak. Il s’agit d’un exemple de données déconnectées.
+Si vous examinez le tableau sur la gauche, il manque tant de données qu’il est difficile de trouver n’importe quel type de relation entre la température du grill et le poids du steak. Cet exemple affiche des données déconnectées.
 
 La table de droite, cependant, est remplie (un exemple de données connectées).
 
 ## <a name="is-your-data-accurate"></a>Vos données sont-elles précises ?
-L’ingrédient suivant dont nous avons besoin est la précision. Voici les quatre cibles à atteindre.
+L’ingrédient suivant est la précision. Voici quatre cibles à atteindre.
 
 ![Données précises et des données inexactes - critères de données](./media/data-science-for-beginners-is-your-data-ready-for-data-science/inaccurate-vs-accurate-data.png)
 
-Examinez la cible dans l’angle supérieur droit. Nous avons un regroupement serré autour du cercle concentrique. Ces données sont bien sûr précises. Curieusement, dans la langue de la science des données, les données de la cible en bas à droite sont également considérées comme précises.
+Examinez la cible dans l’angle supérieur droit. Nous avons un regroupement serré autour du cercle concentrique. Ces données sont bien sûr précises. Curieusement, dans la langue de la science des données, les performances de la cible en bas à droite sont également considérées comme précises.
 
 Si vous mappez le centre de ces flèches, vous voyez qu’il est très proche du cercle concentrique. Les flèches sont réparties autour de la cible. Elles sont donc considérées comme non précises. Mais elles sont centrées autour du cercle concentrique et peuvent donc être considérées comme précises.
 
-À présent, examinez la cible de l’angle supérieur gauche. Ici, nos flèches sont très proches, regroupées étroitement. Elles sont précises, mais inexactes, car le centre est la sortie du cercle concentrique. Et, bien entendu, les flèches de la cible en bas à gauche sont inexactes et non précises. Cet archer a besoin de plus de pratique.
+À présent, examinez la cible de l’angle supérieur gauche. Ici, nos flèches sont très proches, regroupées étroitement. Elles sont précises, mais inexactes, car le centre est la sortie du cercle concentrique. Les flèches de la cible en bas à gauche sont inexactes et non précises. Cet archer a besoin de plus de pratique.
 
 ## <a name="do-you-have-enough-data-to-work-with"></a>Disposez-vous d’assez de données à analyser ?
-Enfin, le quatrième ingrédient : nous avons besoin d’assez de données.
+Enfin, l’ingrédient n°4 a suffisamment de données.
 
 ![Disposez-vous d’assez de données pour une analyse ? Évaluation des données](./media/data-science-for-beginners-is-your-data-ready-for-data-science/barely-enough-data.png)
 
-Considérez chaque point de données dans votre table comme un trait dans un dessin. Si vous ne faites que quelques traits, la peinture peut être assez floue. Il est difficile de déterminer ce qu’elle représente.
+Considérez chaque point de données dans votre table comme un trait dans un dessin. Si vous ne faites que quelques traits, la peinture peut être approximative. Il est difficile de déterminer ce qu’elle représente.
 
 Si vous ajoutez quelques traits, votre peinture devient plus nette.
 
 Lorsque vous avez à peine suffisamment de traits, vous voyez juste assez pour prendre certaines décisions générales. Est-ce un endroit que j’aimerais visiter ? Il y fait clair, l’eau semble propre : oui, c’est là où je vais partir en vacances.
 
-Si vous ajoutez davantage de données, le tableau devient plus clair et vous pouvez prendre des décisions plus détaillées. Maintenant, je peux regarder les trois hôtels sur la rive gauche. Vous savez, j’aime vraiment l’architecture de celui qui se trouve au premier plan. Je réserve, au troisième étage.
+Si vous ajoutez davantage de données, le tableau devient plus clair et vous pouvez prendre des décisions plus détaillées. Maintenant, je peux regarder les trois hôtels sur la rive gauche. Vous pouvez remarquer les composants architecturaux de celui qui se trouve au premier plan. Vous pouvez même choisir de rester au troisième étage pour la vue.
 
-Avec assez de données pertinentes, connectées et précises, nous disposons de tous les ingrédients dont nous avons besoin pour une science des données de pointe.
+Avec assez de données pertinentes, connectées et précises, nous disposons de tous les ingrédients dont nous avons besoin pour une science des données de haute qualité.
 
 Nous vous invitons à consulter les quatre autres vidéos de la série *« Science des données pour les débutants »* de Microsoft Azure Machine Learning.
 

@@ -1,9 +1,9 @@
 ---
-title: "Créer des alertes pour les services Azure - Interface de ligne de commande multiplateforme | Microsoft Docs"
-description: "Déclenchez des e-mails et des notifications, appelez des URL de sites web (webhooks) ou déclenchez une automatisation lorsque les conditions spécifiées sont remplies."
+title: Créer des alertes pour les services Azure - Interface de ligne de commande multiplateforme | Microsoft Docs
+description: Déclenchez des e-mails et des notifications, appelez des URL de sites web (webhooks) ou déclenchez une automatisation lorsque les conditions spécifiées sont remplies.
 author: rboucher
 manager: carmonm
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 5c6a2d27-7dcc-4f89-8752-9bb31b05ff35
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: robb
-ms.openlocfilehash: 92246a8da73a244a1c9a924bed55711d71a20fd8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: cf93c95a37c9c32333727059317e05cfcc252905
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="create-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>Créer des alertes de métrique dans Azure Monitor pour les services Azure - Interface CLI multiplateforme
+# <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>Créer des alertes de métriques classiques dans Azure Monitor pour les services Azure - Interface de ligne de commande multiplateforme
 > [!div class="op_single_selector"]
 > * [Portail](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
@@ -29,6 +29,11 @@ ms.lasthandoff: 12/21/2017
 >
 
 ## <a name="overview"></a>Vue d'ensemble
+> [!NOTE]
+> Cet article décrit comment créer des alertes de métriques plus anciennes. Désormais, Azure Monitor prend en charge des [alertes de métriques plus récentes et plus performantes](monitoring-near-real-time-metric-alerts.md). Ces alertes peuvent surveiller plusieurs métriques, et permettent d’obtenir des alertes sur des métriques dimensionnelles. L’interface de ligne de commande sera bientôt prise en charge pour des alertes de métriques plus récentes.
+>
+>
+
 Cet article montre comment configurer des alertes de métrique Azure avec l’interface de ligne de commande (CLI) multiplateforme.
 
 > [!NOTE]
@@ -55,7 +60,7 @@ Vous pouvez configurer et obtenir des informations sur les règles d’alerte de
 * [interface de ligne de commande (CLI)](insights-alerts-command-line-interface.md)
 * [API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
-Vous pouvez toujours obtenir une aide sur les commandes en tapant une commande et en ajoutant -help à la fin. Par exemple :
+Vous pouvez toujours obtenir une aide sur les commandes en tapant une commande et en ajoutant -help à la fin. Par exemple : 
 
     ```console
     azure insights alerts -help

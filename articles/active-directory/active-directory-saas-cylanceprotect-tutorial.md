@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 03/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 3b0afd52ccfa3aa637a64e57601cd5f43fe8df10
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: a4b8cbbe3d75702f38b5060957aff9f5c30e1daa
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cylanceprotect"></a>Didacticiel : intégration d’Azure Active Directory à CylancePROTECT
 
@@ -129,7 +129,7 @@ Dans cette section, activez l’authentification unique Azure AD dans le portail
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
-    ![Lien de téléchargement du certificat](./media/active-directory-saas-cylanceprotect-tutorial/tutorial_cylanceprotect_certificate.png) 
+    ![Lien Téléchargement de certificat](./media/active-directory-saas-cylanceprotect-tutorial/tutorial_cylanceprotect_certificate.png) 
 
 5. Cliquez sur le bouton **Enregistrer** .
 
@@ -139,7 +139,7 @@ Dans cette section, activez l’authentification unique Azure AD dans le portail
 
     ![Configuration de CylancePROTECT](./media/active-directory-saas-cylanceprotect-tutorial/tutorial_cylanceprotect_configure.png) 
 
-7. Pour configurer l’authentification unique sur **CylancePROTECT**, vous devez envoyer le **Certificat (Base64), l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** téléchargés vers [l’équipe d’assistance CylancePROTECT](mailto:Ibrahim.nafea@toyota.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+7. Pour configurer l’authentification unique côté **CylancePROTECT**, vous devez envoyer le **Certificat (Base64), l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** téléchargés à l’administrateur de la console. Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 > [!TIP]
 > Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -178,7 +178,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
   
 ### <a name="create-a-cylanceprotect-test-user"></a>Créer un utilisateur de test CylancePROTECT
 
-Dans cette section, créez un utilisateur appelé Britta Simon dans CylancePROTECT. Travaillez avec [l’équipe d’assistance CylancePROTECT](mailto:Ibrahim.nafea@toyota.com) pour ajouter des utilisateurs dans la plateforme CylancePROTECT. Le titulaire du compte Azure Active Directory reçoit un message électronique contenant un lien à suivre pour confirmer son compte et l’activer.
+Dans cette section, créez un utilisateur appelé Britta Simon dans CylancePROTECT. Collaborez avec l’administrateur de la console pour ajouter les utilisateurs à la plateforme CylancePROTECT. Le titulaire du compte Azure Active Directory reçoit un message électronique contenant un lien à suivre pour confirmer son compte et l’activer.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

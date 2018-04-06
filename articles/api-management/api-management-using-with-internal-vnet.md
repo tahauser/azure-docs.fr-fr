@@ -1,11 +1,11 @@
 ---
-title: "Guide pratique de la Gestion des API Azure avec des réseaux virtuels internes | Microsoft Docs"
-description: "Découvrez comment installer et configurer la Gestion des API Azure sur un réseau virtuel interne"
+title: Guide pratique de la Gestion des API Azure avec des réseaux virtuels internes | Microsoft Docs
+description: Découvrez comment installer et configurer la Gestion des API Azure sur un réseau virtuel interne
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: kjoshi
-editor: 
+editor: ''
 ms.assetid: dac28ccf-2550-45a5-89cf-192d87369bc3
 ms.service: api-management
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: cf062cfcbbb2454adf20a06c31c81a60f6f5719f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: be4aa45c919f579355c6ac6c5682c1537e9cc0cb
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Utiliser le service Gestion des API Azure avec un réseau virtuel interne
 Avec les réseaux virtuels Azure, la Gestion des API Azure peut gérer des API inaccessibles sur Internet. Plusieurs technologies VPN sont disponibles pour établir la connexion. La Gestion des API peut être déployée selon deux modes principaux à l’intérieur d’un réseau virtuel :
@@ -35,6 +35,7 @@ Avec la Gestion des API en mode interne, vous pouvez effectuer les scénarios su
 
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Pour effectuer les étapes décrites dans cet article, vous devez disposer des éléments suivants :
 
@@ -72,7 +73,7 @@ Vous pouvez également activer une connectivité de réseau virtuel à l’aide 
 Lorsque la Gestion des API se trouve en mode réseau virtuel externe, le DNS est géré par Azure. En mode réseau virtuel interne, vous devez gérer votre propre routage.
 
 > [!NOTE]
-> Le service Gestion des API n’écoute pas les demandes provenant des adresses IP. Il répond uniquement aux demandes pour le nom d’hôte configuré sur ses points de terminaison de service. Ces points de terminaison incluent la passerelle, le portail des développeurs, le portail Azure, le point de terminaison de la gestion directe et Git.
+> Le service Gestion des API n’écoute pas les demandes provenant des adresses IP. Il répond uniquement aux demandes pour le nom d’hôte configuré sur ses points de terminaison de service. Ces points de terminaison incluent une passerelle, le portail Azure, le portail des développeurs, un point de terminaison de gestion directe et Git.
 
 ### <a name="access-on-default-host-names"></a>Accès sur les noms d’hôtes par défaut
 Lorsque vous créez un service Gestion des API, nommé « contoso » par exemple, les points de terminaison de service suivants sont configurés par défaut :

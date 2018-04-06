@@ -1,12 +1,12 @@
 ---
-title: "Informations de référence sur le fichier host.json pour Azure Functions"
-description: "Documentation de référence pour le fichier host.json d’Azure Functions."
+title: Informations de référence sur le fichier host.json pour Azure Functions
+description: Documentation de référence pour le fichier host.json d’Azure Functions.
 services: functions
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: 6b5a8c81b1e3e45c85ea84a46054b6a38a886c5b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 577c45edc832288943a7eeefe27c7a189a61b7b0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Informations de référence sur le fichier host.json pour Azure Functions
 
-Le fichier de métadonnées *host.json* contient les options de configuration globale qui affectent l’ensemble des fonctions d’une application de fonction. Cet article répertorie les paramètres qui sont disponibles. Le schéma JSON est indiqué sur la page http://json.schemastore.org/host.
+Le fichier de métadonnées *host.json* contient les options de configuration globale qui affectent l’ensemble des fonctions d’une application de fonction. Cet article répertorie les paramètres qui sont disponibles. Le schéma JSON est sur http://json.schemastore.org/host.
 
 Les [paramètres d’application](functions-app-settings.md) et le fichier [local.settings.json](functions-run-local.md#local-settings-file) contiennent d’autres options de configuration globale.
 
@@ -201,6 +201,9 @@ Paramètre de configuration pour les [déclencheurs et liaisons http](functions-
 ## <a name="id"></a>id
 
 ID unique d’un hôte de travail. Il peut s’agir d’un GUID en minuscules dont les tirets ont été supprimés. Requis lors d’une exécution locale. Lors de l’exécution dans Azure Functions, un ID est généré automatiquement si `id` est omis.
+
+Si vous partagez un compte de stockage entre plusieurs applications de fonction, assurez-vous que chaque application de fonction a une `id` différente. Vous pouvez omettre la propriété `id` ou définir manuellement chaque `id` de l’application de fonction sur une autre valeur. Le déclencheur du minuteur utilise un verrou de stockage pour vous assurer qu’il n’y aura qu’une seule instance du minuteur lorsqu’une application de fonction augmentera la taille de plusieurs instances. Si deux applications de fonction partagent le même `id` et que chacune utilise un déclencheur du minuteur, un seul minuteur s’exécutera.
+
 
 ```json
 {

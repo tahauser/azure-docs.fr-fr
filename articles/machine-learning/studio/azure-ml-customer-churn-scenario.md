@@ -1,10 +1,11 @@
 ---
-title: "Analyse de l’attrition des clients à l’aide de Microsoft Azure Machine Learning | Microsoft Docs"
-description: "Étude de cas de développement d’un modèle intégré pour l’analyse et la notation de l’attrition des clients."
+title: Analyse de l’attrition des clients à l’aide de Microsoft Azure Machine Learning | Microsoft Docs
+description: Étude de cas de développement d’un modèle intégré pour l’analyse et la notation de l’attrition des clients.
 services: machine-learning
-documentationcenter: 
-author: jeannt
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 1333ffe2-59b8-4f40-9be7-3bf1173fc38d
 ms.service: machine-learning
@@ -13,14 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.author: jeannt
-ms.openlocfilehash: e0b82fe8e8c8bc4ac9c45370d90fa9330d749878
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 6c64444fc8d42782065d42ed5ee0c193678bb1f1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="analyzing-customer-churn-by-using-azure-machine-learning"></a>Analyse de l’attrition des clients à l’aide de Microsoft Azure Machine Learning
+# <a name="analyzing-customer-churn-using-azure-machine-learning"></a>Analyse de l’attrition des clients à l’aide de Microsoft Azure Machine Learning
 ## <a name="overview"></a>Vue d'ensemble
 Cet article présente une implémentation de référence d’un projet d’analyse de l’attrition des clients, créé à l’aide de Microsoft Azure Machine Learning. Il aborde différents modèles génériques associés afin d’apporter une résolution holistique au problème de l’attrition des clients. Nous mesurons également la précision des modèles générés à l’aide de Machine Learning (ML), en déterminant des directions à suivre pour la suite du développement.  
 

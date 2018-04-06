@@ -1,11 +1,11 @@
 ---
-title: "Copier des données depuis/vers Azure SQL Data Warehouse à l’aide d’Azure Data Factory | Microsoft Docs"
-description: "Découvrez comment utiliser Azure Data Factory copier des données de banques de données sources prises en charge vers SQL Data Warehouse (ou) à de SQL Data Warehouse vers des banques de données réceptrices prises en charge."
+title: Copier des données depuis/vers Azure SQL Data Warehouse à l’aide d’Azure Data Factory | Microsoft Docs
+description: Découvrez comment utiliser Azure Data Factory copier des données de banques de données sources prises en charge vers SQL Data Warehouse (ou) à de SQL Data Warehouse vers des banques de données réceptrices prises en charge.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 2601d386bdacbe005b2930a44db531a0b58fb7b5
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 5d284277f600465345be0058468192f2f5609d89
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copier des données depuis/vers Azure SQL Data Warehouse à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +35,7 @@ Vous pouvez copier des données d’Azure SQL Data Warehouse vers toute banque d
 
 Plus précisément, ce connecteur Azure SQL Data Warehouse prend en charge ce qui suit :
 
-- Copie des données à l’aide de **l’authentification SQL** et de **l’authentification du jeton de l’application Azure Active Directory** avec le principal de service ou Managed Service Identity (MSI).
+- Copie de données à l’aide de l’**authentification SQL** et de l’**authentification du jeton de l’application Azure Active Directory** avec le principal du service ou Managed Service Identity (MSI).
 - En tant que source, récupération de données à l’aide d’une requête SQL ou d’une procédure stockée.
 - En tant que récepteur, chargement de données à l’aide de **PolyBase** ou d’une insertion en bloc. La première solution est **recommandée** pour améliorer les performances de copie.
 
@@ -510,7 +510,7 @@ Si les données source dont vous disposez ont des lignes d’une taille supérie
 
 ### <a name="sql-data-warehouse-resource-class"></a>Classe de ressources SQL Data Warehouse
 
-Pour obtenir le meilleur débit possible, envisagez d’attribuer une classe de ressources plus volumineuse à l’utilisateur utilisé pour charger des données dans SQL Data Warehouse via PolyBase. Découvrez comment procéder en consultant [Exemple de modification d’une classe de ressources utilisateur](../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example).
+Pour obtenir un débit optimale, envisagez d’attribuer une classe de ressources plus volumineuse à l’utilisateur servant à charger des données dans SQL Data Warehouse via PolyBase.
 
 ### <a name="tablename-in-azure-sql-data-warehouse"></a>tableName dans Azure SQL Data Warehouse
 

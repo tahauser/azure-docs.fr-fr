@@ -1,25 +1,25 @@
 ---
-title: "Basculement régional dans Azure Cosmos DB | Microsoft Docs"
-description: "Découvrez le fonctionnement du basculement manuel et automatique avec Azure Cosmos DB."
+title: Basculement régional dans Azure Cosmos DB | Microsoft Docs
+description: Découvrez le fonctionnement du basculement manuel et automatique avec Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: arramac
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 446e2580-ff49-4485-8e53-ae34e08d997f
 ms.service: cosmos-db
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2017
+ms.date: 03/27/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a8b32440ce3ec6cd2da7aaccf218a94e0ee3e77
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 5a4bdc49c5ab36a5026095b5d7b6f9856b020e1b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Basculement régional automatique pour la continuité des activités dans Azure Cosmos DB
 Azure Cosmos DB simplifie la distribution globale de données en gérant complètement les [comptes de bases de données multirégions](distribute-data-globally.md) qui fournissent des compromis clairs entre cohérence, disponibilité et performance, le tout avec les garanties correspondantes. Les comptes Cosmos DB offrent des capacités de haute disponibilité, des latences inférieures à 10 millisecondes, des [niveaux de cohérence bien définis](consistency-levels.md), un basculement régional transparent avec des API multihébergement et la possibilité de mettre à l’échelle le débit et le stockage dans le monde entier de manière flexible. 
@@ -30,9 +30,10 @@ Cosmos DB prend en charge des basculements explicites et basés sur des stratég
 * Comment fonctionnent les basculements automatiques dans Cosmos DB et que se passe-t-il lorsqu’un centre de données tombe en panne ?
 * Comment utiliser les basculements manuels dans différentes architectures d’application ?
 
-Vous pouvez également découvrir les basculements régionaux dans cette vidéo Azure Friday avec Scott Hanselman et Karthik Raman, responsable principal de l’ingénierie DocumentDB.
+Cette vidéo réalisée par le responsable du programme Azure Cosmos DB, qui illustre les fonctionnalités de distribution globale, présente notamment les fonctionnalités de basculement régional.
 
->[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
+>[!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
+>
 
 ## <a id="ConfigureMultiRegionApplications"></a>Configuration d'applications multi-régions
 Avant de nous plonger dans les modes de basculement, nous allons examiner comment vous pouvez configurer une application pour tirer parti de plusieurs régions disponibles et être résilient face aux basculements régionaux.
@@ -85,7 +86,7 @@ Une fois que la région affectée récupère après une panne, tous les comptes 
 
 **Que se passe-t-il si une région d'écriture connaît une panne ?**
 
-Si la région affectée est la zone d’écriture actuelle et que le basculement automatique est activé pour le compte Azure Cosmos DB, la région est automatiquement marquée comme hors connexion. Ensuite, une autre région est promue comme région d’écriture pour le compte Azure Cosmos DB affecté. Vous pouvez activer le basculement automatique et contrôler totalement l’ordre de sélection des régions pour vos comptes Azure Cosmos DB par le biais du portail Azure ou [par programmation](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange). 
+Si la région affectée est la zone d’écriture actuelle et que le basculement automatique est activé pour le compte Azure Cosmos DB, la région est automatiquement marquée comme hors connexion. Ensuite, une autre région est promue comme région d’écriture pour le compte Azure Cosmos DB affecté. Vous pouvez activer le basculement automatique et contrôler totalement l’ordre de sélection des régions pour vos comptes Azure Cosmos DB par le biais du portail Azure ou [par programmation](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange). 
 
 ![Priorités de basculement pour Azure Cosmos DB](./media/regional-failover/failover-priorities.png)
 
@@ -97,7 +98,7 @@ Une fois que la région affectée récupère après une panne, tous les comptes 
 
 * Les données présentes dans la région d’écriture précédente qui n’ont pas été répliquées vers les régions de lecture pendant la panne sont publiées en tant que flux de conflit. Les applications peuvent lire le flux de conflit, résoudre les conflits en fonction de la logique propre à l’application, et réécrire les données mises à jour dans le compte Azure Cosmos DB comme il convient. 
 * La région d’écriture précédente est recréée en tant que région de lecture et remise en ligne automatiquement. 
-* Vous pouvez reconfigurer la région de lecture qui a été remise en ligne automatiquement en tant que région d’écriture en effectuant un basculement manuel par le biais du portail Azure ou [par programmation](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate).
+* Vous pouvez reconfigurer la région de lecture qui a été remise en ligne automatiquement en tant que région d’écriture en effectuant un basculement manuel par le biais du portail Azure ou [par programmation](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/databaseaccounts#DatabaseAccounts_CreateOrUpdate).
 
 L’extrait de code suivant montre comment traiter les conflits une fois que la région affectée a récupéré suite à la panne.
 
@@ -122,7 +123,7 @@ do
 
 ## <a id="ManualFailovers"></a>Basculements manuels
 
-Outre les basculements automatiques, la région d’écriture en cours d’un compte Cosmos DB donné peut être modifiée manuellement de manière dynamique en l’une des régions de lecture existantes. Les basculements manuels peuvent être lancés par le biais du portail Azure ou [par programme](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate). 
+Outre les basculements automatiques, la région d’écriture en cours d’un compte Cosmos DB donné peut être modifiée manuellement de manière dynamique en l’une des régions de lecture existantes. Les basculements manuels peuvent être lancés par le biais du portail Azure ou [par programme](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/databaseaccounts#DatabaseAccounts_CreateOrUpdate). 
 
 Les basculements manuels assurent **qu’aucune perte de données** ni **aucune diminution de la disponibilité** ne se produit et que l’état d’écriture est transféré correctement de l’ancienne région d’écriture vers la nouvelle pour le compte Cosmos DB spécifié. Comme dans les basculements automatiques, le kit de développement logiciel (SDK) Cosmos DB gère automatiquement les modifications de région d’écriture pendant les basculements manuels et garantit que les appels sont automatiquement redirigés vers la nouvelle zone d’écriture. Aucune modification de code ou de configuration n’est nécessaire dans votre application pour gérer les basculements. 
 

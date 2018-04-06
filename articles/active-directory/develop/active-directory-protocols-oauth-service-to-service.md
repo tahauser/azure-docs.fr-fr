@@ -1,11 +1,11 @@
 ---
-title: "Authentification de service à service Azure AD à l’aide d’OAuth2.0 | Microsoft Docs"
-description: "Cet article explique comment utiliser des messages HTTP pour mettre en œuvre l’authentification de service à service à l’aide du flux d’octroi des informations d’identification du client OAuth2.0."
+title: Authentification de service à service Azure AD à l’aide d’OAuth2.0 | Microsoft Docs
+description: Cet article explique comment utiliser des messages HTTP pour mettre en œuvre l’authentification de service à service à l’aide du flux d’octroi des informations d’identification du client OAuth2.0.
 services: active-directory
 documentationcenter: .net
 author: navyasric
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a7f939d9-532d-4b6d-b6d3-95520207965d
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: ad2118130ec36aed1561db763946104501eb0f32
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: da657fb6072c0655e47623c58e7051e8dd462049
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Appels de service à service à l’aide des informations d’identification du client (secret partagé ou certificat)
 Le flux d’octroi des informations d’identification du client OAuth2.0 permet à un service web (*client confidentiel*) d’utiliser ses propres informations d’identification pour s’authentifier lorsqu’il appelle un autre service web, au lieu d’emprunter l’identité d’un utilisateur. Dans ce scénario, le client est généralement un service web de niveau intermédiaire, un service démon ou un site web. Pour augmenter le niveau d’assurance, Azure AD autorise également le service d’appel à utiliser un certificat (au lieu d’un secret partagé) comme une information d’identification.
@@ -53,11 +53,11 @@ Lorsque l’application utilise un secret partagé, la demande de jeton d’acc�
 | Paramètre |  | Description |
 | --- | --- | --- |
 | grant_type |required |Spécifie le type d’autorisation demandée. Dans un flux d’octroi des informations d’identification du client, la valeur doit être **client_credentials**. |
-| client_id |required |Spécifie l’ID de client Azure AD du service web appelant. Pour rechercher l’ID de client de l’application appelante, dans le [portail Azure](https://portal.azure.com), cliquez successivement sur **Active Directory**, le répertoire et l’application. Le paramètre client_id est l’*ID de l’application* |
-| client_secret |required |Entrez une clé enregistrée pour le service web appelant ou l’application démon dans Azure AD. Pour créer une clé, dans le portail Azure, cliquez successivement sur **Active Directory**, le répertoire, l’application, **Paramètres** et **Clés**, puis ajoutez une clé.|
-| resource |required |Entrez l’URI ID d’application du service web de destination. Pour rechercher l’URI de l’ID d’application, dans le portail Azure, cliquez successivement sur **Active Directory**, le répertoire, l’application du service, puis sur **Paramètres** et **Propriétés**. |
+| client_id |required |Spécifie l’ID de client Azure AD du service web appelant. Pour rechercher l’ID de client de l’application appelante, dans le [portail Azure](https://portal.azure.com), cliquez successivement sur **Azure Active Directory**, **Inscriptions des applications** et sur l’application. Le paramètre client_id est l’*ID de l’application* |
+| client_secret |required |Entrez une clé enregistrée pour le service web appelant ou l’application démon dans Azure AD. Pour créer une clé, dans le portail Azure, cliquez successivement sur **Azure Active Directory**, **Inscriptions des applications**, l’application, **Paramètres**, **Clés** et ajoutez une clé.|
+| resource |required |Entrez l’URI ID d’application du service web de destination. Pour rechercher l’URI de l’ID d’application, dans le portail Azure, cliquez successivement sur **Azure Active Directory**, **Inscriptions des applications**, l’application du service, puis sur **Paramètres** et **Propriétés**. |
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 La requête HTTP POST suivante demande un jeton d’accès pour le service web https://service.contoso.com/. `client_id` identifie le service web qui demande le jeton d’accès.
 
 ```
@@ -74,15 +74,15 @@ Une demande de jeton d’accès de service à service avec un certificat contien
 | Paramètre |  | Description |
 | --- | --- | --- |
 | grant_type |required |Spécifie le type de réponse demandé. Dans un flux d’octroi des informations d’identification du client, la valeur doit être **client_credentials**. |
-| client_id |required |Spécifie l’ID de client Azure AD du service web appelant. Pour rechercher l’ID de client de l’application appelante, dans le [portail Azure](https://portal.azure.com), cliquez successivement sur **Active Directory**, le répertoire et l’application. Le paramètre client_id est l’*ID de l’application* |
+| client_id |required |Spécifie l’ID de client Azure AD du service web appelant. Pour rechercher l’ID de client de l’application appelante, dans le [portail Azure](https://portal.azure.com), cliquez successivement sur **Azure Active Directory**, **Inscriptions des applications** et sur l’application. Le paramètre client_id est l’*ID de l’application* |
 | client_assertion_type |required |La valeur doit être `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
 | client_assertion |required | Assertion (JSON Web Token) dont vous avez besoin pour créer et signer avec le certificat inscrit comme informations d’identification pour votre application. Pour découvrir comment inscrire votre certificat et le format de l’assertion, consultez la section traitant des [informations d’identification des certificats](active-directory-certificate-credentials.md).|
-| resource | required |Entrez l’URI ID d’application du service web de destination. Pour rechercher l’URI de l’ID d’application, dans le portail Azure, cliquez successivement sur **Active Directory**, le répertoire, l’application et **Configurer**. |
+| resource | required |Entrez l’URI ID d’application du service web de destination. Pour rechercher l’URI de l’ID d’application, dans le portail Azure, cliquez successivement sur **Azure Active Directory**, **Inscriptions des applications**, l’application du service, puis sur **Paramètres** et **Propriétés**. |
 
-Notez que les paramètres sont presque les mêmes que dans le cas de la demande par secret partagé, sauf que le paramètre client_secret est remplacé par deux paramètres : client_assertion_type et client_assertion.
+Notez que les paramètres sont presque les mêmes que dans le cas de la demande par secret partagé, sauf que le paramètre client_secret est remplacé par deux paramètres : client_assertion_type et client_assertion.
 
-#### <a name="example"></a>Exemple
-La demande HTTP POST suivante demande un jeton d’accès au service web https://service.contoso.com/ avec un certificat. `client_id` identifie le service web qui demande le jeton d’accès.
+#### <a name="example"></a>Exemples
+La requête HTTP POST suivante demande un jeton d’accès pour le service web https://service.contoso.com/ avec un certificat. `client_id` identifie le service web qui demande le jeton d’accès.
 
 ```
 POST /<tenant_id>/oauth2/token HTTP/1.1

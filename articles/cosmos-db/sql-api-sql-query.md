@@ -1,9 +1,9 @@
 ---
-title: "Requêtes SQL pour Azure Cosmos DB | Microsoft Docs"
-description: "Obtenez plus d’informations sur la syntaxe SQL, les concepts de bases de données et les requêtes SQL pour Azure Cosmos DB. SQL peut être utilisé comme un langage de requête JSON dans Azure Cosmos DB."
-keywords: "syntaxe sql, requête sql, requêtes sql, langage de requête json, concepts de bases de données, requêtes sql et fonctions agrégées"
+title: Requêtes SQL pour Azure Cosmos DB | Microsoft Docs
+description: Obtenez plus d’informations sur la syntaxe SQL, les concepts de bases de données et les requêtes SQL pour Azure Cosmos DB. SQL peut être utilisé comme un langage de requête JSON dans Azure Cosmos DB.
+keywords: syntaxe sql, requête sql, requêtes sql, langage de requête json, concepts de bases de données, requêtes sql et fonctions agrégées
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: LalithaMV
 manager: jhubbard
 editor: monicar
@@ -13,17 +13,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 03/26/2018
 ms.author: laviswa
-ms.openlocfilehash: 8425c9eae1bb7b50edec1d36d4e7c80b49b243ac
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: a79b1a97909a38b4bfba06186db875d0c0c25f03
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>Requêtes SQL pour Azure Cosmos DB
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Microsoft Azure Cosmos DB prend en charge l’interrogation de documents à l’aide du langage SQL en tant que langage de requête JSON sur les comptes d’API SQL. Azure Cosmos DB n’utilise pas de schéma. En raison de son engagement dans le modèle de données JSON directement au sein du moteur de base de données, il fournit l'indexation automatique des documents JSON sans nécessiter un schéma explicite ou la création d'index secondaires.
 
@@ -34,11 +32,17 @@ Lors de la conception du langage de requête pour Cosmos DB, nous avions deux o
 
 Nous pensons que ces capacités sont la clé pour réduire la friction entre l'application et la base de données et sont cruciales pour la productivité des développeurs.
 
-Nous vous recommandons de commencer par visionner la vidéo suivante, dans laquelle Aravind Ramachandran présente les fonctionnalités d’interrogation de Cosmos DB, puis d’utiliser notre [Query Playground](http://www.documentdb.com/sql/demo)pour essayer Cosmos DB et exécuter des requêtes SQL sur notre jeu de données.
+Nous vous recommandons de commencer par visionner la vidéo suivante, dans laquelle Andrew Liu, Azure Cosmos DB Program Manager, présente les fonctionnalités d’interrogation d’Azure Cosmos DB et fait la démonstration de [Query Playground](http://www.documentdb.com/sql/demo) en ligne, où vous pouvez essayer Azure Cosmos DB et exécuter des requêtes SQL sur notre jeu de données, comme indiqué dans la vidéo.
 
-> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/DataExposedQueryingDocumentDB/player]
-> 
-> 
+> [!VIDEO https://www.youtube.com/embed/1LqUQRpHfFI]
+>
+>
+
+Cette vidéo de suivi illustre des techniques d’interrogation avancées supplémentaires :
+
+> [!VIDEO https://www.youtube.com/embed/kASU9NOIR90]
+>
+>
 
 Revenez ensuite à cet article, qui commence par un didacticiel sur les requêtes SQL destiné à vous montrer quelques documents JSON et commandes SQL simples.
 
@@ -2260,7 +2264,7 @@ L’exemple suivant illustre l’utilisation de queryDocuments dans l’API Java
 6. JSON [http://json.org/](http://json.org/)
 7. Spécification Javascript [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 8. LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
-9. Techniques d’évaluation des requêtes pour les bases de données volumineuses [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
+9. Techniques d’évaluation de requête pour les bases de données volumineuses [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
 10. Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
 11. Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
 12. Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins : Pig Latin: A Not-So-Foreign Language for Data Processing, SIGMOD 2008.

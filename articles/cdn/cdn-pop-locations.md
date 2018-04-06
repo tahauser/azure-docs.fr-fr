@@ -1,33 +1,38 @@
 ---
-title: "Emplacements POP des CDN Azure | Microsoft Docs"
-description: "Cet article répertorie les emplacements des points de présence des CDN Azure."
+title: Emplacements POP du CDN Azure par région | Microsoft Docs
+description: Cet article répertorie les emplacements POP Azure, triés par région, pour le CDN Azure fourni par Verizon et le CDN Azure fourni par Akamai.
 services: cdn
-documentationcenter: 
-author: zhangmanling
-manager: erikre
-editor: 
+documentationcenter: ''
+author: dksimpson
+manager: akucer
+editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 03/20/2018
 ms.author: mazha
-ms.openlocfilehash: 3dd40bb6fc5754ca8f41360cc735a9136b3f89ea
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a1c1408438ca2b74c63a77041849b9dc86f3b70b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="azure-cdn-pop-locations"></a>Emplacements POP des CDN Azure
-Cet article répertorie les emplacements des points de présence (POP) actuels des **CDN Azure fournis par Verizon** et des **CDN Azure fournis par Akamai**.
+# <a name="azure-cdn-pop-locations-by-region"></a>Emplacements POP du CDN Azure par région
+> [!div class="op_single_selector"]
+> * [Emplacements POP par région](cdn-pop-locations.md)
+> * [Emplacements POP par abréviation](cdn-pop-abbreviations.md)
+> 
+
+
+Cet article répertorie les emplacements des points de présence (POP) actuels, triés par région, pour le **CDN Azure fourni par Verizon** et le **CDN Azure fourni par Akamai**.
 
 > [!IMPORTANT]
 > Les emplacements des villes POP pour **CDN Azure fournis par Akamai** ne sont pas divulgués individuellement.  
 > 
-> Les deux fournisseurs suivent des approches différentes pour bâtir leur infrastructure CDN.  Nous vous déconseillons de choisir le produit CDN Azure en fonction des emplacements POP proposés. Prenez plutôt en compte les fonctionnalités et les performances offertes aux utilisateurs finals.  Testez les performances avec les deux fournisseurs pour choisir le produit Azure CDN le mieux adapté à vos utilisateurs. 
-> 
+> Étant donné que les deux fournisseurs ont des méthodes distinctes de génération de leurs infrastructures de CDN, nous déconseillons l’utilisation des emplacements POP. pour décider quel produit CDN Azure utiliser. Considérez plutôt leurs fonctionnalités et les performances de l’utilisateur final. Testez les performances avec les deux fournisseurs pour choisir le produit Azure CDN le mieux adapté à vos utilisateurs. 
 > 
 
 | Région | Verizon | Akamai |
@@ -41,6 +46,7 @@ Cet article répertorie les emplacements des points de présence (POP) actuels d
 | Moyen-Orient | Muscat, Oman<br />Fujirah, Émirats Arabes Unis | Qatar |
 | Asie | Hong Kong<br />Bangalore, Inde<br />Chennai, Inde<br />Delhi, Inde<br />Mumbai, Inde<br />New Delhi, Inde<br />Batam, Indonésie<br />Jakarta, Indonésie<br />Osaka, Japon<br />Tokyo, Japon<br />Singapour<br />Séoul, Corée du Sud<br />Kaohsiung, Taïwan | Hong Kong<br />Inde<br />Indonésie<br />Japon<br />Malaisie<br />Philippines<br />Singapour<br />Taïwan<br />Thaïlande<br />Viêt Nam |
 | Australie et Nouvelle Zélande | Melbourne, Australie<br />Sydney, Australie<br />Auckland, Nouvelle-Zélande | Australie<br />Nouvelle-Zélande |
+
 
 ## <a name="see-also"></a>Voir aussi
 * [API de nœuds de périphérie Azure CDN pour obtenir les dernières adresses IP à ajouter à la liste verte](https://docs.microsoft.com/rest/api/cdn/edgenodes)

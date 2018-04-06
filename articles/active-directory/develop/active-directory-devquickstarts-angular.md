@@ -1,11 +1,11 @@
 ---
-title: "Bien démarrer avec Azure AD AngularJS | Microsoft Docs"
-description: "Création d’une application à page unique AngularJS qui s’intègre avec Azure AD pour la connexion et appelle des API protégées par Azure AD à l’aide d’OAuth."
+title: Bien démarrer avec Azure AD AngularJS | Microsoft Docs
+description: Création d’une application à page unique AngularJS qui s’intègre avec Azure AD pour la connexion et appelle des API protégées par Azure AD à l’aide d’OAuth.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: jmprieur
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 51734f5b39e9ca8af65048f2a7efd5c61cd53204
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2f78a6b17a512ab54ffab4554ccc0f3f1486f27a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-angularjs-getting-started"></a>Bien démarrer avec Azure AD AngularJS
 
@@ -52,13 +52,13 @@ Pour autoriser votre application à authentifier les utilisateurs et à obtenir 
 4. Cliquez sur **Inscriptions des applications**, puis sélectionnez **Ajouter**.
 5. Suivez les invites et créez une application web et/ou API web :
   * **Nom** décrit votre application pour les utilisateurs.
-  * **URI de redirection** est l’emplacement auquel Azure AD renvoie les jetons. L’emplacement par défaut de cet exemple est `https://localhost:44326/`.
+  * L’**URL de connexion** est l’emplacement vers lequel Azure AD retourne les jetons. L’emplacement par défaut de cet exemple est `https://localhost:44326/`.
 6. Une fois l’inscription terminée, Azure AD affecte un ID d’application unique à votre application.  Copiez cette valeur dans l’onglet de l’application, car vous en aurez besoin dans les sections suivantes.
 7. Adal.js utilise le flux implicite OAuth pour communiquer avec Azure AD. Vous devez activer ce flux pour votre application :
   1. Cliquez sur l’application et sélectionnez **Manifeste** pour ouvrir l’éditeur de manifeste en ligne.
   2. Recherchez la propriété `oauth2AllowImplicitFlow`. Affectez-lui la valeur `true`.
   3. Cliquez sur **Enregistrer** pour enregistrer le manifeste.
-8. Accordez les autorisations à votre locataire sur votre application. Sélectionnez **Paramètres** > **Propriétés** > **Autorisations requises**, puis cliquez sur le bouton **Accorder des autorisations** dans la barre supérieure. Cliquez sur **Oui** pour confirmer.
+8. Accordez les autorisations à votre locataire sur votre application. Accédez à **Paramètres** > **Autorisations requises**, puis cliquez sur le bouton **Accorder des autorisations** dans la barre supérieure. Cliquez sur **Oui** pour confirmer.
 
 ## <a name="step-2-install-adal-and-configure-the-single-page-app"></a>Étape 2 : Installer la bibliothèque ADAL et configurer l’application à page unique
 Maintenant que vous disposez d’une application dans Azure AD, vous pouvez installer adal.js et écrire votre code lié à l’identité.

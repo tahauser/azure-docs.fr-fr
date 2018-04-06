@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: wgries
-ms.openlocfilehash: b42287580078b4391ddbc5b8ff2835131c64236d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bb7fa68809341b5132d551ff1cab187bd4d7eeac
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent-preview"></a>Notes de publication sur l’agent Azure File Sync (préversion)
 Azure File Sync vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Il transforme vos installations Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement (notamment SMB, NFS et FTPS). Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -93,11 +93,12 @@ Les éléments suivants ne se synchronisent pas, mais le reste du système conti
 - Un point de terminaison ne peut pas se trouver sur le volume système. Par exemple, C:\MonDossier n’est pas un chemin d’accès acceptable, sauf si C:\MonDossier est un point de montage.
 - Le clustering de basculement est pris en charge uniquement avec les disques en cluster, pas avec les volumes partagés de cluster (CSV).
 - Un point de terminaison de serveur ne peut pas être imbriqué. Il peut coexister sur le même volume en parallèle avec un autre point de terminaison.
-- La suppression d’un grand nombre de répertoires (plus de 10 000) d’un serveur en une seule fois peut entraîner des échecs de synchronisation. Supprimez les répertoires par lots de moins de 10 000. Assurez-vous que la synchronisation des opérations de suppression réussisse avant de supprimer le lot suivant.
 - Dans cette mise en production, la racine de synchronisation présente à la racine d’un volume est désormais prise en charge.
 - Ne stockez pas un système d’exploitation ni ou un fichier de pagination d’application qui se trouve au sein d’un point de terminaison de serveur.
 - Dans cette mise en production, de nouveaux événements ont été ajoutés pour suivre le temps total d’exécution de la hiérarchisation cloud (EventID 9016), la progression du chargement de la synchronisation (EventID 9302) et les fichiers non synchronisés (EventID 9900).
-- Dans cette mise en production, les performances rapides de synchronisation d’espace de noms de récupération d’urgence ont été considérablement améliorées.
+- Amélioré dans cette version : 
+- les performances rapides de synchronisation d’espace de noms de récupération d’urgence ont été considérablement améliorées.
+- La suppression de nombres importants (plus de 10 000) de répertoires ne doit pas nécessairement être effectuée dans des lots avec v2 *.
  
 ### <a name="cloud-tiering"></a>Hiérarchisation cloud
 - Dans cette version, les nouveaux fichiers sont hiérarchisés dans un délai d’1 heure (contre 32 heures auparavant) sous réserve des paramètres de stratégie de hiérarchisation. Nous fournissons une cmdlet PowerShell pour hiérarchiser à la demande. Vous pouvez utiliser la cmdlet pour évaluer la hiérarchisation plus efficacement sans attendre le processus d’arrière-plan.

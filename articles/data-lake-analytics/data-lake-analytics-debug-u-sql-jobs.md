@@ -1,8 +1,8 @@
 ---
-title: "Déboguer le code C# défini par l’utilisateur pour les tâches U-SQL Azure Data Lake ayant échoué | Microsoft Docs"
-description: "Découvrez comment déboguer un échec du vertex U-SQL à l’aide d’Azure Data Lake Tools pour Visual Studio."
+title: Déboguer le code C# défini par l’utilisateur pour les tâches U-SQL Azure Data Lake ayant échoué | Microsoft Docs
+description: Découvrez comment déboguer un échec du vertex U-SQL à l’aide d’Azure Data Lake Tools pour Visual Studio.
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: yanancai
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/31/2017
 ms.author: yanacai
-ms.openlocfilehash: 739d46753729b70a24dbd3d6e2d78f8513e143e6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b614583079347c2634f8d03531517d1d32c75132
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Débogage de code C# défini par l’utilisateur pour des travaux U-SQL ayant échoué
 
@@ -41,7 +41,7 @@ Lorsque vous ouvrez un travail ayant échoué dans Azure Data Lake Tools pour Vi
 
 1. Cliquez sur **Télécharger** pour télécharger toutes les ressources et les flux d’entrée requis. Si le téléchargement ne s’achève pas, cliquez sur **Réessayer**.
 
-2. Une fois le téléchargement terminé, cliquez sur **Ouvrir** pour générer un environnement de débogage local. Une nouvelle instance Visual Studio avec une solution de débogage est automatiquement créée et ouverte.
+2. Une fois le téléchargement terminé, cliquez sur **Ouvrir** pour générer un environnement de débogage local. Une nouvelle solution de débogage va s’ouvrir. Si vous avez une solution existante ouverte dans Visual Studio, veillez à l’enregistrer et à la fermer avant d’entamer le débogage.
 
 ![Télécharger le vertex Visual Studio pour le débogage U-SQL Azure Data Lake Analytics](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-download-vertex.png)
 

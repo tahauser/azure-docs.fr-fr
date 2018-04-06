@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: 49f3d5ba55a9c1abfcd6dcb50058ed7a001a2eec
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ea2367a6e1facfbe6a36cb145e258491a1c99517
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="collector-appliance"></a>Appliance Collecteur
 
@@ -172,6 +172,15 @@ Le tableau ci-dessous répertorie les compteurs de performances qui sont collect
 Le Collecteur détecte uniquement les données de la machine et les envoie au projet. Le projet peut nécessiter plus de temps avant que les données détectées ne soient affichées sur le portail et que vous ne puissiez commencer à créer une évaluation.
 
 En fonction du nombre de machines virtuelles comprises dans l’étendue sélectionnée, l’envoi de métadonnées statiques au projet peut prendre jusqu’à 15 minutes. Une fois que les métadonnées statiques sont disponibles sur le portail, vous pouvez afficher la liste des machines dans le portail et commencer à créer des groupes. Aucune évaluation ne peut être créée tant que le travail de collecte n’est pas terminé et que le projet n’a pas traité les données. Une fois le travail de collecte terminé sur le Collecteur, une heure peut être nécessaire pour que les données de performance soient disponibles sur le portail, en fonction du nombre de machines virtuelles comprises dans l’étendue sélectionnée.
+
+## <a name="locking-down-the-collector-appliance"></a>Verrouillage de l’appliance collecteur
+Nous recommandons d’exécuter des mises à jour Windows continues sur l’appliance collecteur. Si un collecteur n’est pas mis à jour pendant 45 jours, le collecteur démarre l’arrêt en cours automatique de la machine. Si une détection est en cours d’exécution, la machine ne sera pas désactivée, même si elle est au-delà de sa période de 45 jours. Une fois la publication du travail de détection terminée, la machine est désactivée. Si vous utilisez le collecteur pendant plus de 45 jours, nous vous recommandons de conserver la machine à jour à tout moment en exécutant la mise à jour de Windows.
+
+Nous vous recommandons également de suivre les étapes ci-dessous pour sécuriser votre appliance
+1. Ne partagez pas les mots de passe administrateur avec des tiers non autorisés et ne les égarez pas non plus.
+2. Arrêtez l’appliance lorsqu’elle est inutilisée.
+3. Placez l’appliance sur un réseau sécurisé.
+4. Une fois le travail de migration terminé, supprimez l’instance de l’appliance. Veillez à supprimer également les fichiers de sauvegarde du disque (VMDK), puisqu’il peut se trouver des informations d’identification de vCenter mis en cache sur les disques.
 
 ## <a name="how-to-upgrade-collector"></a>Procédure de mise à niveau du collecteur
 

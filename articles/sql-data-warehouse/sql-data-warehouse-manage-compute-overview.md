@@ -1,11 +1,11 @@
 ---
-title: "Gérer les ressources de calcul dans Azure SQL Data Warehouse | Microsoft Docs"
-description: "Découvrez les capacités de montée en puissance des performances dans Azure SQL Data Warehouse. Procédez à une montée en puissance en ajustant la valeur DWU ou allégez les coûts en suspendant l’entrepôt de données."
+title: Gérer les ressources de calcul dans Azure SQL Data Warehouse | Microsoft Docs
+description: Découvrez les capacités de montée en puissance des performances dans Azure SQL Data Warehouse. Procédez à une montée en puissance en ajustant la valeur DWU ou allégez les coûts en suspendant l’entrepôt de données.
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
 manager: johnmac
-editor: 
+editor: ''
 ms.assetid: e13a82b0-abfe-429f-ac3c-f2b6789a70c6
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 02/20/2018
 ms.author: elbutter
-ms.openlocfilehash: 7e6ae6e59b53dd79dab5e2504cf7a43a30e55353
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c34e37f0c6393c65d4b60705012769608bb7395b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Gérer les ressources de calcul dans Azure SQL Data Warehouse
 Découvrez comment gérer les ressources de calcul dans Azure SQL Data Warehouse. Vous pouvez alléger les coûts en suspendant l’entrepôt de données, ou mettre à l’échelle ce dernier afin de répondre aux exigences en matière de niveau de performance. 
@@ -110,7 +110,7 @@ Pour plus d’informations sur l’automatisation des opérations de gestion du 
 
 L’exécution de chacune des opérations de montée en puissance, de suspension et de reprise peut nécessiter plusieurs minutes. Si vous procédez à une mise à l’échelle, une suspension ou une reprise automatiques, nous vous recommandons d’implémenter une logique pour vous assurer que certaines opérations ont été effectuées avant d’exécuter une autre action. La vérification de l’état de l’entrepôt de données au niveau de différents points de terminaison vous permet d’automatiser correctement de telles opérations. 
 
-Pour vérifier l’état de l’entrepôt de données, consultez les articles de démarrage rapide pour [PowerShell](quickstart-scale-compute-powershell.md#check-database-state) ou [T-SQL](quickstart-scale-compute-tsql.md#check-database-state). Vous pouvez également vérifier l’état de l’entrepôt de données à l’aide d’une [API REST](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
+Pour vérifier l’état de l’entrepôt de données, voir les articles de démarrage rapide pour [PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state) ou [T-SQL](quickstart-scale-compute-tsql.md#check-data-warehouse-state). Vous pouvez également vérifier l’état de l’entrepôt de données à l’aide d’une [API REST](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
 
 
 ## <a name="permissions"></a>Autorisations

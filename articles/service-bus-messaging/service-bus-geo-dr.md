@@ -1,11 +1,11 @@
 ---
-title: "Géorécupération d’urgence Azure Service Bus | Microsoft Docs"
-description: "Utiliser les régions géographiques pour le basculement et la récupération d’urgence dans Azure Service Bus"
+title: Géorécupération d’urgence Azure Service Bus | Microsoft Docs
+description: Utiliser les régions géographiques pour le basculement et la récupération d’urgence dans Azure Service Bus
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: christianwolf42
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: sethm
-ms.openlocfilehash: 9cbeff82f7a237c813ea91cd83e9273cad934991
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 652adcf78add8ae699a7f827a915e90ce1694c61
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Géorécupération d’urgence Azure Service Bus
 
@@ -86,12 +86,13 @@ Si vous avez un scénario dans lequel vous ne pouvez pas modifier les connexions
 
 ## <a name="samples"></a>Exemples
 
-Les [exemples sur GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2) montrent comment configurer et lancer un basculement. Ces exemples illustrent les concepts suivants :
+Les [exemples sur GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/) montrent comment configurer et lancer un basculement. Ces exemples illustrent les concepts suivants :
 
-- Paramètres requis dans Azure Active Directory pour utiliser Azure Resource Manager avec Service Bus. 
-- Étapes requises pour exécuter l’exemple de code. 
-- Envoi et réception à partir de l’espace de noms principal actuel. 
+- Un exemple et des paramètres .Net requis dans Azure Active Directory pour utiliser Azure Resource Manager avec Service Bus afin d’installer et d’activer la géorécupération d'urgence.
+- Étapes requises pour exécuter l’exemple de code.
 - Comment utiliser un espace de noms existant en tant qu’alias.
+- Exécuter pas à pas pour activer de façon alternative la géorécupération d’urgence via PowerShell ou CLI.
+- [Envoyer et recevoir](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/TestGeoDR/ConsoleApp1) à partir de l’espace de noms principal ou secondaire actuel à l’aide de l’alias.
 
 ## <a name="considerations"></a>Considérations
 

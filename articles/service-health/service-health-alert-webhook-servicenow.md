@@ -1,10 +1,10 @@
 ---
-title: "Configurer des alertes sur l’intégrité du service Azure avec ServiceNow | Microsoft Docs"
-description: "Obtenir des notifications personnalisées sur les événements d’intégrité du service sur votre instance ServiceNow."
+title: Configurer des alertes sur l’intégrité du service Azure avec ServiceNow | Microsoft Docs
+description: Obtenir des notifications personnalisées sur les événements d’intégrité du service sur votre instance ServiceNow.
 author: shawntabrizi
 services: service-health
 documentationcenter: service-health
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-health
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: 625718ab82443c897d1b15c2eac51dea3d0dfeb4
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 867a8c0b478df9d2b7690b8b914ded7c42558583
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-service-health-alerts-with-servicenow"></a>Configurer des alertes sur l’intégrité de service avec ServiceNow
 
@@ -183,7 +183,7 @@ Cet article vous explique comment intégrer les alertes sur l’intégrité du s
 5. Quand vous avez terminé, sélectionnez **Enregistrer** pour mettre à jour le groupe d’actions.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Tester l’intégration à Webhook via une demande HTTP POST
-1. Créez la charge utile d’intégrité du service que vous souhaitez envoyer. Vous trouverez un exemple de charge utile du Webhook d’intégrité du service sur la page [Webhook des alertes du journal d’activité Azure](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+1. Créez la charge utile d’intégrité du service que vous souhaitez envoyer. Vous trouverez un exemple de charge utile du Webhook d’intégrité du service dans la page [Webhook pour des alertes du journal d’activité Azure](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
 
 2. Créez une requête HTTP POST comme suit :
 
@@ -192,14 +192,14 @@ Cet article vous explique comment intégrer les alertes sur l’intégrité du s
 
     HEADERS     Content-Type: application/json
 
-    BODY        <Service Health payload>
+    BODY        <service health payload>
     ```
 3. Vous devez recevoir une réponse `200 OK` avec le message indiquant que l’incident est créé.
 
 4. Accédez à [ServiceNow](https://www.servicenow.com/) pour confirmer que votre intégration a été définie avec succès.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Découvrez comment [configurer des notifications de webhook pour les systèmes de gestion de problème existants](service-health-alert-webhook-guide.md).
+- Découvrez comment [configurer des notifications de Webhook pour les systèmes de gestion de problème existants](service-health-alert-webhook-guide.md).
 - Consultez le [schéma webhook des alertes de journal d’activité](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md). 
 - En savoir plus sur les [notifications sur l’intégrité du service](../monitoring-and-diagnostics/monitoring-service-notifications.md).
 - En savoir plus sur les [groupes d’actions](../monitoring-and-diagnostics/monitoring-action-groups.md).

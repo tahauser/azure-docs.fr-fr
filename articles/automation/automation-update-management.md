@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 202c75366477ae3445f607f75d08faf0335de79f
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: e426f2b90e3ac3ac6bcb9825c7848c76e52a1021
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Solution Update Management dans Azure
 
@@ -52,8 +52,8 @@ Le tableau suivant répertorie la liste des systèmes d’exploitation pris en c
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Prend uniquement en charge les évaluations de mises à jour.         |
 |Windows Server 2008 R2 SP1 et versions ultérieures     |.NET Framework 4.5 et WMF 5.0 ou des versions ultérieures sont nécessaires pour Windows Server 2008 R2 SP1.        |
-|CentOS 6 (x86/x64) et 7 (x64)      | Les agents Linux doivent avoir accès à un référentiel de mise à jour.        |
-|Red Hat Enterprise 6 (x86/x64) et 7 (x64)     | Les agents Linux doivent avoir accès à un référentiel de mise à jour.        |
+|CentOS 6 (x86/x64) et 7 (x 64)      | Les agents Linux doivent avoir accès à un référentiel de mise à jour.        |
+|Red Hat Enterprise 6 (x86/x64) et 7 (x 64)     | Les agents Linux doivent avoir accès à un référentiel de mise à jour.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) et 12 (x64)     | Les agents Linux doivent avoir accès à un référentiel de mise à jour.        |
 |Ubuntu 12.04 LTS et x86/x64 plus récente       |Les agents Linux doivent avoir accès à un référentiel de mise à jour.         |
 

@@ -1,22 +1,22 @@
 ---
-title: "Concepts de sécurité du service Azure IoT Hub Device Provisioning | Microsoft Docs"
-description: "Décrit les concepts d’approvisionnement de sécurité pour les appareils avec le service Device Provisioning et IoT Hub"
+title: Concepts de sécurité du service Azure IoT Hub Device Provisioning | Microsoft Docs
+description: Décrit les concepts d’approvisionnement de sécurité pour les appareils avec le service Device Provisioning et IoT Hub
 services: iot-dps
-keywords: 
+keywords: ''
 author: nberdy
 ms.author: nberdy
-ms.date: 09/05/2017
+ms.date: 03/27/2018
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: ab2bfff571af659552eef8117de041ca6367ce56
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 5e35a802349bd85b50a13a3d9a7e0c78945937bd
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>Concepts de sécurité du service IoT Hub Device Provisioning 
 
@@ -31,7 +31,7 @@ Le mécanisme d’attestation est la méthode utilisée pour confirmer l’ident
 
 Le service Device Provisioning prend en charge deux formes d’attestation :
 * **Certificats X.509** basés sur le flux d’authentification de certificat X.509 standard.
-* **Jetons SAP** basés sur une stimulation de nonces utilisant le standard TPM pour les clés. Il n’est pas nécessaire d’avoir un TPM physique sur l’appareil, mais le service utilise pour l’attestation la paire de clés de type EK conformément à la [spécification TPM](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
+* **Module de plateforme sécurisée (TPM)** basé sur un défi nonce, utilisant la norme TPM pour les clés afin de présenter un jeton de signature d'accès partagé (SAS) signé. Il n’est pas nécessaire d’avoir un TPM physique sur l’appareil, mais le service utilise pour l’attestation la paire de clés de type EK conformément à la [spécification TPM](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
 
 ## <a name="hardware-security-module"></a>Module de sécurité matériel
 
@@ -42,13 +42,13 @@ Le module de sécurité matériel, ou module HSM, est utilisé pour le stockage 
 
 Les secrets de l’appareil peuvent également être stockés sous forme logicielle (mémoire), mais cette forme de stockage est moins sécurisée que le module HSM.
 
-## <a name="trusted-platform-module-tpm"></a>Module de plateforme sécurisée (TPM)
+## <a name="trusted-platform-module"></a>Module de plateforme sécurisée (TPM)
 
 Un module TPM peut faire référence à un standard de stockage sécurisé pour les clés utilisées dans l’authentification de la plateforme ou à l’interface d’E/S utilisée pour interagir avec les modules qui implémentent le standard. Les modules TPM peuvent exister sous forme de matériel distinct, de matériel intégré, basés sur un microprogramme ou basés sur un logiciel. Découvrez plus d’informations sur [Modules TPM et attestation TPM](/windows-server/identity/ad-ds/manage/component-updates/tpm-key-attestation). Le service Device Provisioning prend en charge uniquement TPM 2.0.
 
 ### <a name="endorsement-key"></a>Paire de clés de type EK (Endorsement Key)
 
-La paire de clés de type EK est une clé asymétrique contenue dans un module TPM qui a été générée en interne ou injectée au moment de la fabrication et est unique pour chaque module TPM. La paire de clés de type EK ne peut pas être changée ou supprimée. La partie privée de la paire de clés de type EK n’est jamais publiée en dehors du module TPM, tandis que sa partie publique est utilisée pour reconnaître un module TPM authentique. Découvrez plus d’informations sur la [paire de clés de type EK (Endorsement Key)](https://technet.microsoft.com/library/cc770443(v=ws.11).aspx).
+La paire de clés de type EK (Endorsement Key) est une clé asymétrique contenue dans un module TPM qui a été générée en interne ou injectée au moment de la fabrication et est unique pour chaque module TPM. La paire de clés de type EK ne peut pas être changée ou supprimée. La partie privée de la paire de clés de type EK n’est jamais publiée en dehors du module TPM, tandis que sa partie publique est utilisée pour reconnaître un module TPM authentique. Découvrez plus d’informations sur la [paire de clés de type EK (Endorsement Key)](https://technet.microsoft.com/library/cc770443(v=ws.11).aspx).
 
 ### <a name="storage-root-key"></a>Clé racine de stockage
 
@@ -77,9 +77,9 @@ Le certificat feuille, ou certificat d’entité finale, identifie le détenteur
 Le service de provisionnement expose deux types d’entrée d’inscription que vous pouvez utiliser pour contrôler l’accès des appareils qui recourent au mécanisme d’attestation X.509 :  
 
 - Les entrées [d’inscription individuelle](./concepts-service.md#individual-enrollment) sont configurées avec le certificat d’appareil associé à un appareil spécifique. Ces entrées contrôlent l’inscription d’appareils spécifiques.
-- Les entrées de [groupe d’inscriptions](./concepts-service.md#enrollment-group) sont associées à un certificat d’autorité de certification intermédiaire ou racine spécifique. Ces entrées contrôlent l’inscription de tous les appareils dont la chaîne d’approbation contient ce certificat racine ou intermédiaire. 
+- Les entrées de [groupe d’inscriptions](./concepts-service.md#enrollment-group) sont associées à un certificat d’autorité de certification intermédiaire ou racine spécifique. Ces entrées contrôlent les inscriptions de tous les appareils dont la chaîne de chaîne d'approbation contient ce certificat racine ou intermédiaire. 
 
-Quand un appareil se connecte au service de provisionnement, le service privilégie les entrées d’inscription plus spécifiques par rapport aux entrées d’inscription moins spécifiques. Autrement dit, si une inscription individuelle pour l’appareil existe, le service de provisionnement applique cette entrée. S’il n’existe aucune inscription individuelle pour l’appareil et qu’il existe un groupe d’inscriptions pour le premier certificat intermédiaire dans la chaîne d’approbation de l’appareil, le service applique cette entrée, et ainsi de suite le long de la chaîne jusqu’à la racine. Le service applique la première entrée applicable qu’il trouve, comme suit :
+Quand un appareil se connecte au service de provisionnement, le service privilégie les entrées d’inscription plus spécifiques par rapport aux entrées d’inscription moins spécifiques. Autrement dit, si une inscription individuelle pour l’appareil existe, le service de provisionnement applique cette entrée. S’il n’existe aucune inscription individuelle pour l’appareil et qu’il existe un groupe d’inscriptions pour le premier certificat intermédiaire dans la chaîne d’approbation de l’appareil, le service applique cette entrée et ainsi de suite le long de la chaîne jusqu’à la racine. Le service applique la première entrée applicable qu’il trouve, comme suit :
 
 - Si la première entrée d’inscription trouvée est activée, le service provisionne l’appareil.
 - Si la première entrée d’inscription trouvée est désactivée, le service ne provisionne pas l’appareil.  

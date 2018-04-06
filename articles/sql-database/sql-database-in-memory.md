@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 03/21/2018
 ms.author: jodebrui
-ms.openlocfilehash: 107df78f0ec6ce924785f5027958ee66f2a86c7c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 442c860a13e2af1d5398fb30a6069a0e3764ee64
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Optimisation des performances à l’aide des technologies en mémoire dans SQL Database
 
@@ -104,7 +104,7 @@ Lors de l’utilisation d’index columnstore sans cluster, la table de base est
 
 Vous ne rencontrerez aucune incompatibilité ou aucun autre problème lorsque vous effectuerez une mise à niveau vers un niveau tarifaire supérieur (ex : Édition Standard vers Édition Premium). Les ressources et les fonctionnalités disponibles ne font qu’augmenter.
 
-Cependant la rétrogradation du niveau de tarification peut affecter négativement votre base de données. L’impact est particulièrement évident lorsque vous rétrogradez à partir de Premium pour Base ou Standard alors que votre base de données contient des objets de l’OLTP en mémoire. Les tables à mémoire optimisée et les index columnstore sont indisponibles après la rétrogradation (même si elles restent visibles). Les mêmes considérations s’appliquent lors de la réduction du niveau tarifaire d’un pool élastique ou du déplacement d’une base de données avec des technologies en mémoire vers un pool élastique Standard ou de base.
+Cependant la rétrogradation du niveau de tarification peut affecter négativement votre base de données. L’impact est particulièrement évident lorsque vous rétrogradez à partir de Premium pour Base ou Standard alors que votre base de données contient des objets de l’OLTP en mémoire. Les tables optimisées par la mémoire ne sont pas disponibles après la mise à niveau (même si elles restent visibles). Les mêmes considérations s’appliquent lors de la réduction du niveau tarifaire d’un pool élastique ou du déplacement d’une base de données avec des technologies en mémoire vers un pool élastique Standard ou de base.
 
 ### <a name="in-memory-oltp"></a>OLTP In-Memory.
 
@@ -130,11 +130,11 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 ### <a name="columnstore-indexes"></a>Index Columnstore
 
-*Rétrogradation vers Base ou Standard* : les index columnstore ne sont pris en charge que sur le niveau tarifaire Premium et non sur les niveaux Standard ou Basic. Lors de la rétrogradation de votre base de données vers Standard ou Base, l’index columnstore devient indisponible. Le système maintient l’index columnstore, mais il ne tire jamais profit de l’index. Si vous mettez à niveau ultérieurement vers Premium, l’index columnstore est immédiatement prêt à être exploité à nouveau.
+*Rétrogradation vers le niveau de base ou standard* : les index columnstore ne sont pris en charge que sur le niveau tarifaire Premium et sur le niveau Standard, S3 et supérieur et non sur le niveau de base. Lors de la rétrogradation de votre base de données vers un niveau non pris en charge, votre index columnstore devient indisponible. Le système maintient l’index columnstore, mais il ne tire jamais profit de l’index. Si vous mettez à niveau ultérieurement vers un niveau pris en charge, l’index columnstore est immédiatement prêt à être exploité à nouveau.
 
-Si vous disposez d’un index columnstore **mis en cluster**, la totalité de la table devient indisponible après la rétrogradation de la couche. Par conséquent, nous vous recommandons d’annuler tous les index columnstore *mis en index* avant de rétrograder votre base de données sous le niveau Premium.
+Si vous disposez d’un index columnstore **en cluster**, la totalité de la table devient indisponible après le passage à une version antérieure. Par conséquent, nous vous recommandons d’annuler tous les index columnstore *en index* avant de rétrograder votre base de données vers un niveau non pris en charge.
 
-*Rétrogradation vers un niveau Premium inférieur* : cette opération réussit tant que la taille de base de données dans son ensemble est inférieure à la taille de base de données maximale correspondant au niveau tarifaire cible ou au stockage disponible dans le pool élastique. Les index columnstore n’ont aucune incidence spécifique.
+*Rétrogradation vers un niveau pris en charge inférieur* : ce passage à une version antérieure réussit si la taille de la base de données dans son ensemble est inférieure à la taille de base de données maximale correspondant au niveau tarifaire cible ou au stockage disponible dans le pool élastique. Les index columnstore n’ont aucune incidence spécifique.
 
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>

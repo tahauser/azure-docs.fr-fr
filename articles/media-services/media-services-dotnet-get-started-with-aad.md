@@ -1,29 +1,30 @@
 ---
-title: "Utiliser l’authentification Azure AD pour accéder à l’API Azure Media Services avec .NET | Microsoft Docs"
-description: "Cette rubrique aborde l’utilisation de l’authentification Azure Active Directory (Azure AD) en vue d’accéder à l’API Azure Media Services (AMS) avec .NET."
+title: Utiliser l’authentification Azure AD pour accéder à l’API Azure Media Services avec .NET | Microsoft Docs
+description: Cette rubrique aborde l’utilisation de l’authentification Azure Active Directory (Azure AD) en vue d’accéder à l’API Azure Media Services (AMS) avec .NET.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
+ms.date: 03/27/2018
 ms.author: juliako
-ms.openlocfilehash: a9355200a05a3aa1b494b76977d38ddc42bfe179
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8817bb0da526769470e96b63b9c80620309757bf
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Utiliser l’authentification Azure AD pour accéder à l’API Azure Media Services avec .NET
 
 À partir de windowsazure.mediaservices 4.0.0.4, Azure Media Services prend en charge l’authentification basée sur Azure Active Directory (Azure AD). Cette rubrique aborde l’utilisation de l’authentification Azure AD en vue d’accéder à l’API Azure Media Services avec Microsoft .NET.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 - Un compte Azure. Pour plus d’informations, consultez la page [Version d’évaluation gratuite d’Azure](https://azure.microsoft.com/pricing/free-trial/). 
 - Un compte Media Services. Pour plus d’informations, voir [Création d’un compte Azure Media Services à l’aide du portail Azure](media-services-portal-create-account.md).
@@ -36,7 +37,7 @@ Lorsque vous utilisez l’authentification Azure AD avec Azure Media Services, 
 - L’**authentification de principal de service** authentifie un service. Les applications qui utilisent généralement cette méthode d’authentification sont des applications qui exécutent des services démon, des services de niveau intermédiaire ou des travaux planifiés (par exemple, applications web, applications de fonction, applications logiques, API ou microservices).
 
 >[!IMPORTANT]
->Azure Media Services prend actuellement en charge un modèle d’authentification Azure Access Control Service. Toutefois, l’autorisation Access Control sera déconseillée à compter du 1er juin 2018. Nous vous recommandons de migrer vers un modèle d’authentification Azure Active Directory dès que possible.
+>Azure Media Services prend actuellement en charge un modèle d’authentification Azure Access Control Service. Toutefois, l’autorisation Access Control sera déconseillée à compter du 22 juin 222018. Nous vous recommandons de migrer vers un modèle d’authentification Azure Active Directory dès que possible.
 
 ## <a name="get-an-azure-ad-access-token"></a>Obtenir un jeton d’accès Azure AD
 

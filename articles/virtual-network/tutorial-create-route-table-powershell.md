@@ -1,5 +1,5 @@
 ---
-title: Acheminer le trafic réseau - PowerShell | Microsoft Docs
+title: Router le trafic réseau - Azure PowerShell | Documents Microsoft
 description: Découvrez comment acheminer le trafic réseau avec une table de routage à l’aide de PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
@@ -16,24 +16,24 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 49c7b6158beee9d47ecd224e6a0750310d2b68c0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f7be6aa58c6779150d3e79893e6e179d08611567
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>Acheminer le trafic réseau avec une table de routage à l’aide de PowerShell
 
-Par défaut, Azure achemine automatiquement le trafic entre tous les sous-réseaux au sein d’un réseau virtuel. Vous pouvez créer vos propres itinéraires pour remplacer le routage par défaut d’Azure. La possibilité de créer des itinéraires personnalisés est utile si, par exemple, vous souhaitez acheminer le trafic entre plusieurs sous-réseaux via une appliance virtuelle réseau. Dans cet article, vous apprendrez comment :
+Par défaut, Azure achemine automatiquement le trafic entre tous les sous-réseaux au sein d’un réseau virtuel. Vous pouvez créer vos propres itinéraires pour remplacer le routage par défaut d’Azure. La possibilité de créer des itinéraires personnalisés est utile si, par exemple, vous souhaitez router le trafic entre des sous-réseaux via une appliance virtuelle réseau (NVA). Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
 > * Créer une table de routage
 > * Créer un itinéraire
 > * Créer un réseau virtuel comprenant plusieurs sous-réseaux
 > * Associer une table de routage à un sous-réseau
-> * Créer une appliance virtuelle réseau qui achemine le trafic
+> * Créer une appliance NVA qui route le trafic
 > * Déployer des machines virtuelles sur différents sous-réseaux
-> * Acheminer le trafic d’un sous-réseau à un autre via une appliance virtuelle réseau
+> * Router le trafic d’un sous-réseau vers un autre via une NVA
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -122,7 +122,7 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 Set-AzureRmVirtualNetwork
 ```
 
-## <a name="create-an-nva"></a>Créer une appliance virtuelle réseau
+## <a name="create-an-nva"></a>Créer une NVA
 
 Une appliance virtuelle réseau est une machine virtuelle qui exécute une fonction réseau, telle que le routage, la fonction de pare-feu ou l’optimisation WAN.
 
@@ -237,12 +237,12 @@ mstsc /v:<publicIpAddress>
 
 Ouvrez le fichier .rdp téléchargé. Si vous y êtes invité, sélectionnez **Connexion**.
 
-Entrez le nom d’utilisateur et le mot de passe choisis lors de la création de la machine virtuelle (il se peut que vous deviez choisir **Plus de choix**, puis **Utiliser un compte différent** pour spécifier les informations d’identification que vous avez entrées lors de la création de la machine virtuelle), puis sélectionnez **OK**. Un avertissement de certificat peut s’afficher pendant le processus de connexion. Sélectionnez**Oui** pour poursuivre le processus de connexion. 
+Entrez le nom d’utilisateur et le mot de passe spécifiés lors de la création de la machine virtuelle (il se peut que vous deviez choisir **Plus de choix**, puis **Utiliser un compte différent** pour spécifier les informations d’identification que vous avez entrées lors de la création de la machine virtuelle), puis sélectionnez **OK**. Un avertissement de certificat peut s’afficher pendant le processus de connexion. Sélectionnez**Oui** pour poursuivre le processus de connexion. 
 
-À une étape ultérieure, la commande tracert.exe est utilisée pour tester le routage. Tracert utilise le protocole ICMP, qui est interdit par le Pare-feu Windows. Autorisez le protocole IMCP dans le Pare-feu Windows en entrant la commande suivante dans PowerShell :
+À une étape ultérieure, la commande tracert.exe est utilisée pour tester le routage. Tracert utilise le protocole ICMP (Internet Control Message Protocol), qui est refusé via le Pare-feu Windows. Autorisez le protocole ICMP (Internet Control Message Protocol) dans le pare-feu Windows en entrant la commande suivante de PowerShell :
 
 ```powershell
-New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+New-NetFirewallRule ???DisplayName ???Allow ICMPv4-In??? ???Protocol ICMPv4
 ```
 
 Bien que cet article utilise tracert pour tester le routage, il n’est pas recommandé d’autoriser le protocole IMCP dans le pare-feu Windows lors de déploiements en production.
@@ -272,7 +272,7 @@ mstsc /v:myVmPublic
 Autorisez le protocole IMCP dans le Pare-feu Windows en entrant la commande suivante dans PowerShell :
 
 ```powershell
-New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+New-NetFirewallRule ???DisplayName ???Allow ICMPv4-In??? ???Protocol ICMPv4
 ```
 
 Pour tester le routage du trafic réseau vers la machine virtuelle *myVmPrivate* à partir de la machine virtuelle *myVmPublic*, entrez la commande suivante dans PowerShell :
@@ -313,7 +313,7 @@ over a maximum of 30 hops:
 Trace complete.
 ```
 
-Vous pouvez voir que le trafic est acheminé directement de la machine virtuelle *myVmPrivate* vers la machine virtuelle *myVmPublic*. Par défaut, Azure achemine directement le trafic entre les sous-réseaux.
+Vous pouvez voir que le trafic est routé directement de la machine virtuelle *myVmPrivate* vers la machine virtuelle *myVmPublic*. Par défaut, Azure achemine directement le trafic entre les sous-réseaux.
 
 Fermez les sessions Bureau à distance sur la machine virtuelle *myVmPrivate*.
 
@@ -332,4 +332,4 @@ Dans cet article, vous avez créé une table de routage que vous avez associée 
 Alors que vous pouvez déployer de nombreuses ressources Azure dans un réseau virtuel, les ressources pour certains services Azure PaaS ne peuvent pas être déployées dans un réseau virtuel. Cependant, vous pouvez toujours restreindre l’accès aux ressources de certains services Azure PaaS au trafic provenant uniquement d’un sous-réseau de réseau virtuel. Passez au tutoriel suivant pour apprendre à restreindre l’accès réseau aux ressources Azure PaaS.
 
 > [!div class="nextstepaction"]
-> [Restreindre l’accès réseau aux ressources PaaS](virtual-network-service-endpoints-configure.md#azure-powershell)
+> [Restreindre l’accès réseau aux ressources PaaS](tutorial-restrict-network-access-to-resources-powershell.md)

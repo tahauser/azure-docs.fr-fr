@@ -1,6 +1,6 @@
 ---
-title: "Guide pratique pour configurer les paramètres de serveur dans Azure Database pour MySQL"
-description: "Cet article décrit comment configurer les paramètres de serveur MySQL dans Azure Database pour MySQL à l’aide du portail Azure."
+title: Guide pratique pour configurer les paramètres de serveur dans Azure Database pour MySQL
+description: Cet article décrit comment configurer les paramètres de serveur MySQL dans Azure Database pour MySQL à l’aide du portail Azure.
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: b3510c616d2a9ba66cb83cb998c42e03fdbb0f2b
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 6865663bebc84df288f4c7e2564ddb4870667c6f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Guide pratique pour configurer des paramètres de serveur dans Azure Database pour MySQL à l’aide du portail Azure
 
@@ -40,25 +40,24 @@ Le pool de mémoires tampons InnoDB et le nombre maximal de connexions ne sont p
 
 |**Niveau tarifaire**| **Génération de calcul**|**vCore(s)**|**Pool de mémoires tampons InnoDB (Mo)**| **Nombre maximal de connexions**|
 |---|---|---|---|--|
-|De base| Gen 4| 1| 1 024| 50 |
-|De base| Gen 4| 2| 2560| 100 |
-|De base| Gen 5| 1| 1 024| 50 |
-|De base| Gen 5| 2| 2560| 100 |
-|Usage général| Gen 4| 2| 2560| 200|
-|Usage général| Gen 4| 4| 5120| 400|
-|Usage général| Gen 4| 8| 10240| 800|
-|Usage général| Gen 4| 16| 20480| 1 600|
-|Usage général| Gen 4| 32| 40960| 3200|
-|Usage général| Gen 5| 2| 2560| 200|
-|Usage général| Gen 5| 4| 5120| 400|
-|Usage général| Gen 5| 8| 10240| 800|
-|Usage général| Gen 5| 16| 20480| 1 600|
-|Usage général| Gen 5| 32| 40960| 3200|
+|De base| Gen 4| 1| 1 024| 50|
+|De base| Gen 4| 2| 2560| 100|
+|De base| Gen 5| 1| 1 024| 50|
+|De base| Gen 5| 2| 2560| 100|
+|Usage général| Gen 4| 2| 3584| 300|
+|Usage général| Gen 4| 4| 7680| 625|
+|Usage général| Gen 4| 8| 15360| 1250|
+|Usage général| Gen 4| 16| 31232| 2 500|
+|Usage général| Gen 4| 32| 62976| 5 000|
+|Usage général| Gen 5| 2| 3584| 300|
+|Usage général| Gen 5| 4| 7680| 625|
+|Usage général| Gen 5| 8| 15360| 1250|
+|Usage général| Gen 5| 16| 31232| 2 500|
+|Usage général| Gen 5| 32| 62976| 5 000|
 |Mémoire optimisée| Gen 5| 2| 7168| 600|
 |Mémoire optimisée| Gen 5| 4| 15360| 1250|
 |Mémoire optimisée| Gen 5| 8| 30720| 2 500|
 |Mémoire optimisée| Gen 5| 16| 62464| 5 000|
-|Mémoire optimisée| Gen 5| 32| 125952| 10000| 
 
 Ces paramètres de serveur ne sont pas configurables dans le système :
 

@@ -1,8 +1,8 @@
 ---
-title: "Présentation des alertes dans Azure Log Analytics | Microsoft Docs"
-description: "Les alertes dans Log Analytics identifient des informations importantes dans votre référentiel OMS et peuvent de façon proactive vous informer sur des problèmes ou appeler des actions pour tenter de les corriger.  Cet article décrit les différents types de règles d’alerte et comment elles sont définies."
+title: Présentation des alertes dans Azure Log Analytics | Microsoft Docs
+description: Les alertes dans Log Analytics identifient des informations importantes dans votre référentiel OMS et peuvent de façon proactive vous informer sur des problèmes ou appeler des actions pour tenter de les corriger.  Cet article décrit les différents types de règles d’alerte et comment elles sont définies.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/05/2018
 ms.author: bwren
-ms.openlocfilehash: 07e8312d5e113eeb9016dcc832b1cf66f8001c5f
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: ece2e7eeb53aebbb18bce4bb34e03307b0aea74c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>Comprendre les alertes dans Log Analytics
 
@@ -102,7 +102,7 @@ Par exemple, pour être averti quand le processeur s’exécute à plus de 90 %
 
     Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90
 
-Pour être averti lorsque la moyenne d’exécution du processeur dépasse 90 % de ses capacités pendant dans une fenêtre de temps spécifique, utilisez une requête comme la suivante avec la [commande measure](log-analytics-search-reference.md#commands) et définissez le seuil de la règle d’alerte sur **Supérieur à 0**.
+Pour être averti lorsque la moyenne d’exécution du processeur dépasse 90 % de ses capacités pendant dans une fenêtre de temps spécifique, utilisez la commande `measure` comme suit avec le seuil de la règle d’alerte **Supérieur à 0**.
 
     Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90
 
@@ -119,7 +119,7 @@ Pour être averti lorsque la moyenne d’exécution du processeur dépasse 90 %
 Les règles d’alerte **Mesure métrique** créent une alerte pour chaque objet d’une requête dont la valeur dépasse un seuil spécifié.  Elles se distinguent des règles d’alerte **Nombre de résultats** comme suit.
 
 #### <a name="log-search"></a>Recherche dans les journaux
-Vous pouvez utiliser n’importe quelle requête pour une règle d’alerte **Nombre de résultats**, mais il existe des exigences de requête spécifiques pour la règle d’alerte Mesure métrique.  Elle doit inclure une [commande Measure](log-analytics-search-reference.md#commands) pour regrouper les résultats sur un champ spécifique. Cette commande doit inclure les éléments suivants :
+Vous pouvez utiliser n’importe quelle requête pour une règle d’alerte **Nombre de résultats**, mais il existe des exigences de requête spécifiques pour la règle d’alerte Mesure métrique.  La requête doit inclure un commande `measure` pour regrouper les résultats sur un champ spécifique. Cette commande doit inclure les éléments suivants :
 
 - **Fonction d’agrégation**.  Détermine le calcul à effectuer et, éventuellement, un champ numérique à agréger.  Par exemple, **count()** renvoie le nombre d’enregistrements dans la requête, **avg(CounterValue)** renverra la moyenne du champ CounterValue sur l’intervalle.
 - **Champ de groupe**.  Un enregistrement avec une valeur agrégée est créé pour chaque instance de ce champ, et une alerte peut être générée pour chacun.  Par exemple, si vous souhaitez générer une alerte pour chaque ordinateur, vous pourriez utiliser **by Computer**.   
@@ -128,14 +128,14 @@ Vous pouvez utiliser n’importe quelle requête pour une règle d’alerte **No
 #### <a name="threshold"></a>Seuil
 Le seuil des règles d’alerte Mesure métrique est défini par une valeur d’agrégation et un nombre de violations.  Si un point de données de la recherche dans les journaux dépasse cette valeur, elle est considérée comme une violation.  Si le nombre de violations pour un objet dans les résultats dépasse la valeur spécifiée, une alerte est créée pour cet objet.
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 Prenons le scénario suivant : vous souhaitez créer une alerte si le taux d’utilisation du processeur d’un ordinateur dépasse 90 % à trois reprises en l’espace de 30 minutes.  Il conviendrait de créer une règle d’alerte paramétrée comme suit.  
 
 **Requête :** Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer Interval 5minute<br>
-**Fenêtre de temps :**  30 minutes<br>
+**Fenêtre de temps :**  30 minutes<br>
 **Fréquence des alertes :** 5 minutes<br>
 **Valeur agrégée :** supérieure à 90<br>
-**Déclencher une alerte en fonction de :** nombre total de violations supérieur à 5<br>
+**Déclencheur d’alerte :** nombre total de violations supérieur à 5<br>
 
 La requête créerait une valeur moyenne pour chaque ordinateur à intervalles de 5 minutes.  Cette requête serait exécutée toutes les 5 minutes pour les données collectées au cours des 30 minutes précédentes.  Des exemples de données sont indiqués ci-dessous pour trois ordinateurs.
 

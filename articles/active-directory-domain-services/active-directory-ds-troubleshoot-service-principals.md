@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: e1be075ba2d3e6ae7512ccc030073fd7f1862502
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d1a605ae5c0ea598ba507de0b21a841333df79ef
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>Résoudre les problèmes liés à une configuration de principal de service non valide pour votre domaine managé
 
@@ -93,7 +93,7 @@ Suivez ces étapes si un principal de service avec l’ID ```d87dcbc6-a371-462e-
 
 ## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>Alerte AADDS105 : l’application de synchronisation du mot de passe est obsolète
 
-**Message d’alerte :** le principal du service avec l’ID d’application « d87dcbc6-a371-462e-88e3-28ad15ec4e64 » a été supprimé et Microsoft a été en mesure de le recréer. Ce principal du service gère un autre principal du service et une application utilisés pour la synchronisation du mot de passe. Le principal du service managé et l’application ne sont pas autorisés sous le principal du service nouvellement créé et deviendront obsolètes lors de l’expiration du certificat de synchronisation. Cela signifie que le principal du service nouvellement créé ne pourra pas mettre à jour les anciennes applications managées et la synchronisation des objets d’AAD sera affectée.
+**Message d’alerte :** le principal du service avec l’application ID « d87dcbc6-a371-462e-88e3-28ad15ec4e64 » a été supprimé puis recréé. Ce principal du service gère un autre principal du service et une application utilisés pour la synchronisation du mot de passe. Le principal du service managé et/ou l’application ne sont pas autorisés dans le principal du service nouvellement créé, ils ne peuvent donc pas être managés par notre service. Cela signifie que le principal du service nouvellement créé ne pourra pas mettre à jour les anciennes applications managées et que la synchronisation des mots de passe sera affectée.
 
 
 **Résolution :** vous avez besoin d’Azure AD PowerShell pour effectuer ces étapes. Pour plus d’informations sur l’installation d’Azure AD PowerShell, consultez [cet article](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
@@ -108,7 +108,7 @@ Pour résoudre ce problème, saisissez les commandes suivantes dans une fenêtre
 2. Supprimer l’ancienne application et l’ancien objet à l’aide des commandes PowerShell suivantes
 
     ```powershell
-    $app = Get-AzureADApplication -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
+    $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
     Remove-AzureADApplication -ObjectId $app.ObjectId
     $spObject = Get-AzureADServicePrincipal -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
     Remove-AzureADServicePrincipal -ObjectId $app.ObjectId

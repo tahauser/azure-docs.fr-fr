@@ -1,32 +1,32 @@
 ---
-title: "Configurer des ports de haute disponibilité pour Azure Load Balancer | Microsoft Docs"
-description: "Découvrir comment utiliser les ports haute disponibilité pour équilibrer la charge du trafic interne entre tous les ports"
+title: Configurer des ports de haute disponibilité pour Azure Load Balancer | Microsoft Docs
+description: Découvrir comment utiliser les ports haute disponibilité pour équilibrer la charge du trafic interne entre tous les ports
 services: load-balancer
 documentationcenter: na
 author: rdhillon
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/02/2017
+ms.date: 03/21/20178
 ms.author: kumud
-ms.openlocfilehash: 36bc3d7a35f41384706cbc7101457d00848639b2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7f7f8e254e0ed0556446e7b08eaf46ec59977f62
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Configurer des ports haute disponibilité pour un équilibreur de charge interne
 
 Cet article montre un exemple de déploiement de ports haute disponibilité sur un équilibreur de charge interne. Pour plus d’informations sur les configurations spécifiques aux appliances virtuelles réseau, consultez les sites web des fournisseurs correspondants.
 
 >[!NOTE]
-> Les ports haute disponibilité sont actuellement en préversion. Les niveaux de disponibilité et de fiabilité des fonctionnalités de la préversion peuvent différer de ceux de la version publique. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Azure Load Balancer prend en charge deux types différents : Basic et Standard. Cet article décrit un équilibreur de charge standard. Pour plus d’informations sur l’équilibreur de charge de base, voir [Vue d’ensemble de l’équilibreur de charge](load-balancer-overview.md).
 
 L’illustration montre la configuration suivante de l’exemple de déploiement décrit dans cet article :
 

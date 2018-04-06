@@ -1,9 +1,9 @@
 ---
-title: "Vue d’ensemble des alertes dans Microsoft Azure et Azure Monitor | Microsoft Docs"
-description: "Les alertes vous permettent d’analyser des mesures de ressources, événements ou journaux Azure, puis d’envoyer des alertes quand une condition spécifiée est remplie."
+title: Vue d’ensemble des alertes dans Microsoft Azure et Azure Monitor | Microsoft Docs
+description: Les alertes vous permettent d’analyser des mesures de ressources, événements ou journaux Azure, puis d’envoyer des alertes quand une condition spécifiée est remplie.
 author: rboucher
 manager: carmonm
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: a6dea224-57bf-43d8-a292-06523037d70b
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.author: robb
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c1f0182f27cfb8441a09abd2031b365a4ab4315a
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: c64ca224705b7da57846e53bdc28d6d03eb28b06
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="what-are-alerts-in-microsoft-azure"></a>Que sont les alertes dans Microsoft Azure ?
 Cet article décrit les différentes sources d’alertes dans Microsoft Azure, les objectifs et avantages de ces alertes, ainsi que leur utilisation. Il s’applique plus particulièrement à Azure Monitor, mais fait toutefois référence à certains autres services d’alerte. Dans Azure, les alertes constituent une méthode de surveillance. Elles permettent de définir des conditions à propos de données et d’être informé lorsque les dernières données de surveillance répondent à ces conditions.
@@ -33,9 +33,6 @@ Azure utilise les termes suivants pour décrire les alertes et leurs fonctions :
 * **Notification** : action entreprise lorsqu’une alerte devient active.
 * **Action** : appel émis vers le destinataire d’une notification (par exemple, en envoyant un e-mail ou en publiant une URL Webhook). Les notifications peuvent généralement déclencher plusieurs actions.
 
-    > [!NOTE]
-    > Dans le cadre de l’évolution des alertes dans Azure, une nouvelle expérience unifiée est disponible en préversion. La nouvelle expérience Alerts (préversion) utilise une autre taxonomie. En savoir plus sur [Alerts (préversion)](monitoring-overview-unified-alerts.md). 
-    >
 
 ## <a name="alerts-in-different-azure-services"></a>Alertes dans différents services Azure
 Les alertes sont disponibles dans plusieurs services de surveillance Azure. Pour plus d’informations sur l’utilisation de ces services, [consultez cet article](./monitoring-overview.md). Voici le détail des types d’alertes disponibles dans Azure :
@@ -44,22 +41,18 @@ Les alertes sont disponibles dans plusieurs services de surveillance Azure. Pour
 | de diffusion en continu | Type d’alerte | Services pris en charge | Description |
 |---|---|---|---|
 | Azure Monitor | [Alertes de métriques](./insights-alerts-portal.md) | [Métriques prises en charge d’Azure Monitor](./monitoring-supported-metrics.md) | Réception d’une notification lorsqu’une métrique de plateforme répond à une condition définie (par exemple, si le pourcentage d’UC d’une machine virtuelle est supérieur à 90 depuis cinq minutes). |
-|Azure Monitor | [Alertes de métriques quasiment en temps réel (préversion)](./monitoring-near-real-time-metric-alerts.md)| [Ressources prises en charge d’Azure Monitor](./monitoring-near-real-time-metric-alerts.md#what-resources-can-i-create-near-real-time-metric-alerts-for) | Recevez une notification plus rapidement que les métriques alertes quand une ou plusieurs métriques au niveau de la plateforme répondent aux conditions spécifiées (par exemple, le pourcentage d’utilisation de l’unité centrale sur une machine virtuelle est supérieur à 90 et l’entrée réseau est supérieure à 500 Mo durant les 5 dernières minutes). |
+|Azure Monitor | [Alertes métriques quasiment en temps réel](./monitoring-near-real-time-metric-alerts.md)| [Ressources prises en charge d’Azure Monitor](./monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported) | Recevez une notification plus rapidement que les métriques alertes quand une ou plusieurs métriques au niveau de la plateforme répondent aux conditions spécifiées (par exemple, le pourcentage d’utilisation de l’unité centrale sur une machine virtuelle est supérieur à 90 et l’entrée réseau est supérieure à 500 Mo durant les 5 dernières minutes). |
 | Azure Monitor | [Alertes de journal d’activité](./monitoring-activity-log-alerts.md) | Tous les types de ressources disponibles dans Azure Resource Manager | Réception d’une notification quand un nouvel événement du [Journal d’activité Azure](./monitoring-overview-activity-logs.md) répond aux conditions définies (par exemple, si une opération « Supprimer la machine virtuelle » se produit dans myProductionResourceGroup ou si un nouvel événement État du service actif s’affiche). |
 | Application Insights | [Alertes de métriques](../application-insights/app-insights-alerts.md) | Toute application instrumentée pour envoyer des données à Application Insights | Réception d’une notification lorsqu’une métrique d’application répond à une condition définie (par exemple, si le temps de réponse du serveur est supérieur à 2 secondes). |
 | Application Insights | [Alertes de test web](../application-insights/app-insights-monitor-web-app-availability.md) | Tout site web instrumenté pour envoyer des données à Application Insights | Réception d’une notification lorsque la réactivité ou la disponibilité d’un site web est inférieure aux attentes. |
 | Log Analytics | [Alertes Log Analytics](../log-analytics/log-analytics-alerts.md) | Tout service configuré pour envoyer des données vers Log Analytics | Réception d’une notification lorsqu’une requête de recherche Log Analytics concernant des métriques ou des données d’événement répond à certains critères. |
 
 ## <a name="alerts-on-azure-monitor-data"></a>Alertes pour des données Azure Monitor
-Il existe trois types d’alertes de données dans Azure Monitor : les alertes de métriques, les alertes de métriques quasiment en temps réel (préversion) et les alertes du journal d’activité.
+Il existe trois types d’alertes de données disponibles dans Azure Monitor : les alertes métriques, les alertes métriques quasiment en temps réel et les alertes du journal d’activité.
 
-* **Alertes de métrique** : ces alertes se déclenchent quand la valeur d’une métrique spécifiée dépasse le seuil défini. Ces alertes génèrent une notification lorsqu’elles sont activées (quand le seuil est atteint et que la condition d’alerte est remplie) et lorsqu’elles sont résolues (quand le seuil est de nouveau atteint et que la condition n’est plus remplie). Pour obtenir la liste croissante des mesures disponibles prises en charge par Azure Monitor, voir [Liste des mesures prises en charge sur Azure Monitor](monitoring-supported-metrics.md).
-* **Alertes de métriques quasiment en temps réel (préversion)** : ces alertes sont similaires aux alertes métriques mais diffèrent de plusieurs façons. Tout d’abord, comme leur nom l’indique, ces alertes peuvent se déclencher quasiment en temps réel (en moins de 1 minute). Elles prennent également en charge le monitorage de plusieurs métriques (contre deux actuellement).  Ces alertes génèrent une notification lorsqu’elles sont activées (quand les seuils de toutes les métriques sont atteints en même temps et que la condition d’alerte est remplie) et lorsqu’elles sont résolues (quand le seuil d’au moins une métrique est de nouveau atteint et que la condition n’est plus remplie).
+* **Alertes de métrique** : ces alertes se déclenchent quand la valeur d’une métrique spécifiée dépasse le seuil défini. Ces alertes génèrent une notification lorsqu’elles sont activées (quand le seuil est atteint et que la condition d’alerte est remplie) et lorsqu’elles sont résolues (quand le seuil est de nouveau atteint et que la condition n’est plus remplie). Il s’agit des alertes métriques les plus anciennes. Pour les alertes métriques plus récentes, voir ci-dessous.
 
-    > [!NOTE]
-    > Les alertes de métriques quasiment en temps réel sont actuellement en préversion publique. La fonctionnalité et l’expérience utilisateur sont susceptibles de changer.
-    >
-    >
+* **Alertes métriques quasiment en temps réel** : il s’agit de la nouvelle génération d’alertes métriques avec des fonctionnalités améliorées par rapport aux alertes métriques précédentes. Ces alertes peuvent être exécutées à une fréquence de 1 minute. Elles prennent également en charge l’analyse de plusieurs métriques (actuellement deux).  Ces alertes génèrent une notification lorsqu’elles sont activées (quand les seuils de toutes les métriques sont atteints en même temps et que la condition d’alerte est remplie) et lorsqu’elles sont résolues (quand le seuil d’au moins une métrique est de nouveau atteint et que la condition n’est plus remplie).
 
 * **Alertes du journal d’activité** : alertes du journal de streaming qui sont déclenchées lorsqu’un événement du journal d’activité généré répond aux critères de filtre que vous avez définis. Ces alertes ne peuvent être qu’à l’état actif, puisque le moteur d’alerte ne fait qu’appliquer les critères de filtre aux nouveaux événements. Ces alertes peuvent être utilisées pour être informé lorsqu’un nouvel incident d’état du service se produit ou lorsqu’un utilisateur ou une application effectue une opération dans votre abonnement (par exemple, « Supprimer la machine virtuelle »).
 
@@ -76,9 +69,9 @@ Les groupes d’actions prennent en charge les notifications par publication d�
     - Application logique Azure
     - Un service tiers
 
-Les alertes de métriques quasiment en temps réel (préversion) et les alertes de journal d’activité utilisent des groupes d’actions.
+Les alertes métriques quasiment en temps réel et les alertes de journal d’activité utilisent des groupes d’actions.
 
-Les alertes de métriques n’utilisent pas encore les groupes d’actions. Dans une alerte de métrique, vous pouvez configurer des notifications pour :
+Les anciennes alertes métriques disponibles sous Alertes (classique) n’utilisent pas les groupes d’actions. Dans une alerte de métrique, vous pouvez configurer des notifications pour :
 * envoyer des notifications par courrier électronique à l’administrateur de service, aux coadministrateurs ou aux adresses e-mail supplémentaires que vous spécifiez ;
 * appeler un webhook, qui permet de lancer des actions d’automatisation supplémentaires.
 
@@ -86,15 +79,15 @@ Les alertes de métriques n’utilisent pas encore les groupes d’actions. Dans
 Vous pouvez obtenir des informations sur les règles d’alerte et leur configuration avec :
 
 * En savoir plus sur les [métriques](monitoring-overview-metrics.md)
-* Configurer les [alertes métriques par le biais du portail Azure](insights-alerts-portal.md)
-* Configurer les [alertes métriques dans PowerShell](insights-alerts-powershell.md)
-* Configurer l’[interface de ligne de commande des alertes métriques](insights-alerts-command-line-interface.md)
-* Configurer les [alertes métriques au moyen de l’API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* Configurer les [alertes métriques classiques via le Portail Azure](insights-alerts-portal.md)
+* Configurer les [alertes métriques classiques PowerShell](insights-alerts-powershell.md)
+* Configurer [l’interface de ligne de commande (CLI) des alertes métriques classiques](insights-alerts-command-line-interface.md)
+* Configurer les [l’API REST Azure Monitor des alertes métriques](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 * En savoir plus sur les [journaux d’activité](monitoring-overview-activity-logs.md)
 * Configurer les [alertes de journal d’activité par le biais du portail Azure](monitoring-activity-log-alerts.md)
 * Configurer les [alertes de journal d’activité au moyen de Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
 * Consulter le [schéma de webhook d’alerte de journal d’activité](monitoring-activity-log-alerts-webhook.md)
-* En savoir plus sur les [alertes de métriques quasiment en temps réel](monitoring-near-real-time-metric-alerts.md)
+* En savoir plus sur les [dernières alertes métriques](monitoring-near-real-time-metric-alerts.md)
 * Apprenez-en plus sur les [notifications de service](monitoring-service-notifications.md)
 * En savoir plus sur les [groupes d’actions](monitoring-action-groups.md)
-* Configurer des [alertes via Alerts (préversion)](monitor-alerts-unified-usage.md)
+* Configurer [Alertes](monitor-alerts-unified-usage.md)

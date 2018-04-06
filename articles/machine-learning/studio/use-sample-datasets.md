@@ -1,10 +1,11 @@
 ---
-title: "Utilisation des exemples de jeux de données dans Machine Learning Studio | Microsoft Docs"
-description: "Descriptions des jeux de données utilisés dans les exemples de modèles inclus dans Machine Learning Studio. Vous pouvez utiliser ces exemples de jeux de données pour vos expériences."
+title: Utilisation des exemples de jeux de données dans Machine Learning Studio | Microsoft Docs
+description: Descriptions des jeux de données utilisés dans les exemples de modèles inclus dans Machine Learning Studio. Vous pouvez utiliser ces exemples de jeux de données pour vos expériences.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 03a0b844-e8a7-4896-996f-d3c7a0db7a50
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.author: garye
-ms.openlocfilehash: 3339d3b3bab2c0ce210950c178ef03fc6c0ecab9
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 38f31220b7cf4624367d872df152ef9e1304e841
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Utilisation des exemples de jeux de données dans Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
@@ -47,7 +47,7 @@ Sous-ensemble de la base de données Census de 1994, qui recense les adultes de 
 <p></p>
 <b>Utilisation :</b> effectuer un classement des personnes en utilisant des données démographiques pour prédire si une personne gagne plus de 50 000 $ par an.
 <p></p>
-<b>Recherche associée :</b> Kohavi, R., Becker, B., (1996). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science  </td>
+<b>Recherche associée :</b> Kohavi, R., Becker, B., (1996). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science  </td>
 </tr>
 
 <tr>
@@ -68,7 +68,7 @@ La note de risque est initialement associée au prix de l’automobile. Elle est
 <p></p>
 <b>Utilisation :</b> prédire la note de risque en fonction des caractéristiques, en utilisant une classification de régression ou multivariable. 
 <p></p>
-<b>Recherche associée :</b> Schlimmer, J.C. (1987). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science  </td>
+<b>Recherche associée :</b> Schlimmer, J.C. (1987). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science  </td>
 </tr>
 
 <tr>
@@ -99,9 +99,9 @@ Les données associées aux donneurs incluent le nombre de mois depuis le dernie
 <p></p>
 <b>Utilisation :</b> l’objectif est de prédire par la classification si le donneur a donné du sang en mars 2007, 1 indiquant un donneur pendant la période ciblée et 0 une personne n’ayant pas fait de don. 
 <p></p>
-<b>Recherche associée :</b> Yeh, I.C., (2008). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science 
+<b>Recherche associée :</b> Yeh, I.C., (2008). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science 
 <p></p>
-Yeh, I-Cheng, Yang, King-Jang et Ting, Tao-Ming, « Knowledge discovery on RFM model using Bernoulli sequence », Expert Systems with Applications, 2008, <a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
+Yeh, I-Cheng, Yang, King-Jang et Ting, Tao-Ming, « Détection des connaissances sur le modèle RFM à l’aide de la séquence Bernoulli, » Expert Systems avec Applications, 2008, <a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
   </td>
 </tr>
 
@@ -112,7 +112,7 @@ Un des trois jeux de données sur le cancer fournis par l’Oncology Institute, 
 <p></p>
 <b>Utilisation :</b> classifier le type de cancer en se basant sur 9 attributs, certains étant linéaires, d’autres de catégorie. 
 <p></p>
-<b>Recherche associée :</b> Wohlberg, W.H., Street, W.N., &amp; Mangasarian, O.L. (1995). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science  </td>
+<b>Recherche associée :</b> Wohlberg, W.H., Street, W.N., &amp; Mangasarian, O.L. (1995). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science  </td>
 </tr>
 
 <tr>
@@ -165,7 +165,7 @@ Collection de profils d'énergie simulés, basée sur 12 formes différentes de
 <p></p>
 <b>Utilisation :</b> utiliser la régression ou la classification pour prédire la notation de l’efficacité énergétique sous la forme de l’une des deux réponses en valeur réelle. Pour la classification multiclasse, arrondit la variable de la réponse à l’entier le plus proche. 
 <p></p>
-<b>Recherche associée :</b> Xifara, A. &amp; Tsanas, A. (2012). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science  </td>
+<b>Recherche associée :</b> Xifara, A. &amp; Tsanas, A. (2012). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science  </td>
 </tr>
 
 <tr>
@@ -190,7 +190,7 @@ Enregistrements des arrivées et départs de vols aux États-Unis à compter d�
 <p></p>
 <b>Utilisation :</b> prédire les retards des vols. 
 <p></p>
-<b>Recherche associée :</b> ministère du transport des États-Unis <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&amp;DB_Short_Name=On-Time</a>.
+<b>Recherches connexes :</b> à partir de département du transport des États-Unis <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time</a>.
   </td>
 </tr>
 
@@ -201,9 +201,9 @@ Contient des données météorologiques, par exemple, les indices de températur
 <p></p>
 <b>Utilisation :</b> il s’agit d’une tâche difficile de régression dont l’objectif est de prédire la zone brûlée par des feux de forêt. 
 <p></p>
-<b>Recherche associée :</b> Cortez, P., &amp; Morais, A. (2008). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science 
+<b>Recherche associée :</b> Cortez, P., &amp; Morais, A. (2008). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science 
 <p></p>
-[Cortez et Morais, 2007] P. Cortez et A. Morais. A Data Mining Approach to Predict Forest Fires using Meteorological Data. Aux éditions J. Neves, M. F. Santos and J. Machado, « New Trends in Artificial Intelligence, Proceedings of the 13th EPIA 2007 - Portuguese Conference on Artificial Intelligence », December, Guimarães, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Disponible à l’adresse <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
+[Cortez et Morais, 2007] P. Cortez et A. Morais. A Data Mining Approach to Predict Forest Fires using Meteorological Data. Aux éditions J. Neves, M. F. Santos and J. Machado, « New Trends in Artificial Intelligence, Proceedings of the 13th EPIA 2007 - Portuguese Conference on Artificial Intelligence », December, Guimarães, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Disponibles sur : <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
   </td>
 </tr>
 
@@ -230,7 +230,7 @@ Il s’agit sans doute de l’une des bases de données les plus réputées dans
 <p></p>
 <b>Utilisation :</b> prédire le type d’iris à partir des mesures.  
 <p></p>
-<b>Recherche associée :</b> Fisher, R.A. (1988). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science  </td>
+<b>Recherche associée :</b> Fisher, R.A. (1988). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science  </td>
 </tr>
 
 <tr>
@@ -249,7 +249,7 @@ Les données répertorient la consommation de carburant de différentes automobi
 <p></p>
 <b>Utilisation :</b> prédire l’économie de carburant à partir de trois attributs discrets multivalués et de cinq attributs continus. 
 <p></p>
-<b>Recherches connexes :</b> StatLib, Carnegie Mellon University, (1993). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science  </td>
+<b>Recherches connexes :</b> StatLib, Carnegie Mellon University, (1993). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science  </td>
 </tr>
 
 <tr>
@@ -259,7 +259,7 @@ Sous-ensemble de la base de données du National Institute of Diabetes and Diges
 <p></p>
 <b>Utilisation :</b> prédire si le sujet a du diabète (classification binaire). 
 <p></p>
-<b>Recherche associée :</b> Sigillito, V. (1990). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science  </td>
+<b>Recherche associée :</b> Sigillito, V. (1990). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml »</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science  </td>
 </tr>
 
 <tr>
@@ -269,7 +269,7 @@ Jeu de données sur les clients, comprenant des données démographiques et des 
 <p></p>
 <b>Utilisation :</b> utilisez ce jeu de données avec les deux autres jeux de données sur les restaurants, pour former et tester un système de recommandation. 
 <p></p>
-<b>Recherche associée :</b> Bache, K et Lichman, M. (2013). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science.
+<b>Recherche associée :</b> Bache, K et Lichman, M. (2013). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science.
   </td>
 </tr>
 
@@ -280,7 +280,7 @@ Jeu de métadonnées sur des restaurants et leurs caractéristiques, comme le ty
 <p></p>
 <b>Utilisation :</b> utilisez ce jeu de données avec les deux autres jeux de données sur les restaurants, pour former et tester un système de recommandation. 
 <p></p>
-<b>Recherche associée :</b> Bache, K et Lichman, M. (2013). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science.
+<b>Recherche associée :</b> Bache, K et Lichman, M. (2013). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science.
   </td>
 </tr>
 
@@ -291,7 +291,7 @@ Contient les notes attribuées par les consommateurs à des restaurants sur une 
 <p></p>
 <b>Utilisation :</b> utilisez ce jeu de données avec les deux autres jeux de données sur les restaurants, pour former et tester un système de recommandation. 
 <p></p>
-<b>Recherche associée :</b> Bache, K et Lichman, M. (2013). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science.
+<b>Recherche associée :</b> Bache, K et Lichman, M. (2013). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science.
   </td>
 </tr>
 
@@ -304,9 +304,9 @@ Ce jeu de données contient une série d’enregistrements d’essais de recuit 
 <p></p>
 Les qualités d'acier répondent à un standard défini par la SAE et d'autres organisations. Vous recherchez une qualité d’acier spécifique (variable de classe) et vous cherchez à comprendre les valeurs nécessaires. 
 <p></p>
-<b>Recherche associée :</b> Sterling, D. &amp; Buntine, W. (NA). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science 
+<b>Recherche associée :</b> Sterling, D. &amp; Buntine, W. (NA). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : Université de Californie, School of Information and Computer Science 
 <p></p>
-Retrouvez un guide sur la qualité de l’acier à la page <a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf">http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf</a>
+Vous trouverez ici un guide utile sur les qualités d’acier : <a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf">http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf</a>
   </td>
 </tr>
 
@@ -325,7 +325,7 @@ Les données ont été prétraitées pour créer un cluster allongé avec l'axe 
 <p></p>
 Notez également que le nombre d’événements de bruit de fond (h, pour douches hadroniques) est sous-estimé. Dans les mesures réelles, la classe h ou classe bruitée représente la majorité des événements. 
 <p></p>
-<b>Recherche associée :</b> Bock, R.K. (1995). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : University of California, School of Information </td>
+<b>Recherche associée :</b> Bock, R.K. (1995). Référentiel Machine Learning UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, Californie : University of California, School of Information </td>
 </tr>
 
 <tr>
@@ -346,7 +346,7 @@ Les données météorologiques couvrent les observations effectuées depuis les 
 <tr>
   <td>Jeu de données Wikipedia concernant le SP 500</td>
   <td>
-Les données sont extraites de Wikipédia (<a href="http://www.wikipedia.org/">http://www.wikipedia.org/</a>), notamment d’articles sur chaque société S&P 500, et sont stockées sous forme de données XML.
+Les données sont extraites de Wikipédia (<a href="http://www.wikipedia.org/">http://www.wikipedia.org/</a>), notamment d’articles sur chaque société S&P 500 et sont stockées sous forme de données XML.
 <p></p>
 Avant son téléchargement dans Azure Machine Learning Studio, le jeu de données a été traité comme suit :
 <ul>

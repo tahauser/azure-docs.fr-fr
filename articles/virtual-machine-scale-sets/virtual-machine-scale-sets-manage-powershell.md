@@ -1,11 +1,11 @@
 ---
-title: "Gérer des groupes de machines virtuelles identiques à l’aide d’Azure PowerShell | Microsoft Docs"
-description: "Des applets de commande Azure PowerShell communes pour gérer des groupes de machines virtuelles identiques, par exemple, pour démarrer et arrêter une instance ou modifier la capacité du groupe identique."
+title: Gérer des groupes de machines virtuelles identiques à l’aide d’Azure PowerShell | Microsoft Docs
+description: Des applets de commande Azure PowerShell communes pour gérer des groupes de machines virtuelles identiques, par exemple, pour démarrer et arrêter une instance ou modifier la capacité du groupe identique.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: d35fa77a-de96-4ccd-a332-eb181d1f4273
 ms.service: virtual-machine-scale-sets
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 5b5f3eb05f0d6c10f7efe8af1b93b2cb4fc585c5
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: c463dd26c106b3178becc977a8afd742220d7973
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Gérer un groupe de machines virtuelles identique à l’aide d’Azure PowerShell
 Tout au long du cycle de vie du groupe de machines virtuelles identiques, vous devrez peut-être exécuter une ou plusieurs tâches de gestion. En outre, vous souhaiterez peut-être créer des scripts pour automatiser les diverses tâches liées au cycle de vie. Cet article décrit en détail certaines des applets de commande Azure PowerShell courantes qui vous permettent d’effectuer ces tâches.
 
-Pour effectuer ces tâches de gestion, vous aurez besoin du dernier module Azure PowerShell. Pour plus d’informations sur l’installation et l’utilisation de la version la plus récente, consultez [Bien démarrer avec Azure PowerShell](/powershell/azure/get-started-azureps). Si vous avez besoin de créer un groupe de machines virtuelles identiques, vous pouvez [Créer un jeu de mise à l’échelle de machine virtuelle](virtual-machine-scale-sets-create-portal.md).
+Pour effectuer ces tâches de gestion, vous aurez besoin du dernier module Azure PowerShell. Pour en savoir plus, voir [Prise en main d’Azure PowerShell](/powershell/azure/get-started-azureps). Si vous avez besoin de créer un groupe de machines virtuelles identiques, vous pouvez [Créer un groupe identique avec Azure PowerShell](quick-create-powershell.md).
 
 
-## <a name="view-information-about-a-scale-set"></a>Affichage des informations relatives à un groupe identique
+## <a name="view-information-about-a-scale-set"></a>Afficher des informations sur un groupe identique
 Pour afficher les informations générales sur un groupe identique, utilisez [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss). L’exemple suivant obtient des informations sur le groupe identique nommé *myScaleSet* dans le groupe de ressources *myResourceGroup*. Entrez vos propres noms, comme suit :
 
 ```powershell

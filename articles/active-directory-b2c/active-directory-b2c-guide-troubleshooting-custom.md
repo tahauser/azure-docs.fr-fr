@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C : résoudre les problèmes liés aux stratégies personnalisées | Microsoft Docs"
-description: "Découvrez les approches pour résoudre les erreurs quand vous utilisez des stratégies personnalisées dans Azure Active Directory."
+title: 'Azure Active Directory B2C : résoudre les problèmes liés aux stratégies personnalisées | Microsoft Docs'
+description: Découvrez les approches pour résoudre les erreurs quand vous utilisez des stratégies personnalisées dans Azure Active Directory.
 services: active-directory-b2c
-documentationcenter: 
-author: rojasja
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: rojasja
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2017
-ms.author: joroja
-ms.openlocfilehash: 8718f9c1dfce81682174eec11e8cbb731cbdf796
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: e51990bd2e121b89e7260e0d745d08ecc82ff8a0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Résoudre les problèmes liés aux stratégies personnalisées Azure AD B2C et à l’Infrastructure d’expérience d’identité.
 

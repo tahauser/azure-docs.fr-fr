@@ -1,6 +1,6 @@
 ---
 title: Azure Traffic Analytics | Microsoft Docs
-description: Découvrez comment analyser les journaux de flux de groupe de sécurité réseau Azure avec Traffic Analytics.
+description: Découvrez comment analyser les journaux de flux du groupe de sécurité réseau Azure avec Traffic Analytics.
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: jdial
-ms.openlocfilehash: 9fc44fdd6ce01452ffc2506c599e3d05aa0803e1
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: ffb13d1190535dacbe3a0781a1d3b425a970d26e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="traffic-analytics"></a>Traffic Analytics
 
@@ -59,7 +59,7 @@ Traffic Analytics est disponible en préversion. Les fonctionnalités de la pré
 
 ### <a name="enable-network-watcher"></a>Activer Network Watcher 
 
-Pour analyser le trafic, vous devez disposer d’un service Network Watcher, ou devez [activer un Azure Network Watcher](network-watcher-create.md) dans chaque région hébergeant des groupes de sécurité réseau que vous souhaitez analyser. Traffic Analytics peut être activé pour les groupes de sécurité réseau hébergés dans les [régions prises en charge](#supported-regions).
+Pour analyser le trafic, vous devez disposer d’un service Network Watcher, ou devez [activer un Network Watcher](network-watcher-create.md) dans chaque région hébergeant des groupes de sécurité réseau que vous souhaitez analyser. Traffic Analytics peut être activé pour les groupes de sécurité réseau hébergés dans les [régions prises en charge](#supported-regions).
 
 ### <a name="re-register-the-network-resource-provider"></a>Inscrire à nouveau le fournisseur de ressources réseau 
 
@@ -108,7 +108,7 @@ Sélectionnez les options suivantes, comme indiqué dans l’image :
 4. Sélectionnez *Activé* pour **Traffic Analytics Status** (État Traffic Analytics).
 5. Sélectionnez un espace de travail Log Analytics (OMS) existant ou cliquez sur **Créer un espace de travail** pour en créer un. Un espace de travail Log Analytics est utilisé par Traffic Analytics pour stocker les données agrégées et indexées qui sont ensuite utilisées pour générer l’analyse. Si vous sélectionnez un espace de travail existant, il doit se trouver dans les [régions prises en charge](#traffic-analytics-supported-regions) et avoir été mis à niveau vers le nouveau langage de requête. Si vous ne souhaitez pas mettre à niveau un espace de travail existant ou si vous ne disposez pas d’un espace de travail dans une région prise en charge, créez-en un. Pour plus d’informations sur les langages de requête, consultez [Mise à niveau Azure Log Analytics avec la nouvelle recherche dans les journaux](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
-    L’espace de travail Log Analytics (OMS) qui héberge la solution Traffic Analytics et les groupes de sécurité réseau ne doivent pas nécessairement se trouver dans la même région. Par exemple, Traffic Analytics se trouve peut-être dans un espace de travail de la région Europe de l’Ouest, tandis que vos groupes de sécurité réseau sont hébergés dans les régions Est des États-Unis et Ouest des États-Unis. Plusieurs groupes de sécurité réseau peuvent être configurés dans le même espace de travail.
+    L’espace de travail Log Analytics qui héberge la solution Traffic Analytics et les groupes de sécurité réseau ne doivent pas nécessairement se trouver dans la même région. Par exemple, Traffic Analytics se trouve peut-être dans un espace de travail de la région Europe de l’Ouest, tandis que vos groupes de sécurité réseau sont hébergés dans les régions Est des États-Unis et Ouest des États-Unis. Plusieurs groupes de sécurité réseau peuvent être configurés dans le même espace de travail.
 6. Sélectionnez **Enregistrer**.
 
     ![Sélection du compte de stockage, de l’espace de travail Log Analytics et activation de Traffic Analytics](media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement.png)
@@ -117,7 +117,7 @@ Répétez les étapes précédentes pour les autres groupes de sécurité résea
 
 ## <a name="view-traffic-analytics"></a>Afficher Traffic Analytics
 
-Dans la partie gauche du portail, sélectionnez **All services** (Tous les services), puis entrez *Surveiller* dans la zone **Filtrer**. Quand **Surveiller** apparaît dans les résultats de la recherche, sélectionnez cette option. Pour commencer à découvrir Traffic Analytics et ses fonctionnalités, sélectionnez **Observateur réseau**, puis **Analytique du trafic (préversion)**.
+Dans la partie gauche du portail, sélectionnez **All services** (Tous les services), puis entrez *Surveiller* dans la zone **Filtrer**. Quand **Surveiller** apparaît dans les résultats de la recherche, sélectionnez cette option. Pour commencer à découvrir Traffic Analytics et ses fonctionnalités, sélectionnez **Observateur réseau**, puis **Traffic Analytics (préversion)**.
 
 ![Accès au tableau de bord de Traffic Analytics](media/traffic-analytics/accessing-the-traffic-analytics-dashboard.png)
 
@@ -277,4 +277,4 @@ Avez-vous détecté la présence de trafic malveillant dans votre environnement 
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
-Pour obtenir des réponses aux questions fréquemment posées, consultez [Traffic Analytics frequently asked questions](traffic-analytics-faq.md) (Forum aux questions Traffic Analytics).
+Pour obtenir des réponses aux questions fréquemment posées, consultez [Traffic Analytics FAQ](traffic-analytics-faq.md) (Forum aux questions sur Traffic Analytics).

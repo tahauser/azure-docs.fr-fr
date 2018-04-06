@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: 4709ee707aa67c8de531b2b3e0b58dbed5c2667b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 94f11504597c127d505d103a417c3d78744d99d1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
 
@@ -87,6 +87,11 @@ Plusieurs étapes importantes doivent être effectuées avant de déplacer une r
   az provider register --namespace Microsoft.Batch
   ```
 
+4. Le compte déplaçant les ressources doit avoir au moins les autorisations suivantes :
+
+   * **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action** sur le groupe de ressources source.
+   * **Microsoft.Resources/subscriptions/resourceGroups/write** sur le groupe de ressources de destination.
+
 ## <a name="when-to-call-support"></a>Quand appeler le support technique
 
 Vous pouvez déplacer la plupart des ressources via les opérations en libre-service présentées dans cet article. Utilisez les opérations en libre-service pour :
@@ -105,6 +110,7 @@ Les services qui permettent le déplacement vers un nouveau groupe de ressources
 
 * API Management
 * Applications App Service (applications web) : consultez [Limitations d’App Service](#app-service-limitations)
+* App Service Certificates
 * Application Insights
 * Automatisation
 * Azure Cosmos DB
@@ -193,7 +199,9 @@ Vous ne pouvez pas déplacer un réseau virtuel vers un autre abonnement s’il 
 
 ## <a name="app-service-limitations"></a>limitations d’App Service
 
-Les limitations imposées diffèrent selon que les ressources App Service sont déplacées au sein d’un abonnement ou vers un nouvel abonnement.
+Les limitations imposées diffèrent selon que les ressources App Service sont déplacées au sein d’un abonnement ou vers un nouvel abonnement. 
+
+Les limitations décrites dans les sections suivantes s’appliquent à des certificats téléchargés, et non aux App Service Certificats. Vous pouvez déplacer des App Service Certificats vers un nouveau groupe de ressources ou un nouvel abonnement sans aucun problème. Si vous avez plusieurs applications Web qui utilisent le même App Service Certificate, commencez par déplacer toutes les applications Web, puis déplacer le certificat.
 
 ### <a name="moving-within-the-same-subscription"></a>Déplacement au sein d’un même abonnement
 

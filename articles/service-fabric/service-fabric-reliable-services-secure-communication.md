@@ -1,6 +1,6 @@
 ---
-title: "Sécuriser des communications pour les services dans Azure Service Fabric | Microsoft Docs"
-description: "Vue d’ensemble de la sécurisation des communications pour Reliable Services en cours d’exécution dans un cluster Azure Service Fabric."
+title: Sécuriser des communications de service à distance dans Azure Service Fabric | Microsoft Docs
+description: Découvrez comment sécuriser des communications de service à distance pour des services fiables s’exécutant dans un cluster Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: suchiagicha
@@ -14,22 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: 0804e43c3f1bb13bea92ebd661ca52c799ff2332
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 00788a5685bcb021d8d626f01fa089b0f6598019
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="help-secure-communication-for-services-in-azure-service-fabric"></a>Sécurisation des communications pour les services dans Azure Service Fabric
+# <a name="secure-service-remoting-communications-for-a-service"></a>Sécuriser des communications de service à distance pour un service
 > [!div class="op_single_selector"]
 > * [C# sur Windows](service-fabric-reliable-services-secure-communication.md)
 > * [Java sur Linux](service-fabric-reliable-services-secure-communication-java.md)
 >
 >
 
-La sécurité est un des aspects les plus importants de la communication. L’infrastructure d’application Reliable Services fournit quelques piles et outils de communication prédéfinis afin d’améliorer la sécurité. Cet article vous explique comment améliorer la sécurité quand vous utilisez la communication à distance des services et la pile de communication Windows Communication Foundation (WCF).
+La sécurité est un des aspects les plus importants de la communication. L’infrastructure d’application Reliable Services fournit quelques piles et outils de communication prédéfinis afin d’améliorer la sécurité. Cet article explique comment améliorer la sécurité lorsque vous utilisez un service de communication à distance.
 
-## <a name="help-secure-a-service-when-youre-using-service-remoting"></a>Sécurisation d’un service lors de l’utilisation de la communication à distance des services
 Nous utilisons un [exemple](service-fabric-reliable-services-communication-remoting.md) existant qui explique comment configurer la communication à distance pour Reliable Services. Pour sécuriser un service lors de l’utilisation de la communication à distance des services, procédez comme suit :
 
 1. Créez une interface, `IHelloWorldStateful`, qui définit les méthodes disponibles pour l'appel de procédure distante sur votre service. Votre service utilisera `FabricTransportServiceRemotingListener`, qui est déclaré dans l’espace de noms `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime`. Il s'agit d'une implémentation `ICommunicationListener` qui fournit des fonctionnalités de communication à distance.
@@ -203,111 +202,4 @@ Nous utilisons un [exemple](service-fabric-reliable-services-communication-remot
 
     ```
 
-## <a name="help-secure-a-service-when-youre-using-a-wcf-based-communication-stack"></a>Sécuriser un service lorsque vous utilisez une pile de communication basée sur WCF
-Nous utilisons un [exemple](service-fabric-reliable-services-communication-wcf.md) existant qui explique comment configurer une pile de communication basée sur WCF pour Reliable Services. Pour sécuriser un service lorsque vous utilisez une pile de communication basée sur WCF, procédez comme suit :
-
-1. Pour le service, vous devez sécuriser l'écouteur de communication WCF (`WcfCommunicationListener`) que vous créez. Pour cela, modifiez la méthode `CreateServiceReplicaListeners` .
-
-    ```csharp
-    protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
-    {
-        return new[]
-        {
-            new ServiceReplicaListener(
-                this.CreateWcfCommunicationListener)
-        };
-    }
-
-    private WcfCommunicationListener<ICalculator> CreateWcfCommunicationListener(StatefulServiceContext context)
-    {
-       var wcfCommunicationListener = new WcfCommunicationListener<ICalculator>(
-            serviceContext:context,
-            wcfServiceObject:this,
-            // For this example, we will be using NetTcpBinding.
-            listenerBinding: GetNetTcpBinding(),
-            endpointResourceName:"WcfServiceEndpoint");
-
-        // Add certificate details in the ServiceHost credentials.
-        wcfCommunicationListener.ServiceHost.Credentials.ServiceCertificate.SetCertificate(
-            StoreLocation.LocalMachine,
-            StoreName.My,
-            X509FindType.FindByThumbprint,
-            "9DC906B169DC4FAFFD1697AC781E806790749D2F");
-        return wcfCommunicationListener;
-    }
-
-    private static NetTcpBinding GetNetTcpBinding()
-    {
-        NetTcpBinding b = new NetTcpBinding(SecurityMode.TransportWithMessageCredential);
-        b.Security.Message.ClientCredentialType = MessageCredentialType.Certificate;
-        return b;
-    }
-    ```
-2. Dans le client, la classe `WcfCommunicationClient` que nous avons créée dans l’ [exemple](service-fabric-reliable-services-communication-wcf.md) précédent reste inchangée. Cependant, vous devez remplacer la méthode `CreateClientAsync` de `WcfCommunicationClientFactory` :
-
-    ```csharp
-    public class SecureWcfCommunicationClientFactory<TServiceContract> : WcfCommunicationClientFactory<TServiceContract> where TServiceContract : class
-    {
-        private readonly Binding clientBinding;
-        private readonly object callbackObject;
-        public SecureWcfCommunicationClientFactory(
-            Binding clientBinding,
-            IEnumerable<IExceptionHandler> exceptionHandlers = null,
-            IServicePartitionResolver servicePartitionResolver = null,
-            string traceId = null,
-            object callback = null)
-            : base(clientBinding, exceptionHandlers, servicePartitionResolver,traceId,callback)
-        {
-            this.clientBinding = clientBinding;
-            this.callbackObject = callback;
-        }
-
-        protected override Task<WcfCommunicationClient<TServiceContract>> CreateClientAsync(string endpoint, CancellationToken cancellationToken)
-        {
-            var endpointAddress = new EndpointAddress(new Uri(endpoint));
-            ChannelFactory<TServiceContract> channelFactory;
-            if (this.callbackObject != null)
-            {
-                channelFactory = new DuplexChannelFactory<TServiceContract>(
-                this.callbackObject,
-                this.clientBinding,
-                endpointAddress);
-            }
-            else
-            {
-                channelFactory = new ChannelFactory<TServiceContract>(this.clientBinding, endpointAddress);
-            }
-            // Add certificate details to the ChannelFactory credentials.
-            // These credentials will be used by the clients created by
-            // SecureWcfCommunicationClientFactory.  
-            channelFactory.Credentials.ClientCertificate.SetCertificate(
-                StoreLocation.LocalMachine,
-                StoreName.My,
-                X509FindType.FindByThumbprint,
-                "9DC906B169DC4FAFFD1697AC781E806790749D2F");
-            var channel = channelFactory.CreateChannel();
-            var clientChannel = ((IClientChannel)channel);
-            clientChannel.OperationTimeout = this.clientBinding.ReceiveTimeout;
-            return Task.FromResult(this.CreateWcfCommunicationClient(channel));
-        }
-    }
-    ```
-
-    Utilisez `SecureWcfCommunicationClientFactory` pour créer un client de communication WCF (`WcfCommunicationClient`). Utilisez le client pour appeler les méthodes de service.
-
-    ```csharp
-    IServicePartitionResolver partitionResolver = ServicePartitionResolver.GetDefault();
-
-    var wcfClientFactory = new SecureWcfCommunicationClientFactory<ICalculator>(clientBinding: GetNetTcpBinding(), servicePartitionResolver: partitionResolver);
-
-    var calculatorServiceCommunicationClient =  new WcfCommunicationClient(
-        wcfClientFactory,
-        ServiceUri,
-        ServicePartitionKey.Singleton);
-
-    var result = calculatorServiceCommunicationClient.InvokeWithRetryAsync(
-        client => client.Channel.Add(2, 3)).Result;
-    ```
-
-## <a name="next-steps"></a>Étapes suivantes
-* [API Web avec OWIN dans Reliable Services](service-fabric-reliable-services-communication-webapi.md)
+En guise de prochaine étape, lisez [API web avec OWIN dans Reliable Services](service-fabric-reliable-services-communication-webapi.md).

@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C : Ajout d’ADFS en tant que fournisseur d’identités SAML à l’aide de stratégies personnalisées"
-description: "Un guide pratique sur la configuration d’ADFS 2016 à l’aide du protocole SAML et de stratégies personnalisées"
+title: 'Azure Active Directory B2C : Ajout d’ADFS en tant que fournisseur d’identités SAML à l’aide de stratégies personnalisées'
+description: Un guide pratique sur la configuration d’ADFS 2016 à l’aide du protocole SAML et de stratégies personnalisées
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 08/04/2017
-ms.author: yoelh
-ms.openlocfilehash: 22b360aec8878925ebe8d2c67c76d275a42ca7a8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: af102bbc3bc7608fe641db19f4af8c760907a564
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-add-adfs-as-a-saml-identity-provider-using-custom-policies"></a>Azure Active Directory B2C : Ajout d’ADFS en tant que fournisseur d’identités SAML à l’aide de stratégies personnalisées
 
@@ -26,7 +23,8 @@ ms.lasthandoff: 12/11/2017
 
 Cet article vous montre comment activer l’identification pour les utilisateurs de comptes ADFS à l’aide des [stratégies personnalisées](active-directory-b2c-overview-custom.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md).
 
@@ -63,7 +61,7 @@ L’appartenance au groupe **Administrateurs** ou équivalent sur l’ordinateur
 7.  Sur la page **Configurer l’URL**, cochez la case **Activer la prise en charge du protocole WebSSO SAML 2.0**. Sous **URL du service SSO SAML 2.0 de la partie de confiance**, saisissez l’URL du point de terminaison de service Security Assertion Markup Language (SAML) pour cette partie de confiance, puis cliquez sur **Suivant**.  Pour **URL du service SSO SAML 2.0 de la partie de confiance**, collez la `https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/{policy}`. Remplacez {tenant} par le nom de votre client (par exemple, contosob2c.onmicrosoft.com) et remplacez {policy} par votre nom de stratégie d’extension (par exemple, B2C_1A_TrustFrameworkExtensions).
     > [!IMPORTANT]
     >Le nom de la stratégie est celui dont signup_or_signin hérite. Dans ce cas, il s’agit de : `B2C_1A_TrustFrameworkExtensions`.
-    >Par exemple l’URL peut être : https://login.microsoftonline.com/te/**contosob2c**.onmicrosoft.com/**B2C_1A_TrustFrameworkBase**.
+    >Par exemple l’URL peut être :   https://login.microsoftonline.com/te/**contosob2c**.onmicrosoft.com/**B2C_1A_TrustFrameworkBase**.
 
     ![URL du service SSO SAML 2.0 de la partie de confiance](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-6.png)
 8. Sur la page **Configurer les identificateurs**, spécifiez la même URL qu’à l’étape précédente, cliquez sur **Ajouter** pour les ajouter à la liste, puis cliquez sur **Suivant**.
@@ -165,7 +163,7 @@ Définissez ADFS comme fournisseur de revendications, en ajoutant le nœud `<Cla
 ### <a name="display-the-button"></a>Afficher le bouton
 L’élément `<ClaimsProviderSelections>` définit la liste des options de sélection du fournisseur de revendications et leur ordre.  L’élément `<ClaimsProviderSelection>` est analogue à un bouton de fournisseur d’identité sur une page d’inscription/de connexion. Si vous ajoutez un élément `<ClaimsProviderSelection>` au compte ADFS, un nouveau bouton apparaît quand un utilisateur accède à la page. Pour ajouter cet élément :
 
-1.  Recherchez le nœud `<UserJourney>` incluant `Id="SignUpOrSignIn"` dans le parcours utilisateur que vous avez copié.
+1.  Recherchez le nœud `<UserJourney>` comprenant `Id="SignUpOrSignIn"` dans le parcours utilisateur que vous avez copié.
 2.  Localisez le nœud `<OrchestrationStep>` qui inclut `Order="1"`.
 3.  Ajoutez l’extrait de code XML suivant sous le nœud `<ClaimsProviderSelections>` :
 
@@ -187,7 +185,7 @@ Maintenant que vous avez un bouton en place, vous devez le lier à une action. L
 > * Assurez-vous que `Id` a la même valeur que celle de `TargetClaimsExchangeId` dans la section précédente.
 > * Vérifiez que `TechnicalProfileReferenceId` est défini sur le profil de technique que vous avez créé plus haut (Contoso-SAML2).
 
-## <a name="upload-the-policy-to-your-tenant"></a>Charger la stratégie sur votre client
+## <a name="upload-the-policy-to-your-tenant"></a>Charger la stratégie sur un client
 1.  Dans le [portail Azure](https://portal.azure.com), passez au [contexte de votre locataire Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) et ouvrez le panneau **Azure AD B2C**.
 2.  Sélectionnez **Infrastructure d’expérience d’identité**.
 3.  Ouvrez le panneau **Toutes les stratégies**.
@@ -205,7 +203,7 @@ Vous pouvez également ajouter le fournisseur d’identité du compte ADFS au pa
 
 ### <a name="display-the-button"></a>Afficher le bouton
 1.  Ouvrez le fichier d’extension de votre stratégie (par exemple, TrustFrameworkExtensions.xml).
-2.  Recherchez le nœud `<UserJourney>` incluant `Id="ProfileEdit"` dans le parcours utilisateur que vous avez copié.
+2.  Recherchez le nœud `<UserJourney>` comprenant `Id="ProfileEdit"` dans le parcours utilisateur que vous avez copié.
 3.  Localisez le nœud `<OrchestrationStep>` qui inclut `Order="1"`.
 4.  Ajoutez l’extrait de code XML suivant sous le nœud `<ClaimsProviderSelections>` :
 

@@ -1,6 +1,6 @@
 ---
 title: Surveillance des performances des applications web Java dans Azure Application Insights | Microsoft Docs
-description: "Surveillance étendue des performances et de l’utilisation de votre site web Java avec Application Insights."
+description: Surveillance étendue des performances et de l’utilisation de votre site web Java avec Application Insights.
 services: application-insights
 documentationcenter: java
 author: harelbr
@@ -13,28 +13,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: ecfcf7a3b3698435f98b74474d0ca7223ab2b46c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: b327e7f062cdf3e6b1b34a9540461dcb18caf21c
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/29/2018
 ---
-# <a name="monitor-dependencies-exceptions-and-execution-times-in-java-web-apps"></a>Surveiller les dépendances, les exceptions et les temps d’exécution dans les applications web Java
+# <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Surveiller les dépendances, les exceptions interceptées et les temps d’exécution des méthodes dans les applications web Java
 
 
 Si vous avez [instrumenté votre application web Java avec Application Insights][java], vous pouvez utiliser l’agent Java pour obtenir des informations plus détaillées, sans pour autant modifier le code :
 
 * **Dépendances :** données sur les appels passés par votre application à destination d’autres composants, dont :
-  * **Appels REST** passés via HttpClient, OkHttp et RestTemplate (Spring).
-  * **Redis** passés via le client Jedis. Si l’appel prend plus de 10 s, l’agent récupère également les arguments d’appel.
-  * **[Appels JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** : base de données MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB ou Apache Derby. Les appels de « executeBatch » sont pris en charge. Pour MySQL et PostgreSQL, si l’appel prend plus de 10 s, l’agent signale le plan de requête.
-* **Exceptions interceptées** : données concernant les exceptions gérées par votre code.
-* **Temps d’exécution de la méthode** : données concernant le temps nécessaire pour exécuter des méthodes spécifiques.
+  * Les **appels REST** passés via HttpClient, OkHttp et RestTemplate (Spring) sont capturés.
+  * Les appels **Redis** passés via le client Jedis sont capturés.
+  * Les **[ppels JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** – commandes MySQL, SQL Server et base de données Oracle sont automatiquement capturés. Pour MySQL, si l’appel prend plus de 10 s, l’agent signale le plan de requête.
+* **Exceptions interceptées** : informations concernant les exceptions gérées par votre code.
+* **Temps d’exécution de la méthode** : données concernant le temps nécessaire pour exécuter des méthodes spécifiques.
 
 Pour utiliser l’agent Java, installez-le sur votre serveur. Vos applications web doivent être instrumentées à l’aide du [Kit de développement logiciel (SDK) Java Application Insights][java]. 
 
 ## <a name="install-the-application-insights-agent-for-java"></a>Installer l’agent Application Insights pour Java
-1. [Téléchargez l'agent](https://aka.ms/aijavasdk) sur la machine exécutant votre serveur Java.
+1. [Téléchargez l'agent](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) sur la machine exécutant votre serveur Java. Veillez à télécharger la même version de Java Agent en tant que packages de noyau et web de SDK Java Application Insights.
 2. Modifiez le script de démarrage du serveur d’applications et ajoutez la Machine virtuelle Java (JVM) suivante :
    
     `javaagent:`*chemin d’accès complet au fichier JAR de l’agent*

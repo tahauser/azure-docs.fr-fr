@@ -8,17 +8,15 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: d06ec240477c2defca7a463b2e9338bc5e3930ab
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ac0da2b73341f0c6ed4f1e99e077996525890ab7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="forward-azure-automation-dsc-reporting-data-to-oms-log-analytics"></a>Transférer des données de rapport Azure Automation DSC à OMS Log Analytics
+# <a name="forward-azure-automation-dsc-reporting-data-to-log-analytics"></a>Transférer des données de rapport Azure Automation DSC à Log Analytics
 
-Automation peut envoyer les données d’état de nœud DSC à votre espace de travail Microsoft Operations Management Suite (OMS) Log Analytics.  
+Automation peut envoyer des données sur l’état du nœud DSC à votre espace de travail Log Analytics.  
 L’état de conformité est visible dans le portail Azure, ou avec PowerShell, pour les nœuds et les ressources DSC individuelles dans les configurations de nœud. Avec Log Analytics, vous pouvez :
 
 * Obtenir des informations de conformité pour les nœuds gérés et les ressources individuelles
@@ -35,7 +33,7 @@ Pour commencer à envoyer vos rapports Automation DSC à Log Analytics, vous dev
 * Version de novembre 2016 ou une version ultérieure d’[Azure PowerShell](/powershell/azure/overview) (v2.3.0).
 * Un compte Azure Automation. Pour plus d’informations, consultez la page [Prise en main d’Azure Automation](automation-offering-get-started.md).
 * Un espace de travail Log Analytics avec une offre de service **Automation & Control**. Pour plus d’informations, consultez l’article [Prise en main de Log Analytics](../log-analytics/log-analytics-get-started.md).
-* Au moins un nœud Azure Automation DSC. Pour plus d’informations, consultez [Gestion de machines avec Azure Automation DSC](automation-dsc-onboarding.md). 
+* Au moins un nœud Azure Automation DSC. Pour plus d’informations, consultez [Gestion de machines avec Azure Automation DSC](automation-dsc-onboarding.md).
 
 ## <a name="set-up-integration-with-log-analytics"></a>Configurer l’intégration avec Log Analytics
 
@@ -192,5 +190,5 @@ Log Analytics offre une plus grande visibilité opérationnelle sur vos données
 
 * Pour plus d’informations sur la façon de construire différentes requêtes de recherche et sur la manière de consulter les journaux Automation DSC avec Log Analytics, consultez [Recherche de données à l’aide de recherches de journal](../log-analytics/log-analytics-log-searches.md).
 * Pour en savoir plus sur l’utilisation d’Azure Automation DSC, consultez [Prise en main d’Azure Automation DSC](automation-dsc-getting-started.md).
-* Pour en savoir plus sur OMS Log Analytics et sur les sources de collecte de données, consultez [Collecting Azure storage data in Log Analytics overview](../log-analytics/log-analytics-azure-storage.md)
+* Pour en savoir plus sur Log Analytics et sur les sources de collecte de données, consultez [Vue d’ensemble de la collecte des données de stockage Azure dans Log Analytics](../log-analytics/log-analytics-azure-storage.md)
 

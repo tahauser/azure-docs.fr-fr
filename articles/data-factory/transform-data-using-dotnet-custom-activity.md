@@ -4,8 +4,8 @@ description: Découvrez comment créer des activités personnalisées et les uti
 services: data-factory
 documentationcenter: ''
 author: shengcmsft
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 6aaeaaacdc9ee67ebbed3ea3090455dde2357c3d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 770187c16ed9d0eacfaf99e571ad048c6723a9cf
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilisation des activités personnalisées dans un pipeline Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -295,10 +295,10 @@ namespace SampleApp
 Si vous souhaitez consommer le contenu de stdout.txt dans des activités en aval, vous pouvez obtenir le chemin du fichier stdout.txt dans l’expression « @activity(’MyCustomActivity’).output.outputs [0] ». 
 
   > [!IMPORTANT]
-  > - Les fichiers activity.json, linkedServices.json et datasets.json sont stockés dans le dossier d’exécution de la tâche de traitement par lots. Pour cet exemple, le chemin où sont stockés les fichiers activity.json, linkedServices.json et datasets.json est le suivant : https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/. Si nécessaire, vous devez les nettoyer séparément. 
+  > - Les fichiers activity.json, linkedServices.json et datasets.json sont stockés dans le dossier d’exécution de la tâche de traitement par lots. Pour cet exemple, les fichiers activity.json, linkedServices.json et datasets.json sont stockés dans « https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/ ». Si nécessaire, vous devez les nettoyer séparément. 
   > - Pour que les services liés utilisent le runtime d’intégration auto-hébergé, les informations sensibles, telles que les clés ou les mots de passe, sont chiffrées par le runtime d’intégration auto-hébergé, afin de s’assurer que les informations d’identification restent dans l’environnement de réseau privé défini par le client. Certains champs sensibles peuvent manquer lorsqu’ils sont référencés par votre code d’application personnalisé de cette façon. Au besoin, utilisez SecureString dans extendedProperties au lieu d’utiliser une référence de service lié. 
 
-## <a name="compare-v2-custom-activity-and-version-1-custom-dotnet-activity"></a>Comparer les activités personnalisées de la version 2 et les activités DotNet (personnalisées) de la version 1
+## <a name="compare-v2-v1"></a> Comparer les activités personnalisées de la version 2 et les activités DotNet (personnalisées) de la version 1
 
   Dans la version 1 d’Azure Data Factory, pour implémenter une activité DotNet (personnalisée), on crée un projet de bibliothèque de classes .NET avec une classe qui implémente la méthode `Execute` de l’interface `IDotNetActivity`. Les services liés, les jeux de données et les propriétés étendues de la charge utile JSON d’une activité DotNet (personnalisée) sont transmis à la méthode d’exécution sous forme d’objets fortement typés. Pour plus d’informations sur le comportement de la version 1, consultez la page [DotNet (personnalisé) dans la version 1](v1/data-factory-use-custom-activities.md). À cause de cette implémentation, le code de votre activité DotNet de la version 1 doit cibler .NET Framework 4.5.2. L’activité DotNet de la version 1 doit également être exécutée sur des nœuds de pools Azure Batch Windows. 
 

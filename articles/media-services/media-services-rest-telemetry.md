@@ -1,11 +1,11 @@
 ---
-title: "Configuration de la télémétrie Azure Media Services avec REST| Microsoft Docs"
-description: "Cet article vous montre comment utiliser la télémétrie d’Azure Media Services à l’aide de l’API REST."
+title: Configuration de la télémétrie Azure Media Services avec REST| Microsoft Docs
+description: Cet article vous montre comment utiliser la télémétrie d’Azure Media Services à l’aide de l’API REST.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: e1a314fb-cc05-4a82-a41b-d1c9888aab09
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: 7d785c6eb9a9e16ae4853cded3c7c142080c7a09
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: abd093a0b8408e9dcffd4eb9765a767f78fd6fc1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>Configuration de la télémétrie Azure Media Services avec REST
 
@@ -33,7 +33,7 @@ Les étapes décrites dans cette rubrique sont les suivantes :
 - Obtention des points de terminaison de notification
 - Création d’un point de terminaison de notification pour la surveillance. 
 
-    Pour créer un point de terminaison de notification, définissez EndPointType sur AzureTable (2) et endPointAddress définie sur la table de stockage (par exemple, https://telemetryvalidationstore.table.core.windows.net/).
+    Pour créer un point de terminaison de notification, définissez EndPointType sur AzureTable (2) et endPointAddress sur la table de stockage (par exemple, https://telemetryvalidationstore.table.core.windows.net/).
   
 - Obtenir les configurations de surveillance
 
@@ -45,7 +45,7 @@ Les étapes décrites dans cette rubrique sont les suivantes :
  
 ## <a name="get-the-storage-account-associated-with-a-media-services-account"></a>Obtenir le compte de stockage associé au compte Media Services
 
-###<a name="request"></a>Demande
+### <a name="request"></a>Requête
 
     GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/StorageAccounts HTTP/1.1
     x-ms-version: 2.13
@@ -73,7 +73,7 @@ Les étapes décrites dans cette rubrique sont les suivantes :
 
 ## <a name="get-the-notification-endpoints"></a>Obtenir les points de terminaison de notification
 
-###<a name="request"></a>Demande
+### <a name="request"></a>Requête
 
     GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints HTTP/1.1
     x-ms-version: 2.13
@@ -83,7 +83,7 @@ Les étapes décrites dans cette rubrique sont les suivantes :
     Authorization: (redacted)
     Host: wamsbnp1clus001rest-hs.cloudapp.net
     
-###<a name="response"></a>Réponse
+### <a name="response"></a>response
     HTTP/1.1 200 OK
     Cache-Control: no-cache
     Content-Length: 20
@@ -106,7 +106,7 @@ Les étapes décrites dans cette rubrique sont les suivantes :
  
 ## <a name="create-a-notification-endpoint-for-monitoring"></a>Créer un point de terminaison de notification pour la surveillance
 
-###<a name="request"></a>Demande
+### <a name="request"></a>Requête
 
     POST https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints HTTP/1.1
     x-ms-version: 2.13
@@ -125,9 +125,9 @@ Les étapes décrites dans cette rubrique sont les suivantes :
     }
 
 >[!NOTE]
->N’oubliez pas de remplacer la valeur « https://telemetryvalidationstore.table.core.windows.net » par votre compte de stockage.
+>N’oubliez pas de modifier la valeur « https://telemetryvalidationstore.table.core.windows.net » sur votre compte de stockage.
 
-###<a name="response"></a>Réponse
+### <a name="response"></a>response
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -148,7 +148,7 @@ Les étapes décrites dans cette rubrique sont les suivantes :
  
 ## <a name="get-the-monitoring-configurations"></a>Obtenir les configurations de surveillance
 
-### <a name="request"></a>Demande
+### <a name="request"></a>Requête
 
     GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/MonitoringConfigurations HTTP/1.1
     x-ms-version: 2.13
@@ -158,7 +158,7 @@ Les étapes décrites dans cette rubrique sont les suivantes :
     Authorization: (redacted)
     Host: wamsbnp1clus001rest-hs.cloudapp.net
 
-###<a name="response"></a>Réponse
+### <a name="response"></a>response
     
     HTTP/1.1 200 OK
     Cache-Control: no-cache
@@ -178,7 +178,7 @@ Les étapes décrites dans cette rubrique sont les suivantes :
 
 ## <a name="add-a-monitoring-configuration"></a>Ajouter une configuration de surveillance
 
-### <a name="request"></a>Demande
+### <a name="request"></a>Requête
 
     POST https://wamsbnp1clus001rest-hs.cloudapp.net/api/MonitoringConfigurations HTTP/1.1
     x-ms-version: 2.13
@@ -200,7 +200,7 @@ Les étapes décrites dans cette rubrique sont les suivantes :
        ]
     }
 
-### <a name="response"></a>Response
+### <a name="response"></a>response
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -221,7 +221,7 @@ Les étapes décrites dans cette rubrique sont les suivantes :
 
 ## <a name="stop-telemetry"></a>Arrêter la télémétrie
 
-###<a name="request"></a>Demande
+### <a name="request"></a>Requête
 
     DELETE https://wamsbnp1clus001rest-hs.cloudapp.net/api/MonitoringConfigurations('nb%3Amcid%3AUUID%3A1a8931ae-799f-45fd-8aeb-9641740295c2')
     x-ms-version: 2.13

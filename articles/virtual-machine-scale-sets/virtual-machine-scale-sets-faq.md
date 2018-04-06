@@ -16,15 +16,55 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: 52be84b73e70a02c43ef71917dc272060d82b42d
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 4dd908908877a222c708c9b2ab6255ab9a4b414a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>FAQ sur les groupes de machines virtuelles identiques Azure
 
 Obtenez des réponses aux questions fréquemment posées sur les groupes de machines virtuelles identiques dans Azure.
+
+## <a name="top-frequently-asked-questions-for-scale-sets"></a>Questions les plus fréquemment posées sur les groupes identiques
+**Q.** Combien de machines virtuelles peut-il y avoir dans un groupe identique ?
+
+**A.** Un groupe identique peut contenir de 0 à 1 000 machines virtuelles basées sur des images de plateforme, ou de 0 à 300 machines virtuelles basées sur des images personnalisées. 
+
+**Q.** Les disques de données sont-ils pris en charge dans les groupes identiques ?
+
+**A.** Oui. Un groupe identique peut définir une configuration de disques de données attachés qui s’appliquera à toutes les machines virtuelles du groupe. Pour plus d’informations, consultez [Groupes identiques Azure et disques de données attachés](virtual-machine-scale-sets-attached-disks.md). Il existe d’autres options pour stocker les données :
+
+* Fichiers Azure (lecteurs SMB partagés)
+* Système d’exploitation de lecteur
+* Lecteur temp (local, non sauvegardé par le stockage Azure)
+* Service de données Azure (par exemple, tables Azure, objets blob Azure)
+* Service de données externe (par exemple, base de données distante)
+
+**Q.** Quelles sont les régions Azure qui prennent en charge les groupes identiques ?
+
+**A.** Toutes les régions prennent en charge les groupes identiques.
+
+**Q.** Comment créer un groupe identique à l’aide d’une image personnalisée ?
+
+**A.** Créez un disque géré en fonction de votre image personnalisée de disque dur virtuel et référencez-le dans votre modèle de groupe identique. [Voici un exemple](https://github.com/chagarw/MDPP/tree/master/101-vmss-custom-os).
+
+**Q.** Si je réduis ma capacité de groupe identique de 20 à 15, quelles sont les machines virtuelles qui seront supprimées ?
+
+**A.** Les ordinateurs virtuels sont supprimés du jeu de mise à l’échelle uniformément entre les domaines de mise à jour et les domaines d’erreur pour optimiser la disponibilité. Les machines virtuelles avec les ID les plus élevés sont supprimées en premier.
+
+**Q.** Que se passe-t-il si j’augmente ensuite la capacité de 15 à 18 ?
+
+**A.** Si vous augmentez la capacité à 18, 3 machines virtuelles sont créées. À chaque fois, l’ID d’instance de la machine virtuelle est incrémenté avec la valeur la plus élevée précédente (par exemple, 20, 21, 22). Les machines virtuelles sont réparties sur les domaines d’erreur et les domaines de mise à jour.
+
+**Q.** Lorsque j’utilise plusieurs extensions dans un groupe identique, puis-je appliquer une séquence d’exécution ?
+
+**A.** Pas directement, mais pour l’extension customScript, votre script peut attendre que l’exécution d’une autre extension soit terminée. Vous trouverez des conseils supplémentaires sur le séquencement d’extensions dans ce billet de blog : [Extension Sequencing in Azure virtual machine scale sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/) (Séquencement d’extensions dans les groupes identiques de machines virtuelles Azure).
+
+**Q.** Les groupes identiques fonctionnent-ils avec des ensembles haute disponibilité Azure ?
+
+**A.** Oui. Un groupe identique est un ensemble de disponibilité implicite comprenant cinq domaines d’erreur et cinq domaines de mise à jour. Les groupes identiques de plus de 100 machines virtuelles couvrent plusieurs *groupes de placement* qui équivalent à plusieurs groupes à haute disponibilité. Pour plus d’informations sur les groupes de placement, voir [Working with large virtual machine scale sets](virtual-machine-scale-sets-placement-groups.md) (Utilisation de grands groupes de machines virtuelles identiques). Un groupe de machines virtuelles à haute disponibilité peut figurer dans le même réseau virtuel qu’un groupe identique de machines virtuelles. Une configuration courante consiste à placer les machines virtuelles du nœud de contrôle qui nécessitent souvent une configuration unique dans un groupe à haute disponibilité, et les nœuds de données dans le groupe identique.
+
 
 ## <a name="autoscale"></a>Autoscale
 
@@ -558,7 +598,7 @@ Pour créer un groupe de machines virtuelles identiques avec une configuration D
 
 ### <a name="how-can-i-configure-a-scale-set-to-assign-a-public-ip-address-to-each-vm"></a>Comment puis-je configurer un groupe identique afin qu’il attribue une adresse IP publique à chaque machine virtuelle ?
 
-Pour créer un groupe de machines virtuelles identiques qui attribue une adresse IP publique à chaque machine virtuelle, vérifiez que la version API de la ressource Microsoft.Compute/virtualMAchineScaleSets est datée du 30/03/2017, puis ajoutez un paquet JSON _publicipaddressconfiguration_ à la section ipConfigurations du groupe identique. Exemple :
+Pour créer un groupe de machines virtuelles identiques qui attribue une adresse IP publique à chaque machine virtuelle, vérifiez que la version API de la ressource Microsoft.Compute/virtualMachineScaleSets est datée du 30/03/2017, puis ajoutez un paquet JSON _publicipaddressconfiguration_ à la section ipConfigurations du groupe identique. Exemple :
 
 ```json
     "publicipaddressconfiguration": {
@@ -694,7 +734,7 @@ Pour obtenir des informations sur les propriétés de chaque machine virtuelle s
 
 ### <a name="can-i-pass-different-extension-arguments-to-different-vms-in-a-virtual-machine-scale-set"></a>Puis-je transférer des arguments d’extension différents à des machines virtuelles différentes dans un groupe de machines virtuelles identiques ?
 
-Non, vous ne pouvez pas transférer des arguments d’extension différents à des machines virtuelles différentes dans un groupe de machines virtuelles identiques. Toutefois, les extensions peuvent agir en fonction des propriétés uniques de la machine virtuelle où elles s’exécutent, comme le nom de la machine. Les extensions peuvent aussi interroger les métadonnées de l’instance sur http://169.254.169.254 pour obtenir plus d’informations sur la machine virtuelle.
+Non, vous ne pouvez pas transférer des arguments d’extension différents à des machines virtuelles différentes dans un groupe de machines virtuelles identiques. Toutefois, les extensions peuvent agir en fonction des propriétés uniques de la machine virtuelle où elles s’exécutent, comme le nom de la machine. Les extensions peuvent aussi interroger les métadonnées d’instance sur http://169.254.169.254 pour obtenir plus d’informations sur la machine virtuelle.
 
 ### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>Pourquoi y a-t-il des écarts entre les noms de machines virtuelles de mon groupe de machines virtuelles identiques et les ID des machines virtuelles ? Par exemple : 0, 1, 3...
 

@@ -1,8 +1,8 @@
 ---
-title: "Azure AD Connect : résoudre les problèmes de synchronisation d’objets | Microsoft Docs"
-description: "Cet article explique comment résoudre les problèmes de synchronisation d’objets à l’aide de la tâche de résolution des problèmes."
+title: 'Azure AD Connect : résoudre les problèmes de synchronisation d’objets | Microsoft Docs'
+description: Cet article explique comment résoudre les problèmes de synchronisation d’objets à l’aide de la tâche de résolution des problèmes.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: 10ebe039b9d266d15696b397b9cdef9bc7ec2a10
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 54ae18b9a802fe078d307f4d36400adf806b233f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Résoudre les problèmes de synchronisation d’objets avec la synchronisation Azure AD Connect
 Ce document explique comment résoudre les problèmes de synchronisation d’objets à l’aide de la tâche de résolution des problèmes.
 
 ## <a name="troubleshooting-task"></a>Tâche de résolution des problèmes
-Dans le cas d’un déploiement d’Azure Active Directory (Azure AD) Connect version <verison> ou ultérieure, utilisez la tâche de résolution des problèmes disponible dans l’Assistant pour résoudre les problèmes de synchronisation d’objets. Pour les versions antérieures, corrigez les problèmes manuellement en suivant la procédure décrite [ici](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md).
+Dans le cas d’un déploiement d’Azure Active Directory (Azure AD) Connect version 1.1.749.0 ou ultérieure, utilisez la tâche de résolution des problèmes disponible dans l’Assistant pour résoudre les problèmes de synchronisation d’objets. Pour les versions antérieures, corrigez les problèmes manuellement en suivant la procédure décrite [ici](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md).
 
 ### <a name="run-the-troubleshooting-task-in-the-wizard"></a>Exécuter la tâche de résolution des problèmes de l’Assistant
 Pour exécuter la tâche de résolution des problèmes de l’Assistant, procédez comme suit :

@@ -1,11 +1,12 @@
 ---
 title: Module PowerShell pour Machine Learning | Microsoft Docs
-description: "Le module PowerShell pour Azure Machine Learning est disponible en version préliminaire publique. Utilisez PowerShell pour créer et gérer des espaces de travail, des expériences, des services web, etc."
-keywords: "expérience,régression linéaire,algorithmes d’apprentissage automatique,didacticiel d’apprentissage automatique,techniques de modélisation prédictive,expérience de science de données"
+description: Le module PowerShell pour Azure Machine Learning est disponible en version préliminaire publique. Utilisez PowerShell pour créer et gérer des espaces de travail, des expériences, des services web, etc.
+keywords: expérience,régression linéaire,algorithmes d’apprentissage automatique,didacticiel d’apprentissage automatique,techniques de modélisation prédictive,expérience de science de données
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: hning86
-manager: jhubbard
+ms.author: haining
+manager: mwinkle
 editor: cgronlun
 ms.assetid: a9001cc2-3aa0-47e1-b175-1f76408ba1d1
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
-ms.author: garye;haining
-ms.openlocfilehash: 47d005e584b6cb87d27a77f56ff619d342481aaa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c9553e372f4d1cb5c60935fae5a7af61806ea6d4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="powershell-module-for-microsoft-azure-machine-learning"></a>Module PowerShell pour Microsoft Azure Machine Learning
 Le module PowerShell pour Azure Machine Learning est un outil puissant qui vous permet d’utiliser Windows PowerShell pour gérer des espaces de travail, des expériences, des jeux de données, des services web classiques, etc.
@@ -59,6 +59,6 @@ Pour bien démarrer avec Machine Learning PowerShell, téléchargez le [package 
 Si vous le souhaitez, vous pouvez cloner l’arborescence git, modifier le code et le compiler localement à l’aide de Visual Studio.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Vous trouverez la documentation complète pour le module PowerShell à l’adresse [https://aka.ms/amlps](https://aka.ms/amlps). 
+Vous trouverez la documentation complète sur le module PowerShell à l’adresse [https://aka.ms/amlps](https://aka.ms/amlps). 
 
 Pour obtenir un exemple de l’utilisation du module dans un scénario réel, consultez le cas d’utilisation détaillé, [Créer de nombreux modèles Machine Learning et points de terminaison de service web à partir d’une expérience à l’aide de PowerShell](create-models-and-endpoints-with-powershell.md).

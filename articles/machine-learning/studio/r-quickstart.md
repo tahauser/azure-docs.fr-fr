@@ -1,11 +1,12 @@
 ---
-title: "Didacticiel de démarrage rapide sur le langage R pour Machine Learning | Microsoft Docs"
-description: "Utilisez ce didacticiel sur la programmation R pour prendre en main rapidement l'utilisation du langage R avec Azure Machine Learning Studio afin de créer une solution de prévision."
-keywords: "démarrage rapide,langage r,langage de programmation r,didacticiel de programmation en r"
+title: Didacticiel de démarrage rapide sur le langage R pour Machine Learning | Microsoft Docs
+description: Utilisez ce didacticiel sur la programmation R pour prendre en main rapidement l'utilisation du langage R avec Azure Machine Learning Studio afin de créer une solution de prévision.
+keywords: démarrage rapide,langage r,langage de programmation r,didacticiel de programmation en r
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 99a3a0fd-b359-481a-b236-66868deccd96
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.author: garye
-ms.openlocfilehash: 40cc3728d1361b9304896bf0cc4ceed439291d45
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 231d505e91fc036b30344e2fd9971db8ba2fdf05
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning"></a>Didacticiel de démarrage rapide pour le langage de programmation R pour Azure Machine Learning
 
@@ -39,7 +39,7 @@ Les données chronologiques sont des données dont les valeurs ont un index chro
 
 Dans ce guide de démarrage rapide, nous allons utiliser les données de production et de tarification des produits laitiers en Californie. Ces données comportent des informations mensuelles sur la production de plusieurs produits laitiers, ainsi que le prix de la matière grasse du lait, produit de base de référence.
 
-Les données utilisées dans cet article et les scripts R peuvent être [téléchargés ici][download]. À l'origine, ces données ont été synthétisées à partir des informations disponibles sur le site de l'Université du Wisconsin à l'adresse http://future.aae.wisc.edu/tab/production.html.
+Les données utilisées dans cet article et les scripts R peuvent être [téléchargés ici][download]. À l’origine, ces données ont été synthétisées à partir des informations disponibles sur le site de l’Université du Wisconsin à l’adresse http://future.aae.wisc.edu/tab/production.html.
 
 ### <a name="organization"></a>Organisation
 À travers plusieurs étapes successives, vous allez apprendrez à créer, tester et exécuter du code R d’analyse et de manipulation de données dans l’environnement Azure Machine Learning.  
@@ -127,7 +127,7 @@ Si vous n'avez pas encore installé le langage de programmation R sur votre ord
 
 Si vous débutez avec RStudio, téléchargez et installez la version pour ordinateur de bureau. Les versions Windows, Mac OS et Linux/UNIX de RStudio sont disponibles en téléchargement à l’adresse http://www.rstudio.com/products/RStudio/. Suivez les instructions qui vous sont fournies pour installer RStudio sur votre ordinateur de bureau.  
 
-Un didacticiel de présentation de RStudio est disponible à l’adresse https://support.rstudio.com/hc/sections/200107586-Using-RStudio.
+Un didacticiel de présentation sur RStudio est disponible à l’adresse https://support.rstudio.com/hc/sections/200107586-Using-RStudio.
 
 Vous trouverez des informations complémentaires sur l’utilisation de RStudio dans [l’Annexe A][appendixa].  
 
@@ -1213,7 +1213,7 @@ RStudio étant très bien documenté, vous trouverez dans cette annexe des liens
 
 1. Création de projets
    
-   Vous pouvez organiser et gérer votre code R dans les projets à l’aide de RStudio. Vous trouverez la documentation utilisant des projets à l’adresse https://support.rstudio.com/hc/articles/200526207-Using-Projects.
+   Vous pouvez organiser et gérer votre code R dans les projets à l’aide de RStudio. Vous trouverez la documentation qui utilise des projets à l’adresse https://support.rstudio.com/hc/articles/200526207-Using-Projects.
    
    Je vous recommande de suivre ces instructions et de créer un projet pour les exemples de code R présentés dans ce document.  
 2. Modification et exécution de code R
@@ -1221,14 +1221,14 @@ RStudio étant très bien documenté, vous trouverez dans cette annexe des liens
    RStudio offre un environnement intégré qui permet de modifier et d'exécuter du code R. Vous trouverez la documentation à l’adresse https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code.
 3. Débogage
    
-   RStudio intègre de puissantes fonctionnalités de débogage. Vous trouverez la documentation relative à ces fonctionnalités à l’adresse https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio.
+   RStudio intègre de puissantes fonctionnalités de débogage. La documentation sur ces fonctionnalités est disponible à l’adresse https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio.
    
-   Les fonctionnalités de résolution des problèmes de point d’arrêt sont documentées à l’adresse https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting.
+   Les fonctionnalités de résolution des problèmes relatifs au point d’arrêt sont documentées à l’adresse https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting.
 
 ## <a id="appendixb"></a>ANNEXE B : informations supplémentaires
 Ce didacticiel sur la programmation R couvre les concepts de base de ce qu'il vous faut pour utiliser le langage R avec Azure Machine Learning Studio. Si vous ne connaissez pas le langage R, deux présentations sont disponibles sur le site CRAN :
 
-* « R pour les débutants » d'Emmanuel Paradis constitue un bon point de départ, à l'adresse http://cran.r-project.org/doc/contrib/Paradis-rdebuts_fr.pdf.  
+* « R pour les débutants » d'Emmanuel Paradis constitue un bon point de départ, à l'adresse http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf.  
 * Une introduction à R par W. N. Venables, et al. approfondit un peu le sujet : http://cran.r-project.org/doc/manuals/R-intro.html.
 
 Il existe de nombreux livres sur le langage R qui peuvent vous aider à vous lancer. En voici quelques-uns que j'ai trouvés utiles :

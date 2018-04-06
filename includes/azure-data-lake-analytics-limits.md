@@ -3,6 +3,6 @@ Data Lake Analytics simplifie la gestion complexe d’une infrastructure distrib
 | **Ressource** | **Limite par défaut** | **Commentaires** |
 | --- | --- | --- |
 | Nombre maximal de travaux simultanés |20 | |
-| Nombre maximal d’unités Analytics par compte |250 | Utilisez n’importe quelle combinaison jusqu’à un maximum de 250 unités Analytics pour 20 travaux. |
+| Nombre maximal d’unités Analytics par compte |250 | Utilisez n’importe quelle combinaison jusqu’à un maximum de 250 unités Analytics pour 20 travaux.  Si vous souhaitez augmenter cette limite, contactez le support Microsoft. |
 | Taille de script maximale pour l’envoi de travaux | 3 Mo | |
-
+| Nombre maximal de comptes ADLA par région par abonnement | 5. | Si vous souhaitez augmenter cette limite, contactez le support Microsoft. |

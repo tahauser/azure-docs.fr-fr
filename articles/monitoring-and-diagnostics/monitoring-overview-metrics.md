@@ -1,7 +1,7 @@
 ---
 title: Vue d’ensemble des mesures dans Microsoft Azure | Microsoft Docs
 description: Vue d’ensemble des mesures et de leur utilisation dans Microsoft Azure
-author: johnkemnetz
+author: anirudhcavale
 manager: orenr
 editor: ''
 services: monitoring-and-diagnostics
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: johnkem
-ms.openlocfilehash: 4a78236f9c6945bb982466b59690b221f35a1804
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.date: 03/19/2018
+ms.author: ancav
+ms.openlocfilehash: 88020b27403f06ab8f1c0a1c45b798db02f517f5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Vue d’ensemble des mesures dans Microsoft Azure
 Cet article décrit ce que sont les mesures dans Microsoft Azure ainsi que leurs avantages, et comment commencer à les utiliser.  
@@ -38,9 +38,9 @@ Les mesures sont une source précieuse de télémétrie et vous permettent d’e
 ## <a name="what-are-the-characteristics-of-metrics"></a>Quelles sont les caractéristiques des mesures ?
 Les mesures présentent les caractéristiques suivantes :
 
-* Toutes les mesures ont **une fréquence d’une minute**. Vous recevez une valeur de mesure chaque minute à partir de votre ressource, pour une visibilité en quasi temps réel de l’intégrité de votre ressource.
+* Toutes les métriques ont **fréquence d’une minute** (sauf indication contraire dans leur définition). Vous recevez une valeur de mesure chaque minute à partir de votre ressource, pour une visibilité en quasi temps réel de l’intégrité de votre ressource.
 * Les mesures sont **disponibles immédiatement**. Vous n’avez pas besoin de vous abonner à ou de configurer des diagnostics supplémentaires.
-* Vous pouvez accéder à **30 jours d’historique** pour chaque mesure. Vous pouvez consulter rapidement les tendances récentes et mensuelles de performances ou d’intégrité de vos ressources.
+* Vous pouvez accéder à **93 jours d’historique** pour chaque métrique. Vous pouvez consulter rapidement les tendances récentes et mensuelles de performances ou d’intégrité de vos ressources.
 * Certaines métriques peuvent avoir des paires d’attributs nom-valeur appelées **dimensions**. Elles vous permettent de segmenter encore davantage et d’explorer une métrique d’une manière plus explicite.
 
 Vous pouvez également :
@@ -93,7 +93,7 @@ Les mesures Azure sont accessibles via les API Azure Monitor. Il existe deux API
 * Utilisez [l’API REST Azure Monitor Metrics](https://docs.microsoft.com/rest/api/monitor/metrics) pour segmenter, filtrer et accéder aux données de mesure elles-mêmes.
 
 > [!NOTE]
-> Cet article décrit les mesures via la [nouvelle API pour les mesures](https://docs.microsoft.com/rest/api/monitor/) pour les ressources Azure. La version de l’API pour les nouvelles définitions de mesures est 2017-05-01-preview. Les définitions de mesures et les mesures sont accessibles avec la version 2014-04-01 de l’API.
+> Cet article décrit les mesures via la [nouvelle API pour les mesures](https://docs.microsoft.com/rest/api/monitor/) pour les ressources Azure. La version de l’API pour les nouvelles définitions et API de métriques est 2018-01-01. Les définitions de mesures et les mesures sont accessibles avec la version 2014-04-01 de l’API.
 >
 >
 

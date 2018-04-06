@@ -1,8 +1,8 @@
 ---
-title: "Utiliser une MSI de machine virtuelle Windows pour accéder à Azure SQL"
-description: "Ce didacticiel vous guide tout au long du processus d’utilisation d’une MSI (Managed Service Identity, identité de service managé) de machine virtuelle Windows pour accéder à Azure SQL."
+title: Utiliser une MSI de machine virtuelle Windows pour accéder à Azure SQL
+description: Ce didacticiel vous guide tout au long du processus d’utilisation d’une MSI (Managed Service Identity, identité de service managé) de machine virtuelle Windows pour accéder à Azure SQL.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: b5bab684a7b188d1dc2e1f1f29a772aab8955e43
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1ac3c341f7ffc1911fc063202c043351e412843f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Utiliser une MSI de machine virtuelle Windows pour accéder à Azure SQL
 
@@ -33,13 +33,14 @@ Ce didacticiel montre comment utiliser une MSI pour une machine virtuelle Window
 
 ## <a name="prerequisites"></a>Prérequis
 
+
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
 [!INCLUDE [msi-tut-prereqs](~/includes/active-directory-msi-tut-prereqs.md)]
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au portail Azure depuis l’adresse [https://portal.azure.com](https://portal.azure.com).
+Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Création d'une machine virtuelle Windows dans un nouveau groupe de ressources
 
@@ -137,7 +138,7 @@ b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTes
 
 ### <a name="enable-azure-ad-authentication-for-the-sql-server"></a>Activer Azure AD Authentication pour le serveur SQL
 
-À présent que vous avez créé le groupe et ajouté la MSI de machine virtuelle en tant que membre du groupe, vous pouvez [configurer Azure AD Authentication pour le serveur SQL](~/articles/sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-server) en procédant comme suit :
+À présent que vous avez créé le groupe et ajouté la MSI de machine virtuelle en tant que membre du groupe, vous pouvez [configurer Azure AD Authentication pour le serveur SQL](~/articles/sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance) en procédant comme suit :
 
 1.  Dans le portail Azure, dans le volet de navigation gauche, sélectionnez **Serveurs SQL**.
 2.  Cliquez sur le serveur SQL à activer pour Azure AD Authentication.
@@ -183,7 +184,7 @@ Le code qui s’exécute dans la machine virtuelle peut désormais obtenir un je
 
 Azure SQL prenant en charge Azure AD Authentication en mode natif, il peut accepter directement des jetons d’accès obtenus à l’aide de la MSI.  Vous utilisez la méthode de **jeton d’accès** pour créer une connexion à SQL.  Cela fait partie de l’intégration d’Azure SQL avec Azure AD, et diffère de la fourniture d’informations d’identification sur la chaîne de connexion.
 
-Voici un exemple de code .Net pour l’ouverture d’une connexion à SQL à l’aide d’un jeton d’accès.  Pour permettre l’accès au point de terminaison de la MSI de machine virtuelle, ce code doit s’exécuter sur la machine virtuelle.  Pour pouvoir utiliser la méthode de jeton d’accès, **.NET framework 4.6** ou version ultérieure est requis.  Remplacez les valeurs AZURE-SQL-SERVERNAME et DATABASE en conséquence.  Notez que l’ID de ressource pour Azure SQL est « https://database.windows.net/ ».
+Voici un exemple de code .Net pour l’ouverture d’une connexion à SQL à l’aide d’un jeton d’accès.  Pour permettre l’accès au point de terminaison de la MSI de machine virtuelle, ce code doit s’exécuter sur la machine virtuelle.  Pour pouvoir utiliser la méthode de jeton d’accès, **.NET framework 4.6** ou version ultérieure est requis.  Remplacez les valeurs AZURE-SQL-SERVERNAME et DATABASE en conséquence.  Notez l’ID de ressource pour SQL Azure est « https://database.windows.net/ ».
 
 ```csharp
 using System.Net;

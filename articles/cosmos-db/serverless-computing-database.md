@@ -1,24 +1,24 @@
 ---
-title: "Traitement de base de données sans serveur - Azure Functions et Azure Cosmos DB | Microsoft Docs"
-description: "Découvrez comment Azure Cosmos DB et Azure Functions peuvent être utilisés ensemble pour créer des applications informatiques sans serveur basées sur les événements."
+title: Traitement de base de données sans serveur - Azure Functions et Azure Cosmos DB | Microsoft Docs
+description: Découvrez comment Azure Cosmos DB et Azure Functions peuvent être utilisés ensemble pour créer des applications informatiques sans serveur basées sur les événements.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: monicar
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 03/26/2018
 ms.author: mimig
-ms.openlocfilehash: 297f8929ec11b37a2cbbfb79bb442da75b4368a8
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 39155a2407efa0cc13236a1bbbbcd292daac86b6
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB : traitement de base de données sans serveur à l’aide d’Azure Functions
 
@@ -113,12 +113,16 @@ Dans tous ces cas d’usage, étant donné que la fonction a découplé l’appl
 
 ## <a name="tooling"></a>Outils
 
-L’intégration native entre Azure Cosmos DB et Azure Functions est disponible dans le portail Azure.
+L’intégration native entre Azure Cosmos DB et Azure Functions est disponible dans le portail Azure et dans Visual Studio 2017.
 * Dans le portail Azure Functions, vous pouvez créer un déclencheur Azure Cosmos DB. Pour obtenir des instructions de démarrage rapide, consultez [Créer un déclencheur Azure Cosmos DB dans le portail Azure](https://aka.ms/cosmosdbtriggerportalfunc) ![Créer un déclencheur Azure Cosmos DB dans le portail Azure Functions](./media/serverless-computing-database/azure-function-cosmos-db-trigger.png). 
 * Dans le portail Azure Functions, vous pouvez également ajouter des liaisons d’entrée et des liaisons de sortie Azure Cosmos DB à d’autres types de déclencheurs. Pour obtenir des instructions de démarrage rapide, consultez [Stocker des données non structurées à l’aide d’Azure Functions et de Cosmos DB](../azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md).
     ![Créer un déclencheur Azure Cosmos DB dans le portail Azure Functions](./media/serverless-computing-database/function-portal-input-binding.png)
 *   Dans le portail Azure Cosmos DB, vous pouvez ajouter un déclencheur Azure Cosmos DB à une application Azure Functions existante dans le même groupe de ressources.
     ![Créer un déclencheur Azure Cosmos DB dans le portail Azure Functions](./media/serverless-computing-database/cosmos-db-portal.png)
+* Dans Visual Studio 2017, vous pouvez créer un déclencheur Azure Cosmos DB en utilisant le modèle intégré :
+
+    >[!VIDEO https://www.youtube.com/embed/iprndNsUeeg]
+
 
 ## <a name="why-choose-azure-functions-integration-for-serverless-computing"></a>Pourquoi choisir l’intégration d’Azure Functions pour l’informatique sans serveur ?
 

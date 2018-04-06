@@ -1,11 +1,11 @@
 ---
-title: "Surveiller les fabriques de données à l’aide d’Azure Monitor |Microsoft Docs"
-description: "Apprenez à utiliser Azure Monitor pour surveiller les pipelines Data Factory en activant les journaux de diagnostic à partir des informations d’Azure Data Factory."
+title: Surveiller les fabriques de données à l’aide d’Azure Monitor |Microsoft Docs
+description: Apprenez à utiliser Azure Monitor pour surveiller les pipelines Data Factory en activant les journaux de diagnostic à partir des informations d’Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: cae3c797171c3904f100ae3cdec47a31b06d3b31
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8ab2e7cdc8472be9c0800eea5bef9322b0ed87f2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitor-data-factories-using-azure-monitor"></a>Surveiller les fabriques de données à l’aide d’Azure Monitor  
 Les applications cloud sont complexes, et se composent de nombreux éléments mobiles. L’analyse fournit des données visant à garantir que votre application reste opérationnelle et soit exécutée en toute intégrité. Elle vous permet également de parer à des problèmes potentiels ou de résoudre des problèmes déjà survenus. En outre, vous pouvez utiliser les données d’analyse pour obtenir des informations détaillées sur votre application. Ces connaissances peuvent vous aider à améliorer les performances ou la facilité de gestion de l’application, ou à automatiser des actions qui exigeraient normalement une intervention manuelle.
@@ -273,7 +273,7 @@ Plus d’informations ici](https://msdn.microsoft.com/en-us/library/azure/dn9319
 }
 ```
 
-| Propriété | type | Description | exemples |
+| Propriété | type | Description | Exemples |
 | --- | --- | --- | --- |
 | Level |Chaîne | Niveau des journaux de diagnostic. Le niveau 4 est toujours celui associé aux journaux d’exécution d’activité. | `4`  |
 | correlationId |Chaîne | ID unique pour le suivi d’une demande particulière de bout en bout | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -320,7 +320,7 @@ Plus d’informations ici](https://msdn.microsoft.com/en-us/library/azure/dn9319
 }
 ```
 
-| Propriété | type | Description | exemples |
+| Propriété | type | Description | Exemples |
 | --- | --- | --- | --- |
 | Level |Chaîne | Niveau des journaux de diagnostic. Le niveau 4 est celui associé aux journaux d’exécution d’activité. | `4`  |
 | correlationId |Chaîne | ID unique pour le suivi d’une demande particulière de bout en bout | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -365,7 +365,7 @@ Plus d’informations ici](https://msdn.microsoft.com/en-us/library/azure/dn9319
 
 ```
 
-| Propriété | type | Description | exemples |
+| Propriété | type | Description | Exemples |
 | --- | --- | --- | --- |
 | Level |Chaîne | Niveau des journaux de diagnostic. Défini au niveau 4 pour les journaux d’exécution d’activité. | `4`  |
 | correlationId |Chaîne | ID unique pour le suivi d’une demande particulière de bout en bout | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -381,7 +381,7 @@ Plus d’informations ici](https://msdn.microsoft.com/en-us/library/azure/dn9319
 |start| Chaîne | Début d’activation du déclencheur dans l’intervalle de temps, au format UTC | `2017-06-26T20:55:29.5007959Z`|
 |status| Chaîne | État final indiquant si le déclencheur a été activé avec succès (Succeeded ou Failed) | `Succeeded`|
 
-### <a name="metrics"></a>Mesures
+## <a name="metrics"></a>Mesures
 
 Azure Monitor vous permet d’utiliser la télémétrie pour surveiller les performances et l’intégrité de vos charges de travail sur Azure. Les mesures (aussi appelées compteurs de performances) émises par la plupart des ressources Azure sont le type de données de télémétrie Azure plus important. Azure Monitor propose plusieurs façons de configurer et d’utiliser ces mesures pour l’analyse et le dépannage.
 
@@ -396,7 +396,52 @@ ADFV2 émet les métriques suivantes :
 | TriggerSucceededRuns | Métriques d’exécutions de déclencheur ayant abouti  | Count    | Total                | Nombre total d’exécutions de déclencheur ayant abouti en une minute   |
 | TriggerFailedRuns    | Métriques d’exécutions de déclencheur ayant échoué     | Count    | Total                | Nombre total d’exécutions de déclencheur ayant échoué en une minute      |
 
-Pour accéder aux métriques, suivez les instructions contenues dans l’article suivant : https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
+Pour accéder aux métriques, suivez les instructions de l’article suivant : https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
+
+## <a name="alerts"></a>Alertes
+
+Vous pouvez déclencher des alertes sur les métriques prises en charge dans Data Factory. Cliquez sur le bouton **Alertes** dans la page **Surveiller** de Data Factory.
+
+![Options d’alertes](media/monitor-using-azure-monitor/alerts_image1.png)
+
+Ceci vous permet d’accéder à la page **Alertes**.
+
+![Page des alertes](media/monitor-using-azure-monitor/alerts_image2.png)
+
+Vous pouvez également vous connecter au portail Azure et cliquer sur **Surveiller -&gt; Alertes** pour atteindre directement la page **Alertes**.
+
+![Alertes dans le menu du portail](media/monitor-using-azure-monitor/alerts_image3.png)
+
+### <a name="create-alerts"></a>Créer des alertes
+
+1.  Cliquez sur **+ Nouvelle règle d’alerte** pour créer une nouvelle alerte.
+
+    ![Nouvelle règle d’alerte](media/monitor-using-azure-monitor/alerts_image4.png)
+
+2.  Définissez la **condition de l’alerte**.
+
+    > [!NOTE]
+    > Veillez à sélectionner **Tout** dans **Filtrer par type de ressource**.
+
+    ![Condition d’alerte, écran 1 sur 3](media/monitor-using-azure-monitor/alerts_image5.png)
+
+    ![Condition d’alerte, écran 2 sur 3](media/monitor-using-azure-monitor/alerts_image6.png)
+
+    ![Condition d’alerte, écran 3 sur 3](media/monitor-using-azure-monitor/alerts_image7.png)
+
+3.  Définissez les **détails de l’alerte**.
+
+    ![Détails de l’alerte](media/monitor-using-azure-monitor/alerts_image8.png)
+
+4.  Définissez le **groupe d’actions**.
+
+    ![Groupe d’actions, écran 1 sur 4](media/monitor-using-azure-monitor/alerts_image9.png)
+
+    ![Groupe d’actions, écran 2 sur 4](media/monitor-using-azure-monitor/alerts_image10.png)
+
+    ![Groupe d’actions, écran 3 sur 4](media/monitor-using-azure-monitor/alerts_image11.png)
+
+    ![Groupe d’actions, écran 4 sur 4](media/monitor-using-azure-monitor/alerts_image12.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez l’article [Surveiller et gérer les pipelines par programmation](monitor-programmatically.md) pour en savoir plus sur la surveillance et la gestion des pipelines en exécutant . 

@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C : ajouter un compte Microsoft (MSA) comme fournisseur d’identité à l’aide de stratégies personnalisées"
-description: "Exemple utilisant Microsoft comme fournisseur d’identité à l’aide du protocole OpenID Connect (OIDC)"
+title: 'Azure Active Directory B2C : ajouter un compte Microsoft (MSA) comme fournisseur d’identité à l’aide de stratégies personnalisées'
+description: Exemple utilisant Microsoft comme fournisseur d’identité à l’aide du protocole OpenID Connect (OIDC)
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 08/04/2017
-ms.author: yoelh
-ms.openlocfilehash: cdc77d093358fa15bb1acbc9ba6b1867bae062f8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: a49e9589322eeb90a713321b4fbe4c4820609f7a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-add-microsoft-account-msa-as-an-identity-provider-using-custom-policies"></a>Azure Active Directory B2C : ajouter un compte Microsoft (MSA) comme fournisseur d’identité à l’aide de stratégies personnalisées
 
@@ -26,7 +23,8 @@ ms.lasthandoff: 12/11/2017
 
 Cet article montre comment permettre aux utilisateurs de se connecter à partir d’un compte Microsoft (MSA) à l’aide de [stratégies personnalisées](active-directory-b2c-overview-custom.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md).
 
 Ces étapes sont les suivantes :
@@ -38,7 +36,7 @@ Ces étapes sont les suivantes :
 5.  charger et tester la stratégie sur un client Azure AD B2C
 
 ## <a name="create-a-microsoft-account-application"></a>Créer une application de compte Microsoft
-Pour utiliser un compte Microsoft en tant que fournisseur d’identité dans Azure Active Directory (Azure AD) B2C, vous devez créer une application de compte Microsoft et lui fournir les paramètres appropriés. Il vous faut un compte Microsoft. Si vous n’en avez pas, rendez-vous sur [https://www.live.com/](https://www.live.com/).
+Pour utiliser un compte Microsoft en tant que fournisseur d’identité dans Azure Active Directory (Azure AD) B2C, vous devez créer une application de compte Microsoft et lui fournir les paramètres appropriés. Il vous faut un compte Microsoft. Si vous n’en avez pas, voir [https://www.live.com/](https://www.live.com/).
 
 1.  Accédez au [Portail d’inscription des applications Microsoft](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) et connectez-vous avec votre compte Microsoft.
 2.  Cliquez sur **Ajouter une application**.
@@ -158,7 +156,7 @@ Définissez le compte Microsoft comme fournisseur de revendications, en ajoutant
 ### <a name="display-the-button"></a>Afficher le bouton
 L’élément `<ClaimsProviderSelections>` définit la liste des options de sélection du fournisseur de revendications et leur ordre.  L’élément `<ClaimsProviderSelection>` est analogue à un bouton de fournisseur d’identité sur une page d’inscription/de connexion. Si vous ajoutez un élément `<ClaimsProviderSelection>` au compte Microsoft, un nouveau bouton apparaît quand l’utilisateur accède à la page. Pour ajouter cet élément :
 
-1.  Recherchez le nœud `<UserJourney>` incluant `Id="SignUpOrSignIn"` dans le parcours utilisateur que vous avez copié.
+1.  Recherchez le nœud `<UserJourney>` comprenant `Id="SignUpOrSignIn"` dans le parcours utilisateur que vous avez copié.
 2.  Localisez le nœud `<OrchestrationStep>` qui inclut `Order="1"`.
 3.  Ajoutez l’extrait de code XML suivant sous le nœud `<ClaimsProviderSelections>` :
 
@@ -181,7 +179,7 @@ Maintenant que vous avez un bouton en place, vous devez le lier à une action. L
 >   * Vérifiez que `Id` a la même valeur que `TargetClaimsExchangeId` dans la section précédente.
 >   * Vérifiez que l’ID `TechnicalProfileReferenceId` est défini sur le profil de technique que vous avez créé plus haut (MSA-OIDC).
 
-## <a name="upload-the-policy-to-your-tenant"></a>Charger la stratégie sur votre client
+## <a name="upload-the-policy-to-your-tenant"></a>Charger la stratégie sur un client
 1.  Dans le [portail Azure](https://portal.azure.com), passez au [contexte de votre locataire Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) et ouvrez le panneau **Azure AD B2C**.
 2.  Sélectionnez **Infrastructure d’expérience d’identité**.
 3.  Ouvrez le panneau **Toutes les stratégies**.
@@ -203,7 +201,7 @@ Vous pouvez également ajouter le fournisseur d’identité de compte Microsoft 
 
 ### <a name="display-the-button"></a>Afficher le bouton
 1.  Ouvrez le fichier d’extension de votre stratégie (par exemple, TrustFrameworkExtensions.xml).
-2.  Recherchez le nœud `<UserJourney>` incluant `Id="ProfileEdit"` dans le parcours utilisateur que vous avez copié.
+2.  Recherchez le nœud `<UserJourney>` comprenant `Id="ProfileEdit"` dans le parcours utilisateur que vous avez copié.
 3.  Localisez le nœud `<OrchestrationStep>` qui inclut `Order="1"`.
 4.  Ajoutez l’extrait de code XML suivant sous le nœud `<ClaimsProviderSelections>` :
 

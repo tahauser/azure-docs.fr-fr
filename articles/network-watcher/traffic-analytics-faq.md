@@ -1,6 +1,6 @@
 ---
-title: Forum aux questions pour Azure Traffic Analytics | Microsoft Docs
-description: Découvrez les réponses aux questions les plus fréquemment posées sur Traffic Analytics.
+title: Forum aux questions pour l’analyse de trafic Azure | Microsoft Docs
+description: Découvrez les réponses aux questions les plus fréquemment posées sur l’analyse de trafic.
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: fd97e0ca7615691c537dcb1dc18643627046742d
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 01d5150bff8642a1a3fe9b7ac063923916f191c0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="traffic-analytics-frequently-asked-questions"></a>Forum aux questions pour Traffic Analytics
+# <a name="traffic-analytics-frequently-asked-questions"></a>Forum aux questions pour l’analyse de trafic
 
-1.  Quels sont les prérequis pour utiliser Traffic Analytics ?
+1.  Quels sont les composants requis pour utiliser l’analyse de trafic ?
 
     Traffic Analytics nécessite les prérequis suivants :
 
@@ -29,10 +29,22 @@ ms.lasthandoff: 03/09/2018
     - Des journaux de flux de groupe de sécurité réseau activés pour les groupes de sécurité réseau à surveiller
     - Un compte de stockage Azure pour stocker les journaux de flux bruts
     - Un espace de travail Log Analytics (OMS), avec accès en lecture et écriture
+    - Les actions suivantes sur le fournisseur de Microsoft.Network doivent être assignées à votre compte :
 
-2.  Dans quelles régions Azure Traffic Analytics est-il disponible ?
+        - Microsoft.Network/applicationGateways/read
+        - Microsoft.Network/connections/read
+        - Microsoft.Network/loadBalancers/read 
+        - Microsoft.Network/localNetworkGateways/read 
+        - Microsoft.Network/networkInterfaces/read 
+        - Microsoft.Network/networkSecurityGroups/read 
+        - Microsoft.Network/publicIPAddresses/read
+        - Microsoft.Network/routeTables/read
+        - Microsoft.Network/virtualNetworkGateways/read 
+        - Microsoft.Network/virtualNetworks/read
 
-    Dans la préversion, vous pouvez utiliser Traffic Analytics pour les groupes de sécurité réseau dans les **régions prises en charge** suivantes : États-Unis Centre-Ouest, Est des États-Unis, Est des États-Unis 2, Nord-Centre des États-Unis, Sud-Centre des États-Unis, Centre des États-Unis, Ouest des États-Unis, Ouest des États-Unis 2, Europe de l’Ouest, Europe du Nord, Royaume-Uni Ouest, Royaume-Uni Sud, Est de l’Australie et Sud-Est de l’Australie. L’espace de travail Log Analytics doit se trouver dans la région États-Unis Centre-Ouest, Est des États-Unis, Europe de l’Ouest, Sud-Est de l’Australie ou Royaume-Uni Sud.
+2.  Dans quelles régions l’analyse de trafic est-il disponible ?
+
+    Dans la préversion, vous pouvez utiliser l’analyse de trafic pour les groupes de sécurité réseau dans les **régions prises en charge** suivantes : États-Unis Centre-Ouest, Est des États-Unis, Est des États-Unis 2, Nord-Centre des États-Unis, Sud-Centre des États-Unis, Centre des États-Unis, Ouest des États-Unis, Ouest des États-Unis 2, Europe de l’Ouest, Europe du Nord, Royaume-Uni Ouest, Royaume-Uni Sud, Est de l’Australie et Sud-Est de l’Australie. L’espace de travail Log Analytics doit se trouver dans la région États-Unis Centre-Ouest, Est des États-Unis, Europe de l’Ouest, Sud-Est de l’Australie ou Royaume-Uni Sud.
 
 3.  Puis-je activer des journaux de flux pour des groupes de sécurité réseau qui se trouvent dans des régions différentes de mon espace de travail OMS ?
 
@@ -54,7 +66,7 @@ ms.lasthandoff: 03/09/2018
 
     Non. Vous pouvez stocker des journaux bruts dans n’importe quel compte de stockage où un groupe de sécurité réseau est activé pour les journaux de flux. Toutefois, le compte de stockage et les journaux bruts doivent être dans le même abonnement et la même région.
 
-8.  Si je reçois une erreur « Introuvable » lors de la configuration d’un groupe de sécurité réseau pour Traffic Analytics, comment puis-je y remédier ?
+8.  Si je reçois une erreur « Introuvable » lors de la configuration d’un groupe de sécurité réseau pour l’analyse de trafic, comment puis-je y remédier ?
 
     Sélectionnez une des régions prises en charge répertoriées dans la question 2. Si vous sélectionnez une région non prise en charge, vous recevez une erreur « Introuvable ».
 
@@ -83,7 +95,7 @@ ms.lasthandoff: 03/09/2018
 12.  Le message suivant s’affiche : « 1) Première analyse des journaux de flux de votre groupe de sécurité réseau. Ce processus peut prendre de 20 à 30 minutes. Vérifiez ultérieurement. (2) Si l’étape ci-dessus ne fonctionne pas et que votre espace de travail se trouve sous la référence SKU libre, vérifiez l’utilisation de votre espace de travail pour valider le quota. Sinon, reportez-vous à la FAQ pour plus d’informations. » Comment résoudre le problème ?
 
         Vous pouvez recevoir cette erreur pour les raisons suivantes :
-        - Traffic Analytics a peut-être été récemment activé et l’agrégation de données est en cours pour pouvoir tirer des informations utiles avant de générer des rapports. Dans ce cas, essayez à nouveau après 30 minutes.
+        - L’analyse de trafic a peut-être été récemment activée et peut avoir agrégé suffisamment de données pour pouvoir tirer des informations utiles avant de générer des rapports. Dans ce cas, essayez à nouveau après 30 minutes.
         - Votre espace de travail OMS est sous la référence SKU libre et il enfreint les limites de quota. Dans ce cas, vous devrez peut-être utiliser un espace de travail dans une référence SKU de capacité supérieure.
     
         Si les problèmes persistent, expliquez votre problème dans le [forum des utilisateurs](https://feedback.azure.com/forums/217313-networking?category_id=195844).
@@ -92,9 +104,9 @@ ms.lasthandoff: 03/09/2018
 
         Vous voyez les informations de ressources sur le tableau de bord. Toutefois, aucune statistique de flux n’est présente. Les données sont peut-être manquantes en l’absence de flux de communication entre les ressources. Attendez 60 minutes et revérifier l’état. Si vous êtes sûr que les ressources communiquent, expliquez votre problème dans le [forum des utilisateurs](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
-14.  Quel est le prix de Traffic Analytics ?
+14.  Quel est le prix de l’analyse de trafic ?
 
-        Aucun frais n’est facturé pour la préversion publique de Traffic Analytics. La génération de journaux de flux de groupe de sécurité réseau et la conservation des données dans un espace de travail OMS sont soumis à des frais selon les tarifs publiés.
+        L’analyse de trafic est limitée pour améliorer les journaux réduits et stocker les journaux améliorés dans un espace de travail Log Analytics. En mode préversion, l’analyse de trafic n’est pas facturée pour l’amélioration des journaux réduits, bien que la rétention des données dans l’espace de travail soit soumise à facturation aux taux publiés. Cette réponse sera mise à jour une fois le tarif de l’analyse de trafic disponible.
 
 15.  Comment puis-je naviguer dans la vue de la carte géographique à l’aide du clavier ?
 

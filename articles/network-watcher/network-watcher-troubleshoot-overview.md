@@ -1,11 +1,11 @@
 ---
-title: "Introduction à la résolution des problèmes des ressources dans Azure Network Watcher | Microsoft Docs"
-description: "Cette page fournit une vue d’ensemble des fonctionnalités de résolution des problèmes des ressources de Network Watcher"
+title: Introduction à la résolution des problèmes des ressources dans Azure Network Watcher | Microsoft Docs
+description: Cette page fournit une vue d’ensemble des fonctionnalités de résolution des problèmes des ressources de Network Watcher
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: c1145cd6-d1cf-4770-b1cc-eaf0464cc315
 ms.service: network-watcher
 ms.devlang: na
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: a37c92e1aa58184ed29185742ec727c120fe593f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 646caa5e4aacd58377c0a2b5985a69277d00cec3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introduction à la résolution des problèmes des ressources dans Azure Network Watcher
 
-Les passerelles de réseau virtuel assurent une connectivité entre les ressources locales et d’autres réseaux virtuels dans Azure. L’analyse de ces passerelles et de leurs connexions est essentielle pour assurer la non-interruption de la communication. Network Watcher permet de résoudre les problèmes des connexions et des passerelles de réseau virtuel. Il est possible de l’appeler par le biais du portail, de PowerShell, de l’interface de ligne de commande ou de l’API REST. Lorsque cette fonctionnalité est appelée, Network Watcher diagnostique l’intégrité de la passerelle de réseau virtuel ou de la connexion et retourne les résultats appropriés. Cette demande est une transaction à long terme, et les résultats sont retournés à l’issue du diagnostic.
+Les passerelles de réseau virtuel assurent une connectivité entre les ressources locales et d’autres réseaux virtuels dans Azure. L’analyse des passerelles et de leurs connexions est essentielle pour assurer la non-interruption de la communication. Network Watcher permet de résoudre les problèmes des connexions et des passerelles. Il est possible de l’appeler par le biais du portail, de PowerShell, de l’interface de ligne de commande Azure ou de l’API REST. Lorsque cette fonctionnalité est appelée, Network Watcher diagnostique l’intégrité de la passerelle ou de la connexion et retourne les résultats appropriés. La demande est une transaction en cours d’exécution longue. Les résultats sont retournés lorsque le diagnostic est terminé.
 
 ![portail][2]
 
@@ -50,52 +50,51 @@ Les tableaux suivants présentent les différents types d’erreur (« id » dan
 
 | Type d’erreur | Motif | Journal|
 |---|---|---|
-| NoFault | Quand aucune erreur n’est détectée. |Oui|
-| GatewayNotFound | Passerelle introuvable ou non approvisionnée. |Non|
-| PlannedMaintenance |  Instance de passerelle en maintenance.  |Non|
-| UserDrivenUpdate | Quand une mise à jour utilisateur est en cours. Il peut s’agir d’une opération de redimensionnement. | Non |
-| VipUnResponsive | Impossible d’atteindre l’instance principale de la passerelle. Cela se produit en cas d’échec de la sonde d’intégrité. | Non |
-| PlatformInActive | Il existe un problème avec la plateforme. | Non|
-| ServiceNotRunning | Le service sous-jacent ne fonctionne pas. | Non|
-| NoConnectionsFoundForGateway | Aucune connexion n’existe sur la passerelle. Il s’agit simplement d’un avertissement.| Non|
-| ConnectionsNotConnected | Aucune connexion n’est établie. Il s’agit simplement d’un avertissement.| Oui|
-| GatewayCPUUsageExceeded | L’utilisation du processeur par la passerelle est actuellement supérieure à 95 %. | Oui |
+| NoFault | Quand aucune erreur n’est détectée |OUI|
+| GatewayNotFound | Passerelle introuvable ou non approvisionnée |Non |
+| PlannedMaintenance |  Instance de la passerelle en maintenance  |Non |
+| UserDrivenUpdate | Cette défaillance se produit lorsqu’une mise à jour utilisateur est en cours. La mise à jour peut être d’une opération de redimensionnement. | Non  |
+| VipUnResponsive | Cette défaillance se produit lorsque l’instance principale de la passerelle ne peut pas être atteinte en raison d’un échec de la sonde d’intégrité. | Non  |
+| PlatformInActive | Il existe un problème avec la plateforme. | Non |
+| ServiceNotRunning | Le service sous-jacent ne fonctionne pas. | Non |
+| NoConnectionsFoundForGateway | Aucune connexion n’existe sur la passerelle. Cette défaillance est simplement un avertissement.| Non |
+| ConnectionsNotConnected | Aucune connexion n’est établie. Cette défaillance est simplement un avertissement.| OUI|
+| GatewayCPUUsageExceeded | L’utilisation du processeur par la passerelle est actuellement supérieure à 95 %. | OUI |
 
 ### <a name="connection"></a>Connexion
 
 | Type d’erreur | Motif | Journal|
 |---|---|---|
-| NoFault | Quand aucune erreur n’est détectée. |Oui|
-| GatewayNotFound | Passerelle introuvable ou non approvisionnée. |Non|
-| PlannedMaintenance | Instance de passerelle en maintenance.  |Non|
-| UserDrivenUpdate | Quand une mise à jour utilisateur est en cours. Il peut s’agir d’une opération de redimensionnement.  | Non |
-| VipUnResponsive | Impossible d’atteindre l’instance principale de la passerelle. Cela se produit en cas d’échec de la sonde d’intégrité. | Non |
-| ConnectionEntityNotFound | La configuration de la connexion est manquante. | Non |
-| ConnectionIsMarkedDisconnected | La connexion est identifiée comme étant « déconnectée ». |Non|
-| ConnectionNotConfiguredOnGateway | Le service sous-jacent n’a pas la connexion configurée. | Oui |
-| ConnectionMarkedStandy | Le service sous-jacent est identifié comme étant en veille.| Oui|
-| Authentification | Non-concordance des clés prépartagées. | Oui|
-| PeerReachability | La passerelle homologue n’est pas accessible. | Oui|
-| IkePolicyMismatch | Les stratégies IKE de la passerelle homologue ne sont pas prises en charge par Azure. | Oui|
-| WfpParse Error | Une erreur s’est produite lors de l’analyse du journal de protection des fichiers Windows. |Oui|
+| NoFault | Quand aucune erreur n’est détectée |OUI|
+| GatewayNotFound | Passerelle introuvable ou non approvisionnée |Non |
+| PlannedMaintenance | Instance de la passerelle en maintenance  |Non |
+| UserDrivenUpdate | Cette défaillance se produit lorsqu’une mise à jour utilisateur est en cours. La mise à jour peut être d’une opération de redimensionnement.  | Non  |
+| VipUnResponsive | Cette défaillance se produit lorsque l’instance principale de la passerelle ne peut pas être atteinte en raison d’un échec de la sonde d’intégrité. | Non  |
+| ConnectionEntityNotFound | La configuration de la connexion est manquante | Non  |
+| ConnectionIsMarkedDisconnected | La connexion est identifiée comme étant « déconnectée » |Non |
+| ConnectionNotConfiguredOnGateway | Le service sous-jacent n’a pas la connexion configurée. | OUI |
+| ConnectionMarkedStandy | Le service sous-jacent est identifié comme étant en veille.| OUI|
+| Authentification | Incompatibilité des clés prépartagées | OUI|
+| PeerReachability | La passerelle homologue n’est pas accessible. | OUI|
+| IkePolicyMismatch | Les stratégies IKE de la passerelle homologue ne sont pas prises en charge par Azure. | OUI|
+| WfpParse Error | Une erreur s’est produite lors de l’analyse du journal de protection des fichiers Windows. |OUI|
 
 ## <a name="supported-gateway-types"></a>Types de passerelles pris en charge
 
-La liste suivante montre quelles passerelles et quelles connexions sont prises en charge avec la résolution des problèmes de Network Watcher.
+La table suivante répertorie quelles passerelles et quelles connexions sont prises en charge avec la résolution des problèmes de Network Watcher :
+
 |  |  |
 |---------|---------|
 |**Types de passerelles**   |         |
-|VPN      | Pris en charge        |
+|VPN      | Prise en charge        |
 |ExpressRoute | Non pris en charge |
-|Hypernet | Non pris en charge|
 |**Types de VPN** | |
-|Route-based | Pris en charge|
+|Route-based | Prise en charge|
 |Policy-based | Non pris en charge|
 |**Types de connexions**||
-|IPsec| Pris en charge|
-|Vnet2Vnet| Pris en charge|
+|IPsec| Prise en charge|
+|Vnet2Vnet| Prise en charge|
 |ExpressRoute| Non pris en charge|
-|Hypernet| Non pris en charge|
 |VPNClient| Non pris en charge|
 
 ## <a name="log-files"></a>Fichiers journaux
@@ -151,7 +150,7 @@ Error: On-prem device sent invalid payload.
 
 Le fichier journal **Scrubbed-wfpdiag.txt** contient le journal de protection des fichiers Windows. Ce journal contient la journalisation des rejets de paquets et des échecs IKE/AuthIP.
 
-L’exemple suivant illustre le contenu du fichier Scrubbed-wfpdiag.txt. Dans cet exemple, la clé partagée d’une connexion n’était pas correcte, comme vous pouvez l’observer sur la ligne 3 à partir du bas. L’exemple suivant est simplement un extrait de la totalité du journal, car ce dernier peut être très long en fonction du problème.
+L’exemple suivant illustre le contenu du fichier Scrubbed-wfpdiag.txt. Dans cet exemple, la clé partagée d’une connexion n’était pas correcte, comme vous pouvez l’observer sur la troisième ligne à partir du bas. L’exemple suivant est simplement un extrait de la totalité du journal, car ce dernier peut être très long en fonction du problème.
 
 ```
 ...

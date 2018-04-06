@@ -1,11 +1,11 @@
 ---
-title: "Gestion des états de Reliable Actors | Microsoft Docs"
-description: "Décrit la manière dont l’état de Reliable Actors est géré, conservé et répliqué pour garantir une haute disponibilité."
+title: Gestion des états de Reliable Actors | Microsoft Docs
+description: Décrit la manière dont l’état de Reliable Actors est géré, conservé et répliqué pour garantir une haute disponibilité.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 37cf466a-5293-44c0-a4e0-037e5d292214
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: f196b2e54efc5ecbbd93e48e1f115edb99e5c858
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: d5d38e7fa80db3484c397d9840bbc6092e4f18bb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="reliable-actors-state-management"></a>Gestion des états de Reliable Actors
 Reliable Actors désignent des objets monothread capables d’encapsuler la logique et l’état. Étant donné que les acteurs s’exécutent sur Reliable Services, ils peuvent conserver leur état de façon fiable à l’aide des mêmes mécanismes de persistance et de réplication. De cette façon, les acteurs ne perdent pas leur état après des incidents, après une réactivation consécutive à un nettoyage de la mémoire, ou encore après leur déplacement entre des nœuds d’un cluster dans le cadre d’un équilibrage des ressources ou de mises à niveau.
@@ -111,299 +111,7 @@ Les clés de gestionnaire d’état doivent être des chaînes. Les valeurs sont
 
 Pour la gestion des états, le gestionnaire d’état expose des méthodes de dictionnaire courantes similaires à celles disponibles dans Reliable Dictionary.
 
-## <a name="accessing-state"></a>Accès à l’état
-L’état est accessible via le gestionnaire d’état par l’intermédiaire d’une clé. Les méthodes du gestionnaire d’état sont toutes asynchrones, car elles peuvent nécessiter des E/S disque lorsque les acteurs sont à l’état persistant. Lors du premier accès, les objets d’état sont mis en mémoire cache. Les opérations d’accès répétées permettent d’accéder aux objets directement à partir de la mémoire et sont retournées de façon synchrone sans entraîner d’E/S disque ou de surcharge asynchrone en cas de changement de contexte. Un objet d’état est supprimé du cache dans les cas suivants :
-
-* Une méthode d’acteur lève une exception non gérée après avoir récupéré un objet à partir du gestionnaire d’état.
-* Un acteur est réactivé soit après avoir été désactivé, soit en raison d’un échec.
-* Si le fournisseur d’état écrit l’état sur le disque. Ce comportement dépend de l’implémentation du fournisseur d’état. Le fournisseur d’état par défaut pour le paramètre `Persisted` présente ce comportement.
-
-Vous pouvez récupérer l’état à l’aide d’une opération *Get* standard qui lève l’exception `KeyNotFoundException`(C#) ou `NoSuchElementException`(Java) s’il n’existe aucune entrée pour la clé :
-
-```csharp
-[StatePersistence(StatePersistence.Persisted)]
-class MyActor : Actor, IMyActor
-{
-    public MyActor(ActorService actorService, ActorId actorId)
-        : base(actorService, actorId)
-    {
-    }
-
-    public Task<int> GetCountAsync()
-    {
-        return this.StateManager.GetStateAsync<int>("MyState");
-    }
-}
-```
-```Java
-@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
-class MyActorImpl extends FabricActor implements  MyActor
-{
-    public MyActorImpl(ActorService actorService, ActorId actorId)
-    {
-        super(actorService, actorId);
-    }
-
-    public CompletableFuture<Integer> getCountAsync()
-    {
-        return this.stateManager().getStateAsync("MyState");
-    }
-}
-```
-
-Vous pouvez également récupérer l’état à l’aide d’une opération *TryGet* qui ne lève pas d’exception s’il n’existe aucune entrée pour la clé :
-
-```csharp
-class MyActor : Actor, IMyActor
-{
-    public MyActor(ActorService actorService, ActorId actorId)
-        : base(actorService, actorId)
-    {
-    }
-
-    public async Task<int> GetCountAsync()
-    {
-        ConditionalValue<int> result = await this.StateManager.TryGetStateAsync<int>("MyState");
-        if (result.HasValue)
-        {
-            return result.Value;
-        }
-
-        return 0;
-    }
-}
-```
-```Java
-class MyActorImpl extends FabricActor implements  MyActor
-{
-    public MyActorImpl(ActorService actorService, ActorId actorId)
-    {
-        super(actorService, actorId);
-    }
-
-    public CompletableFuture<Integer> getCountAsync()
-    {
-        return this.stateManager().<Integer>tryGetStateAsync("MyState").thenApply(result -> {
-            if (result.hasValue()) {
-                return result.getValue();
-            } else {
-                return 0;
-            });
-    }
-}
-```
-
-## <a name="saving-state"></a>Enregistrement de l’état
-Les méthodes de récupération du gestionnaire d’état renvoient une référence à un objet dans la mémoire locale. La modification de cet objet dans la mémoire locale uniquement ne permet pas de l’enregistrer durablement. Lorsqu’un objet est récupéré à partir du gestionnaire d’état puis modifié, il doit être réinséré dans le gestionnaire d’état afin d’être enregistré de façon durable.
-
-Vous pouvez insérer l’état en utilisant une méthode *Set* inconditionnelle, ce qui équivaut à la syntaxe `dictionary["key"] = value` :
-
-```csharp
-[StatePersistence(StatePersistence.Persisted)]
-class MyActor : Actor, IMyActor
-{
-    public MyActor(ActorService actorService, ActorId actorId)
-        : base(actorService, actorId)
-    {
-    }
-
-    public Task SetCountAsync(int value)
-    {
-        return this.StateManager.SetStateAsync<int>("MyState", value);
-    }
-}
-```
-```Java
-@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
-class MyActorImpl extends FabricActor implements  MyActor
-{
-    public MyActorImpl(ActorService actorService, ActorId actorId)
-    {
-        super(actorService, actorId);
-    }
-
-    public CompletableFuture setCountAsync(int value)
-    {
-        return this.stateManager().setStateAsync("MyState", value);
-    }
-}
-```
-
-Vous pouvez ajouter l’état en utilisant une méthode *Add*. Cette méthode lève une exception `InvalidOperationException`(C#) ou `IllegalStateException`(Java) lorsqu’elle tente d’ajouter une clé qui existe.
-
-```csharp
-[StatePersistence(StatePersistence.Persisted)]
-class MyActor : Actor, IMyActor
-{
-    public MyActor(ActorService actorService, ActorId actorId)
-        : base(actorService, actorId)
-    {
-    }
-
-    public Task AddCountAsync(int value)
-    {
-        return this.StateManager.AddStateAsync<int>("MyState", value);
-    }
-}
-```
-```Java
-@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
-class MyActorImpl extends FabricActor implements  MyActor
-{
-    public MyActorImpl(ActorService actorService, ActorId actorId)
-    {
-        super(actorService, actorId);
-    }
-
-    public CompletableFuture addCountAsync(int value)
-    {
-        return this.stateManager().addOrUpdateStateAsync("MyState", value, (key, old_value) -> old_value + value);
-    }
-}
-```
-
-Vous pouvez également ajouter l’état en utilisant une méthode *TryAdd*. Cette méthode ne lève pas d’exception lorsqu’elle tente d’ajouter une clé qui existe déjà.
-
-```csharp
-[StatePersistence(StatePersistence.Persisted)]
-class MyActor : Actor, IMyActor
-{
-    public MyActor(ActorService actorService, ActorId actorId)
-        : base(actorService, actorId)
-    {
-    }
-
-    public async Task AddCountAsync(int value)
-    {
-        bool result = await this.StateManager.TryAddStateAsync<int>("MyState", value);
-
-        if (result)
-        {
-            // Added successfully!
-        }
-    }
-}
-```
-```Java
-@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
-class MyActorImpl extends FabricActor implements  MyActor
-{
-    public MyActorImpl(ActorService actorService, ActorId actorId)
-    {
-        super(actorService, actorId);
-    }
-
-    public CompletableFuture addCountAsync(int value)
-    {
-        return this.stateManager().tryAddStateAsync("MyState", value).thenApply((result)->{
-            if(result)
-            {
-                // Added successfully!
-            }
-        });
-    }
-}
-```
-
-À la fin d’une méthode d’acteur, le gestionnaire d’état enregistre automatiquement toutes les valeurs qui ont été ajoutées ou modifiées par une opération insert ou update. Une opération « save » peut inclure la conservation sur disque et la réplication, selon les paramètres utilisés. Les valeurs qui n’ont pas été modifiées ne sont pas conservées ou répliquées. Si aucune valeur n’a été modifiée, l’opération n’aura aucun effet. En cas d’échec de l’enregistrement, l’état modifié est ignoré et l’état d’origine est rechargé.
-
-Vous pouvez également enregistrer l’état manuellement en appelant la méthode `SaveStateAsync` sur la base d’acteur :
-
-```csharp
-async Task IMyActor.SetCountAsync(int count)
-{
-    await this.StateManager.AddOrUpdateStateAsync("count", count, (key, value) => count > value ? count : value);
-
-    await this.SaveStateAsync();
-}
-```
-```Java
-interface MyActor {
-    CompletableFuture setCountAsync(int count)
-    {
-        this.stateManager().addOrUpdateStateAsync("count", count, (key, value) -> count > value ? count : value).thenApply();
-
-        this.stateManager().saveStateAsync().thenApply();
-    }
-}
-```
-
-## <a name="removing-state"></a>Suppression de l’état
-Vous pouvez supprimer définitivement l’état du gestionnaire d’état d’un acteur en appelant la méthode *Remove*. Cette méthode lève une exception `KeyNotFoundException`(C#) ou `NoSuchElementException`(Java) lorsqu’elle tente de supprimer une clé qui n’existe pas.
-
-```csharp
-[StatePersistence(StatePersistence.Persisted)]
-class MyActor : Actor, IMyActor
-{
-    public MyActor(ActorService actorService, ActorId actorId)
-        : base(actorService, actorId)
-    {
-    }
-
-    public Task RemoveCountAsync()
-    {
-        return this.StateManager.RemoveStateAsync("MyState");
-    }
-}
-```
-```Java
-@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
-class MyActorImpl extends FabricActor implements  MyActor
-{
-    public MyActorImpl(ActorService actorService, ActorId actorId)
-    {
-        super(actorService, actorId);
-    }
-
-    public CompletableFuture removeCountAsync()
-    {
-        return this.stateManager().removeStateAsync("MyState");
-    }
-}
-```
-
-Vous pouvez également supprimer définitivement l’état en utilisant la méthode *TryRemove*. Cette méthode ne lève pas d’exception lorsqu’elle tente de supprimer une clé qui n’existe pas.
-
-```csharp
-[StatePersistence(StatePersistence.Persisted)]
-class MyActor : Actor, IMyActor
-{
-    public MyActor(ActorService actorService, ActorId actorId)
-        : base(actorService, actorId)
-    {
-    }
-
-    public async Task RemoveCountAsync()
-    {
-        bool result = await this.StateManager.TryRemoveStateAsync("MyState");
-
-        if (result)
-        {
-            // State removed!
-        }
-    }
-}
-```
-```Java
-@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
-class MyActorImpl extends FabricActor implements  MyActor
-{
-    public MyActorImpl(ActorService actorService, ActorId actorId)
-    {
-        super(actorService, actorId);
-    }
-
-    public CompletableFuture removeCountAsync()
-    {
-        return this.stateManager().tryRemoveStateAsync("MyState").thenApply((result)->{
-            if(result)
-            {
-                // State removed!
-            }
-        });
-    }
-}
-```
+Pour des exemples de gestion de l’état d’acteur, lire [Utiliser, enregistrer et supprimer l’état de Reliable Actors](service-fabric-reliable-actors-access-save-remove-state.md).
 
 ## <a name="best-practices"></a>Meilleures pratiques
 Voici quelques pratiques et conseils de dépannage pour la gestion de l’état d’acteur.
@@ -412,11 +120,11 @@ Voici quelques pratiques et conseils de dépannage pour la gestion de l’état 
 Ceci est essentiel pour les performances et l’utilisation des ressources de votre application. À chaque écriture/mise à jour d’un « état nommé » pour un acteur, la valeur entière correspondant à cet « état nommé » est sérialisée et envoyée sur le réseau vers les réplicas secondaires.  Les réplicas secondaires écrivent sur le disque local et répondent au réplica principal. Lorsque le réplica principal reçoit les accusés de réception à partir d’un quorum de réplicas secondaires, il écrit l’état sur son disque local. Par exemple, supposons que la valeur est une classe qui compte 20 membres et a une taille de 1 Mo. Même si vous avez modifié un seul des membres de la classe qui a de taille de 1 Ko, vous finissez par payer les coûts de sérialisation et d’écriture sur le réseau/disque par pour 1 Mo. De même, si la valeur est une collection (par exemple, une liste, un tableau ou un dictionnaire), vous payez le coût de la collection complète, même si vous modifiez l’un de ses membres. L’interface de StateManager de la classe d’acteur est semblable à un dictionnaire. Vous devez toujours modéliser la structure de données qui représente un état d’acteur par dessus ce dictionnaire.
  
 ### <a name="correctly-manage-the-actors-life-cycle"></a>Gérer correctement le cycle de vie de l’acteur
-Vous devez disposer d’une stratégie claire pour la gestion de la taille de l’état dans chaque partition d’un service d’acteur. Votre service d’acteur doit avoir un nombre fixe d’acteurs et les réutiliser aussi souvent que possible. Si vous créez sans cesse des acteurs, vous devez les supprimer une fois qu’ils ont terminé leur travail. L’infrastructure des acteurs stocke des métadonnées sur chaque acteur existant. La suppression de tous les états d’un acteur ne supprime pas les métadonnées associées. Vous devez supprimer l’acteur (voir [Suppression des acteurs et de leur état](service-fabric-reliable-actors-lifecycle.md#deleting-actors-and-their-state)) pour supprimer toutes les informations stockées dans le système. Au titre de vérification supplémentaire, vous devez interroger le service d’acteur (voir [Énumération des acteurs](service-fabric-reliable-actors-platform.md)) de temps à autre pour vous assurer que le nombre d’acteurs est dans la plage attendue.
+Vous devez disposer d’une stratégie claire pour la gestion de la taille de l’état dans chaque partition d’un service d’acteur. Votre service d’acteur doit avoir un nombre fixe d’acteurs et les réutiliser aussi souvent que possible. Si vous créez sans cesse des acteurs, vous devez les supprimer une fois qu’ils ont terminé leur travail. L’infrastructure des acteurs stocke des métadonnées sur chaque acteur existant. La suppression de tous les états d’un acteur ne supprime pas les métadonnées associées. Vous devez supprimer l’acteur (voir [Suppression des acteurs et de leur état](service-fabric-reliable-actors-lifecycle.md#manually-deleting-actors-and-their-state)) pour supprimer toutes les informations stockées dans le système. Au titre de vérification supplémentaire, vous devez interroger le service d’acteur (voir [Énumération des acteurs](service-fabric-reliable-actors-platform.md)) de temps à autre pour vous assurer que le nombre d’acteurs est dans la plage attendue.
  
 Si la taille du fichier de base de données d’un service d’acteur augmente au-delà de la taille attendue, suivez les recommandations ci-dessus. Si malgré cela vous avez toujours des problèmes de taille de fichier de base de données, vous devez [ouvrir un ticket de support](service-fabric-support.md) auprès de l’équipe de produit pour obtenir de l’aide.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 L’état stocké dans Reliable Actors doit être sérialisé avant d’être écrit sur le disque et répliqué pour une haute disponibilité. En savoir plus sur [Sérialisation du type d’acteur](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
 

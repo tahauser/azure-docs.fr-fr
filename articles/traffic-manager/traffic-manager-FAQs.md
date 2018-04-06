@@ -1,24 +1,24 @@
 ---
-title: "Azure Traffic Manager - FAQ | Microsoft Docs"
-description: "Cet article fournit des réponses aux questions fréquemment posées sur Traffic Manager."
+title: Azure Traffic Manager - FAQ | Microsoft Docs
+description: Cet article fournit des réponses aux questions fréquemment posées sur Traffic Manager.
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: KumudD
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 75d5ff9a-f4b9-4b05-af32-700e7bdfea5a
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2018
+ms.date: 03/18/2018
 ms.author: kumud
-ms.openlocfilehash: 09fd133ec72f7ebbbcb45f652855e7640656a0ca
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: d9db669ab905fb51390f6ca80736af4cde13d902
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ) relatif à Traffic Manager
 
@@ -123,9 +123,6 @@ Oui, seules les versions de l’API 2017-03-01 et plus récentes prennent en cha
 
 ## <a name="real-user-measurements"></a>Mesures des utilisateurs réels
 
->[!NOTE]
->La fonctionnalité Mesures des utilisateurs réels dans Traffic Manager est en préversion publique. Il se peut qu’elle n’offre pas les mêmes niveaux de disponibilité et de fiabilité que les fonctionnalités de la version mise à la disposition générale. Cette fonctionnalité n’est pas prise en charge, est susceptible de disposer de possibilités limitées et peut ne pas être disponible à certains emplacements Azure. Pour les notifications les plus récentes sur la disponibilité et l’état de cette fonctionnalité, consultez la page relative aux [mises à jour d’Azure Traffic Manager](https://azure.microsoft.com/updates/?product=traffic-manager).
-
 ### <a name="what-are-the-benefits-of-using-real-user-measurements"></a>Quels sont les avantages de l’utilisation des mesures des utilisateurs réels ?
 Quand vous utilisez la méthode de routage basé sur les performances, Traffic Manager sélectionne la meilleure région Azure à laquelle votre utilisateur final se connecte. Pour cela, Traffic Manager inspecte l’adresse IP source et le sous-réseau du client EDNS (s’il est passé), puis les compare aux informations sur la latence réseau que le service tient à jour. La fonctionnalité Mesures des utilisateurs réels optimise ce processus pour votre base d’utilisateurs finaux : d’une part, en prenant en compte l’expérience des utilisateurs finaux dans la table de latence et, d’autre part, en veillant à ce que cette table couvre de manière adéquate les réseaux des utilisateurs finaux à partir desquels ils se connectent à Azure. Il en résulte un routage plus précis des utilisateurs finaux.
 
@@ -140,7 +137,8 @@ Non, il vous suffit de l’activer une fois par abonnement pour que toutes les i
 
 ### <a name="how-do-i-turn-off-real-user-measurements-for-my-subscription"></a>Comment faire pour désactiver la fonctionnalité Mesures des utilisateurs réels pour mon abonnement ?
 Quand vous arrêtez de collecter et de renvoyer des mesures de latence à partir de votre application cliente, la fonctionnalité Mesures des utilisateurs réels n’engendre plus de frais. Par exemple, si le script JavaScript de mesure est incorporé dans les pages web, vous pouvez cesser d’utiliser cette fonctionnalité en supprimant le code JavaScript ou en désactivant l’appel à celui-ci quand la page est affichée.
-Un autre moyen de désactiver la fonctionnalité Mesures des utilisateurs réels consiste à supprimer votre clé. Une fois cette opération effectuée, toutes les mesures envoyées à Traffic Manager avec cette clé sont ignorées.
+
+Vous pouvez aussi désactiver la fonctionnalité Mesures utilisateur réelles en supprimant votre clé. Une fois la clé supprimée, toutes les mesures envoyées à Traffic Manager avec cette clé sont ignorées.
 
 ### <a name="can-i-use-real-user-measurements-with-client-applications-other-than-web-pages"></a>Puis-je utiliser la fonctionnalité Mesures des utilisateurs réels avec des applications clientes autres que des pages web ?
 Oui, la fonctionnalité Mesures des utilisateurs réels est conçue pour ingérer les données collectées à l’aide d’autres types de clients d’utilisateurs finaux. Ce FAQ sera mis à jour pour refléter les nouveaux types d’applications clientes pris en charge.
@@ -155,7 +153,7 @@ Non, l’appel du script n’est pas précédé d’un délai programmé.
 Non, chaque fois qu’il est appelé, le script Mesures des utilisateurs réels mesure un ensemble de six régions Azure déterminées par le service. Cet ensemble varie d’un appel à l’autre et, quand un grand nombre de ces appels se produit, la couverture de la mesure s’étend à différentes régions Azure.
 
 ### <a name="can-i-limit-the-number-of-measurements-made-to-a-specific-number"></a>Est-il possible de limiter le nombre de mesures effectuées à un nombre spécifique ?
-Le script JavaScript de mesure est incorporé dans votre page Web. C’est vous qui décidez quand l’utiliser et quand ne plus l’utiliser. Tant que le service Traffic Manager reçoit une demande de mesure d’une liste de régions Azure, un ensemble de régions est retourné. Gardez à l’esprit qu’aucune mesure signalée à Traffic Manager n’est facturée pendant la préversion.
+Le script JavaScript de mesure est incorporé dans votre page Web. C’est vous qui décidez quand l’utiliser et quand ne plus l’utiliser. Tant que le service Traffic Manager reçoit une demande de mesure d’une liste de régions Azure, un ensemble de régions est retourné.
 
 ### <a name="can-i-see-the-measurements-taken-by-my-client-application-as-part-of-real-user-measurements"></a>Puis-je afficher les mesures prises par mon application cliente dans le cadre de la fonctionnalité Mesures des utilisateurs réels ?
 Comme la logique des mesures s’exécute à partir de votre application cliente, vous contrôlez entièrement ce qui se passe, notamment l’affichage des mesures de latence. Traffic Manager ne génère pas un affichage de synthèse des mesures reçues sous la clé liée à votre abonnement.
@@ -164,7 +162,7 @@ Comme la logique des mesures s’exécute à partir de votre application cliente
 Bien que vous contrôliez ce qui est incorporé dans votre page web, nous vous déconseillons fortement de changer le script de mesure pour ne pas altérer la mesure et le signalement des latences.
 
 ### <a name="will-it-be-possible-for-others-to-see-the-key-i-use-with-real-user-measurements"></a>Est-ce que d’autres utilisateurs peuvent voir la clé que j’utilise avec la fonctionnalité Mesures des utilisateurs réels ?
-Quand vous incorporez le script de mesure à une page web, d’autres utilisateurs peuvent voir le script et votre clé Mesures des utilisateurs réels. Mais il est important de savoir que cette clé est différente de votre ID d’abonnement et qu’elle est générée par Traffic Manager uniquement dans ce but. La sécurité de votre compte Azure n’est pas compromise si quelqu’un a connaissance de votre clé Mesures des utilisateurs réels.
+Quand vous incorporez le script de mesure à une page web, d’autres utilisateurs peuvent voir le script et votre clé Mesures des utilisateurs réels. Mais il est important de savoir que cette clé est différente de votre ID d’abonnement et qu’elle est générée par Traffic Manager uniquement dans ce but. La sécurité de votre compte Azure n’est pas compromise si quelqu’un a connaissance de votre clé Mesures utilisateur réelles.
 
 ### <a name="can-others-abuse-my-rum-key"></a>Ma clé Mesures des utilisateurs réels peut-elle faire l’objet d’une utilisation malveillante ?
 Bien que d’autres personnes puissent utiliser votre clé pour envoyer des informations erronées à Azure, le routage est établi sur la base de toutes les mesures que nous recevons et n’est pas affecté par quelques mesures incorrectes. Si vous avez besoin de changer votre clé, vous pouvez la regénérer (l’ancienne clé est alors ignorée).
@@ -179,15 +177,12 @@ Si le script JavaScript de mesure fourni est utilisé, Traffic Manager peut voir
 Non, l’utilisation de Traffic Manager n’est pas obligatoire. La partie routage de Traffic Manager fonctionne séparément de la partie Mesures des utilisateurs réels. Elles ne doivent pas nécessairement se trouver dans la même propriété web, même si cela est une bonne idée.
 
 ### <a name="do-i-need-to-host-any-service-on-azure-regions-to-use-with-real-user-measurements"></a>Dois-je héberger un service sur les régions Azure à utiliser avec la fonctionnalité Mesures des utilisateurs réels ?
-Non, la fonctionnalité Mesures des utilisateurs réels ne nécessite pas de composant côté serveur pour fonctionner. L’image à pixel unique téléchargée par le script JavaScript de mesure et le service qui l’exécute dans différentes régions Azure est hébergée et gérée par Azure. 
+Non, la fonctionnalité Mesures utilisateur réelles ne nécessite pas de composant côté serveur pour fonctionner. L’image à pixel unique téléchargée par le script JavaScript de mesure et le service qui l’exécute dans différentes régions Azure est hébergée et gérée par Azure. 
 
 ### <a name="will-my-azure-bandwidth-usage-increase-when-i-use-real-user-measurements"></a>L’utilisation de la bande passante Azure augmente-t-elle quand j’utilise la fonctionnalité Mesures des utilisateurs réels ?
 Comme indiqué dans la réponse précédente, les composants côté serveur de la fonctionnalité Mesures des utilisateurs réels sont hébergés et gérés par Azure. La fonctionnalité Mesures des utilisateurs réels n’entraîne donc pas une augmentation de la bande passante Azure utilisée. Notez que ceci n’inclut pas l’utilisation de la bande passante au-delà de ce que facture Azure. Pour minimiser la bande passante utilisée, nous téléchargeons une image à pixel unique pour mesurer la latence jusqu’à une région Azure. 
 
 ## <a name="traffic-view"></a>Affichage du trafic
-
->[!NOTE]
->La fonctionnalité d’affichage de trafic Traffic View dans Traffic Manager est en préversion publique. Il se peut qu’elle n’offre pas les mêmes niveaux de disponibilité et de fiabilité que les fonctions de la version mise à la disposition générale. Cette fonctionnalité n’est pas prise en charge, est susceptible de disposer de possibilités limitées et peut ne pas être disponible à certains emplacements Azure. Pour les notifications les plus récentes sur la disponibilité et l’état de cette fonctionnalité, consultez la page relative aux [mises à jour d’Azure Traffic Manager](https://azure.microsoft.com/updates/?product=traffic-manager).
 
 ### <a name="what-does-traffic-view-do"></a>À quoi sert la fonctionnalité Affichage du trafic ?
 Affichage du trafic est une fonctionnalité de Traffic Manager qui vous permet de découvrir plus en détail vos utilisateurs et leur expérience. Elle utilise les requêtes reçues par Traffic Manager et les tables de temps de réponse du réseau que le service tient à jour pour fournir les informations suivantes :
@@ -196,7 +191,7 @@ Affichage du trafic est une fonctionnalité de Traffic Manager qui vous permet d
 - Régions Azure vers lesquelles ils sont routés
 - Expérience en matière de latence vers ces régions Azure
 
-Ces informations sont disponibles sous forme d’un tableau dans le portail. Vous pouvez aussi les télécharger en tant que données brutes.
+Ces informations sont disponibles sous forme de superposition de carte géographique et d’un tableau dans le portail. Vous pouvez aussi les télécharger en tant que données brutes.
 
 ### <a name="how-can-i-benefit-from-using-traffic-view"></a>Quels sont les avantages de la fonctionnalité Affichage du trafic ?
 
@@ -208,7 +203,7 @@ Vous pouvez utiliser Azure Monitor pour comprendre, au niveau global, le trafic 
 
 ### <a name="does-traffic-view-use-edns-client-subnet-information"></a>La fonctionnalité Affichage du trafic utilise-t-elle les informations sur le sous-réseau du client EDNS ?
 
-La fonctionnalité Affichage du trafic ne tient pas compte des informations sur le sous-réseau du client EDNS pour créer sa sortie. Elle utilise l’adresse IP du programme de résolution DNS local de vos utilisateurs pour les regrouper.
+Les requêtes DNS présentées par Azure Traffic Manager prennent en compte les informations ECS pour améliorer la précision du routage. Mais lors de la création du jeu de données qui montre d’où les utilisateurs se connectent, la fonctionnalité Vue du trafic utilise uniquement l’adresse IP du programme de résolution DNS.
 
 ### <a name="how-many-days-of-data-does-traffic-view-use"></a>Combien de jours de données la fonctionnalité Affichage du trafic utilise-t-elle ?
 
@@ -219,15 +214,18 @@ Pour créer sa sortie, la fonctionnalité Affichage du trafic traite les donnée
 Quand vous utilisez des points de terminaison externes hébergés en dehors des régions Azure dans un profil Traffic Manager, vous pouvez choisir de les mapper à une région Azure qui constitue un proxy pour ses caractéristiques de latence (ce qui est nécessaire si vous utilisez la méthode de routage basé sur les performances). Si un mappage à une région Azure est défini, les métriques de latence de la région Azure sont utilisées au moment de la création de la sortie Vue du trafic. Si aucune région Azure n’est spécifiée, les informations de latence sont vides dans les données correspondant à ces points de terminaison externes.
 
 ### <a name="do-i-need-to-enable-traffic-view-for-each-profile-in-my-subscription"></a>Dois-je activer la fonctionnalité Affichage du trafic pour chaque profil de mon abonnement ?
-Pendant la préversion, la fonctionnalité Affichage du trafic est activée au niveau de l’abonnement et est disponible pour tous les profils Traffic Manager qui figurent sous cet abonnement.
 
-### <a name="how-can-i-turn-off-traffic-view"></a>Comment désactiver la fonctionnalité Affichage du trafic ?
-Pendant la préversion, nous vous demandons de créer un ticket de support afin de désactiver la fonctionnalité Affichage du trafic pour votre abonnement.
+Pendant la période d’évaluation, la fonctionnalité Vue du trafic a été activée au niveau de l’abonnement. Dans le cadre des améliorations apportées avant la mise à la disponibilité générale, vous pouvez désormais activer la fonctionnalité Vue du trafic au niveau du profil, ce qui vous permet de disposer d’une activation plus précise de cette fonctionnalité. Par défaut, la fonctionnalité Vue du trafic est désactivée pour un profil.
+
+>[!NOTE]
+>Si vous avez activé la fonctionnalité Vue du trafic au niveau de l’abonnement pendant la période d’évaluation, vous devez maintenant l’activer de nouveau pour chaque profil sous cet abonnement.
+ 
+### <a name="how-can-i-turn-off-traffic-view"></a>Comment désactiver la fonctionnalité Affichage du trafic ? 
+Vous pouvez désactiver la fonctionnalité Vue du trafic pour n’importe quel profil à l’aide du portail ou de l’API REST. 
 
 ### <a name="how-does-traffic-view-billing-work"></a>Comment la fonctionnalité Affichage du trafic est-elle facturée ?
 
 Le prix de la fonctionnalité Affichage du trafic est basé sur le nombre de points de données utilisés pour créer la sortie. Les requêtes reçues par votre profil sont actuellement le seul type de données pris en charge. En outre, seul le traitement effectué quand la fonctionnalité Affichage du trafic est activée vous est facturé. Cela signifie que si vous activez la fonctionnalité Affichage du trafic pendant une certaine période au cours du mois et que vous la désactivez à d’autres périodes, seuls les points de données traités quand la fonctionnalité est activée sont comptabilisés dans votre facture.
-Pendant la préversion, l’utilisation de la fonctionnalité Affichage du trafic n’est pas facturée.
 
 ## <a name="traffic-manager-endpoints"></a>Points de terminaison Traffic Manager
 

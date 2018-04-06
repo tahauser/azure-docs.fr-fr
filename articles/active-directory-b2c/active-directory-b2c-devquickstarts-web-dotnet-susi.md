@@ -1,25 +1,21 @@
 ---
-title: "Authentification, abonnement, réinitialisation de mot de passe ASP.NET, Azure Active Directory B2C"
-description: "Comment créer une application web avec inscription/connexion, modification du profil et réinitialisation du mot de passe à l’aide d’Azure Active Directory B2C."
+title: Authentification, abonnement, réinitialisation de mot de passe ASP.NET, Azure Active Directory B2C
+description: Comment créer une application web avec inscription/connexion, modification du profil et réinitialisation du mot de passe à l’aide d’Azure Active Directory B2C.
 services: active-directory-b2c
 documentationcenter: .net
-author: parakhj
+author: davidmu1
 manager: mtillman
-editor: barbaraselden
-ms.assetid: 30261336-d7a5-4a6d-8c1a-7943ad76ed25
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/17/2017
-ms.author: parakhj
-ms.custom: seohack1
-ms.openlocfilehash: ffc46f4348a2ac3cae51c859a24c609756a710fe
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.author: davidmu
+ms.openlocfilehash: f7b7cce84f8ff7be14120568e710432be639ce8e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Créer une application web ASP.NET avec inscription, connexion, modification du profil et réinitialisation du mot de passe Azure Active Directory B2C
 
@@ -31,6 +27,7 @@ Ce didacticiel vous explique les procédures suivantes :
 > * Créer une stratégie d’inscription/de connexion d’utilisateur, de modification du profil et de réinitialisation du mot de passe pour votre application web
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 - Vous devez connecter votre locataire B2C à un compte Azure. Vous pouvez créer un compte Azure gratuit [ici](https://azure.microsoft.com/en-us/).
 - Vous avez besoin de [Microsoft Visual Studio](https://www.visualstudio.com/) ou d’un programme similaire pour afficher et modifier l’exemple de code.
@@ -97,7 +94,7 @@ Notre exemple est configuré pour utiliser les stratégies et l’ID client du l
 * `ida:ResetPasswordPolicyId` par votre nom de stratégie « Réinitialiser le mot de passe »
 
 ## <a name="launch-the-app"></a>Lancer l’application
-À partir de Visual Studio, lancez l’application. Accédez à l’onglet Liste de tâches et notez que l’URl est : https://login.microsoftonline.com/*YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName*&client_id=*YourclientID*.....
+À partir de Visual Studio, lancez l’application. Accédez à l’onglet Liste de tâches et notez que l’URl est : https://login.microsoftonline.com/*VotreNomDeClient*/oauth2/v2.0/authorize?p=*NomDeVotreStratégieInscription*&client_id=*VotreIDdeClient*.....
 
 Inscrivez-vous à l’application à l’aide de votre adresse e-mail ou nom d’utilisateur. Déconnectez-vous, puis reconnectez-vous et modifiez le profil ou réinitialisez le mot de passe. Déconnectez-vous et connectez-vous en tant qu’autre utilisateur. 
 

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 976d7e7cb304a24f235e51952ce04826776e2789
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5c2c39db7ab89b06915c014778977915cca15190
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Didacticiel : configurer Workday pour l’approvisionnement automatique d’utilisateurs
 
@@ -398,9 +398,9 @@ Après avoir installé l’agent, exécutez les commandes Powershell ci-dessous 
 
 **Commande #1**
 
-> cd C:\\Program Files\\Microsoft Azure Active Directory Synchronization Agent\\Modules\\AADSyncAgent
+> cd "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Modules\AADSyncAgent" Agent\\Modules\\AADSyncAgent
 
-> import-module AADSyncAgent.psd1
+> Import-Module "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Modules\AADSyncAgent\AADSyncAgent.psd1"
 
 **Commande #2**
 
@@ -417,6 +417,9 @@ Après avoir installé l’agent, exécutez les commandes Powershell ci-dessous 
 
 >[!IMPORTANT]
 >Il existe actuellement un problème connu avec les informations d’identification d’administrateur global qui ne fonctionnent pas si elles utilisent un domaine personnalisé (exemple : admin@contoso.com). Pour résoudre ce problème, créez et utilisez un compte d’administrateur global avec un domaine onmicrosoft.com (exemple : admin@contoso.onmicrosoft.com)
+
+>[!IMPORTANT]
+>Il existe actuellement un problème connu avec les informations d’identification d’administrateur général qui ne fonctionnent pas si l’authentification multifacteur est activée. Pour contourner ce problème, désactivez l’authentification multifacteur pour l’administrateur général.
 
 
 **Commande #4**

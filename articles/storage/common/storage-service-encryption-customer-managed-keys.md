@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: lakasa
-ms.openlocfilehash: 1360d8bb0911c424747209c69b830fc1ee461798
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 04688f943ac9eba27ca193aa2054c69b6a94547d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Chiffrement du service de stockage à l’aide de clés gérées par le client dans Azure Key Vault
 
@@ -111,11 +111,11 @@ Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -
 
 ### <a name="step-5-copy-data-to-storage-account"></a>Étape 5 : copier les données dans le compte de stockage
 
-Pour transférer des données dans votre nouveau compte de stockage afin de les chiffrer, reportez-vous à l’étape 3 de [Prise en main de Storage Service Encryption pour les données au repos](storage-service-encryption.md#step-3-copy-data-to-storage-account).
+Pour transférer des données vers votre nouveau compte de stockage afin qu’il soit chiffré. Pour plus d’informations, voir [FAQ sur le chiffrement du service de stockage](storage-service-encryption.md#faq-for-storage-service-encryption).
 
 ### <a name="step-6-query-the-status-of-the-encrypted-data"></a>Étape 6 : Interroger l’état des données chiffrées
 
-Pour interroger l’état des données chiffrées, consultez l’étape 4 de [Prise en main de Storage Service Encryption pour les données au repos](storage-service-encryption.md#step-4-query-the-status-of-the-encrypted-data).
+Interroger l’état des données chiffrées.
 
 ## <a name="faq-for-sse-with-customer-managed-keys"></a>FAQ pour SSE avec clés gérées par le client
 

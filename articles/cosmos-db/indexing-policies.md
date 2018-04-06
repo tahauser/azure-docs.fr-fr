@@ -1,10 +1,10 @@
 ---
-title: "Stratégies d’indexation d’Azure Cosmos DB | Microsoft Docs"
-description: "Comprendre le fonctionnement de l’indexation dans Azure Cosmos DB. Découvrez comment configurer et modifier la stratégie d’indexation pour bénéficier d’une indexation automatique et de meilleures performances."
-keywords: "fonctionnement de l’indexation, indexation automatique, base de données d’indexation"
+title: Stratégies d’indexation d’Azure Cosmos DB | Microsoft Docs
+description: Comprendre le fonctionnement de l’indexation dans Azure Cosmos DB. Découvrez comment configurer et modifier la stratégie d’indexation pour bénéficier d’une indexation automatique et de meilleures performances.
+keywords: fonctionnement de l’indexation, indexation automatique, base de données d’indexation
 services: cosmos-db
-documentationcenter: 
-author: arramac
+documentationcenter: ''
+author: rafats
 manager: jhubbard
 editor: monicar
 ms.assetid: d5e8f338-605d-4dff-8a61-7505d5fc46d7
@@ -13,19 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 08/17/2017
-ms.author: arramac
-ms.openlocfilehash: b09f5323f0378721412baade9be9926ebd0c171e
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.date: 03/26/2018
+ms.author: rafats
+ms.openlocfilehash: 5610c5fdc6a04f9ef13d2e4592f0d7e5d8eba30c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Comment Azure Cosmos DB indexe-t-il les données ?
 
 Par défaut, toutes les données d’Azure Cosmos DB sont indexées. Bien que de nombreux clients apprécient de laisser Azure Cosmos DB gérer automatiquement tous les aspects de l’indexation, vous pouvez spécifier une *stratégie d’indexation* personnalisée pour les collections lors de la création dans Azure Cosmos DB. Les stratégies d’indexation dans Azure Cosmos DB sont plus flexibles et puissantes que les index secondaires proposés dans d’autres plateformes de base de données. Dans Azure Cosmos DB, vous pouvez concevoir et personnaliser la forme de l’index sans sacrifier la flexibilité du schéma. 
 
 Pour assimiler les mécanismes de l’indexation dans Azure Cosmos DB, vous devez comprendre qu’en gérant la stratégie d’indexation, vous pouvez trouver un bon compromis entre les coûts de stockage d’index, le débit d’écritures et de requêtes et la cohérence des requêtes.  
+
+Dans la vidéo suivante, le gestionnaire de programmes Azure Cosmos DB Andrew Liu montre les capacités d’indexation automatique d’Azure Cosmos DB, ainsi que la manière de régler et configurer la stratégie d’indexation sur votre conteneur Azure Cosmos DB. 
+
+>[!VIDEO https://www.youtube.com/embed/uFu2D-GscG0]
 
 Dans cet article, nous examinons en détail les stratégies d’indexation d’Azure Cosmos DB, la personnalisation d’une stratégie d’indexation et les compromis associés. 
 
@@ -122,7 +126,7 @@ L’exemple suivant montre comment utiliser le SDK .NET d’Azure Cosmos DB pour
 ### <a name="index-paths"></a>Chemins d’accès de l’index
 Azure Cosmos DB modélise les documents JSON et l’index sous forme d’arborescences. Vous pouvez paramétrer les stratégies pour les chemins dans l’arborescence. Dans les documents, vous pouvez choisir les chemins à inclure ou à exclure de l’indexation. Il peut en résulter de meilleures performances d’écriture et un stockage des index inférieur pour les scénarios dans lesquels les modèles de requête sont connus au préalable.
 
-Le chemin des index commence par la racine et se termine généralement par l’opérateur générique ?, ce qui signifie qu’il y a plusieurs valeurs possibles pour le préfixe. Par exemple, pour traiter SELECT * FROM Families F WHERE F.familyName = "Andersen", vous devez inclure un chemin d’index pour /familyName/? dans la stratégie d’index de la collection.
+Le chemin des index commence par la racine et se termine généralement par l’opérateur générique ?, ?, ce qui signifie qu’il y a plusieurs valeurs possibles pour le préfixe. Par exemple, pour traiter SELECT * FROM Families F WHERE F.familyName = "Andersen", vous devez inclure un chemin d’index pour /familyName/? dans la stratégie d’index de la collection.
 
 Les chemins d'index peuvent aussi utiliser l'opérateur générique \* pour spécifier le comportement des chemins de manière récursive sous le préfixe. Par exemple, /payload/* permet d’exclure de l’indexation tout ce qui figure sous la propriété « payload ».
 
@@ -173,7 +177,7 @@ Vous avez plusieurs options quand vous configurez la stratégie d’indexation p
 * **Genre d’index** : Hachage (requêtes d’égalité), Plage (requêtes d’égalité, de plage ou ORDER BY) ou Spatial (requêtes spatiales).
 * **Précision** : pour les index de hachage, cette valeur varie de 1 à 8 pour les chaînes et les nombres. La valeur par défaut est 3. Pour un index de plage, cette valeur peut être -1 (précision maximale). Elle peut varier entre 1 et 100 (précision maximale) pour les valeurs de chaîne ou numériques.
 
-#### <a name="index-kind"></a>Genre d’index
+#### <a name="index-kind"></a>Type d’index
 Azure Cosmos DB prend en charge les genres d’index de hachage et de plage pour chaque chemin qui peut être configuré pour le type de données Chaîne ou Nombre, ou les deux.
 
 * **Hachage** prend en charge les requêtes d’égalité efficaces et JOIN. Dans la plupart des cas d’utilisation, les index de hachage ne nécessitent pas une précision plus élevée que la valeur par défaut de trois octets. Le type de données peut être Chaîne ou Nombre.

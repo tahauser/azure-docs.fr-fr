@@ -1,6 +1,6 @@
 ---
-title: "Plan d’analytique Azure Health"
-description: "Instructions pour le déploiement d’un plan d’analytique de santé HIPAA/HITRUST"
+title: Plan d’analytique Azure Health
+description: Instructions pour le déploiement d’un plan d’analytique de santé HIPAA/HITRUST
 services: security
 documentationcenter: na
 author: simorjay
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/27/2018
 ms.author: simorjay
-ms.openlocfilehash: 2bca630bb98b3d9c2be566fbd23ae3313c6a5a47
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 700378d23f869427fb50b9dee5bcf8448ac73404
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Plan de sécurité et de conformité Azure - AI et données de santé HIPAA/HITRUST
 
@@ -202,7 +202,7 @@ Cette section détaille les mesures de sécurité et les configurations par déf
 - **INGESTION** des sources de données brutes, notamment la source de données FHIR
 - **STOCKAGE** des informations personnelles
 - **ANALYSE** et prédiction des résultats
-- **INTERACTION** avec les résultats et les prédictions
+- **INTERACTION** avec les résultats et prédictions
 - Gestion des **IDENTITÉS** de la solution
 - Fonctionnalités de **SÉCURITÉ**
 

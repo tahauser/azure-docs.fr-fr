@@ -1,12 +1,12 @@
 ---
-title: "Kit IoT DevKit dans le cloud - Connecter le kit IoT DevKit AZ3166 à Azure IoT Hub | Microsoft Docs"
-description: "Dans ce didacticiel, découvrez comment envoyer l’état des capteurs sur IoT DevKit AZ3166 vers Azure IoT Suite à des fins de surveillance et de visualisation."
+title: 'DevKit IoT dans le cloud : Connecter le DevKit IoT MXChip à Azure IoT Hub | Documents Microsoft'
+description: Dans ce didacticiel, découvrez comment envoyer l’état des capteurs sur IoT DevKit AZ3166 vers Azure IoT Suite à des fins de surveillance et de visualisation.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: liydu
 manager: timlt
-tags: 
-keywords: 
+tags: ''
+keywords: ''
 ms.service: iot-hub
 ms.devlang: arduino
 ms.topic: article
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: b43061f5af3e836ba3f0b37eb11b351a769890be
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 92efd0970bcf516c4210f831a0c2f23b3ee7b5d8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="connect-iot-devkit-az3166-to-azure-iot-suite-for-remote-monitoring"></a>Connecter IoT DevKit AZ3166 à Azure IoT Suite pour la surveillance à distance
+# <a name="connect-mxchip-iot-devkit-to-azure-iot-suite-for-remote-monitoring"></a>Connecter le DevKit MXChip IoT à Azure IoT Suite pour la surveillance à distance
 
 Dans ce didacticiel, vous allez apprendre à exécuter un exemple d’application sur votre kit DevKit pour envoyer les données des capteurs vers Azure IoT Suite.
 
-Le [DevKit IoT MXChip](https://aka.ms/iot-devkit) est une carte compatible Arduino tout-en-un offrant un large choix de périphériques et de capteurs. Vous pouvez développer pour ce kit à l’aide de l’[extension Visual Studio Code pour Arduino](https://aka.ms/arduino). Par ailleurs, il s’accompagne d’un [catalogue de projets](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) en pleine expansion pour vous guider dans la réalisation de prototypes de solutions IoT (Internet des objets) qui tirent parti des services Microsoft Azure.
+[IoT MXChip DevKit](https://aka.ms/iot-devkit) est une carte tout-en-un compatible Arduino qui est équipée de périphériques et de capteurs élaborés. Vous pouvez développer pour ce kit à l’aide de l’[extension Visual Studio Code pour Arduino](https://aka.ms/arduino). Par ailleurs, il s’accompagne d’un [catalogue de projets](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) en plein développement pour vous guider dans la réalisation de prototypes de solutions IoT (Internet des objets) qui exploitent les services Microsoft Azure.
 
 ## <a name="what-you-need"></a>Ce dont vous avez besoin
 
@@ -42,7 +42,7 @@ Un abonnement Azure actif. Si vous n’en avez pas, vous pouvez vous inscrire v
 
 1. Accédez au [site Azure IoT Suite](https://www.azureiotsuite.com/) et cliquez sur **Créer une solution**.
   ![Sélectionner le type de solution Azure IoT Suite](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-solution-types.png)
-  > [!NOTE]
+  > [!WARNING]
   > Par défaut, cet exemple crée un IoT Hub S2 après avoir créé une solution IoT Suite. Si cet IoT Hub n’est pas utilisé avec un très grand nombre d’appareils, nous vous recommandons vivement de passer de le rétrograder de la version S2 à la version S1 et de supprimer IoT Suite pour pouvoir aussi supprimer l’IoT Hub associé au moment requis. 
 
 2. Sélectionnez **Surveillance à distance**.

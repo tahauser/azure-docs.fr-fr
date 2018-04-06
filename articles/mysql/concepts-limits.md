@@ -1,6 +1,6 @@
 ---
 title: Limitations dans Azure Database pour MySQL
-description: "Cet article décrit les limitations dans Azure Database pour MySQL, telles que le nombre de connexions et les options du moteur de stockage."
+description: Cet article décrit les limitations dans Azure Database pour MySQL, telles que le nombre de connexions et les options du moteur de stockage.
 services: mysql
 author: kamathsun
 ms.author: sukamat
@@ -8,20 +8,20 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 85e57170c1cbd977d2de6e7e614916333c79e047
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 03/20/2018
+ms.openlocfilehash: 2fa69182b4238cfd19fcc9571e4327512e9528c1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitations dans Azure Database pour MySQL
-Le service Azure Database pour MySQL est en préversion publique. Les sections suivantes abordent la capacité, la prise en charge du moteur de stockage, la prise en charge des privilèges, la prise en charge des instructions de manipulation des données et les limites fonctionnelles du service de base de données. Vous pouvez aussi consulter les [limitations générales](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) qui sont applicables au moteur de base de données MySQL.
+Les sections suivantes abordent la capacité, la prise en charge du moteur de stockage, la prise en charge des privilèges, la prise en charge des instructions de manipulation des données et les limites fonctionnelles du service de base de données. Vous pouvez aussi consulter les [limitations générales](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) qui sont applicables au moteur de base de données MySQL.
 
 ## <a name="service-tier-maximums"></a>Valeurs maximales des niveaux de service
 Azure Database pour MySQL vous permet de choisir entre plusieurs niveaux de service lorsque vous créez un serveur. Pour plus d’informations, consultez [Niveaux tarifaires dans Azure Database pour MySQL](concepts-pricing-tiers.md).  
 
-Chaque niveau de service dans la préversion comporte un nombre maximal de connexions et d’unités de calcul, ainsi qu’un espace maximal de stockage, comme suit : 
+Chaque niveau de service offre un nombre maximal de connexions et d’unités compute, ainsi qu’un maximum d’espace de stockage, comme suit : 
 
 |**Niveau tarifaire**| **Génération de calcul**|**vCore(s)**| **Nombre maximal de connexions**|
 |---|---|---|---|
@@ -29,21 +29,20 @@ Chaque niveau de service dans la préversion comporte un nombre maximal de conne
 |De base| Gen 4| 2| 100|
 |De base| Gen 5| 1| 50|
 |De base| Gen 5| 2| 100|
-|Usage général| Gen 4| 2| 200|
-|Usage général| Gen 4| 4| 400|
-|Usage général| Gen 4| 8| 800|
-|Usage général| Gen 4| 16| 1 600|
-|Usage général| Gen 4| 32| 3200|
-|Usage général| Gen 5| 2| 200|
-|Usage général| Gen 5| 4| 400|
-|Usage général| Gen 5| 8| 800|
-|Usage général| Gen 5| 16| 1 600|
-|Usage général| Gen 5| 32| 3200|
+|Usage général| Gen 4| 2| 300|
+|Usage général| Gen 4| 4| 625|
+|Usage général| Gen 4| 8| 1250|
+|Usage général| Gen 4| 16| 2 500|
+|Usage général| Gen 4| 32| 5 000|
+|Usage général| Gen 5| 2| 300|
+|Usage général| Gen 5| 4| 625|
+|Usage général| Gen 5| 8| 1250|
+|Usage général| Gen 5| 16| 2 500|
+|Usage général| Gen 5| 32| 5 000|
 |Mémoire optimisée| Gen 5| 2| 600|
 |Mémoire optimisée| Gen 5| 4| 1250|
 |Mémoire optimisée| Gen 5| 8| 2 500|
 |Mémoire optimisée| Gen 5| 16| 5 000|
-|Mémoire optimisée| Gen 5| 32| 10000| 
 
 Au-delà du nombre maximal de connexions, vous risquez de recevoir l’erreur suivante :
 > ERROR 1040 (08004): Too many connections
@@ -74,10 +73,10 @@ Au-delà du nombre maximal de connexions, vous risquez de recevoir l’erreur su
 ### <a name="unsupported"></a>Non pris en charge
 - SELECT ... INTO OUTFILE
 
-## <a name="preview-functional-limitations"></a>Limitations fonctionnelles de la préversion
+## <a name="functional-limitations"></a>Limitations fonctionnelles
 
 ### <a name="scale-operations"></a>Opérations de mise à l’échelle
-- La mise à l’échelle dynamique des serveurs dans les différents niveaux de prix n’est pas prise en charge pour le moment. Autrement dit, le basculement entre les niveaux de prix De base, Usage général et Mémoire optimisée.
+- La mise à l’échelle dynamique des serveurs dans les différents niveaux tarifaires n’est pas prise en charge pour le moment. Autrement dit, le basculement entre les niveaux de prix De base, Usage général et Mémoire optimisée.
 - La diminution de la taille de stockage du serveur n’est pas prise en charge.
 
 ### <a name="server-version-upgrades"></a>Mises à niveau de la version du serveur

@@ -1,11 +1,10 @@
 ---
-title: "Déplacer des données depuis Table web à l’aide d’Azure Data Factory | Microsoft Docs"
-description: "Découvrez comment transférer des données à partir d’une table dans une page web à l’aide d’Azure Data Factory."
+title: Déplacer des données depuis Table web à l’aide d’Azure Data Factory | Microsoft Docs
+description: Découvrez comment transférer des données à partir d’une table dans une page web à l’aide d’Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: f54a26a4-baa4-4255-9791-5a8f935898e2
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4f2005e753e1892989fd902cb259bd5545f1e9a4
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 8f35a2bec410eccc59a19e5b82b9e109b15f0738
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Déplacer des données depuis une source de table web à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +35,8 @@ Actuellement, Data Factory prend uniquement en charge le déplacement de donnée
 > [!IMPORTANT]
 > Pour l’instant, ce connecteur web prend uniquement en charge l’extraction du contenu d’une table à partir d’une page HTML. Pour récupérer des données à partir d’un point de terminaison HTTP/S, utilisez plutôt le [Connecteur HTTP](data-factory-http-connector.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour utiliser ce connecteur Table web, vous devez configurer un runtime d’intégration auto-hébergé (également appelé passerelle de gestion des données) et la propriété `gatewayName` dans le service lié récepteur. Par exemple, pour effectuer une copie à partir de Table web vers le stockage d’objets Blob Azure, configurez le service lié Stockage Azure comme suit :
 
@@ -74,9 +74,9 @@ Le tableau suivant fournit la description des éléments JSON spécifiques du se
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| Type |La propriété de type doit être définie sur **Web** |Oui |
-| Url |URL de la source web |Oui |
-| authenticationType |Anonyme |Oui |
+| Type |La propriété de type doit être définie sur **Web** |OUI |
+| Url |URL de la source web |OUI |
+| authenticationType |Anonyme |OUI |
 
 ### <a name="using-anonymous-authentication"></a>Utilisation de l’authentification anonyme
 
@@ -102,9 +102,9 @@ La section **typeProperties** est différente pour chaque type de jeu de donnée
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type |Type du jeu de données. Doit avoir la valeur **WebTable** |Oui |
+| Type |Type du jeu de données. Doit avoir la valeur **WebTable** |OUI |
 | chemin d’accès |URL relative de la ressource qui contient la table. |Non. Quand le chemin d’accès n’est pas spécifié, seule l’URL spécifiée dans la définition du service lié est utilisée. |
-| index |Index de la table dans la ressource. Pour savoir comment obtenir l’index d’une table dans une page HTML, consultez la section [Obtenir l’index d’une table dans une page HTML](#get-index-of-a-table-in-an-html-page) . |Oui |
+| index |Index de la table dans la ressource. Pour savoir comment obtenir l’index d’une table dans une page HTML, consultez la section [Obtenir l’index d’une table dans une page HTML](#get-index-of-a-table-in-an-html-page) . |OUI |
 
 **Exemple :**
 

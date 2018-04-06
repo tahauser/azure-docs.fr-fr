@@ -2,30 +2,30 @@
 title: Journalisation des diagnostics pour Azure Analysis Services | Microsoft Docs
 description: En savoir plus sur la configuration de journalisation des diagnostics pour Azure Analysis Services.
 services: analysis-services
-documentationcenter: 
+documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: 
+ms.topic: ''
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: cadd47d2e5f490f82846ea562803fcd60f5405a7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 20e2e76e8df9421ee97671000f9557f5db34f1b4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="setup-diagnostic-logging"></a>Configurer la journalisation des diagnostics
 
-Une des fonctions importantes d’une solution Analysis Services est d’analyser les performances de vos serveurs. Avec les [journaux de diagnostic de ressources Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md), vous pouvez effectuer une surveillance et envoyer des journaux au [Stockage Azure](https://azure.microsoft.com/services/storage/), les transmettre à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) et les exporter au format [Log Analytics](https://azure.microsoft.com/services/log-analytics/) qui fait partie d’[Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite). 
+Une des fonctions importantes d’une solution Analysis Services est d’analyser les performances de vos serveurs. Avec les [journaux de diagnostic des ressources Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md), vous pouvez analyser et envoyer des journaux au [Stockage Azure](https://azure.microsoft.com/services/storage/), les transmettre à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) et les exporter à [Log Analytics](https://azure.microsoft.com/services/log-analytics/) un service [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). 
 
-![Journalisation des diagnostics dans le Stockage, Event Hubs ou Operations Management Suite via Log Analytics](./media/analysis-services-logging/aas-logging-overview.png)
+![Journalisation des diagnostics pour le stockage, Event Hubs et Log Analytics](./media/analysis-services-logging/aas-logging-overview.png)
 
 
 ## <a name="whats-logged"></a>Éléments journalisés :
@@ -97,7 +97,7 @@ La catégorie Métriques journalise les mêmes [métriques serveur](analysis-ser
 
 3. Cliquez sur **Enregistrer**.
 
-    Si vous recevez une erreur indiquant « Échec de la mise à jour des diagnostics pour \<nom de l’espace de noms>. L’abonnement \<id de l’abonnement> n’est pas inscrit pour utiliser microsoft.insights. », suivez les instructions de la page [Résoudre les problèmes d’Azure Diagnostics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) pour inscrire le compte, puis recommencez cette procédure.
+    Si vous recevez une erreur indiquant « Failed to update diagnostics for \<workspace name>. The subscription \<subscription id> is not registered to use microsoft.insights » (Échec de la mise à jour des diagnostics pour <nom de l’espace de travail>. L’abonnement <id d’abonnement> n’est pas inscrit pour utiliser microsoft.insights), suivez les instructions de la page [Résoudre les problèmes d’Azure Diagnostics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) pour inscrire le compte, puis recommencez cette procédure.
 
     Si vous souhaitez modifier la façon dont vos journaux de diagnostic seront enregistrés à l’avenir, vous pouvez revenir à cette page à tout moment et modifier les paramètres.
 
@@ -171,7 +171,7 @@ Dans **Type**, cliquez sur **AzureDiagnostics** puis sur **Appliquer**. AzureDia
 
 Cliquez sur **EventClass\_s** ou sur un des noms d’événement. Log Analytics poursuit la création d’une requête. Veillez à enregistrer vos requêtes pour les réutiliser ultérieurement.
 
-Consultez le site Operations Management Suite, qui fournit des requêtes améliorées, des tableaux de bord et des fonctionnalités d’alerte sur les données Log Analytics.
+Assurez-vous de consulter Log Analytics, qui fournit un site Web avec une requête améliorée, des tableaux de bord et des fonctionnalités d’alerte sur les données collectées.
 
 ### <a name="queries"></a>Requêtes
 
@@ -201,6 +201,7 @@ Pour plus d’informations sur l’utilisation du nouveau langage de requête Re
 Dans ce bref didacticiel, vous créez un compte de stockage dans le même abonnement et le même groupe de ressources que votre serveur Analysis Services. Ensuite, vous utilisez la requête Set-AzureRmDiagnosticSetting pour activer la journalisation des diagnostics et envoyer la sortie au nouveau compte de stockage.
 
 ### <a name="prerequisites"></a>Prérequis
+
 Pour suivre ce didacticiel, vous avez besoin des ressources suivantes :
 
 * Un serveur Azure Analysis Services. Pour plus d’informations sur la création d’une ressource du serveur, consultez [Création d’un serveur Azure Analysis Services dans le portail Azure](analysis-services-create-server.md) ou [Créer un serveur Azure Analysis Services à l’aide de PowerShell](analysis-services-create-powershell.md).

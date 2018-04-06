@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à GoToMeeting | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et GoToMeeting."
+title: 'Didacticiel : Intégration d’Azure Active Directory à GoToMeeting | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et GoToMeeting.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 4826dee82e62ffac70d7ca3d6dcfe005129de764
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: d26b78fb5be96e979fb7b375acf6e907d858b706
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gotomeeting"></a>Didacticiel : Intégration d’Azure Active Directory à GoToMeeting
 
@@ -32,7 +32,8 @@ L’intégration de GoToMeeting à Azure AD vous offre les avantages suivants :
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD à GoToMeeting, vous avez besoin des éléments suivants :
 
@@ -108,77 +109,32 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Informations d’authentification unique Domaine et URL GoToMeeting](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_url.png)
 
-    Dans la zone de texte **Identificateur**, tapez l’URL : `https://login.citrixonline.com/saml/sp`
+    Dans la zone de texte **Identificateur**, tapez l’URL : `https://authentication.logmeininc.com/saml/sp`
 
-4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
+4. Cliquez sur **Afficher la configuration de l’URL avancée** et configurez les URM ci-dessous
 
-    ![Lien de téléchargement du certificat](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_certificate.png) 
-
+    **URL de connexion** (gardez cela vide)
+    
+    **URL de réponse** : `https://authentication.logmeininc.com/saml/acs`
+    
+    **RelayState** :
+    
+    - Pour l’application GoToMeeting, utilisez `https://global.gotomeeting.com`
+    
+    - Pour GoToTraining, utilisez `https://global.gototraining.com`
+    
+    - Pour GoToWebinar, utilisez `https://global.gotowebinar.com` 
+    
+    - Pour GoToAssist, utilisez `https://app.gotoassist.com`
+    
 5. Cliquez sur le bouton **Enregistrer** .
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/active-directory-saas-gotomeeting-tutorial/tutorial_general_400.png)
 
-6. Pour générer l’URL des **métadonnées**, effectuez les étapes suivantes :
+6. Dans une fenêtre différente du navigateur, connectez-vous à votre [Centre d’organisation GoToMeeting](https://organization.logmeininc.com/). Vous êtes invité à confirmer que le fournisseur d’identité a été mis à jour
 
-    a. Cliquez sur **Inscriptions des applications**.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_appregistrations.png)
-   
-    b. Cliquez sur **Points de terminaison** pour ouvrir la boîte de dialogue **Points de terminaison**.  
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_endpointicon.png)
+7. Activez la case à cocher « Mon fournisseur d’identité a été mis à jour avec le nouveau domaine ». Lorsque vous avez terminé, cliquez sur **Terminé**.
 
-    c. Cliquez sur le bouton Copier pour copier l’URL du document de métadonnées de fédération (**FEDERATION METADATA DOCUMENT**), puis collez-la dans le Bloc-notes.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_endpoint.png)
-     
-    d. Accédez maintenant à la page de propriétés de **GoToMeeting**, copiez **l’ID d’application** à l’aide du bouton **Copier**, puis collez-le dans le Bloc-notes.
- 
-    ![Configure Single Sign-On](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_appid.png)
-
-    e. Générez l’**URL des métadonnées** en utilisant le format suivant : `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`   
-
-7. Dans la section **Configuration de GoToMeeting**, cliquez sur **Configurer GoToMeeting** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
-
-    ![Configuration de GoToMeeting](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_configure.png) 
-
-8. Dans une autre fenêtre de navigateur, connectez-vous à [GoToMeeting Organization Center](https://organization.logmeininc.com/).
-
-9. Sous l’onglet **Identity provider** (Fournisseur d’identité), vous pouvez configurer les paramètres Azure en fournissant **l’URL de métadonnées** générée ou le **Fichier de métadonnées** téléchargé, ou en sélectionnant l’option **Manual** (Manuel).
-
-10. Pour **Metadata URL** (URL de métadonnées), effectuez les étapes suivantes :
-
-    ![Configuration de GoToMeeting](./media/active-directory-saas-gotomeeting-tutorial/config1.png)
-
-    a. Dans la liste déroulante **How would you like to configure your SAML IDP?** (Comment voulez-vous configurer votre IDP SAML ?), sélectionnez **Automatic** (Automatique).
-
-    b. Collez **l’URL des métadonnées** générée dans les étapes précédentes dans la zone de texte **Metadata URL**.
-
-    c. Cliquez sur **Enregistrer**.
-
-11. Pour **Metadata file** (Fichier de métadonnées), effectuez les étapes suivantes :
-
-    ![Configuration de GoToMeeting](./media/active-directory-saas-gotomeeting-tutorial/config2.png)
-
-    a. Dans la liste déroulante **How would you like to configure your SAML IDP?** (Comment voulez-vous configurer votre IDP SAML ?), sélectionnez **Upload SAML metadata file** (Charger le fichier de métadonnées SAML).
-
-    b. Pour charger votre fichier de métadonnées téléchargé, cliquez sur **Upload metadata file** (Charger le fichier de métadonnées).
-
-    c. Cliquez sur **Enregistrer**.
-
-12. Pour **Manual** (Manuel), effectuez les étapes suivantes :
-
-    ![Configuration de GoToMeeting](./media/active-directory-saas-gotomeeting-tutorial/config3.png)
-
-    a.  Dans la zone de texte **URL de la page de connexion**, collez la valeur de l’**URL du service d’authentification unique SAML** que vous avez copiée à partir du portail Azure.
-
-    b.  Dans la zone de texte **URL de la page de déconnexion**, collez la valeur de l’**URL de déconnexion** que vous avez copiée à partir du portail Azure.
-
-    c.  Dans la zone de texte **Identity Provider Entity ID** (ID d’entité du fournisseur d’identité), collez la valeur de **l’ID d’entité SAML** copiée à partir du portail Azure.
-
-    d. Extrayez le certificat X509 du fichier de métadonnées téléchargé, puis chargez ce certificat en cliquant sur **Upload certificate** (Charger le certificat).
-
-    e. Cliquez sur **Enregistrer**.
 
 > [!TIP]
 > Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
