@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C : outil d’assistance de personnalisation d’interface de page | Microsoft Docs"
-description: "Un outil d’assistance est utilisé pour illustrer la fonctionnalité de personnalisation de la Page Interface utilisateur dans Active Directory B2C"
+title: 'Azure Active Directory B2C : outil d’assistance de personnalisation d’interface de page | Microsoft Docs'
+description: Un outil d’assistance est utilisé pour illustrer la fonctionnalité de personnalisation de la Page Interface utilisateur dans Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: swkrish
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: bryanla
-ms.assetid: ae935d52-3520-4a94-b66e-b35bb40e7514
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: swkrish
-ms.openlocfilehash: a9ccdea64213d564b271699afe28f5ae6db0a71a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: f898c626d52b1a4e7df72284190749f4481999ad
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-a-helper-tool-used-to-demonstrate-the-page-user-interface-ui-customization-feature"></a>Azure Active Directory B2C : un outil d’assistance utilisé pour illustrer la fonctionnalité de personnalisation de l’interface utilisateur de la page
 Cet article complète le [principal article sur la personnalisation de l’interface utilisateur](active-directory-b2c-reference-ui-customization.md) dans Azure Active Directory (Azure AD) B2C. Les étapes suivantes décrivent l’utilisation de la fonctionnalité de personnalisation de l’interface utilisateur de la page à l’aide de l’exemple de contenu HTML et CSS que nous vous avons fourni.
@@ -55,10 +52,10 @@ Vous pouvez maintenant tester votre stratégie personnalisée. Vous pouvez utili
 ## <a name="upload-the-sample-content-to-azure-blob-storage"></a>Chargement de l'exemple de contenu sur Azure Blob Storage
 Si vous souhaitez utiliser Azure Blob Storage pour héberger le contenu de votre page, vous pouvez créer votre propre compte de stockage et utiliser notre outil d'assistance B2C pour charger vos fichiers.
 
-### <a name="create-a-storage-account"></a>Créer un compte de stockage
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+### <a name="create-a-storage-account"></a>Créez un compte de stockage.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2. Cliquez sur **+ Nouveau** > **Données et stockage** > **Compte de stockage**. Vous avez besoin d’un abonnement Azure pour créer un compte Azure Blob Storage. Vous pouvez vous inscrire gratuitement sur le [site web Azure](https://azure.microsoft.com/pricing/free-trial/).
-3. Saisissez un **nom** pour le compte de stockage (par exemple, « contoso ») et sélectionnez les options appropriées pour **Niveau tarifaire**, **Groupe de ressources** et **Abonnement**. Assurez-vous que l’option **Épingler au tableau d’accueil** est activée. Cliquez sur **Create**.
+3. Saisissez un **nom** pour le compte de stockage (par exemple, « contoso ») et sélectionnez les options appropriées pour **Niveau tarifaire**, **Groupe de ressources** et **Abonnement**. Assurez-vous que l’option **Épingler au tableau d’accueil** est activée. Cliquez sur **Créer**.
 4. Revenez au tableau d’accueil et cliquez sur le compte de stockage que vous venez de créer.
 5. Dans la section **Résumé**, cliquez sur **Conteneurs**, puis sur **+ Ajouter**.
 6. Fournissez un **nom** pour le conteneur (par exemple, « b2c ») et sélectionnez **Blob** comme **type d’accès**. Cliquez sur **OK**.

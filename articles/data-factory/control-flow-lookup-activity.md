@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 03/27/2018
 ms.author: shlo
-ms.openlocfilehash: f55e85bb424f4f5973fd6d633b6adf9fbca4d0ef
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7d6abb72fca71c213f9810784581a9af2dafb3a2
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Activité de recherche dans Azure Data Factory
 Vous pouvez utiliser l’activité de recherche pour lire ou rechercher un enregistrement, un nom de table ou une valeur à partir de n’importe quelle source externe. Cette sortie peut être référencée par des activités complémentaires. 
@@ -30,12 +30,23 @@ L’activité de recherche est utile quand vous souhaitez récupérer de manièr
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
 Les sources de données suivantes sont actuellement prises en charge pour la recherche :
-- Fichier JSON dans le stockage Blob Azure
-- Fichier JSON dans le système de fichiers
-- Azure SQL Database (données JSON converties à partir d’une requête)
-- Azure SQL Data Warehouse (données JSON converties à partir d’une requête)
-- SQL Server (données JSON converties à partir d’une requête)
-- Stockage Table Azure (données JSON converties à partir d’une requête)
+
+- Amazon Redshift
+- Stockage d'objets blob Azure
+- Azure Cosmos DB
+- Azure Data Lake Store
+- Présentation du stockage de fichiers
+- Base de données SQL Azure
+- Azure SQL Data Warehouse
+- Stockage de tables Azure
+- Dynamics 365
+- Dynamics CRM
+- Système de fichiers
+- PostgreSQL
+- Salesforce
+- Salesforce Service Cloud
+- SFTP
+- SQL Server
 
 Le nombre maximum de lignes retournées par l’activité de recherche est de **5000**, et jusqu’à une taille de **10 Mo**.
 
@@ -62,9 +73,14 @@ Le nombre maximum de lignes retournées par l’activité de recherche est de **
 ## <a name="type-properties"></a>Propriétés type
 NOM | Description | type | Requis ?
 ---- | ----------- | ---- | --------
-dataset | Fournit la référence de jeu de données pour la recherche. Actuellement, les types de jeu de données pris en charge sont :<ul><li>`AzureBlobDataset` pour le [stockage Blob Azure](connector-azure-blob-storage.md#dataset-properties) en tant que source</li><li>`FileShareDataset` pour le [système de fichiers](connector-file-system.md#dataset-properties) en tant que source</li><li>`AzureSqlTableDataset` pour [Azure SQL Database](connector-azure-sql-database.md#dataset-properties) ou [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#dataset-properties) en tant que source</li><li>`SqlServerTable` pour [SQL Server](connector-sql-server.md#dataset-properties) en tant que source</li><li>`AzureTableDataset` pour le [stockage Table Azure](connector-azure-table-storage.md#dataset-properties) en tant que source</li> | Paire clé/valeur | OUI
+dataset | Fournit la référence de jeu de données pour la recherche. Pour plus d’informations, voir la section « Propriétés du jeu de données » dans chaque article traitant du connecteur correspondant. | Paire clé/valeur | OUI
 source | Contient des propriétés source spécifiques au jeu de données, identiques à la source de l’activité de copie. Pour plus d’informations, consulter la section « Propriétés de l’activité de copie » dans chaque article traitant du connecteur correspondant. | Paire clé/valeur | OUI
 firstRowOnly | Indique s’il faut retourner uniquement la première ligne ou toutes les lignes. | Booléen | Non. La valeur par défaut est `true`.
+
+Notez les points suivants :
+
+1. Le colonne Source avec le type ByteArray n’est pas prise en charge.
+2. La structure n’est pas prise en charge dans la définition du jeu de données. Pour les fichiers de format texte, vous pouvez utiliser la ligne d’en-tête pour mentionner le nom de la colonne.
 
 ## <a name="use-the-lookup-activity-result-in-a-subsequent-activity"></a>Utiliser le résultat de l’activité de recherche dans une activité ultérieure
 

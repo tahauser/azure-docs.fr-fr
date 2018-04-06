@@ -1,24 +1,25 @@
 ---
-title: "Mise à jour 1711 d’Azure Stack | Microsoft Docs"
-description: "Découvrez le contenu de la mise à jour 1711 pour les systèmes intégrés Azure Stack, les problèmes connus et l’emplacement à partir duquel la télécharger."
+title: Mise à jour 1711 d’Azure Stack | Microsoft Docs
+description: Découvrez le contenu de la mise à jour 1711 pour les systèmes intégrés Azure Stack, les problèmes connus et l’emplacement à partir duquel la télécharger.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 2b66fe05-3655-4f1a-9b30-81bd64ba0013
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 03/22/2018
 ms.author: brenduns
-ms.openlocfilehash: 3b3f6d66d8d5a095ff839195ccf718a9fa085527
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.reviewer: justini
+ms.openlocfilehash: fd57699a329fbccdbefc73dae7d473070cd831ea
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-1711-update"></a>Mise à jour 1711 d’Azure Stack
 
@@ -37,7 +38,14 @@ Le numéro de build de mise à jour d’Azure Stack 1711 est **171201.3**.
 
 ### <a name="prerequisites"></a>Prérequis
 
-Vous devez installer la [mise à jour 1710](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1710) d’Azure Stack avant d’appliquer cette mise à jour.
+
+- Vous devez installer la [mise à jour 1710](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1710) d’Azure Stack avant d’appliquer cette mise à jour.
+
+- Examinez l’utilisation de **CloudAdmin** comme un nom de compte avant d’installer la mise à jour 1711. Depuis la version 1711, *CloudAdmin* est un nom de compte réservé et ne doit pas être spécifié manuellement. Lorsque vous mettez à jour vers la version 1711, la mise à jour supprime des instances existantes du compte de déploiement (généralement appelé AzureStackAdmin). Si vous avez nommé le compte de déploiement *CloudAdmin*, la mise à jour vers la version 1711 le supprime. 
+
+  *CloudAdmin* est le compte intégré qui vous permet de vous connecter au [*point de terminaison privilégié*](azure-stack-privileged-endpoint.md) (PEP). La suppression de ce compte peut entraîner un verrouillage du PEP, sauf s’il existe déjà un autre compte d’utilisateur membre du groupe CloudAdmin. 
+
+  Si vous avez utilisé CloudAdmin comme nom du compte de déploiement, ajoutez un nouvel utilisateur CloudAdmin à votre PEP avant de démarrer la mise à jour vers la version 1711 afin d’éviter d’être bloqué hors d’Azure Stack. Pour ajouter un nouvel utilisateur CloudAdmin, exécutez la cmdlet **New-CloudAdminUser** sur le PEP.
 
 ### <a name="new-features-and-fixes"></a>Nouvelles fonctionnalités et correctifs
 
@@ -76,11 +84,11 @@ Cette section énumère des problèmes connus que vous pouvez rencontrer lors de
     1. **Cause :** Ce problème se produit lors de la reprise à partir du portail d’une mise à jour qui a été précédemment reprise à l’aide d’un point de terminaison privilégié (PEP).
     2. **Résolution :** Pour obtenir de l’aide, contactez le Support technique et Service clientèle (CSS) Microsoft.
 <br><br>
-3. **Symptôme :**Les opérateurs Azure Stack peuvent recevoir l’erreur suivante lors du processus de mise à jour :*"Type 'CheckHealth' of Role 'VirtualMachines' raised an exception:\n\nVirtual Machine health check for <machineName>-ACS01 produced the following errors.\nThere was an error getting VM information from hosts. Exception details:\nGet-VM : The operation on computer 'Node03' failed: The WS-Management service cannot process the request. The WMI \nservice or the WMI provider returned an unknown error: HRESULT 0x8004106c".*
+3. **Symptôme :** les opérateurs Azure Stack peuvent voir l’erreur suivante lors du processus de mise à jour :*« Le type « CheckHealth » du rôle « VirtualMachines » a levé une exception :\n\nVérification de l’intégrité de la machine virtuelle pour <machineName>-ACS01 a produit les erreurs suivantes.\nUne erreur est survenue lors de l’obtention des informations sur la machine virtuelle des hôtes. Exception details:\nGet-VM : The operation on computer 'Node03' failed: The WS-Management service cannot process the request. The WMI \nservice or the WMI provider returned an unknown error: HRESULT 0x8004106c".*
     1. **Cause :** Ce problème est dû à un problème dans Windows Server qui sera résolu dans les mises à jour ultérieures de Windows server.
     2. **Résolution :** Pour obtenir de l’aide, contactez le Support technique et Service clientèle (CSS) Microsoft.
 <br><br>
-4. **Symptôme :**Les opérateurs Azure Stack peuvent recevoir l’erreur suivante lors du processus de mise à jour :*"Type 'DefenderUpdate' of Role 'URP' raised an exception: Failed getting version from \\SU1FileServer\SU1_Public\DefenderUpdates\x64\{file name}.exe after 60 attempts at Copy-AzSDefenderFiles, C:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.Defender\Microsoft.AzureStack.Defender.psm1: line 262"*
+4. **Symptôme :** les opérateurs Azure Stack peuvent voir l’erreur suivante lors du processus de mise à jour :*« Le type « DefenderUpdate » du rôle « URP » a levé une exception : échec de l’obtention de la version à partir de \\SU1FileServer\SU1_Public\DefenderUpdates\x64\{file name}.exe après 60 tentatives sur Copy-AzSDefenderFiles, C:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.Defender\Microsoft.AzureStack.Defender.psm1: line 262 »*
     1. **Cause :** Ce problème est dû à l’échec du téléchargement en arrière-plan des mises à jour de définitions Windows Defender.
     2. **Résolution :** Essayez de reprendre la mise à jour jusqu’à huit heures après la première tentative de mise à jour.
 

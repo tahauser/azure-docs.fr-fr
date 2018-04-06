@@ -4,7 +4,7 @@ description: Découvrez les paramètres de passerelle VPN pour les passerelles d
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
+manager: jpconnock
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ae665bc5-0089-45d0-a0d5-bc0ab4e79899
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/05/2018
+ms.date: 03/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: e4f02e2b001b6821e732cead660aa0b758f1133e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: dfa116981cb0ce912ee83fade54f2502262178bc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>À propos des paramètres de configuration de la passerelle VPN
 
@@ -28,7 +28,9 @@ Une passerelle VPN est un type de passerelle de réseau virtuel qui envoie le tr
 Une connexion de passerelle VPN s’appuie sur la configuration de plusieurs ressources, contenant chacune des paramètres configurables. Les sections de cet article présentent les ressources et les paramètres relatifs à une passerelle VPN pour un réseau virtuel créé dans le modèle de déploiement Resource Manager. Vous trouverez les descriptions et les diagrammes de topologie de chaque solution de connexion dans l’article [À propos la passerelle VPN](vpn-gateway-about-vpngateways.md).
 
 >[!NOTE]
-> Les valeurs dans cet article s’appliquent à des passerelles de réseau virtuel qui utilisent le -GatewayType 'Vpn'. C’est pourquoi elles sont appelées passerelles VPN. Pour les valeurs qui s’appliquent au -GatewayType 'ExpressRoute', consultez [Passerelles de réseau virtuel pour ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md). Les valeurs pour les passerelles ExpressRoute ne sont pas les mêmes valeurs que vous utilisez pour les passerelles VPN.
+> Les valeurs dans cet article s’appliquent à des passerelles de réseau virtuel qui utilisent le -GatewayType 'Vpn'. C’est pourquoi ces passerelles de réseau virtuel spécifiques sont appelées passerelles VPN. Les valeurs pour les passerelles ExpressRoute ne sont pas les mêmes valeurs que vous utilisez pour les passerelles VPN.
+>
+>Pour les valeurs qui s’appliquent au -GatewayType 'ExpressRoute', consultez [Passerelles de réseau virtuel pour ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md).
 >
 >
 
@@ -55,7 +57,7 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
-### <a name="configure-the-gateway-sku"></a>Configuration de la référence SKU de passerelle
+### <a name="configure-a-gateway-sku"></a>Configurer une référence SKU de passerelle
 
 #### <a name="azure-portal"></a>Portail Azure
 
@@ -63,24 +65,35 @@ Si vous utilisez le portail Azure pour créer une passerelle de réseau virtuel 
 
 #### <a name="powershell"></a>PowerShell
 
-L’exemple PowerShell suivant spécifie la `-GatewaySku` en tant que VpnGw1.
+L’exemple PowerShell suivant spécifie la `-GatewaySku` en tant que VpnGw1. Lorsque vous utilisez PowerShell pour créer une passerelle, vous devez d’abord créer la configuration IP, puis utiliser une variable qui y fait référence. Dans cet exemple, la variable de configuration est $gwipconfig.
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
--Location 'West US' -IpConfigurations $gwipconfig -GatewaySku VpnGw1 `
+New-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
+-Location 'US East' -IpConfigurations $gwipconfig -GatewaySku VpnGw1 `
 -GatewayType Vpn -VpnType RouteBased
 ```
 
-#### <a name="resize"></a>Modifier (redimensionner) une référence SKU de passerelle
+#### <a name="azure-cli"></a>Azure CLI
 
-Si vous voulez mettre à niveau votre référence SKU de passerelle vers une référence SKU plus puissante, vous pouvez utiliser l’applet de commande PowerShell `Resize-AzureRmVirtualNetworkGateway`. Vous pouvez également réduire la taille de référence SKU à l’aide de cet applet de commande.
-
-L’exemple PowerShell suivant montre une référence SKU de passerelle redimensionnée sur VpnGw2.
-
-```powershell
-$gw = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
-Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku VpnGw2
+```azurecli
+az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --resource-group TestRG1 --vnet VNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait
 ```
+
+###  <a name="resizechange"></a>Redimensionnement ou modification d’une référence SKU
+
+Le redimensionnement d’une référence SKU de passerelle est assez simple. Pendant le redimensionnement de la passerelle, le temps d’arrêt sera limité. Toutefois, il existe des règles concernant le redimensionnement :
+
+1. Vous pouvez effectuer un redimensionnement entre les références SKU VpnGw1, VpnGw2 et VpnGw3.
+2. Lors de l’utilisation des anciennes références SKU de passerelle, vous pouvez effectuer un redimensionnement entre les références SKU Basic, Standard et HighPerformance.
+3. Vous **ne pouvez pas** effectuer de redimensionnement pour passer de références SKU Basic/Standard/HighPerformance à de nouvelles références SKU VpnGw1/VpnGw2/VpnGw3. Au lieu de cela, vous devez [effectuer la modification](#change) vers les nouvelles références SKU.
+
+#### <a name="resizegwsku"></a>Pour redimensionner une passerelle
+
+[!INCLUDE [Resize a SKU](../../includes/vpn-gateway-gwsku-resize-include.md)]
+
+####  <a name="change"></a>Pour passer d’un ancienne référence SKU (héritée) à une nouvelle référence SKU
+
+[!INCLUDE [Change a SKU](../../includes/vpn-gateway-gwsku-change-legacy-sku-include.md)]
 
 ## <a name="connectiontype"></a>Types de connexion
 
@@ -150,7 +163,7 @@ New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 
 Parfois, vous devez modifier les paramètres de passerelle de réseau local. C’est le cas, par exemple, lorsque vous ajoutez ou modifiez la plage d’adresses, ou lorsque l’adresse IP du périphérique VPN change. Voir [Modification des paramètres de passerelle de réseau local à l’aide de PowerShell](vpn-gateway-modify-local-network-gateway.md).
 
-## <a name="resources"></a>API REST et applets de commande PowerShell
+## <a name="resources"></a>API REST, cmdlets PowerShell et CLI
 
 Pour accéder à des ressources techniques supplémentaires et connaître les exigences spécifiques en matière de syntaxe lors de l’utilisation d’API REST, d’applets de commande PowerShell ou d’Azure CLI pour les configurations de passerelles VPN, consultez les pages suivantes :
 

@@ -1,24 +1,24 @@
 ---
-title: "Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Azure | Microsoft Docs"
-description: "Si vous savez comment déployer des services de domaine AD et des services de fédération AD localement, découvrez comment ils fonctionnent sur des machines virtuelles Azure."
+title: Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Azure | Microsoft Docs
+description: Si vous savez comment déployer des services de domaine AD et des services de fédération AD localement, découvrez comment ils fonctionnent sur des machines virtuelles Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: femila
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 04df4c46-e6b6-4754-960a-57b823d617fa
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/26/2017
+ms.date: 03/20/2018
 ms.author: femila
-ms.openlocfilehash: 7a56876dfa545d273807444b105de3645dd79d34
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: c2d58e056cdb285be51d259492e11e6ae37b253e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>Recommandations en matière de déploiement de Windows Server Active Directory sur des machines virtuelles Windows Azure
 Cet article présente les principales différences d’un déploiement en local des services de domaine Windows Server Active Directory (AD DS) et des services de fédération Active Directory (AD FS) par rapport à un déploiement des mêmes outils sur des machines virtuelles Microsoft Azure.
@@ -71,8 +71,10 @@ Consultez la page [Réseau virtuel](http://azure.microsoft.com/documentation/ser
 > 
 > 
 
-### <a name="static-ip-addresses-must-be-configured-with-azure-powershell"></a>Les adresses IP doivent être configurées à l’aide d’Azure PowerShell.
-Les adresses dynamiques sont allouées par défaut, mais vous pouvez utiliser l’applet de commande Set-AzureStaticVNetIP pour attribuer une adresse IP statique. Cette applet de commande définit une adresse IP statique qui persistera pendant la réparation de service et l’arrêt/le redémarrage de la machine virtuelle. Pour plus d’informations, consultez [Static internal IP address for virtual machines](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/)(Adresse IP interne statique pour les machines virtuelles).
+### <a name="static-ip-addresses-can-be-configured-with-azure-powershell"></a>Des adresses IP statiques peuvent être configurées avec Azure PowerShell
+Les adresses dynamiques sont allouées par défaut, mais, si vous souhaitez une adresse IP statique à la place, utilisez la cmdlet Set-AzureStaticVNetIP. Cette cmdlet définit une adresse IP statique qui persistera pendant la réparation du service et l’arrêt/le redémarrage de la machine virtuelle. Pour plus d’informations, consultez [Static internal IP address for virtual machines](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/)(Adresse IP interne statique pour les machines virtuelles). Vous pouvez également configurer une adresse IP statique lors de la création de votre machine virtuelle dans le Portail Azure, comme indiqué ci-dessous. Pour plus d’informations, consultez [Créer une machine virtuelle avec une adresse IP publique statique à l’aide du Portail Azure](../virtual-network/virtual-network-deploy-static-pip-arm-portal.md).
+
+![capture d’écran de l’étape pour ajouter l’adresse IP statique lors de la création d’une machine virtuelle](media/active-directory-deploying-ws-ad-guidelines/static-ip.png)
 
 ## <a name="BKMK_Glossary"></a>Termes et définitions
 Voici une liste non exhaustive de termes référencés dans le présent article concernant diverses technologies Azure.
@@ -408,7 +410,7 @@ Vous devez choisir entre le déploiement de contrôleurs de domaine accessibles 
 
 Azure ne présente pas le risque de sécurité physique d’une filiale, mais les contrôleurs de domaine en lecture seule peuvent tout de même s’avérer plus efficaces, car les fonctionnalités qu’ils fournissent sont bien adaptées à ces environnements, quoique pour des raisons très différentes. Par exemple, les contrôleurs de domaine en lecture seule ne génèrent pas de réplication sortante et peuvent renseigner sélectivement des secrets (mots de passe). En revanche, si de tels secrets ne sont pas connus, le trafic sortant à la demande peut avoir à les valider chaque fois qu’un utilisateur ou un ordinateur s’authentifie. Toutefois, il est possible de pré-renseigner et mettre en cache les secrets de manière sélective.
 
-Les contrôleurs de domaine accessibles en lecture seule fournissent un avantage supplémentaire pour gérer les problèmes de données HBI et PII et associés, car vous pouvez ajouter des attributs qui contiennent des données sensibles au jeu d’attributs filtré du contrôleur de domaine accessible en lecture seule. Le jeu d’attributs filtré comprend des attributs personnalisables qui ne sont pas répliqués vers le contrôleur de domaine accessible en lecture seule. Vous pouvez utiliser le jeu d’attributs filtré comme solution de secours si vous n’êtes pas autorisé à stocker les attributs PII ou HBI sur Azure, ou si vous ne voulez pas le faire. Pour plus d’informations, voir [RODC filtered attribute set (jeu d’attributs filtré du contrôleur de domaine accessible en lecture seule)[(https://technet.microsoft.com/library/cc753459)].
+Les contrôleurs de domaine accessibles en lecture seule fournissent un avantage supplémentaire pour gérer les problèmes de données HBI et PII et associés, car vous pouvez ajouter des attributs qui contiennent des données sensibles au jeu d’attributs filtré du contrôleur de domaine accessible en lecture seule. Le jeu d’attributs filtré comprend des attributs personnalisables qui ne sont pas répliqués vers le contrôleur de domaine accessible en lecture seule. Vous pouvez utiliser le jeu d’attributs filtré comme solution de secours si vous n’êtes pas autorisé à stocker les attributs PII ou HBI sur Azure, ou si vous ne voulez pas le faire. Pour plus d’informations, consultez [jeu d'attributs filtré pour contrôleur de domaine en lecture seule [(https://technet.microsoft.com/library/cc753459)].
 
 Assurez-vous que les applications sont compatibles avec les contrôleurs que vous prévoyez d’utiliser. De nombreuses applications compatibles avec Windows Server Active Directory fonctionnent bien avec les contrôleurs de domaine en lecture seule, mais certaines peuvent être inefficaces ou échouer si elles n’ont pas accès à un contrôleur de domaine accessible en écriture. Pour plus d’informations, voir [Compatibilité des applications avec les contrôleurs de domaine en lecture seule](https://technet.microsoft.com/library/cc755190).
 

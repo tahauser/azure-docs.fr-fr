@@ -1,11 +1,11 @@
 ---
-title: "Éléments de langage Transact-SQL SQL Data Warehouse | Microsoft Docs"
-description: "Liste de liens vers du contenu de référence pour les éléments de langage Transact-SQL utilisés pour SQL Data Warehouse."
+title: Éléments de langage Transact-SQL SQL Data Warehouse | Microsoft Docs
+description: Liste de liens vers du contenu de référence pour les éléments de langage Transact-SQL utilisés pour SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: ea0b9a3e-e489-458e-addc-cc153e5cc158
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: reference
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
-ms.openlocfilehash: 7a20cd8f3c2f304d12a49755dbe6e04f9b1d36df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd9dc070c817a7276369a9be7126b0d48dc9e4eb
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="language-elements"></a>Éléments de langage
 ## <a name="core-elements"></a>Éléments fondamentaux
@@ -48,7 +48,7 @@ ms.lasthandoff: 10/11/2017
 * [TRY...CATCH](https://msdn.microsoft.com/library/ms175976.aspx)
 * [WHILE](https://msdn.microsoft.com/library/ms178642.aspx)
 
-## <a name="operators"></a>Opérateurs
+## <a name="operators"></a>Operators
 * [+ (Ajout)](https://msdn.microsoft.com/library/ms178565.aspx)
 * [+ (Concaténation de chaîne)](https://msdn.microsoft.com/library/ms177561.aspx)
 * [- (Négatif)](https://msdn.microsoft.com/library/ms189480.aspx)
@@ -83,7 +83,7 @@ ms.lasthandoff: 10/11/2017
 * [|= (Opérateur OR EQUALS au niveau du bit)](https://msdn.microsoft.com/library/cc627409.aspx)
 * [&amp;= (Opérateur AND EQUALS au niveau du bit)](https://msdn.microsoft.com/library/cc627427.aspx)
 
-## <a name="functions"></a>Fonctions
+## <a name="functions"></a>Functions
 * [@@DATEFIRST](https://msdn.microsoft.com/library/ms187766.aspx)
 * [@@ERROR](https://msdn.microsoft.com/library/ms188790.aspx)
 * [@@LANGUAGE](https://msdn.microsoft.com/library/ms177557.aspx)
@@ -279,11 +279,5 @@ ms.lasthandoff: 10/11/2017
 * [SET XACT_ABORT](https://msdn.microsoft.com/library/ms188792.aspx)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations, consultez la rubrique [Vue d’ensemble de référence de SQL Data Warehouse][SQL Data Warehouse reference overview].
+Pour plus de détails sur TSQL, voir [Instructions SQL dans SQL Data Warehouse](sql-data-warehouse-reference-tsql-statements.md).
 
-<!--Image references-->
-
-<!--Article references-->
-[SQL Data Warehouse reference overview]: sql-data-warehouse-overview-reference.md
-
-<!--MSDN references-->

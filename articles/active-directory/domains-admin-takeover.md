@@ -1,11 +1,11 @@
 ---
-title: "Prise de contrôle par l’administrateur d’un annuaire non géré ou d’un locataire fantôme dans Azure Active Directory | Microsoft Docs"
-description: "Comment prendre le contrôle d’un nom de domaine DNS dans un annuaire non géré (locataire fantôme) dans Azure Active Directory."
+title: Prise de contrôle par l’administrateur d’un annuaire non géré ou d’un locataire fantôme dans Azure Active Directory | Microsoft Docs
+description: Comment prendre le contrôle d’un nom de domaine DNS dans un annuaire non géré (locataire fantôme) dans Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: b9f01876-29d1-4ab8-8b74-04d43d532f4b
 ms.service: active-directory
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.date: 11/14/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: f18e5883fca9291eb1447c1eebfe0883936fe84f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 16f5c515231f486e3576b95a0d103d2fa34842ff
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Prendre le contrôle d’un annuaire non géré en tant qu’administrateur dans Azure Active Directory
 Cet article décrit deux façons de prendre le contrôle d’un nom de domaine DNS dans un annuaire non géré dans Azure Active Directory. Quand un utilisateur en libre-service s’inscrit à un service cloud qui utilise Azure AD, il est ajouté à un annuaire Azure AD non géré en fonction de son domaine de messagerie. Pour plus d’informations sur l’inscription en libre-service ou « virale » pour un service, consultez [Présentation de l’inscription en libre-service pour Azure Active Directory]()
@@ -76,7 +76,7 @@ Une fois les étapes précédentes terminées, vous êtes l’administrateur gé
 
 ## <a name="external-admin-takeover"></a>Prise de contrôle par administrateur externe
 
-Si vous gérez déjà un locataire avec des services Azure ou Office 365, vous ne pouvez pas ajouter un nom de domaine personnalisé s’il est déjà vérifié dans un autre locataire Azure AD. Cependant, depuis votre locataire géré dans Azure AD, vous pouvez prendre le contrôle d’un locataire comme prise de contrôle par administrateur externe. La procédure générale suit l’article [Ajouter un domaine personnalisé à Azure AD](add-custom-domain.md).
+Si vous gérez déjà un client avec les services Azure ou Office 365, vous ne pouvez pas ajouter un nom de domaine personnalisé s’il est déjà vérifié dans un autre client Azure AD. Cependant, depuis votre locataire géré dans Azure AD, vous pouvez prendre le contrôle d’un locataire comme prise de contrôle par administrateur externe. La procédure générale suit l’article [Ajouter un domaine personnalisé à Azure AD](add-custom-domain.md).
 
 Quand vous confirmez la propriété du nom de domaine, Azure AD supprime le nom de domaine du locataire non géré et le déplace dans votre locataire existant. La prise de contrôle par administrateur externe d’un annuaire non géré nécessite le même processus de validation TXT DNS que la prise de contrôle par administrateur interne. La différence est que les éléments suivants sont également déplacés avec le nom de domaine :
 
@@ -143,7 +143,7 @@ Applet de commande | Usage
     Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
   ````
 
-4. Copiez la valeur (le test) qui est renvoyée depuis cette commande. Par exemple :
+4. Copiez la valeur (le test) qui est renvoyée depuis cette commande. Par exemple : 
   ````
     MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
   ````
@@ -154,7 +154,7 @@ Applet de commande | Usage
     Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
   ````
   
-  Par exemple :
+  Par exemple : 
   
   ````
     Confirm-MsolEmailVerifiedDomain -DomainName contoso.com
@@ -166,7 +166,7 @@ Un test réalisé avec succès vous renvoie à l'invite sans erreur.
 * [Ajouter un nom de domaine personnalisé à Azure AD](add-custom-domain.md)
 * [Installation et configuration d’Azure PowerShell](/powershell/azure/overview)
 * [Azure PowerShell](/powershell/azure/overview)
-* [Guide de référence des applets de commande Azure](/powershell/azure/get-started-azureps)
+* [Guide de référence des cmdlets Azure](/powershell/azure/get-started-azureps)
 * [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
 
 <!--Image references-->

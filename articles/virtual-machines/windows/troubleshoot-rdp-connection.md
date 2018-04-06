@@ -1,12 +1,12 @@
 ---
-title: "Impossible de se connecter avec RDP à une machine virtuelle Windows dans Azure | Microsoft Docs"
-description: "Résolution des problèmes lorsque vous ne pouvez pas vous connecter à votre machine virtuelle Windows dans Azure à l’aide du Bureau à distance"
-keywords: "erreur bureau à distance,erreur de connexion bureau à distance,impossible se connecter à la machine virtuelle,résolution des problèmes de connexion bureau à distance"
+title: Impossible de se connecter avec RDP à une machine virtuelle Windows dans Azure | Microsoft Docs
+description: Résolution des problèmes lorsque vous ne pouvez pas vous connecter à votre machine virtuelle Windows dans Azure à l’aide du Bureau à distance
+keywords: erreur bureau à distance,erreur de connexion bureau à distance,impossible se connecter à la machine virtuelle,résolution des problèmes de connexion bureau à distance
 services: virtual-machines-windows
-documentationcenter: 
-author: genlin
+documentationcenter: ''
+author: danielsollondon
 manager: timlt
-editor: 
+editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: 0d740f8e-98b8-4e55-bb02-520f604f5b18
 ms.service: virtual-machines-windows
@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
-ms.author: genli
-ms.openlocfilehash: 4731a34d143d402372aaff7c03f95dbf0bb508a4
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.date: 03/23/2018
+ms.author: danis
+ms.openlocfilehash: e2b792743f1b4ba458cff111ab6dd888b0c26d93
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure
 La connexion RDP (Remote Desktop Protocol) à votre machine virtuelle Azure Windows peut échouer pour diverses raisons, rendant votre machine virtuelle inaccessible. Le problème peut être lié au service Bureau à distance sur la machine virtuelle, à la connexion réseau ou encore au client Bureau à distance sur votre ordinateur hôte. Cet article vous guide à travers certaines des méthodes plus courantes pour résoudre les problèmes de connexion RDP. 
@@ -77,7 +77,7 @@ Après chaque étape de résolution des problèmes, essayez de nouveau de vous c
     Sélectionnez votre machine virtuelle dans le portail Azure. Faites défiler le volet des paramètres jusqu’à la section **Support + dépannage** en bas de la liste. Cliquez sur le bouton **Intégrité des ressources**. Une machine virtuelle saine est indiquée comme étant **Disponible** :
    
     ![Vérifier l’intégrité des ressources de la machine virtuelle dans le portail Azure](./media/troubleshoot-rdp-connection/check-resource-health.png)
-6. **Réinitialisez les informations d’identification de l’utilisateur**. Cette étape de dépannage réinitialise le mot de passe sur un compte d’administrateur local lorsque vous ne connaissez pas ou si vous avez oublié les informations d’identification.
+6. **Réinitialisez les informations d’identification de l’utilisateur**. Cette étape de dépannage réinitialise le mot de passe sur un compte d’administrateur local lorsque vous ne connaissez pas ou si vous avez oublié les informations d’identification.  Une fois que vous êtes connecté à la machine virtuelle, vous devez réinitialiser le mot de passe pour cet utilisateur.
    
     Sélectionnez votre machine virtuelle dans le portail Azure. Faites défiler le volet des paramètres jusqu’à la section **Support + dépannage** en bas de la liste. Cliquez sur le bouton **Réinitialiser le mot de passe**. Assurez-vous que le **Mode** est défini sur **Réinitialiser le mot de passe**, puis entrez votre nom d’utilisateur et un nouveau mot de passe. Enfin, cliquez sur le bouton **Mettre à jour** :
    
@@ -207,7 +207,7 @@ Après chaque étape de résolution des problèmes, essayez de vous reconnecter 
     Sélectionnez votre machine virtuelle dans le portail Azure. Faites défiler le volet des paramètres jusqu’à la section **Support + dépannage** en bas de la liste. Cliquez sur le bouton **Intégrité des ressources**. Une machine virtuelle saine est indiquée comme étant **Disponible** :
    
     ![Vérifier l’intégrité des ressources de la machine virtuelle dans le portail Azure](./media/troubleshoot-rdp-connection/classic-check-resource-health.png)
-5. **Réinitialisez les informations d’identification de l’utilisateur**. Cette étape de dépannage réinitialise le mot de passe du compte de l’administrateur local que vous spécifiez lorsque vous ne connaissez pas ou si vous avez oublié les informations d’identification.
+5. **Réinitialisez les informations d’identification de l’utilisateur**. Cette étape de dépannage réinitialise le mot de passe du compte de l’administrateur local que vous spécifiez lorsque vous ne connaissez pas ou si vous avez oublié les informations d’identification.  Une fois que vous êtes connecté à la machine virtuelle, vous devez réinitialiser le mot de passe pour cet utilisateur.
    
     Sélectionnez votre machine virtuelle dans le portail Azure. Faites défiler le volet des paramètres jusqu’à la section **Support + dépannage** en bas de la liste. Cliquez sur le bouton **Réinitialiser le mot de passe**. Entrez votre nom d’utilisateur et un nouveau mot de passe. Enfin, cliquez sur le bouton **Enregistrer** :
    

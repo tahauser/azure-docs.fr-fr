@@ -1,8 +1,8 @@
 ---
-title: "Utiliser Apache Spark pour lire et écrire des données dans une base de données SQL Azure | Microsoft Docs"
-description: "Découvrez comment configurer une connexion entre le cluster HDInsight Spark et une base de données SQL Azure pour lire, écrire et envoyer des données dans une base de données SQL"
+title: Utiliser Apache Spark pour lire et écrire des données dans une base de données SQL Azure | Microsoft Docs
+description: Découvrez comment configurer une connexion entre le cluster HDInsight Spark et une base de données SQL Azure pour lire, écrire et envoyer des données dans une base de données SQL
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: cgronlun
 editor: cgronlun
@@ -12,19 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/29/2018
+ms.date: 03/28/2018
 ms.author: nitinme
-ms.openlocfilehash: 28ed6b9774bb85c7ec806c7775c34f8bc3d66bde
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 011471224d79ae326ccc33fc23fd6fada347497b
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Utiliser le cluster HDInsight Spark pour lire et écrire des données dans une base de données SQL Azure
 
 Découvrez comment connecter un cluster Apache Spark dans Azure HDInsight à une base de données SQL Azure, puis lire, écrire et envoyer des données dans une base de données SQL. Les instructions dans cet article utilisent un bloc-notes Jupyter pour exécuter les extraits de code Scala. Toutefois, vous pouvez créer une application autonome en Scala ou Python et effectuer les mêmes tâches. 
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 * **Cluster Azure HDInsight Spark**.  Suivez les instructions indiquées dans [Créer un cluster Apache Spark dans Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
@@ -234,7 +235,7 @@ Dans cette section, nous envoyons des données dans la table **hvactable** que v
         
          var streamingQuery = WriteToSQLQuery.start()
 
-6. Vérifiez que les données sont envoyées vers la table **hvactable** en exécutant la requête suivante. Chaque fois que vous exécutez la requête, elle indique un nombre croissant de lignes dans la table.
+6. Vérifiez que les données sont diffusées vers la table **hvactable** en exécutant la requête suivante dans SQL Server Management Studio (SSMS). Chaque fois que vous exécutez la requête, elle indique un nombre croissant de lignes dans la table.
 
         SELECT COUNT(*) FROM hvactable
 

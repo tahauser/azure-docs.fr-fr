@@ -1,7 +1,7 @@
 ---
-title: "Générer une application web Node.js pour Azure Cosmos DB | Microsoft Docs"
-description: "Ce didacticiel Node.js explique comment utiliser Microsoft Azure Cosmos DB pour stocker des données et y accéder à partir d’une application web Express Node.js hébergée sur les sites web Azure."
-keywords: "Développement d’applications, didacticiel de base de données, apprendre node.js, didacticiel node.js"
+title: Générer une application web Node.js pour Azure Cosmos DB | Microsoft Docs
+description: Ce didacticiel Node.js explique comment utiliser Microsoft Azure Cosmos DB pour stocker des données et y accéder à partir d’une application web Express Node.js hébergée sur les sites web Azure.
+keywords: Développement d’applications, didacticiel de base de données, apprendre node.js, didacticiel node.js
 services: cosmos-db
 documentationcenter: nodejs
 author: mimig1
@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/23/2018
 ms.author: mimig
-ms.openlocfilehash: 441f352555f40c0467df4c466d58ac35e32f9e61
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: ad6e335c562e52d7e2336dd1f29e5c159fe46589
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="_Toc395783175"></a>Création d’une application web Node.js avec Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -29,8 +29,6 @@ ms.lasthandoff: 02/14/2018
 > * [Python](sql-api-python-application.md)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Ce didacticiel Node.js vous montre comment utiliser le service Azure Cosmos DB et l’API SQL pour stocker des données et y accéder à partir d’une application Express Node.js hébergée sur les sites web Azure. Vous allez créer une simple application web de gestion des tâches, une application ToDo, qui permet de créer, de récupérer et de terminer des tâches. Ces dernières sont stockées en tant que documents JSON dans AzureCosmos DB. Ce didacticiel vous guide à travers la création et le déploiement de l’application et explique ce qui se passe dans chaque extrait de code.
 
@@ -76,7 +74,7 @@ Voyons maintenant comment créer un projet Node.js « Hello World » de base �
 5. Exécutez votre nouvelle application.
    
         npm start
-6. Vous pouvez afficher votre nouvelle application en accédant à l’adresse [http://localhost:3000](http://localhost:3000)dans votre navigateur.
+6. Vous pouvez afficher votre nouvelle application en accédant à l’adresse [http://localhost:3000](http://localhost:3000) dans votre navigateur.
    
     ![Découverte de Node.js - Capture d’écran de l’application Hello World dans une fenêtre de navigateur](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
 
@@ -154,7 +152,7 @@ Ceci concerne l’ensemble de l’installation et de la configuration initiales.
 
     ```nodejs
     let DocumentDBClient = require('documentdb').DocumentClient;
-    let docdbUtils = require('./docdbUtils');
+    let docdbUtils = require('./cosmosdb-manager.js');
     ```
 7. Ensuite, vous allez ajouter du code pour définir et exporter l'objet Task. Il est responsable de l'initialisation de notre objet Task et de la configuration de la base de données et de la collection de documents que nous allons utiliser.  
 
@@ -411,7 +409,7 @@ Ceci concerne l’ensemble de l’installation et de la configuration initiales.
 6. Enfin, enregistrez et fermez le fichier **app.js**. Nous avons presque terminé.
 
 ## <a name="_Toc395783181"></a>Étape 5 : création d'une interface utilisateur
-Intéressons-nous à présent à la création de l'interface utilisateur pour permettre à un utilisateur d'interagir réellement avec notre application. L'application Express que nous avons créée utilise **Jade** comme moteur de vue. Pour plus d'informations sur Jade, consultez la page [http://jade-lang.com/](http://jade-lang.com/).
+Intéressons-nous à présent à la création de l'interface utilisateur pour permettre à un utilisateur d'interagir réellement avec notre application. L'application Express que nous avons créée utilise **Jade** comme moteur de vue. Pour plus d’informations sur Jade, voir [http://jade-lang.com/](http://jade-lang.com/).
 
 1. Le fichier **layout.jade** du répertoire **views** sert de modèle global aux autres fichiers **.jade**. Dans cette étape, vous allez le modifier pour utiliser [Twitter Bootstrap](https://github.com/twbs/bootstrap), qui est un kit de ressources qui facilite la conception d'un site web bien présenté. 
 2. Ouvrez le fichier **layout.jade** trouvé dans le dossier **views** et remplacez le contenu par le code suivant :
@@ -489,7 +487,7 @@ Le deuxième formulaire contient deux champs d'entrée et un bouton qui permet d
 Ceci devrait être suffisant pour que notre application puisse fonctionner.
 
 ## <a name="_Toc395783181"></a>Étape 6 : exécution locale de l'application
-1. Pour tester l’application sur votre ordinateur local, exécutez la commande `npm start` dans le terminal pour démarrer votre application, puis actualisez votre page de navigateur [http://localhost: 3000](http://localhost:3000). La page doit maintenant ressembler à l’image ci-dessous :
+1. Pour tester l’application sur votre ordinateur local, exécutez la commande `npm start` dans le terminal pour démarrer votre application, puis actualisez la page [http://localhost:3000](http://localhost:3000) dans votre de navigateur. La page doit maintenant ressembler à l’image ci-dessous :
    
     ![Capture d'écran de l'application MyTodo List dans une fenêtre de navigateur](./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png)
 

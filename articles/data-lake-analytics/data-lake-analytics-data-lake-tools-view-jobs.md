@@ -1,8 +1,8 @@
 ---
-title: "Utilisation de l’Explorateur de travaux et de la Vue des travaux pour les travaux Azure Data Lake Analytics | Microsoft Docs"
-description: "Découvrez comment utiliser l’Explorateur de travaux et la Vue des travaux pour les travaux Azure Data Lake Analytics. "
+title: Utilisation de l’Explorateur de travaux et de la Vue des travaux pour les travaux Azure Data Lake Analytics | Microsoft Docs
+description: 'Découvrez comment utiliser l’Explorateur de travaux et la Vue des travaux pour les travaux Azure Data Lake Analytics. '
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -14,18 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/02/2017
 ms.author: jgao
-ms.openlocfilehash: 8f1729f84a4fde2a56427a41b356d6263818519e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cc9048566dd58733cd86aac0f9836763fa095843
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics-jobs"></a>Utilisation de l’Explorateur de travaux et la Vue des travaux pour les travaux Azure Data Lake Analytics
 Le service Azure Data Lake Analytics archive les travaux soumis dans un [magasin de requêtes](#query-store). Dans cet article, vous allez apprendre à utiliser l’Explorateur de travaux et la Vue des travaux dans Azure Data Lake Tools pour Visual Studio pour trouver les informations d’historique des travaux. 
 
 Par défaut, le service Data Lake Analytics archive les travaux des 30 derniers jours. La période d’expiration peut être configurée à partir du portail Azure en définissant la stratégie d’expiration personnalisée. Vous ne pourrez plus accéder aux informations des travaux après l’expiration. 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 Voir [Data Lake Tools for Visual Studio - Composants requis](data-lake-analytics-data-lake-tools-get-started.md#prerequisites).
 
 ## <a name="open-the-job-browser"></a>Ouverture de l’Explorateur de travaux
@@ -49,7 +50,7 @@ La Vue des travaux contient les éléments suivants :
       ![Azure Data Lake Analytics - Statut des phases du travail](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-phases.png)
     
     * Préparation : téléchargez votre script dans le cloud, en compilant et en optimisant le script à l’aide du service de compilation.
-    * En attente : les travaux sont mis en file d’attente de ressources suffisantes, ou les travaux dépassent la limite maximale de travaux simultanés par compte. Le paramètre de priorité détermine l’ordre des travaux mis en file d’attente : plus le numéro est faible, plus la priorité est élevée.
+    * En attente : les travaux sont mis en file d’attente quand ils attendent des ressources suffisantes, ou quand leur nombre dépasse la limite maximale de travaux simultanés par compte. Le paramètre de priorité détermine l’ordre des travaux mis en file d’attente : plus le numéro est faible, plus la priorité est élevée.
     * En cours d’exécution : le travail est en cours d’exécution dans votre compte Data Lake Analytics.
     * Finalisation : le travail se termine (par exemple, finalisation du fichier).
       

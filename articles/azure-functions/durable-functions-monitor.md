@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/16/2018
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 617b33a9f860ce3b06ff560de22824037eab8332
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7e520429e5f5e219e05a77eb4ca18d0d6b6b3977
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Scénario de surveillance dans l’extension Fonctions durables - Exemple d’observateur météo
 
@@ -27,8 +27,8 @@ Le modèle de surveillance fait référence à un processus *récurrent* flexibl
 ## <a name="prerequisites"></a>Prérequis
 
 
-* Suivez les instructions indiquées dans la section [Installer des fonctions durables](durable-functions-install.md) pour configurer l’exemple.
-* Cet article suppose que vous avez déjà parcouru l’exemple de procédure pas à pas [Séquence Hello](durable-functions-sequence.md).
+* [Installer Fonctions durables](durable-functions-install.md).
+* Suivre la procédure pas à pas [Séquence Hello](durable-functions-sequence.md).
 
 ## <a name="scenario-overview"></a>Présentation du scénario
 
@@ -65,7 +65,7 @@ Cet article explique les fonctions suivantes dans l’exemple d’application :
 * `E3_GetIsClear` : fonction d’activité qui vérifie les conditions météorologiques actuelles pour un lieu.
 * `E3_SendGoodWeatherAlert` : fonction d’activité qui envoie un SMS via Twilio.
 
-Les sections suivantes décrivent la configuration et le code utilisés pour le développement du portail Azure. Le code de développement de Visual Studio est affiché à la fin de l’article.
+Les sections suivantes décrivent la configuration et le code utilisés pour les scripts C#. Le code de développement de Visual Studio est affiché à la fin de l’article.
  
 ## <a name="the-weather-monitoring-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>L’orchestration de la surveillance des conditions météorologiques (Visual Studio Code et exemple de code du portail Azure)
 

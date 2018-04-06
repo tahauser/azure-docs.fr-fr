@@ -1,24 +1,24 @@
 ---
-title: "Installer et configurer PowerShell pour Azure Stack - Démarrage rapide | Microsoft Docs"
-description: "Découvrez comment installer et configurer PowerShell pour Azure Stack."
+title: Installer et configurer PowerShell pour Azure Stack - Démarrage rapide | Microsoft Docs
+description: Découvrez comment installer et configurer PowerShell pour Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 6996DFC1-5E05-423A-968F-A9427C24317C
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/30/2018
 ms.author: mabrigg
-ms.openlocfilehash: cba6f8295e5d4b75192e566d4931cbd617e7dc8d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 55fd212a895ed861cb5a9be0e4dae283e3cb5cfd
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="get-up-and-running-with-powershell-in-azure-stack"></a>Devenez rapidement opérationnel avec PowerShell dans Azure Stack.
 
@@ -32,9 +32,6 @@ Cet article est une version condensée des étapes décrites dans les articles [
 ## <a name="set-up-powershell-for-azure-active-directory-based-deployments"></a>Configurer PowerShell pour les déploiements basés sur Azure Active Directory
 
 Connectez-vous à votre Kit de développement Azure Stack, ou à un client externe Windows si vous êtes connecté par le biais d’un VPN. Ouvrez une session PowerShell ISE avec élévation de privilèges et exécutez le script suivant. Veillez à mettre à jour les variables **TenantName**, **ArmEndpoint** et **GraphAudience** en fonction des besoins de la configuration de votre environnement :
-
-> [!IMPORTANT]
-> La version du module PowerShell AzureRM 1.2.11 est fournie avec une liste des modifications importantes. Pour mettre à niveau à partir de la version 1.2.10, consultez le [guide de migration](https://aka.ms/azspowershellmigration).
 
 ```powershell
 # Specify Azure Active Directory tenant name.
@@ -83,10 +80,6 @@ Import-Module .\Connect\AzureStack.Connect.psm1
 
 # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
   $ArmEndpoint = "<Resource Manager endpoint for your environment>"
-
-# For Azure Stack development kit, this value is adminvault.local.azurestack.external 
-$KeyvaultDnsSuffix = "<Keyvault DNS suffix for your environment>"
-
 
 # Register an AzureRM environment that targets your Azure Stack instance
   Add-AzureRMEnvironment `
@@ -154,9 +147,6 @@ Import-Module .\Connect\AzureStack.Connect.psm1
 # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
 $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
-# For Azure Stack development kit, this value is adminvault.local.azurestack.external 
-$KeyvaultDnsSuffix = "<Keyvault DNS suffix for your environment>"
-
 # Register an AzureRM environment that targets your Azure Stack instance
 Add-AzureRMEnvironment `
     -Name "AzureStackAdmin" `
@@ -181,6 +171,9 @@ Maintenant que vous avez configuré PowerShell, vous pouvez tester la configurat
 New-AzureRMResourceGroup -Name "ContosoVMRG" -Location Local
 ```
 
+> [!note]  
+> Pour spécifier un groupe de ressources, vous devez avoir un groupe de ressources dans votre abonnement. Pour plus d’informations sur les abonnements, voir [Vue d’ensemble des plans, des offres, des quotas et des abonnements](azure-stack-plan-offer-quota-overview.md).
+
 Une fois le groupe de ressources créé, la propriété **État de l’approvisionnement** est définie sur **Réussi**.
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -188,10 +181,3 @@ Une fois le groupe de ressources créé, la propriété **État de l’approvisi
 * [Installer et configurer l’interface de ligne de commande](azure-stack-connect-cli.md)
 
 * [Développer des modèles](user/azure-stack-develop-templates.md)
-
-
-
-
-
-
-

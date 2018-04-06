@@ -1,23 +1,23 @@
 ---
-title: "Tâches du responsable de l’équipe Team Data Science Process - Azure | Microsoft Docs"
-description: "Liste des tâches du responsable de l’équipe chargée d’un projet de science des données."
-documentationcenter: 
+title: Tâches du responsable de l’équipe Team Data Science Process - Azure | Microsoft Docs
+description: Liste des tâches du responsable de l’équipe chargée d’un projet de science des données.
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev;
-ms.openlocfilehash: 58e8bfeb547fbcd7f472fbed50073b1ca3176b72
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: bradsev
+ms.openlocfilehash: 85589dfd60a32a28cecf427a7f5668dc36f8f5f2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="team-lead-tasks"></a>Tâches du responsable d’équipe
 
@@ -41,7 +41,7 @@ Une fois que le responsable de groupe a répondu aux prérequis de la section su
 4. (Facultatif) Monter le stockage de fichiers Azure sur l’instance **DSVM** (Data Science Virtual Machine) du responsable d’équipe, et y ajouter des ressources de données.
 5. Configurer le **contrôle de sécurité** en ajoutant des membres d’équipe et en configurant leurs privilèges.
 
->[AZURE.NOTE] Dans les instructions qui suivent, nous décrivons les étapes nécessaires pour configurer un environnement d’équipe TDSP à l’aide de VSTS. Nous indiquons comment accomplir ces tâches avec VSTS, car c’est de cette façon que nous implémentons TDSP chez Microsoft. Si une autre plateforme d’hébergement de code est utilisée pour votre groupe, les tâches que doit effectuer le responsable d’équipe ne changent généralement pas. En revanche, c’est la façon dont vont s’effectuer ces tâches qui sera différente.
+>[AZURE.NOTE] Dans les instructions qui suivent, nous décrivons les étapes nécessaires pour configurer un environnement d’équipe TDSP à l’aide de VSTS. Nous indiquons comment accomplir ces tâches avec VSTS, car c’est de cette façon que nous implémentons le processus TDSP chez Microsoft. Si une autre plateforme d’hébergement de code est utilisée pour votre groupe, les tâches que doit effectuer le responsable d’équipe ne changent généralement pas. En revanche, c’est la façon dont vont s’effectuer ces tâches qui sera différente.
 
 ## <a name="repositories-and-directories"></a>Dépôts et répertoires
 
@@ -64,7 +64,8 @@ Dans ce didacticiel, les noms spécifiés pour les dépôts et les répertoires 
 Dans tous les cas, les responsables d’équipe doivent indiquer aux membres de leur équipe les dépôts de modèles et d’utilitaires à utiliser lors de la configuration et du clonage des dépôts du projet et des dépôts d’utilitaires. Les coordinateurs de projet doivent suivre la rubrique [Tâches du coordinateur de projet pour une équipe de science des données](project-lead-tasks.md) pour créer des dépôts de projet, que ce soit sous un ou plusieurs projets d’équipe. 
 
 
-## <a name="0-prerequisites"></a>0. Composants requis
+## <a name="0-prerequisites"></a>0. Prérequis
+
 
 Pour satisfaire aux prérequis, les tâches attribuées à votre responsable de groupe et décrites dans [Tâches du responsable de groupe pour une équipe de science des données](group-manager-tasks.md) doivent être effectuées. Pour résumer, avant de commencer les tâches du responsable d’équipe, voici les conditions qui doivent être remplies : 
 
@@ -102,13 +103,13 @@ Effectuez cette étape si vous utilisez VSTS comme plateforme d’hébergement d
 
 - Si vous voyez une fenêtre contextuelle intitulée **Félicitations**, cliquez sur **Ajouter du code** (le bouton rouge). Sinon, cliquez sur **Code** (le bouton jaune). Vous êtes alors dirigé vers la page du dépôt Git de votre projet d’équipe. 
 
-    ![5](./media/team-lead-tasks/team-leads-5-team-project-home.png)
+    ![5.](./media/team-lead-tasks/team-leads-5-team-project-home.png)
 
 ### <a name="create-the-myprojecttemplate-repository-r3-on-git"></a>Créer le dépôt MyProjectTemplate (R3) sur Git
 
 - Dans la page du dépôt Git de votre projet d’équipe, cliquez sur la flèche vers le bas en regard du dépôt **MyTeam**, puis sélectionnez **Gérer les dépôts**.
 
-    ![6](./media/team-lead-tasks/team-leads-6-rename-team-project-repo.png)
+    ![6.](./media/team-lead-tasks/team-leads-6-rename-team-project-repo.png)
 
 - Sous l’onglet **Gestion de version** du panneau de configuration de votre projet d’équipe, cliquez sur **MyTeam**, puis sélectionnez **Renommer le dépôt**. 
 
@@ -122,7 +123,7 @@ Effectuez cette étape si vous utilisez VSTS comme plateforme d’hébergement d
 
 - Pour créer le nouveau dépôt *<nom_équipe\>Utilities* sous votre projet d’équipe, cliquez sur **Nouveau dépôt** sous l’onglet **Gestion de version**du panneau de configuration de votre projet d’équipe.  
 
-    ![9](./media/team-lead-tasks/team-leads-9-create-team-utilities.png)
+    ![9.](./media/team-lead-tasks/team-leads-9-create-team-utilities.png)
 
 - Dans la fenêtre **Créer un dépôt** qui s’affiche, fournissez un nom pour ce dépôt. Dans cet exemple, nous allons utiliser le nom *MyTeamUtilities*, qui correspond à **R4** dans notre notation. Choisissez un nom tel que *<nom_équipe\>utilitaires*. Sélectionnez **Git** pour le **Type**. Ensuite, cliquez sur **Créer** pour continuer.
 
@@ -208,7 +209,7 @@ Après le clonage, les deux répertoires **MyTeamProjectTemplate** (D3) et **MyT
 
 Pour copier le contenu du dossier local **GroupProjectTemplate** (D1) dans le répertoire local **MyTeamProjectTemplate** (D3), exécutez l’un des scripts d’interpréteur de commandes suivants : 
 
-####<a name="from-the-powershell-command-line-for-windows"></a>À partir de la ligne de commande PowerShell pour Windows        
+#### <a name="from-the-powershell-command-line-for-windows"></a>À partir de la ligne de commande PowerShell pour Windows       
 
     wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/tdsp_local_copy_win.ps1" -outfile "tdsp_local_copy_win.ps1"
     .\tdsp_local_copy_win.ps1 2
@@ -216,7 +217,7 @@ Pour copier le contenu du dossier local **GroupProjectTemplate** (D1) dans le r�
     
 ![16](./media/team-lead-tasks/team-leads-16-local_copy_team_lead_new.png)
 
-####<a name="from-the-linux-shell-for-the-linux-dsvm"></a>À partir du shell Linux pour une instance **DSVM Linux**
+#### <a name="from-the-linux-shell-for-the-linux-dsvm"></a>À partir du shell Linux pour une instance **DSVM Linux**
     
     wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/tdsp_local_copy_linux.sh"
     bash tdsp_local_copy_linux.sh 2
@@ -388,7 +389,7 @@ Vérifiez que le nouveau lecteur F a été monté correctement sur votre machine
 
 **Comment entrer manuellement les informations relatives au stockage de fichiers Azure :** si les informations concernant le stockage de fichiers Azure ne se trouvent pas dans un fichier texte, suivez les instructions de l’écran ci-dessous pour entrer l’abonnement, le compte de stockage et les informations relatives au stockage de fichiers Azure :
 
-- Entrez **n**.
+- Tapez **n**.
 - Sélectionnez l’index du nom de l’abonnement dans lequel le stockage de fichiers Azure a été créé à l’étape précédente :
 
     ![41](./media/team-lead-tasks/team-leads-41-attach-s5-linux.png)
@@ -410,7 +411,7 @@ Vérifiez que le nouveau lecteur F a été monté correctement sur votre machine
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Les liens ci-dessous donnent accès à des descriptions plus détaillées des rôles et des tâches définis par le processus TDSP (Team Data Science Process) :
+Les liens ci-dessous donnent accès à des descriptions plus détaillées des rôles et des tâches définis par le processus TDSP (Team Data Science Process) :
 
 - [Tâches du responsable de groupe pour une équipe de science des données](group-manager-tasks.md)
 - [Tâches du responsable d’une équipe de science des données](team-lead-tasks.md)

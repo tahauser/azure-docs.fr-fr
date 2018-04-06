@@ -1,12 +1,12 @@
 ---
-title: "Utiliser Azure Functions pour effectuer une tâche de nettoyage de base de données | Microsoft Docs"
-description: "Utilisez Azure Functions pour planifier une tâche qui se connecte à Azure SQL Database pour nettoyer des lignes périodiquement."
+title: Utiliser Azure Functions pour effectuer une tâche de nettoyage de base de données | Microsoft Docs
+description: Utilisez Azure Functions pour planifier une tâche qui se connecte à Azure SQL Database pour nettoyer des lignes périodiquement.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.service: functions
 ms.devlang: multiple
@@ -15,18 +15,19 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/22/2017
 ms.author: glenga
-ms.openlocfilehash: 9d8261a22f5ea9ce61bcdc79d24a6c054597039b
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 2947fc6da0c4559e81cf97255b8375b020e0b657
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Utiliser Azure Functions pour se connecter à une base de données Azure SQL Database
-Cette rubrique vous montre comment utiliser Azure Functions pour créer une tâche planifiée qui nettoie des lignes dans une table d’une base de données Azure SQL Database. La nouvelle fonction C# est créée selon un modèle de déclencheur de minuteur prédéfini dans le portail Azure. Pour prendre en charge ce scénario, vous devez également définir une chaîne de connexion de base de données comme paramètre d’application dans l’application de fonction. Ce scénario utilise une opération en bloc sur la base de données. 
+Cette rubrique vous montre comment utiliser Azure Functions pour créer une tâche planifiée qui nettoie des lignes dans une table d’une base de données Azure SQL Database. La nouvelle fonction de script C# est créée selon un modèle de déclencheur du minuteur prédéfini dans le Portail Azure. Pour prendre en charge ce scénario, vous devez également définir une chaîne de connexion de base de données comme paramètre d’application dans l’application de fonction. Ce scénario utilise une opération en bloc sur la base de données. 
 
 Pour que votre fonction traite des opérations de création, de lecture, de mise à jour et de suppression individuelles dans une table Mobile Apps, utilisez à la place des [liaisons Mobile Apps](functions-bindings-mobile-apps.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 + Cette rubrique crée une fonction déclenchée par un minuteur. Suivez les étapes de la rubrique [Créer une fonction dans Azure, qui est déclenchée par un minuteur](functions-create-scheduled-function.md) pour créer une version C# de cette fonction.   
 
@@ -40,13 +41,13 @@ Vous devez obtenir la chaîne de connexion pour la base de données que vous ave
  
 3. Sélectionnez **Bases de données SQL** dans le menu de gauche, puis sélectionnez votre base de données dans la page **Bases de données SQL**.
 
-4. Sélectionnez **Afficher les chaînes de connexion de la base de données** et copiez la chaîne de connexion **ADO.NET** complète.
+4. Sélectionnez **Afficher les chaînes de connexion de la base de données** et copiez la chaîne de connexion **ADO.NET** complète. 
 
     ![Copiez la chaîne de connexion ADO.NET.](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
 
 ## <a name="set-the-connection-string"></a>Définir la chaîne de connexion 
 
-Une application de fonction héberge l’exécution de vos fonctions dans Azure. Il est recommandé de stocker les chaînes de connexion et autres secrets dans vos paramètres de conteneur de fonctions. L’utilisation de paramètres d’application empêche la divulgation accidentelle de la chaîne de connexion avec votre code. 
+Une Function App héberge l’exécution de vos fonctions dans Azure. Il est recommandé de stocker les chaînes de connexion et autres secrets dans vos paramètres de conteneur de fonctions. L’utilisation de paramètres d’application empêche la divulgation accidentelle de la chaîne de connexion avec votre code. 
 
 1. Accédez à l’application de fonction que vous avez créée dans [Créer une fonction dans Azure, qui est déclenchée par un minuteur](functions-create-scheduled-function.md).
 
@@ -60,24 +61,26 @@ Une application de fonction héberge l’exécution de vos fonctions dans Azure.
 
     | Paramètre       | Valeur suggérée | Description             | 
     | ------------ | ------------------ | --------------------- | 
-    | **Nom**  |  sqldb_connection  | Utilisé pour accéder à la chaîne de connexion stockée dans le code de votre fonction.    |
+    | **Name**  |  sqldb_connection  | Utilisé pour accéder à la chaîne de connexion stockée dans le code de votre fonction.    |
     | **Valeur** | Chaîne copiée  | Collez la chaîne de connexion que vous avez copiée dans la section précédente et remplacez les espaces réservés `{your_username}` et `{your_password}` par des valeurs réelles. |
     | **Type** | Base de données SQL | Utilisez la connexion SQL Database par défaut. |   
 
-3. Cliquez sur **Save**.
+3. Cliquez sur **Enregistrer**.
 
 À présent, vous pouvez ajouter le code de fonction C# qui se connecte à votre base de données SQL.
 
 ## <a name="update-your-function-code"></a>Mettre à jour le code de votre fonction
 
-1. Dans votre application de fonction, sélectionnez la fonction déclenchée par un minuteur.
+1. Dans votre application de fonction du portail, sélectionnez la fonction déclenchée par minuteur.
  
-3. Ajoutez les références d’assembly suivantes en haut du code de la fonction existante :
+3. Ajoutez les références d’assembly suivantes en haut du code de la fonction de script C# existante :
 
     ```cs
     #r "System.Configuration"
     #r "System.Data"
     ```
+    >[!NOTE]
+    >Le code dans ces exemples est le script C# à partir du portail. Lorsque vous développez une fonction C# précompilée localement, vous devez à la place ajouter des références à ces assemblys dans votre projet local.  
 
 3. Ajoutez les instructions `using` suivantes à la fonction :
     ```cs

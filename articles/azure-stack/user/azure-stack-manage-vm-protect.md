@@ -15,11 +15,11 @@ ms.topic: 02get-started-article
 ms.date: 02/27/2018
 ms.author: mabrigg
 ms.reviewer: hector.linares
-ms.openlocfilehash: e7c437e3310fbf5c921920a3f08ecb8fe1f0d931
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0e74c6af36130d206456634548f452a1f1a2d4af
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Protéger des machines virtuelles déployées sur Azure Stack
 
@@ -68,8 +68,8 @@ Le schéma de protection le plus courant pour les applications basées sur une m
  
 La récupération de l’application nécessite la restauration d’une ou de plusieurs machines virtuelles dans le même cloud ou un nouveau cloud. Vous pouvez cibler un cloud dans votre centre de données ou le cloud public. Le choix du cloud cible n’appartient qu’à vous et repose sur vos exigences de confidentialité et de souveraineté des données. 
  
- - RTO : temps d’arrêt mesuré en secondes 
- - RPO : perte de données minimale
+ - RTO : temps d’arrêt mesuré en heures 
+ - RPO : perte de données variable (selon la fréquence de sauvegarde)
  - Topologie du déploiement : actif/passif 
 
 #### <a name="planning-your-backup-strategy"></a>Planification de votre stratégie de sauvegarde
@@ -95,8 +95,8 @@ Avec cette approche, l’application est uniquement déployée dans un cloud. La
 
 ![Réplication-basculement manuel](media\azure-stack-manage-vm-backup\vm_backupdataflow_02.png)
 
- - RTO : temps d’arrêt en minutes 
- - RPO : perte de données variable
+ - RTO : temps d’arrêt mesuré en minutes 
+ - RPO : perte de données variable (selon la fréquence de réplication)
  - Topologie du déploiement : en veille actif/passif
  
 ### <a name="high-availabilityautomatic-failover"></a>Haute disponibilité/basculement automatique

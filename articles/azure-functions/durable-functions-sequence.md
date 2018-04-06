@@ -1,32 +1,33 @@
 ---
-title: "Chaînage de fonctions dans Fonctions durables - Azure"
-description: "Découvrez comment exécuter un exemple de fonctions durables qui exécute une séquence de fonctions."
+title: Chaînage de fonctions dans Fonctions durables - Azure
+description: Découvrez comment exécuter un exemple de fonctions durables qui exécute une séquence de fonctions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9ba1cdc5c72e04802d29794fa6cb40a29cc1d353
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 0020f19e00f3365c4a0d80ebb67aeeedd7fe76df
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Chaînage de fonctions dans Fonctions durables - Exemple de séquence Hello
 
 Un chaînage de fonctions fait référence au modèle d’exécution d’une séquence de fonctions dans un ordre particulier. La sortie d’une fonction doit souvent être appliquée à l’entrée d’une autre fonction. Cet article décrit un exemple utilisant des [Fonctions durables](durable-functions-overview.md) pour implémenter un chaînage de fonctions.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
-* Suivez les instructions indiquées dans la section [Installer des fonctions durables](durable-functions-install.md) pour configurer l’exemple.
+
+* [Installer Fonctions durables](durable-functions-install.md).
 
 ## <a name="the-functions"></a>Les fonctions
 
@@ -35,7 +36,7 @@ Cet article explique les fonctions suivantes dans l’exemple d’application :
 * `E1_HelloSequence` : Une fonction d’orchestrateur qui appelle `E1_SayHello` plusieurs fois dans une séquence. Il stocke les sorties à partir des appels de `E1_SayHello` et enregistre les résultats.
 * `E1_SayHello` : Une fonction d’activité qui ajoute une chaîne avec « Hello ».
 
-Les sections suivantes décrivent la configuration et le code utilisés pour le développement du portail Azure. Le code de développement de Visual Studio est affiché à la fin de l’article.
+Les sections suivantes décrivent la configuration et le code utilisés pour les scripts C#. Le code de développement de Visual Studio est affiché à la fin de l’article.
  
 ## <a name="functionjson-file"></a>Fichier function.json
 

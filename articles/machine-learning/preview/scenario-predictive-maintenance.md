@@ -1,6 +1,6 @@
 ---
-title: "Maintenance prédictive pour scénarios réels | Microsoft Docs"
-description: "Maintenance prédictive pour scénarios à l’aide de PySpark"
+title: Maintenance prédictive pour scénarios réels | Microsoft Docs
+description: Maintenance prédictive pour scénarios à l’aide de PySpark
 services: machine-learning
 author: ehrlinger
 ms.author: jehrling
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: 81e227194ff64d7b7af842a208349ccc63528ab8
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: bb6e4f9f147db2fb70d991922cf0bb8d16b29671
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="predictive-maintenance-for-real-world-scenarios"></a>Maintenance prédictive pour scénarios réels
 
@@ -25,7 +25,7 @@ Ce scénario utilise un [jeu de données simulé relativement important](https:/
 
 ### <a name="cortana-intelligence-gallery-github-repository"></a>Référentiel GitHub de la galerie Cortana Intelligence
 
-Le didacticiel Galerie Cortana Intelligence pour la maintenance prédictive est un référentiel GitHub public ([https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance)) dans lequel vous pouvez signaler des problèmes et apporter des contributions.
+La galerie Cortana Intelligence pour le didacticiel PM est un dépôt GitHub public ([https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance)) dans lequel vous pouvez signaler des problèmes et contribuer.
 
 
 ## <a name="use-case-overview"></a>Vue d’ensemble d’un cas d’usage
@@ -37,6 +37,7 @@ Ce scénario s’appuie sur le [manuel de maintenance prédictive](https://docs.
 Le problème métier pour ces données simulées consiste à prédire les problèmes causés par les échecs de composants. La question qui se pose est donc la suivante : « *Quelle est la probabilité qu’une machine tombe en panne en raison d’un échec de composant* ? » Ce problème est représenté sous la forme d’un problème de classification multiclasse (plusieurs composants par machine). Un algorithme d’apprentissage automatique est utilisé pour créer le modèle prédictif. L’apprentissage du modèle est effectué à partir de données d’historique collectées sur des machines. Dans ce scénario, l’utilisateur suit différentes étapes d’implémentation du modèle dans l’environnement Machine Learning Workbench.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 * Un [compte Azure](https://azure.microsoft.com/free/) (des comptes d’essai gratuit sont disponibles).
 * Une copie installée [d’Azure Machine Learning Workbench](./overview-what-is-azure-ml.md). Pour installer le programme et créer un espace de travail, consultez le [guide de démarrage rapide relatif à l’installation](./quickstart-installation.md).

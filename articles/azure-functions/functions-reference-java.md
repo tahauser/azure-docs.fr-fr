@@ -1,11 +1,11 @@
 ---
-title: "Information de référence pour les développeurs Java sur Azure Functions | Microsoft Docs"
-description: "Découvrez comment développer des fonctions à l’aide de Java."
+title: Information de référence pour les développeurs Java sur Azure Functions | Microsoft Docs
+description: Découvrez comment développer des fonctions à l’aide de Java.
 services: functions
 documentationcenter: na
 author: rloutlaw
 manager: justhe
-keywords: "azure functions, fonctions, traitement des événements, webhooks, calcul dynamique, architecture sans serveur, java"
+keywords: azure functions, fonctions, traitement des événements, webhooks, calcul dynamique, architecture sans serveur, java
 ms.service: functions
 ms.devlang: java
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw
-ms.openlocfilehash: 09a48d61cb27b4db0778295565d167a0688cc99f
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 71576e65d20d7e8cb7f5ff1c5f19c82439bb6807
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guide des développeurs Java sur Azure Functions
 > [!div class="op_single_selector"]
@@ -35,15 +35,15 @@ Les annotations Java sont incluses dans le package `azure-functions-java-core`, 
 
 Liaison | Annotation
 ---|---
-CosmosDB | Non applicable
+CosmosDB | N/A
 HTTP | <ul><li>`HttpTrigger`</li><li>`HttpOutput`</li></ul>
-Mobile Apps | Non applicable
-Notification Hubs | Non applicable
+Mobile Apps | N/A
+Notification Hubs | N/A
 Storage Blob | <ul><li>`BlobTrigger`</li><li>`BlobInput`</li><li>`BlobOutput`</li></ul>
 File d’attente de stockage | <ul><li>`QueueTrigger`</li><li>`QueueOutput`</li></ul>
 Table de stockage | <ul><li>`TableInput`</li><li>`TableOutput`</li></ul>
 Minuteur | <ul><li>`TimerTrigger`</li></ul>
-Twilio | Non applicable
+Twilio | N/A
 
 Les entrées et sorties des déclencheurs peuvent également être définies dans le fichier [function.json](/azure/azure-functions/functions-reference#function-code) de votre application.
 
@@ -325,9 +325,33 @@ public class Function {
 }
 ```
 
+## <a name="environment-variables"></a>Variables d’environnement
+
+Il est souvent souhaitable d’extraire des informations secrètes du code source pour des raisons de sécurité. Cela permet de publier le code dans des référentiels de code source sans fournir accidentellement des informations d’identification à d’autres développeurs. Pour ce faire, utilisez simplement des variables d’environnement, lors de l’exécution d’Azure Functions localement et lors du déploiement de vos fonctions vers Azure.
+
+Pour définir facilement des variables d’environnement lors de l’exécution d’Azure Functions localement, vous pouvez choisir d’ajouter ces variables au fichier local.settings.json. S’il en manque un dans le répertoire racine de votre projet de fonctions, n’hésitez pas à en créer un. Voici à quoi doit ressembler le fichier :
+
+```xml
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "AzureWebJobsDashboard": ""
+  }
+}
+```
+
+Chaque mise en correspondance des valeurs / de la clé dans le mappage `values` sera rendue disponible lors de l’exécution en tant que variable d’environnement, accessible par un appel `System.getenv("<keyname>")`, par exemple, `System.getenv("AzureWebJobsStorage")`. L’ajout d’une paire clé / valeur supplémentaire est accepté et conseillé.
+
+> [!NOTE]
+> Si cette mesure est prise, assurez-vous de prendre en compte si l’ajout du fichier local.settings.json à votre référentiel ignore le fichier, afin qu’il ne soit pas validé.
+
+Avec votre code dépendant à présent de ces variables d’environnement, vous pouvez vous connecter au Portail Azure pour définir la même paire clé / valeur dans vos paramètres d’application de fonction, pour que votre code fonctionne de façon équivalente lors du test local et lors du déploiement vers Azure.
+
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations, consultez les ressources suivantes :
 
 * [Meilleures pratiques pour Azure Functions](functions-best-practices.md)
 * [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md)
 * [Azure Functions triggers and bindings (Déclencheurs et liaisons Azure Functions)](functions-triggers-bindings.md)
+* [Débogage distant de Java Azure Functions avec Visual Studio Code](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)

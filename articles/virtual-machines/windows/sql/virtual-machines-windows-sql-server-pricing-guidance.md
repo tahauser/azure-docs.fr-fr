@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/20/2018
 ms.author: jroth
-ms.openlocfilehash: 3103ca2c659e40fd945b597ed4671fe96daf1905
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: a275df84ce784147b5fd4f09afe4995417affffd
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Tarification des machines virtuelles SQL Server Azure
 
@@ -63,7 +63,7 @@ Pour ces éditions, vous pouvez vous acquitter de la licence SQL Server de deux 
 
 ### <a name="pay-per-usage"></a>Paiement à l’utilisation
 
-**Le paiement d’une licence SQL Server à l’utilisation** signifie que le coût par minute de l’exécution de la machine virtuelle Azure comprend le coût de la licence SQL Server. La tarification des différentes éditions SQL Server (Web, Standard, Entreprise) est indiquée sur la [page de tarification des machines virtuelles Azure](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Le coût est le même pour toutes les versions de SQL Server (de 2012 SP3 à 2017). Comme pour la licence SQL Server de manière générale, les frais de licence par minute varient en fonction du nombre de cœurs de la machine virtuelle.
+**Le paiement d’une licence SQL Server à l’utilisation** signifie que le coût par seconde de l’exécution de la machine virtuelle Azure comprend le coût de la licence SQL Server. La tarification des différentes éditions SQL Server (Web, Standard, Entreprise) est indiquée sur la [page de tarification des machines virtuelles Azure](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Le coût est le même pour toutes les versions de SQL Server (de 2012 SP3 à 2017). Comme pour la licence SQL Server de manière générale, les frais de licence par seconde varient en fonction du nombre de cœurs de la machine virtuelle.
 
 Le paiement de la licence SQL Server à l’utilisation est recommandé pour :
 
@@ -113,7 +113,7 @@ Pour créer une machine virtuelle SQL Server 2016 Azure avec l’une de ces imag
 > Veuillez nous indiquer sous 10 jours le nombre de licences SQL Server que vous utiliserez dans Azure. Les liens vers les images précédentes comportent des instructions sur la manière de procéder.
 
 > [!NOTE]
-> Il n’est pas possible de modifier le modèle de licence d’une machine virtuelle SQL Server payée à la minute pour utiliser votre propre licence. Dans ce cas, vous devez créer une nouvelle machine virtuelle BYOD et migrer vos bases de données vers la nouvelle machine virtuelle. 
+> Il n’est pas possible de modifier le modèle de licence d’une machine virtuelle SQL Server payée à la seconde pour utiliser votre propre licence. Dans ce cas, vous devez créer une nouvelle machine virtuelle BYOD et migrer vos bases de données vers la nouvelle machine virtuelle. 
 
 ## <a name="avoid-unnecessary-costs"></a>Éviter les coûts inutiles
 

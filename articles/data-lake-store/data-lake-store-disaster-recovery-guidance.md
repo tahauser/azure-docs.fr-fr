@@ -1,8 +1,8 @@
 ---
-title: "Conseils sur la récupération d’urgence pour Azure Data Lake Store | Microsoft Docs"
-description: "Conseils sur la récupération d’urgence pour Azure Data Lake Store"
+title: Conseils sur la récupération d’urgence pour Azure Data Lake Store | Microsoft Docs
+description: Conseils sur la récupération d’urgence pour Azure Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: d76f756e7a6fe77886f0d4e00ab8b23273b4e09d
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 9a2705a2372ea4f2fbea1e27bf675679dfda28f8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="disaster-recovery-guidance-for-data-in-data-lake-store"></a>Conseils sur la récupération d’urgence des données dans Azure Data Lake Store
 
-Les données de votre compte Azure Data Lake Store seront résistantes aux défaillances matérielles temporaires au sein d’une région par le biais des réplicas automatisés. Cela garantit durabilité et haute disponibilité et permet de respecter le contrat de niveau de service d’Azure Data Lake Store. Cet article donne des conseils sur la protection des données contre les rares pannes ou suppressions accidentelles qui peuvent se produire à l’échelle d’une région.
+Azure Data Lake Store fournit un stockage localement redondant (LRS). Dès lors, les données de votre compte Azure Data Lake Store seront résistantes aux défaillances matérielles temporaires au sein d’une région par le biais des réplicas automatisés. Cela garantit durabilité et haute disponibilité et permet de respecter le contrat de niveau de service d’Azure Data Lake Store. Cet article donne des conseils sur la protection des données contre les rares pannes ou suppressions accidentelles qui peuvent se produire à l’échelle d’une région.
 
 ## <a name="disaster-recovery-guidance"></a>Guide de récupération d’urgence
-Il est essentiel que chaque client veille à élaborer son propre plan de récupération d’urgence. Reportez-vous à la documentation Azure ci-dessous pour créer votre plan de récupération d’urgence. Voici quelques ressources qui peuvent vous aider à créer votre propre plan.
+Il est essentiel que chaque client veille à élaborer son propre plan de récupération d’urgence. Pour générer votre plan de récupération d’urgence, lisez les formations contenues dans cet article. Voici quelques ressources qui peuvent vous aider à créer votre propre plan.
 
 * [Récupération d’urgence et haute disponibilité pour les applications Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
 * [Guide technique de la résilience Azure](../resiliency/resiliency-technical-guidance.md)

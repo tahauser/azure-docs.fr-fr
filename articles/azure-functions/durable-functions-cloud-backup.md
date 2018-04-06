@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 446ddbff7d945e90ebfd12bc6e9e7a1f0e18267c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 35877831c7f63c20fee2f2bc3838e73bb98328c0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Scénario fan-out/fan-in dans Fonctions durables - exemple de sauvegarde cloud
 
@@ -27,8 +27,8 @@ ms.lasthandoff: 03/17/2018
 ## <a name="prerequisites"></a>Prérequis
 
 
-* Suivez les instructions indiquées dans la section [Installer des fonctions durables](durable-functions-install.md) pour configurer l’exemple.
-* Cet article suppose que vous avez déjà parcouru l’exemple de procédure pas à pas [Séquence Hello](durable-functions-sequence.md).
+* [Installer Fonctions durables](durable-functions-install.md).
+* Suivre la procédure pas à pas [Séquence Hello](durable-functions-sequence.md).
 
 ## <a name="scenario-overview"></a>Présentation du scénario
 
@@ -48,7 +48,7 @@ Cet article explique les fonctions suivantes dans l’exemple d’application :
 * `E2_GetFileList`
 * `E2_CopyFileToBlob`
 
-Les sections suivantes décrivent la configuration et le code utilisés pour le développement du portail Azure. Le code de développement de Visual Studio est affiché à la fin de l’article.
+Les sections suivantes décrivent la configuration et le code utilisés pour les scripts C#. Le code de développement de Visual Studio est affiché à la fin de l’article.
 
 ## <a name="the-cloud-backup-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>L'orchestration de la sauvegarde dans le cloud (Visual Studio Code et exemple de code du portail Azure)
 
@@ -151,7 +151,7 @@ Content-Type: application/json; charset=utf-8
 
 Vous pouvez maintenant voir que l’orchestration est terminée et la durée approximative de cette opération. Vous voyez également une valeur pour le champ `output`, indiquant qu’environ 450 ko de journaux ont été chargés.
 
-## <a name="visual-studio-sample-code"></a>Exemple de code Visual Studio
+## <a name="visual-studio-sample-code"></a>Code d’exemple Visual Studio
 
 Voici l’orchestration, présentée sous la forme d’un seul fichier C# dans un projet Visual Studio :
 

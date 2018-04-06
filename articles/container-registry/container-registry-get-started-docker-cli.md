@@ -1,6 +1,6 @@
 ---
-title: "Pousser (push) une image Docker dans un registre Azure privé"
-description: "Transmission et extraction des images Docker à un Registre de conteneur privé dans Azure à l’aide de l’interface de ligne de commande (CLI) Docker"
+title: Pousser (push) une image Docker dans un registre Azure privé
+description: Transmission et extraction des images Docker à un Registre de conteneur privé dans Azure à l’aide de l’interface de ligne de commande (CLI) Docker
 services: container-registry
 author: stevelas
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 21d1abfbb49eaeae654a600d35ab350b96a12fd3
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 8fc04ec77a101e08bfde22df76e845b87f8c316e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Transmission de votre première image vers un Registre de conteneur Docker privé à l’aide de l’interface de ligne de commande (CLI) Docker
 
@@ -21,7 +21,8 @@ Un Registre de conteneur Azure stocke et gère les images privées du conteneur 
 
 Dans les étapes suivantes, téléchargez une [image Nginx](https://store.docker.com/images/nginx) officielle à partir du registre Docker Hub public, étiquetez-la pour votre registre de conteneurs Azure privé, poussez-la dans votre registre, puis tirez-la du registre.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 * **Azure Container Registry** : créez un Registre de conteneur dans votre abonnement Azure. Par exemple, utilisez le [portail Azure](container-registry-get-started-portal.md) ou [Azure CLI 2.0](container-registry-get-started-azure-cli.md).
 * **Interface CLI Docker** : pour configurer votre ordinateur local comme hôte Docker et accéder aux commandes de l’interface CLI Docker, installez [Docker](https://docs.docker.com/engine/installation/).
@@ -123,4 +124,8 @@ az acr repository delete --name myregistry --repository samples/nginx --tag late
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous connaissez les principes de base, vous êtes prêt à utiliser votre registre. Par exemple, déployez des images de conteneur à partir de votre registre sur un cluster [Azure Container Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md).
+Maintenant que vous connaissez les principes de base, vous êtes prêt à utiliser votre registre. Déployez des images de conteneur à partir de votre Registre vers :
+
+* [Azure Container Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md)
+* [Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md)
+* [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)

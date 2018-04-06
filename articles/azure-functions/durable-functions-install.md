@@ -1,24 +1,24 @@
 ---
-title: "Installer l’extension Fonctions durables et des exemples : Azure"
-description: "Découvrez comment installer l’extension Fonctions durables pour Azure Functions, pour le développement de portails ou le développement Visual Studio."
+title: 'Installer l’extension Fonctions durables et des exemples : Azure'
+description: Découvrez comment installer l’extension Fonctions durables pour Azure Functions, pour le développement de portails ou le développement Visual Studio.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e1e8b019fe4632b0b6ac02888b562d6718c14fcc
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3451f268e78df6efa5e3fc489b88415349efe169
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Installer l’extension Fonctions durables et des exemples (Azure Functions)
 
@@ -33,6 +33,7 @@ L’extension [Fonctions durables](durable-functions-overview.md) d’Azure Func
 Actuellement, Visual Studio fournit la meilleure expérience de développement d’applications qui utilisent l’extension Fonctions durables.  Vos fonctions peuvent être exécutées en local, et peuvent également être publiées dans Azure. Vous pouvez commencer par un projet vide, ou par un ensemble d’exemples de fonctions.
 
 ### <a name="prerequisites"></a>Prérequis
+
 
 * Installez la [dernière version de Visual Studio](https://www.visualstudio.com/downloads/) (version 15.3 ou plus). Incluez la charge de travail de **développement Azure** dans vos options d’installation.
 
@@ -60,6 +61,7 @@ Visual Studio Code fournit une expérience de développement local qui couvre to
 
 ### <a name="prerequisites"></a>Prérequis
 
+
 * Installer la [dernière version de Visual Studio Code](https://code.visualstudio.com/Download) 
 
 * Suivez les instructions dans la section « Installer Azure Functions Core Tools » de la rubrique [Coder et tester Azure Functions localement](https://docs.microsoft.com/azure/azure-functions/functions-run-local)
@@ -77,12 +79,17 @@ Visual Studio Code fournit une expérience de développement local qui couvre to
 3. Installez Azure Functions Durable Extension en lançant la commande suivante dans une invite de commande/fenêtre de terminal :
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.1.0-beta2
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.2.0-beta3
     ```
-4. Exécutez Azure Storage Emulator ou mettez à jour le fichier *local.appsettings.json* en ajoutant la chaîne de connexion de stockage Azure réelle.
-3. Ouvrez le projet dans Visual Studio Code. 
-5. Pour obtenir des instructions sur la façon d’exécuter l’exemple, commencez par [l’exemple de séquence hello/le chaînage de fonction](durable-functions-sequence.md). L’exemple peut être exécuté en local ou publié sur Azure.
-6. Démarrez le projet en exécutant la commande suivante dans une invite de commande/fenêtre de terminal :
+4. Installez Azure Functions Twilio Extension en exécutant la commande suivante dans une invite de commande/fenêtre de terminal :
+
+    ```bash
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0-beta4
+    ```
+5. Exécutez Azure Storage Emulator ou mettez à jour le fichier *local.appsettings.json* en ajoutant la chaîne de connexion de stockage Azure réelle.
+6. Ouvrez le projet dans Visual Studio Code. 
+7. Pour obtenir des instructions sur la façon d’exécuter l’exemple, commencez par [l’exemple de séquence hello/le chaînage de fonction](durable-functions-sequence.md). L’exemple peut être exécuté en local ou publié sur Azure.
+8. Démarrez le projet en exécutant la commande suivante dans une invite de commande/fenêtre de terminal :
     ```bash
     func host start
     ```

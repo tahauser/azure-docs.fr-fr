@@ -1,12 +1,12 @@
 ---
-title: "Présentation d’Azure Advisor | Microsoft Docs"
-description: "Le conseiller Azure permet d’optimiser vos déploiements Azure."
+title: Présentation d’Azure Advisor | Microsoft Docs
+description: Le conseiller Azure permet d’optimiser vos déploiements Azure.
 services: advisor
 documentationcenter: NA
 author: KumudD
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: advisor
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: a4096b11a828cf6676aa22b11c4dd4d75f3b0286
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0aa97a7557706f0b704d4e31a84e9d356d1ad087
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="introduction-to-azure-advisor"></a>Présentation d’Azure Advisor
 
@@ -43,9 +43,6 @@ Le tableau de bord Advisor affiche des recommandations personnalisées pour l’
 
   ![Types de recommandation du conseiller](./media/advisor-overview/advisor-dashboard.png)
 
-> [!NOTE]
-> Pour utiliser Azure Advisor avec un abonnement, un *propriétaire* de cet abonnement doit lancer le tableau de bord Advisor.  Cette action enregistre l’abonnement auprès d’Advisor.  Dès lors, tout *Propriétaire*, *Contributeur* ou *Lecteur* de l’abonnement peut accéder aux recommandations Advisor correspondantes. 
-
 Vous pouvez cliquer sur une catégorie pour afficher la liste des recommandations au sein de cette catégorie, puis sélectionner une recommandation pour en savoir plus sur celle-ci.  Vous pouvez également obtenir des informations sur les actions que vous pouvez effectuer pour tirer parti d’une opportunité ou résoudre un problème.
 
 ![Catégorie de recommandation d’Advisor](./media/advisor-overview/advisor-ha-category-example.png) 
@@ -62,12 +59,12 @@ Accéder à Advisor via le [portail Azure](https://aka.ms/azureadvisordashboard)
 Vous pouvez également afficher les recommandations Advisor via l’interface des ressources de machine virtuelle. Choisissez une machine virtuelle, puis accédez aux recommandations du conseiller dans le menu. 
 
 ### <a name="what-permissions-do-i-need-to-access-advisor"></a>Quelles autorisations dois-je avoir pour accéder au conseiller ?
-
-Pour obtenir les recommandations Advisor pour un abonnement, vous devez d’abord enregistrer votre abonnement auprès d’Advisor. L’abonnement est enregistré lorsque son *propriétaire* lance le tableau de bord Advisor. Il s’agit d’une opération unique. Une fois l’abonnement enregistré, vous pouvez accéder aux recommandations Advisor en tant que *propriétaire*, *collaborateur* ou *lecteur* de cet abonnement.
+ 
+Vous pouvez accéder aux recommandations d’Advisor en tant que *propriétaire*, *collaborateur* ou *lecteur* d’un abonnement.
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Pour quelles ressources le conseiller fournit-il des recommandations ?
 
-Advisor fournit des recommandations pour les machines virtuelles, les groupes à haute disponibilité, les passerelles d’application, App Services, les serveurs SQL, les bases de données SQL et le Cache Redis.
+Advisor fournit des recommandations pour les machines virtuelles, les groupes à haute disponibilité, les passerelles d’application, App Services, les serveurs SQL et le Cache Redis.
 
 ### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>Puis-je reporter ou ignorer une recommandation ?
 

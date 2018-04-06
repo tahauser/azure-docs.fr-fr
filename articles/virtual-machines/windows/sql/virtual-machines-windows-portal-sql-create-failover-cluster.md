@@ -1,6 +1,6 @@
 ---
 title: Instance de cluster de basculement (FCI) SQL Server - Machines virtuelles Azure | Microsoft Docs
-description: "Cet article explique comment créer une instance de cluster de basculement SQL Server sur des machines virtuelles Azure."
+description: Cet article explique comment créer une instance de cluster de basculement SQL Server sur des machines virtuelles Azure.
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -14,13 +14,13 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 09/26/2017
+ms.date: 13/22/2018
 ms.author: mikeray
-ms.openlocfilehash: 8c957b1f2b4466ba68d81885fb014ad4026a47d2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: faa849fc53aa15a47e850a20531c4fa30544f750
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurer une instance de cluster de basculement SQL Server sur des machines virtuelles Azure
 
@@ -46,6 +46,18 @@ Le schéma précédent illustre :
 Pour plus d’informations sur la technologie S2D, consultez [l’édition Espaces de stockage direct \(S2D\) de Windows Server 2016 Datacenter](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview).
 
 La technologie S2D prend en charge deux types d’architectures : convergée et hyper-convergée. L’architecture dans ce document est hyper-convergée. Une infrastructure hyper-convergée place le stockage sur les mêmes serveurs que ceux qui hébergent l’application en cluster. Dans cette architecture, le stockage se trouve sur chaque nœud de l’instance de cluster de basculement SQL Server.
+
+## <a name="licensing-and-pricing"></a>Licences et tarification
+
+Sur les machines virtuelles Azure, vous pouvez acquérir une licence SQL Server à l’aide des images de machines virtuelles avec paiement à l’utilisation (PAYG) ou BYOL (apportez votre propre licence). Le type d’image que vous choisissez affecte la façon dont vous êtes facturé.
+
+Avec la licence PAYG, une instance de cluster de basculement (FCI) de SQL Server sur des machines virtuelles Azure entraîne des frais pour tous les nœuds de FCI, y compris les nœuds passifs. Pour plus d’informations, consultez [Tarification des machines virtuelles SQL Server Entreprise](http://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/). 
+
+Les clients avec un Contrat Entreprise et la Software Assurance ont le droit d’utiliser un nœud FCI passif gratuit pour chaque nœud actif. Pour tirer parti de cet avantage dans Azure, utilisez des images de machines virtuelles BYOL, puis utilisez la même licence sur les nœuds actifs et passifs de l’instance FCI. Pour plus d’informations, consultez [Accord Entreprise](http://www.microsoft.com/en-us/Licensing/licensing-programs/enterprise.aspx).
+
+Pour comparer les licences PAYG et BYOL pour SQL Server sur des machines virtuelles Azure, consultez [Bien démarrer avec des machines virtuelles SQL](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms).
+
+Pour plus d’informations sur les licences SQL Server, consultez [Tarification](http://www.microsoft.com/sql-server/sql-server-2017-pricing).
 
 ### <a name="example-azure-template"></a>Exemple de modèle Azure
 
@@ -123,7 +135,7 @@ Une fois ces conditions préalables en place, vous pouvez passer à la création
 
    Choisissez l’image appropriée en fonction de la façon dont vous souhaitez payer pour la licence SQL Server :
 
-   - **Licences avec paiement à l’utilisation** : le coût par minute de ces images inclut l’attribution de licences SQL Server :
+   - **Licences avec paiement à l’utilisation** : le coût par seconde de ces images inclut l’attribution de licences SQL Server :
       - **SQL Server 2016 Enterprise sur Windows Server Datacenter 2016**
       - **SQL Server 2016 Standard sur Windows Server Datacenter 2016**
       - **SQL Server 2016 Developer sur Windows Server Datacenter 2016**
@@ -266,7 +278,7 @@ Un témoin cloud est un nouveau type de témoin de quorum de cluster stocké dan
 
 1. Enregistrez les clés d’accès et l’URL du conteneur.
 
-1. Configurez le témoin de quorum du cluster de basculement. Consultez [Configurer le témoin de quorum dans l’interface utilisateur].(http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) dans l’interface utilisateur.
+1. Configurez le témoin de quorum du cluster de basculement. Consultez, [Configurer le témoin de quorum dans l’interface utilisateur]. (http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) dans l’interface utilisateur.
 
 ### <a name="add-storage"></a>Ajouter du stockage
 

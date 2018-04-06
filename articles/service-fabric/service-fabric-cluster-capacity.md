@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2018
 ms.author: chackdan
-ms.openlocfilehash: ad5f396cd71eb0136fe683bbccb9360291be2d59
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b39c22fb45b0e20a3aa7a6dcf59619a87df32ca1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considérations en matière de planification de la capacité du cluster Service Fabric
 Pour un déploiement de production, la planification de la capacité est une étape importante. Voici certains éléments que vous devez prendre en compte dans ce processus.
@@ -69,7 +69,7 @@ Le niveau de durabilité est utilisé pour indiquer au système les privilèges 
 
 Ce privilège est exprimé dans les valeurs suivantes :
 
-* Gold : les travaux d’infrastructure peuvent être suspendus pendant deux heures UD. La durabilité Gold peut uniquement être activée sur les références (SKU) de machine virtuelle à nœud complet telles que L32s, GS5, G5, DS15_v2, D15_v2, etc. (En général, toutes les tailles de machine virtuelle répertoriées dans la page http://aka.ms/vmspecs qui sont accompagnées de la note de bas de page « L’instance est isolée sur un matériel dédié à un client unique. » sont des machines virtuelles à nœud complet.)
+* Gold : les travaux d’infrastructure peuvent être suspendus pendant deux heures UD. La durabilité Gold peut uniquement être activée sur les références (SKU) de machine virtuelle à nœud complet telles que L32s, GS5, G5, DS15_v2, D15_v2, etc. (en général, toutes les tailles de machine virtuelle répertoriées dans la page http://aka.ms/vmspecs qui sont accompagnées de la note de bas de page « L’instance est isolée sur un matériel dédié à un client unique. » sont des machines virtuelles à nœud complet).
 * Silver : les travaux d’infrastructure peuvent être suspendus pendant 10 minutes par UD, et ce privilège est disponible sur toutes les machines virtuelles standard à cœur unique et versions supérieures.
 * Bronze : Aucun privilège. Il s’agit de la valeur par défaut. Réservez ce niveau de durabilité aux types de nœud qui peuvent exécuter _seulement_ des charges de travail sans état. 
 
@@ -87,7 +87,7 @@ Vous devez choisir un niveau de durabilité pour chacun de vos types de nœuds. 
 **Inconvénients de l’utilisation des niveaux de durabilité Silver ou Gold**
  
 1. Des déploiements vers vos groupes de machines virtuelles identiques et d’autres ressources Azure associées peuvent être retardés, dépasser le délai d’attente, ou être entièrement bloqués par des problèmes au sein de votre cluster ou au niveau de l’infrastructure. 
-2. Augmente le nombre d’[événements du cycle de vie d’un réplica](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle ) (par exemple, les permutations principales) en raison de l’automatisation des désactivations de nœud durant les opérations de l’infrastructure Azure.
+2. Augmente le nombre d’[événements du cycle de vie d’un réplica](service-fabric-reliable-services-lifecycle.md) (par exemple, les permutations principales) en raison de l’automatisation des désactivations de nœud durant les opérations de l’infrastructure Azure.
 3. Met des nœuds hors service pendant les mises à jour logicielles de la plateforme Azure ou la maintenance du matériel. Vous pouvez voir l’état En cours de désactivation/Désactivé des nœuds pendant ces activités. La capacité de votre cluster est temporairement réduite, mais cela ne devrait pas avoir d’impact sur sa disponibilité ou sur celle de vos applications.
 
 ### <a name="recommendations-on-when-to-use-silver-or-gold-durability-levels"></a>Recommandations relatives au moment opportun pour utiliser les niveaux de durabilité Silver ou Gold
@@ -101,10 +101,10 @@ Utilisez les niveaux de durabilité Silver ou Gold pour tous les types de nœuds
 
 ### <a name="operational-recommendations-for-the-node-type-that-you-have-set-to-silver-or-gold-durability-level"></a>Recommandations opérationnelles concernant le type de nœud que vous avez défini sur le niveau de durabilité Silver ou Gold
 
-1. Veillez à la permanence de l’intégrité de votre cluster et de vos applications, et assurez-vous que les applications répondent à tous les [événements de cycle de vie de réplica de service](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (par exemple, le blocage de la création d’un réplica) en temps opportun.
+1. Veillez à la permanence de l’intégrité de votre cluster et de vos applications, et assurez-vous que les applications répondent à tous les [événements de cycle de vie de réplica de service](service-fabric-reliable-services-lifecycle.md) (par exemple, le blocage de la création d’un réplica) en temps opportun.
 2. Adoptez des méthodes plus sûres pour modifier les références SKU de machine virtuelle (montée/descente en puissance) : la modification de la référence SKU de machine virtuelle pour un groupe de machines virtuelles identiques est une opération risquée et doit donc être évitée si possible. Voici la procédure à suivre pour éviter les problèmes les plus courants.
     - **Pour les types de nœuds non principaux :** il est recommandé de créer un groupe de machines virtuelles identiques, de modifier la contrainte de positionnement de service pour inclure le nouveau groupe de machines virtuelles identiques/type de nœud, puis de réduire le nombre d’instances du groupe de machines virtuelles identiques à 0, un nœud à la fois pour être certain que la suppression des nœuds n’affecte pas la fiabilité du cluster.
-    - **Pour le type de nœud principal :** notre recommandation est de ne pas modifier la référence SKU de machine virtuelle du type de nœud principal. La modification de la référence (SKU) du type de nœud principal n’est pas prise en charge. Si le motif d’adoption d’une nouvelle référence (SKU) est la capacité, nous vous recommandons d’ajouter des instances. Si cela n’est pas possible, créez un cluster et [restaurez l’état des applications](service-fabric-reliable-services-backup-restore.md) (le cas échéant) de votre ancien cluster. Vous n’avez pas besoin de restaurer l’état des services système ; ceux-ci sont recréés pendant le déploiement de vos applications sur le nouveau cluster. Si les applications que vous exécutiez sur votre cluster étaient sans état, tout ce que vous avez à faire, c’est déployer vos applications sur le nouveau cluster, sans rien avoir à restaurer. Si vous décidez de suivre la méthode non prise en charge et que vous voulez modifier la référence (SKU) des machines virtuelles, modifiez la définition du modèle de groupe de machines virtuelles identiques en fonction de la nouvelle référence. Si votre cluster n’a qu’un seul type de nœud, assurez-vous que toutes les applications avec état répondent à tous les [événements de cycle de vie de réplica de service](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (par exemple, le blocage de la création d’un réplica) en temps opportun, et que la durée de recréation du réplica de service est inférieure à cinq minutes (pour le niveau de durabilité Silver). 
+    - **Pour le type de nœud principal :** notre recommandation est de ne pas modifier la référence SKU de machine virtuelle du type de nœud principal. La modification de la référence (SKU) du type de nœud principal n’est pas prise en charge. Si le motif d’adoption d’une nouvelle référence (SKU) est la capacité, nous vous recommandons d’ajouter des instances. Si cela n’est pas possible, créez un cluster et [restaurez l’état des applications](service-fabric-reliable-services-backup-restore.md) (le cas échéant) de votre ancien cluster. Vous n’avez pas besoin de restaurer l’état des services système ; ceux-ci sont recréés pendant le déploiement de vos applications sur le nouveau cluster. Si les applications que vous exécutiez sur votre cluster étaient sans état, tout ce que vous avez à faire, c’est déployer vos applications sur le nouveau cluster, sans rien avoir à restaurer. Si vous décidez de suivre la méthode non prise en charge et que vous voulez modifier la référence (SKU) des machines virtuelles, modifiez la définition du modèle de groupe de machines virtuelles identiques en fonction de la nouvelle référence. Si votre cluster n’a qu’un seul type de nœud, assurez-vous que toutes les applications avec état répondent à tous les [événements de cycle de vie de réplica de service](service-fabric-reliable-services-lifecycle.md) (par exemple, le blocage de la création d’un réplica) en temps opportun, et que la durée de recréation du réplica de service est inférieure à cinq minutes (pour le niveau de durabilité Silver). 
 
 
 > [!WARNING]

@@ -1,8 +1,8 @@
 ---
 title: Forum Aux Questions (FAQ) concernant SQL Server sur les machines virtuelles Linux Azure | Microsoft Docs
-description: "Cet article fournit des réponses aux questions fréquemment posées sur l’exécution de SQL Server sur les machines virtuelles Linux Azure."
+description: Cet article fournit des réponses aux questions fréquemment posées sur l’exécution de SQL Server sur les machines virtuelles Linux Azure.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rothja
 manager: jhubbard
 tags: azure-service-management
@@ -12,11 +12,11 @@ ms.topic: troubleshooting
 ms.workload: iaas-sql-server
 ms.date: 12/13/2017
 ms.author: jroth
-ms.openlocfilehash: 8b556b01aa47aeb3588138dfa61e517c00dc44dc
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 56a0629249cdb5f0f098d2b7b6d36b3fbb215009
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-linux-azure-virtual-machines"></a>Forum Aux Questions (FAQ) concernant SQL Server sur les machines virtuelles Linux Azure
 
@@ -71,13 +71,17 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
 1. **Puis-je modifier une machine virtuelle pour utiliser ma propre licence SQL Server si elle a été créée à partir de l’une des images de la galerie avec paiement à l’utilisation ?**
 
-   Non. Vous ne pouvez pas passer du mode de licence avec paiement à la minute à l’utilisation de votre propre licence. Vous devez créer une machine virtuelle Linux, installer SQL Server et faire migrer vos données. Consultez la question précédente pour plus d’informations sur l’apport de votre propre licence.
+   Non. Vous ne pouvez pas passer du mode de licence avec paiement à la seconde à de votre propre licence. Vous devez créer une machine virtuelle Linux, installer SQL Server et faire migrer vos données. Consultez la question précédente pour plus d’informations sur l’apport de votre propre licence.
 
 ## <a name="administration"></a>Administration
 
 1. **Puis-je gérer une machine virtuelle Linux SQL Server avec SSMS (SQL Server Management Studio) ?**
 
    Oui, mais SSMS est pour l’instant un outil Windows uniquement. Vous devez vous connecter à distance à partir d’un ordinateur Windows pour utiliser SSMS avec les machines virtuelles Linux SQL Server. Localement sur Linux, le nouvel outil [mssql-conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) peut effectuer de nombreuses tâches d’administration. Pour afficher un aperçu d’un outil de gestion de bases de données multiplateforme, consultez [SQL Server Operations Studio (préversion)](https://docs.microsoft.com/sql/sql-operations-studio/what-is).
+
+1. **Puis-je supprimer complètement SQL Server d’une machine virtuelle SQL ?**
+
+   Oui, mais vous serez toujours facturé pour votre machine virtuelle SQL de la manière décrite dans [Tarification des machines virtuelles SQL Server Azure](../../windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2fsql%2ftoc.json). Si vous n’avez plus besoin de SQL Server, vous pouvez déployer une nouvelle machine virtuelle et y migrer les données et les applications. Vous pouvez ensuite supprimer la machine virtuelle SQL Server.
 
 ## <a name="updating-and-patching"></a>Mise à jour et mise à jour corrective
 

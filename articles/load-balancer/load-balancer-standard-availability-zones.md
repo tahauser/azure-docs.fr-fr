@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/13/2018
+ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: 61e0e7cf960d7eb2294bc294ec1eec9d80428a81
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 9f5a68972015f54e2333199652075cda2535a3c8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Référence Standard de Load Balancer et zones de disponibilité
 
 La référence SKU Standard d’Azure Load Balancer prend en charge les scénarios des [zones de disponibilité](../availability-zones/az-overview.md). Plusieurs nouveaux concepts sont disponibles avec la référence Standard de Load Balancer, vous permettant d’optimiser la disponibilité de votre scénario de bout en bout en alignant les ressources sur des zones ainsi que de les distribuer parmi les zones.  Consultez [Zones de disponibilité](../availability-zones/az-overview.md) pour obtenir des informations sur les zones de disponibilité, les régions qui les prennent actuellement en charge et d’autres concepts et produits connexes. Les zones de disponibilité associées à la référence Standard de Load Balancer constituent un ensemble de fonctionnalités vaste et flexible capable de créer de nombreux scénarios différents.  Consultez ce document pour comprendre ces [concepts](#concepts) et obtenir des [conseils de conception](#design) de scénarios.
 
 >[!NOTE]
-> La référence SKU Standard de Load Balancer est actuellement en préversion. Le niveau de disponibilité et la fiabilité des fonctionnalités de la préversion peuvent différer de ceux de la version publique. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Pour vos services de production, utilisez la [référence SKU De base de Load Balancer](load-balancer-overview.md) de la version publique. Pour utiliser la [version préliminaire des zones de disponibilité](https://aka.ms/availabilityzones) avec cette version préliminaire, il vous faut une [inscription différente](https://aka.ms/availabilityzones), en plus de l’inscription à la [version préliminaire standard](#preview-sign-up) de Load Balancer.
+>Pour d’autres rubriques connexes, voir [Vue d’ensemble des zones de disponibilité](https://aka.ms/availabilityzones). 
 
 ## <a name="concepts"></a> Concepts des zones de disponibilité appliqués à Load Balancer
 
@@ -39,7 +39,7 @@ Dans le contexte des zones de disponibilité, le comportement et les propriété
 
 Une ressource Load Balancer elle-même est régionale mais jamais zonale.  Un réseau virtuel et un sous-réseau sont toujours régionaux mais jamais zonaux.
 
-### <a name="frontend"></a>Frontend
+### <a name="frontend"></a>Serveur frontal
 
 Un frontend Load Balancer est une configuration IP frontend qui fait référence à une ressource d’adresse IP publique ou à une adresse IP privée au sein du sous-réseau d’une ressource de réseau virtuel.  Il forme le point de terminaison à charge équilibrée où votre service est exposé.
 
@@ -151,7 +151,7 @@ Si vous utilisez des modèles Resource Manager existants dans votre configuratio
 
 L’équilibrage de charge entre les zones est la capacité de Load Balancer à atteindre un point de terminaison backend dans n’importe quelle zone. Cette capacité est indépendante du frontend et de sa zonalité.
 
-Pour aligner et de garantir votre déploiement avec une seule zone, alignez les ressources de frontend zonales et les ressources backend zonales sur la même zone. Aucune action supplémentaire n’est requise.
+Pour aligner et garantir votre déploiement au sein d’une zone unique, alignez les ressources zonales frontales et principales sur la même zone. Aucune action supplémentaire n’est requise.
 
 ### <a name="backend"></a>Backend
 
@@ -210,7 +210,7 @@ La redondance dans une zone offre une option non spécifique d’une zone et en 
 
 Le mode zonal peut fournir une garantie explicite dans une zone, en partageant son sort avec l’intégrité de la zone. L’association d’une adresse IP zonale ou d’un frontend Load Balancer zonal peut être un attribut souhaitable ou raisonnable, particulièrement si votre ressource attachée est une machine virtuelle zonale dans la même zone.  Ou peut-être que votre application nécessite des connaissances explicites sur la zone dans laquelle une ressource se trouve et que vous voulez réfléchir explicitement à la disponibilité dans des zones distinctes.  Vous pouvez choisir d’exposer plusieurs frontends zonaux pour un service de bout en bout distribué entre des zones (autrement dit, des frontends zonaux par zone pour plusieurs groupes zonaux de machines virtuelles identiques).  Et si vos frontends zonaux sont des adresses IP publiques, vous pouvez les utiliser pour exposer votre service avec [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  Ou bien, vous pouvez utiliser plusieurs frontends zonaux pour obtenir des insights d’intégrité et de performance par zone par le biais de solutions de surveillance tierces et exposer le service global avec un frontend redondant dans une zone. Vous devez uniquement servir des ressources zonales avec des frontends zonaux alignés sur la même zone et éviter les scénarios entre zones potentiellement dangereux pour les ressources zonales.  Les ressources zonales existent uniquement dans les régions où des zones de disponibilité existent.
 
-Il n’est pas possible de déterminer le meilleur choix sans connaître le service de bout en bout.
+Il n’est pas possible de déterminer le meilleur choix sans connaître l’architecture du service.
 
 ## <a name="limitations"></a>Limites
 

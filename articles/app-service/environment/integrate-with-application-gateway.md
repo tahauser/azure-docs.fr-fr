@@ -1,6 +1,6 @@
 ---
-title: "Intégrer votre environnement App Service ILB à l’aide d’une passerelle d’application"
-description: "Procédure pas à pas d’intégration d’une application à votre environnement App Service ILB à l’aide d’une passerelle d’application"
+title: Intégrer votre environnement App Service ILB à l’aide d’une passerelle d’application
+description: Procédure pas à pas d’intégration d’une application à votre environnement App Service ILB à l’aide d’une passerelle d’application
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: ccompy
-ms.openlocfilehash: d56eab79c3b3f6b37dc39d8e4bea0d5b7759631a
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c64b686d7a9016b3834096ebc88179db8972098f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-an-application-gateway"></a>Intégrer votre environnement App Service ILB à l’aide d’une passerelle d’application #
 
-L’[environnement Azure App Service pour PowerApps](./intro.md) est un déploiement d’Azure App Service dans le sous-réseau du réseau virtuel Azure d’un client. Il peut être déployé avec un point de terminaison public ou privé pour accéder aux applications. Le déploiement de l’environnement App Service avec un point de terminaison privé (autrement dit, un équilibreur de charge interne) est appelé un environnement App Service ILB.  
+L’[environnement Azure App Service](./intro.md) est un déploiement d’Azure App Service dans le sous-réseau du réseau virtuel Azure d’un client. Il peut être déployé avec un point de terminaison public ou privé pour accéder aux applications. Le déploiement de l’environnement App Service avec un point de terminaison privé (autrement dit, un équilibreur de charge interne) est appelé un environnement App Service ILB.  
 
 Azure Application Gateway est une appliance virtuelle qui fournit l’équilibrage de charge de couche 7, le déchargement SSL et la protection du pare-feu d’applications web (WAF). Elle peut écouter sur une adresse IP publique et acheminer le trafic jusqu’au point de terminaison de votre application. 
 

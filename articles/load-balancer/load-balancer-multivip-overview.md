@@ -1,34 +1,32 @@
 ---
 title: Serveurs frontaux multiples pour Azure Load Balancer | Microsoft Docs
-description: "Vue d’ensemble des serveurs frontaux multiples dans Azure Load Balancer"
+description: Vue d’ensemble des serveurs frontaux multiples dans Azure Load Balancer
 services: load-balancer
 documentationcenter: na
 author: chkuhtz
 manager: narayan
-editor: 
+editor: ''
 ms.assetid: 748e50cd-3087-4c2e-a9e1-ac0ecce4f869
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 03/22/2018
 ms.author: chkuhtz
-ms.openlocfilehash: e4c77f3b9bd53df632a433532376eb859969a036
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: cf8fa396e0518e1c847225dfc1d8f91c3421bd11
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Serveurs frontaux multiples dans Azure Load Balancer
-
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure Load Balancer vous permet d’équilibrer la charge des services sur plusieurs ports, plusieurs adresses IP ou les deux. Vous pouvez utiliser les définitions d’équilibrage de charge public et interne pour charger les flux équilibrés sur un ensemble de machines virtuelles.
 
 Cet article décrit les principes de base de cette capacité, les concepts importants et les contraintes. Si vous souhaitez uniquement exposer des services sur une adresse IP, des instructions simplifiées sont disponibles pour les configurations d’équilibreur de charge [publiques](load-balancer-get-started-internet-portal.md) ou [internes](load-balancer-get-started-ilb-arm-portal.md). Les serveurs frontaux multiples s’ajoutent à une configuration de serveur frontal unique. À l’aide des concepts présentés dans cet article, vous pouvez étendre une configuration simplifiée à tout moment.
 
-Lorsque vous définissez un équilibrage de charge Azure, une configuration frontale et une configuration principale sont connectées avec des règles. La sonde d’intégrité référencée par la règle est utilisée pour déterminer comment les nouveaux flux sont envoyés à un nœud du pool principal. Le serveur frontal est défini par une configuration d’adresse IP de serveur frontal (VIP), qui est un élément à 3 tuples comprenant une adresse IP (publique ou interne), un protocole de transport (TCP ou UDP) et un numéro de port issu de la règle d’équilibrage de charge. Une adresse IP dédiée (DIP) est une adresse IP sur une carte réseau virtuelle Azure attachée à une machine virtuelle du pool principal.
+Lorsque vous définissez Azure Load Balancer, un serveur frontal et une configuration de pool principal sont connectés à des règles. La sonde d’intégrité référencée par la règle est utilisée pour déterminer comment les nouveaux flux sont envoyés à un nœud du pool principal. Le serveur frontal (adresse IP virtuelle aka) est défini par un élément à 3 tuples comprenant une adresse IP (publique ou interne), un protocole de transport (TCP ou UDP) et un numéro de port issu de la règle de l’équilibrage de charge. Le pool principal est une collection de configurations IP de machines virtuelles (partie de la ressource de la carte réseau) qui font référence au pool principal Load Balancer.
 
 Le tableau suivant contient quelques exemples de configurations frontales :
 
@@ -134,6 +132,10 @@ Le type de règle faisant appel à l’adresse IP flottante constitue la base de
 ## <a name="limitations"></a>Limites
 
 * Les configurations de serveurs frontaux multiples sont uniquement prises en charge avec les machines virtuelles IaaS.
-* Avec la règle d’adresse IP flottante, votre application doit utiliser l’adresse IP dédiée pour les flux sortants. Si votre application se lie à l’adresse IP de serveur frontal configurée sur l’interface de bouclage du SE invité, SNAT n’est pas disponible pour réécrire le flux sortant, et le flux échoue.
+* Avec la règle IP flottante, votre application doit utiliser la configuration IP principale pour les flux sortants. Si votre application se lie à l’adresse IP du serveur frontal configurée sur l’interface de bouclage du SE invité, la SNAT d’Azure n’est pas disponible pour réécrire le flux sortant et le flux échoue.
 * Les adresses IP publiques ont une incidence sur la facturation. Pour plus d’informations, voir la page [Tarification des adresses IP](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * Des limites d’abonnement s’appliquent. Pour plus d’informations, voir les [limites de service](../azure-subscription-service-limits.md#networking-limits) .
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- Consultez [Connexions sortantes](load-balancer-outbound-connections.md) pour comprendre l’impact de plusieurs serveurs frontaux sur le comportement de la connexion sortante.

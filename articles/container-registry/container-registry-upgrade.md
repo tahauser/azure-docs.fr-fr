@@ -1,18 +1,18 @@
 ---
-title: "Mettre à niveau un registre de conteneurs Azure Classic"
-description: "Tirez parti du jeu de fonctionnalités étendu des registres de conteneur managés De base, Standard et Premium en mettant à niveau votre registre de conteneurs classique non managé."
+title: Mettre à niveau un registre de conteneurs Azure Classic
+description: Tirez parti du jeu de fonctionnalités étendu des registres de conteneur managés De base, Standard et Premium en mettant à niveau votre registre de conteneurs classique non managé.
 services: container-registry
 author: mmacy
 manager: timlt
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/20/2017
+ms.date: 03/15/2018
 ms.author: marsma
-ms.openlocfilehash: 19090bb69d7165c1e904450dc93b925e23e44782
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c5a61941bab2aa49cd8205e0a07dd2b5f7378ce9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Mettre à niveau un registre de conteneurs Classique
 
@@ -29,14 +29,16 @@ Les registres managés offrent les fonctionnalités suivantes :
 * [Géoréplication](container-registry-geo-replication.md)
 * [Webhooks](container-registry-webhook.md)
 
-Notez surtout qu’un registre Classique dépend du compte de stockage qu’Azure a approvisionné automatiquement dans votre abonnement Azure quand vous avez créé le registre. Les références De base, Standard et Premium, quant à elles, tirent parti du *stockage managé*. Autrement dit, Azure gère pour vous et de façon transparente le stockage de vos images. Aucun compte de stockage distinct n’est créé dans votre propre abonnement.
+Notez surtout qu’un registre Classique dépend du compte de stockage qu’Azure approvisionne automatiquement dans votre abonnement Azure quand vous avez créé le registre. En revanche, les références SKU de base, standard et Premium profitent des [fonctionnalités de stockage avancées](container-registry-storage.md) Azure par la gestion pour vous de manière transparente du stockage de vos images. Un compte de stockage distinct n’est pas créé dans votre propre abonnement.
 
 Un stockage de registres managés offre les avantages suivants :
 
-* Les images de conteneurs sont [chiffrées au repos](../storage/common/storage-service-encryption.md).
-* Les images sont stockées à l’aide du [stockage géoredondant](../storage/common/storage-redundancy.md#geo-redundant-storage), ce qui garantit la sauvegarde de vos images avec la réplication multirégion.
+* Les images de conteneurs sont [chiffrées au repos](container-registry-storage.md#encryption-at-rest).
+* Les images sont stockées à l’aide du [stockage géoredondant](container-registry-storage.md#geo-redundant-storage), ce qui garantit la sauvegarde de vos images avec la réplication multirégion.
 * Possibilité de [basculer d’une référence à une autre](container-registry-skus.md#changing-skus) librement, ce qui permet de bénéficier d’un débit plus élevé quand vous choisissez une référence de niveau supérieur. Avec chaque référence, ACR peut répondre à vos besoins en matière de débit à mesure qu’ils augmentent.
 * Le modèle de sécurité unifiée pour le registre et son stockage offrent une gestion simplifiée des droits. Vous gérez les autorisations uniquement pour le registre de conteneurs, sans avoir à gérer également les autorisations d’un compte de stockage distinct.
+
+Pour plus d’informations sur le stockage des images dans l’ACR, consultez [stockage des images conteneur dans Azure Container Registry](container-registry-storage.md).
 
 ## <a name="migration-considerations"></a>Considérations relatives à la migration
 

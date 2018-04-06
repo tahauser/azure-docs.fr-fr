@@ -1,11 +1,10 @@
 ---
 title: Environnements de calcul pris en charge par Azure Data Factory | Microsoft Docs
-description: "Découvrez les environnements de calcul que vous pouvez utiliser dans les pipelines Azure Data Factory (tels qu’Azure HDInsight) pour transformer ou traiter les données."
+description: Découvrez les environnements de calcul que vous pouvez utiliser dans les pipelines Azure Data Factory (tels qu’Azure HDInsight) pour transformer ou traiter les données.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 6877a7e8-1a58-4cfb-bbd3-252ac72e4145
 ms.service: data-factory
 ms.workload: data-services
@@ -14,11 +13,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 410fb74d8f8ec6196bbd4cc19cc97704649b75c9
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 09568dcbbec90bcba2f2782072b83cc04d9e8a87
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Environnements de calcul pris en charge par Azure Data Factory
 > [!NOTE]
@@ -94,7 +93,7 @@ Notez les points *clés* suivants sur le service lié HDInsight à la demande :
 >
 > 
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 Le JSON suivant définit un service lié HDInsight à la demande sous Linux. Data Factory crée automatiquement un cluster HDInsight *basé sur Linux* lorsqu’il traite une tranche de données. 
 
 ```json
@@ -239,7 +238,7 @@ Ce type de configuration est pris en charge pour les environnements de calcul su
 ## <a name="azure-hdinsight-linked-service"></a>Service lié Azure HDInsight
 Vous pouvez créer un service lié HDInsight pour inscrire votre propre cluster HDInsight avec Data Factory.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 
 ```json
 {
@@ -316,7 +315,7 @@ Une autre option consiste à fournir le point de terminaison **batchUri**. Par e
 ## <a name="azure-machine-learning-linked-service"></a>Service lié Microsoft Azure Machine Learning
 Vous pouvez créer un service lié Machine Learning pour inscrire un point de terminaison de notation par lot Machine Learning à une fabrique de données.
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 
 ```json
 {

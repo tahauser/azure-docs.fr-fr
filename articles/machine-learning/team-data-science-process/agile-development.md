@@ -1,23 +1,23 @@
 ---
-title: "Développement Agile de projets de science des données - Azure Machine Learning | Microsoft Docs"
-description: "Comment les développeurs peuvent réaliser, au sein d’une équipe, un projet de science des données d’une manière systématique, collaborative et avec gestion de versions, à l’aide du processus Team Data Science Process."
-documentationcenter: 
+title: Développement Agile de projets de science des données - Azure Machine Learning | Microsoft Docs
+description: Comment les développeurs peuvent réaliser, au sein d’une équipe, un projet de science des données d’une manière systématique, collaborative et avec gestion de versions, à l’aide du processus Team Data Science Process.
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: bradsev;
-ms.openlocfilehash: 686f751b241d49d116948711c683f4b504d5d5f9
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.author: bradsev
+ms.openlocfilehash: dbaf2df0f5572c9b269000c741f1d736a7521d73
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="agile-development-of-data-science-projects"></a>Développement Agile de projets de science des données
 
@@ -29,7 +29,7 @@ Cet article fournit des instructions pour les procédures suivantes :
 2. **Ajouter des éléments de travail** à une planification sprint. 
 
 > [!NOTE]
-> Les étapes nécessaires à la configuration d’un environnement d’équipe TDSP à l’aide de Visual Studio Team Services (VSTS) sont décrites dans les instructions suivantes. Ces instructions indiquent comment accomplir ces tâches avec VSTS, car c’est de cette façon que le processus TDSP est implémenté chez Microsoft.  Les éléments (3) et (4) de la liste précédente font partie des avantages que présente l’utilisation de VSTS. Si une autre plateforme d’hébergement de code est utilisée pour votre groupe, les tâches que doit effectuer le responsable d’équipe ne changent généralement pas. En revanche, c’est la façon dont vont s’effectuer ces tâches qui va être différente. Par exemple, l’élément de la section 6 (**Lier un élément de travail à une branche Git**) peut ne pas être aussi simple qu’avec VSTS.
+> Les étapes nécessaires à la configuration d’un environnement d’équipe TDSP à l’aide de Visual Studio Team Services (VSTS) sont décrites dans les instructions suivantes. Ces instructions indiquent comment accomplir ces tâches avec VSTS, car c’est de cette façon que le processus TDSP est implémenté chez Microsoft.  Les éléments (3) et (4) de la liste précédente font partie des avantages que présente l’utilisation de VSTS. Si une autre plateforme d’hébergement de code est utilisée pour votre groupe, les tâches que doit effectuer le responsable d’équipe ne changent généralement pas. En revanche, c’est la façon dont vont s’effectuer ces tâches qui sera différente. Par exemple, l’élément de la section 6 (**Lier un élément de travail à une branche Git**) peut ne pas être aussi simple qu’avec VSTS.
 >
 >
 
@@ -95,11 +95,11 @@ Les récits peuvent être ajoutés sous une caractéristique pour décrire les p
 
 Vous pouvez modifier les détails du récit, tels que son état, sa description, ses commentaires, sa planification et sa priorité, dans la fenêtre contextuelle.
 
-![5](./media/agile-development/5-sprint-edit-story.png)
+![5.](./media/agile-development/5-sprint-edit-story.png)
 
 Vous pouvez lier ce récit à un dépôt existant en cliquant sur **+ Ajouter un lien** sous **Développement**. 
 
-![6](./media/agile-development/6-sprint-link-existing-branch.png)
+![6.](./media/agile-development/6-sprint-link-existing-branch.png)
 
 
 ## 5. <a name='AddTaskunderstory-5'></a>Ajouter une tâche à un récit 
@@ -114,7 +114,7 @@ Une fois que vous avez créé les caractéristiques, les récits et les tâches,
 
 ![8](./media/agile-development/8-sprint-backlog-view.png)
 
-![9](./media/agile-development/9-link-to-a-new-branch.png)
+![9.](./media/agile-development/9-link-to-a-new-branch.png)
 
 
 ## 6. <a name='set-up-agile-dsp-6'></a>Configurer un modèle de travail TDSP Agile dans Visual Studio Online
@@ -184,8 +184,8 @@ Une fois le modèle de processus de science des données créé, vous pouvez cr�
 
 Voici des liens supplémentaires vers des ressources sur les processus agiles.
 
-- Processus Agile [https://www.visualstudio.com/en-us/docs/work/guidance/agile-process](https://www.visualstudio.com/en-us/docs/work/guidance/agile-process)
-- Workflow et types d’éléments de travail de processus Agile [https://www.visualstudio.com/en-us/docs/work/guidance/agile-process-workflow](https://www.visualstudio.com/en-us/docs/work/guidance/agile-process-workflow)
+- Processus Agile   [https://www.visualstudio.com/en-us/docs/work/guidance/agile-process](https://www.visualstudio.com/en-us/docs/work/guidance/agile-process)
+- Types d’éléments de travail et flux de travail du processus Agile   [https://www.visualstudio.com/en-us/docs/work/guidance/agile-process-workflow](https://www.visualstudio.com/en-us/docs/work/guidance/agile-process-workflow)
 
 
 Des procédures pas à pas illustrant toutes les étapes de **scénarios spécifiques** sont également fournies. L’article [Exemples de procédures pas à pas](walkthroughs.md) les liste et les décrit brièvement, en les accompagnant de liens. Ces procédures illustrent comment combiner des outils et services locaux ou cloud dans un flux de travail ou un pipeline pour créer une application intelligente. 

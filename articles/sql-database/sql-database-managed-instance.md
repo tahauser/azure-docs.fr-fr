@@ -8,17 +8,17 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/22/2018
 ms.author: bonova
-ms.openlocfilehash: bc9c16462f28d129efa8c47183c6325e69bb64f3
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 2d07d58114a4d89f40a4ea9e388c58f58494766c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Présentation de l’option Managed Instance (préversion)
 
-Azure SQL Database Managed Instance (préversion) est une nouvelle fonctionnalité d’Azure SQL Database, presque 100 % compatible avec SQL Server localement, qui fournit une implémentation de [réseau virtuel (VNet)](../virtual-network/virtual-networks-overview.md) native qui traite les problèmes de sécurité courants, ainsi qu’un [modèle d’entreprise](https://azure.microsoft.com/pricing/details/sql-database/) favorable aux clients SQL Server locaux. Managed Instance permet aux clients SQL Server existants d’effectuer une migration « lift-and-shift » de leurs applications locales vers le cloud en apportant des modifications minimales aux applications et bases de données. En même temps, Managed Instance conserve toutes les fonctionnalités PaaS (correctifs automatiques et mises à jour de versions, sauvegarde, haute disponibilité), ce qui réduit considérablement le temps de gestion et le coût total de possession.
+Azure SQL Database Managed Instance (préversion) est une nouvelle fonctionnalité d’Azure SQL Database, presque 100 % compatible avec SQL Server localement (Édition Entreprise), qui fournit une implémentation de [réseau virtuel (VNet)](../virtual-network/virtual-networks-overview.md) native qui traite les problèmes de sécurité courants, ainsi qu’un [modèle d’entreprise](https://azure.microsoft.com/pricing/details/sql-database/) favorable aux clients SQL Server locaux. Managed Instance permet aux clients SQL Server existants d’effectuer une migration « lift-and-shift » de leurs applications locales vers le cloud en apportant des modifications minimales aux applications et bases de données. En même temps, Managed Instance conserve toutes les fonctionnalités PaaS (correctifs automatiques et mises à jour de versions, sauvegarde, haute disponibilité), ce qui réduit considérablement le temps de gestion et le coût total de possession.
 
 > [!IMPORTANT]
 > Pour obtenir une liste de régions dans lesquelles Managed Instance est actuellement disponible, consultez [Migrate your databases to a fully managed service with Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/).
@@ -34,16 +34,16 @@ L’option Managed Instance est pressentie comme la plateforme préférée dans 
 
 En disponibilité générale, Managed Instance a pour but d’offrir une compatibilité de la surface d’exposition proche de 100 % avec la dernière version de SQL Server locale par le biais d’un plan de mise en production intermédiaire. 
 
-Le tableau suivant indique les principales différences entre SQL IaaS, Azure SQL Database et Instance gérée, ainsi que leurs principaux scénarios d’usage envisagés :
+Le tableau suivant indique les principales différences entre SQL IaaS, Azure SQL Database et SQL Database Managed Instance, ainsi que leurs principaux scénarios d’usage envisagés :
 
 | | Scénario d’usage | 
 | --- | --- | 
-|Instance gérée |Aux clients cherchant à effectuer une migration d’un grand nombre d’applications locales ou IaaS, automatiquement générées ou fournies par un éditeur de logiciels indépendant, avec un effort de migration aussi faible que possible, proposez Managed Instance. À l’aide du [service de migration des données](/sql/dma/dma-overview) entièrement automatisé dans Azure, les clients peuvent effectuer une migration « lift-and-shift » de leur SQL Server local vers l’option Managed Instance qui offre une compatibilité avec SQL Server local et une isolation totale des instances des clients avec une prise en charge de réseau virtuel native.  Avec Software Assurance, vous pouvez échanger leurs licences existantes avec des tarifs réduits sur SQL Database Managed Instance en utilisant [Azure Hybrid Use Benefit pour SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  SQL Database Managed Instance est la meilleure destination de migration dans le cloud pour les instances SQL Server qui nécessitent une sécurité élevée et une surface de programmabilité riche. |
-|Base de données SQL Azure |**Pools élastiques** : aux clients qui développent de nouvelles applications multilocataires SaaS ou qui transforment intentionnellement leurs applications locales existantes en applications multilocataires SaaS, proposez des pools élastiques. Les avantages de ce modèle sont : <br><ul><li>Conversion du modèle d’entreprise de la vente de licences à la vente d’abonnements à des services (pour les éditeurs de logiciels indépendants)</li></ul><ul><li>Isolation simple et renforcée des locataires</li></ul><ul><li>Modèle de programmation simplifié et centré sur la base de données</li></ul><ul><li>Possibilité d’augmenter la taille des instances sans limite maximale</li></ul>**Bases de données uniques** : aux clients qui développent de nouvelles applications autres que des applications multilocataires SaaS, dont la charge de travail est stable et prévisible, proposez des bases de données uniques. Les avantages de ce modèle sont :<ul><li>Modèle de programmation simplifié et centré sur la base de données</li></ul>  <ul><li>Performances prévisibles pour chaque base de données</li></ul>|
-|SQL IaaS |Aux clients qui ont besoin de personnaliser le système d’exploitation ou le serveur de base de données, ainsi qu’aux clients qui ont des exigences spécifiques liées à l’exécution d’applications tierces à côté de SQL Server (sur la même machine virtuelle), proposez des machines virtuelles/IaaS SQL en tant que solution optimale.|
+|SQL Database Managed Instance |Aux clients cherchant à effectuer une migration d’un grand nombre d’applications locales ou IaaS, automatiquement générées ou fournies par un éditeur de logiciels indépendant, avec un effort de migration aussi faible que possible, proposez Managed Instance. À l’aide du [service de migration des données](/sql/dma/dma-overview) entièrement automatisé dans Azure, les clients peuvent effectuer une migration « lift-and-shift » de leur SQL Server local vers l’option Managed Instance qui offre une compatibilité avec SQL Server local et une isolation totale des instances des clients avec une prise en charge de réseau virtuel native.  Avec Software Assurance, vous pouvez échanger leurs licences existantes avec des tarifs réduits sur SQL Database Managed Instance en utilisant [Azure Hybrid Use Benefit pour SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  SQL Database Managed Instance est la meilleure destination de migration dans le cloud pour les instances SQL Server qui nécessitent une sécurité élevée et une surface de programmabilité riche. |
+|Azure SQL Database (unique ou pool) |**Pools élastiques** : aux clients qui développent de nouvelles applications multilocataires SaaS ou qui transforment intentionnellement leurs applications locales existantes en applications multilocataires SaaS, proposez des pools élastiques. Les avantages de ce modèle sont : <br><ul><li>Conversion du modèle d’entreprise de la vente de licences à la vente d’abonnements à des services (pour les éditeurs de logiciels indépendants)</li></ul><ul><li>Isolation simple et renforcée des locataires</li></ul><ul><li>Modèle de programmation simplifié et centré sur la base de données</li></ul><ul><li>Possibilité d’augmenter la taille des instances sans limite maximale</li></ul>**Bases de données uniques** : aux clients qui développent de nouvelles applications autres que des applications multilocataires SaaS, dont la charge de travail est stable et prévisible, proposez des bases de données uniques. Les avantages de ce modèle sont :<ul><li>Modèle de programmation simplifié et centré sur la base de données</li></ul>  <ul><li>Performances prévisibles pour chaque base de données</li></ul>|
+|Machine virtuelle IaaS SQL|Aux clients qui ont besoin de personnaliser le système d’exploitation ou le serveur de base de données, ainsi qu’aux clients qui ont des exigences spécifiques liées à l’exécution d’applications tierces à côté de SQL Server (sur la même machine virtuelle), proposez des machines virtuelles/IaaS SQL en tant que solution optimale.|
 |||
 
-![positionnement](./media/sql-database-managed-instance/positioning.png)
+<!---![positioning](./media/sql-database-managed-instance/positioning.png)--->
 
 ## <a name="how-to-programmatically-identify-a-managed-instance"></a>Comment identifier par programmation une option Managed Instance
 
@@ -57,6 +57,9 @@ Le tableau suivant montre plusieurs propriétés, accessibles par le biais de Tr
 |`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Nom DNS d’instance complet au format suivant :<instanceName>.<dnsPrefix>.database.windows.net, où <instanceName> est le nom fourni par le client, tandis que <dnsPrefix> est une partie générée automatiquement du nom garantissant l’unicité des noms DNS globaux (par exemple, « wcus17662feb9ce98 »)|Exemple : my-managed-instance.wcus17662feb9ce98.database.windows.net|
 
 ## <a name="key-features-and-capabilities-of-a-managed-instance"></a>Principales fonctionnalités de Managed Instance 
+
+> [!IMPORTANT]
+> Une instance Managed Instance s’exécute avec toutes les fonctionnalités de la version SQL Server la plus récente, notamment les opérations en ligne, les corrections de plan automatiques et autres améliorations des performances d’entreprise. 
 
 | **Avantages PaaS** | **Continuité de l’activité** |
 | --- | --- |
@@ -90,6 +93,7 @@ Voici les principales fonctionnalités du niveau de service Usage général :
 | Version/Build de SQL Server | SQL Server (version la plus récente disponible) |
 | Taille de stockage minimale | 32 Go |
 | Taille de stockage maximale | 8 To |
+| Espace de stockage maximal par base de données | 4 To |
 | IOPS de stockage attendues | De 500 à 7 500 IOPS par fichier de données (dépend du fichier de données) Consultez [Stockage Premium](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes). |
 | Nombre de fichiers de données (ROWS) par base de données | Multiple | 
 | Nombre de fichiers journaux (LOG) par base de données | 1 | 
@@ -120,7 +124,7 @@ Le diagramme suivant présente la conception de l’isolation :
 
 ### <a name="auditing-for-compliance-and-security"></a>Audit de sécurité et de conformité 
 
-L’[audit](sql-database-auditing.md) Managed Instance suit les événements de base de données et les écrit dans un journal d’audit dans votre compte de stockage Azure. L’audit permet de respecter une conformité réglementaire, de comprendre l’activité de la base de données et de découvrir des discordances et des anomalies susceptibles d’indiquer des problèmes pour l’entreprise ou des violations de la sécurité. 
+[L’audit Managed Instance](sql-database-managed-instance-auditing.md) suit les événements de base de données et les écrit dans un journal d’audit dans votre compte de stockage Azure. L’audit permet de respecter une conformité réglementaire, de comprendre l’activité de la base de données et de découvrir des discordances et des anomalies susceptibles d’indiquer des problèmes pour l’entreprise ou des violations de la sécurité. 
 
 ### <a name="data-encryption-in-motion"></a>Chiffrement des données en mouvement 
 
@@ -138,7 +142,7 @@ La [sécurité au niveau des lignes](/sql/relational-databases/security/row-leve
 
 ### <a name="threat-detection"></a>Détection de menaces 
 
-La fonctionnalité de [détection des menaces](sql-database-threat-detection.md) d’Azure SQL Database complète celle d’audit en fournissant une couche supplémentaire d’informations de sécurité intégrée au service, lequel vise à détecter les tentatives inhabituelles ou potentiellement dangereuses d’accès à des bases de données ou d’exploitation des failles de sécurité de celles-ci. Vous êtes alerté en cas d’activités suspectes, de vulnérabilités potentielles, d’attaques par injection de code SQL et de modèles d’accès anormaux à la base de données. Les alertes Threat Detection peuvent être consultées à partir d’[Azure Security Center](https://azure.microsoft.com/services/security-center/). Elles fournissent des détails sur les activités suspectes et recommandent l’action à entreprendre pour analyser et prévenir la menace.  
+[Managed Instance Threat Detection](sql-database-managed-instance-threat-detection.md) complète [l’audit Managed Instance](sql-database-managed-instance-auditing.md) en fournissant une couche supplémentaire d’informations de sécurité intégrée au service, lequel vise à détecter les tentatives inhabituelles ou potentiellement dangereuses d’accès à des bases de données ou d’exploitation des failles de sécurité de celles-ci. Vous êtes alerté en cas d’activités suspectes, de vulnérabilités potentielles, d’attaques par injection de code SQL et de modèles d’accès anormaux à la base de données. Les alertes Threat Detection peuvent être consultées à partir d’[Azure Security Center](https://azure.microsoft.com/services/security-center/). Elles fournissent des détails sur les activités suspectes et recommandent l’action à entreprendre pour analyser et prévenir la menace.  
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Intégration d’Azure Active Directory et authentification multifacteur 
 

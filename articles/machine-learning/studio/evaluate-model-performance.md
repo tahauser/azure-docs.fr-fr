@@ -1,10 +1,11 @@
 ---
-title: "Évaluer les performances d’un modèle dans Machine Learning | Microsoft Docs"
-description: "Explique comment évaluer l’efficacité d’un modèle dans Azure Machine Learning."
+title: Évaluer les performances d’un modèle dans Machine Learning | Microsoft Docs
+description: Explique comment évaluer l’efficacité d’un modèle dans Azure Machine Learning.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 5dc5348a-4488-4536-99eb-ff105be9b160
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: bradsev;garye
-ms.openlocfilehash: 48ce4584f7270d78b1d09b848bfdd305d03012b9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5bf065d8e91bd4ebb4cc3932c0525cb091b26b38
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning"></a>Évaluation des performances d’un modèle dans Azure Machine Learning
 Cet article explique comment évaluer les performances d’un modèle dans Azure Machine Learning Studio et décrit brièvement les métriques disponibles pour cette opération. Il vous présente trois scénarios d’apprentissage supervisé courants : 
@@ -151,7 +151,7 @@ Connectez les ports comme illustré ci-après à la Figure 10.
 
 Définissez l’index de la colonne Étiquette du module [Former le modèle][train-model] sur 5. Le jeu de données ne comporte pas de ligne d’en-tête, mais nous savons que les étiquettes de classe figurent dans la cinquième colonne.
 
-Cliquez sur le module [Importer les données][import-data], puis définissez la propriété *Source des données* sur *URL Web via HTTP* et *URL* sur http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.
+Cliquez sur le module [Importer des données][import-data], puis définissez la propriété *Source de données* sur *URL Web via HTTP*, et la propriété *URL* sur http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.
 
 Définissez la fraction d’instances à utiliser pour l’apprentissage dans le module [Fractionner les données][split] (0,7 par exemple).
 

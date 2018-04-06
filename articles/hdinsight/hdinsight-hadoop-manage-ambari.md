@@ -1,8 +1,8 @@
 ---
-title: "Surveiller et gérer des clusters Azure HDInsight à l’aide de l’interface utilisateur Web d’Ambari | Microsoft Docs"
-description: "Découvrez comment utiliser Ambari pour gérer et surveiller des clusters HDInsight Linux. Dans ce document, vous apprenez à utiliser l’interface utilisateur web d’Ambari incluse avec les clusters HDInsight."
+title: Surveiller et gérer des clusters Azure HDInsight à l’aide de l’interface utilisateur Web d’Ambari | Microsoft Docs
+description: Découvrez comment utiliser Ambari pour gérer et surveiller des clusters HDInsight Linux. Dans ce document, vous apprenez à utiliser l’interface utilisateur web d’Ambari incluse avec les clusters HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/04/2018
+ms.date: 03/23/2018
 ms.author: larryfr
-ms.openlocfilehash: dc1265c7af011b92a9f862cf2e91b47c3998b2e4
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 922dfd475f27f182d8958887087fc2f4945cc43a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>Gérer des clusters HDInsight à l’aide de l’interface utilisateur Web d’Ambari
 
@@ -41,7 +41,7 @@ L’interface utilisateur Web d’Ambari est fournie par défaut avec les cluste
 
 ## <a name="connectivity"></a>Connectivité
 
-L’interface utilisateur Web d’Ambari est disponible sur votre cluster HDInsight à l’adresse HTTPS://CLUSTERNAME.azurehdidnsight.net, où **CLUSTERNAME** correspond au nom de votre cluster.
+L’interface utilisateur web d’Ambari est disponible sur votre cluster HDInsight à l’adresse HTTPS://CLUSTERNAME.azurehdinsight.net, où **CLUSTERNAME** correspond au nom de votre cluster.
 
 > [!IMPORTANT]
 > Une connexion à Ambari sur HDInsight requiert HTTPS. Lorsque vous êtes invité à vous authentifier, utilisez le nom du compte administrateur et le mot de passe fournis lors de la création du cluster.

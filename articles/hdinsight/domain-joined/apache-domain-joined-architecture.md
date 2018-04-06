@@ -1,8 +1,8 @@
 ---
-title: "Architecture de cluster Azure HDInsight joint à un domaine | Microsoft Docs"
-description: "Découvrez comment planifier les clusters HDInsight joints à un domaine."
+title: Architecture de cluster Azure HDInsight joint à un domaine | Microsoft Docs
+description: Découvrez comment planifier les clusters HDInsight joints à un domaine.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bhanupr
 manager: jhubbard
 editor: cgronlun
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/14/2017
+ms.date: 03/20/2018
 ms.author: bprakash
-ms.openlocfilehash: 5285199d22528ed6b9fa3b7dbc85e382e7b28569
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: b4f79388e45e24dc906a3a03dc0c0e51df52160d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>Planifier des clusters Hadoop Azure joints à un domaine dans HDInsight
 
@@ -47,16 +47,14 @@ La capture d’écran suivante montre une unité d’organisation créée dans c
 
 ![Unité d’organisation des clusters HDInsight joints à un domaine](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png).
 
-### <a name="two-ways-of-bringing-your-own-active-directory-domain-controllers"></a>Deux manières de configurer vos propres contrôleurs de domaine Active Directory
-
-Il existe deux manières de faire en sorte que les contrôleurs de domaine Active Directory créent des clusters HDInsight joints au domaine. 
+### <a name="the-way-of-bringing-your-own-active-directory-domain-controllers"></a>Méthode de configuration de vos propres contrôleurs de domaine Active Directory
 
 - **Azure Active Directory Domain Services** : ce service fournit un domaine Active Directory managé qui est compatible avec Windows Server Active Directory. Microsoft effectue la gestion, les mises à jour correctives et la surveillance du domaine AD. Vous pouvez déployer votre cluster sans vous préoccuper de la maintenance des contrôleurs de domaine. Les utilisateurs, les groupes et les mots de passe sont synchronisés à partir de votre répertoire Azure Active Directory, ce qui permet aux utilisateurs de se connecter au cluster à l’aide de leurs informations d’identification professionnelles. Pour plus d’informations, voir [Configurer les clusters HDInsight joints à un domaine à l’aide d’Azure Active Directory Domain Services](./apache-domain-joined-configure-using-azure-adds.md).
 
-- **Active Directory sur des machines virtuelles Azure IaaS** : cette option vous permet de déployer et gérer votre propre domaine Windows Server Active Directory sur des machines virtuelles Azure IaaS. Pour plus d’informations, voir [Configurer un environnement de bac à sable joint à un domaine](./apache-domain-joined-configure.md).
+> [!NOTE]
+> Active Directory sur des machines virtuelles Azure IaaS n’est plus pris en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour configurer un cluster HDInsight joint à un domaine, consultez l’article [Configurer des clusters HDInsight joints à un domaine](apache-domain-joined-configure.md).
 * Pour gérer des clusters HDInsight joints à un domaine, consultez l’article [Gestion des clusters HDInsight joints à un domaine](apache-domain-joined-manage.md).
 * Pour configurer des stratégies Hive et exécuter des requêtes Hive, consultez l’article [Configure Hive policies for domain-joined HDInsight clusters (Configurer des stratégies Hive pour les clusters HDInsight joints à un domaine)](apache-domain-joined-run-hive.md).
 * Pour exécuter des requêtes Hive en utilisant SSH sur des clusters HDInsight joints au domaine, voir [Utiliser SSH avec HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).

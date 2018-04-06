@@ -1,18 +1,18 @@
 ---
-title: "Schéma d’événement Azure Event Grid"
-description: "Décrit les propriétés fournies pour les événements avec Azure Event Grid."
+title: Schéma d’événement Azure Event Grid
+description: Décrit les propriétés fournies pour les événements avec Azure Event Grid.
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/22/2018
 ms.author: babanisa
-ms.openlocfilehash: 9d1f0eed28a1c1c6776ddba89480adcedfc599a5
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 7af0e1cc8ae36774ef1cebf1bada6477888860d0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-event-grid-event-schema"></a>Schéma d’événement Azure Event Grid
 
@@ -97,7 +97,11 @@ Pour connaître les propriétés de l’objet de données, consultez la source d
 * [IoT Hub](event-schema-iot-hub.md)
 * [Groupes de ressources (opérations de gestion)](event-schema-resource-groups.md)
 
-Pour les rubriques personnalisées, l’éditeur d’événements détermine l’objet de données. Les données de premier niveau doivent contenir les mêmes champs que les événements standard définis par les ressources. Lors de la publication d’événements dans les rubriques personnalisées, pensez à modéliser l’objet de vos événements pour faciliter le routage et le filtrage.
+Pour les rubriques personnalisées, l’éditeur d’événements détermine l’objet de données. Les données de premier niveau doivent contenir les mêmes champs que les événements standard définis par les ressources.
+
+Lorsque vous publiez des événements dans des rubriques personnalisées, créez des objets pour vos événements permettant aux abonnés de savoir facilement si l’événement les intéresse. Les abonnés utilisent l’objet pour filtrer et router des événements. Envisagez de fournir le chemin d’accès à l’origine de l’événement, de sorte que les abonnés puissent filtrer par segments de ce chemin d’accès. Le chemin d’accès permet aux abonnés de filtrer les événements avec précision ou à grande échelle. Par exemple, si vous fournissez un chemin d’accès de trois segments comme `/A/B/C` dans l’objet, les abonnés peuvent filtrer par le premier segment `/A` pour obtenir un vaste ensemble d’événements. Ces abonnés obtiennent des événements avec des objets tels que `/A/B/C` ou `/A/D/E`. Les autres abonnés peuvent filtrer par `/A/B` pour obtenir un ensemble plus restreint d’événements.
+
+Votre objet a parfois besoin d’être plus précis sur ce qui est arrivé. Par exemple, le serveur de publication **Comptes de stockage** fournit l’objet `/blobServices/default/containers/<container-name>/blobs/<file>` lorsqu’un fichier est ajouté à un conteneur. Un abonné peut filtrer par le chemin d’accès `/blobServices/default/containers/testcontainer` pour obtenir tous les événements pour ce conteneur, mais pas pour d’autres conteneurs du compte de stockage. Un abonné peut également filtrer ou router par le suffixe `.txt` pour n’utiliser que des fichiers texte.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

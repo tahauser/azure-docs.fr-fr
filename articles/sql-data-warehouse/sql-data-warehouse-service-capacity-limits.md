@@ -3,7 +3,7 @@ title: Limites de capacité SQL Data Warehouse | Microsoft Docs
 description: Valeurs maximales pour les connexions, les bases de données, les tables et les requêtes pour SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: kevinvngo
+author: barbkess
 manager: jhubbard
 editor: ''
 ms.assetid: e1eac122-baee-4200-a2ed-f38bfa0f67ce
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 03/15/2018
+ms.date: 03/27/2018
 ms.author: kevin;barbkess
-ms.openlocfilehash: b1ff33f80a8dd0a0861a5c39731c9f59689db101
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: fa7d8a9880ff97f30dc583d792e39aa914ea5435
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>Limites de la capacité de SQL Data Warehouse
 Les tableaux suivants présentent les valeurs maximales autorisées pour les différents composants d’Azure SQL Data Warehouse.
@@ -39,13 +39,13 @@ Les tableaux suivants présentent les valeurs maximales autorisées pour les dif
 |:--- |:--- |:--- |
 | Base de données |Taille maximale |240 To compressés sur disque<br/><br/>Cet espace est indépendant de tempdb ou de l’espace de journalisation. Par conséquent, cet espace est dédié aux tables permanentes.  La compression du cluster columnstore est estimée à 5 X.  Cette compression permet à la base de données d’atteindre un volume d’environ 1 Po lorsque toutes les tables sont en cluster columnstore (le type de table par défaut). |
 | Table |Taille maximale |60 To compressés sur disque |
-| Table |Tables par base de données |2 milliards |
+| Table |Tables par base de données |10 000 |
 | Table |Colonnes par table |1 024 colonnes |
 | Table |Octets par colonne |Dépend de la colonne [type de données][data type].  La limite est de 8 000 pour les types de données Char, de 4 000 pour nvarchar ou 2 Go pour les types de données MAX. |
 | Table |Octets par ligne, taille définie |8060 octets<br/><br/>Le nombre d’octets par ligne est calculé de la même manière que pour SQL Server avec la compression de page. Comme SQL Server, SQL Data Warehouse prend en charge le stockage de dépassement de ligne qui permet d’envoyer les **colonnes de longueur variable** hors ligne. Lorsque des lignes de longueur variable sont envoyées hors ligne, seule une racine de 24 octets est stockée dans l’enregistrement principal. Pour plus d’informations, consultez [Données de dépassement de ligne de plus de 8 Ko][Row-Overflow Data Exceeding 8 KB]. |
 | Table |Partitions par table |15 000<br/><br/>Pour des performances élevées, nous vous recommandons de réduire au minimum le nombre de partitions nécessaires tout en prenant quand même en charge les besoins de votre entreprise. À mesure que le nombre de partitions augmente, la charge pour les opérations Langage de définition de données (DDL) et Langage de manipulation de données (DML) augmente et ralentit les performances. |
 | Table |Caractères par valeur limite de partition. |4000 |
-| Index |Index non-cluster par table. |999<br/><br/>Applicable uniquement aux tables de stockage de lignes. |
+| Index |Index non-cluster par table. |50<br/><br/>Applicable uniquement aux tables de stockage de lignes. |
 | Index |Index cluster par table. |1<br><br/>Applicable à la fois aux tables de stockage de lignes et de stockage de colonnes. |
 | Index |Taille de la clé d’index. |900 octets.<br/><br/>Applicable aux index de stockage de lignes uniquement.<br/><br/>Il est possible de créer des index sur des colonnes varchar d’une taille maximale de plus de 900 octets si les données existantes dans les colonnes n’excèdent pas 900 octets quand l’index est créé. Toutefois, les actions INSERT ou UPDATE ultérieures sur les colonnes, qui amènent la taille totale à dépasser 900 octets, échouent. |
 | Index |Colonnes clés par index. |16<br/><br/>Applicable aux index de stockage de lignes uniquement. Les index de stockage de colonnes cluster incluent toutes les colonnes. |
@@ -72,8 +72,9 @@ Les tableaux suivants présentent les valeurs maximales autorisées pour les dif
 | SELECT |Sous-requêtes imbriquées |32<br/><br/>Un instruction SELECT ne peut pas contenir plus de 32 sous-requêtes imbriquées. Le nombre de 32 sous-requêtes n’est pas toujours garanti. Par exemple, une instruction JOIN peut introduire une sous-requête dans le plan de requête. Le nombre de sous-requêtes peut aussi être limité par la mémoire disponible. |
 | SELECT |Colonnes par JOIN |1 024 colonnes<br/><br/>L’instruction JOIN ne peut pas contenir plus de 1 024 colonnes. Le nombre de 1024 colonnes n’est pas toujours garanti. Si le plan JOIN exige une table temporaire avec davantage de colonnes que le résultat JOIN, la limite de 1 024 s’applique à la table temporaire. |
 | SELECT |Octets par colonnes GROUP BY. |8 060<br/><br/>Les colonnes incluses dans la clause GROUP BY peuvent comporter un maximum de 8 060 octets. |
-| SELECT |Octets par colonnes ORDER BY |8 060 octets.<br/><br/>Les colonnes incluses dans la clause ORDER BY peuvent comporter un maximum de 8 060 octets. |
-| Identificateurs et constantes par instruction |Nombre d’identificateurs et constantes référencés. |65 535<br/><br/>SQL Data Warehouse limite le nombre d’identificateurs et de constantes pouvant être contenus dans une seule expression d’une requête. Cette limite s’élève à 65 535. Le dépassement de ce nombre génère l’erreur SQL Server 8632. Pour plus d’informations, consultez [Erreur interne : une limite des services d’expression est dépassée][Internal error: An expression services limit has been reached]. |
+| SELECT |Octets par colonnes ORDER BY |8060 octets<br/><br/>Les colonnes incluses dans la clause ORDER BY peuvent comporter un maximum de 8060 octets. |
+| Identificateurs par instruction |Nombre d’identificateurs référencés |65 535<br/><br/>SQL Data Warehouse limite le nombre d’identificateurs pouvant être contenus dans une seule expression d’une requête. Le dépassement de ce nombre génère l’erreur SQL Server 8632. Pour plus d’informations, consultez [Erreur interne : une limite des services d’expression est dépassée][Internal error: An expression services limit has been reached]. |
+| Littéraux de chaîne | Nombre de littéraux de chaîne dans une instruction | 20 000 <br/><br/>SQL Data Warehouse limite le nombre de constantes pouvant être contenues dans une seule expression d’une requête. Le dépassement de ce nombre génère l’erreur SQL Server 8632. Pour plus d’informations, consultez [Erreur interne : une limite des services d’expression est dépassée][Internal error: An expression services limit has been reached]. |
 
 ## <a name="metadata"></a>Métadonnées
 | Vue système | Nombre maximal de lignes |

@@ -1,11 +1,12 @@
 ---
-title: "Utiliser un service web Machine Learning à l’aide d’un modèle d’application web | Microsoft Docs"
-description: "Utilisez un modèle d’application Web dans Azure Marketplace pour exploiter un service Web prédictif dans Azure Machine Learning."
-keywords: "service Web, opérationnalisation, API REST, apprentissage automatique"
+title: Utiliser un service web Machine Learning à l’aide d’un modèle d’application web | Microsoft Docs
+description: Utilisez un modèle d’application Web dans Azure Marketplace pour exploiter un service Web prédictif dans Azure Machine Learning.
+keywords: service Web, opérationnalisation, API REST, apprentissage automatique
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: e0d71683-61b9-4675-8df5-09ddc2f0d92d
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: raymondl
-ms.openlocfilehash: f7efa647fa6afc247509cd4a52066c0459f75ca3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 81b89a1f8a053fd3b1d0d6a0a1bcc5c67d2ba728
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="consume-an-azure-machine-learning-web-service-by-using-a-web-app-template"></a>Utiliser un service web Azure Machine Learning à l’aide d’un modèle d’application web
 
@@ -77,13 +77,13 @@ Procédez comme suit pour utiliser le modèle d’application web RRS (voir sch�
 2. Sélectionnez **Nouveau**, puis sélectionnez **Azure ML Request-Response Service Web App** et **Créer**. 
 3. Dans le volet **Créer** :
    
-   * Donnez un nom unique à votre application Web. L’URL de l’application web sera constituée de ce nom, suivi de **.azurewebsites.net**. Par exemple : **http://carprediction.azurewebsites.net**.
+   * Donnez un nom unique à votre application Web. L’URL de l’application web sera constituée de ce nom, suivi de **.azurewebsites.net**. Par exemple, **http://carprediction.azurewebsites.net**.
    * Sélectionnez l’abonnement Azure et les services sous lesquels est exécuté votre service Web.
    * Sélectionnez **Créer**.
      
    ![Créer une application web][image5]
 
-4. Une fois le déploiement de l’application web terminé, sélectionnez **l’URL** dans la page des paramètres de l’application web d’Azure, ou entrez l’URL dans un navigateur web. Entrez, par exemple : **http://carprediction.azurewebsites.net**.
+4. Une fois le déploiement de l’application web terminé, sélectionnez **l’URL** dans la page des paramètres de l’application web d’Azure, ou entrez l’URL dans un navigateur web. Par exemple, entrez **http://carprediction.azurewebsites.net**.
 5. À la première exécution de l’application web, vous êtes invité à fournir l’URL de publication de l’API sous **API Post URL**, ainsi que la clé API sous **API Key**. Entrez les valeurs que vous avez enregistrées précédemment (l’URI de la requête et la clé API, respectivement). Sélectionnez **Envoyer**.
      
    ![Entrer l’URI de publication et la clé API][image6]

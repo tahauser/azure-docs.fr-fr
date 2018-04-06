@@ -10,25 +10,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 6146e1ce98144a05bef2ca29705f451aa3f5fb50
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 864e9ff5551637a93b957e5011a8857072c6eaaf
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Forum aux questions sur Azure Machine Learning
 
+Azure Machine Learning est un service Azure entièrement géré qui permet de créer, tester, gérer et déployer des modèles d’apprentissage automatique et d’intelligence artificielle. Nos services et notre application téléchargeable offrent une approche de type Code First, qui s’appuie sur le cloud, les capacités locales et la périphérie pour former, déployer, gérer et surveiller des modèles avec puissance, vitesse et flexibilité. Azure Machine Learning Studio offre également un environnement visuel de création par glisser-déplacer basé sur navigateur où aucun codage n’est requis. 
+
 ## <a name="general-product-questions"></a>Questions générales relatives au produit
-
-**Qu'est-ce que Microsoft Azure Machine Learning ?**
-
-Azure Machine Learning est un service Azure entièrement géré qui permet de créer, tester, gérer et déployer des modèles d’apprentissage automatique et d’intelligence artificielle. Nos nouveaux services et notre application téléchargeable offrent une approche de type Code First, qui s’appuie sur le cloud, les capacités locales et la périphérie pour former, déployer, gérer et surveiller des modèles avec puissance, vitesse et flexibilité. Azure Machine Learning Studio offre également un environnement visuel de création par glisser-déplacer basé sur navigateur où aucun codage n’est requis. 
-
-**Dans quelles régions les nouveaux services sont-ils disponibles ?**
-
-Si vous souhaitez connaître les régions Azure prises en charge pour les services d’expérimentation et de gestion des modèles sous Azure Machine Learning, consultez la page [Disponibilité des produits par région](https://azure.microsoft.com/regions/services/).
-
-D’autres régions seront ajoutées au fur et à mesure du développement du produit.  Vous pouvez nous aider à hiérarchiser les régions de déploiement via la page des [Commentaires sur Azure Machine Learning](https://feedback.azure.com/forums/257792-machine-learning). 
 
 **Quels sont les autres services Azure requis ?**
 

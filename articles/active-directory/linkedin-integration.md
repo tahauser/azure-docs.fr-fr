@@ -9,15 +9,15 @@ ms.workload: identity
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/22/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 3bf224edea9e6da0d0eadb6fb6a409248de3d0e3
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 33e3305288edc3990ed88b39c819293a8adc2dfe
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="linkedin-account-connections-for-microsoft-apps-and-services"></a>Connexions de comptes LinkedIn pour les applications et services Microsoft
 Dans cet article, vous pouvez découvrir comment gérer les connexions de comptes LinkedIn pour votre locataire dans le centre d’administration Azure Active Directory (Azure AD). 
@@ -56,9 +56,9 @@ La fonctionnalité de connexions de comptes LinkedIn est activée par défaut po
 ### <a name="enable-or-disable-linkedin-account-connections-for-your-organizations-office-2016-apps-using-group-policy"></a>Activer ou désactiver les connexions de comptes LinkedIn pour les applications Office 2016 de votre organisation à l’aide d’une stratégie de groupe
 
 1. Télécharger les [fichiers modèles d’administration Office 2016 (ADMX/ADML)](https://www.microsoft.com/download/details.aspx?id=49030)
-2. Extrayez les fichiers **ADMX** et les copier dans votre **référentiel central**.
+2. Extrayez les fichiers **ADMX** et copiez-les dans votre magasin central.
 3. Ouvrez la gestion des stratégies de groupe.
-4. Créez un objet de stratégie de groupe avec le paramètre suivant : **Configuration utilisateur** > **Modèles d’administration** > **Microsoft Office 2016**  >  **Divers** > **Autoriser l’intégration LinkedIn**.
+4. Créez un objet de stratégie de groupe avec le paramètre suivant : **Configuration utilisateur** > **Modèles d’administration** > **Microsoft Office 2016**  >  **Divers** > **Afficher les fonctionnalités LinkedIn dans les applications Office**.
 5. Sélectionnez **Activé** ou **Désactivé**.
   * Lorsque la stratégie est **activée**, le paramètre **Afficher les fonctionnalités LinkedIn dans les applications Office** de la boîte de dialogue des options Office 2016 est activé. Cela signifie également que les utilisateurs de votre organisation peuvent utiliser les fonctionnalités LinkedIn dans leurs applications Office.
   * Lorsque la stratégie est **désactivée**, le paramètre **Afficher les fonctionnalités LinkedIn dans les applications Office** de la boîte de dialogue des options Office 2016 est défini sur l’état désactivé, et les utilisateurs finaux ne peuvent pas modifier ce paramètre. Les utilisateurs de votre organisation ne peuvent pas utiliser les fonctionnalités LinkedIn dans leurs applications Office 2016. 

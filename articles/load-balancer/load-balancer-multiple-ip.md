@@ -1,6 +1,6 @@
 ---
-title: "Équilibrage de charge sur plusieurs configurations IP dans Azure | Microsoft Docs"
-description: "Équilibrage de charge sur des configurations IP principales et secondaires."
+title: Équilibrage de charge sur plusieurs configurations IP dans Azure | Microsoft Docs
+description: Équilibrage de charge sur des configurations IP principales et secondaires.
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 02388162ac4d2d86255c0a65d8b94253047f3983
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: fcd9ff8b726b5dc3e0d447bc384dbcc7cc1a4e88
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Équilibrage de charge sur plusieurs configurations IP dans le portail Azure
 
@@ -27,7 +27,6 @@ ms.lasthandoff: 02/21/2018
 > * [PowerShell](load-balancer-multiple-ip-powershell.md)
 > * [INTERFACE DE LIGNE DE COMMANDE](load-balancer-multiple-ip-cli.md)
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Dans cet article, nous allons vous montrer comment utiliser Azure Load Balancer avec plusieurs adresses IP sur un contrôleur d’interface réseau (carte réseau) secondaire. Le diagramme suivant illustre notre scénario :
 
@@ -44,6 +43,7 @@ Dans ce scénario, nous utilisons la configuration suivante :
 - Le même numéro de port est utilisé pour les adresses IP frontales et pour celles du pool principal.
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Notre exemple de scénario suppose que vous disposez d’un groupe de ressources nommé **contosofabrikam** configuré de la manière suivante :
 

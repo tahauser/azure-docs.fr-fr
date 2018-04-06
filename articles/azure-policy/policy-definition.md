@@ -1,19 +1,19 @@
 ---
-title: "Structure de définition Azure Policy | Microsoft Docs"
-description: "Explique comment Azure Policy utilise une définition de stratégie de ressource afin d’établir des conventions pour les ressources de votre organisation en décrivant quand la stratégie est appliquée et l’action à entreprendre."
+title: Structure de définition Azure Policy | Microsoft Docs
+description: Explique comment Azure Policy utilise une définition de stratégie de ressource afin d’établir des conventions pour les ressources de votre organisation en décrivant quand la stratégie est appliquée et l’action à entreprendre.
 services: azure-policy
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 01/17/2018
 ms.topic: article
 ms.service: azure-policy
-ms.custom: 
-ms.openlocfilehash: ffff4a663b64342142f42a662905a290044e2dfb
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.custom: ''
+ms.openlocfilehash: 50965010d821d4edf94e2f5727546cb56f61f5db
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -70,7 +70,9 @@ Le **mode** détermine les types de ressources à évaluer pour une stratégie. 
 * `all` : évaluer les groupes de ressources et tous les types de ressources 
 * `indexed` : évaluer uniquement les types de ressources qui prennent en charge les balises et l’emplacement
 
-Nous vous recommandons de définir **mode** sur `all`. Toutes les définitions de stratégie créées via le portail utilisent le mode `all`. Si vous utilisez PowerShell ou Azure CLI, vous devez spécifier le paramètre **mode** et le définir sur `all`. 
+Nous vous recommandons de définir **mode** sur `all` dans tous les cas. Toutes les définitions de stratégie créées via le portail utilisent le mode `all`. Si vous utilisez PowerShell ou Azure CLI, vous devez spécifier le paramètre **mode** manuellement.
+
+`indexed` doit être utilisé lors de la création de stratégies qui appliqueront des balises ou des emplacements. Cela n’est pas nécessaire, mais empêche les ressources qui ne prennent pas en charge les balises et les emplacements de s’afficher comme des résultats non conformes dans les résultats de conformité. La seule exception est les **groupes de ressources**. Les stratégies qui tentent d’appliquer des emplacements ou des balises à un groupe de ressources doivent définir **mode** sur `all` et cibler spécifiquement le type `Microsoft.Resources/subscriptions/resourceGroup`. Pour exemple, consultez [Appliquer des balises au groupe de ressources](scripts/enforce-tag-rg.md).
 
 ## <a name="parameters"></a>parameters
 
@@ -126,7 +128,7 @@ Dans le bloc **then**, vous définissez l’effet qui se produit lorsque les con
     <condition> | <logical operator>
   },
   "then": {
-    "effect": "deny | audit | append"
+    "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists"
   }
 }
 ```
@@ -165,16 +167,22 @@ Vous pouvez imbriquer des opérateurs logiques. L’exemple suivant illustre une
 Une condition évalue si un champ (**field**) répond à certains critères. Les conditions prises en charge sont les suivantes :
 
 * `"equals": "value"`
+* `"notEquals": "value"`
 * `"like": "value"`
+* `"notLike": "value"`
 * `"match": "value"`
+* `"notMatch": "value"`
 * `"contains": "value"`
+* `"notContains": "value"`
 * `"in": ["value1","value2"]`
+* `"notIn": ["value1","value2"]`
 * `"containsKey": "keyName"`
+* `"notContainsKey": "keyName"`
 * `"exists": "bool"`
 
-Lorsque vous utilisez la condition **like**, vous pouvez utiliser un caractère générique (*) dans la valeur.
+Lorsque vous utilisez les conditions **j’aime** et **je n’aime pas**, vous pouvez utiliser un caractère générique (*) dans la valeur.
 
-Lorsque vous utilisez la condition de **correspondance**, indiquez `#` pour représenter un chiffre, `?` pour une lettre et tout autre caractère pour représenter ce caractère réel. Pour obtenir des exemples, consultez [Images de machine virtuelle approuvées](scripts/allowed-custom-images.md).
+Lorsque vous utilisez les conditions **correspondance** et **non correspondance** entrez `#` pour représenter un chiffre, `?` pour une lettre et tout autre caractère pour représenter ce caractère réel. Pour obtenir des exemples, consultez [Images de machine virtuelle approuvées](scripts/allowed-custom-images.md).
 
 ### <a name="fields"></a>Champs
 Les conditions sont formées à partir de champs. Un champ représente des propriétés dans la charge utile de la requête de ressource qui est utilisée pour décrire l'état de la ressource.  
@@ -182,12 +190,28 @@ Les conditions sont formées à partir de champs. Un champ représente des propr
 Les champs suivants sont pris en charge :
 
 * `name`
+* `fullName`
+  * Retourne le nom complet de la ressource, y compris les parents (par exemple « myServer/myDatabase »)
 * `kind`
 * `type`
 * `location`
 * `tags`
-* `tags.*`
+* `tags.tagName`
+* `tags[tagName]`
+  * Cette syntaxe en crochet prend en charge les noms de balise qui contiennent des points
 * alias de propriété : pour en obtenir la liste, consultez [Alias](#aliases).
+
+### <a name="alternative-accessors"></a>Autres accesseurs
+**Champ** est l’accesseur principal utilisé dans les règles de stratégie. Il inspecte directement la ressource qui est évaluée. Toutefois, la stratégie prend en charge un autre accesseur, **source**.
+
+```json
+"source": "action",
+"equals": "Microsoft.Compute/virtualMachines/write"
+```
+
+**Source** ne prend en charge qu’une seule valeur, **action**. Action retourne l’action d’autorisation de la requête en cours d’évaluation. Les actions d’autorisation sont exposées dans la section d’autorisation du [journal d’activité](../monitoring-and-diagnostics/monitoring-activity-log-schema.md).
+
+Lorsque la stratégie évalue les ressources existantes en arrière-plan, elle définit **action** sur une action d’autorisation `/write` sur le type de ressource.
 
 ### <a name="effect"></a>Résultat
 La stratégie prend en charge les types d’effet suivants :
@@ -212,7 +236,7 @@ Pour **append**, vous devez fournir les détails suivants :
 
 La valeur peut être une chaîne ou un objet au format JSON.
 
-Avec **AuditIfNotExists** et **DeployIfNotExists**, vous pouvez évaluer l’existence d’une ressource enfant et appliquer une règle et un effet correspondant quand cette ressource n’existe pas. Par exemple, vous pouvez exiger qu’un observateur réseau soit déployé pour tous les réseaux virtuels.
+Avec **AuditIfNotExists** et **DeployIfNotExists**, vous pouvez évaluer l’existence d’une ressource connexe et appliquer une règle et un effet correspondant quand cette ressource n’existe pas. Par exemple, vous pouvez exiger qu’un observateur réseau soit déployé pour tous les réseaux virtuels.
 Pour obtenir un exemple d’audit quand une extension de machine virtuelle n’est pas déployée, consultez [Auditer si une extension n’existe pas](scripts/audit-ext-not-exist.md).
 
 

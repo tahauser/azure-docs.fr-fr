@@ -1,6 +1,6 @@
 ---
-title: "Architecture de réplication Azure sur Azure avec Azure Site Recovery | Microsoft Docs"
-description: "Cet article fournit une vue d’ensemble des composants et de l’architecture utilisés lors de la réplication de machines virtuelles Azure entre régions Azure avec le service Azure Site Recovery."
+title: Architecture de réplication Azure sur Azure avec Azure Site Recovery | Microsoft Docs
+description: Cet article fournit une vue d’ensemble des composants et de l’architecture utilisés lors de la réplication de machines virtuelles Azure entre régions Azure avec le service Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 126f5c4db355af19a7151a267115127757b17599
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 111217e9335b16659c93da88731e0b7ce6d5fecd
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-to-azure-replication-architecture"></a>Architecture de la réplication Azure vers Azure
 
@@ -28,7 +28,7 @@ Cet article décrit l’architecture utilisée quand vous répliquez, basculez e
 ## <a name="architectural-components"></a>Composants architecturaux
 
 Le graphique suivant fournit une vue d’ensemble d’un environnement de machine virtuelle Azure dans une région spécifique (en l’occurrence, Est des États-Unis). Dans un environnement de machine virtuelle Azure :
-- Les applications peuvent s’exécuter sur des machines équipées de disques réparties sur plusieurs comptes de stockage.
+- Les applications peuvent être exécutées sur des machines virtuelles avec des disques managés ou non managés répandus dans les comptes de stockage.
 - Les machines virtuelles peuvent être incluses dans un ou plusieurs sous-réseaux d’un réseau virtuel.
 
 
@@ -49,7 +49,8 @@ Quand vous activez la réplication de machines virtuelles Azure, les ressources 
 **Groupe de ressources cible** | Groupe de ressources auquel appartiennent les machines virtuelles répliquées après le basculement.
 **Réseau virtuel cible** | Réseau virtuel dans lequel les machines virtuelles répliquées sont situées après le basculement. Un mappage réseau est créé entre les réseaux virtuels source et cible, et inversement.
 **Comptes Stockage de cache** | Avant que les changements des machine virtuelles sources soient répliqués sur un compte de stockage cible, ils sont suivis et envoyés au compte de stockage de cache dans l’emplacement source. Cette étape garantit un impact minimal sur les applications de production s’exécutant sur la machine virtuelle.
-**Comptes de stockage cibles**  | Comptes de stockage dans l’emplacement cible vers lesquels les données sont répliquées.
+**Comptes de stockage cibles (si la machine virtuelle source n’utilise pas de disques managés)**  | Comptes de stockage dans l’emplacement cible vers lesquels les données sont répliquées.
+** Disques managés de réplica (si la machine virtuelle source se trouve sur des disques managés)**  | Disques managés dans l’emplacement cible vers lesquels les données sont répliquées.
 **Groupes à haute disponibilité cibles**  | Groupes à haute disponibilité dans lesquels se trouvent les machines virtuelles répliquées après basculement.
 
 ### <a name="step-2"></a>Étape 2
@@ -76,7 +77,7 @@ Si vous voulez que les machines virtuelles Linux fassent partie d’un groupe de
 
 ### <a name="step-3"></a>Étape 3 :
 
-Une fois que la réplication continue est en cours, les écritures sur disque sont immédiatement transférées vers le compte de stockage de cache. Site Recovery traite les données, puis les envoie au compte de stockage cible. Une fois les données traitées, des points de récupération sont générés dans le compte de stockage cible à intervalles de quelques minutes.
+Une fois que la réplication continue est en cours, les écritures sur disque sont immédiatement transférées vers le compte de stockage de cache. Site Recovery traite les données, puis les envoie au compte de stockage cible ou aux disques managés de réplica. Une fois les données traitées, des points de récupération sont générés dans le compte de stockage cible à intervalles de quelques minutes.
 
 ## <a name="failover-process"></a>Processus de basculement
 

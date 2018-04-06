@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 02/06/2018
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: f53a8641a50a6c968a6ba7b841e0e8f938b5d9f6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 830f9c76d9d1bf11692fa9f2f5c49cbecdb69f25
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Protéger un serveur de fichiers avec Azure Site Recovery 
 
@@ -48,7 +48,7 @@ Dans le diagramme précédent, plusieurs serveurs de fichiers, appelés membres,
 
     * Vous pouvez utiliser cette approche si vos machines virtuelles ont des configurations qui ne sont pas prises en charge par Site Recovery. Par exemple, un disque de cluster partagé, parfois couramment utilisé dans des environnements de serveurs de fichiers. La DFSR fonctionne également bien dans des environnements à faible bande passante avec un taux de variation moyen. Vous devez prendre en compte le coût supplémentaire que représente le fait d’avoir une machine virtuelle Azure opérationnelle en permanence. 
 
-* **Utiliser Azure File Sync pour répliquer vos fichiers** : si vous envisagez d’utiliser le cloud ou si vous utilisez déjà une machine virtuelle Azure, vous pouvez utiliser la synchronisation de fichiers. La synchronisation de fichiers offre la synchronisation de partages de fichiers entièrement managés, accessibles via le protocole de normes industrielles SMB [(Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Les partages de fichiers Azure peuvent alors être montés simultanément par des déploiements cloud ou locaux de Windows, Linux et macOS. 
+* **Utiliser Azure File Sync pour répliquer vos fichiers** : si vous envisagez d’utiliser le cloud ou si vous utilisez déjà une machine virtuelle Azure, vous pouvez utiliser Azure File Sync. Azure File Sync offre la synchronisation de partages de fichiers entièrement managés, accessibles via le protocole de normes industrielles SMB [(Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Les partages de fichiers Azure peuvent ensuite être montés simultanément par des déploiements cloud ou locaux de Windows, Linux et MacOS. 
 
 Le diagramme suivant vous permet de déterminer la stratégie à utiliser pour votre environnement de serveurs de fichiers.
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: 9d57f572ba159191f5b634b5ea604563ac2f7801
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3991312d7f7609bb0a206ccc0ecc67123ebec469
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Exécution de tâches Apache Spark sur AKS
 
@@ -31,10 +31,10 @@ Pour effectuer les étapes de cet article, vous avez besoin des éléments suiva
 * SBT ([Scala Build Tool][sbt-install]) installé sur votre système.
 * L’installation des outils en ligne de commande Git sur votre système
 
-## <a name="create-an-aks-cluster"></a>Créer un cluster AKS
+## <a name="create-an-aks-cluster"></a>Créer un cluster ACS
 
 Spark est utilisé pour le traitement des données à grande échelle et nécessite que les nœuds Kubernetes soient dimensionnés pour répondre aux exigences en matière de ressources Spark. Nous recommandons une taille minimale de `Standard_D3_v2` pour vos nœuds Azure Container Service (AKS).
- 
+
 Si vous avez besoin d’un cluster AKS qui respecte cette recommandation minimale, exécutez les commandes suivantes.
 
 Créez un groupe de ressources pour le cluster.
@@ -59,12 +59,12 @@ Si vous utilisez un registre Azure Container Registry (ACR) pour stocker des ima
 
 ## <a name="build-the-spark-source"></a>Générer la source Spark
 
-Avant d’exécuter des travaux Spark sur un cluster AKS, vous devez générer le code source Spark et l’empaqueter dans une image conteneur. La source Spark inclut des scripts qui peuvent être utilisés pour exécuter ce processus. 
+Avant d’exécuter des travaux Spark sur un cluster AKS, vous devez générer le code source Spark et l’empaqueter dans une image conteneur. La source Spark inclut des scripts qui peuvent être utilisés pour exécuter ce processus.
 
 Clonez le dépôt de projet Spark sur votre système de développement.
 
 ```bash
-git clone https://github.com/apache/spark
+git clone -b branch-2.3 https://github.com/apache/spark
 ```
 
 Passez au répertoire du dépôt cloné et enregistrez le chemin de la source Spark dans une variable.
@@ -74,7 +74,7 @@ cd spark
 sparkdir=$(pwd)
 ```
 
-Si plusieurs versions de JDK sont installées, définissez `JAVA_HOME` pour utiliser la version 8 pour la session active. 
+Si plusieurs versions de JDK sont installées, définissez `JAVA_HOME` pour utiliser la version 8 pour la session active.
 
 ```bash
 export JAVA_HOME=`/usr/libexec/java_home -d 64 -v "1.8*"`
@@ -86,16 +86,21 @@ Exécutez la commande suivante pour générer le code source Spark avec prise en
 ./build/mvn -Pkubernetes -DskipTests clean package
 ```
 
-La commande suivante crée les images conteneur Spark et le place à un registre d’image conteneur. Remplacez `registry.example.com` par le nom de votre registre de conteneurs. Si vous utilisez Docker Hub, cette valeur est le nom de Registre. Si vous utilisez Azure Container Registry (ACR), cette valeur est le nom de serveur de connexion ACR.
+Les commandes suivantes créent l’image conteneur Spark et l’envoie (push) à un registre d’image conteneur. Remplacez `registry.example.com` par le nom de votre registre de conteneur et `v1` par la balise que vous souhaitez utiliser. Si vous utilisez Docker Hub, cette valeur est le nom de Registre. Si vous utilisez Azure Container Registry (ACR), cette valeur est le nom de serveur de connexion ACR.
 
 ```bash
-./bin/docker-image-tool.sh -r registry.example.com -t v1 build
+REGISTRY_NAME=registry.example.com
+REGISTRY_TAG=v1
+```
+
+```bash
+./bin/docker-image-tool.sh -r $REGISTRY_NAME -t $REGISTRY_TAG build
 ```
 
 Envoyez (push) l’image conteneur vers votre registre d’image conteneur.
 
 ```bash
-./bin/docker-image-tool.sh -r registry.example.com -t v1 push
+./bin/docker-image-tool.sh -r $REGISTRY_NAME -t $REGISTRY_TAG push
 ```
 
 ## <a name="prepare-a-spark-job"></a>Préparer un travail Spark
@@ -197,18 +202,10 @@ La variable `jarUrl` contient maintenant le chemin d’accès accessible publiqu
 
 ## <a name="submit-a-spark-job"></a>Envoyer un travail Spark
 
-Avant d’envoyer le travail Spark, vous avez besoin de l’adresse du serveur d’API Kubernetes. Utilisez la commande `kubectl cluster-info` pour obtenir cette adresse.
-
-Découvrez l’URL où le serveur d’API Kubernetes s’exécute.
+Démarrez kube-proxy dans une ligne de commande distincte avec le code suivant.
 
 ```bash
-kubectl cluster-info
-```
-
-Notez l’adresse et le port.
-
-```bash
-Kubernetes master is running at https://<your api server>:443
+kubectl proxy
 ```
 
 Revenez à la racine du dépôt Spark.
@@ -217,18 +214,16 @@ Revenez à la racine du dépôt Spark.
 cd $sparkdir
 ```
 
-Envoyez le travail à l’aide de `spark-submit`. 
-
-Remplacez la valeur `<kubernetes-api-server>` par votre adresse de serveur d’API et votre port. Remplacez `<spark-image>` par le nom de votre image conteneur au format `<your container registry name>/spark:<tag>`.
+Envoyez le travail à l’aide de `spark-submit`.
 
 ```bash
 ./bin/spark-submit \
-  --master k8s://https://<k8s-apiserver-host>:<k8s-apiserver-port> \
+  --master k8s://http://127.0.0.1:8001 \
   --deploy-mode cluster \
   --name spark-pi \
   --class org.apache.spark.examples.SparkPi \
   --conf spark.executor.instances=3 \
-  --conf spark.kubernetes.container.image=<spark-image> \
+  --conf spark.kubernetes.container.image=$REGISTRY_NAME/spark:$REGISTRY_TAG \
   $jarUrl
 ```
 
@@ -262,7 +257,7 @@ Une fois le travail terminé, le pod de pilotes a l’état « Completed ». O
 kubectl get pods --show-all
 ```
 
-Sortie :
+Output:
 
 ```bash
 NAME                                               READY     STATUS      RESTARTS   AGE
@@ -316,6 +311,9 @@ Lors de l’exécution du travail, au lieu d’indiquer une URL de fichier jar 
     --conf spark.kubernetes.container.image=<spark-image> \
     local:///opt/spark/work-dir/<your-jar-name>.jar
 ```
+
+> [!WARNING]
+> À partir de la [documentation Spark][spark-docs] : « Le planificateur Kubernetes est actuellement en phase expérimentale. Dans les versions ultérieures, des modifications comportementales autour de la configuration, des images de conteneur et des points d’entrée peuvent subvenir ».
 
 ## <a name="next-steps"></a>Étapes suivantes
 

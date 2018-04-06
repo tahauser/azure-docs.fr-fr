@@ -1,8 +1,8 @@
 ---
-title: "Dépanner des appareils hybrides de bas niveau joints à Azure Active Directory | Microsoft Docs"
-description: "Dépannez des appareils hybrides de bas niveau joints à Azure Active Directory."
+title: Dépanner des appareils hybrides de bas niveau joints à Azure Active Directory | Microsoft Docs
+description: Dépannez des appareils hybrides de bas niveau joints à Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 03/20/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: ecf77a614922ef58cdfb2b2c8174f66e01ea9b46
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0d21a8848222c4b09723e22d2d51ec43b2154553
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Dépanner des appareils hybrides de bas niveau joints à Azure Active Directory 
 
@@ -88,10 +88,10 @@ Si la jointure Azure AD hybride n’a pas réussi, la boîte de dialogue vous fo
     
     2. Si, pour une raison quelconque, Autoworkplace.exe ne peut pas s’authentifier sans assistance auprès d’Azure AD ou d’AD FS. Cette impossibilité peut avoir plusieurs motifs, par exemple s’il existe des problèmes de connectivité réseau sortante vers les URL Azure AD (vérifier les prérequis), ou lorsque MFA est activé/configuré pour l’utilisateur, mais que WIAORMUTLIAUTHN n’est pas configuré au niveau du serveur de fédération (vérifier les étapes de configuration). Ce problème peut également découler du fait que la page de découverte du domaine d’accueil (HRD) attend une intervention de la part de l’utilisateur, empêchant ainsi Autoworkplace.exe d’obtenir un jeton sans assistance.
     
-    3. Si l’organisation utilise l’authentification unique transparente Azure AD, les URL ci-après ne figurent pas dans les paramètres intranet Internet Explorer de l’appareil :
+    3. Si l’organisation utilise l’authentification unique transparente Azure AD, l’URL ci-après ne figure pas dans les paramètres intranet Internet Explorer de l’appareil :
     
        - https://autologon.microsoftazuread-sso.com
-       - https://aadg.windows.net.nsatc.net
+
     
        et le paramètre « Autoriser les mises à jour de la barre d’état via le script » doit être activé pour la zone Intranet.
 

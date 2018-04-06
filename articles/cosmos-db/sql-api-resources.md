@@ -1,9 +1,9 @@
 ---
-title: "Modèle de ressource et concepts Azure Cosmos DB | Microsoft Docs"
-description: "Découvrez notamment le modèle hiérarchique des bases de données, collections, fonctions définies par l’utilisateur, documents et autorisations d’Azure Cosmos DB pour gérer les ressources."
-keywords: "Modèle hiérarchique, cosmosdb, azure, Microsoft azure"
+title: Modèle de ressource et concepts Azure Cosmos DB | Microsoft Docs
+description: Découvrez notamment le modèle hiérarchique des bases de données, collections, fonctions définies par l’utilisateur, documents et autorisations d’Azure Cosmos DB pour gérer les ressources.
+keywords: Modèle hiérarchique, cosmosdb, azure, Microsoft azure
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: rafats
 manager: jhubbard
 ms.assetid: ef9d5c0c-0867-4317-bb1b-98e219799fd5
@@ -12,18 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 03/26/2018
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a88f17a658987e1ff3ae0e0f38d6551c3acee1da
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: f64d79cd3929a279c7e279e74b0b21d163c0fa45
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Concepts clés et modèle de ressource hiérarchiques Azure Cosmos DB
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Les entités de base de données que gère Azure Cosmos DB sont appelées des **ressources**. Chaque ressource est identifiée de manière unique par un URI logique. Vous pouvez interagir avec ces ressources en utilisant des verbes HTTP standard, des en-têtes de requête/réponse et des codes d’état. 
 
@@ -34,6 +32,12 @@ Cet article répond aux questions suivantes :
 * Comment adresser une ressource ?
 * Comment travailler avec des collections ?
 * Comment utiliser les procédures stockées, les déclencheurs et les fonctions définies par l’utilisateur ?
+
+Dans la vidéo suivante, le responsable du programme Azure Cosmos DB, Andrew Liu, vous guide dans la découverte du modèle de ressource Azure Cosmos DB. 
+
+> [!VIDEO https://www.youtube.com/embed/luWFgTP0IL4]
+>
+>
 
 ## <a name="hierarchical-resource-model"></a>Modèle de ressource hiérarchique
 Comme l’illustre le schéma suivant, le **modèle de ressource** hiérarchique d’Azure Cosmos DB regroupe des ensembles de ressources dans un compte de base de données, chacun d’eux étant adressable par le biais d’un URI stable et logique. Dans cet article, les ensembles de ressources sont désignés sous le nom de **flux**. 
@@ -132,7 +136,7 @@ Les API REST prennent en charge l’adressage des ressources et le routage des r
 ## <a name="database-accounts"></a>Comptes de base de données
 Votre abonnement Azure vous permet d’approvisionner un ou plusieurs comptes de base de données Cosmos DB.
 
-Vous pouvez créer et gérer des comptes de base de données Cosmos DB par le biais du portail Azure, à l’adresse [http://portal.azure.com/](https://portal.azure.com/). La création et la gestion d’un compte de base de données requièrent un accès administrateur et peuvent uniquement être effectuées avec votre abonnement Azure. 
+Vous pouvez créer et gérer des comptes de base de données Cosmos DB via le portail Azure, à l’adresse [http://portal.azure.com/](https://portal.azure.com/). La création et la gestion d’un compte de base de données requièrent un accès administrateur et peuvent uniquement être effectuées avec votre abonnement Azure. 
 
 ### <a name="database-account-properties"></a>Propriétés des comptes de base de données
 Dans le cadre de l'approvisionnement et de la gestion d'un compte de base de données, vous pouvez configurer et lire les propriétés suivantes :  

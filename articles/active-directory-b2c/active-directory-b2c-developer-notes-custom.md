@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C : Notes du développeur sur l’utilisation des stratégies personnalisées | Microsoft Docs"
-description: "Notes à destination des développeurs pour configurer et maintenir Azure AD B2C avec des stratégies personnalisées"
+title: 'Azure Active Directory B2C : Notes du développeur sur l’utilisation des stratégies personnalisées | Microsoft Docs'
+description: Notes à destination des développeurs pour configurer et maintenir Azure AD B2C avec des stratégies personnalisées
 services: active-directory-b2c
-documentationcenter: 
-author: rojasja
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: rojasja
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 10/13/2017
-ms.author: joroja
-ms.openlocfilehash: 7f65ad324e1bf0887ea293254621466a2f1ddaff
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: davidmu
+ms.openlocfilehash: cf76f158d7e87a2f2f902551fdc751b295b6915b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Notes de version pour la version préliminaire publique de la stratégie personnalisée Azure Active Directory B2C
 L’ensemble de fonctionnalités de stratégie personnalisée est désormais disponible à des fins d’évaluation en préversion publique pour tous les clients Azure Active Directory B2C (Azure AD B2C). Cet ensemble de fonctionnalités est destiné aux développeurs d’identité avancés créant les solutions d’identité les plus complexes.  
@@ -60,7 +57,7 @@ Afin de tirer pleinement parti de la préversion publique, nous suggérons aux d
 ## <a name="features-by-stage-and-known-issues"></a>Fonctionnalités par étape et problèmes connus
 Les fonctionnalités IEF et de stratégies personnalisées font l’objet d’un développement rapide et constant.  Le tableau ci-après indique la disponibilité des fonctionnalités/composants.
 
-Publiez vos questions sur Stack Overflow à l’adresse [https://aka.ms/aadb2cso](https://aka.ms/aadb2cso).
+Postez vos questions sur Stack Overflow à l’adresse [https://aka.ms/aadb2cso](https://aka.ms/aadb2cso)
 
 
 ### <a name="identity-providers-tokens-protocols"></a>Fournisseurs d’identité, jetons et protocoles

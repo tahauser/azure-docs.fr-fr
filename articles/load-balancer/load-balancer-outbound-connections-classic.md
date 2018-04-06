@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/14/2018
+ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: 7a307a598bd71369615b30476d387c06f473c397
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: ec13109173f89b53e32f903febcec13c7f38c574
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="outbound-connections-classic"></a>Connexions sortantes (Classic)
 
@@ -60,7 +60,7 @@ L’[algorithme utilisé pour la préaffectation de ports éphémères](#ephemer
 
 Dans ce scénario, une adresse IP publique de niveau d’instance (ILPIP) est affectée à la machine virtuelle. En ce qui concerne les connexions sortantes, il importe peu que la machine virtuelle ait un point de terminaison à charge équilibrée ou non. Ce scénario prend le pas sur les autres. En cas d’utilisation d’une adresse IP publique de niveau d’instance, la machine virtuelle utilise celle-ci pour tous les flux sortants.  
 
-Le masquage de port (traduction d’adresse de port) n’est pas utilisé et la machine virtuelle peut utiliser tous les ports éphémères.
+Une adresse IP publique affectée à une machine virtuelle constitue une relation 1:1 (non pas une relation 1-à-plusieurs) ; elle est implémentée comme un NAT 1:1 sans état.  Le masquage de port (traduction d’adresse de port) n’est pas utilisé et la machine virtuelle peut utiliser tous les ports éphémères.
 
 Si votre application lance de nombreux flux sortants et que vous subissez un épuisement des ports de traduction d’adresses réseau sources, envisagez d’affecter une [adresse IP publique de niveau d’instance pour atténuer les contraintes de traduction d’adresses réseau sources](#assignilpip). Lisez [Gestion de l’épuisement de la traduction d’adresses réseau sources](#snatexhaust) dans son intégralité.
 
@@ -123,9 +123,21 @@ La modification de la taille de votre déploiement peut affecter certains de vos
 
 Si la taille du déploiement diminue et passe à un niveau inférieur, le nombre de ports SNAT disponibles augmente. Dans ce cas, les ports de traduction d’adresses réseau sources affectés existants et leurs flux respectifs ne sont pas concernés.
 
+Les allocations de ports SNAT sont spécifiques au protocole de transport IP (TCP et UDP sont gérés séparément) et sont mis à disposition selon les conditions suivantes :
+
+### <a name="tcp-snat-port-release"></a>Mis à disposition du port TCP SNAT
+
+- Si le client et le serveur envoient tous deux un paquet FIN/ACK, le port SNAT est mis à disposition après un délai de 240 secondes.
+- Si une instance RST est visible, le port SNAT est mis à disposition après un délai de 15 secondes.
+- le délai d’inactivité a été atteint
+
+### <a name="udp-snat-port-release"></a>Mis à disposition du port UDP SNAT
+
+- le délai d’inactivité a été atteint
+
 ## <a name="problemsolving"></a> Résolution des problèmes 
 
-Cette section vise à atténuer l’épuisement de la traduction d’adresses réseau sources et d’autres scénarios pouvant se produire avec les connexions sortantes dans Azure.
+Cette section vise à atténuer les insuffisances SNAT et d’autres scénarios pouvant se produire avec les connexions sortantes dans Azure.
 
 ### <a name="snatexhaust"></a> Gestion de l’épuisement des ports de traduction d’adresses réseau sources (traduction d’adresse de port)
 Les [ports éphémères](#preallocatedports) utilisés pour la [traduction d’adresse de port](#pat) sont une ressource épuisable, comme décrit dans les scénarios [aucune adresse IP publique associée](#defaultsnat) et [point de terminaison à charge équilibrée public](#publiclbendpoint).
@@ -170,3 +182,4 @@ La commande nslookup vous permet d’envoyer une requête DNS sur le nom myip.op
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez-en plus sur l’[équilibrage de charge](load-balancer-overview.md) utilisé dans les déploiements Resource Manager.
+- En savoir plus sur les scénarios de [connexion sortante](load-balancer-outbound-connections.md) dans les déploiements Resource Manager.

@@ -1,33 +1,32 @@
 ---
-title: "Créer des alertes de journal d’activité | Documents Microsoft"
-description: "Recevez des notifications par SMS, webhook et e-mail lors de la survenue de certains événements dans le journal d’activité."
+title: Créer des alertes de journal d’activité classiques | Microsoft Docs
+description: Recevez des notifications par SMS, webhook et e-mail lors de la survenue de certains événements dans le journal d’activité.
 author: johnkemnetz
-manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 03/18/2017
 ms.author: johnkem
-ms.openlocfilehash: c8a2ce3ca90895262e77c3895867d29c9d3530a2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e0d92fcd6d3cbd50a2bcb8166b27b11bc86aad83
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="create-activity-log-alerts"></a>Créer des alertes de journal d’activité
+# <a name="create-activity-log-alerts-classic"></a>Créer des alertes de journal d’activité (classique)
 
 ## <a name="overview"></a>Vue d'ensemble
 Les alertes de journal d’activité s’activent lorsqu’un nouvel événement du journal d’activité correspond aux conditions spécifiées dans l’alerte. Il s’agit de ressources Azure, et peuvent donc être créées à l’aide d’un modèle Azure Resource Manager. Elles peuvent également être créées, mises à jour ou supprimées dans le portail Azure. Cet article présente les concepts qui sous-tendent les alertes de journal d’activité. Cet article décrit comment utiliser le portail Azure pour configurer une alerte sur les événements de journal d’activité.
 
 > [!NOTE]
 
->  Les [Alertes (préversion)](monitoring-overview-unified-alerts.md) offrent actuellement une expérience améliorée de création et de gestion des journaux d’activité.  [Plus d’informations](monitoring-activity-log-alerts-new-experience.md)
+>  La nouvelle expérience [Alertes](monitoring-overview-unified-alerts.md) a remplacé cette procédure. Cet article est fourni en tant que référence à l’expérience précédente. [Plus d’informations](monitoring-activity-log-alerts-new-experience.md)
 
 En général, vous créez des alertes du journal d’activité pour recevoir des notifications lorsque :
 
@@ -59,11 +58,11 @@ Pour en savoir plus sur les groupes d’actions, consultez [Créer et gérer des
 
 Pour en savoir plus sur les notifications d’intégrité du service, consultez [Recevoir des alertes de journal d’activité sur les notifications d’intégrité du service](monitoring-activity-log-alerts-on-service-notifications.md).
 
-## <a name="create-an-alert-on-an-activity-log-event-with-a-new-action-group-by-using-the-azure-portal"></a>Créer une alerte pour un événement du journal d’activité avec un nouveau groupe d’actions dans le portail Azure
-1. Dans le [portail](https://portal.azure.com), sélectionnez **Moniteur**.
+## <a name="create-an-alert-classic-on-an-activity-log-event-with-a-new-action-group-by-using-the-azure-portal"></a>Créer une alerte (classique) pour un événement du journal d’activité avec un nouveau groupe d’actions dans le Portail Azure
+1. Dans le [Portail](https://portal.azure.com), sélectionnez **Moniteur**.
 
     ![Le service « Moniteur »](./media/monitoring-activity-log-alerts/home-monitor.png)
-2. Dans la section **Journal d’activité**, sélectionnez **Alertes**.
+2. Dans la section **Journal d’activité**, sélectionnez **Alertes (classique)**.
 
     ![L’onglet « Alertes »](./media/monitoring-activity-log-alerts/alerts-blades.png)
 3. Sélectionnez **Ajouter une alerte de journal d’activité**, puis renseignez les champs.

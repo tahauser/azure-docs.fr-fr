@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: 221a049ae37cc6934d04e90b6b8035e2a020e811
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bf2c4a12d1344ec17ce9688e1c7192f57104dc7b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Liaisons Stockage Blob Azure pour Azure Functions
 
@@ -233,12 +233,12 @@ En langage C# et dans un script C#, vous pouvez utiliser les types de paramètre
 * `string`
 * `Byte[]`
 * Un objet POCO sérialisable au format JSON
-* `ICloudBlob` (nécessite le sens de la liaison « inout » dans *function.json*)
-* `CloudBlockBlob` (nécessite le sens de la liaison « inout » dans *function.json*)
-* `CloudPageBlob` (nécessite le sens de la liaison « inout » dans *function.json*)
-* `CloudAppendBlob` (nécessite le sens de la liaison « inout » dans *function.json*)
+* `ICloudBlob`<sup>1</sup>
+* `CloudBlockBlob`<sup>1</sup>
+* `CloudPageBlob`<sup>1</sup>
+* `CloudAppendBlob`<sup>1</sup>
 
-Comme indiqué, certains de ces types nécessitent un sens de liaison `inout` dans *function.json*. Ce sens n’est pas pris en charge par l’éditeur standard du portail Azure : vous devez donc utiliser l’éditeur avancé.
+<sup>1</sup> requiert la liaison « inout » `direction` dans *function.json* ou `FileAccess.ReadWrite` dans une bibliothèque de classes C#.
 
 La liaison avec `string`, `Byte[]` ou POCO est recommandée uniquement si la taille de l’objet blob est petite, car tout le contenu de l’objet blob est chargé en mémoire. En général, il est préférable d’utiliser un type `Stream` ou `CloudBlockBlob`. Pour plus d’informations, consultez [Concurrence et utilisation de la mémoire](#trigger---concurrency-and-memory-usage) plus loin dans cet article.
 
@@ -364,7 +364,7 @@ Consultez l’exemple propre à un langage particulier :
 
 ### <a name="input---c-example"></a>Entrée - exemple C#
 
-L’exemple suivant est une [fonction C#](functions-dotnet-class-library.md) qui utilise un déclencheur de file d’attente et une liaison d’entrée d’objet blob. Le message de file d’attente contient le nom de l’objet blob, et la fonction consigne la taille de l’objet blob.
+L’exemple suivant est une [fonction C#](functions-dotnet-class-library.md) qui utilise un déclencheur de file d’attente et une liaison d’entrée d’objet blob. Le message en file d’attente contient le nom du blob et la fonction journalise la taille du blob.
 
 ```csharp
 [FunctionName("BlobInput")]
@@ -374,7 +374,6 @@ public static void Run(
     TraceWriter log)
 {
     log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
-
 }
 ```        
 
@@ -534,12 +533,12 @@ En langage C# et dans un script C#, vous pouvez utiliser les types de paramètre
 * `Byte[]`
 * `CloudBlobContainer`
 * `CloudBlobDirectory`
-* `ICloudBlob` (nécessite le sens de la liaison « inout » dans *function.json*)
-* `CloudBlockBlob` (nécessite le sens de la liaison « inout » dans *function.json*)
-* `CloudPageBlob` (nécessite le sens de la liaison « inout » dans *function.json*)
-* `CloudAppendBlob` (nécessite le sens de la liaison « inout » dans *function.json*)
+* `ICloudBlob`<sup>1</sup>
+* `CloudBlockBlob`<sup>1</sup>
+* `CloudPageBlob`<sup>1</sup>
+* `CloudAppendBlob`<sup>1</sup>
 
-Comme indiqué, certains de ces types nécessitent un sens de liaison `inout` dans *function.json*. Ce sens n’est pas pris en charge par l’éditeur standard du portail Azure : vous devez donc utiliser l’éditeur avancé.
+<sup>1</sup> requiert la liaison « inout » `direction` dans *function.json* ou `FileAccess.ReadWrite` dans une bibliothèque de classes C#.
 
 La liaison à `string` ou `Byte[]` est recommandée uniquement si la taille de l’objet blob est petite, car tout le contenu de l’objet blob est chargé en mémoire. En général, il est préférable d’utiliser un type `Stream` ou `CloudBlockBlob`. Pour plus d’informations, consultez [Concurrence et utilisation de la mémoire](#trigger---concurrency-and-memory-usage) plus haut dans cet article.
 
@@ -737,21 +736,23 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 
 ## <a name="output---usage"></a>Sortie - utilisation
 
-En langage C# et dans un script C#, vous pouvez utiliser les types de paramètres suivants pour la liaison de sortie d’objet blob :
+En mode C# et script C#, vous pouvez lier aux types suivants pour écrire des blobs :
 
 * `TextWriter`
 * `out string`
 * `out Byte[]`
 * `CloudBlobStream`
 * `Stream`
-* `CloudBlobContainer`
+* `CloudBlobContainer`<sup>1</sup>
 * `CloudBlobDirectory`
-* `ICloudBlob` (nécessite le sens de la liaison « inout » dans *function.json*)
-* `CloudBlockBlob` (nécessite le sens de la liaison « inout » dans *function.json*)
-* `CloudPageBlob` (nécessite le sens de la liaison « inout » dans *function.json*)
-* `CloudAppendBlob` (nécessite le sens de la liaison « inout » dans *function.json*)
+* `ICloudBlob`<sup>2</sup>
+* `CloudBlockBlob`<sup>2</sup>
+* `CloudPageBlob`<sup>2</sup>
+* `CloudAppendBlob`<sup>2</sup>
 
-Comme indiqué, certains de ces types nécessitent un sens de liaison `inout` dans *function.json*. Ce sens n’est pas pris en charge par l’éditeur standard du portail Azure : vous devez donc utiliser l’éditeur avancé.
+<sup>1</sup> requiert la liaison « in » `direction` dans *function.json* ou `FileAccess.Read` dans une bibliothèque de classes C#.
+
+<sup>2</sup> requiert la liaison « inout » `direction` dans *function.json* ou `FileAccess.ReadWrite` dans une bibliothèque de classes C#.
 
 Dans les fonctions asynchrones, utilisez la valeur de retour ou `IAsyncCollector` au lieu d’un paramètre `out`.
 

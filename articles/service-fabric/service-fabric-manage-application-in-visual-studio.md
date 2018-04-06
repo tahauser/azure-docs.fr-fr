@@ -1,24 +1,24 @@
 ---
-title: Gestion de vos applications dans Visual Studio | Microsoft Docs
-description: "Utilisez Visual Studio pour créer, développer, packager, déployer et déboguer vos applications et services Service Fabric."
+title: Gestion de vos applications Azure service Fabric dans Visual Studio | Documents Microsoft
+description: Utilisez Visual Studio pour créer, développer, packager, déployer et déboguer vos applications et services Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c317cb7e-7eae-466e-ba41-6aa2518be5cf
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/07/2017
-ms.author: mikkelhegn
-ms.openlocfilehash: 81814ef07cfab06855b3bfbf0eb6ef51b8dfce4f
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.date: 03/26/2018
+ms.author: mikhegn
+ms.openlocfilehash: 5c5c3dc20996fbbdee9f9ed61eb3b09e4b274d92
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>Utilisation de Visual Studio pour simplifier l'écriture et la gestion des applications Service Fabric
 Vous pouvez gérer vos applications et services Azure Service Fabric via Visual Studio. Après avoir [configuré votre environnement de développement](service-fabric-get-started.md), vous pouvez utiliser Visual Studio pour créer des applications Service Fabric, ajouter des services ou empaqueter, enregistrer et déployer des applications dans votre cluster de développement local.
@@ -32,7 +32,7 @@ Par défaut, le déploiement d’une application regroupe les étapes suivantes 
 4. Suppression des instances d'application en cours d'exécution
 5. Création d’une instance d’application
 
-Dans Visual Studio, appuyer sur **F5** permet de déployer votre application et d’attacher le débogueur à toutes les instances de l’application. Vous pouvez utiliser **Ctrl + F5** pour déployer une application sans débogage ou la publier sur un cluster local ou distant à l’aide du profil de publication. 
+Dans Visual Studio, appuyer sur **F5** permet de déployer votre application et d’attacher le débogueur à toutes les instances de l’application. Vous pouvez utiliser **Ctrl + F5** pour déployer une application sans débogage ou la publier sur un cluster local ou distant à l’aide du profil de publication.
 
 ### <a name="application-debug-mode"></a>Mode de débogage d’application
 Visual Studio fournit une propriété appelée **Mode de débogage de l’application**, qui contrôle la façon dont vous souhaitez que Visual Studio gère le déploiement de l’application dans le cadre du débogage.
@@ -45,7 +45,7 @@ Visual Studio fournit une propriété appelée **Mode de débogage de l’applic
 
 #### <a name="application-debug-modes"></a>Modes de débogage de l’application
 
-1. **Actualiser l’application** Ce mode vous permet de modifier et de déboguer rapidement votre code, et prend en charge la modification des fichiers web statiques pendant le débogage. Ce mode fonctionne uniquement si votre cluster de développement local est en [mode 1 nœud](/service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode).
+1. **Actualiser l’application** Ce mode vous permet de modifier et de déboguer rapidement votre code, et prend en charge la modification des fichiers web statiques pendant le débogage. Ce mode fonctionne uniquement si votre cluster de développement local est en mode 1 nœud. Il s’agit de la valeur par défaut du Mode de débogage d’Application (/service-fabric-get-started-with-a-local-cluster.md#one-node-and-five-node-cluster-mode).
 2. **Supprimer l’application** entraîne la suppression de l’application lorsque la session de débogage se termine.
 3. **Mise à niveau automatique** L’application continue à s’exécuter lorsque la session de débogage se termine. La session de débogage suivante traitera le déploiement comme une mise à niveau. Le processus de mise à niveau conserve les données que vous avez saisies au cours de la précédente session de débogage.
 4. **Conserver l’application** L’application continue à s’exécuter dans le cluster lorsque la session de débogage se termine. Au début de la prochaine session de débogage, l’application sera supprimée.
@@ -53,7 +53,7 @@ Visual Studio fournit une propriété appelée **Mode de débogage de l’applic
 Avec l’option **Mise à niveau automatique**, les données sont conservées en appliquant les fonctionnalités de mise à niveau d’application de Service Fabric. Pour plus d’informations sur la mise à niveau des applications et sur la façon d’effectuer une mise à niveau dans un environnement réel, consultez [Mise à niveau d’application Service Fabric](service-fabric-application-upgrade.md).
 
 ## <a name="add-a-service-to-your-service-fabric-application"></a>Ajouter un service à votre application Service Fabric
-Vous pouvez ajouter de nouveaux services à votre application pour étendre ses fonctionnalités.  Pour garantir que le service est inclus dans votre package d’application, ajoutez-le via l’élément de menu **Nouveau service Service Fabric…** .
+Vous pouvez ajouter de nouveaux services à votre application pour étendre ses fonctionnalités. Pour garantir que le service est inclus dans votre package d’application, ajoutez-le via l’élément de menu **Nouveau service Service Fabric…** .
 
 ![Ajouter un service Service Fabric][newservice]
 
@@ -74,7 +74,7 @@ Vous pouvez effectuer des opérations de gestion de cluster de base à partir de
 ![Supprimer une application][removeapplication]
 
 > [!TIP]
-> Pour obtenir des fonctionnalités de gestion de clusters enrichies, consultez [Visualisation de votre cluster à l’aide de l’outil Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+> Pour obtenir des fonctionnalités de gestion de clusters enrichies, voir [Visualisation de votre cluster à l’aide de l’outil Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 >
 >
 

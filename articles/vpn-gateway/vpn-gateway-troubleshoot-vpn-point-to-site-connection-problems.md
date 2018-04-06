@@ -1,12 +1,12 @@
 ---
-title: "Résoudre les problèmes concernant la connexion de point à site Azure | Microsoft Docs"
-description: "Découvrez comment résoudre les problèmes de connexion de point à site."
+title: Résoudre les problèmes concernant la connexion de point à site Azure | Microsoft Docs
+description: Découvrez comment résoudre les problèmes de connexion de point à site.
 services: vpn-gateway
 documentationcenter: na
 author: chadmath
 manager: cshepard
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: troubleshooting
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2018
 ms.author: genli
-ms.openlocfilehash: 3884eec0e65f856be87505d45c25cad7d3742bab
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 51076c225167accaf386190eeda4ec159cb5657d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Résolution des problèmes de connexion de point à site Azure
 
@@ -289,7 +289,7 @@ Le client VPN de point à site utilise des serveurs Azure DNS configurés dans l
 
 ### <a name="solution"></a>Solution
 
-Pour résoudre le problème, assurez-vous que les serveurs Azure DNS utilisés sur le réseau virtuel Azure peuvent résoudre les enregistrements DNS pour les ressources locales. Pour ce faire, vous pouvez utiliser des redirecteurs DNS ou des redirecteurs conditionnels. Consultez [Résolution de noms à l’aide de votre propre serveur DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) pour en savoir plus.
+Pour résoudre le problème, assurez-vous que les serveurs Azure DNS utilisés sur le réseau virtuel Azure peuvent résoudre les enregistrements DNS pour les ressources locales. Pour ce faire, vous pouvez utiliser des redirecteurs DNS ou des redirecteurs conditionnels. Consultez [Résolution de noms à l’aide de votre propre serveur DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) pour en savoir plus.
 
 ## <a name="the-point-to-site-vpn-connection-is-established-but-you-still-cannot-connect-to-azure-resources"></a>La connexion VPN de point à site est établie, mais vous ne pouvez toujours pas vous connecter aux ressources Azure 
 
@@ -304,11 +304,11 @@ Pour résoudre ce problème, [réinitialisez la passerelle VPN Azure](vpn-gatewa
 ## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Erreur : « La fonction de révocation n'a pas pu vérifier la révocation, car le serveur de révocation était hors connexion (Erreur 0x80092013) ».
 
 ### <a name="causes"></a>Causes
-Ce message d’erreur survient si le client ne peut pas accéder à http://crl3.digicert.com/ssca-sha2-g1.crl et http://crl4.digicert.com/ssca-sha2-g1.cr.  La vérification de révocation requiert l’accès à ces deux sites.  Ce problème se produit en général sur le client sur lequel un serveur proxy est configuré. Dans certains environnements, si les requêtes ne passent pas par le serveur proxy, celles-ci seront refusées au niveau du pare-feu Edge.
+Ce message d’erreur se produit si le client ne peut pas accéder à http://crl3.digicert.com/ssca-sha2-g1.crl et à http://crl4.digicert.com/ssca-sha2-g1.cr.  La vérification de révocation requiert l’accès à ces deux sites.  Ce problème se produit en général sur le client sur lequel un serveur proxy est configuré. Dans certains environnements, si les requêtes ne passent pas par le serveur proxy, celles-ci seront refusées au niveau du pare-feu Edge.
 
 ### <a name="solution"></a>Solution
 
-Vérifiez les paramètres du serveur proxy et assurez-vous que le client peut accéder à http://crl3.digicert.com/ssca-sha2-g1.crl et http://crl4.digicert.com/ssca-sha2-g1.cr.
+Vérifiez les paramètres du serveur proxy, assurez-vous que le client peut accéder à http://crl3.digicert.com/ssca-sha2-g1.crl et à http://crl4.digicert.com/ssca-sha2-g1.cr.
 
 ## <a name="vpn-client-error-the-connection-was-prevented-because-of-a-policy-configured-on-your-rasvpn-server-error-812"></a>Erreur du client VPN : La connexion a été empêchée en raison d’une stratégie configurée sur votre serveur RAS/VPN. (Erreur 812)
 

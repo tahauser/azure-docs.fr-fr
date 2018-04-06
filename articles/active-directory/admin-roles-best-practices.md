@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 166171dc8d8d694ef253ed6809c53b54577535e2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 98665ab215c98ea60273ce3aae2757cf20817a90
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Sécurisation de l’accès privilégié pour les déploiements hybrides et cloud dans Azure AD
 
@@ -156,7 +156,7 @@ Assurez-vous que tous les utilisateurs se sont connectés à leur compte adminis
 
 #### <a name="turn-on-password-synchronization"></a>Activer la synchronisation de mot de passe
 
-La synchronisation de mot de passe est une fonctionnalité permettant de synchroniser les codes de hachage des mots de passe utilisateur à partir d’une instance Active Directory locale vers une instance Azure AD basée sur le cloud. Même que si vous décidez d’utiliser la fédération avec les services de fédération Active Directory (AD FS) ou d’autres fournisseurs d’identité, vous pouvez éventuellement configurer la synchronisation de mot de passe comme sauvegarde au cas où votre infrastructure locale, serveurs AD ou ADFS par exemple, échouerait ou deviendrait temporairement indisponible. Cela permet aux utilisateurs de se connecter au service à l’aide du mot de passe qu’ils utilisent pour se connecter à leur instance AD locale. Cela permet également à la protection d’identité de détecter les informations d’identification compromises en comparant ces codes de hachage de mot de passe avec des mots de passe connus pour être compromis, si un utilisateur a utilisé les mêmes adresse de messagerie et mot de passe sur d’autres services non connectés à Azure AD.  Pour plus d’informations, consultez [Implémenter la synchronisation de mot de passe avec la synchronisation Azure AD Connect](./connect/active-directory-aadconnectsync-implement-password-synchronization.md).
+La synchronisation de mot de passe est une fonctionnalité permettant de synchroniser les codes de hachage des mots de passe utilisateur à partir d’une instance Active Directory locale vers une instance Azure AD basée sur le cloud. Même que si vous décidez d’utiliser la fédération avec les services de fédération Active Directory (AD FS) ou d’autres fournisseurs d’identité, vous pouvez éventuellement configurer la synchronisation de mot de passe comme sauvegarde au cas où votre infrastructure locale, serveurs AD ou ADFS par exemple, échouerait ou deviendrait temporairement indisponible. Cela permet aux utilisateurs de se connecter au service à l’aide du mot de passe qu’ils utilisent pour se connecter à leur instance AD locale. Cela permet également à la protection d’identité de détecter les informations d’identification compromises en comparant ces codes de hachage de mot de passe avec des mots de passe connus pour être compromis, si un utilisateur a utilisé les mêmes adresse de messagerie et mot de passe sur d’autres services non connectés à Azure AD.  Pour plus d’informations, consultez [Implémenter la synchronisation de hachage du mot de passe avec la synchronisation Azure AD Connect](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md).
 
 #### <a name="require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users"></a>Exiger l’authentification multifacteur (MFA) pour les utilisateurs dans tous les rôles privilégiés, ainsi que pour les utilisateurs exposés
 

@@ -1,12 +1,12 @@
 ---
-title: "Azure Cosmos DB : référence sur les requêtes suivant la syntaxe SQL | Microsoft Docs"
-description: "Documentation de référence sur le langage de requête SQL Azure Cosmos DB."
+title: 'Azure Cosmos DB : référence sur les requêtes suivant la syntaxe SQL | Microsoft Docs'
+description: Documentation de référence sur le langage de requête SQL Azure Cosmos DB.
 services: cosmos-db
 author: LalithaMV
 manager: jhubbard
 editor: mimig
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,15 +14,13 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 10/18/2017
 ms.author: laviswa
-ms.openlocfilehash: 968f9e4d643228e02a1d09aae1b6ce82d6775f25
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 012fa27fdebebf1c86a324c49c53d665a15a91c2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Référence sur la syntaxe SQL Azure Cosmos DB
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB prend en charge l’interrogation de documents suivant une grammaire familière de type SQL (Structured Query Language) sur des documents JSON hiérarchiques sans nécessiter de schéma explicite ou de création d’index secondaires. Cette rubrique constitue la documentation de référence sur le langage de requête SQL, qui est compatible avec les comptes d’API SQL.
 
@@ -631,7 +629,7 @@ ORDER BY <sort_specification>
 |-|-|-|  
 |\\'|apostrophe (')|U+0027|  
 |\\"|guillemet (")|U+0022|  
-|\\\|barre oblique inversée (\\)|U+005C|  
+|\\\|barre oblique inverse (\\)|U+005C|  
 |\\/|barre oblique (/)|U+002F|  
 |\b|retour arrière|U+0008|  
 |\f|saut de page|U+000C|  

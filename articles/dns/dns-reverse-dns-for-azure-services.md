@@ -1,6 +1,6 @@
 ---
-title: "DNS inversés dans les services Azure | Microsoft Docs"
-description: "Apprenez à configurer des recherches DNS inversées dans les services hébergés par Azure"
+title: DNS inversés dans les services Azure | Microsoft Docs
+description: Apprenez à configurer des recherches DNS inversées dans les services hébergés par Azure
 services: dns
 documentationcenter: na
 author: KumudD
@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: kumud
-ms.openlocfilehash: 0c5d12e9d6b5ddbee2a930e4e537b8180b7a9c7b
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: bba2d75ed760a6e4eef2caacb0bb5924680b1f4b
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Configurer des DNS inversés dans les services hébergés par Azure
 
@@ -90,7 +90,7 @@ Pour ajouter un DNS inversé à une adresse IP publique existante qui ne comport
 azure network public-ip set -n PublicIp -g MyResourceGroup -d contosoapp1 -f contosoapp1.westus.cloudapp.azure.com.
 ```
 
-#### <a name="azure-cli-20"></a>Azure CLI 2.0
+#### <a name="azure-cli-20"></a>Azure CLI 2.0
 
 Pour ajouter un DNS inversé à des adresses IP publiques existantes :
 
@@ -120,7 +120,7 @@ New-AzureRmPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
 azure network public-ip create -n PublicIp -g MyResourceGroup -l westus -d contosoapp3 -f contosoapp3.westus.cloudapp.azure.com.
 ```
 
-#### <a name="azure-cli-20"></a>Azure CLI 2.0
+#### <a name="azure-cli-20"></a>Azure CLI 2.0
 
 ```azurecli
 az network public-ip create --name PublicIp --resource-group MyResourceGroup --location westcentralus --dns-name contosoapp1 --reverse-fqdn contosoapp1.westcentralus.cloudapp.azure.com
@@ -142,7 +142,7 @@ Get-AzureRmPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
 azure network public-ip show -n PublicIp -g MyResourceGroup
 ```
 
-#### <a name="azure-cli-20"></a>Azure CLI 2.0
+#### <a name="azure-cli-20"></a>Azure CLI 2.0
 
 ```azurecli
 az network public-ip show --name PublicIp --resource-group MyResourceGroup
@@ -166,7 +166,7 @@ Set-AzureRmPublicIpAddress -PublicIpAddress $pip
 azure network public-ip set -n PublicIp -g MyResourceGroup –f ""
 ```
 
-#### <a name="azure-cli-20"></a>Azure CLI 2.0
+#### <a name="azure-cli-20"></a>Azure CLI 2.0
 
 ```azurecli
 az network public-ip update --resource-group MyResourceGroup --name PublicIp --reverse-fqdn ""
@@ -245,7 +245,7 @@ Non. Actuellement, Azure ne prend en charge le DNS inversé que pour les ressour
 
 ### <a name="can-i-send-emails-to-external-domains-from-my-azure-compute-services"></a>Puis-je envoyer des courriers électroniques à des domaines externes à partir d’Azure Compute Services ?
 
-Non. [Les services Azure Compute Services ne prennent pas en charge l’envoi de messages à des domaines externes](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/)
+La possibilité technique d’envoyer un e-mail directement à partir d’un déploiement Azure technique varie selon le type d’abonnement. Quel que soit le type d’abonnement, Microsoft recommande d’utiliser des services de relais de courrier de confiance pour l’envoi de courrier sortant. Pour plus d’informations, voir [Sécurité d’Azure renforcée pour l’envoi de courrier – Mise à jour de novembre 2017](https://blogs.msdn.microsoft.com/mast/2017/11/15/enhanced-azure-security-for-sending-emails-november-2017-update/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

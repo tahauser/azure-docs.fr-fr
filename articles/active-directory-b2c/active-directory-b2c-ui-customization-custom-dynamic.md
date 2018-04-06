@@ -1,29 +1,27 @@
 ---
-title: "Azure Active Directory B2C : personnalisation de l’interface utilisateur Azure AD B2C de façon dynamique avec les stratégies personnalisées"
-description: "Prendre en charge plusieurs expériences de personnalisation avec du contenu HTML5/CSS qui change de façon dynamique au moment de l’exécution."
+title: 'Azure Active Directory B2C : personnalisation de l’interface utilisateur Azure AD B2C de façon dynamique avec les stratégies personnalisées'
+description: Prendre en charge plusieurs expériences de personnalisation avec du contenu HTML5/CSS qui change de façon dynamique au moment de l’exécution.
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 09/20/2017
-ms.author: yoelh
-ms.openlocfilehash: 3a2310ae6266709df6677c55f11b15239c0425a2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: davidmu
+ms.openlocfilehash: d8aaf0ef8cefdc0cb1c4ff3dec656d31c32f664f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C : configuration de l’interface utilisateur avec du contenu dynamique à l’aide de stratégies personnalisées
 À l’aide de stratégies personnalisées Azure Active Directory B2C (Azure AD B2C), vous pouvez envoyer un paramètre dans une chaîne de requête. En transmettant le paramètre à votre point de terminaison HTML, vous pouvez changer le contenu de la page de façon dynamique. Par exemple, vous pouvez changer l’image d’arrière-plan dans la page de connexion ou d’inscription Azure AD B2C en fonction d’un paramètre que vous transmettez depuis votre application web ou mobile. 
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Prérequis
+
 Cet article se concentre sur la façon de personnaliser l’interface utilisateur Azure AD B2C avec du *contenu dynamique* à l’aide de stratégies personnalisées. Pour commencer, consultez [Personnalisation de l’interface utilisateur dans une stratégie personnalisée](active-directory-b2c-ui-customization-custom.md). 
 
 >[!NOTE]
@@ -121,7 +119,7 @@ Votre modèle HTML5 personnalisé est basé sur le modèle HTML5 intégré à Az
 
 ### <a name="step-23-change-the-background-image"></a>Étape 2.3 : Changer l’image d’arrière-plan
 
-Recherchez l’élément `<img>` qui contient la valeur `ID` *background_background_image*, puis remplacez la valeur `src` par **https://kbdevstorage1.blob.core.windows.net/asset-blobs/19889_en_1** ou toute autre image d’arrière-plan à utiliser.
+Localisez l’élément `<img>` contenant la valeur `ID` *background_background_image*, puis remplacez la valeur `src` par **https://kbdevstorage1.blob.core.windows.net/asset-blobs/19889_en_1** ou toute autre image d’arrière-plan que vous souhaitez utiliser.
 
 ![Modifier l’arrière-plan de la page](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-static-background.png)
 

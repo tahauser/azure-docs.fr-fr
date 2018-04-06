@@ -1,11 +1,11 @@
 ---
-title: "Mise à niveau d’application Service Fabric | Microsoft Docs"
-description: "Cet article fournit une introduction à la mise à niveau d'une application Service Fabric, y compris le choix des modes de mise à niveau et les vérifications d'intégrité exécutées."
+title: Mise à niveau d’application Service Fabric | Microsoft Docs
+description: Cet article fournit une introduction à la mise à niveau d'une application Service Fabric, y compris le choix des modes de mise à niveau et les vérifications d'intégrité exécutées.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 803c9c63-373a-4d6a-8ef2-ea97e16e88dd
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 765931d8a888432e0cc77ff86d597b6e2a029a2a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 60bbd75496b6e835a76edb4251aac6ea249187b3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="service-fabric-application-upgrade"></a>Mise à niveau des applications Service Fabric
 Une application Azure Service Fabric est une collection de services. Pendant une mise à niveau, Service Fabric compare le nouveau [manifeste d'application](service-fabric-application-and-service-manifests.md) à la version précédente et détermine les services qui, dans l'application, nécessitent des mises à jour. Service Fabric compare les numéros des versions dans les manifestes de service avec les numéros des versions dans la version précédente. Si un service n'a pas changé, ce service n'est pas mis à niveau.
@@ -57,6 +57,13 @@ Quand vous restaurez une mise à niveau de l’application, les paramètres de s
 
 > [!TIP]
 > Le paramètre de configuration de cluster [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) doit avoir la valeur *true* pour activer les règles 2) et 3) ci-dessus (mise à jour et suppression de service par défaut). Cette fonctionnalité est prise en charge à partir de Service Fabric version 5.5.
+
+## <a name="upgrading-multiple-applications-with-https-endpoints"></a>Mise à niveau de plusieurs applications avec des points de terminaison HTTPS
+Vous devez veiller à ne pas utiliser le **même port** pour différentes instances de la même application lors de l’utilisation de HTTP**S**. En effet, Service Fabric ne pourra plus mettre à niveau le certificat pour l’une des instances de l’application. Par exemple, si l’application 1 ou l’application 2 souhaitent mettre à niveau leur certificat 1 vers le certificat 2. Lors de la mise à niveau, Service Fabric peut avoir nettoyé l’inscription de certificat 1 auprès de http.sys même si l’autre application l’utilise toujours. Pour éviter cela, Service Fabric détecte l’existence d’une autre instance d’application inscrite sur le port avec le certificat (en raison de http.sys) et l’opération échoue.
+
+Par conséquent, Service Fabric ne prend pas en charge la mise à niveau de deux services utilisant **le même port** dans des instances d’application différentes. En d’autres termes, vous ne pouvez pas utiliser le même certificat sur les différents services au niveau du même port. Si vous avez besoin d’un certificat partagé sur le même port, vous devez vous assurer que les services sont placés sur des machines différentes avec des contraintes de placement. Vous pouvez aussi envisager d’utiliser le cas échéant les ports dynamiques Service Fabric pour chaque service de chaque instance d’application. 
+
+Si une mise à niveau avec https échoue, un avertissement d’erreur indique que l’API du serveur HTTP Windows ne prend pas en charge plusieurs certificats pour les applications qui partagent le même port.
 
 ## <a name="application-upgrade-flowchart"></a>Organigramme de la mise à niveau d'application
 L’organigramme suivant ce paragraphe peut vous aider à comprendre le processus de mise à niveau d’une application Service Fabric. En particulier, le flux indique dans quelle mesure les délais, notamment *HealthCheckStableDuration*, *HealthCheckRetryTimeout* et *UpgradeHealthCheckInterval*, déterminent l’échec ou la réussite de la mise à niveau dans un domaine de mise à jour donné.

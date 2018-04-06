@@ -1,7 +1,7 @@
 ---
-title: "Didacticiel de développement d’applications Java avec Azure Cosmos DB | Microsoft Docs"
-description: "Ce didacticiel d’application web Java vous montre comment utiliser le service Azure Cosmos DB et l’API SQL pour stocker les données et y accéder à partir d’une application Java hébergée sur les sites web Azure."
-keywords: "Développement d’applications, didacticiel de base de données, application java, didacticiel de l’application web java, azure, Microsoft azure"
+title: Didacticiel de développement d’applications Java avec Azure Cosmos DB | Microsoft Docs
+description: Ce didacticiel d’application web Java vous montre comment utiliser le service Azure Cosmos DB et l’API SQL pour stocker les données et y accéder à partir d’une application Java hébergée sur les sites web Azure.
+keywords: Développement d’applications, didacticiel de base de données, application java, didacticiel de l’application web java, azure, Microsoft azure
 services: cosmos-db
 documentationcenter: java
 author: dennyglee
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 08/22/2017
 ms.author: denlee
-ms.openlocfilehash: 8507b772c537ac50bd40367fbde260a8d72375ca
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 816ea6e575759186973e23c6adfccd389c6920d9
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Créer une application web Java à l’aide d’Azure Cosmos DB et de l’API SQL
 > [!div class="op_single_selector"]
@@ -29,8 +29,6 @@ ms.lasthandoff: 12/18/2017
 > * [Python](sql-api-python-application.md)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Ce didacticiel d’application web Java explique comment utiliser le service [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) pour stocker les données et y accéder à partir d’une application Java hébergée sur Azure App Service Web Apps. Dans cette rubrique, vous allez apprendre à :
 
@@ -729,7 +727,7 @@ Les Sites Web Azure permettent de déployer facilement des applications Java en 
 3. Maintenant que vous disposez d’un fichier WAR, vous pouvez le charger tout simplement dans votre répertoire **webapps** sur les Sites Web Azure. Vous trouverez des instructions sur le chargement du fichier sur la page [Ajouter une application Java à Azure App Service Web Apps](../app-service/web-sites-java-add-app.md).
    
     Une fois le fichier WAR téléchargé sur le répertoire webapps, l'environnement d'exécution détecte que vous l'avez ajouté et le télécharge automatiquement.
-4. Pour afficher votre produit fini, accédez à http://YOUR\_SITE\_NAME.azurewebsites.net/azure-java-sample/ et commencez à ajouter vos tâches.
+4. Pour voir votre produit fini, accédez à http://YOUR\_SITE\_NAME.azurewebsites.net/azure-java-sample/, puis commencez à ajouter vos tâches.
 
 ## <a id="GetProject"></a>Obtenir le projet à partir de GitHub
 Tous les exemples de ce didacticiel sont inclus dans le projet [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) sur GitHub. Pour importer le projet todo dans Eclipse, vérifiez d'abord que vous disposez des logiciels et ressources indiqués dans la section [Configuration requise](#Prerequisites) , puis procédez comme suit :
@@ -739,7 +737,7 @@ Tous les exemples de ce didacticiel sont inclus dans le projet [todo](https://gi
 3. Dans Eclipse, dans le menu **File** (Fichier), cliquez sur **Import** (Importer).
 4. Dans la fenêtre **Import** (Importer), cliquez sur **Git**, sur **Projects from Git** (Projets provenant de Git), puis sur **Next** (Suivant).
 5. Dans l’écran **Select Repository Source** (Sélectionner une source de référentiel), cliquez sur **Clone URI** (URI du clone).
-6. Dans l’écran **Source Git Repository** (Dépôt Git source), dans la zone **URI**, tapez https://github.com/Azure-Samples/java-todo-app.git, puis cliquez sur **Suivant**.
+6. Dans l’écran **Dépôt Git source**, dans la zone **URI**, entrez https://github.com/Azure-Samples/java-todo-app.git, puis cliquez sur **Suivant**.
 7. Dans l’écran **Branch Selection** (Sélection d’une branche), vérifiez que **master** (principal) est sélectionné, puis cliquez sur **Next** (Suivant).
 8. Dans l’écran **Local Destination** (Destination locale), cliquez sur **Browse** (Parcourir) pour sélectionner un dossier dans lequel copier le référentiel, puis cliquez sur **Next** (Suivant).
 9. Dans l’écran **Select a wizard to use for importing projects** (Sélectionner un Assistant à utiliser pour l’importation de projets), vérifiez que **Import existing projects** (Importer des projets existants) est sélectionné, puis cliquez sur **Next** (Suivant).
@@ -754,6 +752,6 @@ Tous les exemples de ce didacticiel sont inclus dans le projet [todo](https://gi
 18. Sous l’onglet **Servers** (Serveurs) en bas de l’écran, cliquez sur **Tomcat v7.0 Server at localhost** (Serveur Tomcat v7.0 dans localhost), puis cliquez sur **Add and Remove** (Ajouter et supprimer).
 19. Dans la fenêtre **Add and Remove** (Ajouter et supprimer), déplacez **azure-documentdb-java-sample** vers la zone **Configured** (Configuré), puis cliquez sur **Finish** (Terminer).
 20. Sous l’onglet **Servers** (Serveurs), cliquez avec le bouton droit sur **Tomcat v7.0 Server at localhost** (Serveur Tomcat v7.0 dans localhost), puis cliquez sur **Restart** (Redémarrer).
-21. Dans un navigateur, accédez à http://localhost:8080/azure-documentdb-java-sample/ et commencez à ajouter des éléments à votre liste des tâches. Notez que si vous avez modifié les valeurs du port par défaut, définissez 8080 sur la valeur que vous avez sélectionnée.
+21. Dans un navigateur, accédez à http://localhost:8080/azure-documentdb-java-sample/, puis commencez à ajouter à votre liste de tâches. Notez que si vous avez modifié les valeurs du port par défaut, définissez 8080 sur la valeur que vous avez sélectionnée.
 22. Pour déployer votre projet sur un site web Azure, consultez l'[Étape 6. Déployez votre application sur les Sites Web Azure](#Deploy).
 

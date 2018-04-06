@@ -2,9 +2,10 @@
 title: FAQ sur les concours Cortana Intelligence | Microsoft Docs
 description: Forum Aux Questions sur les concours Microsoft Cortana Intelligence.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: hning86
-manager: jhubbard
+ms.author: haining
+manager: mwinkle
 editor: cgronlun
 ms.assetid: 9bac5154-a56c-4e78-9d67-34368b9d1624
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.author: haining;garye
-ms.openlocfilehash: f7c839a8471dc54daebc47d0bb5a450358f5250d
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: db6fb6cd6c500ffe4537b57a968ef3b8792bcad6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>FAQ sur les concours Microsoft Cortana Intelligence
 **Que sont les concours Cortana Intelligence ?**
@@ -35,7 +35,7 @@ Pour des questions d’ordre générale, vous pouvez utiliser le [forum Microsof
 
 **Comment participer à un concours ?**
 
-Accédez à la page d’accueil des [concours](https://gallery.cortanaintelligence.com/competitions) dans [Azure AI Gallery](https://gallery.cortanaintelligence.com/), ou rendez-vous à l’adresse [http://aka.ms/CIComp](http://aka.ms/CIComp). La page d’accueil répertorie tous les concours en cours. Les instructions et les règles de participation détaillées, les prix à remporter et la durée sont indiqués sur la page d’inscription de chaque concours.
+Accédez à la page d’accueil [Concours](https://gallery.cortanaintelligence.com/competitions) dans [Azure AI Gallery](https://gallery.cortanaintelligence.com/), ou rendez-vous à l’adresse [http://aka.ms/CIComp](http://aka.ms/CIComp). La page d’accueil répertorie tous les concours en cours. Les instructions et les règles de participation détaillées, les prix à remporter et la durée sont indiqués sur la page d’inscription de chaque concours.
 
 1. Recherchez le concours auquel vous souhaitez participer, lisez toutes les instructions et regardez la vidéo du didacticiel. Ensuite, cliquez sur le bouton **Enter Competition** (Participer au concours) et copiez l’expérience de démarrage dans votre espace de travail Azure Machine Learning existant. Si vous n’avez pas accès à un espace de travail, vous devez en créer un au préalable. Exécutez l’expérience de démarrage, observez les mesures de performance, puis utilisez votre créativité pour améliorer les performances du modèle. Cette étape occupera la majeure partie de votre temps.   
 
@@ -65,7 +65,7 @@ La plateforme de concours ne prend actuellement pas en charge la participation e
 
 **Dois-je payer pour participer à un concours ?**
 
-La participation aux concours est gratuite. Toutefois, vous devez avoir accès à un espace de travail Microsoft Azure Machine Learning pour pouvoir participer. Vous pouvez créer un espace de travail gratuit sans carte de crédit en vous connectant simplement avec un compte Microsoft valide ou un compte Office 365. Si vous êtes déjà client d’Azure ou de Cortana Intelligence Suite, vous pouvez créer et utiliser un espace de travail standard dans le même abonnement Azure. Si vous souhaitez acheter un abonnement Azure, accédez à la page de [tarification Azure](https://azure.microsoft.com/pricing). Notez que les tarifs standard s’appliquent lors de l’utilisation d’un espace de travail standard pour créer des expériences. Pour plus d’informations, consultez les [informations sur les tarifs Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/). 
+La participation aux concours est gratuite. Toutefois, vous devez avoir accès à un espace de travail Microsoft Azure Machine Learning pour pouvoir participer. Vous pouvez créer un espace de travail gratuit sans carte de crédit en vous connectant simplement avec un compte Microsoft valide ou un compte Office 365. Si vous êtes déjà client d’Azure ou de Cortana Intelligence Suite, vous pouvez créer et utiliser un espace de travail standard dans le même abonnement Azure. Si vous souhaitez acheter un abonnement Azure, accédez à la page de [tarification Azure](https://azure.microsoft.com/pricing). Notez que les tarifs standards s’appliquent lors de l’utilisation d’un espace de travail standard pour créer des expériences. Pour plus d’informations, consultez les [informations sur les tarifs Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/). 
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: Alertes de journal dans Azure Monitor - Alerts (préversion) | Microsoft Docs
-description: Déclenchez des e-mails et des notifications, appelez des URL de sites web (webhooks) ou déclenchez une automatisation lorsque les conditions de requêtes complexes spécifiées sont remplies pour Azure Alerts (préversion).
+title: Alertes de journal dans Azure Monitor - Alertes | Microsoft Docs
+description: Déclenchez des e-mails, des notifications, des URL de sites Web d’appel (webhooks) ou une automatisation lorsque les conditions de requêtes complexes spécifiées sont remplies pour Alertes Azure.
 author: msvijayn
 manager: kmadnani1
 editor: ''
@@ -12,35 +12,35 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 03/17/2018
 ms.author: vinagara
-ms.openlocfilehash: 0cee8bf77e0facc12159b823152b8859ce5cedd8
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5928bbcec08d6ba4ac0b0d03b66fa4bfc8f5e3d7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="log-alerts-in-azure-monitor---alerts-preview"></a>Alertes de journal dans Azure Monitor - Alerts (préversion)
-Cet article décrit en détail le fonctionnement des règles d’alerte des requêtes Analytics dans Azure Alerts (préversion) et décrit les différences entre les divers types de règles d’alerte de journal. Pour plus d’informations sur les Alertes Métrique à l’aide des Journaux, reportez-vous à la rubrique [Alertes Métrique en quasi temps réel](monitoring-near-real-time-metric-alerts.md)
+# <a name="log-alerts-in-azure-monitor---alerts"></a>Alertes de journal dans Azure Monitor - Alertes 
+Cet article décrit en détail le fonctionnement des règles d’alertes dans des requêtes Analytics dans Alertes Azure et décrit les différences entre les différents types de règles d’alertes de journal. Pour plus d’informations sur les Alertes Métrique à l’aide des Journaux, reportez-vous à la rubrique [Alertes Métrique en quasi temps réel](monitoring-near-real-time-metric-alerts.md)
 
-Actuellement, Azure Alerts (préversion) prend en charge les alertes de journal sur des requêtes provenant d’[Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) et d’[Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events).
+Actuellement, Alertes Azure prend en charge les alertes de journal sur des requêtes provenant d’[Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) et d’[Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events).
 
 > [!WARNING]
 
-> Actuellement, l’alerte de journal dans Azure Alerts (préversion) ne prend pas en charge les requêtes portant sur plusieurs espaces de travail ou applications.
+> Actuellement, l’alerte de journal dans Alertes Azure ne prend pas en charge les requêtes portant sur plusieurs espaces de travail ou applications. Et les alertes de journal pour Application Insights est en préversion publique - la fonctionnalité et l’expérience utilisateur sont susceptibles de changer.
 
-Les utilisateurs peuvent également perfectionner leurs requêtes dans la plateforme Analytics de leur choix dans Azure, puis les *importer pour les utiliser dans Alerts (en version préliminaire) en enregistrant la requête*. Procédure à suivre :
+Les utilisateurs peuvent également perfectionner leurs requêtes dans la plateforme Analytics de leur choix dans Azure, puis les *importer pour les utiliser dans Alertes en enregistrant la requête*. Procédure à suivre :
 - Pour Application Insights : accédez au portail Analytics, puis validez la requête et ses résultats. Enregistrez-la ensuite sous un nom unique dans *Requêtes partagées*.
 - Pour Log Analytics : accédez à Recherche dans les journaux, puis validez la requête et ses résultats. Enregistrez-la ensuite sous un nom unique dans n’importe quelle catégorie.
 
-Lorsque vous [créez une alerte de journal dans Alerts (version préliminaire)](monitor-alerts-unified-usage.md), la requête enregistrée est alors répertoriée en tant que type de signal **Journal (Requête enregistrée)**, comme illustré dans l’exemple ci-dessous : ![Requête enregistrée importée dans Alerts](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)
+Lorsque vous [créez une alerte de journal dans Alertes ](monitor-alerts-unified-usage.md), la requête enregistrée est alors répertoriée en tant que type de signal **Journal (Requête enregistrée)** ; comme illustré dans l’exemple ci-dessous : ![Requête enregistrée importée dans Alertes](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog-new.png)
 
 > [!NOTE]
 > L’utilisation de la commande **Journal (Requête enregistrée)** permet d’effectuer une importation dans Alerts. Par conséquent, les modifications effectuées par la suite dans Analytics ne seront pas reflétées dans les règles d’alerte enregistrés, et inversement.
 
 ## <a name="log-alert-rules"></a>Règles d'alerte de journal
 
-Les alertes sont créées par Azure Alerts (préversion) pour exécuter automatiquement des requêtes de journal à intervalles réguliers.  Si les résultats de la requête de journal répondent à des critères particuliers, un enregistrement d’alerte est généré. La règle peut ensuite exécuter automatiquement une ou plusieurs actions pour vous avertir de l’alerte ou appeler un autre processus, comme l’envoi de données à une application externe à l’aide d’un [webhook json](monitor-alerts-unified-log-webhook.md), de façon proactive, en utilisant les [Groupes d’actions](monitoring-action-groups.md). Les différents types de règles d’alerte utilisent une logique différente pour effectuer cette analyse.
+Les alertes sont créées par Alertes Azure pour exécuter automatiquement des requêtes de journal à intervalles réguliers.  Si les résultats de la requête de journal répondent à des critères particuliers, un enregistrement d’alerte est généré. La règle peut ensuite exécuter automatiquement une ou plusieurs actions pour vous avertir de l’alerte ou appeler un autre processus, comme l’envoi de données à une application externe à l’aide d’un [webhook json](monitor-alerts-unified-log-webhook.md), de façon proactive, en utilisant les [Groupes d’actions](monitoring-action-groups.md). Les différents types de règles d’alerte utilisent une logique différente pour effectuer cette analyse.
 
 Les règles d’alerte sont définies par les détails suivants :
 
@@ -118,7 +118,7 @@ Dans cet exemple, des alertes distinctes seraient créées pour srv02 et srv03 d
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Comprendre les [actions Webhook pour les alertes de journal](monitor-alerts-unified-log-webhook.md)
-* [Consulter une présentation d’Azure Alerts (préversion)](monitoring-overview-unified-alerts.md)
-* En savoir plus sur l’[utilisation d’Azure Alerts (préversion)](monitor-alerts-unified-usage.md)
+* [Obtenir une vue d’ensemble d’Alertes Azure](monitoring-overview-unified-alerts.md)
+* En savoir plus sur [Utilisation d’Alertes Azure](monitor-alerts-unified-usage.md)
 * En savoir plus sur [Application Insights](../application-insights/app-insights-analytics.md)
 * En savoir plus sur [Log Analytics](../log-analytics/log-analytics-overview.md).    

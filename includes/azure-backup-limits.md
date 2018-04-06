@@ -6,13 +6,13 @@ author: markgalioto
 ms.service: backup
 ms.topic: include
 ms.date: 2/7/2018
-ms.author: trinadhk
+ms.author: trinadhk;sogup
 ms.custom: include file
-ms.openlocfilehash: 7ca5b34961b4d0e3d4fcecb8175e3e0901d7049d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b345283f87c446ff3b583b0c5dd8a4be222303ae
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 Les limites suivantes s’appliquent à la sauvegarde Azure.
 
@@ -23,8 +23,8 @@ Les limites suivantes s’appliquent à la sauvegarde Azure.
 | Nombre de coffres de sauvegarde pouvant être créés dans chaque abonnement Azure |25 coffres Recovery Services par région |
 | Nombre de sauvegardes pouvant être planifiées par jour |3 par jour pour Windows Server/Client  <br/> 2 par jour pour SCDPM <br/> Une fois par jour pour les machines virtuelles IaaS |
 | Disques de données attachés à une machine virtuelle Azure pour la sauvegarde |16 |
-| Taille du disque de données attaché à une machine virtuelle Azure pour la sauvegarde| 1024 Go <sup>2</sup>|
+| Taille du disque de données attaché à une machine virtuelle Azure pour la sauvegarde| 4095 Go <sup>2</sup>|
 
 * <sup>1</sup>La limite de 54 400 Go ne s’applique pas à la sauvegarde de la machine virtuelle IaaS.
-* <sup>2</sup> Nous disposons d’une [préversion privée](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a?redir=0) qui prend en charge les disques jusqu’à 4 To. 
+ 
 

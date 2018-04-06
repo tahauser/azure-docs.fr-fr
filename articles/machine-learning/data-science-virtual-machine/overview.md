@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: f62f6c4b2679457e8aaddb81e8a37622ca878ffc
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8ee4af162ddaa64d4dbe83bebbb93e22409f041d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Présentation d'Azure Data Science Virtual Machine pour Linux et Windows
 
@@ -29,7 +29,7 @@ Cette rubrique explique ce que vous pouvez faire avec la machine virtuelle Scien
 
 
 ## <a name="what-can-i-do-with-the-data-science-virtual-machine"></a>Que puis-je faire avec la machine virtuelle Science des données ?
-L’objectif de la machine virtuelle Science des données est de fournir aux professionnels des données, tous niveaux de compétence et rôles confondus, un environnement de science des données sans erreur. Cette machine virtuelle vous fait gagner le temps considérable nécessaire qu’il vous faudrait pour déployer vous-même un environnement comparable. Commencez immédiatement votre projet de science des données dans une nouvelle instance de machine virtuelle. 
+L’objectif de la machine virtuelle Science des données (DSVM) est de fournir aux experts en données, tous niveaux de compétence et rôles confondus, un environnement de science des données préconfiguré et totalement intégré. Au lieu de déployer votre propre espace de travail, vous pouvez approvisionner un DSVM, ce qui vous permet d’économiser des jours, voire des _semaines_, sur les processus d’installation, de configuration et de gestion des packages. Une fois votre DSVM alloué, vous pouvez commencer immédiatement à travailler sur votre projet de science des données.
 
 DSVM (Data Science Virtual Machine) a été conçu et configuré pour fonctionner dans une grande variété de scénarios. Vous pouvez faire évoluer ou réduire votre environnement en fonction des besoins de votre projet. Vous pouvez utiliser votre langage par défaut pour programmer les tâches de science des données. Vous pouvez installer d’autres outils et personnaliser le système en fonction de vos besoins exacts.
 

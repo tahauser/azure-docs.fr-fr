@@ -1,11 +1,11 @@
 ---
-title: "Bureau à distance sur une machine virtuelle Linux | Microsoft Docs"
-description: "Découvrez comment installer et configurer le Bureau à distance pour vous connecter à une machine virtuelle Linux Microsoft Azure pour le modèle de déploiement classique."
+title: Bureau à distance sur une machine virtuelle Linux | Microsoft Docs
+description: Découvrez comment installer et configurer le Bureau à distance pour vous connecter à une machine virtuelle Linux Microsoft Azure pour le modèle de déploiement classique.
 services: virtual-machines-linux
-documentationcenter: 
-author: SuperScottz
-manager: timlt
-editor: 
+documentationcenter: ''
+author: iainfoulds
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ROBOTS: NOINDEX
 ms.assetid: 34348659-ddb7-41da-82d6-b5885859e7e4
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
-ms.author: mingzhan
-ms.openlocfilehash: 72c814aece7626b19cefccb18e1b90f8c44d7f57
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: iainfou
+ms.openlocfilehash: 0e1bfe468e1572ca98be956d39d82df562dce0e6
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="using-remote-desktop-to-connect-to-a-microsoft-azure-linux-vm"></a>Utilisation du Bureau à distance pour se connecter à une machine virtuelle Linux Microsoft Azure.
 > [!IMPORTANT] 
 > Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../../resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Pour afficher la version de Resource Manager mise à jour de cet article, voir [ici](../use-remote-desktop.md).
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 Le protocole RDP (Remote Desktop Protocol) est un protocole propriétaire utilisé pour Windows. Comment pouvons-nous utiliser le protocole RDP pour se connecter à distance à une machine virtuelle Linux ?
 
 Ce guide vous donne la réponse ! Il vous aidera à installer et à configurer xrdp sur votre machine virtuelle Linux Microsoft Azure. Vous pourrez vous y connecter avec le Bureau à distance à partir d’une machine Windows. Nous allons utiliser la machine virtuelle Linux exécutant Ubuntu ou OpenSUSE comme exemple dans ce guide.
@@ -127,4 +127,4 @@ Sur un ordinateur Windows, démarrez le client Bureau à distance et entrez le n
 Connectez-vous avec le nom d’utilisateur et le mot de passe de votre machine virtuelle Linux.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur l’utilisation de xrdp, consultez [http://www.xrdp.org/](http://www.xrdp.org/).
+Pour plus d’informations sur l’utilisation de xrdp, voir [http://www.xrdp.org/](http://www.xrdp.org/).

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 03/23/2018
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 8a52d80f32f822691be862d566c17c84efc73c26
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 2b42840bc1053e9574e7c8ab1c68611c3b2bc7df
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Créer des règles basées sur les attributs pour l’appartenance à un groupe dynamique dans Azure Active Directory
 Dans Azure Active Directory (Azure AD), vous pouvez créer des règles avancées pour activer des appartenances dynamiques complexes basées sur les attributs pour les groupes. Cet article détaille les attributs et la syntaxe pour créer des règles d’appartenance dynamiques pour des utilisateurs ou des appareils.
@@ -74,7 +74,7 @@ Pour obtenir la liste complète des paramètres et des opérateurs de règle d�
 La longueur totale du corps de votre règle avancée ne peut pas dépasser 2 048 caractères.
 
 > [!NOTE]
-> Les opérations de chaîne et regex (expressions régulières) ne prennent pas en compte la casse. Vous pouvez également effectuer des vérifications de la valeur Null, en utilisant *null* en tant que constante. Par exemple : user.department -eq *null*.
+> Les opérations de chaîne et regex (expressions régulières) ne prennent pas en compte la casse. Vous pouvez également effectuer des vérifications de valeur Null, en utilisant *null* en tant que constante. Par exemple : user.department -eq *null*.
 > Les chaînes contenant des guillemets doubles doivent être placées dans une séquence d’échappement à l’aide du caractère « ' ». Par exemple : `"\`Sales".
 
 ## <a name="supported-expression-rule-operators"></a>Opérateurs de règle d’expression pris en charge
@@ -106,11 +106,11 @@ Tous les opérateurs sont répertoriés ci-dessous par priorité, de la plus fai
 Tous les opérateurs peuvent être utilisés avec ou sans le préfixe de trait d’union. Des parenthèses ne sont nécessaires que lorsque la priorité ne répond pas à vos besoins.
 Par exemple : 
 ```
-   user.department –eq "Marketing" –and user.country –eq "US"
+   user.department -eq "Marketing" -and user.country -eq "US"
 ```
 équivaut à :
 ```
-   (user.department –eq "Marketing") –and (user.country –eq "US")
+   (user.department -eq "Marketing") -and (user.country -eq "US")
 ```
 ## <a name="using-the--in-and--notin-operators"></a>Utilisation des opérateurs -in et -notIn
 
@@ -160,32 +160,32 @@ Opérateurs autorisés
 
 | properties | Valeurs autorisées | Usage |
 | --- | --- | --- |
-| city |Toute valeur de chaîne ou *null* |(user.city -eq "value") |
-| country |Toute valeur de chaîne ou *null* |(user.country -eq "value") |
-| companyName | Toute valeur de chaîne ou *null* | (user.companyName -eq "value") |
-| department |Toute valeur de chaîne ou *null* |(user.department -eq "value") |
+| city |Toute valeur de chaîne ou *$null* |(user.city -eq "value") |
+| country |Toute valeur de chaîne ou *$null* |(user.country -eq "value") |
+| companyName | Toute valeur de chaîne ou *$null* | (user.companyName -eq "value") |
+| department |Toute valeur de chaîne ou *$null* |(user.department -eq "value") |
 | displayName |Toute valeur de chaîne. |(user.displayName -eq "value") |
-| employeeId |Toute valeur de chaîne. |(user.employeeId -eq "value")<br>(user.employeeId -ne *null*) |
-| facsimileTelephoneNumber |Toute valeur de chaîne ou *null* |(user.facsimileTelephoneNumber -eq "value") |
-| givenName |Toute valeur de chaîne ou *null* |(user.givenName -eq "value") |
-| jobTitle |Toute valeur de chaîne ou *null* |(user.jobTitle -eq "value") |
-| mail |Toute valeur de chaîne ou *null* (adresse SMTP de l’utilisateur) |(user.mail -eq "value") |
+| employeeId |Toute valeur de chaîne. |(user.employeeId -eq "value")<br>(user.employeeId -ne *$null*) |
+| facsimileTelephoneNumber |Toute valeur de chaîne ou *$null* |(user.facsimileTelephoneNumber -eq "value") |
+| givenName |Toute valeur de chaîne ou *$null* |(user.givenName -eq "value") |
+| jobTitle |Toute valeur de chaîne ou *$null* |(user.jobTitle -eq "value") |
+| mail |Toute valeur de chaîne ou *$null* (adresse SMTP de l’utilisateur) |(user.mail -eq "value") |
 | mailNickName |Toute valeur de chaîne (alias de messagerie de l’utilisateur) |(user.mailNickName -eq "value") |
-| mobile |Toute valeur de chaîne ou *null* |(user.mobile -eq "value") |
+| mobile |Toute valeur de chaîne ou *$null* |(user.mobile -eq "value") |
 | objectId |GUID de l’objet utilisateur |(user.objectId -eq "1111111-1111-1111-1111-111111111111") |
 | onPremisesSecurityIdentifier | Identificateur de sécurité (SID) local pour les utilisateurs synchronisés localement vers le cloud. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |Aucune DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
-| physicalDeliveryOfficeName |Toute valeur de chaîne ou *null* |(user.physicalDeliveryOfficeName -eq "value") |
-| postalCode |Toute valeur de chaîne ou *null* |(user.postalCode -eq "value") |
+| physicalDeliveryOfficeName |Toute valeur de chaîne ou *$null* |(user.physicalDeliveryOfficeName -eq "value") |
+| postalCode |Toute valeur de chaîne ou *$null* |(user.postalCode -eq "value") |
 | preferredLanguage |Code ISO 639-1 |(user.preferredLanguage -eq "en-US") |
-| sipProxyAddress |Toute valeur de chaîne ou *null* |(user.sipProxyAddress -eq "value") |
-| state |Toute valeur de chaîne ou *null* |(user.state -eq "value") |
-| streetAddress |Toute valeur de chaîne ou *null* |(user.streetAddress -eq "value") |
-| surname |Toute valeur de chaîne ou *null* |(user.surname -eq "value") |
-| telephoneNumber |Toute valeur de chaîne ou *null* |(user.telephoneNumber -eq "value") |
+| sipProxyAddress |Toute valeur de chaîne ou *$null* |(user.sipProxyAddress -eq "value") |
+| state |Toute valeur de chaîne ou *$null* |(user.state -eq "value") |
+| streetAddress |Toute valeur de chaîne ou *$null* |(user.streetAddress -eq "value") |
+| surname |Toute valeur de chaîne ou *$null* |(user.surname -eq "value") |
+| telephoneNumber |Toute valeur de chaîne ou *$null* |(user.telephoneNumber -eq "value") |
 | usageLocation |Paramètre régional à deux lettres |(user.usageLocation -eq "US") |
 | userPrincipalName |Toute valeur de chaîne. |(user.userPrincipalName -eq "alias@domain") |
-| userType |member guest *null* |(user.userType -eq "Member") |
+| userType |member guest *$null* |(user.userType -eq "Member") |
 
 ### <a name="properties-of-type-string-collection"></a>Propriétés de type collection de chaînes
 Opérateurs autorisés
@@ -226,11 +226,11 @@ L’expression suivante sélectionne tous les utilisateurs qui disposent d’un 
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-## <a name="use-of-null-values"></a>Utiliser des valeurs Null
+## <a name="use-of-null-values"></a>Utilisation des valeurs Null
 
 Pour spécifier une valeur null dans une règle, vous pouvez utiliser la valeur *null*. Veillez à ne pas insérer de guillemets autour du mot *null*. Autrement, il sera interprété comme une valeur de chaîne littérale. La manière correcte de référencer la valeur null est la suivante :
 ```
-   user.mail –ne null
+   user.mail –ne $null
 ```
 
 ## <a name="extension-attributes-and-custom-attributes"></a>Attributs d’extension et attributs personnalisés

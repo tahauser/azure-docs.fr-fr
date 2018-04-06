@@ -146,7 +146,7 @@ Pour créer un abonnement Azure Event Grid, procédez comme suit :
 
 L’étape suivante consiste à relier la fonction et l’espace de noms Service Bus. Pour cet exemple, utilisez le portail Azure. Pour comprendre comment utiliser PowerShell ou Azure CLI pour effectuer cette procédure, consultez [Vue d’ensemble de l’intégration d’Azure Service Bus et Event Grid](service-bus-to-event-grid-integration-concept.md).
 
-![9.][]
+![9][]
 
 ### <a name="receive-messages-by-using-azure-functions"></a>Recevoir des messages à l’aide d’Azure Functions
 

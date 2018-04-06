@@ -1,11 +1,11 @@
 ---
-title: "Création de pipelines de données prédictifs avec Azure Data Factory | Microsoft Docs"
-description: "Découvrez comment créer un pipeline prédictif à l’aide d’Azure Machine Learning - Activité d’exécution par lot dans Azure Data Factory."
+title: Création de pipelines de données prédictifs avec Azure Data Factory | Microsoft Docs
+description: Découvrez comment créer un pipeline prédictif à l’aide d’Azure Machine Learning - Activité d’exécution par lot dans Azure Data Factory.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: shengcmsft
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: fa493a6d7b4cf775f64b87c1d5cc21ff4a138609
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: bd72fd957948e77df6ffb0b310c590132c663235
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Création de pipelines prédictifs à l'aide d'Azure Data Factory et Azure Machine Learning
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -75,7 +75,7 @@ Azure Machine Learning prend à la fois en charge les services web classiques et
 
 ![Services web Azure Machine Learning](./media/transform-data-using-machine-learning/web-services.png)
 
-##<a name="azure-machine-learning-batch-execution-activity"></a>Activité d’exécution par lot Azure Machine Learning
+## <a name="azure-machine-learning-batch-execution-activity"></a>Activité d’exécution par lot Azure Machine Learning
 
 L’extrait de code JSON suivant définit une activité d’exécution par lot Azure Machine Learning. La définition de l’activité comporte une référence au service lié Azure Machine Learning que vous avez créée précédemment. 
 

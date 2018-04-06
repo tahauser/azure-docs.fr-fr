@@ -1,8 +1,8 @@
 ---
-title: "Aide-mémoire sur le langage de requête Azure Log Analytics | Microsoft Docs"
-description: "Cet article a pour but de vous aider à passer au nouveau langage de requête Azure Log Analytics, si vous connaissiez déjà l’ancien."
+title: Aide-mémoire sur le langage de requête Azure Log Analytics | Microsoft Docs
+description: Cet article a pour but de vous aider à passer au nouveau langage de requête Azure Log Analytics, si vous connaissiez déjà l’ancien.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2017
 ms.author: bwren
 ms.openlocfilehash: 9c487ab33859ae453a0074ef0344f61de19c7b4d
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="transitioning-to-azure-log-analytics-new-query-language"></a>Transition vers le nouveau langage de requête d’Azure Log Analytics
 Log Analytics a récemment implémenté un nouveau langage de requête.  Cet article a pour but de vous aider à passer à ce langage pour Log Analytics si vous connaissez déjà l’ancien.
@@ -50,8 +50,8 @@ Le tableau suivant montre des requêtes courantes de l’ancien langage et leurs
 |                        | Type=Event Computer=contains("contoso") | Event &#124; where Computer contains "contoso" (non respect de la casse)<br>Event &#124; where Computer contains_cs "Contoso" (respect de la casse) |
 |                        | Type=Event Computer=RegEx("@contoso@")  | Event &#124; where Computer matches regex ".*contoso*" |
 | Comparaison de dates        | Type=Event TimeGenerated > NOW-1DAYS | Event &#124; where TimeGenerated > ago(1d) |
-|                        | Type=Event TimeGenerated>2017-05-01 TimeGenerated<2017-05-31 | Event &#124; where TimeGenerated between (datetime(2017-05-01) .. datetime(2017-05-31)) |
-| Comparaison booléenne     | Type=Heartbeat IsGatewayInstalled=false  | Heartbeat \| where IsGatewayInstalled == false |
+|                        | Type=Event TimeGenerated>2017-05-01 TimeGenerated<2017-05-31 | Event &amp;#124; where TimeGenerated between (datetime(2017-05-01) . datetime(2017-05-31)) |
+| Comparaison booléenne     | Type=Heartbeat IsGatewayInstalled=false  | Heartbeat \| où IsGatewayInstalled == false |
 | Trier                   | Type=Event &#124; sort Computer asc, EventLog desc, EventLevelName asc | Event \| sort by Computer asc, EventLog desc, EventLevelName asc |
 | Différencier               | Type=Event &#124; dedup Computer \| select Computer | Event &#124; summarize by Computer, EventLog |
 | Étendre des colonnes         | Type=Perf CounterName="% Processor Time" &#124; EXTEND if(map(CounterValue,0,50,0,1),"HIGH","LOW") as UTILIZATION | Perf &#124; where CounterName == "% Processor Time" \| extend Utilization = iff(CounterValue > 50, "HIGH", "LOW") |

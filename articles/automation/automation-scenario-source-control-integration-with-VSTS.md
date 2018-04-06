@@ -1,28 +1,23 @@
 ---
-title: "Intégration d’Azure Automation au contrôle de code source Visual Studio Team Services | Microsoft Docs"
-description: "Ce scénario vous guide pour la configuration de l’intégration dans un compte Azure Automation et pour le contrôle de code source Visual Studio Team Services."
+title: Intégration d’Azure Automation avec le contrôle de code source Visual Studio Team Services | Documents Microsoft
+description: Ce scénario vous guide pour la configuration de l’intégration dans un compte Azure Automation et pour le contrôle de code source Visual Studio Team Services.
 services: automation
-documentationcenter: 
-author: eamono
-manager: 
-editor: 
-keywords: "Azure powershell, VSTS, contrôle de code source, automation"
-ms.assetid: a43b395a-e740-41a3-ae62-40eac9d0ec00
+documentationcenter: ''
+author: eamonoreilly
+ms.author: eamono
+keywords: Azure powershell, VSTS, contrôle de code source, automation
 ms.service: automation
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
-ms.openlocfilehash: 5afccc4aa7b751958952d1401182f93109cff358
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.date: 03/19/2017
+ms.openlocfilehash: a60143db03e5f89685a25f26789003de30d91f4c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-automation-scenario---automation-source-control-integration-with-visual-studio-team-services"></a>Scénario Azure Automation - Intégration du contrôle de code source Automation dans Visual Studio Team Services
 
-Dans ce scénario, vous avez un projet Visual Studio Team Services que vous utilisez pour gérer des runbooks Azure Automation ou des configurations DSC avec un contrôle de code source.
+Dans ce scénario, vous avez un projet Visual Studio Team Services que vous utilisez pour gérer des runbook Azure Automation ou des configurations DSC avec un contrôle de code source.
 Cet article décrit comment intégrer VSTS dans votre environnement Azure Automation pour assurer une intégration continue pour chaque archivage.
 
 ## <a name="getting-the-scenario"></a>Obtention du scénario
@@ -36,7 +31,7 @@ Runbook | Description|
 Sync-VSTS | Importer des runbooks ou des configurations à partir du contrôle de code source VSTS lorsqu’un archivage est effectué. En cas d’exécution manuelle, cette fonction importe et publie l’ensemble des runbooks ou des configurations dans le compte Automation.| 
 Sync-VSTSGit | Importer des runbooks ou des configurations à partir du contrôle de code source VSTS sous Git lorsqu’un archivage est effectué. En cas d’exécution manuelle, cette fonction importe et publie l’ensemble des runbooks ou des configurations dans le compte Automation.|
 
-### <a name="variables"></a>Variables
+### <a name="variables"></a>variables
 
 Variable | Description|
 -----------|------------|
@@ -51,7 +46,7 @@ Créez une [variable securisée](automation-variables.md) dans votre compte Auto
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSTokenVariable.png)
 
-Importez le runbook qui synchronise vos runbooks ou configurations dans le compte Automation. Vous pouvez utiliser [l’exemple de runbook VSTS](https://www.powershellgallery.com/packages/Sync-VSTS/1.0/DisplayScript) ou [l’exemple de runbook VSTS avec Git] (https://www.powershellgallery.com/packages/Sync-VSTSGit/1.0/DisplayScript) à partir de PowerShellGallery.com selon que vous utilisez VSTS ou le contrôle de code source VSTS avec Git pour effectuer un déploiement dans votre compte automation.
+Importez le runbook qui synchronise vos runbooks ou configurations dans le compte Automation. Vous pouvez utiliser l’[exemple de runbook VSTS](https://www.powershellgallery.com/packages/Sync-VSTS/1.0/DisplayScript) ou [l’exemple de runbook VSTS avec Git] (https://www.powershellgallery.com/packages/Sync-VSTSGit/1.0/DisplayScript)) à partir de PowerShellGallery.com selon que vous utilisez VSTS ou le contrôle de code source VSTS avec Git pour effectuer un déploiement dans votre compte Automation.
 
 ![](media/automation-scenario-source-control-integration-with-VSTS/VSTSPowerShellGallery.png)
 
@@ -63,7 +58,7 @@ Créez un [webhook](automation-webhooks.md) pour ce runbook Sync-VSTS et renseig
 L’intégration dans VSTS (Sync-VSTS.ps1) prend les paramètres suivants :
 ### <a name="sync-vsts-parameters"></a>Paramètres Sync-VSTS
 
-Paramètre | DESCRIPTION| 
+Paramètre | Description| 
 --------|------------|
 WebhookData | Ce paramètre contient les informations d’archivage envoyées à partir du crochet de service VSTS. Laissez ce paramètre vide.| 
 ResourceGroup | Nom du groupe de ressources dans lequel se trouve le compte Automation.|
@@ -77,7 +72,7 @@ VSAccessTokenVariableName | Nom de la variable sécurisée (VSToken) qui contien
 
 Si vous utilisez VSTS avec GIT (Sync-VSTSGit.ps1), il aura les paramètres suivants.
 
-Paramètre | DESCRIPTION|
+Paramètre | Description|
 --------|------------|
 WebhookData | Ce paramètre contiendra les informations d’archivage envoyées dans le crochet de service VSTS. Laissez ce paramètre vide.| ResourceGroup | Nom du groupe de ressources dans lequel se trouve le compte Automation.|
 AutomationAccountName | Nom du compte Automation qui se synchronise avec VSTS.|

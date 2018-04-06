@@ -1,13 +1,13 @@
 ---
-title: "Gérer des groupes de machines virtuelles identiques avec Azure CLI 2.0 | Microsoft Docs"
-description: "Commandes Azure CLI 2.0 communes pour gérer des groupes de machines virtuelles identiques, par exemple, pour démarrer et arrêter une instance ou modifier la capacité du groupe identique."
+title: Gérer des groupes de machines virtuelles identiques avec Azure CLI 2.0 | Microsoft Docs
+description: Commandes Azure CLI 2.0 communes pour gérer des groupes de machines virtuelles identiques, par exemple, pour démarrer et arrêter une instance ou modifier la capacité du groupe identique.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: a484cf6734ff663a852be1a46e2b2ca2f75bb17d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1afb43b65203406a7d49b0e3f641bc22d164a4a9
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Gérer un groupe de machines virtuelles identiques avec Azure CLI 2.0
 Tout au long du cycle de vie du groupe de machines virtuelles identiques, vous devrez peut-être exécuter une ou plusieurs tâches de gestion. En outre, vous souhaiterez peut-être créer des scripts pour automatiser les diverses tâches liées au cycle de vie. Cet article décrit en détail certaines des commandes Azure CLI 2.0 courantes qui vous permettent d’effectuer ces tâches.
 
-Pour effectuer ces tâches de gestion, vous devez disposer de la dernière build d’Azure CLI 2.0. Pour plus d’informations sur l’installation et l’utilisation de la dernière version, voir [Installer Azure CLI 2.0](/cli/azure/install-azure-cli). Si vous avez besoin de créer un groupe de machines virtuelles identiques, vous pouvez [Créer un groupe identique dans le portail Azure](virtual-machine-scale-sets-create-portal.md).
+Pour effectuer ces tâches de gestion, vous devez disposer d’Azure CLI 2.0. Pour plus d’informations, voir [Installer Azure CLI 2.0](/cli/azure/install-azure-cli). Si vous avez besoin de créer un groupe de machines virtuelles identiques, vous pouvez [Créer un groupe identique avec Azure CLI 2.0](quick-create-cli.md).
 
 
 ## <a name="view-information-about-a-scale-set"></a>Afficher des informations sur un groupe identique

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 176b850120958a5ca5fdaece4831e2ed27ac0a04
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6b08c1793857fd6c6a6a04c0d450e76a36357597
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Notes de publication du Kit de développement Azure Stack
 Ces notes de publication fournissent des informations sur les améliorations, les correctifs et les problèmes connus relatifs au Kit de développement Azure Stack. Si vous n’êtes pas sûr de la version que vous exécutez, consultez le [portail pour vérifier](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -56,6 +56,11 @@ Consultez la section [Nouvelles fonctionnalités et correctifs](.\.\azure-stack-
     - *ERROR - Template for FaultType ResourceProviderTimeout is missing.* (ERREUR - Absence du modèle de FaultType ResourceProviderTimeout.)
 
     Cette alerte peut être ignorée en toute sécurité. 
+
+- Dans le portail d’administration et le portail utilisateur, le panneau Vue d’ensemble ne parvient pas à charger lorsque vous sélectionnez le panneau Vue d’ensemble des comptes de stockage qui ont été créés avec une ancienne version de l’API (exemple : 2015-06-15). 
+
+  Pour résoudre ce problème, utilisez PowerShell pour exécuter le script **ResourceSynchronization.ps1** pour restaurer l’accès aux détails du compte de stockage. [Le script est disponible à partir de GitHub]( https://github.com/Azure/AzureStack-Tools/tree/master/Support/scripts) et doit s’exécuter avec des informations d’identification d’administrateur de service sur le kit de développement hôte si vous utilisez l’ASDK.  
+
 
 #### <a name="health-and-monitoring"></a>Intégrité et surveillance
 Dans le portail d’administration Azure Stack, vous pouvez voir une alerte critique portant le nom **Certificat externe sur le point d’expirer**.  Cette alerte peut être ignorée en toute sécurité et n’affecte pas les opérations du Kit de développement Azure Stack. 
@@ -273,9 +278,11 @@ Dans les environnements déployés des services de fédération Azure Active Dir
     > Certains des éléments répertoriés dans la section **Nouvelles fonctionnalités et correctifs** concernent uniquement les systèmes intégrés Azure Stack.
 
 ### <a name="known-issues"></a>Problèmes connus
+
  
 #### <a name="deployment"></a>Déploiement
 - Vous devez spécifier un serveur de temps par adresse IP au cours du déploiement.
+- Depuis la version 1711, **CloudAdmin** est un nom de compte réservé et ne doit pas être spécifié manuellement lorsque vous déployez le kit de développement. 
 
 #### <a name="infrastructure-management"></a>Gestion de l’infrastructure
 - N’activez pas la **sauvegarde de l’infrastructure** sur le panneau dédié à celle-ci.

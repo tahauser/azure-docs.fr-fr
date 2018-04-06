@@ -12,22 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/02/2017
+ms.date: 03/15/2018
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 68de6295b84385f54eaadd6d24e8309a32fae9ce
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f7c58b4ebd840aca555b52a03cf44ace311b64e3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Informations d’identification de certificat pour l’authentification d’application
 
-Azure Active Directory permet à une application d’utiliser ses propres informations d’identification pour l’authentification, par exemple, le flux d’octroi d’informations d’identification du client d’OAuth 2.0 ([v1](active-directory-protocols-oauth-service-to-service.md) [v2](active-directory-v2-protocols-oauth-client-creds.md)) ou le flux On-Behalf-Of ([v1](active-directory-protocols-oauth-on-behalf-of.md) [v2](active-directory-v2-protocols-oauth-on-behalf-of.md)).
+Azure Active Directory permet à une application d’utiliser ses propres informations d’identification pour l’authentification. Par exemple, dans le flux Octroi des informations d’identification du client OAuth 2.0 ([v1](active-directory-protocols-oauth-service-to-service.md), [v2](active-directory-v2-protocols-oauth-client-creds.md)) et le flux On-Behalf-Of ([v1](active-directory-protocols-oauth-on-behalf-of.md), [v2](active-directory-v2-protocols-oauth-on-behalf-of.md)).
 Parmi les types d’informations d’identification que vous pouvez utiliser figure l’assertion JSON Web Token signée avec un certificat dont est propriétaire l’application.
 
 ## <a name="format-of-the-assertion"></a>Format de l’assertion
-Pour calculer l’assertion, vous souhaiterez probablement utiliser l’une des nombreuses bibliothèques [JSON Web Token](https://jwt.io/) dans la langue de votre choix. Les informations contenues dans le jeton sont les suivantes :
+Pour calculer l’assertion, vous souhaiterez probablement utiliser l’une des nombreuses bibliothèques [JSON Web Token](https://jwt.ms/) dans la langue de votre choix. Les informations contenues dans le jeton sont les suivantes :
 
 #### <a name="header"></a>En-tête
 
@@ -85,7 +85,14 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 
 ### <a name="register-your-certificate-with-azure-ad"></a>Inscrire votre certificat dans Azure AD
 
-Pour associer les informations d’identification du certificat à l’application cliente dans Azure AD, vous devez modifier le manifeste d’application.
+Vous pouvez associer les informations d’identification du certificat à l’application cliente dans Azure AD via le portail Azure en utilisant l’une des méthodes suivantes :
+
+**Chargement du fichier de certificat**
+
+Dans l’inscription de l’application Azure pour l’application cliente, cliquez sur **Paramètres**, sur **Clés**, puis sur **Charger la clé publique**. Sélectionnez le fichier de certificat à charger et cliquez sur **Enregistrer**. Une fois enregistré, le certificat est chargé et les valeurs de l’empreinte numérique, de la date de début et d’expiration sont affichées. 
+
+**Mise à jour du manifeste d’application**
+
 Sur la base de votre certificat, vous devez calculer :
 
 - `$base64Thumbprint`, qui est l’encodage en base64 du hachage de certificat

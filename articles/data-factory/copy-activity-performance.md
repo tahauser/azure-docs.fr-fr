@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 03/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 733a396117a58d8dc51e55614e503853f13141c0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c43973a7e5070676fc0f32a4c8923d57a479f884
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guide sur les performances et le réglage de l’activité de copie
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -91,7 +91,7 @@ Une **unité de déplacement de données cloud** est une mesure qui représente 
 | Copie de données entre des magasins basés sur des fichiers | Entre 4 et 32, selon le nombre et la taille des fichiers. |
 | Tous les autres scénarios de copie | 4 |
 
-Pour remplacer cette valeur par défaut, spécifiez une valeur pour la propriété **cloudDataMovementUnits** comme suit. Les **valeurs autorisées** pour la propriété **cloudDataMovementUnits** sont les suivantes : 2, 4, 8, 16, 32. Le **nombre réel d’unités de déplacement de données cloud** que l’opération de copie utilise au moment de l’exécution est égal ou inférieur à la valeur configurée, en fonction de votre modèle de données. Pour plus d’informations sur le niveau de gain de performances que vous pouvez obtenir lorsque vous configurez plusieurs unités pour une source et un récepteur de copie spécifiques, voir [Performances de référence](#performance-reference).
+Pour remplacer cette valeur par défaut, spécifiez une valeur pour la propriété **cloudDataMovementUnits** comme suit. Les **valeurs autorisées** pour la propriété **cloudDataMovementUnits** vont **jusqu’à 256**. Le **nombre réel d’unités de déplacement de données cloud** que l’opération de copie utilise au moment de l’exécution est égal ou inférieur à la valeur configurée, en fonction de votre modèle de données. Pour plus d’informations sur le niveau de gain de performances que vous pouvez obtenir lorsque vous configurez plusieurs unités pour une source et un récepteur de copie spécifiques, voir [Performances de référence](#performance-reference).
 
 Vous pouvez voir les unités de déplacement de données cloud réellement utilisées pour chaque exécution de la copie dans la sortie de l’activité de copie lors de l’analyse de l’exécution d’une activité. Pour plus d’informations, consultez la rubrique sur le [monitoring de l’activité de copie](copy-activity-overview.md#monitoring).
 
@@ -133,11 +133,14 @@ Pour chaque exécution d’activité de copie, Data Factory détermine le nombre
 
 | Scénario de copie | Nombre de copie en parallèle par défaut déterminé par le service |
 | --- | --- |
-| Copie de données entre des magasins basés sur des fichiers |Entre 1 et 64. Dépend de la taille des fichiers et du nombre d’unités de déplacement de données cloud utilisées pour copier des données entre les deux magasins de données cloud, ou de la configuration physique de l’ordinateur de runtime d’intégration auto-hébergé. |
+| Copie de données entre des magasins basés sur des fichiers |Dépend de la taille des fichiers et du nombre d’unités de déplacement de données cloud utilisées pour copier des données entre les deux magasins de données cloud, ou de la configuration physique de l’ordinateur de runtime d’intégration auto-hébergé. |
 | Copie de données de n’importe quel magasin de données source vers le stockage Table Azure |4 |
 | Tous les autres scénarios de copie |1 |
 
-Généralement, le comportement par défaut doit offrir le meilleur débit. Or, pour contrôler la charge sur les ordinateurs qui hébergent vos banques de données ou pour optimiser les performances de copie, vous pouvez choisir de remplacer la valeur par défaut et spécifier une valeur pour la propriété **parallelCopies** . La valeur doit être un nombre entier supérieur ou égal à 1. Au moment de l’exécution, pour des performances optimales, l’activité de copie utilise une valeur inférieure ou égale à la valeur que vous avez définie.
+[!TIP]
+> Lors de la copie de données entre magasins basés sur un fichier, le comportement par défaut (déterminé automatiquement) offre généralement le meilleur débit. 
+
+Pour contrôler la charge sur les machines qui hébergent vos banques de données ou pour optimiser les performances de copie, vous pouvez choisir de remplacer la valeur par défaut et spécifier une valeur pour la propriété **parallelCopies**. La valeur doit être un nombre entier supérieur ou égal à 1. Au moment de l’exécution, pour des performances optimales, l’activité de copie utilise une valeur inférieure ou égale à la valeur que vous avez définie.
 
 ```json
 "activities":[

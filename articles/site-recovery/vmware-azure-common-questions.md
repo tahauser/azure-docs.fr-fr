@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: raynew
-ms.openlocfilehash: 7e556bff2e9ebdd1efc969660cc8b4a33f3adcdb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 345b73db423c6e12b56bb3308f7700917a372dda
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Questions courantes sur la réplication de VMware vers Azure
 
@@ -48,6 +48,13 @@ Si vous êtes un administrateur d’abonnement, vous disposez des autorisations 
 
 ### <a name="what-do-i-need-on-premises"></a>De quoi ai-je besoin en local ?
 En local, vous devez disposer de composants Site Recovery, installés sur une machine virtuelle VMware unique. Vous avez également besoin d’une infrastructure VMware, avec au moins un hôte ESXi, et nous vous recommandons un serveur vCenter. En outre, vous avez besoin d’une ou de plusieurs machines virtuelles VMware à répliquer. [Découvrez-en plus](vmware-azure-architecture.md) sur l’architecture VMware vers Azure.
+
+Le serveur de configuration local peut être déployé d’une ou de deux façons
+
+1. Le déployer à l’aide d’un modèle de machine virtuelle avec le serveur de configuration pré-installé. [En savoir plus ici](vmware-azure-tutorial.md#download-the-vm-template).
+2. Le déployer à l’aide de l’installation sur une machine Windows Server 2016 de votre choix. [En savoir plus ici](physical-azure-disaster-recovery.md#set-up-the-source-environment).
+
+Pour découvrir la prise en main du déploiement du serveur de configuration sur vos propres machines Windows Server, dans l’objectif de protection de l’activation de la protection, choisissez **To Azure > non virtualisé/autre**.
 
 ### <a name="where-do-on-premises-vms-replicate-to"></a>Quelle est la destination de réplication des machines virtuelles en local ?
 Les données sont répliquées vers le stockage Azure. Quand vous exécutez un basculement, Site Recovery crée automatiquement des machines virtuelles Azure à partir du compte de stockage.

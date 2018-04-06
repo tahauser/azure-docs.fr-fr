@@ -1,6 +1,6 @@
 ---
-title: "Réplication de données dans le stockage Azure | Microsoft Docs"
-description: "Les données de votre compte Stockage Microsoft Azure sont répliquées à des fins de durabilité et de haute disponibilité. Les options de réplication incluent le stockage localement redondant (LRS), le stockage redondant dans une zone (ZRS), le stockage géo-redondant (GRS) et le stockage géo-redondant avec accès en lecture (RA-GRS)."
+title: Réplication de données dans le stockage Azure | Microsoft Docs
+description: Les données de votre compte Stockage Microsoft Azure sont répliquées à des fins de durabilité et de haute disponibilité. Les options de réplication incluent le stockage localement redondant (LRS), le stockage redondant dans une zone (ZRS), le stockage géo-redondant (GRS) et le stockage géo-redondant avec accès en lecture (RA-GRS).
 services: storage
 author: tamram
 manager: jeconnoc
@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: 18d0e8bc6cc1559f9ae1a1a4457aa85d2a206597
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 600b66af3b7da24c5a40d09d5cdf76f2d5be67ac
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-storage-replication"></a>Réplication Azure Storage
 
@@ -30,7 +30,7 @@ Lorsque vous créez un compte de stockage, vous pouvez sélectionner une des opt
 * [Stockage géo-redondant (GRS)](#geo-redundant-storage)
 * [Stockage géo-redondant avec accès en lecture (RA-GRS)](#read-access-geo-redundant-storage)
 
-Le stockage géoredondant avec accès en lecture (RA-GRS) est l’option par défaut lorsque vous créez un compte de stockage.
+Le stockage localement redondant (LRS) est l’option par défaut lorsque vous créez un compte de stockage.
 
 Le tableau suivant fournit une rapide vue d’ensemble des différences entre LRS, ZRS, GRS et RA-GRS. Les sections suivantes de cet article décrivent chaque type de réplication plus en détails.
 

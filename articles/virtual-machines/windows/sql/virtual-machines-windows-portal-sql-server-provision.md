@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: 7e55227773820af26435100b11dfefce058e7e78
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 33b7c82f08f63199cd128055bc497f61cb30fc4a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Guide pratique pour provisionner une machine virtuelle Windows SQL Server dans le portail Azure
 
@@ -59,7 +59,7 @@ Lorsque vous créez une machine virtuelle SQL Server, vous pouvez sélectionner 
    > L’édition Developer est utilisée dans cette procédure pas à pas, car il s’agit d’une version complète et gratuite de SQL Server pour les tests de développement. Vous payez uniquement pour le coût d’exécution de la machine virtuelle. Vous êtes libre, toutefois, de choisir les images à utiliser dans cette procédure pas à pas. Pour obtenir une description des images disponibles, consultez la [Vue d’ensemble des machines virtuelles Windows SQL Server](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
 
    > [!TIP]
-   > Les coûts de licence pour SQL Server sont intégrés dans le tarif à la minute de la machine virtuelle que vous créez, et varie selon l’édition et les cœurs. En revanche, SQL Server Developer Edition est gratuit pour le développement/les tests (hors production), et SQL Express est gratuit pour les charges de travail légères (moins de 1 Go de mémoire, moins de 10 Go de stockage). Vous pouvez aussi utiliser votre solution BYOL (apportez votre propre licence) et payer seulement pour la machine virtuelle. Ces noms d’images sont préfixés avec {BYOL}. 
+   > Les coûts de licence pour SQL Server sont intégrés dans le tarif à la seconde de la machine virtuelle que vous créez, et varie selon l’édition et les cœurs. En revanche, SQL Server Developer Edition est gratuit pour le développement/les tests (hors production), et SQL Express est gratuit pour les charges de travail légères (moins de 1 Go de mémoire, moins de 10 Go de stockage). Vous pouvez aussi utiliser votre solution BYOL (apportez votre propre licence) et payer seulement pour la machine virtuelle. Ces noms d’images sont préfixés avec {BYOL}. 
    >
    > Pour en savoir plus sur ces options, consultez l’article [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Tarification des machines virtuelles SQL Server Azure).
 

@@ -1,25 +1,25 @@
 ---
-title: "Clés uniques dans Azure Cosmos DB | Microsoft Docs"
-description: "Découvrez comment utiliser des clés uniques dans votre base de données Azure Cosmos DB."
+title: Clés uniques dans Azure Cosmos DB | Microsoft Docs
+description: Découvrez comment utiliser des clés uniques dans votre base de données Azure Cosmos DB.
 services: cosmos-db
-keywords: "contrainte de clé unique, violation de contrainte de clé unique"
+keywords: contrainte de clé unique, violation de contrainte de clé unique
 author: rafats
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: b15d5041-22dd-491e-a8d5-a3d18fa6517d
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 03/21/2018
 ms.author: rafats
-ms.openlocfilehash: c530b34edf9bfa0651b7b114dcf7e8add0d906ed
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 0c80ee13298c2c749c5f7eb7e55d1d77a8d6a34e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Clés uniques dans Azure Cosmos DB
 
@@ -58,7 +58,7 @@ Une fois un conteneur créé avec une stratégie de clé unique, la stratégie n
 
 Un maximum de 16 valeurs de chemin d’accès (par exemple /firstName, /lastName, /address/zipCode, etc.) peuvent être incluses dans chaque clé unique. 
 
-Chaque stratégie de clé unique peut contenir un maximum de 10 combinaisons ou contraintes de clé unique. Ainsi, l’exemple précédent qui utilise le prénom, le nom et l’adresse e-mail représente une seule contrainte et utilise trois des 16 chemins d’accès disponibles. 
+Chaque stratégie de clé unique peut inclure jusqu’à 10 contraintes ou combinaisons de clé unique, et les chemins d’accès combinés de toutes les propriétés d’index unique ne doivent pas dépasser 60 caractères. Ainsi, l’exemple précédent qui utilise le prénom, le nom et l’adresse e-mail représente une seule contrainte et utilise trois des 16 chemins d’accès disponibles. 
 
 Les frais unitaires de demande de création, de mise à jour et de suppression d’un élément sont légèrement supérieurs quand il existe une stratégie de clé unique appliquée au conteneur. 
 

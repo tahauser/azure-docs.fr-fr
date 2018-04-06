@@ -1,18 +1,18 @@
 ---
-title: "Mise en réseau dans Azure pour la récupération d’urgence Azure dans Azure Site Recovery | Microsoft Docs"
-description: "Fournit une vue d’ensemble de la mise en réseau en vue d’une réplication des machines virtuelles Azure avec Azure Site Recovery."
+title: Mise en réseau dans Azure pour la récupération d’urgence Azure dans Azure Site Recovery | Microsoft Docs
+description: Fournit une vue d’ensemble de la mise en réseau en vue d’une réplication des machines virtuelles Azure avec Azure Site Recovery.
 services: site-recovery
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 03/26/2018
 ms.author: sujayt
-ms.openlocfilehash: 5ce85761df4e0ad62c22a829f67464a3145fd827
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 48be55632d9c1bece3f1a6e4f9ac12a68f9cb7ab
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Mise en réseau dans Azure pour la réplication d’Azure
 
@@ -154,9 +154,10 @@ Suivez ces instructions pour les connexions entre l’emplacement cible et l’e
 ### <a name="expressroute-configuration"></a>Configuration de la connexion ExpressRoute
 Suivez ces bonnes pratiques pour la configuration d’ExpressRoute :
 
-- Vous devez créer un circuit ExpressRoute dans les régions source et cible. Vous devez ensuite créer une connexion entre :
-  - Le réseau virtuel source et le circuit ExpressRoute
-  - Le réseau virtuel cible et le circuit ExpressRoute
+- Créez un circuit ExpressRoute dans les régions source et cible. Vous devez ensuite créer une connexion entre :
+    - Le réseau virtuel source et le réseau local via le circuit ExpressRoute dans la zone source.
+    - Le réseau virtuel cible et le réseau local via le circuit ExpressRoute dans la région cible.
+
 
 - Dans le cadre de la norme ExpressRoute, vous pouvez créer des circuits dans la même région géopolitique. Pour créer des circuits ExpressRoute dans des régions géopolitiques différentes, Azure ExpressRoute Premium est obligatoire, ce qui implique un coût incrémentiel. (Si vous utilisez déjà ExpressRoute Premium, il n’y a aucun frais supplémentaires.) Pour plus d’informations, consultez le [document relatifs aux emplacements ExpressRoute](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) et la [tarification ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/).
 

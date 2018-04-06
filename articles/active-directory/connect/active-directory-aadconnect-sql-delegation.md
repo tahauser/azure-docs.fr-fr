@@ -1,24 +1,24 @@
 ---
-title: "Installer Azure AD Connect à l’aide d’autorisations administrateur déléguées SQL | Microsoft Docs"
-description: "Cette rubrique concerne une mise à jour Azure AD Connect qui permet une installation à l’aide d’un compte disposant uniquement d’autorisations de propriétaire de base de données SQL."
-documentationcenter: 
+title: Installer Azure AD Connect à l’aide d’autorisations administrateur déléguées SQL | Microsoft Docs
+description: Cette rubrique concerne une mise à jour Azure AD Connect qui permet une installation à l’aide d’un compte disposant uniquement d’autorisations de propriétaire de base de données SQL.
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.reviewer: jparsons
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: c2d77c37f2f65c9a7db1fd5c4010fc43bcbc7ebf
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2686bdef9c25f4540f9b2a21594b18cbe0404e08
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>Installer Azure AD Connect à l’aide d’autorisations administrateur déléguées SQL
 Avant la dernière version d’Azure AD Connect, la délégation administrative n’était pas prise en charge lors du déploiement de configurations nécessitant SQL.  Les utilisateurs qui souhaitent installer Azure AD Connect devaient disposer d’autorisations d’administrateur de serveur sur le serveur SQL.
@@ -51,6 +51,8 @@ Pour provisionner la base de données hors bande et installer Azure AD Connect a
 
 ## <a name="additional-information"></a>Informations supplémentaires
 Une fois que la base de données est provisionnée, l’administrateur Azure AD Connect peut installer et configurer la synchronisation localement, à sa convenance.  
+
+L’indicateur **/UseExistingDatabase** est nécessaire lors de l’utilisation d’une base de données créée au préalable.  Il n’est pas utilisé uniquement dans des situations de récupération.
 
 En plus de prendre en charge les nouvelles installations d’Azure AD Connect, cette fonctionnalité permet également la délégation pour tous les scénarios liés à l’indicateur **/UseExistingDatabase**.  Pour plus d’informations sur l’installation d’Azure AD Connect avec une base de données existante, consultez [Installer Azure AD Connect à l’aide d’une base de données ADSync existante](active-directory-aadconnect-existing-database.md).
 

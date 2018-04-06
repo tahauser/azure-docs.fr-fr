@@ -1,24 +1,24 @@
 ---
-title: "Présentation de la sécurité d’Azure IoT Hub | Microsoft Docs"
-description: "Guide du développeur : comment contrôler l’accès à IoT Hub pour les applications d’appareil et applications principales. Inclut des informations sur les jetons de sécurité et la prise en charge des certificats X.509."
+title: Présentation de la sécurité d’Azure IoT Hub | Microsoft Docs
+description: 'Guide du développeur : comment contrôler l’accès à IoT Hub pour les applications d’appareil et applications principales. Inclut des informations sur les jetons de sécurité et la prise en charge des certificats X.509.'
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 45631e70-865b-4e06-bb1d-aae1175a52ba
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 02/12/2018
 ms.author: dobett
-ms.openlocfilehash: 4f75c5725046fb5e0348c405092edcc65c2d8129
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e7e45a6af0857520eec27263281a0f0a43b30013
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="control-access-to-iot-hub"></a>Contrôler l’accès à IoT Hub
 
@@ -87,7 +87,7 @@ Dans les deux cas, le champ de mot de passe contient le jeton, comme le décrit 
 
 Le protocole HTTPS implémente l’authentification en incluant un jeton valide dans l’en-tête de requête **Authorization**.
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 Nom d’utilisateur (DeviceId respecte la casse) : `iothubname.azure-devices.net/DeviceId`
 
@@ -206,12 +206,12 @@ public static string generateSasToken(string resourceUri, string key, string pol
     TimeSpan fromEpochStart = DateTime.UtcNow - new DateTime(1970, 1, 1);
     string expiry = Convert.ToString((int)fromEpochStart.TotalSeconds + expiryInSeconds);
 
-    string stringToSign = WebUtility.UrlEncode(resourceUri).ToLower() + "\n" + expiry;
+    string stringToSign = WebUtility.UrlEncode(resourceUri) + "\n" + expiry;
 
     HMACSHA256 hmac = new HMACSHA256(Convert.FromBase64String(key));
     string signature = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(stringToSign)));
 
-    string token = String.Format(CultureInfo.InvariantCulture, "SharedAccessSignature sr={0}&sig={1}&se={2}", WebUtility.UrlEncode(resourceUri).ToLower(), WebUtility.UrlEncode(signature), expiry);
+    string token = String.Format(CultureInfo.InvariantCulture, "SharedAccessSignature sr={0}&sig={1}&se={2}", WebUtility.UrlEncode(resourceUri), WebUtility.UrlEncode(signature), expiry);
 
     if (!String.IsNullOrEmpty(policyName))
     {
@@ -338,13 +338,17 @@ Le résultat, qui revient à accorder l’accès en lecture à toutes les identi
 
 ## <a name="supported-x509-certificates"></a>Certificats X.509 pris en charge
 
-Vous pouvez utiliser n’importe quel certificat X.509 pour authentifier un appareil sur IoT Hub. Les certificats incluent :
+Vous pouvez utiliser n’importe quel certificat X.509 pour authentifier un appareil avec IoT Hub en chargeant une empreinte de certificat ou une autorité de certification (CA) sur Azure IoT Hub. L’authentification à l’aide d’empreintes de certificat vérifie seulement que l’empreinte présentée correspond à l’empreinte configurée. L’authentification à l’aide de l’autorité de certification valide la chaîne de certificats. 
 
-* **un certificat X.509 existant**. Un appareil peut être déjà associé à un certificat X.509. L’appareil peut utiliser ce certificat pour s’authentifier sur IoT Hub ;
-* **un certificat X-509 généré et signé automatiquement**. Un fabricant d’appareils ou un technicien de déploiement en interne peut générer ces certificats et stocker la clé privée correspondante (ainsi que le certificat) sur l’appareil. Vous pouvez utiliser des outils tels que [OpenSSL][lnk-openssl] ou l’utilitaire [Windows SelfSignedCertificate][lnk-selfsigned] à cette fin ;
-* **un certificat X.509 signé par une autorité de certification**. Pour identifier un appareil et l’authentifier auprès de IoT Hub, vous pouvez utiliser un certificat X.509 généré et signé par une autorité de certification. IoT Hub vérifie seulement que l’empreinte présentée correspond à l’empreinte configurée. Il valide ensuite la chaîne de certificats.
+Les certificats pris en charge incluent :
+
+* **un certificat X.509 existant**. Un appareil peut être déjà associé à un certificat X.509. L’appareil peut utiliser ce certificat pour s’authentifier sur IoT Hub ; Fonctionne avec l’authentification à l’aide de l’empreinte ou de l’autorité de certification. 
+* **un certificat X.509 signé par une autorité de certification**. Pour identifier un appareil et l’authentifier auprès de IoT Hub, vous pouvez utiliser un certificat X.509 généré et signé par une autorité de certification. Fonctionne avec l’authentification à l’aide de l’empreinte ou de l’autorité de certification.
+* **un certificat X-509 généré et signé automatiquement**. Un fabricant d’appareils ou un technicien de déploiement en interne peut générer ces certificats et stocker la clé privée correspondante (ainsi que le certificat) sur l’appareil. Vous pouvez utiliser des outils tels que [OpenSSL][lnk-openssl] ou l’utilitaire [Windows SelfSignedCertificate][lnk-selfsigned] à cette fin ; Fonctionne uniquement avec l’authentification à l’aide de l’empreinte. 
 
 Un appareil peut utiliser un certificat X.509 ou un jeton de sécurité pour l’authentification, mais pas les deux.
+
+Pour plus d’informations sur l’authentification à l’aide de l’autorité de certification, consultez [Compréhension conceptuelle des certificats d’autorité de certification X.509](iot-hub-x509ca-concept.md).
 
 ### <a name="register-an-x509-certificate-for-a-device"></a>Inscrire un certificat X.509 pour un appareil
 
@@ -354,10 +358,7 @@ Un appareil peut utiliser un certificat X.509 ou un jeton de sécurité pour l�
 
 La classe **RegistryManager** offre un moyen d’inscrire un appareil dans le cadre d’un programme. Les méthodes **AddDeviceAsync** et **UpdateDeviceAsync** vous permettent de vous inscrire et mettre à jour un appareil dans le registre des identités IoT Hub. Ces deux méthodes utilisent une instance **Device** comme entrée. La classe **Device** inclut une propriété **Authentication** qui vous permet de spécifier les empreintes de certificats X.509 primaires et secondaires. L’empreinte numérique représente un hachage SHA-1 du certificat X.509 (stocké à l’aide d’un codage DER binaire). Vous pouvez spécifier une empreinte numérique principale et/ou une empreinte numérique secondaire. Les empreintes numériques principales et secondaires sont prises en charge pour la gestion des scénarios de substitution de certificat.
 
-> [!NOTE]
-> IoT Hub ne requiert ni ne stocke le certificat X.509 dans son intégralité, mais uniquement l’empreinte numérique.
-
-Voici un exemple d’extrait de code C\# permettant d’inscrire un appareil à l’aide d’un certificat X.509 :
+Voici un exemple d’extrait de code C\# permettant d’inscrire un appareil à l’aide d’une empreinte de certificat X.509 :
 
 ```csharp
 var device = new Device(deviceId)

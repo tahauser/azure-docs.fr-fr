@@ -12,24 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/10/2017
+ms.date: 03/20/2018
 ms.author: bhanupr
-ms.openlocfilehash: a0156915c329dfad1424cfd1f10a6ebb27c56acc
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ae7ccaf3d167176a1fc6015e84b0eb023da945d5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Configurer les clusters HDInsight joints à un domaine à l’aide d’Azure Active Directory Domain Services
 
 Les clusters joints à un domaine fournissent des fonctionnalités de sécurité d’entreprise multi-utilisateur dans HDInsight. Les clusters HDInsight joints à un domaine sont connectés à des domaines Active Directory. De cette façon, les utilisateurs du domaine peuvent utiliser leurs informations d’identification de domaine pour s’authentifier auprès des clusters et exécuter des tâches de Big Data. 
 
-Il existe deux façons de configurer un contrôleur de domaine pour qu’un cluster HDInsight joint à un domaine puisse se connecter à :
-
-- Azure Active Directory Domain Services (Azure AD DS)
-- Un contrôleur de domaine Active Directory sur des machines virtuelles Azure IaaS
-
 Dans cet article, vous allez voir comment configurer un cluster HDInsight joint à un domaine à l’aide d’Azure Active Directory Domain Services.
+
+> [!NOTE]
+> Active Directory sur des machines virtuelles Azure IaaS n’est plus pris en charge.
 
 ## <a name="create-azure-adds"></a>Créer une instance d’Azure AD DS
 

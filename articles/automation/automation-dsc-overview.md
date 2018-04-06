@@ -1,24 +1,19 @@
 ---
-title: "Vue d’ensemble d’Azure Automation DSC | Microsoft Docs"
-description: "Vue d'ensemble de la configuration d'état souhaité (DSC) Azure Automation, les termes s'y rapportant et les problèmes connus"
+title: Vue d'ensemble d'Azure Automation DSC
+description: Vue d'ensemble de la configuration d'état souhaité (DSC) Azure Automation, les termes s'y rapportant et les problèmes connus
+keywords: PowerShell DSC, Desired State Configuration, configuration d'état souhaité PowerShell DSC Azure
 services: automation
-documentationcenter: dev-center-name
-author: georgewallace
-manager: carmonm
-keywords: "PowerShell DSC, Desired State Configuration, configuration d'état souhaité PowerShell DSC Azure"
-ms.assetid: fd40cb68-c1a6-48c3-bba2-710b607d1555
 ms.service: automation
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: powershell
-ms.workload: TBD
-ms.date: 06/15/2017
+author: georgewallace
 ms.author: gwallace
-ms.openlocfilehash: 7440fa58f9cbd201984d178a7e9a2c12afc84783
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.date: 03/15/2018
+ms.topic: article
+manager: carmonm
+ms.openlocfilehash: 3949b79c3729ecdc2dfdd6297a5f10852e061540
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-automation-dsc-overview"></a>Vue d'ensemble d'Azure Automation DSC
 
@@ -45,8 +40,8 @@ Azure Automation DSC apporte la même couche de gestion à la [configuration d�
 ### <a name="import-reporting-data-into-log-analytics"></a>Importer des données de création de rapports dans Log Analytics
 
 Les nœuds gérés dans Azure Automation DSC envoient des données détaillées sur l’état de création de rapports au serveur collecteur intégré.
-Vous pouvez configurer Azure Automation DSC pour envoyer ces données à votre espace de travail Microsoft Operations Management Suite (OMS) Log Analytics.
-Pour savoir comment envoyer des données d’état DSC à votre espace de travail Log Analytics, consultez [Forward Azure Automation DSC reporting data to OMS Log Analytics](automation-dsc-diagnostics.md) (Transférer des données de création de rapports Azure Automation DSC à OMS Log Analytics).
+Vous pouvez configurer Azure Automation DSC de façon à envoyer ces données à votre espace de travail Log Analytics.
+Pour savoir comment envoyer des données d’état DSC à votre espace de travail Log Analytics, voir [Transférer des données de rapport Azure Automation DSC à Log Analytics](automation-dsc-diagnostics.md).
 
 ## <a name="introduction-video"></a>Vidéo de présentation
 

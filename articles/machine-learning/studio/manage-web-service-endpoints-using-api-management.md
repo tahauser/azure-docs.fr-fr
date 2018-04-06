@@ -1,12 +1,13 @@
 ---
-title: "Apprenez à gérer les services web AzureML à l’aide de la gestion des API | Microsoft Docs"
-description: "Guide montrant comment gérer les services web AzureML à l’aide de la gestion des API"
+title: Apprenez à gérer les services web AzureML à l’aide de la gestion des API | Microsoft Docs
+description: Guide montrant comment gérer les services web AzureML à l’aide de la gestion des API
 keywords: apprentissage automatique,gestion des api
 services: machine-learning
-documentationcenter: 
-author: roalexan
-manager: jhubbard
-editor: 
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
+editor: cgronlun
 ms.assetid: 05150ae1-5b6a-4d25-ac67-fb2f24a68e8d
 ms.service: machine-learning
 ms.workload: data-services
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.author: roalexan
-ms.openlocfilehash: b2c9f53de1abd2aea5fabbefecc5bbb144148a7b
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: fe916df286b0e50430464b3f2f8837b898abb827
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="learn-how-to-manage-azureml-web-services-using-api-management"></a>Gestion des services web AzureML à l’aide de Gestion des API
 ## <a name="overview"></a>Vue d'ensemble
@@ -31,7 +31,8 @@ Gestion des API Azure est un service Azure qui vous permet de gérer vos points 
 ## <a name="what-is-azureml"></a>Présentation d’AzureML
 AzureML est un service Azure d’apprentissage automatique qui vous permet de facilement générer, déployer et partager des solutions d’analyse avancée. Cliquez [ici](https://azure.microsoft.com/services/machine-learning/) pour plus d’informations sur AzureML.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 Pour utiliser ce guide, il vous faut :
 
 * Un compte Azure. Si vous n’avez pas de compte Azure, cliquez [ici](https://azure.microsoft.com/pricing/free-trial/) pour plus d’informations sur la création d’un compte d’essai gratuit.
@@ -42,7 +43,7 @@ Pour utiliser ce guide, il vous faut :
 
 Vous pouvez gérer votre service web Azure Machine Learning au moyen d’une instance Gestion des API.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Sélectionnez **+ Créer une ressource**.
 3. Dans la zone de recherche, tapez « Gestion des API », puis sélectionnez la ressource « Gestion des API ».
 4. Cliquez sur **Créer**.
@@ -173,7 +174,7 @@ Après l’appel d’une opération, le portail des développeurs affiche **l’
 
 ## <a name="appendix-a---creating-and-testing-a-simple-azureml-web-service"></a>Annexe A - Création et test d’un service web AzureML simple
 ### <a name="creating-the-experiment"></a>Création de l’expérience
-Vous trouverez ci-dessous les étapes de création d’une expérience AzureML simple et de son déploiement comme service web. Le service web prend comme entrée une colonne de texte arbitraire et retourne un ensemble de fonctionnalités représentées sous forme d’entiers. Par exemple :
+Vous trouverez ci-dessous les étapes de création d’une expérience AzureML simple et de son déploiement comme service web. Le service web prend comme entrée une colonne de texte arbitraire et retourne un ensemble de fonctionnalités représentées sous forme d’entiers. Par exemple : 
 
 | Texte | Texte haché |
 | --- | --- |

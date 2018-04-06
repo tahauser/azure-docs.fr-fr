@@ -1,24 +1,18 @@
 ---
-title: Automatiser la suppression des groupes de ressources | Microsoft Docs
-description: "Version du workflow PowerShell d’un scénario d’Azure Automation incluant des runbooks pour supprimer tous les groupes de ressources de votre abonnement."
+title: Automatiser la suppression de groupes de ressources avec Azure Automation
+description: Version du workflow PowerShell d’un scénario d’Azure Automation incluant des runbooks pour supprimer tous les groupes de ressources de votre abonnement.
 services: automation
-documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: 
-ms.assetid: b848e345-fd5d-4b9d-bc57-3fe41d2ddb5c
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/19/2018
 ms.topic: article
-ms.date: 09/26/2016
-ms.author: magoedte
-ms.openlocfilehash: cb7183cbec1c3efafe58f4508042d329be5dcecf
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+manager: carmonm
+ms.openlocfilehash: 1d54e03c1b5518dece4e11d76593b12fe83dc8c2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-automation-scenario---automate-removal-of-resource-groups"></a>Scénario Azure Automation - Automatiser la suppression de groupes de ressources
 De nombreux clients créent plusieurs groupes de ressources. Certains peuvent être utilisés pour la gestion des applications de production, et d’autres comme environnement de développement, de test et intermédiaires. Automatiser le déploiement de ces ressources est une chose, mais être capable de désactiver un groupe de ressources d’un simple clic en est une autre. Vous pouvez simplifier cette tâche de gestion courante à l’aide d’Azure Automation. Cela est également utile si vous travaillez avec un abonnement Azure présentant une limite de dépense obtenue via une offre spéciale réservée aux membres de MSDN ou du programme Microsoft Partner Network Cloud Essentials.
@@ -42,9 +36,10 @@ Les paramètres d’entrée suivants sont définis pour ce runbook :
 
 ## <a name="install-and-configure-this-scenario"></a>Installer et configurer ce scénario
 ### <a name="prerequisites"></a>Prérequis
+
 Ce runbook s’authentifie à l’aide du [compte d’identification Azure](automation-sec-configure-azure-runas-account.md).    
 
-### <a name="install-and-publish-the-runbooks"></a>Installer et publier des runbooks
+### <a name="install-and-publish-the-runbooks"></a>Installer et publier des Runbook
 Après avoir téléchargé le runbook, vous pouvez l’importer à l’aide de la procédure décrite dans les [procédures d’importation de runbooks](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation). Publiez le runbook une fois qu’il a été correctement importé dans votre compte Automation.
 
 ## <a name="using-the-runbook"></a>Utilisation du runbook
@@ -62,7 +57,7 @@ La procédure suivante vous guide tout au long de l’exécution de ce runbook e
 
 Pour afficher les détails de la tâche du runbook **Remove-ResourceGroup** dans le portail Azure, sous **Ressource**, sélectionnez **Tâches** dans le runbook. Sélectionnez la tâche à afficher. Le résumé de la tâche affiche les paramètres d’entrée et le flux de sortie, en plus des informations générales sur le travail et des exceptions.<br> ![État de la tâche du runbook Remove-ResourceGroup](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-status.png).
 
-Le **Résumé du travail** inclut les messages des flux de sortie, des flux d’avertissements et des flux d’erreurs. Pour visualiser les résultats détaillés de l’exécution du runbook, sélectionnez **Sortie**.<br> ![Résultats de la sortie du runbook Remove-ResourceGroup](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-output.png)
+Le **Résumé du travail** inclut les messages des flux de sortie, des flux d’avertissements et des flux d’erreurs. Pour visualiser les résultats détaillés de l’exécution du Runbook, sélectionnez **Sortie**.<br> ![Résultats de la sortie du runbook Remove-ResourceGroup](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-output.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour vous familiariser avec la création de votre propre runbook, consultez [Création ou importation d’un runbook dans Azure Automation](automation-creating-importing-runbook.md).

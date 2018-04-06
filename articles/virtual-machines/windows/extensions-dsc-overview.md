@@ -1,11 +1,11 @@
 ---
-title: "Présentation de la configuration d’état souhaité pour Azure | Microsoft Docs"
-description: "Apprenez à utiliser le gestionnaire d’extensions Microsoft Azure pour la configuration d’état souhaité (DSC) PowerShell. Cet article décrit la configuration requise et l’architecture, et contient des applets de commande."
+title: Présentation de la configuration d’état souhaité pour Azure | Microsoft Docs
+description: Apprenez à utiliser le gestionnaire d’extensions Microsoft Azure pour la configuration d’état souhaité (DSC) PowerShell. Cet article décrit la configuration requise et l’architecture, et contient des applets de commande.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: mgreenegit
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 keywords: dsc
 ms.assetid: bbacbc93-1e7b-4611-a3ec-e3320641f9ba
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: migreene
-ms.openlocfilehash: 14d29223435e9a133b112a61f2ecdde0aad581a2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 5b16261c9a9f046b7bc55a06dd71aa154a0cec27
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Présentation du gestionnaire d’extensions de configuration d’état souhaité Microsoft Azure
 
@@ -71,7 +71,7 @@ Dans la plupart des scénarios, les modèles de déploiement Resource Manager so
 
 Les applets de commande PowerShell utilisés pour la gestion de l’extension DSC sont idéalement utilisés dans les scénarios interactifs de résolution de problèmes et de collecte d’informations. Vous pouvez utiliser les applets de commande pour empaqueter, publier et surveiller des déploiements de l’extension DSC. Notez que les applets de commande pour l’extension DSC n’ont pas encore été mises à jour pour fonctionner avec le [Script de configuration par défaut](#default-configuration-script).
 
-L’applet de commande **Publish-AzureRMVMDscConfiguration** récupère un fichier de configuration, l’analyse pour y trouver les ressources DSC dépendantes, puis crée un fichier .zip. Le fichier .zip contient la configuration et les ressources DSC nécessaires pour déployer la configuration. L’applet de commande peut également créer le package en local en utilisant le paramètre *- ConfigurationArchivePath*. Dans le cas contraire, elle publie le fichier .zip dans le stockage Blob Azure, et le sécurise avec un jeton SAP.
+L’applet de commande **Publish-AzureRMVMDscConfiguration** récupère un fichier de configuration, l’analyse pour y trouver les ressources DSC dépendantes, puis crée un fichier .zip. Le fichier .zip contient la configuration et les ressources DSC nécessaires pour déployer la configuration. La cmdlet peut également créer le package en local en utilisant le paramètre *-OutputArchivePath*. Dans le cas contraire, elle publie le fichier .zip dans le stockage Blob Azure, et le sécurise avec un jeton SAP.
 
 Le script de configuration .ps1 créé par cette applet de commande se trouve dans le fichier .zip placé à la racine du dossier d’archivage. Le dossier du module est placé dans le dossier d’archivage, sous les ressources.
 
@@ -133,7 +133,7 @@ Pour configurer DSC dans le portail :
 
 Le portail a besoin des données suivantes :
 
-* **Script ou modules de configuration** : ce champ est obligatoire (le formulaire n’a pas été mis à jour pour le [script de configuration par défaut](#default-configuration-script)). Les scripts et modules de configuration nécessitent un fichier .ps1 qui contient un script de configuration ou un fichier .zip avec un script de configuration .ps1 à la racine. Si vous utilisez un fichier .zip, toutes les ressources dépendantes doivent figurer dans les dossiers de module à l’intérieur du fichier .zip. Vous pouvez créer le fichier .zip à l’aide de l’applet de commande **Publish-AzureVMDscConfiguration - ConfigurationArchivePath** qui est incluse dans le Kit de développement logiciel Azure PowerShell. Le fichier .zip sera chargé dans votre stockage d’objets blob d’utilisateur et sécurisé par un jeton SAP.
+* **Script ou modules de configuration** : ce champ est obligatoire (le formulaire n’a pas été mis à jour pour le [script de configuration par défaut](#default-configuration-script)). Les scripts et modules de configuration nécessitent un fichier .ps1 qui contient un script de configuration ou un fichier .zip avec un script de configuration .ps1 à la racine. Si vous utilisez un fichier .zip, toutes les ressources dépendantes doivent figurer dans les dossiers de module à l’intérieur du fichier .zip. Vous pouvez créer le fichier .zip à l’aide de la cmdlet **Publish-AzureVMDscConfiguration -OutputArchivePath** incluse dans le Kit de développement logiciel (SDK) Azure PowerShell. Le fichier .zip sera chargé dans votre stockage d’objets blob d’utilisateur et sécurisé par un jeton SAP.
 
 * **Fichier PSD1 de données de configuration**: ce champ est facultatif. Si votre configuration nécessite un fichier de données de configuration dans .psd1, utilisez ce champ pour sélectionner le champ de données et le charger dans votre stockage d’objets blob d’utilisateur. Le fichier de données de configuration est sécurisé par un jeton SAP dans le stockage Blob.
 

@@ -1,24 +1,24 @@
 ---
-title: "Historique de publication des versions du connecteur | Microsoft Docs"
-description: "Cette rubrique répertorie toutes les versions des connecteurs de Forefront Identity Manager (FIM) et Microsoft Identity Manager (MIM)."
+title: Historique de publication des versions du connecteur | Microsoft Docs
+description: Cette rubrique répertorie toutes les versions des connecteurs de Forefront Identity Manager (FIM) et Microsoft Identity Manager (MIM).
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 6a0c66ab-55df-4669-a0c7-1fe1a091a7f9
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/06/2017
-ms.author: billmath
-ms.openlocfilehash: 5b43284a86a7e5d4cdbf50a29d73f970c9ad9d58
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.date: 03/22/2018
+ms.author: davidste
+ms.openlocfilehash: 5b13338646abda7eefec44c42dc0159e9338adfa
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="connector-version-release-history"></a>Historique de publication des versions du connecteur
 Les connecteurs de Forefront Identity Manager (FIM) et Microsoft Identity Manager (MIM) sont fréquemment mis à jour.
@@ -34,9 +34,26 @@ Liens connexes :
 * [Télécharger les derniers connecteurs](http://go.microsoft.com/fwlink/?LinkId=717495)
 * [connecteur LDAP générique](active-directory-aadconnectsync-connector-genericldap.md)
 * [connecteur SQL générique](active-directory-aadconnectsync-connector-genericsql.md)
-* [connecteur WebServices](http://go.microsoft.com/fwlink/?LinkID=226245)
+* [connecteur WebServices](https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws)
 * [connecteur PowerShell](active-directory-aadconnectsync-connector-powershell.md)
 * [connecteur Lotus Domino](active-directory-aadconnectsync-connector-domino.md)
+
+
+## <a name="118300"></a>1.1.830.0
+
+### <a name="fixed-issues"></a>Problèmes résolus :
+* ConnectorsLog System.Diagnostics.EventLogInternal.InternalWriteEvent(Message : un appareil joint au système ne fonctionne pas) résolu
+* Dans cette version de connecteurs, vous devez mettre à jour la redirection de liaison de 3.3.0.0-4.1.3.0 à 4.1.4.0 dans miiserver.exe.config
+* Services web génériques :
+    * La réponse de JSON valide résolue n’a pas pu être enregistrée dans l’outil de configuration
+* SQL générique :
+    * L’exportation génère toujours la requête de mise à jour uniquement pour l’opération de suppression. Ajouté pour générer une requête Suppression
+    * La requête SQL qui obtient des objets pour l’opération d’importations Delta, si « Stratégie Delta » est « Change Tracking » a été résolue. Dans la limitation connue de cette implémentation : l’importation Delta avec le mode « Change Tracking » ne suit pas les modifications apportées aux attributs à valeurs multiples
+    * Il est possible de générer une requête Suppression pour les cas où il est nécessaire de supprimer la dernière valeur d’attribut à valeurs multiples. Cette ligne ne contient pas toutes les autres données à l’exception de la valeur qu’il est nécessaire de supprimer.
+    * Gestion de System.ArgumentException lors de l’implémentation de paramètres SORTIE par SP 
+    * Requête incorrecte pour effectuer l’opération d’exportation dans le champ qui a le type varbinary (max)
+    * Le problème avec la variable parameterList a été initialisé deux fois (dans les fonctions ExportAttributes et GetQueryForMultiValue)
+
 
 ## <a name="116490-aadconnect-116490"></a>1.1.649.0 (AADConnect 1.1.649.0)
 
@@ -80,6 +97,8 @@ Liens connexes :
   * L’outil Wsconfig n’a pas converti correctement le tableau Json à partir de « exemple de demande » pour la méthode de service REST. Ceci entraînait des problèmes lors de la sérialisation de ce tableau Json pour la demande REST.
   * L’outil de configuration du connecteur de service web ne prend pas en charge l’utilisation de symboles d’espace dans les noms d’attribut JSON 
     * Un modèle de substitution peut être ajouté manuellement dans le fichier WSConfigTool.exe.config, par exemple ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
+> [!NOTE]
+> La clé JSONSpaceNamePattern est requise car pour l’exportation, vous recevrez l’erreur suivante : Message : le nom vide n’est pas légal. 
 
 * Lotus Notes :
   * Quand l’option **Allow custom certifiers for Organization/Organizational Units** (Autoriser les certificateurs personnalisés pour les organisations/unités d’organisation) est désactivée, le connecteur échoue pendant l’exportation (mise à jour). Après le flux d’exportation, tous les attributs sont exportés vers Domino, mais au moment de l’exportation KeyNotFoundException est retournée à la synchronisation. 

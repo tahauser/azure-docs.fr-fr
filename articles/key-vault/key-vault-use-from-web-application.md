@@ -1,6 +1,6 @@
 ---
-title: "Utilisation d’Azure Key Vault à partir d’une application web | Microsoft Docs"
-description: "Utilisez ce didacticiel pour vous aider à apprendre comment utiliser Azure Key Vault à partir d'une application web."
+title: Utilisation d’Azure Key Vault à partir d’une application web | Microsoft Docs
+description: Utilisez ce didacticiel pour vous aider à apprendre comment utiliser Azure Key Vault à partir d'une application web.
 services: key-vault
 author: adhurwit
 manager: mbaldwin
@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: adhurwit
-ms.openlocfilehash: 107be940b4c105056c63f793fb0111b03469bf66
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 93ef76729123c7187c3dd616419b5771324fe2cb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-azure-key-vault-from-a-web-application"></a>Utilisation d'Azure Key Vault à partir d'une application web
 
@@ -28,6 +28,7 @@ Utilisez ce didacticiel pour vous aider à comprendre comment utiliser Azure Ke
 Pour plus d’informations générales sur Azure Key Vault, consultez la page [Présentation d’Azure Key Vault](key-vault-whatis.md)
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -151,7 +152,7 @@ makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 07/31/2017 -e 07/31/2018
 pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 ```
 
-Prenez note de la date de fin et du mot de passe pour le fichier.pfx (dans cet exemple : 31/07/2017 et test123). Vous en aurez besoin ultérieurement.
+Prenez note de la date de fin et du mot de passe pour le fichier.pfx (dans cet exemple : 31/07/2018 et test123). Vous en aurez besoin ultérieurement.
 
 Pour plus d’informations sur la création d’un certificat de test, consultez [How to: Create Your Own Test Certificate](https://msdn.microsoft.com/library/ff699202.aspx)
 

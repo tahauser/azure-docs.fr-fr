@@ -1,10 +1,10 @@
 ---
 title: Connexions prises en charge avec IT Service Management Connector dans Azure Log Analytics | Microsoft Docs
-description: "Cet article fournit des informations vous indiquant comment connecter vos produits/services ITSM à IT Service Management Connector (ITSMC) dans OMS Log Analytics pour surveiller et gérer les éléments de travail ITSM de manière centralisée."
-documentationcenter: 
+description: Cet article fournit des informations vous indiquant comment connecter vos produits/services ITSM à IT Service Management Connector (ITSMC) dans OMS Log Analytics pour surveiller et gérer les éléments de travail ITSM de manière centralisée.
+documentationcenter: ''
 author: JYOTHIRMAISURI
 manager: riyazp
-editor: 
+editor: ''
 ms.assetid: 8231b7ce-d67f-4237-afbf-465e2e397105
 ms.service: log-analytics
 ms.workload: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: e0cae844e8b7f3eab68ed02dbcd17f4d1cebfd25
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 35d04fabc66ede309fe91969c5bec3131a282afb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Connecter des produits/services ITSM à IT Service Management Connector
 Cet article fournit des informations vous indiquant comment configurer la connexion entre votre produit/service ITSM au connecteur de gestion des services informatiques (ITSMC) dans Log Analytics pour gérer de manière centralisée vos éléments de travail. Pour plus d’informations sur le connecteur ITSM, consultez [Présentation](log-analytics-itsmc-overview.md).
@@ -38,6 +38,7 @@ Les produits/services ITSM suivants sont pris en charge. Sélectionnez le produi
 Les sections suivantes fournissent des détails sur la connexion de votre produit System Center Service Manager au connecteur ITSM dans Azure.
 
 ### <a name="prerequisites"></a>Prérequis
+
 
 Vérifiez que les prérequis suivants sont remplis :
 
@@ -183,6 +184,7 @@ L’image d’exemple suivante présente les détails d’une connexion réussie
 Les sections suivantes fournissent des détails sur la connexion de votre produit ServiceNow au connecteur ITSM dans Azure.
 
 ### <a name="prerequisites"></a>Prérequis
+
 Vérifiez que les prérequis suivants sont remplis :
 - Connecteur ITSM installé. Pour plus d’informations, consultez [Ajout de la solution IT Service Management Connector](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Versions prises en charge par ServiceNow : Kingston, Jakarta, Istanbul, Helsinki, Geneva.
@@ -271,13 +273,7 @@ Une fois l’utilisateur créé, l’état de l’option **Liste de vérificatio
 
 > [!NOTE]
 
-> Pour autoriser un utilisateur à créer des **alertes** et des **événements** dans ServiceNow à partir d’Azure :
-
-> - Vérifiez que vous avez installé le module Gestion des événements dans votre instance ServiceNow.
-
-> - Ajoutez les rôles suivants à l’utilisateur de l’intégration :
->      - evt_mgmt_integration
->      - evt_mgmt_operator  
+> Le connecteur ITSM peuvent envoyer des incidents à ServiceNow sans d’autres modules installés sur votre instance ServiceNow. Si vous utilisez le module EventManagement dans votre instance ServiceNow et si vous souhaitez créer des Événements ou des Alertes dans ServiceNow l’aide du connecteur, ajoutez les rôles suivants à l’utilisateur d’intégration : - evt_mgmt_integration - evt_mgmt_operator  
 
 
 ## <a name="connect-provance-to-it-service-management-connector-in-azure"></a>Connecter Provance au connecteur ITSM dans Azure
@@ -286,6 +282,7 @@ Les sections suivantes fournissent des détails sur la connexion de votre produi
 
 
 ### <a name="prerequisites"></a>Prérequis
+
 
 Vérifiez que les prérequis suivants sont remplis :
 
@@ -339,6 +336,7 @@ Pour en savoir plus : [Créer des éléments de travail ITSM pour des alertes Lo
 Les sections suivantes fournissent des détails sur la connexion de votre produit Cherwell au connecteur ITSM dans Azure.
 
 ### <a name="prerequisites"></a>Prérequis
+
 
 Vérifiez que les prérequis suivants sont remplis :
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: bradsev
-ms.openlocfilehash: 6a46a05539a7211fbc2a3a9f6ec45a28f5c64039
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 085ce90311d4d89b365f7fe51a95c00c1a734196
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>Instructions de configuration du tableau de bord Power BI pour le modèle de la solution Vehicle Telemetry Analytics
 Ce menu contient des liens vers les chapitres de ce manuel : 
@@ -309,7 +309,7 @@ Vous avez correctement configuré le rapport en temps réel « Véhicules néces
 
     ![Zones Détails, Légende, Axe et Taille](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4hh.png)
 
-25. Tapez **Moyenne de carburant, moyenne d’engineTemperature et nombre de VIN par modèle** comme **Titre** du graphique.
+25. Comme **Titre** du graphique, tapez **Moyenne de carburant, moyenne de température moteur et nombre de VIN par modèle**.
 
     ![Titre du nuage de points](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4ii.png)
 

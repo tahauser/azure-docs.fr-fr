@@ -1,11 +1,11 @@
 ---
-title: "Streaming en direct avec des encodeurs locaux qui créent des flux multidébits - Azure | Microsoft Docs"
-description: "Cette rubrique explique comment configurer un canal qui reçoit un flux dynamique à débit binaire multiple en provenance d’un encodeur local. Le flux peut ensuite être distribué aux applications de lecture clientes via un ou plusieurs points de terminaison de streaming à l’aide d’un des protocoles de streaming adaptatifs suivants : HLS, Smooth Streaming, DASH."
+title: Streaming en direct avec des encodeurs locaux qui créent des flux multidébits - Azure | Microsoft Docs
+description: 'Cette rubrique explique comment configurer un canal qui reçoit un flux dynamique à débit binaire multiple en provenance d’un encodeur local. Le flux peut ensuite être distribué aux applications de lecture clientes via un ou plusieurs points de terminaison de streaming à l’aide d’un des protocoles de streaming adaptatifs suivants : HLS, Smooth Streaming, DASH.'
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: d9f0912d-39ec-4c9c-817b-e5d9fcf1f7ea
 ms.service: media-services
 ms.workload: media
@@ -14,13 +14,17 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: 1266c7b6c1539f84eafea1007999fb4360184857
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: fae123d2cc594bb741fb1cdb0da62bef05a2a8c2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Streaming en direct avec des encodeurs locaux qui créent des flux multidébits
+
+> [!NOTE]
+> À partir du 12 mai 2018, les canaux en direct ne prendront plus en charge le protocole de réception du flux de transport RTP/MPEG-2. Effectuez la migration à partir de RTP/MPEG-2 vers le protocole de réception RTMP ou MP4 fragmenté (Smooth Streaming).
+
 ## <a name="overview"></a>Vue d'ensemble
 Dans Azure Media Services, un *canal* représente un pipeline de traitement du contenu vidéo en flux continu. Un canal reçoit des flux d’entrée live de l’une des deux manières suivantes :
 
@@ -114,7 +118,7 @@ Lorsque vous utilisez un encodeur live local pour générer un flux multidébit,
 
 Le tableau suivant montre le mode de calcul de la durée du segment :
 
-| Intervalle d’image clé | Coefficient d’empaquetage de segment HLS (FragmentsPerSegment) | exemples |
+| Intervalle d’image clé | Coefficient d’empaquetage de segment HLS (FragmentsPerSegment) | Exemples |
 | --- | --- | --- |
 | Inférieur ou égal à 3 secondes |3 |Si KeyFrameInterval (ou GOP) est égal à 2 secondes, le coefficient d’empaquetage de segment HLS est de 3 pour 1. Cela crée un segment HLS de 6 secondes. |
 | 3 à 5 secondes |2:1 |Si KeyFrameInterval (ou GOP) est égal à 4 secondes, le coefficient d’empaquetage de segment HLS est de 2 pour 1. Cela crée un segment HLS de 8 secondes. |

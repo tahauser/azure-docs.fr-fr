@@ -42,7 +42,7 @@ Non.
 
 **Existe-t-il des restrictions de mise à l’échelle pour les clients utilisant des disques gérés ?**
 
-Managed Disks élimine les restrictions associées aux comptes de stockage. Toutefois, le nombre de disques gérés par abonnement est limité à 2 000 par défaut. Vous pouvez appeler le support technique pour augmenter ce nombre.
+Managed Disks élimine les restrictions associées aux comptes de stockage. Toutefois, la limite maximale, ainsi que la limite par défaut, est de 10 000 disques managés par région et par type de disque pour un abonnement.
 
 **Puis-je prendre une capture instantanée incrémentielle d’un disque géré ?**
 

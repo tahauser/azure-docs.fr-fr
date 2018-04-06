@@ -1,12 +1,12 @@
 ---
-title: "Actions webhook pour les alertes de journal dans Azure Alerts (préversion) | Microsoft Docs"
-description: "Cet article comment une règle d’alerte de journal utilisant une analyse de journal ou des informations d’application envoie des données en tant que webhook HTTP et des détails sur les différentes personnalisations possibles."
+title: Actions webhook pour les alertes de journal dans Alertes Azure | Microsoft Docs
+description: Cet article comment une règle d’alerte de journal utilisant une analyse de journal ou des informations d’application envoie des données en tant que webhook HTTP et des détails sur les différentes personnalisations possibles.
 author: msvijayn
 manager: kmadnani1
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/2/2018
 ms.author: vinagara
-ms.openlocfilehash: 5852eb099f6620656aa69e5085447c2a8b4e0c01
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9d2bc934424ff7a31b65ad6c03624ff02ee2a6f3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Actions webhook pour les règles d’alerte de journal
-Quand une [alerte est créée dans Azure (préversion)](monitor-alerts-unified-usage.md), vous avez la possibilité d’effectuer une [configuration à l’aide de groupes d’actions](monitoring-action-groups.md) pour exécuter une ou plusieurs actions.  Cet article décrit les différentes actions webhook disponibles et les détails de la configuration du webhook personnalisé basé sur JSON.
+Quand une [alerte est créée dans Azure](monitor-alerts-unified-usage.md), vous avez l’option de la [configuration à l’aide de groupes d’actions](monitoring-action-groups.md) pour exécuter une ou plusieurs actions.  Cet article décrit les différentes actions webhook disponibles et les détails de la configuration du webhook personnalisé basé sur JSON.
 
 
 ## <a name="webhook-actions"></a>Actions de webhook
@@ -33,7 +33,7 @@ Les propriétés requises par les actions webhook sont décrites dans le tableau
 | Propriété | Description |
 |:--- |:--- |
 | URL du webhook |URL du webhook. |
-| Charge utile JSON personnalisée |Charge utile personnalisée à envoyer avec le webhook, lorsque vous choisissez cette option au moment de la création de l’alerte. Détails disponibles sur la page [Gérer les alertes à l’aide d’Azure Alerts (préversion)](monitor-alerts-unified-usage.md) |
+| Charge utile JSON personnalisée |Charge utile personnalisée à envoyer avec le webhook, lorsque vous choisissez cette option au moment de la création de l’alerte. Détails disponibles sur la page [Gérer des alertes à l’aide d’Alertes Azure](monitor-alerts-unified-usage.md) |
 
 > [!NOTE]
 > L’utilisation du bouton Tester le Webhook avec l’option *Inclure une charge utile Json personnalisée pour webhook* pour Alerte du journal, déclenche un appel fictif pour tester l’URL du webhook. Il ne contient aucune donnée réelle et représentative du schéma JSON utilisé pour les alertes de journal. 
@@ -157,6 +157,8 @@ Voici un exemple de charge utile pour un webhook standard *sans option Json pers
     }
     }
 
+> [!NOTE]
+> Les alertes de journal pour Application Insights sont actuellement en préversion publique - la fonctionnalité et l’expérience utilisateur sont susceptibles de changer.
 
 #### <a name="log-alert-with-custom-json-payload"></a>Alerte de journal avec charge utile JSON personnalisée
 Par exemple, pour créer une charge utile personnalisée qui inclut uniquement le nom de l’alerte et les résultats de recherche, vous pouvez utiliser ce qui suit : 
@@ -194,7 +196,7 @@ Voici un exemple de charge utile pour une action de webhook personnalisée pour 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-- En savoir plus sur les [alertes de journal dans Azure Alerts (préversion)](monitor-alerts-unified-log.md)
+- En savoir plus sur les [Alertes de journal dans Alertes Azure](monitor-alerts-unified-log.md)
 - Créer et gérer des [groupes d’actions dans Azure](monitoring-action-groups.md)
 - En savoir plus sur [Application Insights](../application-insights/app-insights-analytics.md)
 - En savoir plus sur [Log Analytics](../log-analytics/log-analytics-overview.md). 

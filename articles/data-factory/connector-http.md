@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 0092564dce9424b445240ebd2c3247e763a237e9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3aca66d6922273e78b5100948f1b868c6c9b56af
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Copier des données d’un point de terminaison HTTP à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,6 +40,9 @@ Plus précisément, ce connecteur HTTP prend en charge :
 - La copie de la réponse HTTP en l'état, ou son analyse avec les [formats de fichier et codecs de compression prise en charge](supported-file-formats-and-compression-codecs.md).
 
 Ce connecteur diffère du [connecteur Table web](connector-web-table.md) en ce que celui-ci est utilisé pour extraire le contenu de tables d’une page web HTML.
+
+>[!TIP]
+>Pour tester une requête HTTP pour la récupération de données avant de configurer un connecteur HTTP dans ADF, vous pouvez obtenir des informations à partir de la spécification d’API sur les exigences d’en-tête et de corps, et vous servir d’outils tels que Postman ou un navigateur web pour valider.
 
 ## <a name="getting-started"></a>Prise en main
 
