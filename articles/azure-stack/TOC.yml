@@ -124,7 +124,7 @@
             - name: Gérer la capacité de stockage
               href: azure-stack-manage-storage-shares.md
             - name: "Gérer la capacité de mémoire physique pour Azure\_Stack"
-              href: azure-stack-manage-storage-physical-capacity.md
+              href: azure-stack-manage-storage-physical-memory-capacity.md
         - name: Remplacer le matériel
           items:
             - name: Actions de nœud
