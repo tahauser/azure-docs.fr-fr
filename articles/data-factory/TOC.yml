@@ -116,10 +116,12 @@
       href: concepts-integration-runtime.md
 - name: Procédures
   items:
-    - name: Création visuelle de fabriques de données
-      href: author-visually.md
-    - name: Intégration et déploiement continus
-      href: continuous-integration-deployment.md
+    - name: Auteur
+      items:
+        - name: Création visuelle de fabriques de données
+          href: author-visually.md
+        - name: Intégration et déploiement continus
+          href: continuous-integration-deployment.md
     - name: Copier des données
       items:
         - name: Copier des données à l’aide de l’activité de copie

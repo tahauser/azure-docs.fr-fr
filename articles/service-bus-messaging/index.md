@@ -1,22 +1,22 @@
 ---
 title: Documentation sur la messagerie Service Bus
-description: "Apprenez à configurer une messagerie permettant de connecter les applications et services entre les environnements cloud et locaux."
-services: service-bus
-author: czeumault
-manager: carolz
+description: Apprenez à configurer une messagerie permettant de connecter les applications et services entre les environnements cloud et locaux.
+services: service-bus-messaging
+author: sethmanheim
+manager: timlt
 layout: LandingPage
-ms.assetid: 
-ms.service: service-bus
+ms.assetid: ''
+ms.service: service-bus-messaging
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 03/14/2017
-ms.author: carolz
-ms.openlocfilehash: 733d2fd848e100525cb7f50f9831f52d5d473863
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/02/2018
+ms.author: sethm
+ms.openlocfilehash: cafe8d0687260362347600f05ef090c7cb95ea82
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="service-bus-messaging-documentation"></a>Documentation sur la messagerie Service Bus
 Le service de messagerie assure une distribution fiable des informations en tant que système de communication tiers ou réparti.
@@ -80,7 +80,7 @@ Le service de messagerie assure une distribution fiable des informations en tant
 
 ---
 
-<h2>Référence</h2>
+<h2>Informations de référence</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -114,7 +114,7 @@ Le service de messagerie assure une distribution fiable des informations en tant
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/servicebus/">Référence d’API REST</a></p>
+                        <p><a href="/rest/api/servicebus/">Référence d’API REST</a></p>
                    </div>
                 </div>
             </div>
