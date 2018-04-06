@@ -1,11 +1,11 @@
 ---
-title: "Prendre en main Stockage Blob et les services connectés de Visual Studio (ASP.NET Core) | Microsoft Docs"
-description: "Comment prendre en main Stockage Blob Azure dans un projet ASP.NET Core Visual Studio après avoir créé un compte de stockage à l’aide des services connectés de Visual Studio"
+title: Prendre en main Stockage Blob et les services connectés de Visual Studio (ASP.NET Core) | Microsoft Docs
+description: Comment prendre en main Stockage Blob Azure dans un projet ASP.NET Core Visual Studio après avoir créé un compte de stockage à l’aide des services connectés de Visual Studio
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: kraigb
 manager: ghogen
-editor: 
+editor: ''
 ms.assetid: 094b596a-c92c-40c4-a0f5-86407ae79672
 ms.service: storage
 ms.workload: web
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: kraigb
-ms.openlocfilehash: afd73bd0fd041a53fbe31aa3a5c23b3e27d7a9ec
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: e3814533b955d5b6444692a7b565219d28002262
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Prendre en main Stockage Blob Azure et les services connectés de Visual Studio (ASP.NET Core)
 
@@ -28,7 +28,7 @@ Cet article explique comment prendre en main Stockage Blob Azure dans Visual Stu
 
 Azure Blob storage is a service for storing large amounts of unstructured data that can be accessed from anywhere in the world via HTTP or HTTPS. Les objets blob peuvent être de toutes tailles. Il peut s'agir d'images, de fichiers audio ou vidéo, de données brutes ou de fichiers de documents. Cet article explique comment prendre en main Stockage Blob après avoir créé un compte de stockage Azure à l'aide de la fonctionnalité **Services connectés** de Visual Studio dans un projet ASP.NET Core.
 
-De la même manière que les fichiers résident dans des dossiers, le stockage des objets blob s'effectue dans des conteneurs. Après avoir créé un objet blob, créez un ou plusieurs conteneurs dans cet objet blob. Par exemple, dans un objet blob appelé « Scrapbook », vous pouvez créer des conteneurs nommés « images » pour stocker des photos et un autre nommé « audio » pour stocker des fichiers audio. Une fois que vous avez créé les conteneurs, vous pouvez y charger des fichiers individuels. Pour plus d’informations sur la manipulation des objets blob par programme, consultez la page [Prise en main du stockage d’objets blob Azure à l’aide de .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) .
+De la même manière que les fichiers résident dans des dossiers, le stockage des objets blob s'effectue dans des conteneurs. Après avoir créé un objet blob, créez un ou plusieurs conteneurs dans cet objet blob. Par exemple, dans un objet blob appelé « Scrapbook », vous pouvez créer des conteneurs nommés « images » pour stocker des photos et un autre nommé « audio » pour stocker des fichiers audio. Une fois que vous avez créé les conteneurs, vous pouvez y charger des fichiers individuels. Pour plus d’informations sur la manipulation des objets blob par programme, consultez la page [Démarrage rapide : charger, télécharger et lister des objets blob avec .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md) .
 
 Certaines des API Azure Storage sont asynchrones, et le code dans cet article suppose l'utilisation de méthodes asynchrones. Voir [Programmation asynchrone](https://docs.microsoft.com/dotnet/csharp/async) pour plus d'informations.
 
@@ -105,7 +105,7 @@ using (var fileStream = System.IO.File.OpenRead(@"path\myfile"))
 }
 ```
 
-## <a name="list-the-blobs-in-a-container"></a>Création d'une liste d'objets blob dans un conteneur
+## <a name="list-the-blobs-in-a-container"></a>Créer la liste des objets blob d’un conteneur
 
 Pour répertorier les objets blob dans un conteneur, commencez par obtenir une référence de conteneur, puis appelez la méthode `ListBlobsSegmentedAsync` pour récupérer les objets blob et/ou les répertoires qu'il contient. Pour accéder aux nombreuses propriétés et méthodes d'un objet `IListBlobItem` renvoyé, affectez-le à un objet `CloudBlockBlob`, `CloudPageBlob` ou `CloudBlobDirectory`. Si vous ne savez pas de quel type d’objet blob il s’agit, lancez une vérification de type pour déterminer la cible de l’appel.
 
@@ -141,9 +141,9 @@ do
 } while (token != null);
 ```
 
-Voir [Prise en main du Stockage Blob Azure avec .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container) pour d'autres manières de répertorier le contenu d'un conteneur d'objets blob.
+Pour découvrir d’autres moyens de lister le contenu d’un conteneur d’objets blob, consultez la page [Démarrage rapide : charger, télécharger et lister des objets blob avec .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-the-blobs-in-a-container) .
 
-## <a name="download-a-blob"></a>Téléchargement d’un objet blob
+## <a name="download-a-blob"></a>Télécharger un objet blob
 
 Pour télécharger un objet blob, commencez par en obtenir la référence, puis appelez la méthode `DownloadToStreamAsync`. L’exemple ci-après utilise la méthode `DownloadToStreamAsync` pour transférer le contenu des objets blob vers un objet de flux que vous pouvez ensuite enregistrer sous la forme d’un fichier local.
 
@@ -158,9 +158,9 @@ using (var fileStream = System.IO.File.OpenWrite(@"path\myfile"))
 }
 ```
 
-Voir [Prise en main du stockage d’objets blob Azure à l’aide de .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs) pour d'autres manières d'enregistrer des objets blob en tant que fichiers.
+Pour découvrir d’autres moyens d’enregistrer des objets blob en tant que fichiers, consultez la page [Démarrage rapide : charger, télécharger et lister des objets blob avec .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs) .
 
-## <a name="delete-a-blob"></a>Supprimer un objet blob
+## <a name="delete-a-blob"></a>Supprimer un objet blob
 
 Pour supprimer un objet blob, commencez par en obtenir la référence, puis appelez la méthode `DeleteAsync` :
 

@@ -1,6 +1,6 @@
 ---
-title: "Convertir les données XML avec des transformations - Azure Logic Apps | Microsoft Docs"
-description: "Créer des transformations ou des mappages pour convertir les données XML entre les différents formats dans les applications logiques à l’aide du Kit de développement logiciel (SDK) d’intégration d’entreprise"
+title: Convertir les données XML avec des transformations - Azure Logic Apps | Microsoft Docs
+description: Créer des transformations ou des mappages pour convertir les données XML entre les différents formats dans les applications logiques à l’aide du Kit de développement logiciel (SDK) d’intégration d’entreprise
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: f4ca7004432d28233888483424164456b008e992
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: fd59b6b3f51adb538e774bc5bb089880ca22e97e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="enterprise-integration-with-xml-transforms"></a>Intégration d’entreprise avec les transformations XML
 ## <a name="overview"></a>Vue d'ensemble
@@ -35,7 +35,8 @@ Après avoir chargé la transformation / le mappage dans votre compte d’intég
 
 **Voici les étapes à suivre pour utiliser une transformation**:
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
+
 
 * Créer un compte d’intégration et y ajouter un mappage  
 
@@ -64,6 +65,7 @@ Maintenant que vous avez exécuté la configuration requise, il est temps de cr�
 
 Vous pouvez maintenant tester votre transformation en effectuant une demande au point de terminaison HTTP.  
 
+
 ## <a name="features-and-use-cases"></a>Fonctionnalités et cas d’usage
 * La transformation créée dans un mappage peut être simple, par exemple la copie d'un nom et de l'adresse d'un document vers un autre. Vous pouvez aussi créer des transformations plus complexes à l'aide des opérations de mappage prêtes à l'emploi.  
 * Plusieurs fonctions ou opérations de mappage sont disponibles, y compris des chaînes, des fonctions de date et d'heure, et ainsi de suite.  
@@ -73,11 +75,49 @@ Vous pouvez maintenant tester votre transformation en effectuant une demande au 
 * Téléchargement de mappages existants  
 * Comprend la prise en charge du format XML.
 
-## <a name="adanced-features"></a>Fonctionnalités avancées
-Les fonctionnalités suivantes sont accessibles uniquement à partir de l’affichage du code.
+## <a name="advanced-features"></a>Fonctionnalités avancées
+
+### <a name="reference-assembly-or-custom-code-from-maps"></a>Assembly de référence ou code personnalisé à partir de mappages 
+L’action de transformation prend également en charge les mappages et les transformations comportant une référence à un assembly externe. Cette fonctionnalité autorise les appels de code .NET personnalisé effectués directement à partir de mappages XSLT. Voici les prérequis à respecter pour utiliser des assemblys dans des mappages.
+
+* Le mappage et l’assembly auquel il fait référence doivent être [chargés sur le compte d’intégration](./logic-apps-enterprise-integration-maps.md). 
+
+  > [!NOTE]
+  > Le mappage et l’assembly doivent être chargés dans un ordre précis. Vous devrez charger l’assembly avant de charger le mappage qui y fait référence.
+
+* Le mappage doit également comporter ces attributs et une section CDATA contenant l’appel au code de l’assembly :
+
+    * **name** est le nom d’assembly personnalisé.
+    * **namespace** est l’espace de noms de l’assembly qui comprend le code personnalisé.
+
+  Cet exemple montre un mappage qui fait référence à un assembly nommé « XslUtilitiesLib » et appelle la méthode `circumreference` à partir de celui-ci.
+
+  ````xml
+  <?xml version="1.0" encoding="UTF-8"?>
+  <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:user="urn:my-scripts">
+  <msxsl:script language="C#" implements-prefix="user">
+    <msxsl:assembly name="XsltHelperLib"/>
+    <msxsl:using namespace="XsltHelpers"/>
+    <![CDATA[public double circumference(int radius){ XsltHelper helper = new XsltHelper(); return helper.circumference(radius); }]]>
+  </msxsl:script>
+  <xsl:template match="data">
+     <circles>
+        <xsl:for-each select="circle">
+            <circle>
+                <xsl:copy-of select="node()"/>
+                    <circumference>
+                        <xsl:value-of select="user:circumference(radius)"/>
+                    </circumference>
+            </circle>
+        </xsl:for-each>
+     </circles>
+    </xsl:template>
+    </xsl:stylesheet>
+  ````
+
 
 ### <a name="byte-order-mark"></a>Marque d’ordre d’octet
-Par défaut, la réponse de la transformation démarre avec la marque d’ordre d’octet. Pour désactiver cette fonctionnalité, spécifiez `disableByteOrderMark` pour la propriété `transformOptions` :
+Par défaut, la réponse de la transformation commence par la marque d’ordre d’octet. Cette fonctionnalité n’est disponible que dans l’éditeur en mode Code. Pour désactiver cette fonctionnalité, spécifiez `disableByteOrderMark` pour la propriété `transformOptions` :
 
 ````json
 "Transform_XML": {
@@ -94,6 +134,10 @@ Par défaut, la réponse de la transformation démarre avec la marque d’ordre 
     "type": "Xslt"
 }
 ````
+
+
+
+
 
 ## <a name="learn-more"></a>En savoir plus
 * [En savoir plus sur Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Découvrez Enterprise Integration Pack")  

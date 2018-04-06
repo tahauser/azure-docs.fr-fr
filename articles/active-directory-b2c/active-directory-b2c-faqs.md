@@ -10,11 +10,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: 338520f273a88866834e43e17da1f8b131ca38f7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d213a3f8bed5af526efba39868855b6f6727a7c0
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C : Forum aux questions (FAQ) 
 Cette page répond aux questions fréquemment posées sur Azure Active Directory (Azure AD) B2C. N'hésitez pas à la consulter pour vous tenir au courant des mises à jour.
@@ -28,7 +28,9 @@ Vous ne pouvez pas utiliser Azure AD B2C pour authentifier les utilisateurs pour
 ### <a name="what-are-local-accounts-in-azure-ad-b2c-how-are-they-different-from-work-or-school-accounts-in-azure-ad"></a>Que sont les comptes locaux dans Azure AD B2C ? En quoi sont-ils différents des comptes professionnels ou scolaires dans Azure AD ?
 Dans un locataire Azure AD, les utilisateurs qui appartiennent au locataire se connectent avec une adresse e-mail au format `<xyz>@<tenant domain>`.  Le `<tenant domain>` est l’un des domaines vérifiés dans le locataire ou le domaine `<...>.onmicrosoft.com` initial. Ce type de compte est un compte professionnel ou scolaire.
 
-Dans un locataire Azure AD B2C, la plupart des applications demandent que l’utilisateur se connecte avec une adresse e-mail arbitraire (par exemple, joe@comcast.net, bob@gmail.com, sarah@contoso.com ou jim@live.com). Ce type de compte est un compte local.  Nous prenons également en charge les noms d’utilisateur arbitraires en tant que comptes locaux (par exemple joe, bob, sarah ou jim). Vous pouvez choisir l’un de ces deux types de comptes locaux en configurant Azure AD B2C dans le portail Azure.
+Dans un locataire Azure AD B2C, la plupart des applications demandent que l’utilisateur se connecte avec une adresse e-mail arbitraire (par exemple, joe@comcast.net, bob@gmail.com, sarah@contoso.com ou jim@live.com). Ce type de compte est un compte local.  Nous prenons également en charge les noms d’utilisateur arbitraires en tant que comptes locaux (par exemple joe, bob, sarah ou jim). Vous pourrez choisir entre ces deux types de comptes locaux pendant la configuration des fournisseurs d’identité pour Azure AD B2C sur le Portail Azure. Dans votre client Azure AD B2C, cliquez sur **Fournisseurs d’identité**, puis sélectionnez **Nom d’utilisateur** sous Comptes locaux. 
+
+Les comptes d’utilisateur des applications doivent toujours être créés par le biais d’une stratégie d’inscription ou de connexion ou bien à l’aide de l’API Graph Azure AD. Les comptes d’utilisateur créés sur le Portail Azure ne servent qu’à l’administration du client.
 
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>Quels fournisseurs d’identité sociaux prenez-vous en charge maintenant ? Lesquels envisagez-vous de prendre en charge à l'avenir ?
 Nous prenons actuellement en charge Facebook, Google+, LinkedIn, Amazon, Twitter (aperçu), WeChat (aperçu), Weibo (aperçu) et QQ (aperçu). Nous ajouterons la prise en charge d’autres fournisseurs d’identité sociaux populaires en fonction de la demande des clients.

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: 453e11c31a01b6ce8e77deda89725ecd53fd2db9
+ms.openlocfilehash: f04beb9526dbf55d42590b9843e7c104b8fca092
 ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR

@@ -1,24 +1,24 @@
 ---
-title: "Présentation de Microsoft Azure StorSimple Virtual Array | Microsoft Docs"
-description: "Décrit StorSimple Virtual Array, une solution de stockage intégrée qui gère les tâches de stockage entre un groupe virtuel local et un stockage cloud Microsoft Azure."
+title: Présentation de Microsoft Azure StorSimple Virtual Array | Microsoft Docs
+description: Décrit StorSimple Virtual Array, une solution de stockage intégrée qui gère les tâches de stockage entre un groupe virtuel local et un stockage cloud Microsoft Azure.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 169c639b-1124-46a5-ae69-ba9695525b77
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/16/2017
+ms.date: 03/28/2018
 ms.author: alkohli
-ms.openlocfilehash: b9a5797751fa970c569c93e5efe300d4d74319ce
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: db06614ebd7dee4b0a320737ea8f575b3a3be70f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Présentation de StorSimple Virtual Array
 
@@ -39,7 +39,7 @@ Le tableau suivant récapitule les fonctionnalités importantes de StorSimple V
 | Fonctionnalité | Baie virtuelle StorSimple |
 | --- | --- |
 | Configuration requise |Utilise l'infrastructure de virtualisation (Hyper-V ou VMware) |
-| Availability |Nœud unique |
+| Disponibilité |Nœud unique |
 | Capacité totale (y compris le cloud) |Jusqu’à 64 To de capacité utilisable par groupe virtuel |
 | Capacité locale |De 390 Go à 6,4 To de capacité utilisable par groupe virtuel (il est nécessaire de configurer entre 500 Go et 8 To d’espace disque) |
 | Protocoles natifs |iSCSI ou SMB |
@@ -73,10 +73,10 @@ Le tableau suivant décrit certains des principaux avantages offerts par la solu
 
 Voici un tableau résumant les charges de travail StorSimple prises en charge.
 
-|Scénario     |Charge de travail     |Pris en charge      |Restrictions               |
+|Scénario     |Charge de travail     |Prise en charge      |Restrictions               |
 |-------------|-------------|---------------|---------------------------|
-|ROBO  |Partage de fichiers     |Oui      |Consultez les [limites maximales pour le serveur de fichiers](storsimple-ova-limits.md).<br></br>Consultez la [configuration système requise pour les versions SMB prises en charge](storsimple-ova-system-requirements.md).| Toutes les versions     |
-|Archivage cloud  |Partage de fichiers d’archivage     |Oui      |Consultez les [limites maximales pour le serveur de fichiers](storsimple-ova-limits.md).<br></br>Consultez la [configuration système requise pour les versions SMB prises en charge](storsimple-ova-system-requirements.md).| Toutes les versions     |
+|ROBO  |Partage de fichiers     |OUI      |Consultez les [limites maximales pour le serveur de fichiers](storsimple-ova-limits.md).<br></br>Consultez la [configuration système requise pour les versions SMB prises en charge](storsimple-ova-system-requirements.md).| Toutes les versions     |
+|Archivage cloud  |Partage de fichiers d’archivage     |OUI      |Consultez les [limites maximales pour le serveur de fichiers](storsimple-ova-limits.md).<br></br>Consultez la [configuration système requise pour les versions SMB prises en charge](storsimple-ova-system-requirements.md).| Toutes les versions     |
 
 Le groupe virtuel StorSimple Virtual Array est particulièrement bien adapté pour les données rarement utilisées. Le groupe virtuel a un cache local pour optimiser les performances, mais les utilisateurs doivent prendre en compte que l’appareil traite les fichiers au niveau inférieur du stockage (le cloud). Chaque groupe virtuel peut écrire et lire des données dans le stockage Azure à une vitesse d’environ 100 Mbits/s. Ce lien est partagé entre toutes les demandes entrantes sur l’appareil et peut devenir un goulot d’étranglement comme illustré dans le diagramme ci-dessous.
 
@@ -205,6 +205,15 @@ StorSimple utilise la compression des données et la déduplication pour réduir
 ### <a name="scheduled-and-on-demand-backups"></a>Sauvegardes à la demande et planifiées
 
 Les fonctionnalités de protection des données de StorSimple permettent de créer des sauvegardes à la demande. En outre, une planification de sauvegarde par défaut garantit que les données sont sauvegardées quotidiennement. Les sauvegardes sont effectuées sous la forme d'instantanés incrémentiels, qui sont stockés dans le cloud. Les instantanés, qui enregistrent uniquement les modifications apportées depuis la dernière sauvegarde, peuvent être créés et restaurés rapidement. Ces instantanés peuvent être d'une importance critique dans les scénarios de récupération d'urgence, car ils remplacent les systèmes de stockage secondaire (comme la sauvegarde sur bande) et vous permettent de restaurer des données sur votre centre de données ou sur d'autres sites si nécessaire.
+
+## <a name="gdpr-compliance"></a>Conformité RGPD
+Le [règlement général sur la protection des données (RGPD)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) est une loi de l’Union européenne sur la protection et la confidentialité des données. Le RGPD comporte de nombreuses exigences concernant la collecte, le stockage et l’utilisation des informations personnelles. Ces règles s’appliquent aux entreprises, organismes publics et autres organisations établis dans l’Union européenne qui collectent et analysent des données liées à des résidents de l’Union européenne.
+
+Le Gestionnaire d’appareils StorSimple pour séries virtuelles est conforme au RGPD. Des informations personnelles sont collectées et affichées dans le service dans deux cas principaux :
+ - Paramètres utilisateur d’alerte où l’adresse e-mail des utilisateurs est configurée. L’administrateur a la possibilité d’effacer ces données. 
+ - Utilisateurs qui ont accès aux données qui se trouvent sur les partages. La liste de ces utilisateurs s’affiche et peut être exportée. Elle est par ailleurs supprimée à la suppression des partages.
+
+Pour plus d’informations, consultez la [Politique de confidentialité Microsoft sur le Centre de gestion de la confidentialité](https://www.microsoft.com/trustcenter).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
