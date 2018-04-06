@@ -1,12 +1,12 @@
 ---
-title: "Manuel de preuve de concept Azure Active Directory : Blocs de construction | Microsoft Docs"
-description: "Explorer et implémenter rapidement des scénarios de gestion des identités et des accès"
+title: 'Manuel de preuve de concept Azure Active Directory : Blocs de construction | Microsoft Docs'
+description: Explorer et implémenter rapidement des scénarios de gestion des identités et des accès
 services: active-directory
 keywords: azure active directory, manuel, preuve de concept, POC
-documentationcenter: 
+documentationcenter: ''
 author: dstefanMSFT
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: b37ca3c6ca528551ef09a90159e92fd31e0fabf2
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 1efb8d89b0a78dcf88c60c2e8cd3b968a725e8b9
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Manuel de preuve de concept Azure Active Directory : Blocs de construction
 
@@ -40,8 +40,8 @@ Voici quelques conditions préalables pour toute POC avec Azure AD Premium.
 
 | Conditions préalables | Ressources |
 | --- | --- |
-| Locataire Azure AD défini avec un abonnement Azure valide | [Obtention d’un client Azure Active Directory](active-directory-howto-tenant.md)<br/>**Remarque :** si vous disposez déjà d’un environnement avec licences Azure AD Premium, vous pouvez obtenir un abonnement gratuit sur https://aka.ms/accessaad <br/>En savoir plus : https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ et https://technet.microsoft.com/library/dn832618.aspx |
-| Domaines définis et vérifiés | [Ajouter un nom de domaine personnalisé à Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Remarque :** certaines charges de travail telles que Power BI peuvent avoir approvisionné un locataire Azure AD en arrière-plan. Pour vérifier si un domaine donné est associé à un locataire, accédez à https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. Si vous obtenez une réponse correcte, cela signifie que le domaine est déjà affecté à un locataire, et une prise de contrôle peut être requise. Dans ce cas, contactez Microsoft pour obtenir des instructions supplémentaires. En savoir plus sur les options de prise de contrôle : [Qu’est-ce qu’une inscription libre-service à Azure ?](active-directory-self-service-signup.md) |
+| Locataire Azure AD défini avec un abonnement Azure valide | [Obtention d’un client Azure Active Directory](active-directory-howto-tenant.md)<br/>**Remarque :** si vous disposez déjà d’un environnement avec licences Azure AD Premium, vous pouvez obtenir un abonnement gratuit sur https://aka.ms/accessaad. <br/>Pour en savoir plus : https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ et https://technet.microsoft.com/library/dn832618.aspx |
+| Domaines définis et vérifiés | [Ajouter un nom de domaine personnalisé à Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Remarque :** certaines charges de travail telles que Power BI peuvent avoir approvisionné un locataire Azure AD en arrière-plan. Pour voir si un domaine donné est associé à un client, accédez à https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. Si vous obtenez une réponse correcte, cela signifie que le domaine est déjà affecté à un locataire, et une prise de contrôle peut être requise. Dans ce cas, contactez Microsoft pour obtenir des instructions supplémentaires. En savoir plus sur les options de prise de contrôle : [Qu’est-ce qu’une inscription libre-service à Azure ?](active-directory-self-service-signup.md) |
 | Essai Azure AD Premium ou EMS activé | [Azure Active Directory Premium gratuit pendant un mois](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | Vous avez affecté des licences Azure AD Premium ou EMS à des utilisateurs POC | [License yourself and your users in Azure Active Directory (Accorder une licence à vos utilisateurs et à vous-même dans Azure Active Directory)](active-directory-licensing-get-started-azure-portal.md) |
 | Informations d’identification de l’administrateur général Azure AD | [Attribution de rôles d’administrateur dans Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md) |
@@ -71,7 +71,7 @@ Temps approximatif d’accomplissement : une heure pour moins de 1 000 utilis
 
 ### <a name="considerations"></a>Considérations
 
-1. Examinez les considérations de sécurité liées à la synchronisation du hachage de mot de passe [ici](./connect/active-directory-aadconnectsync-implement-password-synchronization.md).  Si la synchronisation du hachage de mot de passe pour les utilisateurs de production pilotes ne convient pas, envisagez les options suivantes :
+1. Examinez les considérations de sécurité liées à la synchronisation du hachage de mot de passe [ici](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md).  Si la synchronisation du hachage de mot de passe pour les utilisateurs de production pilotes ne convient pas, envisagez les options suivantes :
    * Créez des utilisateurs de test dans le domaine de production. Assurez-vous de ne synchroniser aucun autre compte.
    * Passez à un environnement UAT.
 2.  Si vous souhaitez poursuivre la fédération, il est important de bien comprendre que les coûts associés à une solution fédérée avec un fournisseur d’identité local au-delà de la POC et évaluez-les en fonction des avantages que vous recherchez :
@@ -101,7 +101,7 @@ Temps approximatif d’accomplissement : 15 minutes
 | Accédez au portail de gestion Azure AD | [Portail de gestion Azure AD - Marque de société](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding) |
 | Chargez les ressources correspondant à la page de connexion (bannière, petit logo, étiquettes, etc.). Éventuellement, si vous avez AD FS, alignez les mêmes ressources sur les pages de connexion AD FS | [Ajout de votre société à vos pages de connexion et du panneau d’accès : Éléments personnalisables](customize-branding.md) |
 | Patientez quelques minutes pour que les modifications entrent en vigueur |  |
-| Connectez-vous avec les informations d’identification utilisateur POC à https://myapps.microsoft.com |  |
+| Connectez-vous avec les informations d’identification d’utilisateur de la preuve de concept sur https://myapps.microsoft.com |  |
 | Vérifiez l’apparence dans le navigateur | [Ajout de votre société à vos pages de connexion et du panneau d’accès](customize-branding.md) |
 | Si vous le souhaitez, vérifiez l’apparence sur d’autres appareils |  |
 
@@ -156,7 +156,7 @@ Temps approximatif d’accomplissement : 60 minutes
 | Suivez les instructions de configuration de ServiceNow |  |
 | Dans le panneau Approvisionnement de l’application ServiceNow, activez l’approvisionnement Automatique | [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise dans le nouveau portail Azure](active-directory-enterprise-apps-manage-provisioning.md) |
 | Patientez quelques minutes pour que la configuration se termine.  En attendant, vous pouvez vérifier les rapports d’approvisionnement |  |
-| Connectez-vous à https://myapps.microsoft.com/ en tant qu’utilisateur de test disposant d’un accès | [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md) |
+| Connectez-vous à https://myapps.microsoft.com/ en tant qu’utilisateur de test ayant accès | [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md) |
 | Cliquez sur la mosaïque de l’application qui vient d’être créée. Confirmez l’accès |  |
 | Si vous le souhaitez, vous pouvez vérifier les rapports d’utilisation de l’application. Il existe un temps de latence : vous devez patienter quelques instants avant de voir le trafic dans les rapports. | [Rapports d’activité de connexion dans le portail Azure Active Directory : Utilisation des applications gérées](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Stratégies de rétention des rapports Azure Active Directory](active-directory-reporting-retention.md) |
 
@@ -186,7 +186,7 @@ Temps approximatif d’accomplissement : 15 minutes
 | Configurez l’application à partir de la galerie | [Nouveautés en matière de gestion des applications d’entreprise dans Azure Active Directory : Galerie d’applications innovante et améliorée](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
 | Configurez l’authentification unique par mot de passe | [Gestion de l’authentification unique pour les applications d’entreprise dans le nouveau portail Azure : Authentification par mot de passe](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
 | Affectez l’application au groupe identifié dans les conditions préalables | [Assign a user or group to an enterprise app in Azure Active Directory (Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory)](active-directory-coreapps-assign-user-azure-portal.md) |
-| Connectez-vous à https://myapps.microsoft.com/ en tant qu’utilisateur de test disposant d’un accès |  |
+| Connectez-vous à https://myapps.microsoft.com/ en tant qu’utilisateur de test ayant accès |  |
 | Cliquez sur la mosaïque de l’application qui vient d’être créée. | [Présentation du volet d’accès : Authentification unique avec mot de passe sans approvisionnement d’identité](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Fournissez les informations d’identification de l’application | [Présentation du volet d’accès : Authentification unique avec mot de passe sans approvisionnement d’identité](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Fermez le navigateur et reconnectez-vous. Cette fois-ci, l’utilisateur doit avoir un accès transparent à l’application. |  |
@@ -209,7 +209,7 @@ Temps approximatif d’accomplissement : 30 minutes
 | Conditions préalables | Ressources |
 | --- | --- |
 | Liste des applications cibles et URL de connexion exactes au préalable. Par exemple, vous pouvez utiliser Twitter. | [Twitter sur la Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[S’inscrire sur Twitter](https://twitter.com/signup?lang=en) |
-| Informations d’identification partagées pour cette application SaaS. | [Partage de comptes à l’aide d’Azure AD](active-directory-sharing-accounts.md)<br/>[Version préliminaire de la substitution automatisée du mot de passe Azure AD pour Facebook, Twitter et LinkedIn ! - Blog Enterprise Mobility and Security] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/ ) |
+| Informations d’identification partagées pour cette application SaaS. | [Partage de comptes à l’aide d’Azure AD](active-directory-sharing-accounts.md)<br/>[Version préliminaire de la substitution automatisée du mot de passe Azure AD pour Facebook, Twitter et LinkedIn ! – Blog Enterprise Mobility + Security] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
 | Informations d’identification pour au moins deux membres de l’équipe qui ont le même compte d’accès. Ils doivent faire partie d’un groupe de sécurité. | [Assign a user or group to an enterprise app in Azure Active Directory (Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory)](active-directory-coreapps-assign-user-azure-portal.md) |
 | Accès administrateur local à un ordinateur afin de déployer l’extension du volet d’accès pour Internet Explorer, Chrome ou Firefox | [Extension du volet d’accès pour IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Extension du volet d’accès pour Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Extension du volet d’accès pour Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
@@ -420,7 +420,7 @@ Temps approximatif d’accomplissement : 10 minutes
 | --- | --- |
 | Accédez au panneau Utilisateurs et groupes dans le portail de gestion Azure AD | [Portail de gestion Azure AD : Utilisateurs et groupes](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/Overview/menuId/) |
 | Sélectionnez le panneau Tous les utilisateurs |  |
-| Dans la barre supérieure, sélectionnez le bouton Multi-Factor Authentication | URL directe du portail MFA Azure : https://aka.ms/mfaportal |
+| Dans la barre supérieure, sélectionnez le bouton Multi-Factor Authentication | URL directe du portail Azure MFA : https://aka.ms/mfaportal |
 | Dans les paramètres Utilisateur, sélectionnez les utilisateurs POC et activez-les pour l’authentification MFA | [États d’utilisateur dans Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) |
 | Connectez-vous en tant qu’utilisateur POC et suivez le processus de vérification  |  |
 
@@ -443,7 +443,7 @@ Temps approximatif d’accomplissement : 10 minutes
 | Les utilisateurs POC sont déjà affectés à l’application |  |
 | Les informations d’identification de l’utilisateur POC sont disponibles |  |
 | L’utilisateur POC est inscrit pour l’authentification MFA. Utilisation d’un téléphone disposant d’une bonne réception | https://aka.ms/ssprsetup |
-| Appareil dans le réseau interne. Adresse IP configurée dans la plage d’adresses interne | Recherchez votre adresse IP : https://www.bing.com/search?q=what%27s+my+ip |
+| Appareil dans le réseau interne. Adresse IP configurée dans la plage d’adresses interne | Trouvez votre adresse IP : https://www.bing.com/search?q=what%27s+my+ip |
 | Appareil du réseau externe (éventuellement, téléphone qui utilise le réseau mobile de l’opérateur) |  |
 
 ### <a name="steps"></a>Étapes
@@ -478,8 +478,8 @@ Temps approximatif d’accomplissement : 15 minutes
 | --- | --- |
 | Connectez-vous à https://portal.azure.com en tant qu’administrateur général et accédez au panneau PIM. Le rôle d’administrateur de sécurité est affecté à l’administrateur général qui exécute cette étape.  Appelons cet acteur GA1 | [Utilisation de l’Assistant Sécurité d’Azure AD Privileged Identity Management](active-directory-privileged-identity-management-security-wizard.md) |
 | Identifiez l’administrateur général et faites-le passer du statut permanent au statut admissible. Pour plus de clarté, il doit s’agit d’un administrateur distinct de celui de l’étape 1. Appelons cet acteur GA2 | [Azure AD Privileged Identity Management : comment ajouter ou supprimer un rôle d’utilisateur](active-directory-privileged-identity-management-how-to-add-role-to-user.md)<br/>[Qu’est-ce qu’Azure AD Privileged Identity Management ? : Configurer les paramètres d'activation de rôle](active-directory-privileged-identity-management-configure.md#configure-the-role-activation-settings)  |
-| À présent, connectez-vous en tant que GA2 à https://portal.azure.com et essayez de modifier les paramètres utilisateur. Certaines options sont grisées. | |
-| Dans un nouvel onglet et sous la même session que l’étape 3, accédez maintenant à https://portal.azure.com, puis ajoutez le panneau PIM au tableau de bord. | [Comment activer ou désactiver des rôles dans Azure AD Privileged Identity Management : Ajout de l’application Privileged Identity Management](active-directory-privileged-identity-management-how-to-activate-role.md#add-the-privileged-identity-management-application) |
+| Maintenant, connectez-vous à https://portal.azure.com en tant que GA2 et essayez de modifier « Paramètres utilisateur ». Certaines options sont grisées. | |
+| Dans un nouvel onglet et sous la même session qu’à l’étape 3, accédez maintenant à https://portal.azure.com et ajoutez le panneau PIM au tableau de bord. | [Comment activer ou désactiver des rôles dans Azure AD Privileged Identity Management : Ajout de l’application Privileged Identity Management](active-directory-privileged-identity-management-how-to-activate-role.md#add-the-privileged-identity-management-application) |
 | Demandez l’activation pour le rôle d’Administrateur général | [Comment activer ou désactiver des rôles dans Azure AD Privileged Identity Management : Activer un rôle](active-directory-privileged-identity-management-how-to-activate-role.md#activate-a-role) |
 | Si GA2 ne s’est jamais inscrit pour l’authentification MFA, l’inscription pour l’authentification Azure MFA est requise |  |
 | Retournez à l’onglet d’origine de l’étape 3, puis cliquez sur le bouton Actualiser du navigateur. Vous pouvez maintenant modifier les paramètres utilisateur | |
@@ -506,9 +506,9 @@ Temps approximatif d’accomplissement : 20 minutes
 | Étape | Ressources |
 | --- | --- |
 | Ouvrez le navigateur Tor | [Téléchargez le navigateur Tor](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
-| Connectez-vous sur https://myapps.microsoft.com avec le compte d’utilisateur POC | [Manuel d’Azure Active Directory Identity Protection : Simulation des événements à risque](active-directory-identityprotection-playbook.md#simulating-risk-events) |
+| Connectez-vous à https://myapps.microsoft.com avec le compte d’utilisateur de la preuve de concept | [Manuel d’Azure Active Directory Identity Protection : Simulation des événements à risque](active-directory-identityprotection-playbook.md#simulating-risk-events) |
 | Patientez entre 5 et 7 minutes |  |
-| Connectez-vous en tant qu’administrateur général sur https://portal.azure.com et ouvrez le panneau Protection d’identité | https://aka.ms/aadipgetstarted |
+| Connectez-vous à https://portal.azure.com en tant qu’administrateur général et ouvrez le panneau Protection d’identité | https://aka.ms/aadipgetstarted |
 | Ouvrez le panneau Événements à risque. Une entrée doit s’afficher sous Connexions depuis des adresses IP anonymes  | [Manuel d’Azure Active Directory Identity Protection : Simulation des événements à risque](active-directory-identityprotection-playbook.md#simulating-risk-events) |
 
 ### <a name="considerations"></a>Considérations
@@ -532,10 +532,10 @@ Temps approximatif d’accomplissement : 10 minutes
 
 | Étape | Ressources |
 | --- | --- |
-| Connectez-vous en tant qu’administrateur général à https://portal.azure.com et ouvrez le panneau Protection d’identité | https://aka.ms/aadipgetstarted |
+| Connectez-vous à https://portal.azure.com en tant qu’administrateur général et ouvrez le panneau Protection d’identité | https://aka.ms/aadipgetstarted |
 | Activez une stratégie en matière de risque à la connexion de la manière suivante :<br/>- Affectée à : utilisateur POC<br/>- Conditions : Risque à la connexion moyen ou élevé (une connexion à partir d’un emplacement anonyme est associée à un niveau de risque moyen)<br/>- Contrôles : demandez l’authentification MFA | [Manuel d’Azure Active Directory Identity Protection : Risque à la connexion](active-directory-identityprotection-playbook.md) |
 | Ouvrez le navigateur Tor | [Téléchargez le navigateur Tor](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
-| Connectez-vous à https://myapps.microsoft.com avec le compte d’utilisateur POC |  |
+| Connectez-vous à https://myapps.microsoft.com avec le compte d’utilisateur de la preuve de concept |  |
 | Notez la demande MFA | [Expériences de connexion avec Azure AD Identity Protection : Récupération de connexion à risque](active-directory-identityprotection-flows.md#risky-sign-in-recovery)
 
 ### <a name="considerations"></a>Considérations

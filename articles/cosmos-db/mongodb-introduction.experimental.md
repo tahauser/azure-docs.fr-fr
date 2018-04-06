@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: anhoh
-ms.openlocfilehash: cdf1404d0070b74faeaca4dab7838167e2821323
+ms.openlocfilehash: cd80f349f2fb376178e02d947db1fefbcbe3ac88
 ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR

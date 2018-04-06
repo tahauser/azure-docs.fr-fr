@@ -1,23 +1,23 @@
 ---
-title: "Didacticiel : Intégration d’Azure Active Directory à OpsGenie | Microsoft Docs"
-description: "Découvrez comment configurer l’authentification unique entre Azure Active Directory et OpsGenie."
+title: 'Didacticiel : Intégration d’Azure Active Directory à OpsGenie | Microsoft Docs'
+description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et OpsGenie.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: 41b59b22-a61d-4fe6-ab0d-6c3991d1375f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 03/28/2018
 ms.author: jeedes
-ms.openlocfilehash: b0d8fa13c13ad8d4a85cb482bcd7e440006f0437
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b0cd54c7750e85eb7b4e1ba6be309c585d5a7b4e
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opsgenie"></a>Didacticiel : Intégration d’Azure Active Directory à OpsGenie
 
@@ -27,11 +27,12 @@ L’intégration d’OpsGenie dans Azure AD vous offre les avantages suivants :
 
 - Dans Azure AD, vous pouvez contrôler qui a accès à OpsGenie.
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à OpsGenie (par le biais de l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure
+- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure.
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
+
 
 Pour configurer l’intégration d’Azure AD à OpsGenie, vous avez besoin des éléments suivants :
 
@@ -47,7 +48,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de OpsGenie à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -63,11 +64,11 @@ Pour configurer l’intégration de OpsGenie à Azure AD, vous devez ajouter Op
 
 2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
-    ![Applications][2]
+    ![APPLICATIONS][2]
     
 3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-    ![Applications][3]
+    ![APPLICATIONS][3]
 
 4. Dans la zone de recherche, entrez **OpsGenie**.
 
@@ -86,10 +87,10 @@ Dans OpsGenie, affectez la valeur de **nom d’utilisateur** dans Azure AD comm
 
 Pour configurer et tester l’authentification unique Azure AD avec OpsGenie, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 3. **[Création d’un utilisateur de test OpsGenie](#creating-a-opsgenie-test-user)** pour obtenir un équivalent de Britta Simon dans OpsGenie lié à la représentation Azure AD associée.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
@@ -100,29 +101,45 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, sur la page d’intégration de l’application **OpsGenie**, cliquez sur **Authentification unique**.
 
-    ![Configurer l’authentification unique][4]
+    ![Configure Single Sign-On][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
  
-    ![Configurer l’authentification unique](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_samlbase.png)
 
 3. Dans la section **Domaine et URL OpsGenie**, procédez comme suit :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_url.png)
 
-    Dans la zone de texte **URL de connexion**, entrez l’URL : `https://app.opsgenie.com/auth/login`
+    Dans la zone de texte **URL de connexion**, tapez l’URL : `https://app.opsgenie.com/auth/login`
 
-4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
+4. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_general_400.png)
 
-5. Cliquez sur le bouton **Enregistrer** .
+5. Dans la section **Configuration d’OpsGenie**, cliquez sur **Configurer OpsGenie** pour ouvrir la fenêtre **Configurer l’authentification**. Dans la section Référence rapide, copiez **l’URL du service d’authentification unique SAML**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-opsgenie-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_configure.png)
 
-6. Dans la section **Configuration d’OpsGenie**, cliquez sur **Configurer OpsGenie** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
+6. Pour générer l’**URL des métadonnées**, effectuez les étapes suivantes :
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_configure.png) 
+    a. Cliquez sur **Inscriptions des applications**.
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_appregistrations.png)
+   
+    b. Cliquez sur **Points de terminaison** pour ouvrir la boîte de dialogue **Points de terminaison**.  
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_endpointicon.png)
+
+    c. Cliquez sur le bouton Copier pour copier l’URL du document de métadonnées de fédération (**FEDERATION METADATA DOCUMENT**), puis collez-la dans le Bloc-notes.
+    
+    ![Configure Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_endpoint.png)
+     
+    d. Accédez maintenant à la page de propriétés **OpsGenie**, puis copiez **l’ID d’application** à l’aide du bouton **Copier** et collez-le dans le Bloc-notes.
+ 
+    ![Configure Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_appid.png)
+
+    e. Générez l’**URL des métadonnées** en utilisant le format suivant : `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
 
 7. Ouvrez une autre instance de navigateur, puis connectez-vous à OpsGenie en tant qu’administrateur.
 
@@ -142,9 +159,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
    
     ![Paramètres OpsGenie](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_09.png)
     
-    a. Collez l’**URL du service d’authentification unique** que vous avez copiée sur le portail Azure dans la zone de texte **Point de terminaison SAML 2.0**.
+    a. Dans la zone de texte **Point de terminaison SAML 2.0**, collez la valeur **URL du service d’authentification unique** que vous avez copiée sur le Portail Azure.
     
-    b. Dans le bloc-notes, ouvrez votre certificat codé en base 64 téléchargé, copiez son contenu dans le Presse-papiers et collez-le dans la zone de texte **Certificat X 500**.
+    b. Dans la zone de texte **URL des métadonnées**, collez la valeur **URL des métadonnées** que vous avez copiée sur le Portail Azure.
     
     c. Cliquez sur **Enregistrer les modifications**.
 
@@ -181,7 +198,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Sélectionnez **Afficher le mot de passe** et notez la valeur du **mot de passe**.
 
-    d. Cliquez sur **Create**.
+    d. Cliquez sur **Créer**.
  
 ### <a name="creating-a-opsgenie-test-user"></a>Création d’un utilisateur de test OpsGenie
 
@@ -195,7 +212,7 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
 3. Cliquez sur **Add User**.
 
-4. Dans la boîte de dialogue **Ajouter un utilisateur** , procédez comme suit :
+4. Dans la boîte de dialogue **Ajouter un utilisateur**, procédez comme suit :
    
    ![Paramètres OpsGenie](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_11.png)
    
@@ -203,7 +220,7 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
    
    b. Dans la zone de texte **Nom complet**, tapez **Britta Simon**.
    
-   c. Cliquez sur **Save**. 
+   c. Cliquez sur **Enregistrer**. 
 
 >[!NOTE]
 >Britta reçoit un e-mail contenant des instructions pour configurer son profil.
@@ -222,7 +239,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **OpsGenie**.
 
-    ![Configurer l’authentification unique](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_app.png) 
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 

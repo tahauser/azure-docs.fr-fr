@@ -1,8 +1,8 @@
 ---
-title: "Kit de ressources Azure pour Eclipse : créer des applications Scala pour HDInsight Spark | Microsoft Docs"
-description: "Utilisez HDInsight Tools dans le kit de ressources Azure pour Eclipse pour développer des applications Spark écrites en Scala et envoyez-les à un cluster HDInsight Spark, directement à partir de l’IDE Eclipse."
+title: 'Kit de ressources Azure pour Eclipse : créer des applications Scala pour HDInsight Spark | Microsoft Docs'
+description: Utilisez HDInsight Tools dans le kit de ressources Azure pour Eclipse pour développer des applications Spark écrites en Scala et envoyez-les à un cluster HDInsight Spark, directement à partir de l’IDE Eclipse.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: nitinme
-ms.openlocfilehash: 8ac118593ecc93a2dd9e53ff7ad9ecf13daef017
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4ff67ebcbac5b1b85345421b16036c96f8e807cc
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Utiliser le kit de ressources Azure pour Eclipse pour créer des applications Spark pour un cluster HDInsight
 
@@ -37,6 +37,7 @@ Utilisez HDInsight Tools du kit de ressources Azure pour Eclipse pour développ
 
 ## <a name="prerequisites"></a>Prérequis
 
+
 * Cluster Apache Spark sur HDInsight. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 * Oracle Java Development Kit version 8, qui est utilisé pour l’exécution d’IDE Eclipse. Vous pouvez le télécharger à partir du [site web Oracle](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 * IDE Eclipse. Cet article utilise Eclipse Neon. Vous pouvez l’installer à partir du [site web Eclipse](https://www.eclipse.org/downloads/).
@@ -50,6 +51,8 @@ HDInsight Tools pour Eclipse est disponible dans le cadre du kit de ressources A
 Quand vous ouvrez Eclipse, HDInsight Tools détecte automatiquement si vous avez installé le plug-in Scala. Sélectionnez **OK** pour continuer, puis suivez les instructions pour installer le plug-in à partir de la Place de marché Eclipse.
 
 ![Installation automatique du plug-in Scala](./media/apache-spark-eclipse-tool-plugin/auto-install-scala.png)
+
+Pour commencer, l’utilisateur peut soit [se connecter à un abonnement Azure](#Sign-in-to-your-Azure-subscription), soit [lier un cluster HDInsight](#Link-a-cluster) avec un identifiant joint à un domaine ou nom d’utilisateur/mot de passe Ambari. 
 
 ## <a name="sign-in-to-your-azure-subscription"></a>Connectez-vous à votre abonnement Azure :
 1. Démarrez l’IDE Eclipse et ouvrez l’Explorateur Azure. Dans le menu **Window** (Fenêtre), sélectionnez **Show View** (Afficher la vue), puis **Other** (Autre). Dans la boîte de dialogue qui s’ouvre, développez **Azure**, sélectionnez **Explorateur Azure**, puis **OK**.
@@ -75,12 +78,13 @@ Vous pouvez lier un cluster normal à l’aide du nom d’utilisateur Ambari man
 
    ![menu contextuel de lien du cluster](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
 
-2. Saisissez le **nom de cluster**, le **compte de stockage**, la **clé de stockage**, puis sélectionnez un conteneur à partir du **conteneur de stockage**, enfin, saisissez le nom d’utilisateur et le mot de passe. Cliquez sur le bouton OK pour lier le cluster.
+2. Entrez le **Nom du cluster**, le **Nom d’utilisateur** et le **Mot de passe**, puis cliquez sur le bouton OK pour lier le cluster. Si vous le souhaitez, entrez un compte de stockage, une clé de stockage, puis sélectionnez un conteneur de stockage pour que l’explorateur de stockage fonctionne avec l’arborescence de gauche.
    
    ![boîte de dialogue de lien du cluster](./media/apache-spark-eclipse-tool-plugin/link-cluster-dialog.png)
    
    > [!NOTE]
    > Nous utilisons la clé de stockage liée, le nom d’utilisateur et le mot de passe si le cluster est à la fois connecté sur un abonnement Azure et lié à un cluster.
+   > ![Explorateur de stockage dans Eclipse](./media/apache-spark-eclipse-tool-plugin/storage-explorer-in-Eclipse.png)
 
 3. Vous pouvez voir un cluster lié dans le nœud **HDInsight** après avoir cliqué sur le bouton OK, si les informations d’entrée sont correctes. Vous pouvez désormais soumettre une application à ce cluster lié.
 

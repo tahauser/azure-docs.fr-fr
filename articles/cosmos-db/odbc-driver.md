@@ -1,25 +1,25 @@
 ---
-title: "Se connecter à Azure Cosmos DB à l’aide d’outils d’analyse décisionnelle | Microsoft Docs"
-description: "Découvrez comment utiliser le pilote ODBC Azure Cosmos DB pour créer des tables et des vues afin d’afficher les données normalisées dans BI et dans un logiciel d’analyse de données."
+title: Se connecter à Azure Cosmos DB à l’aide d’outils d’analyse décisionnelle | Microsoft Docs
+description: Découvrez comment utiliser le pilote ODBC Azure Cosmos DB pour créer des tables et des vues afin d’afficher les données normalisées dans BI et dans un logiciel d’analyse de données.
 keywords: odbc, pilote odbc
 services: cosmos-db
 author: mimig1
 manager: jhubbard
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 9967f4e5-4b71-4cd7-8324-221a8c789e6b
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 03/22/2018
 ms.author: mimig
-ms.openlocfilehash: 3892f698ec2b0b45f71dc38491687897559821ba
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 445acafeef67027712826f644afaa1784569b30d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Se connecter à Azure Cosmos DB à l’aide d’outils d’analyse décisionnelle avec le pilote ODBC
 
@@ -30,7 +30,7 @@ Le pilote ODBC Azure Cosmos DB est conforme à ODBC 3.8 et prend en charge la s
 ## <a name="why-do-i-need-to-normalize-my-data"></a>Pourquoi dois-je normaliser mes données ?
 Azure Cosmos DB étant une base de données sans schéma, elle offre un développement rapide d’applications en permettant à ces applications d’itérer leur modèle de données à la volée sans schéma strict. Une même base de données Azure Cosmos DB peut contenir des documents JSON de différentes structures. C’est une solution idéale pour le développement rapide d’applications, mais si vous souhaitez analyser et créer des rapports de vos données à l’aide d’outils d’analyse de données et décisionnels, les données doivent souvent être aplaties et respecter un schéma spécifique.
 
-C’est là qu’intervient le pilote ODBC. Grâce au pilote ODBC, vous pouvez désormais renormaliser les données d’Azure Cosmos DB dans des tables et des vues adaptées à vos besoins d’analyse et de création de rapports. Les schémas renormalisés n’ont aucun impact sur les données sous-jacentes et n’obligent pas les développeurs à les respecter ; ils vous permettent juste de tirer parti d’outils compatibles ODBC pour accéder aux données. Désormais, votre base de données Azure Cosmos DB ne sera pas uniquement l’un des outils favoris de votre équipe de développement. Vos analystes de données vont l’adorer eux aussi.
+C’est là qu’intervient le pilote ODBC. Grâce au pilote ODBC, vous pouvez à présent renormaliser les données d’Azure Cosmos DB dans des tables et des vues adaptées à vos besoins d’analyse de données et de création de rapports. Les schémas renormalisés n’ont aucun impact sur les données sous-jacentes et il n’est pas obligatoire pour les développeurs de les respecter ; ils permettent de tirer parti d’outils compatibles ODBC pour accéder aux données. Désormais, votre base de données Azure Cosmos DB ne sera pas uniquement l’un des outils favoris de votre équipe de développement. Vos analystes de données vont l’adorer eux aussi.
 
 Familiarisons-nous à présent avec le pilote ODBC.
 
@@ -53,7 +53,7 @@ Familiarisons-nous à présent avec le pilote ODBC.
 
 ## <a id="connect"></a>Étape 2 : se connecter à votre base de données Azure Cosmos DB
 
-1. Après l’[installation du pilote ODBC Azure Cosmos DB](#install), dans la fenêtre **Administrateur de sources de données ODBC**, cliquez sur **Ajouter**. Vous pouvez créer un DSN utilisateur ou système. Dans cet exemple, nous créons un DSN utilisateur.
+1. Après l’[installation du pilote ODBC Azure Cosmos DB](#install), dans la fenêtre **Administrateur de sources de données ODBC**, cliquez sur **Ajouter**. Vous pouvez créer un DSN utilisateur ou système. Dans cet exemple, vous allez créer un DSN utilisateur.
 2. Dans la fenêtre **Créer une nouvelle source de données**, sélectionnez **Microsoft Azure Cosmos DB ODBC Driver (Pilote ODBC Microsoft Azure Cosmos DB)**, puis cliquez sur **Terminer**.
 3. Dans la fenêtre **Azure Cosmos DB ODBC Driver SDN Setup (Configuration DSN du pilote ODBC Azure Cosmos DB)**, répondez aux questions suivantes : 
 
@@ -71,7 +71,7 @@ Familiarisons-nous à présent avec le pilote ODBC.
     - **Fichier de schéma** : plusieurs options vous sont proposées ici.
         - Par défaut, si vous ne modifiez pas cette entrée (vide), le pilote analyse les données de la première page de toutes les collections afin de déterminer le schéma de chaque collection. Cette opération est appelée Mappage de la collection. Si aucun fichier de schéma n’est défini, le pilote doit effectuer l’analyse pour chaque session de pilote, ce qui peut allonger le délai de démarrage d’une application avec le DSN. Nous vous recommandons de toujours associer un fichier de schéma à un DSN.
         - Si vous disposez déjà d’un fichier de schéma (peut-être un fichier que vous avez créé à l’aide de [l’Éditeur de schéma](#schema-editor)), cliquez sur **Parcourir**, recherchez votre fichier, cliquez sur **Enregistrer**, puis sur **OK**.
-        - Si vous souhaitez créer un nouveau schéma, cliquez sur **OK**, puis sur **Éditeur de schéma** dans la fenêtre principale. Accédez ensuite à l’[Éditeur de schéma](#schema-editor) pour plus d’informations. Lors de la création du nouveau fichier de schéma, pensez à revenir à la fenêtre **Options avancées** pour inclure le fichier de schéma qui vient d’être créé.
+        - Si vous souhaitez créer un nouveau schéma, cliquez sur **OK**, puis sur **Éditeur de schéma** dans la fenêtre principale. Accédez ensuite à l’[Éditeur de schéma](#schema-editor) pour plus d’informations. Après la création du nouveau fichier de schéma, pensez à revenir à la fenêtre **Options avancées** pour l’inclure.
 
 6. Une fois que vous avez terminé et fermé la fenêtre de **configuration DSN du pilote ODBC Azure Cosmos DB**, le DSN du nouvel utilisateur est ajouté à l’onglet DSN utilisateur.
 
@@ -114,10 +114,60 @@ Les étapes suivantes créent un schéma pour les données d’une ou plusieurs 
 4. Cliquez sur **OK**. 
 5. Après avoir mappé les définitions des collections que vous souhaitez échantillonner, dans la fenêtre **Éditeur de schéma**, cliquez sur **Échantillonner**.
      Pour chaque colonne, vous pouvez modifier le nom de la colonne SQL, le type SQL, la longueur SQL (le cas échéant), l’échelle (le cas échéant), la précision (le cas échéant) et la valeur Nullable.
-    - Vous pouvez définir **Masquer la colonne** sur **true** si vous souhaitez exclure cette colonne des résultats de la requête. Les colonnes marquées Masquer la colonne = true ne sont pas retournées pour la sélection et la projection, bien qu’elles fassent toujours partie du schéma. Par exemple, vous pouvez masquer toutes les propriétés système Azure Cosmos DB requises commençant par « _ ».
+    - Vous pouvez définir **Masquer la colonne** sur **true** si vous souhaitez exclure cette colonne des résultats de la requête. Les colonnes marquées Masquer la colonne = true ne sont pas retournées pour la sélection et la projection, bien qu’elles fassent toujours partie du schéma. Par exemple, vous pouvez masquer toutes les propriétés système Azure Cosmos DB requises commençant par `_`.
     - La colonne **id** est le seul champ qui ne peut pas être masqué car elle sert de clé primaire dans le schéma normalisé. 
 6. Une fois que vous avez terminé la définition du schéma, cliquez sur **Fichier** | **Enregistrer**, accédez au répertoire d’enregistrement du schéma, puis cliquez sur **Enregistrer**.
 7. Dans la fenêtre de **configuration du DSN du pilote ODBC Azure Cosmos DB**, cliquez sur **Options avancées**. Puis, dans la fenêtre **Fichier de schéma**, accédez au fichier de schéma enregistré et cliquez sur **OK**. Cliquez à nouveau sur **OK** pour enregistrer le DSN. Cette opération enregistre dans le DSN le schéma que vous avez créé. 
+
+## <a name="optional-set-up-linked-server-connection"></a>(Facultatif) Configurer une connexion à un serveur lié
+
+Vous pouvez interroger Azure Cosmos DB à partir de SQL Server Management Studio (SSMS) en configurant une connexion à un serveur lié.
+
+1. Créez une source de données système, nommée par exemple `SDS Name`, en suivant les instructions de [l’étape 2](#connect).
+2. [Installez SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+3. Dans l’éditeur de requête SSMS, créez un objet de serveur lié `DEMOCOSMOS` pour la source de données avec les commandes suivantes. Remplacez `DEMOCOSMOS` par le nom de votre serveur lié, et `SDS Name` par le nom de votre source de données système.
+
+    ```sql
+    USE [master]
+    GO
+    
+    EXEC master.dbo.sp_addlinkedserver @server = N'DEMOCOSMOS', @srvproduct=N'', @provider=N'MSDASQL', @datasrc=N'SDS Name'
+    
+    EXEC master.dbo.sp_addlinkedsrvlogin @rmtsrvname=N'DEMOCOSMOS', @useself=N'False', @locallogin=NULL, @rmtuser=NULL, @rmtpassword=NULL
+    
+    GO
+    ```
+    
+Pour voir le nom du nouveau serveur lié, actualisez la liste Serveurs liés.
+
+![Serveur lié dans SSMS](./media/odbc-driver/odbc-driver-linked-server-ssms.png)
+
+### <a name="query-linked-database"></a>Interroger une base de données liée
+
+Pour interroger la base de données liée, entrez une requête SSMS. Dans cet exemple, il s’agit d’une requête SELECT dans la table de la collection nommée `customers` :
+
+```sql
+SELECT * FROM OPENQUERY(DEMOCOSMOS, 'SELECT *  FROM [customers].[customers]')
+```
+
+Exécutez la requête. Le résultat devrait se présenter ainsi :
+
+```
+attachments/  1507476156    521 Bassett Avenue, Wikieup, Missouri, 5422   "2602bc56-0000-0000-0000-59da42bc0000"   2015-02-06T05:32:32 +05:00 f1ca3044f17149f3bc61f7b9c78a26df
+attachments/  1507476156    167 Nassau Street, Tuskahoma, Illinois, 5998   "2602bd56-0000-0000-0000-59da42bc0000"   2015-06-16T08:54:17 +04:00 f75f949ea8de466a9ef2bdb7ce065ac8
+attachments/  1507476156    885 Strong Place, Cassel, Montana, 2069       "2602be56-0000-0000-0000-59da42bc0000"   2015-03-20T07:21:47 +04:00 ef0365fb40c04bb6a3ffc4bc77c905fd
+attachments/  1507476156    515 Barwell Terrace, Defiance, Tennessee, 6439     "2602c056-0000-0000-0000-59da42bc0000"   2014-10-16T06:49:04 +04:00      e913fe543490432f871bc42019663518
+attachments/  1507476156    570 Ruby Street, Spokane, Idaho, 9025       "2602c156-0000-0000-0000-59da42bc0000"   2014-10-30T05:49:33 +04:00 e53072057d314bc9b36c89a8350048f3
+```
+
+> [!NOTE]
+> Le serveur Cosmos DB lié ne prend pas en charge les noms en quatre parties. Un message d’erreur de ce type est retourné :
+
+```
+Msg 7312, Level 16, State 1, Line 44
+
+Invalid use of schema or catalog for OLE DB provider "MSDASQL" for linked server "DEMOCOSMOS". A four-part name was supplied, but the provider does not expose the necessary interfaces to use a catalog or schema.
+``` 
 
 ## <a name="optional-creating-views"></a>(Facultatif) Création de vues
 Vous pouvez définir et créer des vues dans le cadre du processus d’échantillonnage. Ces vues sont équivalentes aux vues SQL. Elles sont en lecture seule et affichent les sélections et les projections SQL Azure Cosmos DB définies. 
