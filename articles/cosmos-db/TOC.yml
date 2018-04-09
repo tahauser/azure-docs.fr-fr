@@ -164,7 +164,7 @@ items:
       - name: Sécurité
         href: database-security.md
       - name: Coût total de possession
-        href: 'https://aka.ms/documentdb-tco-paper'
+        href: 'https://aka.ms/cosmosdb-tco-paper'
       - name: Cas d'utilisation
         href: use-cases.md
         items:
@@ -184,13 +184,15 @@ items:
               - name: Performance des requêtes SQL
                 href: sql-api-sql-query-metrics.md
               - name: Query Playground
-                href: 'https://www.documentdb.com/sql/demo'
+                href: 'https://aka.ms/cosmos-db-playground'
               - name: Partitionnement
                 href: sql-api-partition-data.md
               - name: 'procédures stockées, déclencheurs et fonctions définies par l''utilisateur'
                 href: programming.md
               - name: Tests de performances
                 href: performance-testing.md
+              - name: Conseils en matière de performances pour Java asynchrone
+                href: performance-tips-async-java.md
               - name: Conseils en matière de performances pour .NET
                 href: performance-tips.md
               - name: Conseils en matière de performances pour Java
@@ -378,17 +380,17 @@ items:
           - name: Journalisation des applications avec Logic Apps
             href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md
           - name: Lier à Azure Functions
-            href: ../azure-functions/functions-bindings-documentdb.md
+            href: ../azure-functions/functions-bindings-cosmosdb.md
           - name: Intégrer avec Recherche Azure
-            href: ../search/search-howto-index-documentdb.md
+            href: ../search/search-howto-index-cosmosdb.md
           - name: Déplacer des données avec Azure Data Factory
             href: ../data-factory/connector-azure-cosmos-db.md
           - name: Analyser des données en temps réel avec Azure Stream Analytics
-            href: '../stream-analytics/stream-analytics-define-outputs.md#documentdb'
+            href: '../stream-analytics/stream-analytics-define-outputs.md#azure-cosmos-db'
           - name: Obtenir un dossier HL7 FHIR modifié à l’aide de Logic Apps
             href: change-feed-hl7-fhir-logic-apps.md
           - name: Traiter les données de capteur en temps réel
-            href: ../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md
+            href: 'https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md'
           - name: "Visualiser vos données avec Power\_BI"
             href: powerbi-visualize.md
           - name: "Tirer parti du pilote\_ODBC pour la visualisation des données"
