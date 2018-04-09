@@ -30,7 +30,7 @@ Le choix d’un niveau de service dépend principalement des exigences de contin
 |Charge de travail cible|Développement et production|Développement et production|Développement et production||
 |Contrat SLA de durée de fonctionnement|99,99 %|99,99 %|99,99 %|N/A pendant la version préliminaire|
 |Rétention des sauvegardes|7 jours|35 jours|35 jours|
-|UC|Faible|Faible, moyen, élevé|Faible, élevé|
+|UC|Faible|Faible, moyen, élevé|Moyen, élevé|
 |Débit d’E/S (approximatif) |2,5 IOPS par DTU  | 2,5 IOPS par DTU | 48 IOPS par DTU|
 |Latence d’E/S (approximative)|5 ms (lecture), 10 ms (écriture)|5 ms (lecture), 10 ms (écriture)|2 ms (lecture/écriture)|
 |Indexation Columnstore |N/A|S3 et supérieur|Prise en charge|
