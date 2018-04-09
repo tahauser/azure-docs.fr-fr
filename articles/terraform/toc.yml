@@ -15,6 +15,8 @@
       maintainContext: true
 - name: Didacticiels
   items:
+    - name: Emplacements de déploiement fournisseur Terraform et Azure
+      href: terraform-slot-walkthru.md
     - name: Créer une machine virtuelle Terraform avec le paramètre MSI activé
       href: terraform-vm-msi.md
     - name: Créer un cluster de machines virtuelles avec des modules Terraform

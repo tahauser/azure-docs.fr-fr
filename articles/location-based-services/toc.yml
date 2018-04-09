@@ -29,6 +29,8 @@
       href: render-coverage.md
     - name: Couverture du routage
       href: routing-coverage.md
+    - name: Langues prises en charge
+      href: supported-languages.md
 - name: Procédures
   items:
     - name: Gérer le compte et les clés

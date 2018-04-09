@@ -342,13 +342,20 @@
         - name: Extension Collecteur de journaux Azure
           href: log-collector-extension.md
         - name: Extension Diagnostics Azure
-          href: ps-extensions-diagnostics.md
+          href: extensions-diagnostics.md
+          items:
+            - name: Schéma d’extensions
+              href: ../../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md
+            - name: Activer à l’aide de PowerShell
+              href: ps-extensions-diagnostics.md
+            - name: Activer avec des modèles
+              href: extensions-diagnostics-template.md
+            - name: Résolution de problèmes
+              href: ../../monitoring-and-diagnostics/azure-diagnostics-troubleshooting.md
         - name: Exportation des extensions de machines virtuelles
           href: extensions-export-templates.md
         - name: Résoudre les problèmes liés aux extensions
           href: extensions-troubleshoot.md
-        - name: Extension de surveillance et de diagnostic
-          href: extensions-diagnostics-template.md
         - name: "Agent Network\_Watcher"
           href: extensions-nwa.md
         - name: Limiter l’installation de l’extension

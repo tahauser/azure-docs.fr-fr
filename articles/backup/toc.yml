@@ -155,14 +155,10 @@
           href: backup-client-automation.md
     - name: Base de données SQL Azure
       items:
-        - name: Configurer la rétention des sauvegardes à long terme
-          href: ../sql-database/sql-database-configure-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json
-        - name: "Afficher les sauvegardes dans un coffre Recovery\_Services"
-          href: ../sql-database/sql-database-view-backups-in-vault.md?toc=%2fazure%2fbackup%2ftoc.json
-        - name: Restaurer à partir d’une rétention des sauvegardes à long terme
-          href: ../sql-database/sql-database-restore-from-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json
-        - name: Supprimer des sauvegardes à long terme SQL Azure
-          href: ../sql-database/sql-database-long-term-retention-delete.md?toc=%2fazure%2fbackup%2ftoc.json
+        - name: Configuration et restauration de sauvegardes SQL Database - Stockage SQL
+          href: ../sql-database/sql-database-long-term-backup-retention-configure.md?toc=%2fazure%2fbackup%2ftoc.json
+        - name: Configuration et restauration de sauvegardes SQL Database - Coffre Recovery Services
+          href: ../sql-database/sql-database-long-term-backup-retention-configure-vault.md?toc=%2fazure%2fbackup%2ftoc.json
     - name: Windows Server
       items:
         - name: Sauvegarder les fichiers et dossiers de Windows Server

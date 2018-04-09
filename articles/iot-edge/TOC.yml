@@ -17,18 +17,18 @@
       href: tutorial-simulate-device-linux.md
     - name: Simuler un appareil Edge - Windows
       href: tutorial-simulate-device-windows.md
-    - name: 'Développer un module C#'
-      href: tutorial-csharp-module.md
-    - name: Développer un module Python
-      href: tutorial-python-module.md
+    - name: Déployer du code dans un module
+      items:
+        - name: 'C#'
+          href: tutorial-csharp-module.md
+        - name: Python
+          href: tutorial-python-module.md
     - name: Déployer Azure Stream Analytics
       href: tutorial-deploy-stream-analytics.md
     - name: Déployer Azure Machine Learning
       href: tutorial-deploy-machine-learning.md
     - name: Déployer Azure Functions
       href: tutorial-deploy-function.md
-    - name: Travailler avec plusieurs modules dans VS Code
-      href: tutorial-multiple-modules-in-vscode.md
 - name: Procédures
   items:
     - name: Créer des passerelles
@@ -53,6 +53,8 @@
           href: how-to-vscode-develop-azure-function.md
         - name: Déboguer Azure Functions
           href: how-to-vscode-debug-azure-function.md
+        - name: Utiliser plusieurs modules
+          href: tutorial-multiple-modules-in-vscode.md
     - name: Stocker des données en périphérie
       href: sql-storage.md
     - name: Résolution des problèmes

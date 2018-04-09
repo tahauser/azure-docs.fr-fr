@@ -5,7 +5,7 @@
 ## [Qu’est-ce qu’Azure IoT Hub ?](iot-hub-what-is-iot-hub.md)
 ## [Présentation de la gestion des appareils](iot-hub-device-management-overview.md)
 
-# [Prise en main](iot-hub-get-started.md)
+# [Démarrer](iot-hub-get-started.md)
 
 ## Configurer votre appareil
 ### [Simuler un appareil sur votre ordinateur](iot-hub-get-started-simulated.md)
@@ -43,6 +43,7 @@
 ## Utiliser le kit de développement IoT MXChip
 ### [Traduire un message vocal avec Azure Cognitive Services](iot-hub-arduino-iot-devkit-az3166-translator.md)
 ### [Récupérer un message Twitter avec Azure Functions](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
+### [Envoyer des messages à un serveur MQTT à l’aide d’API Eclipse Paho](iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md)
 ### [Surveiller le capteur magnétique et envoyer des notifications par courrier électronique avec Azure Functions](iot-hub-arduino-iot-devkit-az3166-door-monitor.md)
 
 # Procédures

@@ -72,8 +72,12 @@
       href: sql-database-managed-instance.md
     - name: Niveaux de service
       href: sql-database-service-tiers.md
-    - name: Limites des ressources
-      href: sql-database-resource-limits.md
+    - name: Lecture du Scale-out
+      href: sql-database-read-scale-out.md
+    - name: Limites de ressources basées sur des unités DTU
+      href: sql-database-dtu-resource-limits.md
+    - name: Limites de ressources basées sur des vCore
+      href: sql-database-vcore-resource-limits.md
     - name: Bases de données uniques
       href: sql-database-single-database-resources.md
     - name: Pools élastiques
@@ -126,7 +130,7 @@
           href: sql-database-business-continuity.md
         - name: Sauvegardes de base de données
           href: sql-database-automated-backups.md
-        - name: Rétention des sauvegardes
+        - name: Rétention des sauvegardes à long terme
           href: sql-database-long-term-retention.md
         - name: Groupes de basculement
           href: sql-database-geo-replication-overview.md
@@ -306,10 +310,12 @@
           href: sql-database-vnet-service-endpoint-rule-powershell.md
     - name: Continuité de l’activité
       items:
-        - name: Configuration du coffre - sauvegardes
-          href: sql-database-long-term-backup-retention-configure.md
         - name: Géoréplication - Portail
           href: sql-database-geo-replication-portal.md
+        - name: Configurer la rétention des sauvegardes à long terme - Stockage SQL
+          href: sql-database-long-term-backup-retention-configure.md
+        - name: Configurer la rétention des sauvegardes à long terme - Coffre Azure
+          href: sql-database-long-term-backup-retention-configure-vault.md
     - name: Chargement et transfert de données
       items:
         - name: Chargement des données avec BCP
